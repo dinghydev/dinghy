@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRumAppMonitorInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   app_monitor_configuration: resolvableValue(
     z.object({
@@ -36,7 +36,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRumAppMonitorOutputSchema = z.object({
   app_monitor_id: z.string().optional(),
   arn: z.string().optional(),
   cw_log_group: z.string().optional(),
@@ -44,18 +44,18 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRumAppMonitorInputProps =
+  & z.input<typeof AwsRumAppMonitorInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRumAppMonitorOutputProps =
+  & z.output<typeof AwsRumAppMonitorOutputSchema>
+  & z.output<typeof AwsRumAppMonitorInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/rum_app_monitor
 
-export function AwsRumAppMonitor(props: Partial<InputProps>) {
+export function AwsRumAppMonitor(props: Partial<AwsRumAppMonitorInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -65,8 +65,8 @@ export function AwsRumAppMonitor(props: Partial<InputProps>) {
       _type='aws_rum_app_monitor'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRumAppMonitorInputSchema}
+      _outputSchema={AwsRumAppMonitorOutputSchema}
       {...props}
     />
   )
@@ -76,10 +76,22 @@ export const useAwsRumAppMonitor = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsRumAppMonitor, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsRumAppMonitorOutputProps>(
+    AwsRumAppMonitor,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRumAppMonitors = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsRumAppMonitor, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsRumAppMonitorOutputProps>(
+    AwsRumAppMonitor,
+    idFilter,
+    baseNode,
+    optional,
+  )

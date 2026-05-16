@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsXraySamplingRuleInputSchema = TfMetaSchema.extend({
   fixed_rate: resolvableValue(z.number()),
   host: resolvableValue(z.string()),
   http_method: resolvableValue(z.string()),
@@ -26,24 +26,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsXraySamplingRuleOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsXraySamplingRuleInputProps =
+  & z.input<typeof AwsXraySamplingRuleInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsXraySamplingRuleOutputProps =
+  & z.output<typeof AwsXraySamplingRuleOutputSchema>
+  & z.output<typeof AwsXraySamplingRuleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/xray_sampling_rule
 
-export function AwsXraySamplingRule(props: Partial<InputProps>) {
+export function AwsXraySamplingRule(
+  props: Partial<AwsXraySamplingRuleInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,8 +55,8 @@ export function AwsXraySamplingRule(props: Partial<InputProps>) {
       _type='aws_xray_sampling_rule'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsXraySamplingRuleInputSchema}
+      _outputSchema={AwsXraySamplingRuleOutputSchema}
       {...props}
     />
   )
@@ -65,11 +67,21 @@ export const useAwsXraySamplingRule = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsXraySamplingRule, idFilter, baseNode, optional)
+  useTypedNode<AwsXraySamplingRuleOutputProps>(
+    AwsXraySamplingRule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsXraySamplingRules = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsXraySamplingRule, idFilter, baseNode, optional)
+  useTypedNodes<AwsXraySamplingRuleOutputProps>(
+    AwsXraySamplingRule,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -8,28 +8,29 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  suppressed_reasons: resolvableValue(z.string().array()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsSesv2AccountSuppressionAttributesInputSchema = TfMetaSchema
+  .extend({
+    suppressed_reasons: resolvableValue(z.string().array()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsSesv2AccountSuppressionAttributesOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSesv2AccountSuppressionAttributesInputProps =
+  & z.input<typeof AwsSesv2AccountSuppressionAttributesInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSesv2AccountSuppressionAttributesOutputProps =
+  & z.output<typeof AwsSesv2AccountSuppressionAttributesOutputSchema>
+  & z.output<typeof AwsSesv2AccountSuppressionAttributesInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sesv2_account_suppression_attributes
 
 export function AwsSesv2AccountSuppressionAttributes(
-  props: Partial<InputProps>,
+  props: Partial<AwsSesv2AccountSuppressionAttributesInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -40,8 +41,8 @@ export function AwsSesv2AccountSuppressionAttributes(
       _type='aws_sesv2_account_suppression_attributes'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSesv2AccountSuppressionAttributesInputSchema}
+      _outputSchema={AwsSesv2AccountSuppressionAttributesOutputSchema}
       {...props}
     />
   )
@@ -52,7 +53,7 @@ export const useAwsSesv2AccountSuppressionAttributess = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSesv2AccountSuppressionAttributesOutputProps>(
     AwsSesv2AccountSuppressionAttributes,
     idFilter,
     baseNode,

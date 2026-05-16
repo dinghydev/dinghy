@@ -9,33 +9,41 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  id: resolvableValue(z.string().optional()),
-  name: resolvableValue(z.string().optional()),
-  on_create: resolvableValue(z.string().optional()),
-  on_start: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+export const AwsSagemakerNotebookInstanceLifecycleConfigurationInputSchema =
+  TfMetaSchema.extend({
+    id: resolvableValue(z.string().optional()),
+    name: resolvableValue(z.string().optional()),
+    on_create: resolvableValue(z.string().optional()),
+    on_start: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  })
 
-export const OutputSchema = z.object({
-  arn: z.string().optional(),
-  tags_all: z.record(z.string(), z.string()).optional(),
-})
+export const AwsSagemakerNotebookInstanceLifecycleConfigurationOutputSchema = z
+  .object({
+    arn: z.string().optional(),
+    tags_all: z.record(z.string(), z.string()).optional(),
+  })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSagemakerNotebookInstanceLifecycleConfigurationInputProps =
+  & z.input<
+    typeof AwsSagemakerNotebookInstanceLifecycleConfigurationInputSchema
+  >
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSagemakerNotebookInstanceLifecycleConfigurationOutputProps =
+  & z.output<
+    typeof AwsSagemakerNotebookInstanceLifecycleConfigurationOutputSchema
+  >
+  & z.output<
+    typeof AwsSagemakerNotebookInstanceLifecycleConfigurationInputSchema
+  >
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sagemaker_notebook_instance_lifecycle_configuration
 
 export function AwsSagemakerNotebookInstanceLifecycleConfiguration(
-  props: Partial<InputProps>,
+  props: Partial<AwsSagemakerNotebookInstanceLifecycleConfigurationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -46,8 +54,8 @@ export function AwsSagemakerNotebookInstanceLifecycleConfiguration(
       _type='aws_sagemaker_notebook_instance_lifecycle_configuration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSagemakerNotebookInstanceLifecycleConfigurationInputSchema}
+      _outputSchema={AwsSagemakerNotebookInstanceLifecycleConfigurationOutputSchema}
       {...props}
     />
   )
@@ -58,7 +66,7 @@ export const useAwsSagemakerNotebookInstanceLifecycleConfiguration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSagemakerNotebookInstanceLifecycleConfigurationOutputProps>(
     AwsSagemakerNotebookInstanceLifecycleConfiguration,
     idFilter,
     baseNode,
@@ -70,7 +78,7 @@ export const useAwsSagemakerNotebookInstanceLifecycleConfigurations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSagemakerNotebookInstanceLifecycleConfigurationOutputProps>(
     AwsSagemakerNotebookInstanceLifecycleConfiguration,
     idFilter,
     baseNode,

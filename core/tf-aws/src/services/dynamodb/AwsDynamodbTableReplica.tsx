@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDynamodbTableReplicaInputSchema = TfMetaSchema.extend({
   global_table_arn: resolvableValue(z.string()),
   deletion_protection_enabled: resolvableValue(z.boolean().optional()),
   kms_key_arn: resolvableValue(z.string().optional()),
@@ -26,24 +26,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDynamodbTableReplicaOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDynamodbTableReplicaInputProps =
+  & z.input<typeof AwsDynamodbTableReplicaInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDynamodbTableReplicaOutputProps =
+  & z.output<typeof AwsDynamodbTableReplicaOutputSchema>
+  & z.output<typeof AwsDynamodbTableReplicaInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dynamodb_table_replica
 
-export function AwsDynamodbTableReplica(props: Partial<InputProps>) {
+export function AwsDynamodbTableReplica(
+  props: Partial<AwsDynamodbTableReplicaInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,8 +55,8 @@ export function AwsDynamodbTableReplica(props: Partial<InputProps>) {
       _type='aws_dynamodb_table_replica'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDynamodbTableReplicaInputSchema}
+      _outputSchema={AwsDynamodbTableReplicaOutputSchema}
       {...props}
     />
   )
@@ -65,7 +67,7 @@ export const useAwsDynamodbTableReplica = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDynamodbTableReplicaOutputProps>(
     AwsDynamodbTableReplica,
     idFilter,
     baseNode,
@@ -77,7 +79,7 @@ export const useAwsDynamodbTableReplicas = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDynamodbTableReplicaOutputProps>(
     AwsDynamodbTableReplica,
     idFilter,
     baseNode,

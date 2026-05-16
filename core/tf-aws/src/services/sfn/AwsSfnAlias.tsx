@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSfnAliasInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   routing_configuration: resolvableValue(
     z.object({
@@ -28,28 +28,28 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsSfnAliasOutputSchema = z.object({
   arn: z.string().optional(),
   creation_date: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSfnAliasImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSfnAliasInputProps =
+  & z.input<typeof AwsSfnAliasInputSchema>
+  & z.input<typeof AwsSfnAliasImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSfnAliasOutputProps =
+  & z.output<typeof AwsSfnAliasOutputSchema>
+  & z.output<typeof AwsSfnAliasInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sfn_alias
 
-export function AwsSfnAlias(props: Partial<InputProps>) {
+export function AwsSfnAlias(props: Partial<AwsSfnAliasInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -59,9 +59,9 @@ export function AwsSfnAlias(props: Partial<InputProps>) {
       _type='aws_sfn_alias'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSfnAliasInputSchema}
+      _outputSchema={AwsSfnAliasOutputSchema}
+      _importSchema={AwsSfnAliasImportSchema}
       {...props}
     />
   )
@@ -71,4 +71,10 @@ export const useAwsSfnAliass = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsSfnAlias, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsSfnAliasOutputProps>(
+    AwsSfnAlias,
+    idFilter,
+    baseNode,
+    optional,
+  )

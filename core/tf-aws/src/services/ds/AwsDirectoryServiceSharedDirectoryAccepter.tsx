@@ -9,18 +9,19 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  shared_directory_id: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsDirectoryServiceSharedDirectoryAccepterInputSchema =
+  TfMetaSchema.extend({
+    shared_directory_id: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsDirectoryServiceSharedDirectoryAccepterOutputSchema = z.object({
   id: z.string().optional(),
   method: z.string().optional(),
   notes: z.string().optional(),
@@ -28,19 +29,19 @@ export const OutputSchema = z.object({
   owner_directory_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDirectoryServiceSharedDirectoryAccepterInputProps =
+  & z.input<typeof AwsDirectoryServiceSharedDirectoryAccepterInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDirectoryServiceSharedDirectoryAccepterOutputProps =
+  & z.output<typeof AwsDirectoryServiceSharedDirectoryAccepterOutputSchema>
+  & z.output<typeof AwsDirectoryServiceSharedDirectoryAccepterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/directory_service_shared_directory_accepter
 
 export function AwsDirectoryServiceSharedDirectoryAccepter(
-  props: Partial<InputProps>,
+  props: Partial<AwsDirectoryServiceSharedDirectoryAccepterInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -51,8 +52,8 @@ export function AwsDirectoryServiceSharedDirectoryAccepter(
       _type='aws_directory_service_shared_directory_accepter'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDirectoryServiceSharedDirectoryAccepterInputSchema}
+      _outputSchema={AwsDirectoryServiceSharedDirectoryAccepterOutputSchema}
       {...props}
     />
   )
@@ -63,7 +64,7 @@ export const useAwsDirectoryServiceSharedDirectoryAccepter = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDirectoryServiceSharedDirectoryAccepterOutputProps>(
     AwsDirectoryServiceSharedDirectoryAccepter,
     idFilter,
     baseNode,
@@ -75,7 +76,7 @@ export const useAwsDirectoryServiceSharedDirectoryAccepters = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDirectoryServiceSharedDirectoryAccepterOutputProps>(
     AwsDirectoryServiceSharedDirectoryAccepter,
     idFilter,
     baseNode,

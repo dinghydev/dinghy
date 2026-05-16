@@ -12,7 +12,7 @@ import z from 'zod'
 import { AWS_IOT_GREENGRASS_DEPLOYMENT } from '@dinghy/diagrams/containersAwsGroups'
 import { CLOUDFRONT } from '@dinghy/diagrams/entitiesAwsNetworkContentDelivery'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudfrontDistributionInputSchema = TfMetaSchema.extend({
   default_cache_behavior: resolvableValue(z.object({
     allowed_methods: z.string().array(),
     cache_policy_id: z.string().optional(),
@@ -201,7 +201,7 @@ export const InputSchema = TfMetaSchema.extend({
   web_acl_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudfrontDistributionOutputSchema = z.object({
   arn: z.string().optional(),
   caller_reference: z.string().optional(),
   domain_name: z.string().optional(),
@@ -230,24 +230,26 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsCloudfrontDistributionImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsCloudfrontDistributionInputProps =
+  & z.input<typeof AwsCloudfrontDistributionInputSchema>
+  & z.input<typeof AwsCloudfrontDistributionImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudfrontDistributionOutputProps =
+  & z.output<typeof AwsCloudfrontDistributionOutputSchema>
+  & z.output<typeof AwsCloudfrontDistributionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudfront_distribution
 
-export function AwsCloudfrontDistribution(props: Partial<InputProps>) {
+export function AwsCloudfrontDistribution(
+  props: Partial<AwsCloudfrontDistributionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -257,9 +259,9 @@ export function AwsCloudfrontDistribution(props: Partial<InputProps>) {
       _type='aws_cloudfront_distribution'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsCloudfrontDistributionInputSchema}
+      _outputSchema={AwsCloudfrontDistributionOutputSchema}
+      _importSchema={AwsCloudfrontDistributionImportSchema}
       {...props}
       _style={extendStyle(props, AWS_IOT_GREENGRASS_DEPLOYMENT, CLOUDFRONT)}
     />
@@ -271,7 +273,7 @@ export const useAwsCloudfrontDistribution = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudfrontDistributionOutputProps>(
     AwsCloudfrontDistribution,
     idFilter,
     baseNode,
@@ -283,7 +285,7 @@ export const useAwsCloudfrontDistributions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudfrontDistributionOutputProps>(
     AwsCloudfrontDistribution,
     idFilter,
     baseNode,

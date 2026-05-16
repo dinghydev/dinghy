@@ -9,28 +9,29 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  action_names: resolvableValue(z.string().array()),
-  policy_source_arn: resolvableValue(z.string()),
-  additional_policies_json: resolvableValue(z.string().array().optional()),
-  caller_arn: resolvableValue(z.string().optional()),
-  context: resolvableValue(
-    z.object({
-      key: z.string(),
-      type: z.string(),
-      values: z.string().array(),
-    }).array().optional(),
-  ),
-  permissions_boundary_policies_json: resolvableValue(
-    z.string().array().optional(),
-  ),
-  resource_arns: resolvableValue(z.string().array().optional()),
-  resource_handling_option: resolvableValue(z.string().optional()),
-  resource_owner_account_id: resolvableValue(z.string().optional()),
-  resource_policy_json: resolvableValue(z.string().optional()),
-})
+export const DataAwsIamPrincipalPolicySimulationInputSchema = TfMetaSchema
+  .extend({
+    action_names: resolvableValue(z.string().array()),
+    policy_source_arn: resolvableValue(z.string()),
+    additional_policies_json: resolvableValue(z.string().array().optional()),
+    caller_arn: resolvableValue(z.string().optional()),
+    context: resolvableValue(
+      z.object({
+        key: z.string(),
+        type: z.string(),
+        values: z.string().array(),
+      }).array().optional(),
+    ),
+    permissions_boundary_policies_json: resolvableValue(
+      z.string().array().optional(),
+    ),
+    resource_arns: resolvableValue(z.string().array().optional()),
+    resource_handling_option: resolvableValue(z.string().optional()),
+    resource_owner_account_id: resolvableValue(z.string().optional()),
+    resource_policy_json: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsIamPrincipalPolicySimulationOutputSchema = z.object({
   all_allowed: z.boolean().optional(),
   id: z.string().optional(),
   results: z.set(z.object({
@@ -47,19 +48,19 @@ export const OutputSchema = z.object({
   })).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsIamPrincipalPolicySimulationInputProps =
+  & z.input<typeof DataAwsIamPrincipalPolicySimulationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsIamPrincipalPolicySimulationOutputProps =
+  & z.output<typeof DataAwsIamPrincipalPolicySimulationOutputSchema>
+  & z.output<typeof DataAwsIamPrincipalPolicySimulationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/iam_principal_policy_simulation
 
 export function DataAwsIamPrincipalPolicySimulation(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsIamPrincipalPolicySimulationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -70,8 +71,8 @@ export function DataAwsIamPrincipalPolicySimulation(
       _type='aws_iam_principal_policy_simulation'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsIamPrincipalPolicySimulationInputSchema}
+      _outputSchema={DataAwsIamPrincipalPolicySimulationOutputSchema}
       {...props}
     />
   )
@@ -82,7 +83,7 @@ export const useDataAwsIamPrincipalPolicySimulation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsIamPrincipalPolicySimulationOutputProps>(
     DataAwsIamPrincipalPolicySimulation,
     idFilter,
     baseNode,
@@ -94,7 +95,7 @@ export const useDataAwsIamPrincipalPolicySimulations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsIamPrincipalPolicySimulationOutputProps>(
     DataAwsIamPrincipalPolicySimulation,
     idFilter,
     baseNode,

@@ -9,14 +9,14 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCodeartifactDomainInputSchema = TfMetaSchema.extend({
   domain: resolvableValue(z.string()),
   encryption_key: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCodeartifactDomainOutputSchema = z.object({
   arn: z.string().optional(),
   asset_size_bytes: z.string().optional(),
   created_time: z.string().optional(),
@@ -27,23 +27,25 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsCodeartifactDomainImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsCodeartifactDomainInputProps =
+  & z.input<typeof AwsCodeartifactDomainInputSchema>
+  & z.input<typeof AwsCodeartifactDomainImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCodeartifactDomainOutputProps =
+  & z.output<typeof AwsCodeartifactDomainOutputSchema>
+  & z.output<typeof AwsCodeartifactDomainInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/codeartifact_domain
 
-export function AwsCodeartifactDomain(props: Partial<InputProps>) {
+export function AwsCodeartifactDomain(
+  props: Partial<AwsCodeartifactDomainInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,9 +55,9 @@ export function AwsCodeartifactDomain(props: Partial<InputProps>) {
       _type='aws_codeartifact_domain'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsCodeartifactDomainInputSchema}
+      _outputSchema={AwsCodeartifactDomainOutputSchema}
+      _importSchema={AwsCodeartifactDomainImportSchema}
       {...props}
     />
   )
@@ -66,14 +68,19 @@ export const useAwsCodeartifactDomain = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsCodeartifactDomain, idFilter, baseNode, optional)
+  useTypedNode<AwsCodeartifactDomainOutputProps>(
+    AwsCodeartifactDomain,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCodeartifactDomains = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCodeartifactDomainOutputProps>(
     AwsCodeartifactDomain,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSnsTopicInputSchema = TfMetaSchema.extend({
   application_failure_feedback_role_arn: resolvableValue(z.string().optional()),
   application_success_feedback_role_arn: resolvableValue(z.string().optional()),
   application_success_feedback_sample_rate: resolvableValue(
@@ -43,7 +43,7 @@ export const InputSchema = TfMetaSchema.extend({
   tracing_config: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSnsTopicOutputSchema = z.object({
   arn: z.string().optional(),
   beginning_archive_time: z.string().optional(),
   id: z.string().optional(),
@@ -51,23 +51,23 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSnsTopicImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSnsTopicInputProps =
+  & z.input<typeof AwsSnsTopicInputSchema>
+  & z.input<typeof AwsSnsTopicImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSnsTopicOutputProps =
+  & z.output<typeof AwsSnsTopicOutputSchema>
+  & z.output<typeof AwsSnsTopicInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sns_topic
 
-export function AwsSnsTopic(props: Partial<InputProps>) {
+export function AwsSnsTopic(props: Partial<AwsSnsTopicInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -77,9 +77,9 @@ export function AwsSnsTopic(props: Partial<InputProps>) {
       _type='aws_sns_topic'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSnsTopicInputSchema}
+      _outputSchema={AwsSnsTopicOutputSchema}
+      _importSchema={AwsSnsTopicImportSchema}
       {...props}
     />
   )
@@ -89,10 +89,22 @@ export const useAwsSnsTopic = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsSnsTopic, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsSnsTopicOutputProps>(
+    AwsSnsTopic,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSnsTopics = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsSnsTopic, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsSnsTopicOutputProps>(
+    AwsSnsTopic,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsNatGatewayInputSchema = TfMetaSchema.extend({
   allocation_id: resolvableValue(z.string().optional()),
   availability_mode: resolvableValue(z.string().optional()),
   availability_zone_address: resolvableValue(
@@ -39,7 +39,7 @@ export const InputSchema = TfMetaSchema.extend({
   vpc_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsNatGatewayOutputSchema = z.object({
   allocation_id: z.string().optional(),
   association_id: z.string().optional(),
   auto_provision_zones: z.string().optional(),
@@ -61,25 +61,25 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsNatGatewayImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsNatGatewayInputProps =
+  & z.input<typeof AwsNatGatewayInputSchema>
+  & z.input<typeof AwsNatGatewayImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNatGatewayOutputProps =
+  & z.output<typeof AwsNatGatewayOutputSchema>
+  & z.output<typeof AwsNatGatewayInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/nat_gateway
 
-export function AwsNatGateway(props: Partial<InputProps>) {
+export function AwsNatGateway(props: Partial<AwsNatGatewayInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -89,9 +89,9 @@ export function AwsNatGateway(props: Partial<InputProps>) {
       _type='aws_nat_gateway'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsNatGatewayInputSchema}
+      _outputSchema={AwsNatGatewayOutputSchema}
+      _importSchema={AwsNatGatewayImportSchema}
       {...props}
     />
   )
@@ -101,10 +101,22 @@ export const useAwsNatGateway = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsNatGateway, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsNatGatewayOutputProps>(
+    AwsNatGateway,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsNatGateways = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsNatGateway, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsNatGatewayOutputProps>(
+    AwsNatGateway,
+    idFilter,
+    baseNode,
+    optional,
+  )

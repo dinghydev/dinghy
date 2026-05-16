@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSesv2EmailIdentityPolicyInputSchema = TfMetaSchema.extend({
   email_identity: resolvableValue(z.string()),
   policy: resolvableValue(z.string()),
   policy_name: resolvableValue(z.string()),
@@ -17,20 +17,22 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsSesv2EmailIdentityPolicyOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSesv2EmailIdentityPolicyInputProps =
+  & z.input<typeof AwsSesv2EmailIdentityPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSesv2EmailIdentityPolicyOutputProps =
+  & z.output<typeof AwsSesv2EmailIdentityPolicyOutputSchema>
+  & z.output<typeof AwsSesv2EmailIdentityPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sesv2_email_identity_policy
 
-export function AwsSesv2EmailIdentityPolicy(props: Partial<InputProps>) {
+export function AwsSesv2EmailIdentityPolicy(
+  props: Partial<AwsSesv2EmailIdentityPolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function AwsSesv2EmailIdentityPolicy(props: Partial<InputProps>) {
       _type='aws_sesv2_email_identity_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSesv2EmailIdentityPolicyInputSchema}
+      _outputSchema={AwsSesv2EmailIdentityPolicyOutputSchema}
       {...props}
     />
   )
@@ -52,7 +54,7 @@ export const useAwsSesv2EmailIdentityPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSesv2EmailIdentityPolicyOutputProps>(
     AwsSesv2EmailIdentityPolicy,
     idFilter,
     baseNode,
@@ -64,7 +66,7 @@ export const useAwsSesv2EmailIdentityPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSesv2EmailIdentityPolicyOutputProps>(
     AwsSesv2EmailIdentityPolicy,
     idFilter,
     baseNode,

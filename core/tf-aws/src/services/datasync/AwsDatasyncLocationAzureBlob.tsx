@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDatasyncLocationAzureBlobInputSchema = TfMetaSchema.extend({
   agent_arns: resolvableValue(z.string().array()),
   authentication_type: resolvableValue(z.string()),
   container_url: resolvableValue(z.string()),
@@ -26,29 +26,31 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDatasyncLocationAzureBlobOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   uri: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsDatasyncLocationAzureBlobImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsDatasyncLocationAzureBlobInputProps =
+  & z.input<typeof AwsDatasyncLocationAzureBlobInputSchema>
+  & z.input<typeof AwsDatasyncLocationAzureBlobImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDatasyncLocationAzureBlobOutputProps =
+  & z.output<typeof AwsDatasyncLocationAzureBlobOutputSchema>
+  & z.output<typeof AwsDatasyncLocationAzureBlobInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/datasync_location_azure_blob
 
-export function AwsDatasyncLocationAzureBlob(props: Partial<InputProps>) {
+export function AwsDatasyncLocationAzureBlob(
+  props: Partial<AwsDatasyncLocationAzureBlobInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -58,9 +60,9 @@ export function AwsDatasyncLocationAzureBlob(props: Partial<InputProps>) {
       _type='aws_datasync_location_azure_blob'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsDatasyncLocationAzureBlobInputSchema}
+      _outputSchema={AwsDatasyncLocationAzureBlobOutputSchema}
+      _importSchema={AwsDatasyncLocationAzureBlobImportSchema}
       {...props}
     />
   )
@@ -71,7 +73,7 @@ export const useAwsDatasyncLocationAzureBlob = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDatasyncLocationAzureBlobOutputProps>(
     AwsDatasyncLocationAzureBlob,
     idFilter,
     baseNode,
@@ -83,7 +85,7 @@ export const useAwsDatasyncLocationAzureBlobs = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDatasyncLocationAzureBlobOutputProps>(
     AwsDatasyncLocationAzureBlob,
     idFilter,
     baseNode,

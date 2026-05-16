@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsEip } from './AwsEip.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsEipInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -27,7 +27,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsEipOutputSchema = z.object({
   arn: z.string().optional(),
   association_id: z.string().optional(),
   carrier_ip: z.string().optional(),
@@ -48,18 +48,18 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEipInputProps =
+  & z.input<typeof DataAwsEipInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEipOutputProps =
+  & z.output<typeof DataAwsEipOutputSchema>
+  & z.output<typeof DataAwsEipInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/eip
 
-export function DataAwsEip(props: Partial<InputProps>) {
+export function DataAwsEip(props: Partial<DataAwsEipInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -69,8 +69,8 @@ export function DataAwsEip(props: Partial<InputProps>) {
       _type='aws_eip'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEipInputSchema}
+      _outputSchema={DataAwsEipOutputSchema}
       {...props as any}
     />
   )
@@ -80,10 +80,12 @@ export const useDataAwsEip = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsEip, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsEipOutputProps>(DataAwsEip, idFilter, baseNode, optional)
 
 export const useDataAwsEips = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsEip, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsEipOutputProps>(DataAwsEip, idFilter, baseNode, optional)

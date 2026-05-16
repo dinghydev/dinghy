@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAcmpcaCertificateInputSchema = TfMetaSchema.extend({
   certificate_authority_arn: resolvableValue(z.string()),
   certificate_signing_request: resolvableValue(z.string()),
   signing_algorithm: resolvableValue(z.string()),
@@ -23,29 +23,31 @@ export const InputSchema = TfMetaSchema.extend({
   template_arn: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAcmpcaCertificateOutputSchema = z.object({
   arn: z.string().optional(),
   certificate: z.string().optional(),
   certificate_chain: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsAcmpcaCertificateImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsAcmpcaCertificateInputProps =
+  & z.input<typeof AwsAcmpcaCertificateInputSchema>
+  & z.input<typeof AwsAcmpcaCertificateImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAcmpcaCertificateOutputProps =
+  & z.output<typeof AwsAcmpcaCertificateOutputSchema>
+  & z.output<typeof AwsAcmpcaCertificateInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/acmpca_certificate
 
-export function AwsAcmpcaCertificate(props: Partial<InputProps>) {
+export function AwsAcmpcaCertificate(
+  props: Partial<AwsAcmpcaCertificateInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,9 +57,9 @@ export function AwsAcmpcaCertificate(props: Partial<InputProps>) {
       _type='aws_acmpca_certificate'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsAcmpcaCertificateInputSchema}
+      _outputSchema={AwsAcmpcaCertificateOutputSchema}
+      _importSchema={AwsAcmpcaCertificateImportSchema}
       {...props}
     />
   )
@@ -68,11 +70,21 @@ export const useAwsAcmpcaCertificate = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsAcmpcaCertificate, idFilter, baseNode, optional)
+  useTypedNode<AwsAcmpcaCertificateOutputProps>(
+    AwsAcmpcaCertificate,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAcmpcaCertificates = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsAcmpcaCertificate, idFilter, baseNode, optional)
+  useTypedNodes<AwsAcmpcaCertificateOutputProps>(
+    AwsAcmpcaCertificate,
+    idFilter,
+    baseNode,
+    optional,
+  )

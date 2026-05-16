@@ -9,14 +9,14 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsOrganizationsOrganizationInputSchema = TfMetaSchema.extend({
   aws_service_access_principals: resolvableValue(z.string().array().optional()),
   enabled_policy_types: resolvableValue(z.string().array().optional()),
   feature_set: resolvableValue(z.string().optional()),
   return_organization_only: resolvableValue(z.boolean().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsOrganizationsOrganizationOutputSchema = z.object({
   accounts: z.object({
     arn: z.string(),
     email: z.string(),
@@ -54,24 +54,26 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsOrganizationsOrganizationImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsOrganizationsOrganizationInputProps =
+  & z.input<typeof AwsOrganizationsOrganizationInputSchema>
+  & z.input<typeof AwsOrganizationsOrganizationImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsOrganizationsOrganizationOutputProps =
+  & z.output<typeof AwsOrganizationsOrganizationOutputSchema>
+  & z.output<typeof AwsOrganizationsOrganizationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/organizations_organization
 
-export function AwsOrganizationsOrganization(props: Partial<InputProps>) {
+export function AwsOrganizationsOrganization(
+  props: Partial<AwsOrganizationsOrganizationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -81,9 +83,9 @@ export function AwsOrganizationsOrganization(props: Partial<InputProps>) {
       _type='aws_organizations_organization'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsOrganizationsOrganizationInputSchema}
+      _outputSchema={AwsOrganizationsOrganizationOutputSchema}
+      _importSchema={AwsOrganizationsOrganizationImportSchema}
       {...props}
     />
   )
@@ -94,7 +96,7 @@ export const useAwsOrganizationsOrganization = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsOrganizationsOrganizationOutputProps>(
     AwsOrganizationsOrganization,
     idFilter,
     baseNode,
@@ -106,7 +108,7 @@ export const useAwsOrganizationsOrganizations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsOrganizationsOrganizationOutputProps>(
     AwsOrganizationsOrganization,
     idFilter,
     baseNode,

@@ -8,11 +8,11 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsS3filesFileSystemsInputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsS3filesFileSystemsOutputSchema = z.object({
   file_systems: z.object({
     arn: z.string().optional(),
     bucket: z.string().optional(),
@@ -27,18 +27,20 @@ export const OutputSchema = z.object({
   }).array().optional().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsS3filesFileSystemsInputProps =
+  & z.input<typeof DataAwsS3filesFileSystemsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsS3filesFileSystemsOutputProps =
+  & z.output<typeof DataAwsS3filesFileSystemsOutputSchema>
+  & z.output<typeof DataAwsS3filesFileSystemsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/s3files_file_systems
 
-export function DataAwsS3filesFileSystems(props: Partial<InputProps>) {
+export function DataAwsS3filesFileSystems(
+  props: Partial<DataAwsS3filesFileSystemsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +50,8 @@ export function DataAwsS3filesFileSystems(props: Partial<InputProps>) {
       _type='aws_s3files_file_systems'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsS3filesFileSystemsInputSchema}
+      _outputSchema={DataAwsS3filesFileSystemsOutputSchema}
       {...props}
     />
   )
@@ -60,7 +62,7 @@ export const useDataAwsS3filesFileSystemss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsS3filesFileSystemsOutputProps>(
     DataAwsS3filesFileSystems,
     idFilter,
     baseNode,

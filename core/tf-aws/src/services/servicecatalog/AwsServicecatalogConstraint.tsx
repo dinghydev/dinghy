@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsServicecatalogConstraintInputSchema = TfMetaSchema.extend({
   parameters: resolvableValue(z.string()),
   portfolio_id: resolvableValue(z.string()),
   product_id: resolvableValue(z.string()),
@@ -27,24 +27,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsServicecatalogConstraintOutputSchema = z.object({
   id: z.string().optional(),
   owner: z.string().optional(),
   status: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsServicecatalogConstraintInputProps =
+  & z.input<typeof AwsServicecatalogConstraintInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsServicecatalogConstraintOutputProps =
+  & z.output<typeof AwsServicecatalogConstraintOutputSchema>
+  & z.output<typeof AwsServicecatalogConstraintInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/servicecatalog_constraint
 
-export function AwsServicecatalogConstraint(props: Partial<InputProps>) {
+export function AwsServicecatalogConstraint(
+  props: Partial<AwsServicecatalogConstraintInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -54,8 +56,8 @@ export function AwsServicecatalogConstraint(props: Partial<InputProps>) {
       _type='aws_servicecatalog_constraint'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsServicecatalogConstraintInputSchema}
+      _outputSchema={AwsServicecatalogConstraintOutputSchema}
       {...props}
     />
   )
@@ -66,7 +68,7 @@ export const useAwsServicecatalogConstraint = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsServicecatalogConstraintOutputProps>(
     AwsServicecatalogConstraint,
     idFilter,
     baseNode,
@@ -78,7 +80,7 @@ export const useAwsServicecatalogConstraints = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsServicecatalogConstraintOutputProps>(
     AwsServicecatalogConstraint,
     idFilter,
     baseNode,

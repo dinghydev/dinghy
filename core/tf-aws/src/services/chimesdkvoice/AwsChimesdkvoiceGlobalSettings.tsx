@@ -8,28 +8,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsChimesdkvoiceGlobalSettingsInputSchema = TfMetaSchema.extend({
   voice_connector: resolvableValue(z.object({
     cdr_bucket: z.string().optional(),
   })),
 })
 
-export const OutputSchema = z.object({
+export const AwsChimesdkvoiceGlobalSettingsOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsChimesdkvoiceGlobalSettingsInputProps =
+  & z.input<typeof AwsChimesdkvoiceGlobalSettingsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsChimesdkvoiceGlobalSettingsOutputProps =
+  & z.output<typeof AwsChimesdkvoiceGlobalSettingsOutputSchema>
+  & z.output<typeof AwsChimesdkvoiceGlobalSettingsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/chimesdkvoice_global_settings
 
-export function AwsChimesdkvoiceGlobalSettings(props: Partial<InputProps>) {
+export function AwsChimesdkvoiceGlobalSettings(
+  props: Partial<AwsChimesdkvoiceGlobalSettingsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -39,8 +41,8 @@ export function AwsChimesdkvoiceGlobalSettings(props: Partial<InputProps>) {
       _type='aws_chimesdkvoice_global_settings'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsChimesdkvoiceGlobalSettingsInputSchema}
+      _outputSchema={AwsChimesdkvoiceGlobalSettingsOutputSchema}
       {...props}
     />
   )
@@ -51,7 +53,7 @@ export const useAwsChimesdkvoiceGlobalSettingss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsChimesdkvoiceGlobalSettingsOutputProps>(
     AwsChimesdkvoiceGlobalSettings,
     idFilter,
     baseNode,

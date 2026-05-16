@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDatazoneProjectInputSchema = TfMetaSchema.extend({
   domain_identifier: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
@@ -24,7 +24,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDatazoneProjectOutputSchema = z.object({
   created_at: z.string().optional(),
   created_by: z.string().optional(),
   description: z.string().optional(),
@@ -39,18 +39,20 @@ export const OutputSchema = z.object({
   project_status: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDatazoneProjectInputProps =
+  & z.input<typeof AwsDatazoneProjectInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDatazoneProjectOutputProps =
+  & z.output<typeof AwsDatazoneProjectOutputSchema>
+  & z.output<typeof AwsDatazoneProjectInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/datazone_project
 
-export function AwsDatazoneProject(props: Partial<InputProps>) {
+export function AwsDatazoneProject(
+  props: Partial<AwsDatazoneProjectInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -60,8 +62,8 @@ export function AwsDatazoneProject(props: Partial<InputProps>) {
       _type='aws_datazone_project'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDatazoneProjectInputSchema}
+      _outputSchema={AwsDatazoneProjectOutputSchema}
       {...props}
     />
   )
@@ -71,11 +73,22 @@ export const useAwsDatazoneProject = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsDatazoneProject, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsDatazoneProjectOutputProps>(
+    AwsDatazoneProject,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDatazoneProjects = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsDatazoneProject, idFilter, baseNode, optional)
+  useTypedNodes<AwsDatazoneProjectOutputProps>(
+    AwsDatazoneProject,
+    idFilter,
+    baseNode,
+    optional,
+  )

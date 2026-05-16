@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsIdentitystoreGroup } from './AwsIdentitystoreGroup.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsIdentitystoreGroupInputSchema = TfMetaSchema.extend({
   identity_store_id: resolvableValue(z.string()),
   alternate_identifier: resolvableValue(
     z.object({
@@ -27,7 +27,7 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsIdentitystoreGroupOutputSchema = z.object({
   description: z.string().optional(),
   display_name: z.string().optional(),
   external_ids: z.object({
@@ -37,18 +37,20 @@ export const OutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsIdentitystoreGroupInputProps =
+  & z.input<typeof DataAwsIdentitystoreGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsIdentitystoreGroupOutputProps =
+  & z.output<typeof DataAwsIdentitystoreGroupOutputSchema>
+  & z.output<typeof DataAwsIdentitystoreGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/identitystore_group
 
-export function DataAwsIdentitystoreGroup(props: Partial<InputProps>) {
+export function DataAwsIdentitystoreGroup(
+  props: Partial<DataAwsIdentitystoreGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -58,8 +60,8 @@ export function DataAwsIdentitystoreGroup(props: Partial<InputProps>) {
       _type='aws_identitystore_group'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsIdentitystoreGroupInputSchema}
+      _outputSchema={DataAwsIdentitystoreGroupOutputSchema}
       {...props as any}
     />
   )
@@ -70,7 +72,7 @@ export const useDataAwsIdentitystoreGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsIdentitystoreGroupOutputProps>(
     DataAwsIdentitystoreGroup,
     idFilter,
     baseNode,
@@ -82,7 +84,7 @@ export const useDataAwsIdentitystoreGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsIdentitystoreGroupOutputProps>(
     DataAwsIdentitystoreGroup,
     idFilter,
     baseNode,

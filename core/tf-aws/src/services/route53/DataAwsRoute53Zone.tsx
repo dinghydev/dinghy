@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsRoute53Zone } from './AwsRoute53Zone.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsRoute53ZoneInputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   private_zone: resolvableValue(z.boolean().optional()),
@@ -18,7 +18,7 @@ export const InputSchema = TfMetaSchema.extend({
   zone_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsRoute53ZoneOutputSchema = z.object({
   arn: z.string().optional(),
   caller_reference: z.string().optional(),
   comment: z.string().optional(),
@@ -34,18 +34,20 @@ export const OutputSchema = z.object({
   zone_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsRoute53ZoneInputProps =
+  & z.input<typeof DataAwsRoute53ZoneInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsRoute53ZoneOutputProps =
+  & z.output<typeof DataAwsRoute53ZoneOutputSchema>
+  & z.output<typeof DataAwsRoute53ZoneInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/route53_zone
 
-export function DataAwsRoute53Zone(props: Partial<InputProps>) {
+export function DataAwsRoute53Zone(
+  props: Partial<DataAwsRoute53ZoneInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,8 +57,8 @@ export function DataAwsRoute53Zone(props: Partial<InputProps>) {
       _type='aws_route53_zone'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsRoute53ZoneInputSchema}
+      _outputSchema={DataAwsRoute53ZoneOutputSchema}
       {...props as any}
     />
   )
@@ -66,11 +68,22 @@ export const useDataAwsRoute53Zone = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsRoute53Zone, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsRoute53ZoneOutputProps>(
+    DataAwsRoute53Zone,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsRoute53Zones = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsRoute53Zone, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsRoute53ZoneOutputProps>(
+    DataAwsRoute53Zone,
+    idFilter,
+    baseNode,
+    optional,
+  )

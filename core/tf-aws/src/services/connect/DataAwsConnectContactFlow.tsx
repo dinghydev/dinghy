@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsConnectContactFlow } from './AwsConnectContactFlow.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsConnectContactFlowInputSchema = TfMetaSchema.extend({
   instance_id: resolvableValue(z.string()),
   contact_flow_id: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
@@ -17,7 +17,7 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsConnectContactFlowOutputSchema = z.object({
   arn: z.string().optional(),
   content: z.string().optional(),
   description: z.string().optional(),
@@ -25,18 +25,20 @@ export const OutputSchema = z.object({
   type: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsConnectContactFlowInputProps =
+  & z.input<typeof DataAwsConnectContactFlowInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsConnectContactFlowOutputProps =
+  & z.output<typeof DataAwsConnectContactFlowOutputSchema>
+  & z.output<typeof DataAwsConnectContactFlowInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/connect_contact_flow
 
-export function DataAwsConnectContactFlow(props: Partial<InputProps>) {
+export function DataAwsConnectContactFlow(
+  props: Partial<DataAwsConnectContactFlowInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function DataAwsConnectContactFlow(props: Partial<InputProps>) {
       _type='aws_connect_contact_flow'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsConnectContactFlowInputSchema}
+      _outputSchema={DataAwsConnectContactFlowOutputSchema}
       {...props as any}
     />
   )
@@ -58,7 +60,7 @@ export const useDataAwsConnectContactFlow = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsConnectContactFlowOutputProps>(
     DataAwsConnectContactFlow,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useDataAwsConnectContactFlows = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsConnectContactFlowOutputProps>(
     DataAwsConnectContactFlow,
     idFilter,
     baseNode,

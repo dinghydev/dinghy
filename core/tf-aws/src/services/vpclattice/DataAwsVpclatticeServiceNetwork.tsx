@@ -9,13 +9,13 @@ import {
 import z from 'zod'
 import { AwsVpclatticeServiceNetwork } from './AwsVpclatticeServiceNetwork.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsVpclatticeServiceNetworkInputSchema = TfMetaSchema.extend({
   service_network_identifier: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsVpclatticeServiceNetworkOutputSchema = z.object({
   arn: z.string().optional(),
   auth_type: z.string().optional(),
   created_at: z.string().optional(),
@@ -26,18 +26,20 @@ export const OutputSchema = z.object({
   number_of_associated_vpcs: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsVpclatticeServiceNetworkInputProps =
+  & z.input<typeof DataAwsVpclatticeServiceNetworkInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsVpclatticeServiceNetworkOutputProps =
+  & z.output<typeof DataAwsVpclatticeServiceNetworkOutputSchema>
+  & z.output<typeof DataAwsVpclatticeServiceNetworkInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/vpclattice_service_network
 
-export function DataAwsVpclatticeServiceNetwork(props: Partial<InputProps>) {
+export function DataAwsVpclatticeServiceNetwork(
+  props: Partial<DataAwsVpclatticeServiceNetworkInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +49,8 @@ export function DataAwsVpclatticeServiceNetwork(props: Partial<InputProps>) {
       _type='aws_vpclattice_service_network'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsVpclatticeServiceNetworkInputSchema}
+      _outputSchema={DataAwsVpclatticeServiceNetworkOutputSchema}
       {...props as any}
     />
   )
@@ -59,7 +61,7 @@ export const useDataAwsVpclatticeServiceNetwork = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsVpclatticeServiceNetworkOutputProps>(
     DataAwsVpclatticeServiceNetwork,
     idFilter,
     baseNode,
@@ -71,7 +73,7 @@ export const useDataAwsVpclatticeServiceNetworks = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsVpclatticeServiceNetworkOutputProps>(
     DataAwsVpclatticeServiceNetwork,
     idFilter,
     baseNode,

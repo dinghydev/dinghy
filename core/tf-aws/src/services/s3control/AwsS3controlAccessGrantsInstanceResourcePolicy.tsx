@@ -9,29 +9,31 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  policy: resolvableValue(z.string()),
-  account_id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsS3controlAccessGrantsInstanceResourcePolicyInputSchema =
+  TfMetaSchema.extend({
+    policy: resolvableValue(z.string()),
+    account_id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
-  id: z.string().optional(),
-})
+export const AwsS3controlAccessGrantsInstanceResourcePolicyOutputSchema = z
+  .object({
+    id: z.string().optional(),
+  })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsS3controlAccessGrantsInstanceResourcePolicyInputProps =
+  & z.input<typeof AwsS3controlAccessGrantsInstanceResourcePolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3controlAccessGrantsInstanceResourcePolicyOutputProps =
+  & z.output<typeof AwsS3controlAccessGrantsInstanceResourcePolicyOutputSchema>
+  & z.output<typeof AwsS3controlAccessGrantsInstanceResourcePolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3control_access_grants_instance_resource_policy
 
 export function AwsS3controlAccessGrantsInstanceResourcePolicy(
-  props: Partial<InputProps>,
+  props: Partial<AwsS3controlAccessGrantsInstanceResourcePolicyInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -42,8 +44,8 @@ export function AwsS3controlAccessGrantsInstanceResourcePolicy(
       _type='aws_s3control_access_grants_instance_resource_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsS3controlAccessGrantsInstanceResourcePolicyInputSchema}
+      _outputSchema={AwsS3controlAccessGrantsInstanceResourcePolicyOutputSchema}
       {...props}
     />
   )
@@ -54,7 +56,7 @@ export const useAwsS3controlAccessGrantsInstanceResourcePolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsS3controlAccessGrantsInstanceResourcePolicyOutputProps>(
     AwsS3controlAccessGrantsInstanceResourcePolicy,
     idFilter,
     baseNode,
@@ -66,7 +68,7 @@ export const useAwsS3controlAccessGrantsInstanceResourcePolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsS3controlAccessGrantsInstanceResourcePolicyOutputProps>(
     AwsS3controlAccessGrantsInstanceResourcePolicy,
     idFilter,
     baseNode,

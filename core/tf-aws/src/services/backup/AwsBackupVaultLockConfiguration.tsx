@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsBackupVaultLockConfigurationInputSchema = TfMetaSchema.extend({
   backup_vault_name: resolvableValue(z.string()),
   changeable_for_days: resolvableValue(z.number().optional()),
   id: resolvableValue(z.string().optional()),
@@ -18,23 +18,25 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsBackupVaultLockConfigurationOutputSchema = z.object({
   backup_vault_arn: z.string().optional(),
   backup_vault_name: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsBackupVaultLockConfigurationInputProps =
+  & z.input<typeof AwsBackupVaultLockConfigurationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBackupVaultLockConfigurationOutputProps =
+  & z.output<typeof AwsBackupVaultLockConfigurationOutputSchema>
+  & z.output<typeof AwsBackupVaultLockConfigurationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/backup_vault_lock_configuration
 
-export function AwsBackupVaultLockConfiguration(props: Partial<InputProps>) {
+export function AwsBackupVaultLockConfiguration(
+  props: Partial<AwsBackupVaultLockConfigurationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +46,8 @@ export function AwsBackupVaultLockConfiguration(props: Partial<InputProps>) {
       _type='aws_backup_vault_lock_configuration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsBackupVaultLockConfigurationInputSchema}
+      _outputSchema={AwsBackupVaultLockConfigurationOutputSchema}
       {...props}
     />
   )
@@ -56,7 +58,7 @@ export const useAwsBackupVaultLockConfiguration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsBackupVaultLockConfigurationOutputProps>(
     AwsBackupVaultLockConfiguration,
     idFilter,
     baseNode,
@@ -68,7 +70,7 @@ export const useAwsBackupVaultLockConfigurations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsBackupVaultLockConfigurationOutputProps>(
     AwsBackupVaultLockConfiguration,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSsmcontactsRotationInputSchema = TfMetaSchema.extend({
   contact_ids: resolvableValue(z.string().array()),
   name: resolvableValue(z.string()),
   time_zone_id: resolvableValue(z.string()),
@@ -55,29 +55,31 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSsmcontactsRotationOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSsmcontactsRotationImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSsmcontactsRotationInputProps =
+  & z.input<typeof AwsSsmcontactsRotationInputSchema>
+  & z.input<typeof AwsSsmcontactsRotationImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSsmcontactsRotationOutputProps =
+  & z.output<typeof AwsSsmcontactsRotationOutputSchema>
+  & z.output<typeof AwsSsmcontactsRotationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssmcontacts_rotation
 
-export function AwsSsmcontactsRotation(props: Partial<InputProps>) {
+export function AwsSsmcontactsRotation(
+  props: Partial<AwsSsmcontactsRotationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -87,9 +89,9 @@ export function AwsSsmcontactsRotation(props: Partial<InputProps>) {
       _type='aws_ssmcontacts_rotation'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSsmcontactsRotationInputSchema}
+      _outputSchema={AwsSsmcontactsRotationOutputSchema}
+      _importSchema={AwsSsmcontactsRotationImportSchema}
       {...props}
     />
   )
@@ -100,7 +102,7 @@ export const useAwsSsmcontactsRotation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSsmcontactsRotationOutputProps>(
     AwsSsmcontactsRotation,
     idFilter,
     baseNode,
@@ -112,7 +114,7 @@ export const useAwsSsmcontactsRotations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSsmcontactsRotationOutputProps>(
     AwsSsmcontactsRotation,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsServiceDiscoveryServiceInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   dns_config: resolvableValue(
@@ -42,23 +42,25 @@ export const InputSchema = TfMetaSchema.extend({
   type: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsServiceDiscoveryServiceOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsServiceDiscoveryServiceInputProps =
+  & z.input<typeof AwsServiceDiscoveryServiceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsServiceDiscoveryServiceOutputProps =
+  & z.output<typeof AwsServiceDiscoveryServiceOutputSchema>
+  & z.output<typeof AwsServiceDiscoveryServiceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/service_discovery_service
 
-export function AwsServiceDiscoveryService(props: Partial<InputProps>) {
+export function AwsServiceDiscoveryService(
+  props: Partial<AwsServiceDiscoveryServiceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -68,8 +70,8 @@ export function AwsServiceDiscoveryService(props: Partial<InputProps>) {
       _type='aws_service_discovery_service'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsServiceDiscoveryServiceInputSchema}
+      _outputSchema={AwsServiceDiscoveryServiceOutputSchema}
       {...props}
     />
   )
@@ -80,7 +82,7 @@ export const useAwsServiceDiscoveryService = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsServiceDiscoveryServiceOutputProps>(
     AwsServiceDiscoveryService,
     idFilter,
     baseNode,
@@ -92,7 +94,7 @@ export const useAwsServiceDiscoveryServices = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsServiceDiscoveryServiceOutputProps>(
     AwsServiceDiscoveryService,
     idFilter,
     baseNode,

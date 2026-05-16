@@ -9,26 +9,27 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  policy_arns: resolvableValue(z.string().array()),
-  role_name: resolvableValue(z.string()),
-})
+export const AwsIamRolePolicyAttachmentsExclusiveInputSchema = TfMetaSchema
+  .extend({
+    policy_arns: resolvableValue(z.string().array()),
+    role_name: resolvableValue(z.string()),
+  })
 
-export const OutputSchema = z.object({})
+export const AwsIamRolePolicyAttachmentsExclusiveOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsIamRolePolicyAttachmentsExclusiveInputProps =
+  & z.input<typeof AwsIamRolePolicyAttachmentsExclusiveInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIamRolePolicyAttachmentsExclusiveOutputProps =
+  & z.output<typeof AwsIamRolePolicyAttachmentsExclusiveOutputSchema>
+  & z.output<typeof AwsIamRolePolicyAttachmentsExclusiveInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iam_role_policy_attachments_exclusive
 
 export function AwsIamRolePolicyAttachmentsExclusive(
-  props: Partial<InputProps>,
+  props: Partial<AwsIamRolePolicyAttachmentsExclusiveInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -39,8 +40,8 @@ export function AwsIamRolePolicyAttachmentsExclusive(
       _type='aws_iam_role_policy_attachments_exclusive'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsIamRolePolicyAttachmentsExclusiveInputSchema}
+      _outputSchema={AwsIamRolePolicyAttachmentsExclusiveOutputSchema}
       {...props}
     />
   )
@@ -51,7 +52,7 @@ export const useAwsIamRolePolicyAttachmentsExclusive = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsIamRolePolicyAttachmentsExclusiveOutputProps>(
     AwsIamRolePolicyAttachmentsExclusive,
     idFilter,
     baseNode,
@@ -63,7 +64,7 @@ export const useAwsIamRolePolicyAttachmentsExclusives = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsIamRolePolicyAttachmentsExclusiveOutputProps>(
     AwsIamRolePolicyAttachmentsExclusive,
     idFilter,
     baseNode,

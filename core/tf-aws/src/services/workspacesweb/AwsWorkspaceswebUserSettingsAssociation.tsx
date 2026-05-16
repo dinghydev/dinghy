@@ -9,27 +9,28 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  portal_arn: resolvableValue(z.string()),
-  user_settings_arn: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsWorkspaceswebUserSettingsAssociationInputSchema = TfMetaSchema
+  .extend({
+    portal_arn: resolvableValue(z.string()),
+    user_settings_arn: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({})
+export const AwsWorkspaceswebUserSettingsAssociationOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsWorkspaceswebUserSettingsAssociationInputProps =
+  & z.input<typeof AwsWorkspaceswebUserSettingsAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWorkspaceswebUserSettingsAssociationOutputProps =
+  & z.output<typeof AwsWorkspaceswebUserSettingsAssociationOutputSchema>
+  & z.output<typeof AwsWorkspaceswebUserSettingsAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workspacesweb_user_settings_association
 
 export function AwsWorkspaceswebUserSettingsAssociation(
-  props: Partial<InputProps>,
+  props: Partial<AwsWorkspaceswebUserSettingsAssociationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -40,8 +41,8 @@ export function AwsWorkspaceswebUserSettingsAssociation(
       _type='aws_workspacesweb_user_settings_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsWorkspaceswebUserSettingsAssociationInputSchema}
+      _outputSchema={AwsWorkspaceswebUserSettingsAssociationOutputSchema}
       {...props}
     />
   )
@@ -52,7 +53,7 @@ export const useAwsWorkspaceswebUserSettingsAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsWorkspaceswebUserSettingsAssociationOutputProps>(
     AwsWorkspaceswebUserSettingsAssociation,
     idFilter,
     baseNode,
@@ -64,7 +65,7 @@ export const useAwsWorkspaceswebUserSettingsAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsWorkspaceswebUserSettingsAssociationOutputProps>(
     AwsWorkspaceswebUserSettingsAssociation,
     idFilter,
     baseNode,

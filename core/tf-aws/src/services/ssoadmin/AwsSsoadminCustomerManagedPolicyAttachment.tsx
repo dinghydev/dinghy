@@ -9,39 +9,40 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  customer_managed_policy_reference: resolvableValue(z.object({
-    name: z.string(),
-    path: z.string().optional(),
-  })),
-  instance_arn: resolvableValue(z.string()),
-  permission_set_arn: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsSsoadminCustomerManagedPolicyAttachmentInputSchema =
+  TfMetaSchema.extend({
+    customer_managed_policy_reference: resolvableValue(z.object({
+      name: z.string(),
+      path: z.string().optional(),
+    })),
+    instance_arn: resolvableValue(z.string()),
+    permission_set_arn: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsSsoadminCustomerManagedPolicyAttachmentOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSsoadminCustomerManagedPolicyAttachmentInputProps =
+  & z.input<typeof AwsSsoadminCustomerManagedPolicyAttachmentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSsoadminCustomerManagedPolicyAttachmentOutputProps =
+  & z.output<typeof AwsSsoadminCustomerManagedPolicyAttachmentOutputSchema>
+  & z.output<typeof AwsSsoadminCustomerManagedPolicyAttachmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssoadmin_customer_managed_policy_attachment
 
 export function AwsSsoadminCustomerManagedPolicyAttachment(
-  props: Partial<InputProps>,
+  props: Partial<AwsSsoadminCustomerManagedPolicyAttachmentInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -52,8 +53,8 @@ export function AwsSsoadminCustomerManagedPolicyAttachment(
       _type='aws_ssoadmin_customer_managed_policy_attachment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSsoadminCustomerManagedPolicyAttachmentInputSchema}
+      _outputSchema={AwsSsoadminCustomerManagedPolicyAttachmentOutputSchema}
       {...props}
     />
   )
@@ -64,7 +65,7 @@ export const useAwsSsoadminCustomerManagedPolicyAttachment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSsoadminCustomerManagedPolicyAttachmentOutputProps>(
     AwsSsoadminCustomerManagedPolicyAttachment,
     idFilter,
     baseNode,
@@ -76,7 +77,7 @@ export const useAwsSsoadminCustomerManagedPolicyAttachments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSsoadminCustomerManagedPolicyAttachmentOutputProps>(
     AwsSsoadminCustomerManagedPolicyAttachment,
     idFilter,
     baseNode,

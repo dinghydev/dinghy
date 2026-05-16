@@ -9,34 +9,35 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  certificate: resolvableValue(z.string()),
+export const AwsAcmpcaCertificateAuthorityCertificateInputSchema = TfMetaSchema
+  .extend({
+    certificate: resolvableValue(z.string()),
+    certificate_authority_arn: resolvableValue(z.string()),
+    certificate_chain: resolvableValue(z.string().optional()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
+
+export const AwsAcmpcaCertificateAuthorityCertificateOutputSchema = z.object({})
+
+export const AwsAcmpcaCertificateAuthorityCertificateImportSchema = z.object({
   certificate_authority_arn: resolvableValue(z.string()),
-  certificate_chain: resolvableValue(z.string().optional()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
-
-export const ImportSchema = z.object({
-  certificate_authority_arn: resolvableValue(z.string()),
-})
-
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsAcmpcaCertificateAuthorityCertificateInputProps =
+  & z.input<typeof AwsAcmpcaCertificateAuthorityCertificateInputSchema>
+  & z.input<typeof AwsAcmpcaCertificateAuthorityCertificateImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAcmpcaCertificateAuthorityCertificateOutputProps =
+  & z.output<typeof AwsAcmpcaCertificateAuthorityCertificateOutputSchema>
+  & z.output<typeof AwsAcmpcaCertificateAuthorityCertificateInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/acmpca_certificate_authority_certificate
 
 export function AwsAcmpcaCertificateAuthorityCertificate(
-  props: Partial<InputProps>,
+  props: Partial<AwsAcmpcaCertificateAuthorityCertificateInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -47,9 +48,9 @@ export function AwsAcmpcaCertificateAuthorityCertificate(
       _type='aws_acmpca_certificate_authority_certificate'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsAcmpcaCertificateAuthorityCertificateInputSchema}
+      _outputSchema={AwsAcmpcaCertificateAuthorityCertificateOutputSchema}
+      _importSchema={AwsAcmpcaCertificateAuthorityCertificateImportSchema}
       {...props}
     />
   )
@@ -60,7 +61,7 @@ export const useAwsAcmpcaCertificateAuthorityCertificate = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAcmpcaCertificateAuthorityCertificateOutputProps>(
     AwsAcmpcaCertificateAuthorityCertificate,
     idFilter,
     baseNode,
@@ -72,7 +73,7 @@ export const useAwsAcmpcaCertificateAuthorityCertificates = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAcmpcaCertificateAuthorityCertificateOutputProps>(
     AwsAcmpcaCertificateAuthorityCertificate,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsFmsPolicyInputSchema = TfMetaSchema.extend({
   exclude_resource_tags: resolvableValue(z.boolean()),
   name: resolvableValue(z.string()),
   security_service_policy_data: resolvableValue(z.object({
@@ -85,25 +85,25 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsFmsPolicyOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   policy_update_token: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsFmsPolicyInputProps =
+  & z.input<typeof AwsFmsPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsFmsPolicyOutputProps =
+  & z.output<typeof AwsFmsPolicyOutputSchema>
+  & z.output<typeof AwsFmsPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/fms_policy
 
-export function AwsFmsPolicy(props: Partial<InputProps>) {
+export function AwsFmsPolicy(props: Partial<AwsFmsPolicyInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -113,8 +113,8 @@ export function AwsFmsPolicy(props: Partial<InputProps>) {
       _type='aws_fms_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsFmsPolicyInputSchema}
+      _outputSchema={AwsFmsPolicyOutputSchema}
       {...props}
     />
   )
@@ -124,10 +124,22 @@ export const useAwsFmsPolicy = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsFmsPolicy, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsFmsPolicyOutputProps>(
+    AwsFmsPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsFmsPolicys = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsFmsPolicy, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsFmsPolicyOutputProps>(
+    AwsFmsPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

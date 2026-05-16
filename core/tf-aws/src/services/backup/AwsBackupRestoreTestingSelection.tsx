@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsBackupRestoreTestingSelectionInputSchema = TfMetaSchema.extend({
   iam_role_arn: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   protected_resource_type: resolvableValue(z.string()),
@@ -34,20 +34,22 @@ export const InputSchema = TfMetaSchema.extend({
   validation_window_hours: resolvableValue(z.number().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsBackupRestoreTestingSelectionOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsBackupRestoreTestingSelectionInputProps =
+  & z.input<typeof AwsBackupRestoreTestingSelectionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBackupRestoreTestingSelectionOutputProps =
+  & z.output<typeof AwsBackupRestoreTestingSelectionOutputSchema>
+  & z.output<typeof AwsBackupRestoreTestingSelectionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/backup_restore_testing_selection
 
-export function AwsBackupRestoreTestingSelection(props: Partial<InputProps>) {
+export function AwsBackupRestoreTestingSelection(
+  props: Partial<AwsBackupRestoreTestingSelectionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -57,8 +59,8 @@ export function AwsBackupRestoreTestingSelection(props: Partial<InputProps>) {
       _type='aws_backup_restore_testing_selection'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsBackupRestoreTestingSelectionInputSchema}
+      _outputSchema={AwsBackupRestoreTestingSelectionOutputSchema}
       {...props}
     />
   )
@@ -69,7 +71,7 @@ export const useAwsBackupRestoreTestingSelection = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsBackupRestoreTestingSelectionOutputProps>(
     AwsBackupRestoreTestingSelection,
     idFilter,
     baseNode,
@@ -81,7 +83,7 @@ export const useAwsBackupRestoreTestingSelections = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsBackupRestoreTestingSelectionOutputProps>(
     AwsBackupRestoreTestingSelection,
     idFilter,
     baseNode,

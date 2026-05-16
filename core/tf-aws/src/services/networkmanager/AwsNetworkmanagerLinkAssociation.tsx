@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsNetworkmanagerLinkAssociationInputSchema = TfMetaSchema.extend({
   device_id: resolvableValue(z.string()),
   global_network_id: resolvableValue(z.string()),
   link_id: resolvableValue(z.string()),
@@ -22,20 +22,22 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({})
+export const AwsNetworkmanagerLinkAssociationOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsNetworkmanagerLinkAssociationInputProps =
+  & z.input<typeof AwsNetworkmanagerLinkAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNetworkmanagerLinkAssociationOutputProps =
+  & z.output<typeof AwsNetworkmanagerLinkAssociationOutputSchema>
+  & z.output<typeof AwsNetworkmanagerLinkAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/networkmanager_link_association
 
-export function AwsNetworkmanagerLinkAssociation(props: Partial<InputProps>) {
+export function AwsNetworkmanagerLinkAssociation(
+  props: Partial<AwsNetworkmanagerLinkAssociationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,8 +47,8 @@ export function AwsNetworkmanagerLinkAssociation(props: Partial<InputProps>) {
       _type='aws_networkmanager_link_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsNetworkmanagerLinkAssociationInputSchema}
+      _outputSchema={AwsNetworkmanagerLinkAssociationOutputSchema}
       {...props}
     />
   )
@@ -57,7 +59,7 @@ export const useAwsNetworkmanagerLinkAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsNetworkmanagerLinkAssociationOutputProps>(
     AwsNetworkmanagerLinkAssociation,
     idFilter,
     baseNode,
@@ -69,7 +71,7 @@ export const useAwsNetworkmanagerLinkAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsNetworkmanagerLinkAssociationOutputProps>(
     AwsNetworkmanagerLinkAssociation,
     idFilter,
     baseNode,

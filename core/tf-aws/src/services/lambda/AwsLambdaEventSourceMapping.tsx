@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLambdaEventSourceMappingInputSchema = TfMetaSchema.extend({
   function_name: resolvableValue(z.string()),
   amazon_managed_kafka_event_source_config: resolvableValue(
     z.object({
@@ -112,7 +112,7 @@ export const InputSchema = TfMetaSchema.extend({
   tumbling_window_in_seconds: resolvableValue(z.number().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsLambdaEventSourceMappingOutputSchema = z.object({
   arn: z.string().optional(),
   function_arn: z.string().optional(),
   last_modified: z.string().optional(),
@@ -123,25 +123,27 @@ export const OutputSchema = z.object({
   uuid: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsLambdaEventSourceMappingImportSchema = z.object({
   uuid: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsLambdaEventSourceMappingInputProps =
+  & z.input<typeof AwsLambdaEventSourceMappingInputSchema>
+  & z.input<typeof AwsLambdaEventSourceMappingImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLambdaEventSourceMappingOutputProps =
+  & z.output<typeof AwsLambdaEventSourceMappingOutputSchema>
+  & z.output<typeof AwsLambdaEventSourceMappingInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lambda_event_source_mapping
 
-export function AwsLambdaEventSourceMapping(props: Partial<InputProps>) {
+export function AwsLambdaEventSourceMapping(
+  props: Partial<AwsLambdaEventSourceMappingInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -151,9 +153,9 @@ export function AwsLambdaEventSourceMapping(props: Partial<InputProps>) {
       _type='aws_lambda_event_source_mapping'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsLambdaEventSourceMappingInputSchema}
+      _outputSchema={AwsLambdaEventSourceMappingOutputSchema}
+      _importSchema={AwsLambdaEventSourceMappingImportSchema}
       {...props}
     />
   )
@@ -164,7 +166,7 @@ export const useAwsLambdaEventSourceMapping = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsLambdaEventSourceMappingOutputProps>(
     AwsLambdaEventSourceMapping,
     idFilter,
     baseNode,
@@ -176,7 +178,7 @@ export const useAwsLambdaEventSourceMappings = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsLambdaEventSourceMappingOutputProps>(
     AwsLambdaEventSourceMapping,
     idFilter,
     baseNode,

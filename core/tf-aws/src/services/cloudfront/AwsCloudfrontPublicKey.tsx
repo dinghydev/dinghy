@@ -9,31 +9,33 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudfrontPublicKeyInputSchema = TfMetaSchema.extend({
   encoded_key: resolvableValue(z.string()),
   comment: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   name_prefix: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudfrontPublicKeyOutputSchema = z.object({
   caller_reference: z.string().optional(),
   etag: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudfrontPublicKeyInputProps =
+  & z.input<typeof AwsCloudfrontPublicKeyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudfrontPublicKeyOutputProps =
+  & z.output<typeof AwsCloudfrontPublicKeyOutputSchema>
+  & z.output<typeof AwsCloudfrontPublicKeyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudfront_public_key
 
-export function AwsCloudfrontPublicKey(props: Partial<InputProps>) {
+export function AwsCloudfrontPublicKey(
+  props: Partial<AwsCloudfrontPublicKeyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function AwsCloudfrontPublicKey(props: Partial<InputProps>) {
       _type='aws_cloudfront_public_key'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudfrontPublicKeyInputSchema}
+      _outputSchema={AwsCloudfrontPublicKeyOutputSchema}
       {...props}
     />
   )
@@ -55,7 +57,7 @@ export const useAwsCloudfrontPublicKey = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudfrontPublicKeyOutputProps>(
     AwsCloudfrontPublicKey,
     idFilter,
     baseNode,
@@ -67,7 +69,7 @@ export const useAwsCloudfrontPublicKeys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudfrontPublicKeyOutputProps>(
     AwsCloudfrontPublicKey,
     idFilter,
     baseNode,

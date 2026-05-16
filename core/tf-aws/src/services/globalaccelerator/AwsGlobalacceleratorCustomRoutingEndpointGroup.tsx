@@ -9,52 +9,55 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  destination_configuration: resolvableValue(
-    z.object({
-      from_port: z.number(),
-      protocols: z.string().array(),
-      to_port: z.number(),
-    }).array(),
-  ),
-  listener_arn: resolvableValue(z.string()),
-  endpoint_configuration: resolvableValue(
-    z.object({
-      endpoint_id: z.string().optional(),
-    }).array().optional(),
-  ),
-  endpoint_group_region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsGlobalacceleratorCustomRoutingEndpointGroupInputSchema =
+  TfMetaSchema.extend({
+    destination_configuration: resolvableValue(
+      z.object({
+        from_port: z.number(),
+        protocols: z.string().array(),
+        to_port: z.number(),
+      }).array(),
+    ),
+    listener_arn: resolvableValue(z.string()),
+    endpoint_configuration: resolvableValue(
+      z.object({
+        endpoint_id: z.string().optional(),
+      }).array().optional(),
+    ),
+    endpoint_group_region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
-  arn: z.string().optional(),
-  id: z.string().optional(),
-})
+export const AwsGlobalacceleratorCustomRoutingEndpointGroupOutputSchema = z
+  .object({
+    arn: z.string().optional(),
+    id: z.string().optional(),
+  })
 
-export const ImportSchema = z.object({
-  arn: resolvableValue(z.string()),
-})
+export const AwsGlobalacceleratorCustomRoutingEndpointGroupImportSchema = z
+  .object({
+    arn: resolvableValue(z.string()),
+  })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsGlobalacceleratorCustomRoutingEndpointGroupInputProps =
+  & z.input<typeof AwsGlobalacceleratorCustomRoutingEndpointGroupInputSchema>
+  & z.input<typeof AwsGlobalacceleratorCustomRoutingEndpointGroupImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsGlobalacceleratorCustomRoutingEndpointGroupOutputProps =
+  & z.output<typeof AwsGlobalacceleratorCustomRoutingEndpointGroupOutputSchema>
+  & z.output<typeof AwsGlobalacceleratorCustomRoutingEndpointGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/globalaccelerator_custom_routing_endpoint_group
 
 export function AwsGlobalacceleratorCustomRoutingEndpointGroup(
-  props: Partial<InputProps>,
+  props: Partial<AwsGlobalacceleratorCustomRoutingEndpointGroupInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -65,9 +68,9 @@ export function AwsGlobalacceleratorCustomRoutingEndpointGroup(
       _type='aws_globalaccelerator_custom_routing_endpoint_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsGlobalacceleratorCustomRoutingEndpointGroupInputSchema}
+      _outputSchema={AwsGlobalacceleratorCustomRoutingEndpointGroupOutputSchema}
+      _importSchema={AwsGlobalacceleratorCustomRoutingEndpointGroupImportSchema}
       {...props}
     />
   )
@@ -78,7 +81,7 @@ export const useAwsGlobalacceleratorCustomRoutingEndpointGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsGlobalacceleratorCustomRoutingEndpointGroupOutputProps>(
     AwsGlobalacceleratorCustomRoutingEndpointGroup,
     idFilter,
     baseNode,
@@ -90,7 +93,7 @@ export const useAwsGlobalacceleratorCustomRoutingEndpointGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsGlobalacceleratorCustomRoutingEndpointGroupOutputProps>(
     AwsGlobalacceleratorCustomRoutingEndpointGroup,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSubnetInputSchema = TfMetaSchema.extend({
   vpc_id: resolvableValue(z.string()),
   assign_ipv6_address_on_creation: resolvableValue(z.boolean().optional()),
   availability_zone: resolvableValue(z.string().optional()),
@@ -44,7 +44,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsSubnetOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   ipv6_cidr_block_association_id: z.string().optional(),
@@ -52,25 +52,25 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSubnetImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSubnetInputProps =
+  & z.input<typeof AwsSubnetInputSchema>
+  & z.input<typeof AwsSubnetImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSubnetOutputProps =
+  & z.output<typeof AwsSubnetOutputSchema>
+  & z.output<typeof AwsSubnetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/subnet
 
-export function AwsSubnet(props: Partial<InputProps>) {
+export function AwsSubnet(props: Partial<AwsSubnetInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -80,9 +80,9 @@ export function AwsSubnet(props: Partial<InputProps>) {
       _type='aws_subnet'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSubnetInputSchema}
+      _outputSchema={AwsSubnetOutputSchema}
+      _importSchema={AwsSubnetImportSchema}
       {...props}
     />
   )
@@ -92,10 +92,11 @@ export const useAwsSubnet = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsSubnet, idFilter, baseNode, optional)
+) => useTypedNode<AwsSubnetOutputProps>(AwsSubnet, idFilter, baseNode, optional)
 
 export const useAwsSubnets = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsSubnet, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsSubnetOutputProps>(AwsSubnet, idFilter, baseNode, optional)

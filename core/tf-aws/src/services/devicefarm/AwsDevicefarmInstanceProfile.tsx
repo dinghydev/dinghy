@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDevicefarmInstanceProfileInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   exclude_app_packages_from_cleanup: resolvableValue(
@@ -22,28 +22,30 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDevicefarmInstanceProfileOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsDevicefarmInstanceProfileImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsDevicefarmInstanceProfileInputProps =
+  & z.input<typeof AwsDevicefarmInstanceProfileInputSchema>
+  & z.input<typeof AwsDevicefarmInstanceProfileImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDevicefarmInstanceProfileOutputProps =
+  & z.output<typeof AwsDevicefarmInstanceProfileOutputSchema>
+  & z.output<typeof AwsDevicefarmInstanceProfileInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/devicefarm_instance_profile
 
-export function AwsDevicefarmInstanceProfile(props: Partial<InputProps>) {
+export function AwsDevicefarmInstanceProfile(
+  props: Partial<AwsDevicefarmInstanceProfileInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,9 +55,9 @@ export function AwsDevicefarmInstanceProfile(props: Partial<InputProps>) {
       _type='aws_devicefarm_instance_profile'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsDevicefarmInstanceProfileInputSchema}
+      _outputSchema={AwsDevicefarmInstanceProfileOutputSchema}
+      _importSchema={AwsDevicefarmInstanceProfileImportSchema}
       {...props}
     />
   )
@@ -66,7 +68,7 @@ export const useAwsDevicefarmInstanceProfile = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDevicefarmInstanceProfileOutputProps>(
     AwsDevicefarmInstanceProfile,
     idFilter,
     baseNode,
@@ -78,7 +80,7 @@ export const useAwsDevicefarmInstanceProfiles = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDevicefarmInstanceProfileOutputProps>(
     AwsDevicefarmInstanceProfile,
     idFilter,
     baseNode,

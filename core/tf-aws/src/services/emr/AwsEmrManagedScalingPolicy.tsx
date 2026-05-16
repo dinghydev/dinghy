@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEmrManagedScalingPolicyInputSchema = TfMetaSchema.extend({
   cluster_id: resolvableValue(z.string()),
   compute_limits: resolvableValue(
     z.object({
@@ -26,20 +26,22 @@ export const InputSchema = TfMetaSchema.extend({
   utilization_performance_index: resolvableValue(z.number().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsEmrManagedScalingPolicyOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEmrManagedScalingPolicyInputProps =
+  & z.input<typeof AwsEmrManagedScalingPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEmrManagedScalingPolicyOutputProps =
+  & z.output<typeof AwsEmrManagedScalingPolicyOutputSchema>
+  & z.output<typeof AwsEmrManagedScalingPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/emr_managed_scaling_policy
 
-export function AwsEmrManagedScalingPolicy(props: Partial<InputProps>) {
+export function AwsEmrManagedScalingPolicy(
+  props: Partial<AwsEmrManagedScalingPolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,8 +51,8 @@ export function AwsEmrManagedScalingPolicy(props: Partial<InputProps>) {
       _type='aws_emr_managed_scaling_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEmrManagedScalingPolicyInputSchema}
+      _outputSchema={AwsEmrManagedScalingPolicyOutputSchema}
       {...props}
     />
   )
@@ -61,7 +63,7 @@ export const useAwsEmrManagedScalingPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsEmrManagedScalingPolicyOutputProps>(
     AwsEmrManagedScalingPolicy,
     idFilter,
     baseNode,
@@ -73,7 +75,7 @@ export const useAwsEmrManagedScalingPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEmrManagedScalingPolicyOutputProps>(
     AwsEmrManagedScalingPolicy,
     idFilter,
     baseNode,

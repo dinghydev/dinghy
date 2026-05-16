@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsConnectBotAssociationInputSchema = TfMetaSchema.extend({
   instance_id: resolvableValue(z.string()),
   lex_bot: resolvableValue(z.object({
     lex_region: z.string().optional(),
@@ -18,22 +18,24 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsConnectBotAssociationOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsConnectBotAssociationInputProps =
+  & z.input<typeof AwsConnectBotAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsConnectBotAssociationOutputProps =
+  & z.output<typeof AwsConnectBotAssociationOutputSchema>
+  & z.output<typeof AwsConnectBotAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/connect_bot_association
 
-export function AwsConnectBotAssociation(props: Partial<InputProps>) {
+export function AwsConnectBotAssociation(
+  props: Partial<AwsConnectBotAssociationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function AwsConnectBotAssociation(props: Partial<InputProps>) {
       _type='aws_connect_bot_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsConnectBotAssociationInputSchema}
+      _outputSchema={AwsConnectBotAssociationOutputSchema}
       {...props}
     />
   )
@@ -55,7 +57,7 @@ export const useAwsConnectBotAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsConnectBotAssociationOutputProps>(
     AwsConnectBotAssociation,
     idFilter,
     baseNode,
@@ -67,7 +69,7 @@ export const useAwsConnectBotAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsConnectBotAssociationOutputProps>(
     AwsConnectBotAssociation,
     idFilter,
     baseNode,

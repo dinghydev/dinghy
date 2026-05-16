@@ -9,39 +9,40 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  autoscaling_group_name: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-    }).optional(),
-  ),
-  traffic_source: resolvableValue(
-    z.object({
-      identifier: z.string(),
-      type: z.string(),
-    }).optional(),
-  ),
-})
+export const AwsAutoscalingTrafficSourceAttachmentInputSchema = TfMetaSchema
+  .extend({
+    autoscaling_group_name: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+      }).optional(),
+    ),
+    traffic_source: resolvableValue(
+      z.object({
+        identifier: z.string(),
+        type: z.string(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({})
+export const AwsAutoscalingTrafficSourceAttachmentOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAutoscalingTrafficSourceAttachmentInputProps =
+  & z.input<typeof AwsAutoscalingTrafficSourceAttachmentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAutoscalingTrafficSourceAttachmentOutputProps =
+  & z.output<typeof AwsAutoscalingTrafficSourceAttachmentOutputSchema>
+  & z.output<typeof AwsAutoscalingTrafficSourceAttachmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/autoscaling_traffic_source_attachment
 
 export function AwsAutoscalingTrafficSourceAttachment(
-  props: Partial<InputProps>,
+  props: Partial<AwsAutoscalingTrafficSourceAttachmentInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -52,8 +53,8 @@ export function AwsAutoscalingTrafficSourceAttachment(
       _type='aws_autoscaling_traffic_source_attachment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAutoscalingTrafficSourceAttachmentInputSchema}
+      _outputSchema={AwsAutoscalingTrafficSourceAttachmentOutputSchema}
       {...props}
     />
   )
@@ -64,7 +65,7 @@ export const useAwsAutoscalingTrafficSourceAttachment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAutoscalingTrafficSourceAttachmentOutputProps>(
     AwsAutoscalingTrafficSourceAttachment,
     idFilter,
     baseNode,
@@ -76,7 +77,7 @@ export const useAwsAutoscalingTrafficSourceAttachments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAutoscalingTrafficSourceAttachmentOutputProps>(
     AwsAutoscalingTrafficSourceAttachment,
     idFilter,
     baseNode,

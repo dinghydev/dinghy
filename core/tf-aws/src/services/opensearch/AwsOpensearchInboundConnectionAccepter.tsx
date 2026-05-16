@@ -9,35 +9,36 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  connection_id: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsOpensearchInboundConnectionAccepterInputSchema = TfMetaSchema
+  .extend({
+    connection_id: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsOpensearchInboundConnectionAccepterOutputSchema = z.object({
   connection_status: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsOpensearchInboundConnectionAccepterInputProps =
+  & z.input<typeof AwsOpensearchInboundConnectionAccepterInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsOpensearchInboundConnectionAccepterOutputProps =
+  & z.output<typeof AwsOpensearchInboundConnectionAccepterOutputSchema>
+  & z.output<typeof AwsOpensearchInboundConnectionAccepterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/opensearch_inbound_connection_accepter
 
 export function AwsOpensearchInboundConnectionAccepter(
-  props: Partial<InputProps>,
+  props: Partial<AwsOpensearchInboundConnectionAccepterInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -48,8 +49,8 @@ export function AwsOpensearchInboundConnectionAccepter(
       _type='aws_opensearch_inbound_connection_accepter'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsOpensearchInboundConnectionAccepterInputSchema}
+      _outputSchema={AwsOpensearchInboundConnectionAccepterOutputSchema}
       {...props}
     />
   )
@@ -60,7 +61,7 @@ export const useAwsOpensearchInboundConnectionAccepter = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsOpensearchInboundConnectionAccepterOutputProps>(
     AwsOpensearchInboundConnectionAccepter,
     idFilter,
     baseNode,
@@ -72,7 +73,7 @@ export const useAwsOpensearchInboundConnectionAccepters = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsOpensearchInboundConnectionAccepterOutputProps>(
     AwsOpensearchInboundConnectionAccepter,
     idFilter,
     baseNode,

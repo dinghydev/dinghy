@@ -9,35 +9,36 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  admin_account_id: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsSecurityhubOrganizationAdminAccountInputSchema = TfMetaSchema
+  .extend({
+    admin_account_id: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsSecurityhubOrganizationAdminAccountOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSecurityhubOrganizationAdminAccountImportSchema = z.object({
   admin_account_id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSecurityhubOrganizationAdminAccountInputProps =
+  & z.input<typeof AwsSecurityhubOrganizationAdminAccountInputSchema>
+  & z.input<typeof AwsSecurityhubOrganizationAdminAccountImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSecurityhubOrganizationAdminAccountOutputProps =
+  & z.output<typeof AwsSecurityhubOrganizationAdminAccountOutputSchema>
+  & z.output<typeof AwsSecurityhubOrganizationAdminAccountInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_organization_admin_account
 
 export function AwsSecurityhubOrganizationAdminAccount(
-  props: Partial<InputProps>,
+  props: Partial<AwsSecurityhubOrganizationAdminAccountInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -48,9 +49,9 @@ export function AwsSecurityhubOrganizationAdminAccount(
       _type='aws_securityhub_organization_admin_account'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSecurityhubOrganizationAdminAccountInputSchema}
+      _outputSchema={AwsSecurityhubOrganizationAdminAccountOutputSchema}
+      _importSchema={AwsSecurityhubOrganizationAdminAccountImportSchema}
       {...props}
     />
   )
@@ -61,7 +62,7 @@ export const useAwsSecurityhubOrganizationAdminAccount = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSecurityhubOrganizationAdminAccountOutputProps>(
     AwsSecurityhubOrganizationAdminAccount,
     idFilter,
     baseNode,
@@ -73,7 +74,7 @@ export const useAwsSecurityhubOrganizationAdminAccounts = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSecurityhubOrganizationAdminAccountOutputProps>(
     AwsSecurityhubOrganizationAdminAccount,
     idFilter,
     baseNode,

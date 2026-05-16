@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsOamLinkInputSchema = TfMetaSchema.extend({
   label_template: resolvableValue(z.string()),
   resource_types: resolvableValue(z.string().array()),
   sink_identifier: resolvableValue(z.string()),
@@ -35,7 +35,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsOamLinkOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   label: z.string().optional(),
@@ -43,18 +43,18 @@ export const OutputSchema = z.object({
   sink_arn: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsOamLinkInputProps =
+  & z.input<typeof AwsOamLinkInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsOamLinkOutputProps =
+  & z.output<typeof AwsOamLinkOutputSchema>
+  & z.output<typeof AwsOamLinkInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/oam_link
 
-export function AwsOamLink(props: Partial<InputProps>) {
+export function AwsOamLink(props: Partial<AwsOamLinkInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -64,8 +64,8 @@ export function AwsOamLink(props: Partial<InputProps>) {
       _type='aws_oam_link'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsOamLinkInputSchema}
+      _outputSchema={AwsOamLinkOutputSchema}
       {...props}
     />
   )
@@ -75,10 +75,12 @@ export const useAwsOamLink = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsOamLink, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsOamLinkOutputProps>(AwsOamLink, idFilter, baseNode, optional)
 
 export const useAwsOamLinks = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsOamLink, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsOamLinkOutputProps>(AwsOamLink, idFilter, baseNode, optional)

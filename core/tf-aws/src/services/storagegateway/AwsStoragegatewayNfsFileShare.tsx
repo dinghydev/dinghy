@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsStoragegatewayNfsFileShareInputSchema = TfMetaSchema.extend({
   client_list: resolvableValue(z.string().array()),
   gateway_arn: resolvableValue(z.string()),
   location_arn: resolvableValue(z.string()),
@@ -51,7 +51,7 @@ export const InputSchema = TfMetaSchema.extend({
   vpc_endpoint_dns_name: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsStoragegatewayNfsFileShareOutputSchema = z.object({
   arn: z.string().optional(),
   fileshare_id: z.string().optional(),
   id: z.string().optional(),
@@ -59,18 +59,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsStoragegatewayNfsFileShareInputProps =
+  & z.input<typeof AwsStoragegatewayNfsFileShareInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsStoragegatewayNfsFileShareOutputProps =
+  & z.output<typeof AwsStoragegatewayNfsFileShareOutputSchema>
+  & z.output<typeof AwsStoragegatewayNfsFileShareInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/storagegateway_nfs_file_share
 
-export function AwsStoragegatewayNfsFileShare(props: Partial<InputProps>) {
+export function AwsStoragegatewayNfsFileShare(
+  props: Partial<AwsStoragegatewayNfsFileShareInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -80,8 +82,8 @@ export function AwsStoragegatewayNfsFileShare(props: Partial<InputProps>) {
       _type='aws_storagegateway_nfs_file_share'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsStoragegatewayNfsFileShareInputSchema}
+      _outputSchema={AwsStoragegatewayNfsFileShareOutputSchema}
       {...props}
     />
   )
@@ -92,7 +94,7 @@ export const useAwsStoragegatewayNfsFileShare = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsStoragegatewayNfsFileShareOutputProps>(
     AwsStoragegatewayNfsFileShare,
     idFilter,
     baseNode,
@@ -104,7 +106,7 @@ export const useAwsStoragegatewayNfsFileShares = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsStoragegatewayNfsFileShareOutputProps>(
     AwsStoragegatewayNfsFileShare,
     idFilter,
     baseNode,

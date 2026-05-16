@@ -9,27 +9,29 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsElbServiceAccountInputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsElbServiceAccountOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsElbServiceAccountInputProps =
+  & z.input<typeof DataAwsElbServiceAccountInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsElbServiceAccountOutputProps =
+  & z.output<typeof DataAwsElbServiceAccountOutputSchema>
+  & z.output<typeof DataAwsElbServiceAccountInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/elb_service_account
 
-export function DataAwsElbServiceAccount(props: Partial<InputProps>) {
+export function DataAwsElbServiceAccount(
+  props: Partial<DataAwsElbServiceAccountInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -39,8 +41,8 @@ export function DataAwsElbServiceAccount(props: Partial<InputProps>) {
       _type='aws_elb_service_account'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsElbServiceAccountInputSchema}
+      _outputSchema={DataAwsElbServiceAccountOutputSchema}
       {...props}
     />
   )
@@ -51,7 +53,7 @@ export const useDataAwsElbServiceAccount = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsElbServiceAccountOutputProps>(
     DataAwsElbServiceAccount,
     idFilter,
     baseNode,
@@ -63,7 +65,7 @@ export const useDataAwsElbServiceAccounts = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsElbServiceAccountOutputProps>(
     DataAwsElbServiceAccount,
     idFilter,
     baseNode,

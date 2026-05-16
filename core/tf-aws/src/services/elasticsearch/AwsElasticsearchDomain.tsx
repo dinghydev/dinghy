@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsElasticsearchDomainInputSchema = TfMetaSchema.extend({
   domain_name: resolvableValue(z.string()),
   access_policies: resolvableValue(z.string().optional()),
   advanced_options: resolvableValue(
@@ -129,7 +129,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsElasticsearchDomainOutputSchema = z.object({
   arn: z.string().optional(),
   domain_id: z.string().optional(),
   endpoint: z.string().optional(),
@@ -137,18 +137,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsElasticsearchDomainInputProps =
+  & z.input<typeof AwsElasticsearchDomainInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsElasticsearchDomainOutputProps =
+  & z.output<typeof AwsElasticsearchDomainOutputSchema>
+  & z.output<typeof AwsElasticsearchDomainInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/elasticsearch_domain
 
-export function AwsElasticsearchDomain(props: Partial<InputProps>) {
+export function AwsElasticsearchDomain(
+  props: Partial<AwsElasticsearchDomainInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -158,8 +160,8 @@ export function AwsElasticsearchDomain(props: Partial<InputProps>) {
       _type='aws_elasticsearch_domain'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsElasticsearchDomainInputSchema}
+      _outputSchema={AwsElasticsearchDomainOutputSchema}
       {...props}
     />
   )
@@ -170,7 +172,7 @@ export const useAwsElasticsearchDomain = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsElasticsearchDomainOutputProps>(
     AwsElasticsearchDomain,
     idFilter,
     baseNode,
@@ -182,7 +184,7 @@ export const useAwsElasticsearchDomains = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsElasticsearchDomainOutputProps>(
     AwsElasticsearchDomain,
     idFilter,
     baseNode,

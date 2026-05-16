@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsConfigOrganizationManagedRuleInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   rule_identifier: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
@@ -31,29 +31,31 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsConfigOrganizationManagedRuleOutputSchema = z.object({
   arn: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsConfigOrganizationManagedRuleImportSchema = z.object({
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsConfigOrganizationManagedRuleInputProps =
+  & z.input<typeof AwsConfigOrganizationManagedRuleInputSchema>
+  & z.input<typeof AwsConfigOrganizationManagedRuleImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsConfigOrganizationManagedRuleOutputProps =
+  & z.output<typeof AwsConfigOrganizationManagedRuleOutputSchema>
+  & z.output<typeof AwsConfigOrganizationManagedRuleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/config_organization_managed_rule
 
-export function AwsConfigOrganizationManagedRule(props: Partial<InputProps>) {
+export function AwsConfigOrganizationManagedRule(
+  props: Partial<AwsConfigOrganizationManagedRuleInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -63,9 +65,9 @@ export function AwsConfigOrganizationManagedRule(props: Partial<InputProps>) {
       _type='aws_config_organization_managed_rule'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsConfigOrganizationManagedRuleInputSchema}
+      _outputSchema={AwsConfigOrganizationManagedRuleOutputSchema}
+      _importSchema={AwsConfigOrganizationManagedRuleImportSchema}
       {...props}
     />
   )
@@ -76,7 +78,7 @@ export const useAwsConfigOrganizationManagedRule = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsConfigOrganizationManagedRuleOutputProps>(
     AwsConfigOrganizationManagedRule,
     idFilter,
     baseNode,
@@ -88,7 +90,7 @@ export const useAwsConfigOrganizationManagedRules = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsConfigOrganizationManagedRuleOutputProps>(
     AwsConfigOrganizationManagedRule,
     idFilter,
     baseNode,

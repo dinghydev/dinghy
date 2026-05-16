@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsS3tablesTableReplicationInputSchema = TfMetaSchema.extend({
   role: resolvableValue(z.string()),
   table_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
@@ -22,27 +22,29 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsS3tablesTableReplicationOutputSchema = z.object({
   version_token: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsS3tablesTableReplicationImportSchema = z.object({
   table_arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsS3tablesTableReplicationInputProps =
+  & z.input<typeof AwsS3tablesTableReplicationInputSchema>
+  & z.input<typeof AwsS3tablesTableReplicationImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3tablesTableReplicationOutputProps =
+  & z.output<typeof AwsS3tablesTableReplicationOutputSchema>
+  & z.output<typeof AwsS3tablesTableReplicationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3tables_table_replication
 
-export function AwsS3tablesTableReplication(props: Partial<InputProps>) {
+export function AwsS3tablesTableReplication(
+  props: Partial<AwsS3tablesTableReplicationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,9 +54,9 @@ export function AwsS3tablesTableReplication(props: Partial<InputProps>) {
       _type='aws_s3tables_table_replication'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsS3tablesTableReplicationInputSchema}
+      _outputSchema={AwsS3tablesTableReplicationOutputSchema}
+      _importSchema={AwsS3tablesTableReplicationImportSchema}
       {...props}
     />
   )
@@ -65,7 +67,7 @@ export const useAwsS3tablesTableReplication = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsS3tablesTableReplicationOutputProps>(
     AwsS3tablesTableReplication,
     idFilter,
     baseNode,
@@ -77,7 +79,7 @@ export const useAwsS3tablesTableReplications = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsS3tablesTableReplicationOutputProps>(
     AwsS3tablesTableReplication,
     idFilter,
     baseNode,

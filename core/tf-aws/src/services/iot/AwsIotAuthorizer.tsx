@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIotAuthorizerInputSchema = TfMetaSchema.extend({
   authorizer_function_arn: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   enable_caching_for_http: resolvableValue(z.boolean().optional()),
@@ -24,23 +24,23 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsIotAuthorizerOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsIotAuthorizerInputProps =
+  & z.input<typeof AwsIotAuthorizerInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIotAuthorizerOutputProps =
+  & z.output<typeof AwsIotAuthorizerOutputSchema>
+  & z.output<typeof AwsIotAuthorizerInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iot_authorizer
 
-export function AwsIotAuthorizer(props: Partial<InputProps>) {
+export function AwsIotAuthorizer(props: Partial<AwsIotAuthorizerInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -50,8 +50,8 @@ export function AwsIotAuthorizer(props: Partial<InputProps>) {
       _type='aws_iot_authorizer'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsIotAuthorizerInputSchema}
+      _outputSchema={AwsIotAuthorizerOutputSchema}
       {...props}
     />
   )
@@ -61,10 +61,22 @@ export const useAwsIotAuthorizer = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsIotAuthorizer, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsIotAuthorizerOutputProps>(
+    AwsIotAuthorizer,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIotAuthorizers = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsIotAuthorizer, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsIotAuthorizerOutputProps>(
+    AwsIotAuthorizer,
+    idFilter,
+    baseNode,
+    optional,
+  )

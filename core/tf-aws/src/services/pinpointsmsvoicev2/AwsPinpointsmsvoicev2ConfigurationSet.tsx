@@ -9,33 +9,34 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  name: resolvableValue(z.string()),
-  default_message_type: resolvableValue(z.string().optional()),
-  default_sender_id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+export const AwsPinpointsmsvoicev2ConfigurationSetInputSchema = TfMetaSchema
+  .extend({
+    name: resolvableValue(z.string()),
+    default_message_type: resolvableValue(z.string().optional()),
+    default_sender_id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsPinpointsmsvoicev2ConfigurationSetOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsPinpointsmsvoicev2ConfigurationSetInputProps =
+  & z.input<typeof AwsPinpointsmsvoicev2ConfigurationSetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsPinpointsmsvoicev2ConfigurationSetOutputProps =
+  & z.output<typeof AwsPinpointsmsvoicev2ConfigurationSetOutputSchema>
+  & z.output<typeof AwsPinpointsmsvoicev2ConfigurationSetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/pinpointsmsvoicev2_configuration_set
 
 export function AwsPinpointsmsvoicev2ConfigurationSet(
-  props: Partial<InputProps>,
+  props: Partial<AwsPinpointsmsvoicev2ConfigurationSetInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -46,8 +47,8 @@ export function AwsPinpointsmsvoicev2ConfigurationSet(
       _type='aws_pinpointsmsvoicev2_configuration_set'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsPinpointsmsvoicev2ConfigurationSetInputSchema}
+      _outputSchema={AwsPinpointsmsvoicev2ConfigurationSetOutputSchema}
       {...props}
     />
   )
@@ -58,7 +59,7 @@ export const useAwsPinpointsmsvoicev2ConfigurationSet = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsPinpointsmsvoicev2ConfigurationSetOutputProps>(
     AwsPinpointsmsvoicev2ConfigurationSet,
     idFilter,
     baseNode,
@@ -70,7 +71,7 @@ export const useAwsPinpointsmsvoicev2ConfigurationSets = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsPinpointsmsvoicev2ConfigurationSetOutputProps>(
     AwsPinpointsmsvoicev2ConfigurationSet,
     idFilter,
     baseNode,

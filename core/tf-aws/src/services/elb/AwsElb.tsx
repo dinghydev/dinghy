@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsElbInputSchema = TfMetaSchema.extend({
   listener: resolvableValue(
     z.object({
       instance_port: z.number(),
@@ -58,7 +58,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsElbOutputSchema = z.object({
   arn: z.string().optional(),
   dns_name: z.string().optional(),
   id: z.string().optional(),
@@ -70,25 +70,25 @@ export const OutputSchema = z.object({
   zone_id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsElbImportSchema = z.object({
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsElbInputProps =
+  & z.input<typeof AwsElbInputSchema>
+  & z.input<typeof AwsElbImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsElbOutputProps =
+  & z.output<typeof AwsElbOutputSchema>
+  & z.output<typeof AwsElbInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/elb
 
-export function AwsElb(props: Partial<InputProps>) {
+export function AwsElb(props: Partial<AwsElbInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -98,9 +98,9 @@ export function AwsElb(props: Partial<InputProps>) {
       _type='aws_elb'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsElbInputSchema}
+      _outputSchema={AwsElbOutputSchema}
+      _importSchema={AwsElbImportSchema}
       {...props}
     />
   )
@@ -110,10 +110,10 @@ export const useAwsElb = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsElb, idFilter, baseNode, optional)
+) => useTypedNode<AwsElbOutputProps>(AwsElb, idFilter, baseNode, optional)
 
 export const useAwsElbs = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsElb, idFilter, baseNode, optional)
+) => useTypedNodes<AwsElbOutputProps>(AwsElb, idFilter, baseNode, optional)

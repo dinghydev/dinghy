@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLexv2modelsIntentInputSchema = TfMetaSchema.extend({
   bot_id: resolvableValue(z.string()),
   bot_version: resolvableValue(z.string()),
   locale_id: resolvableValue(z.string()),
@@ -3106,25 +3106,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsLexv2modelsIntentOutputSchema = z.object({
   creation_date_time: z.string().optional(),
   id: z.string().optional(),
   intent_id: z.string().optional(),
   last_updated_date_time: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLexv2modelsIntentInputProps =
+  & z.input<typeof AwsLexv2modelsIntentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLexv2modelsIntentOutputProps =
+  & z.output<typeof AwsLexv2modelsIntentOutputSchema>
+  & z.output<typeof AwsLexv2modelsIntentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lexv2models_intent
 
-export function AwsLexv2modelsIntent(props: Partial<InputProps>) {
+export function AwsLexv2modelsIntent(
+  props: Partial<AwsLexv2modelsIntentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -3134,8 +3136,8 @@ export function AwsLexv2modelsIntent(props: Partial<InputProps>) {
       _type='aws_lexv2models_intent'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLexv2modelsIntentInputSchema}
+      _outputSchema={AwsLexv2modelsIntentOutputSchema}
       {...props}
     />
   )
@@ -3146,11 +3148,21 @@ export const useAwsLexv2modelsIntent = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsLexv2modelsIntent, idFilter, baseNode, optional)
+  useTypedNode<AwsLexv2modelsIntentOutputProps>(
+    AwsLexv2modelsIntent,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLexv2modelsIntents = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsLexv2modelsIntent, idFilter, baseNode, optional)
+  useTypedNodes<AwsLexv2modelsIntentOutputProps>(
+    AwsLexv2modelsIntent,
+    idFilter,
+    baseNode,
+    optional,
+  )

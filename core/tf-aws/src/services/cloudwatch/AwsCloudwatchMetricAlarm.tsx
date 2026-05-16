@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudwatchMetricAlarmInputSchema = TfMetaSchema.extend({
   alarm_name: resolvableValue(z.string()),
   actions_enabled: resolvableValue(z.boolean().optional()),
   alarm_actions: resolvableValue(z.string().array().optional()),
@@ -62,31 +62,33 @@ export const InputSchema = TfMetaSchema.extend({
   unit: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudwatchMetricAlarmOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsCloudwatchMetricAlarmImportSchema = z.object({
   alarm_name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsCloudwatchMetricAlarmInputProps =
+  & z.input<typeof AwsCloudwatchMetricAlarmInputSchema>
+  & z.input<typeof AwsCloudwatchMetricAlarmImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudwatchMetricAlarmOutputProps =
+  & z.output<typeof AwsCloudwatchMetricAlarmOutputSchema>
+  & z.output<typeof AwsCloudwatchMetricAlarmInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudwatch_metric_alarm
 
-export function AwsCloudwatchMetricAlarm(props: Partial<InputProps>) {
+export function AwsCloudwatchMetricAlarm(
+  props: Partial<AwsCloudwatchMetricAlarmInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -96,9 +98,9 @@ export function AwsCloudwatchMetricAlarm(props: Partial<InputProps>) {
       _type='aws_cloudwatch_metric_alarm'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsCloudwatchMetricAlarmInputSchema}
+      _outputSchema={AwsCloudwatchMetricAlarmOutputSchema}
+      _importSchema={AwsCloudwatchMetricAlarmImportSchema}
       {...props}
     />
   )
@@ -109,7 +111,7 @@ export const useAwsCloudwatchMetricAlarm = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudwatchMetricAlarmOutputProps>(
     AwsCloudwatchMetricAlarm,
     idFilter,
     baseNode,
@@ -121,7 +123,7 @@ export const useAwsCloudwatchMetricAlarms = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudwatchMetricAlarmOutputProps>(
     AwsCloudwatchMetricAlarm,
     idFilter,
     baseNode,

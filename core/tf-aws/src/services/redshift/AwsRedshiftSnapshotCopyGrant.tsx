@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRedshiftSnapshotCopyGrantInputSchema = TfMetaSchema.extend({
   snapshot_copy_grant_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   kms_key_id: resolvableValue(z.string().optional()),
@@ -17,23 +17,25 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRedshiftSnapshotCopyGrantOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRedshiftSnapshotCopyGrantInputProps =
+  & z.input<typeof AwsRedshiftSnapshotCopyGrantInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRedshiftSnapshotCopyGrantOutputProps =
+  & z.output<typeof AwsRedshiftSnapshotCopyGrantOutputSchema>
+  & z.output<typeof AwsRedshiftSnapshotCopyGrantInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/redshift_snapshot_copy_grant
 
-export function AwsRedshiftSnapshotCopyGrant(props: Partial<InputProps>) {
+export function AwsRedshiftSnapshotCopyGrant(
+  props: Partial<AwsRedshiftSnapshotCopyGrantInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function AwsRedshiftSnapshotCopyGrant(props: Partial<InputProps>) {
       _type='aws_redshift_snapshot_copy_grant'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRedshiftSnapshotCopyGrantInputSchema}
+      _outputSchema={AwsRedshiftSnapshotCopyGrantOutputSchema}
       {...props}
     />
   )
@@ -55,7 +57,7 @@ export const useAwsRedshiftSnapshotCopyGrant = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRedshiftSnapshotCopyGrantOutputProps>(
     AwsRedshiftSnapshotCopyGrant,
     idFilter,
     baseNode,
@@ -67,7 +69,7 @@ export const useAwsRedshiftSnapshotCopyGrants = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRedshiftSnapshotCopyGrantOutputProps>(
     AwsRedshiftSnapshotCopyGrant,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsTransferUserInputSchema = TfMetaSchema.extend({
   role: resolvableValue(z.string()),
   server_id: resolvableValue(z.string()),
   user_name: resolvableValue(z.string()),
@@ -39,23 +39,23 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsTransferUserOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsTransferUserInputProps =
+  & z.input<typeof AwsTransferUserInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsTransferUserOutputProps =
+  & z.output<typeof AwsTransferUserOutputSchema>
+  & z.output<typeof AwsTransferUserInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/transfer_user
 
-export function AwsTransferUser(props: Partial<InputProps>) {
+export function AwsTransferUser(props: Partial<AwsTransferUserInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -65,8 +65,8 @@ export function AwsTransferUser(props: Partial<InputProps>) {
       _type='aws_transfer_user'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsTransferUserInputSchema}
+      _outputSchema={AwsTransferUserOutputSchema}
       {...props}
     />
   )
@@ -76,10 +76,22 @@ export const useAwsTransferUser = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsTransferUser, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsTransferUserOutputProps>(
+    AwsTransferUser,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsTransferUsers = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsTransferUser, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsTransferUserOutputProps>(
+    AwsTransferUser,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRdsCustomDbEngineVersionInputSchema = TfMetaSchema.extend({
   engine: resolvableValue(z.string()),
   engine_version: resolvableValue(z.string()),
   database_installation_files_s3_bucket_name: resolvableValue(
@@ -35,7 +35,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsRdsCustomDbEngineVersionOutputSchema = z.object({
   arn: z.string().optional(),
   create_time: z.string().optional(),
   db_parameter_group_family: z.string().optional(),
@@ -45,18 +45,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRdsCustomDbEngineVersionInputProps =
+  & z.input<typeof AwsRdsCustomDbEngineVersionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRdsCustomDbEngineVersionOutputProps =
+  & z.output<typeof AwsRdsCustomDbEngineVersionOutputSchema>
+  & z.output<typeof AwsRdsCustomDbEngineVersionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/rds_custom_db_engine_version
 
-export function AwsRdsCustomDbEngineVersion(props: Partial<InputProps>) {
+export function AwsRdsCustomDbEngineVersion(
+  props: Partial<AwsRdsCustomDbEngineVersionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -66,8 +68,8 @@ export function AwsRdsCustomDbEngineVersion(props: Partial<InputProps>) {
       _type='aws_rds_custom_db_engine_version'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRdsCustomDbEngineVersionInputSchema}
+      _outputSchema={AwsRdsCustomDbEngineVersionOutputSchema}
       {...props}
     />
   )
@@ -78,7 +80,7 @@ export const useAwsRdsCustomDbEngineVersion = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRdsCustomDbEngineVersionOutputProps>(
     AwsRdsCustomDbEngineVersion,
     idFilter,
     baseNode,
@@ -90,7 +92,7 @@ export const useAwsRdsCustomDbEngineVersions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRdsCustomDbEngineVersionOutputProps>(
     AwsRdsCustomDbEngineVersion,
     idFilter,
     baseNode,

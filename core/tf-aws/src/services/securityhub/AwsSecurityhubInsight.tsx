@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSecurityhubInsightInputSchema = TfMetaSchema.extend({
   filters: resolvableValue(z.object({
     aws_account_id: z.object({
       comparison: z.string(),
@@ -438,28 +438,30 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSecurityhubInsightOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSecurityhubInsightImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSecurityhubInsightInputProps =
+  & z.input<typeof AwsSecurityhubInsightInputSchema>
+  & z.input<typeof AwsSecurityhubInsightImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSecurityhubInsightOutputProps =
+  & z.output<typeof AwsSecurityhubInsightOutputSchema>
+  & z.output<typeof AwsSecurityhubInsightInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_insight
 
-export function AwsSecurityhubInsight(props: Partial<InputProps>) {
+export function AwsSecurityhubInsight(
+  props: Partial<AwsSecurityhubInsightInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -469,9 +471,9 @@ export function AwsSecurityhubInsight(props: Partial<InputProps>) {
       _type='aws_securityhub_insight'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSecurityhubInsightInputSchema}
+      _outputSchema={AwsSecurityhubInsightOutputSchema}
+      _importSchema={AwsSecurityhubInsightImportSchema}
       {...props}
     />
   )
@@ -482,14 +484,19 @@ export const useAwsSecurityhubInsight = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSecurityhubInsight, idFilter, baseNode, optional)
+  useTypedNode<AwsSecurityhubInsightOutputProps>(
+    AwsSecurityhubInsight,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSecurityhubInsights = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSecurityhubInsightOutputProps>(
     AwsSecurityhubInsight,
     idFilter,
     baseNode,

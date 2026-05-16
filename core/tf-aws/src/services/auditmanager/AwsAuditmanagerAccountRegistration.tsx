@@ -9,30 +9,33 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  delegated_admin_account: resolvableValue(z.string().optional()),
-  deregister_on_destroy: resolvableValue(z.boolean().optional()),
-  kms_key: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsAuditmanagerAccountRegistrationInputSchema = TfMetaSchema
+  .extend({
+    delegated_admin_account: resolvableValue(z.string().optional()),
+    deregister_on_destroy: resolvableValue(z.boolean().optional()),
+    kms_key: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsAuditmanagerAccountRegistrationOutputSchema = z.object({
   id: z.string().optional(),
   status: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAuditmanagerAccountRegistrationInputProps =
+  & z.input<typeof AwsAuditmanagerAccountRegistrationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAuditmanagerAccountRegistrationOutputProps =
+  & z.output<typeof AwsAuditmanagerAccountRegistrationOutputSchema>
+  & z.output<typeof AwsAuditmanagerAccountRegistrationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/auditmanager_account_registration
 
-export function AwsAuditmanagerAccountRegistration(props: Partial<InputProps>) {
+export function AwsAuditmanagerAccountRegistration(
+  props: Partial<AwsAuditmanagerAccountRegistrationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +45,8 @@ export function AwsAuditmanagerAccountRegistration(props: Partial<InputProps>) {
       _type='aws_auditmanager_account_registration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAuditmanagerAccountRegistrationInputSchema}
+      _outputSchema={AwsAuditmanagerAccountRegistrationOutputSchema}
       {...props}
     />
   )
@@ -54,7 +57,7 @@ export const useAwsAuditmanagerAccountRegistration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAuditmanagerAccountRegistrationOutputProps>(
     AwsAuditmanagerAccountRegistration,
     idFilter,
     baseNode,
@@ -66,7 +69,7 @@ export const useAwsAuditmanagerAccountRegistrations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAuditmanagerAccountRegistrationOutputProps>(
     AwsAuditmanagerAccountRegistration,
     idFilter,
     baseNode,

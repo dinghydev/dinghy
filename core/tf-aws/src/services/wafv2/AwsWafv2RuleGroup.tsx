@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsWafv2RuleGroupInputSchema = TfMetaSchema.extend({
   capacity: resolvableValue(z.number()),
   scope: resolvableValue(z.string()),
   visibility_config: resolvableValue(z.object({
@@ -21189,25 +21189,25 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsWafv2RuleGroupOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   lock_token: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsWafv2RuleGroupInputProps =
+  & z.input<typeof AwsWafv2RuleGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWafv2RuleGroupOutputProps =
+  & z.output<typeof AwsWafv2RuleGroupOutputSchema>
+  & z.output<typeof AwsWafv2RuleGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/wafv2_rule_group
 
-export function AwsWafv2RuleGroup(props: Partial<InputProps>) {
+export function AwsWafv2RuleGroup(props: Partial<AwsWafv2RuleGroupInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -21217,8 +21217,8 @@ export function AwsWafv2RuleGroup(props: Partial<InputProps>) {
       _type='aws_wafv2_rule_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsWafv2RuleGroupInputSchema}
+      _outputSchema={AwsWafv2RuleGroupOutputSchema}
       {...props}
     />
   )
@@ -21228,10 +21228,22 @@ export const useAwsWafv2RuleGroup = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsWafv2RuleGroup, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsWafv2RuleGroupOutputProps>(
+    AwsWafv2RuleGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsWafv2RuleGroups = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsWafv2RuleGroup, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsWafv2RuleGroupOutputProps>(
+    AwsWafv2RuleGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

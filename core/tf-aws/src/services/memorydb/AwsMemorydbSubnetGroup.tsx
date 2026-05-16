@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsMemorydbSubnetGroupInputSchema = TfMetaSchema.extend({
   subnet_ids: resolvableValue(z.string().array()),
   description: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
@@ -18,25 +18,27 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsMemorydbSubnetGroupOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   vpc_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsMemorydbSubnetGroupInputProps =
+  & z.input<typeof AwsMemorydbSubnetGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsMemorydbSubnetGroupOutputProps =
+  & z.output<typeof AwsMemorydbSubnetGroupOutputSchema>
+  & z.output<typeof AwsMemorydbSubnetGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/memorydb_subnet_group
 
-export function AwsMemorydbSubnetGroup(props: Partial<InputProps>) {
+export function AwsMemorydbSubnetGroup(
+  props: Partial<AwsMemorydbSubnetGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function AwsMemorydbSubnetGroup(props: Partial<InputProps>) {
       _type='aws_memorydb_subnet_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsMemorydbSubnetGroupInputSchema}
+      _outputSchema={AwsMemorydbSubnetGroupOutputSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useAwsMemorydbSubnetGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsMemorydbSubnetGroupOutputProps>(
     AwsMemorydbSubnetGroup,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useAwsMemorydbSubnetGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsMemorydbSubnetGroupOutputProps>(
     AwsMemorydbSubnetGroup,
     idFilter,
     baseNode,

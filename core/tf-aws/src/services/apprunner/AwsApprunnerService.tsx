@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsApprunnerServiceInputSchema = TfMetaSchema.extend({
   service_name: resolvableValue(z.string()),
   source_configuration: resolvableValue(z.object({
     auto_deployments_enabled: z.boolean().optional(),
@@ -97,7 +97,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsApprunnerServiceOutputSchema = z.object({
   arn: z.string().optional(),
   service_id: z.string().optional(),
   service_url: z.string().optional(),
@@ -105,23 +105,25 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsApprunnerServiceImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsApprunnerServiceInputProps =
+  & z.input<typeof AwsApprunnerServiceInputSchema>
+  & z.input<typeof AwsApprunnerServiceImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApprunnerServiceOutputProps =
+  & z.output<typeof AwsApprunnerServiceOutputSchema>
+  & z.output<typeof AwsApprunnerServiceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/apprunner_service
 
-export function AwsApprunnerService(props: Partial<InputProps>) {
+export function AwsApprunnerService(
+  props: Partial<AwsApprunnerServiceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -131,9 +133,9 @@ export function AwsApprunnerService(props: Partial<InputProps>) {
       _type='aws_apprunner_service'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsApprunnerServiceInputSchema}
+      _outputSchema={AwsApprunnerServiceOutputSchema}
+      _importSchema={AwsApprunnerServiceImportSchema}
       {...props}
     />
   )
@@ -144,11 +146,21 @@ export const useAwsApprunnerService = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsApprunnerService, idFilter, baseNode, optional)
+  useTypedNode<AwsApprunnerServiceOutputProps>(
+    AwsApprunnerService,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsApprunnerServices = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsApprunnerService, idFilter, baseNode, optional)
+  useTypedNodes<AwsApprunnerServiceOutputProps>(
+    AwsApprunnerService,
+    idFilter,
+    baseNode,
+    optional,
+  )

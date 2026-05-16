@@ -9,25 +9,27 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIamUserPoliciesExclusiveInputSchema = TfMetaSchema.extend({
   policy_names: resolvableValue(z.string().array()),
   user_name: resolvableValue(z.string()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsIamUserPoliciesExclusiveOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsIamUserPoliciesExclusiveInputProps =
+  & z.input<typeof AwsIamUserPoliciesExclusiveInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIamUserPoliciesExclusiveOutputProps =
+  & z.output<typeof AwsIamUserPoliciesExclusiveOutputSchema>
+  & z.output<typeof AwsIamUserPoliciesExclusiveInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iam_user_policies_exclusive
 
-export function AwsIamUserPoliciesExclusive(props: Partial<InputProps>) {
+export function AwsIamUserPoliciesExclusive(
+  props: Partial<AwsIamUserPoliciesExclusiveInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -37,8 +39,8 @@ export function AwsIamUserPoliciesExclusive(props: Partial<InputProps>) {
       _type='aws_iam_user_policies_exclusive'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsIamUserPoliciesExclusiveInputSchema}
+      _outputSchema={AwsIamUserPoliciesExclusiveOutputSchema}
       {...props}
     />
   )
@@ -49,7 +51,7 @@ export const useAwsIamUserPoliciesExclusive = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsIamUserPoliciesExclusiveOutputProps>(
     AwsIamUserPoliciesExclusive,
     idFilter,
     baseNode,
@@ -61,7 +63,7 @@ export const useAwsIamUserPoliciesExclusives = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsIamUserPoliciesExclusiveOutputProps>(
     AwsIamUserPoliciesExclusive,
     idFilter,
     baseNode,

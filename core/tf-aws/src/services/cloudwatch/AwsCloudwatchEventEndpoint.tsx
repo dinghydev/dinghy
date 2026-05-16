@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudwatchEventEndpointInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   routing_config: resolvableValue(z.object({
     failover_config: z.object({
@@ -37,23 +37,25 @@ export const InputSchema = TfMetaSchema.extend({
   role_arn: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudwatchEventEndpointOutputSchema = z.object({
   arn: z.string().optional(),
   endpoint_url: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudwatchEventEndpointInputProps =
+  & z.input<typeof AwsCloudwatchEventEndpointInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudwatchEventEndpointOutputProps =
+  & z.output<typeof AwsCloudwatchEventEndpointOutputSchema>
+  & z.output<typeof AwsCloudwatchEventEndpointInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudwatch_event_endpoint
 
-export function AwsCloudwatchEventEndpoint(props: Partial<InputProps>) {
+export function AwsCloudwatchEventEndpoint(
+  props: Partial<AwsCloudwatchEventEndpointInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -63,8 +65,8 @@ export function AwsCloudwatchEventEndpoint(props: Partial<InputProps>) {
       _type='aws_cloudwatch_event_endpoint'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudwatchEventEndpointInputSchema}
+      _outputSchema={AwsCloudwatchEventEndpointOutputSchema}
       {...props}
     />
   )
@@ -75,7 +77,7 @@ export const useAwsCloudwatchEventEndpoint = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudwatchEventEndpointOutputProps>(
     AwsCloudwatchEventEndpoint,
     idFilter,
     baseNode,
@@ -87,7 +89,7 @@ export const useAwsCloudwatchEventEndpoints = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudwatchEventEndpointOutputProps>(
     AwsCloudwatchEventEndpoint,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAppsyncApiCacheInputSchema = TfMetaSchema.extend({
   api_caching_behavior: resolvableValue(z.string()),
   api_id: resolvableValue(z.string()),
   ttl: resolvableValue(z.number()),
@@ -19,22 +19,24 @@ export const InputSchema = TfMetaSchema.extend({
   transit_encryption_enabled: resolvableValue(z.boolean().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAppsyncApiCacheOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAppsyncApiCacheInputProps =
+  & z.input<typeof AwsAppsyncApiCacheInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppsyncApiCacheOutputProps =
+  & z.output<typeof AwsAppsyncApiCacheOutputSchema>
+  & z.output<typeof AwsAppsyncApiCacheInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appsync_api_cache
 
-export function AwsAppsyncApiCache(props: Partial<InputProps>) {
+export function AwsAppsyncApiCache(
+  props: Partial<AwsAppsyncApiCacheInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +46,8 @@ export function AwsAppsyncApiCache(props: Partial<InputProps>) {
       _type='aws_appsync_api_cache'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAppsyncApiCacheInputSchema}
+      _outputSchema={AwsAppsyncApiCacheOutputSchema}
       {...props}
     />
   )
@@ -55,11 +57,22 @@ export const useAwsAppsyncApiCache = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsAppsyncApiCache, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsAppsyncApiCacheOutputProps>(
+    AwsAppsyncApiCache,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAppsyncApiCaches = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsAppsyncApiCache, idFilter, baseNode, optional)
+  useTypedNodes<AwsAppsyncApiCacheOutputProps>(
+    AwsAppsyncApiCache,
+    idFilter,
+    baseNode,
+    optional,
+  )

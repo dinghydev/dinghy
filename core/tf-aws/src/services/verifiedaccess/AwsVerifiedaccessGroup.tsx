@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsVerifiedaccessGroupInputSchema = TfMetaSchema.extend({
   verifiedaccess_instance_id: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
@@ -25,7 +25,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsVerifiedaccessGroupOutputSchema = z.object({
   creation_time: z.string().optional(),
   deletion_time: z.string().optional(),
   last_updated_time: z.string().optional(),
@@ -34,18 +34,20 @@ export const OutputSchema = z.object({
   verifiedaccess_group_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVerifiedaccessGroupInputProps =
+  & z.input<typeof AwsVerifiedaccessGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVerifiedaccessGroupOutputProps =
+  & z.output<typeof AwsVerifiedaccessGroupOutputSchema>
+  & z.output<typeof AwsVerifiedaccessGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/verifiedaccess_group
 
-export function AwsVerifiedaccessGroup(props: Partial<InputProps>) {
+export function AwsVerifiedaccessGroup(
+  props: Partial<AwsVerifiedaccessGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,8 +57,8 @@ export function AwsVerifiedaccessGroup(props: Partial<InputProps>) {
       _type='aws_verifiedaccess_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVerifiedaccessGroupInputSchema}
+      _outputSchema={AwsVerifiedaccessGroupOutputSchema}
       {...props}
     />
   )
@@ -67,7 +69,7 @@ export const useAwsVerifiedaccessGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsVerifiedaccessGroupOutputProps>(
     AwsVerifiedaccessGroup,
     idFilter,
     baseNode,
@@ -79,7 +81,7 @@ export const useAwsVerifiedaccessGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsVerifiedaccessGroupOutputProps>(
     AwsVerifiedaccessGroup,
     idFilter,
     baseNode,

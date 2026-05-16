@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCeAnomalyMonitorInputSchema = TfMetaSchema.extend({
   monitor_type: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   monitor_dimension: resolvableValue(z.string().optional()),
@@ -17,29 +17,31 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCeAnomalyMonitorOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsCeAnomalyMonitorImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsCeAnomalyMonitorInputProps =
+  & z.input<typeof AwsCeAnomalyMonitorInputSchema>
+  & z.input<typeof AwsCeAnomalyMonitorImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCeAnomalyMonitorOutputProps =
+  & z.output<typeof AwsCeAnomalyMonitorOutputSchema>
+  & z.output<typeof AwsCeAnomalyMonitorInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ce_anomaly_monitor
 
-export function AwsCeAnomalyMonitor(props: Partial<InputProps>) {
+export function AwsCeAnomalyMonitor(
+  props: Partial<AwsCeAnomalyMonitorInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,9 +51,9 @@ export function AwsCeAnomalyMonitor(props: Partial<InputProps>) {
       _type='aws_ce_anomaly_monitor'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsCeAnomalyMonitorInputSchema}
+      _outputSchema={AwsCeAnomalyMonitorOutputSchema}
+      _importSchema={AwsCeAnomalyMonitorImportSchema}
       {...props}
     />
   )
@@ -62,11 +64,21 @@ export const useAwsCeAnomalyMonitor = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsCeAnomalyMonitor, idFilter, baseNode, optional)
+  useTypedNode<AwsCeAnomalyMonitorOutputProps>(
+    AwsCeAnomalyMonitor,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCeAnomalyMonitors = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsCeAnomalyMonitor, idFilter, baseNode, optional)
+  useTypedNodes<AwsCeAnomalyMonitorOutputProps>(
+    AwsCeAnomalyMonitor,
+    idFilter,
+    baseNode,
+    optional,
+  )

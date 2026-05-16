@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsDynamodbBackupsInputSchema = TfMetaSchema.extend({
   backup_type: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   table_name: resolvableValue(z.string().optional()),
@@ -16,7 +16,7 @@ export const InputSchema = TfMetaSchema.extend({
   time_range_upper_bound: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsDynamodbBackupsOutputSchema = z.object({
   backup_summaries: z.object({
     backup_arn: z.string(),
     backup_creation_date_time: z.string(),
@@ -31,18 +31,20 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsDynamodbBackupsInputProps =
+  & z.input<typeof DataAwsDynamodbBackupsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsDynamodbBackupsOutputProps =
+  & z.output<typeof DataAwsDynamodbBackupsOutputSchema>
+  & z.output<typeof DataAwsDynamodbBackupsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/dynamodb_backups
 
-export function DataAwsDynamodbBackups(props: Partial<InputProps>) {
+export function DataAwsDynamodbBackups(
+  props: Partial<DataAwsDynamodbBackupsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,8 +54,8 @@ export function DataAwsDynamodbBackups(props: Partial<InputProps>) {
       _type='aws_dynamodb_backups'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsDynamodbBackupsInputSchema}
+      _outputSchema={DataAwsDynamodbBackupsOutputSchema}
       {...props}
     />
   )
@@ -64,7 +66,7 @@ export const useDataAwsDynamodbBackupss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsDynamodbBackupsOutputProps>(
     DataAwsDynamodbBackups,
     idFilter,
     baseNode,

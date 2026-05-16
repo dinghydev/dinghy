@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIamInstanceProfileInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string().optional()),
   name_prefix: resolvableValue(z.string().optional()),
   path: resolvableValue(z.string().optional()),
@@ -17,7 +17,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsIamInstanceProfileOutputSchema = z.object({
   arn: z.string().optional(),
   create_date: z.string().optional(),
   id: z.string().optional(),
@@ -25,24 +25,26 @@ export const OutputSchema = z.object({
   unique_id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsIamInstanceProfileImportSchema = z.object({
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsIamInstanceProfileInputProps =
+  & z.input<typeof AwsIamInstanceProfileInputSchema>
+  & z.input<typeof AwsIamInstanceProfileImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIamInstanceProfileOutputProps =
+  & z.output<typeof AwsIamInstanceProfileOutputSchema>
+  & z.output<typeof AwsIamInstanceProfileInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iam_instance_profile
 
-export function AwsIamInstanceProfile(props: Partial<InputProps>) {
+export function AwsIamInstanceProfile(
+  props: Partial<AwsIamInstanceProfileInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,9 +54,9 @@ export function AwsIamInstanceProfile(props: Partial<InputProps>) {
       _type='aws_iam_instance_profile'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsIamInstanceProfileInputSchema}
+      _outputSchema={AwsIamInstanceProfileOutputSchema}
+      _importSchema={AwsIamInstanceProfileImportSchema}
       {...props}
     />
   )
@@ -65,14 +67,19 @@ export const useAwsIamInstanceProfile = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsIamInstanceProfile, idFilter, baseNode, optional)
+  useTypedNode<AwsIamInstanceProfileOutputProps>(
+    AwsIamInstanceProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIamInstanceProfiles = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsIamInstanceProfileOutputProps>(
     AwsIamInstanceProfile,
     idFilter,
     baseNode,

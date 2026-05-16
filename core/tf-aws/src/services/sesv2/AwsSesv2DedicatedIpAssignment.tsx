@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSesv2DedicatedIpAssignmentInputSchema = TfMetaSchema.extend({
   destination_pool_name: resolvableValue(z.string()),
   ip: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
@@ -21,22 +21,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsSesv2DedicatedIpAssignmentOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSesv2DedicatedIpAssignmentInputProps =
+  & z.input<typeof AwsSesv2DedicatedIpAssignmentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSesv2DedicatedIpAssignmentOutputProps =
+  & z.output<typeof AwsSesv2DedicatedIpAssignmentOutputSchema>
+  & z.output<typeof AwsSesv2DedicatedIpAssignmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sesv2_dedicated_ip_assignment
 
-export function AwsSesv2DedicatedIpAssignment(props: Partial<InputProps>) {
+export function AwsSesv2DedicatedIpAssignment(
+  props: Partial<AwsSesv2DedicatedIpAssignmentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function AwsSesv2DedicatedIpAssignment(props: Partial<InputProps>) {
       _type='aws_sesv2_dedicated_ip_assignment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSesv2DedicatedIpAssignmentInputSchema}
+      _outputSchema={AwsSesv2DedicatedIpAssignmentOutputSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useAwsSesv2DedicatedIpAssignment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSesv2DedicatedIpAssignmentOutputProps>(
     AwsSesv2DedicatedIpAssignment,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useAwsSesv2DedicatedIpAssignments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSesv2DedicatedIpAssignmentOutputProps>(
     AwsSesv2DedicatedIpAssignment,
     idFilter,
     baseNode,

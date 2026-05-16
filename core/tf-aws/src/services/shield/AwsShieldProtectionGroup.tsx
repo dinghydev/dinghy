@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsShieldProtectionGroupInputSchema = TfMetaSchema.extend({
   aggregation: resolvableValue(z.string()),
   pattern: resolvableValue(z.string()),
   protection_group_id: resolvableValue(z.string()),
@@ -19,23 +19,25 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsShieldProtectionGroupOutputSchema = z.object({
   protection_group_arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsShieldProtectionGroupInputProps =
+  & z.input<typeof AwsShieldProtectionGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsShieldProtectionGroupOutputProps =
+  & z.output<typeof AwsShieldProtectionGroupOutputSchema>
+  & z.output<typeof AwsShieldProtectionGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/shield_protection_group
 
-export function AwsShieldProtectionGroup(props: Partial<InputProps>) {
+export function AwsShieldProtectionGroup(
+  props: Partial<AwsShieldProtectionGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,8 +47,8 @@ export function AwsShieldProtectionGroup(props: Partial<InputProps>) {
       _type='aws_shield_protection_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsShieldProtectionGroupInputSchema}
+      _outputSchema={AwsShieldProtectionGroupOutputSchema}
       {...props}
     />
   )
@@ -57,7 +59,7 @@ export const useAwsShieldProtectionGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsShieldProtectionGroupOutputProps>(
     AwsShieldProtectionGroup,
     idFilter,
     baseNode,
@@ -69,7 +71,7 @@ export const useAwsShieldProtectionGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsShieldProtectionGroupOutputProps>(
     AwsShieldProtectionGroup,
     idFilter,
     baseNode,

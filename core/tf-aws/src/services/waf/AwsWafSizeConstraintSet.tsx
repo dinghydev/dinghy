@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsWafSizeConstraintSetInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   size_constraints: resolvableValue(
     z.object({
@@ -24,23 +24,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsWafSizeConstraintSetOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsWafSizeConstraintSetInputProps =
+  & z.input<typeof AwsWafSizeConstraintSetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWafSizeConstraintSetOutputProps =
+  & z.output<typeof AwsWafSizeConstraintSetOutputSchema>
+  & z.output<typeof AwsWafSizeConstraintSetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/waf_size_constraint_set
 
-export function AwsWafSizeConstraintSet(props: Partial<InputProps>) {
+export function AwsWafSizeConstraintSet(
+  props: Partial<AwsWafSizeConstraintSetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -50,8 +52,8 @@ export function AwsWafSizeConstraintSet(props: Partial<InputProps>) {
       _type='aws_waf_size_constraint_set'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsWafSizeConstraintSetInputSchema}
+      _outputSchema={AwsWafSizeConstraintSetOutputSchema}
       {...props}
     />
   )
@@ -62,7 +64,7 @@ export const useAwsWafSizeConstraintSet = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsWafSizeConstraintSetOutputProps>(
     AwsWafSizeConstraintSet,
     idFilter,
     baseNode,
@@ -74,7 +76,7 @@ export const useAwsWafSizeConstraintSets = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsWafSizeConstraintSetOutputProps>(
     AwsWafSizeConstraintSet,
     idFilter,
     baseNode,

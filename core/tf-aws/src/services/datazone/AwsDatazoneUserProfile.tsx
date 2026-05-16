@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDatazoneUserProfileInputSchema = TfMetaSchema.extend({
   domain_identifier: resolvableValue(z.string()),
   user_identifier: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
@@ -23,7 +23,7 @@ export const InputSchema = TfMetaSchema.extend({
   user_type: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDatazoneUserProfileOutputSchema = z.object({
   details: z.object({
     iam: z.object({
       arn: z.string(),
@@ -38,18 +38,20 @@ export const OutputSchema = z.object({
   type: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDatazoneUserProfileInputProps =
+  & z.input<typeof AwsDatazoneUserProfileInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDatazoneUserProfileOutputProps =
+  & z.output<typeof AwsDatazoneUserProfileOutputSchema>
+  & z.output<typeof AwsDatazoneUserProfileInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/datazone_user_profile
 
-export function AwsDatazoneUserProfile(props: Partial<InputProps>) {
+export function AwsDatazoneUserProfile(
+  props: Partial<AwsDatazoneUserProfileInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -59,8 +61,8 @@ export function AwsDatazoneUserProfile(props: Partial<InputProps>) {
       _type='aws_datazone_user_profile'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDatazoneUserProfileInputSchema}
+      _outputSchema={AwsDatazoneUserProfileOutputSchema}
       {...props}
     />
   )
@@ -71,7 +73,7 @@ export const useAwsDatazoneUserProfile = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDatazoneUserProfileOutputProps>(
     AwsDatazoneUserProfile,
     idFilter,
     baseNode,
@@ -83,7 +85,7 @@ export const useAwsDatazoneUserProfiles = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDatazoneUserProfileOutputProps>(
     AwsDatazoneUserProfile,
     idFilter,
     baseNode,

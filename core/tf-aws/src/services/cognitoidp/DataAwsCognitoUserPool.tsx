@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsCognitoUserPool } from './AwsCognitoUserPool.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsCognitoUserPoolInputSchema = TfMetaSchema.extend({
   user_pool_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsCognitoUserPoolOutputSchema = z.object({
   account_recovery_setting: z.object({
     recovery_mechanism: z.object({
       name: z.string(),
@@ -106,18 +106,20 @@ export const OutputSchema = z.object({
   username_attributes: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsCognitoUserPoolInputProps =
+  & z.input<typeof DataAwsCognitoUserPoolInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsCognitoUserPoolOutputProps =
+  & z.output<typeof DataAwsCognitoUserPoolOutputSchema>
+  & z.output<typeof DataAwsCognitoUserPoolInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/cognito_user_pool
 
-export function DataAwsCognitoUserPool(props: Partial<InputProps>) {
+export function DataAwsCognitoUserPool(
+  props: Partial<DataAwsCognitoUserPoolInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -127,8 +129,8 @@ export function DataAwsCognitoUserPool(props: Partial<InputProps>) {
       _type='aws_cognito_user_pool'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsCognitoUserPoolInputSchema}
+      _outputSchema={DataAwsCognitoUserPoolOutputSchema}
       {...props as any}
     />
   )
@@ -139,7 +141,7 @@ export const useDataAwsCognitoUserPool = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsCognitoUserPoolOutputProps>(
     DataAwsCognitoUserPool,
     idFilter,
     baseNode,
@@ -151,7 +153,7 @@ export const useDataAwsCognitoUserPools = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsCognitoUserPoolOutputProps>(
     DataAwsCognitoUserPool,
     idFilter,
     baseNode,

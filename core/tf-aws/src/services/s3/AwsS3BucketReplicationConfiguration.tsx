@@ -9,86 +9,87 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  bucket: resolvableValue(z.string()),
-  role: resolvableValue(z.string()),
-  rule: resolvableValue(
-    z.object({
-      id: z.string().optional(),
-      prefix: z.string().optional(),
-      priority: z.number().optional(),
-      status: z.string(),
-      delete_marker_replication: z.object({
+export const AwsS3BucketReplicationConfigurationInputSchema = TfMetaSchema
+  .extend({
+    bucket: resolvableValue(z.string()),
+    role: resolvableValue(z.string()),
+    rule: resolvableValue(
+      z.object({
+        id: z.string().optional(),
+        prefix: z.string().optional(),
+        priority: z.number().optional(),
         status: z.string(),
-      }).optional(),
-      destination: z.object({
-        account: z.string().optional(),
-        bucket: z.string(),
-        storage_class: z.string().optional(),
-        access_control_translation: z.object({
-          owner: z.string(),
-        }).optional(),
-        encryption_configuration: z.object({
-          replica_kms_key_id: z.string(),
-        }).optional(),
-        metrics: z.object({
+        delete_marker_replication: z.object({
           status: z.string(),
-          event_threshold: z.object({
-            minutes: z.number(),
+        }).optional(),
+        destination: z.object({
+          account: z.string().optional(),
+          bucket: z.string(),
+          storage_class: z.string().optional(),
+          access_control_translation: z.object({
+            owner: z.string(),
+          }).optional(),
+          encryption_configuration: z.object({
+            replica_kms_key_id: z.string(),
+          }).optional(),
+          metrics: z.object({
+            status: z.string(),
+            event_threshold: z.object({
+              minutes: z.number(),
+            }).optional(),
+          }).optional(),
+          replication_time: z.object({
+            status: z.string(),
+            time: z.object({
+              minutes: z.number(),
+            }),
+          }).optional(),
+        }),
+        existing_object_replication: z.object({
+          status: z.string(),
+        }).optional(),
+        filter: z.object({
+          prefix: z.string().optional(),
+          and: z.object({
+            prefix: z.string().optional(),
+            tags: z.record(z.string(), z.string()).optional(),
+          }).optional(),
+          tag: z.object({
+            key: z.string(),
+            value: z.string(),
           }).optional(),
         }).optional(),
-        replication_time: z.object({
-          status: z.string(),
-          time: z.object({
-            minutes: z.number(),
-          }),
+        source_selection_criteria: z.object({
+          replica_modifications: z.object({
+            status: z.string(),
+          }).optional(),
+          sse_kms_encrypted_objects: z.object({
+            status: z.string(),
+          }).optional(),
         }).optional(),
-      }),
-      existing_object_replication: z.object({
-        status: z.string(),
-      }).optional(),
-      filter: z.object({
-        prefix: z.string().optional(),
-        and: z.object({
-          prefix: z.string().optional(),
-          tags: z.record(z.string(), z.string()).optional(),
-        }).optional(),
-        tag: z.object({
-          key: z.string(),
-          value: z.string(),
-        }).optional(),
-      }).optional(),
-      source_selection_criteria: z.object({
-        replica_modifications: z.object({
-          status: z.string(),
-        }).optional(),
-        sse_kms_encrypted_objects: z.object({
-          status: z.string(),
-        }).optional(),
-      }).optional(),
-    }).array(),
-  ),
-  region: resolvableValue(z.string().optional()),
-  token: resolvableValue(z.string().optional()),
-})
+      }).array(),
+    ),
+    region: resolvableValue(z.string().optional()),
+    token: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsS3BucketReplicationConfigurationOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsS3BucketReplicationConfigurationInputProps =
+  & z.input<typeof AwsS3BucketReplicationConfigurationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3BucketReplicationConfigurationOutputProps =
+  & z.output<typeof AwsS3BucketReplicationConfigurationOutputSchema>
+  & z.output<typeof AwsS3BucketReplicationConfigurationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3_bucket_replication_configuration
 
 export function AwsS3BucketReplicationConfiguration(
-  props: Partial<InputProps>,
+  props: Partial<AwsS3BucketReplicationConfigurationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -99,8 +100,8 @@ export function AwsS3BucketReplicationConfiguration(
       _type='aws_s3_bucket_replication_configuration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsS3BucketReplicationConfigurationInputSchema}
+      _outputSchema={AwsS3BucketReplicationConfigurationOutputSchema}
       {...props}
     />
   )
@@ -111,7 +112,7 @@ export const useAwsS3BucketReplicationConfiguration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsS3BucketReplicationConfigurationOutputProps>(
     AwsS3BucketReplicationConfiguration,
     idFilter,
     baseNode,
@@ -123,7 +124,7 @@ export const useAwsS3BucketReplicationConfigurations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsS3BucketReplicationConfigurationOutputProps>(
     AwsS3BucketReplicationConfiguration,
     idFilter,
     baseNode,

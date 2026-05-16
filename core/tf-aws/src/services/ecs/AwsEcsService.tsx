@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEcsServiceInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   alarms: resolvableValue(
     z.object({
@@ -203,31 +203,31 @@ export const InputSchema = TfMetaSchema.extend({
   wait_for_steady_state: resolvableValue(z.boolean().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsEcsServiceOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsEcsServiceImportSchema = z.object({
   cluster: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsEcsServiceInputProps =
+  & z.input<typeof AwsEcsServiceInputSchema>
+  & z.input<typeof AwsEcsServiceImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEcsServiceOutputProps =
+  & z.output<typeof AwsEcsServiceOutputSchema>
+  & z.output<typeof AwsEcsServiceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ecs_service
 
-export function AwsEcsService(props: Partial<InputProps>) {
+export function AwsEcsService(props: Partial<AwsEcsServiceInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -237,9 +237,9 @@ export function AwsEcsService(props: Partial<InputProps>) {
       _type='aws_ecs_service'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsEcsServiceInputSchema}
+      _outputSchema={AwsEcsServiceOutputSchema}
+      _importSchema={AwsEcsServiceImportSchema}
       {...props}
     />
   )
@@ -249,10 +249,22 @@ export const useAwsEcsService = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsEcsService, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsEcsServiceOutputProps>(
+    AwsEcsService,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEcsServices = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsEcsService, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsEcsServiceOutputProps>(
+    AwsEcsService,
+    idFilter,
+    baseNode,
+    optional,
+  )

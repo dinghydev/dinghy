@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRbinRuleInputSchema = TfMetaSchema.extend({
   resource_type: resolvableValue(z.string()),
   retention_period: resolvableValue(z.object({
     retention_period_unit: z.string(),
@@ -48,7 +48,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsRbinRuleOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   lock_end_time: z.string().optional(),
@@ -56,18 +56,18 @@ export const OutputSchema = z.object({
   status: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRbinRuleInputProps =
+  & z.input<typeof AwsRbinRuleInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRbinRuleOutputProps =
+  & z.output<typeof AwsRbinRuleOutputSchema>
+  & z.output<typeof AwsRbinRuleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/rbin_rule
 
-export function AwsRbinRule(props: Partial<InputProps>) {
+export function AwsRbinRule(props: Partial<AwsRbinRuleInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -77,8 +77,8 @@ export function AwsRbinRule(props: Partial<InputProps>) {
       _type='aws_rbin_rule'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRbinRuleInputSchema}
+      _outputSchema={AwsRbinRuleOutputSchema}
       {...props}
     />
   )
@@ -88,10 +88,22 @@ export const useAwsRbinRule = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsRbinRule, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsRbinRuleOutputProps>(
+    AwsRbinRule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRbinRules = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsRbinRule, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsRbinRuleOutputProps>(
+    AwsRbinRule,
+    idFilter,
+    baseNode,
+    optional,
+  )

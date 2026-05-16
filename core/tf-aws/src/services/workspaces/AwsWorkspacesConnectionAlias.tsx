@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsWorkspacesConnectionAliasInputSchema = TfMetaSchema.extend({
   connection_string: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -20,25 +20,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsWorkspacesConnectionAliasOutputSchema = z.object({
   id: z.string().optional(),
   owner_account_id: z.string().optional(),
   state: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsWorkspacesConnectionAliasInputProps =
+  & z.input<typeof AwsWorkspacesConnectionAliasInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWorkspacesConnectionAliasOutputProps =
+  & z.output<typeof AwsWorkspacesConnectionAliasOutputSchema>
+  & z.output<typeof AwsWorkspacesConnectionAliasInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workspaces_connection_alias
 
-export function AwsWorkspacesConnectionAlias(props: Partial<InputProps>) {
+export function AwsWorkspacesConnectionAlias(
+  props: Partial<AwsWorkspacesConnectionAliasInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +50,8 @@ export function AwsWorkspacesConnectionAlias(props: Partial<InputProps>) {
       _type='aws_workspaces_connection_alias'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsWorkspacesConnectionAliasInputSchema}
+      _outputSchema={AwsWorkspacesConnectionAliasOutputSchema}
       {...props}
     />
   )
@@ -60,7 +62,7 @@ export const useAwsWorkspacesConnectionAliass = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsWorkspacesConnectionAliasOutputProps>(
     AwsWorkspacesConnectionAlias,
     idFilter,
     baseNode,

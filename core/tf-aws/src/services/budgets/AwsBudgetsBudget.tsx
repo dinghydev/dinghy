@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsBudgetsBudgetInputSchema = TfMetaSchema.extend({
   budget_type: resolvableValue(z.string()),
   time_unit: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
@@ -295,24 +295,24 @@ export const InputSchema = TfMetaSchema.extend({
   time_period_start: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsBudgetsBudgetOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsBudgetsBudgetInputProps =
+  & z.input<typeof AwsBudgetsBudgetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBudgetsBudgetOutputProps =
+  & z.output<typeof AwsBudgetsBudgetOutputSchema>
+  & z.output<typeof AwsBudgetsBudgetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/budgets_budget
 
-export function AwsBudgetsBudget(props: Partial<InputProps>) {
+export function AwsBudgetsBudget(props: Partial<AwsBudgetsBudgetInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -322,8 +322,8 @@ export function AwsBudgetsBudget(props: Partial<InputProps>) {
       _type='aws_budgets_budget'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsBudgetsBudgetInputSchema}
+      _outputSchema={AwsBudgetsBudgetOutputSchema}
       {...props}
     />
   )
@@ -333,10 +333,22 @@ export const useAwsBudgetsBudget = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsBudgetsBudget, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsBudgetsBudgetOutputProps>(
+    AwsBudgetsBudget,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsBudgetsBudgets = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsBudgetsBudget, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsBudgetsBudgetOutputProps>(
+    AwsBudgetsBudget,
+    idFilter,
+    baseNode,
+    optional,
+  )

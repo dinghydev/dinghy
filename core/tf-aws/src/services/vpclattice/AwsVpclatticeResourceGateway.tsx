@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsVpclatticeResourceGatewayInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   subnet_ids: resolvableValue(z.string().array()),
   vpc_id: resolvableValue(z.string()),
@@ -27,25 +27,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsVpclatticeResourceGatewayOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   status: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVpclatticeResourceGatewayInputProps =
+  & z.input<typeof AwsVpclatticeResourceGatewayInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVpclatticeResourceGatewayOutputProps =
+  & z.output<typeof AwsVpclatticeResourceGatewayOutputSchema>
+  & z.output<typeof AwsVpclatticeResourceGatewayInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpclattice_resource_gateway
 
-export function AwsVpclatticeResourceGateway(props: Partial<InputProps>) {
+export function AwsVpclatticeResourceGateway(
+  props: Partial<AwsVpclatticeResourceGatewayInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,8 +57,8 @@ export function AwsVpclatticeResourceGateway(props: Partial<InputProps>) {
       _type='aws_vpclattice_resource_gateway'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVpclatticeResourceGatewayInputSchema}
+      _outputSchema={AwsVpclatticeResourceGatewayOutputSchema}
       {...props}
     />
   )
@@ -67,7 +69,7 @@ export const useAwsVpclatticeResourceGateway = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsVpclatticeResourceGatewayOutputProps>(
     AwsVpclatticeResourceGateway,
     idFilter,
     baseNode,
@@ -79,7 +81,7 @@ export const useAwsVpclatticeResourceGateways = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsVpclatticeResourceGatewayOutputProps>(
     AwsVpclatticeResourceGateway,
     idFilter,
     baseNode,

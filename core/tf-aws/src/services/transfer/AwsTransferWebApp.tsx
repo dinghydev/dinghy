@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsTransferWebAppInputSchema = TfMetaSchema.extend({
   access_endpoint: resolvableValue(z.string().optional()),
   endpoint_details: resolvableValue(
     z.object({
@@ -40,7 +40,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsTransferWebAppOutputSchema = z.object({
   arn: z.string().optional(),
   endpoint_details: z.object({
     vpc: z.object({
@@ -54,18 +54,18 @@ export const OutputSchema = z.object({
   web_app_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsTransferWebAppInputProps =
+  & z.input<typeof AwsTransferWebAppInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsTransferWebAppOutputProps =
+  & z.output<typeof AwsTransferWebAppOutputSchema>
+  & z.output<typeof AwsTransferWebAppInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/transfer_web_app
 
-export function AwsTransferWebApp(props: Partial<InputProps>) {
+export function AwsTransferWebApp(props: Partial<AwsTransferWebAppInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -75,8 +75,8 @@ export function AwsTransferWebApp(props: Partial<InputProps>) {
       _type='aws_transfer_web_app'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsTransferWebAppInputSchema}
+      _outputSchema={AwsTransferWebAppOutputSchema}
       {...props}
     />
   )
@@ -86,10 +86,22 @@ export const useAwsTransferWebApp = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsTransferWebApp, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsTransferWebAppOutputProps>(
+    AwsTransferWebApp,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsTransferWebApps = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsTransferWebApp, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsTransferWebAppOutputProps>(
+    AwsTransferWebApp,
+    idFilter,
+    baseNode,
+    optional,
+  )

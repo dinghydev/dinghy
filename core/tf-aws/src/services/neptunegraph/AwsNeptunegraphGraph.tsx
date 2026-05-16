@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsNeptunegraphGraphInputSchema = TfMetaSchema.extend({
   provisioned_memory: resolvableValue(z.number()),
   deletion_protection: resolvableValue(z.boolean().optional()),
   graph_name: resolvableValue(z.string().optional()),
@@ -33,25 +33,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsNeptunegraphGraphOutputSchema = z.object({
   arn: z.string().optional(),
   endpoint: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsNeptunegraphGraphInputProps =
+  & z.input<typeof AwsNeptunegraphGraphInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNeptunegraphGraphOutputProps =
+  & z.output<typeof AwsNeptunegraphGraphOutputSchema>
+  & z.output<typeof AwsNeptunegraphGraphInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/neptunegraph_graph
 
-export function AwsNeptunegraphGraph(props: Partial<InputProps>) {
+export function AwsNeptunegraphGraph(
+  props: Partial<AwsNeptunegraphGraphInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -61,8 +63,8 @@ export function AwsNeptunegraphGraph(props: Partial<InputProps>) {
       _type='aws_neptunegraph_graph'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsNeptunegraphGraphInputSchema}
+      _outputSchema={AwsNeptunegraphGraphOutputSchema}
       {...props}
     />
   )
@@ -73,11 +75,21 @@ export const useAwsNeptunegraphGraph = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsNeptunegraphGraph, idFilter, baseNode, optional)
+  useTypedNode<AwsNeptunegraphGraphOutputProps>(
+    AwsNeptunegraphGraph,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsNeptunegraphGraphs = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsNeptunegraphGraph, idFilter, baseNode, optional)
+  useTypedNodes<AwsNeptunegraphGraphOutputProps>(
+    AwsNeptunegraphGraph,
+    idFilter,
+    baseNode,
+    optional,
+  )

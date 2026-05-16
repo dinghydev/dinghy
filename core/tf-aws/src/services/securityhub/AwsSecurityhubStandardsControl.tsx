@@ -9,14 +9,14 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSecurityhubStandardsControlInputSchema = TfMetaSchema.extend({
   control_status: resolvableValue(z.string()),
   standards_control_arn: resolvableValue(z.string()),
   disabled_reason: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSecurityhubStandardsControlOutputSchema = z.object({
   control_id: z.string().optional(),
   control_status_updated_at: z.string().optional(),
   description: z.string().optional(),
@@ -27,23 +27,25 @@ export const OutputSchema = z.object({
   title: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSecurityhubStandardsControlImportSchema = z.object({
   standards_control_arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSecurityhubStandardsControlInputProps =
+  & z.input<typeof AwsSecurityhubStandardsControlInputSchema>
+  & z.input<typeof AwsSecurityhubStandardsControlImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSecurityhubStandardsControlOutputProps =
+  & z.output<typeof AwsSecurityhubStandardsControlOutputSchema>
+  & z.output<typeof AwsSecurityhubStandardsControlInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_standards_control
 
-export function AwsSecurityhubStandardsControl(props: Partial<InputProps>) {
+export function AwsSecurityhubStandardsControl(
+  props: Partial<AwsSecurityhubStandardsControlInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,9 +55,9 @@ export function AwsSecurityhubStandardsControl(props: Partial<InputProps>) {
       _type='aws_securityhub_standards_control'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSecurityhubStandardsControlInputSchema}
+      _outputSchema={AwsSecurityhubStandardsControlOutputSchema}
+      _importSchema={AwsSecurityhubStandardsControlImportSchema}
       {...props}
     />
   )
@@ -66,7 +68,7 @@ export const useAwsSecurityhubStandardsControl = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSecurityhubStandardsControlOutputProps>(
     AwsSecurityhubStandardsControl,
     idFilter,
     baseNode,
@@ -78,7 +80,7 @@ export const useAwsSecurityhubStandardsControls = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSecurityhubStandardsControlOutputProps>(
     AwsSecurityhubStandardsControl,
     idFilter,
     baseNode,

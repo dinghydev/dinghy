@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDmsS3EndpointInputSchema = TfMetaSchema.extend({
   bucket_name: resolvableValue(z.string()),
   endpoint_id: resolvableValue(z.string()),
   endpoint_type: resolvableValue(z.string()),
@@ -72,7 +72,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDmsS3EndpointOutputSchema = z.object({
   endpoint_arn: z.string().optional(),
   engine_display_name: z.string().optional(),
   external_id: z.string().optional(),
@@ -80,18 +80,18 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDmsS3EndpointInputProps =
+  & z.input<typeof AwsDmsS3EndpointInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDmsS3EndpointOutputProps =
+  & z.output<typeof AwsDmsS3EndpointOutputSchema>
+  & z.output<typeof AwsDmsS3EndpointInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dms_s3_endpoint
 
-export function AwsDmsS3Endpoint(props: Partial<InputProps>) {
+export function AwsDmsS3Endpoint(props: Partial<AwsDmsS3EndpointInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -101,8 +101,8 @@ export function AwsDmsS3Endpoint(props: Partial<InputProps>) {
       _type='aws_dms_s3_endpoint'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDmsS3EndpointInputSchema}
+      _outputSchema={AwsDmsS3EndpointOutputSchema}
       {...props}
     />
   )
@@ -112,10 +112,22 @@ export const useAwsDmsS3Endpoint = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsDmsS3Endpoint, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsDmsS3EndpointOutputProps>(
+    AwsDmsS3Endpoint,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDmsS3Endpoints = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsDmsS3Endpoint, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsDmsS3EndpointOutputProps>(
+    AwsDmsS3Endpoint,
+    idFilter,
+    baseNode,
+    optional,
+  )

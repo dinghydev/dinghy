@@ -9,29 +9,29 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEc2TagInputSchema = TfMetaSchema.extend({
   __key: resolvableValue(z.string()),
   resource_id: resolvableValue(z.string()),
   value: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsEc2TagOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEc2TagInputProps =
+  & z.input<typeof AwsEc2TagInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEc2TagOutputProps =
+  & z.output<typeof AwsEc2TagOutputSchema>
+  & z.output<typeof AwsEc2TagInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ec2_tag
 
-export function AwsEc2Tag(props: Partial<InputProps>) {
+export function AwsEc2Tag(props: Partial<AwsEc2TagInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -41,8 +41,8 @@ export function AwsEc2Tag(props: Partial<InputProps>) {
       _type='aws_ec2_tag'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEc2TagInputSchema}
+      _outputSchema={AwsEc2TagOutputSchema}
       {...props}
     />
   )
@@ -52,10 +52,11 @@ export const useAwsEc2Tag = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsEc2Tag, idFilter, baseNode, optional)
+) => useTypedNode<AwsEc2TagOutputProps>(AwsEc2Tag, idFilter, baseNode, optional)
 
 export const useAwsEc2Tags = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsEc2Tag, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsEc2TagOutputProps>(AwsEc2Tag, idFilter, baseNode, optional)

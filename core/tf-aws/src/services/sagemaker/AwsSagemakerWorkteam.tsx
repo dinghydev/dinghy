@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSagemakerWorkteamInputSchema = TfMetaSchema.extend({
   description: resolvableValue(z.string()),
   member_definition: resolvableValue(
     z.object({
@@ -44,25 +44,27 @@ export const InputSchema = TfMetaSchema.extend({
   workforce_name: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSagemakerWorkteamOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   subdomain: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSagemakerWorkteamInputProps =
+  & z.input<typeof AwsSagemakerWorkteamInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSagemakerWorkteamOutputProps =
+  & z.output<typeof AwsSagemakerWorkteamOutputSchema>
+  & z.output<typeof AwsSagemakerWorkteamInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sagemaker_workteam
 
-export function AwsSagemakerWorkteam(props: Partial<InputProps>) {
+export function AwsSagemakerWorkteam(
+  props: Partial<AwsSagemakerWorkteamInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -72,8 +74,8 @@ export function AwsSagemakerWorkteam(props: Partial<InputProps>) {
       _type='aws_sagemaker_workteam'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSagemakerWorkteamInputSchema}
+      _outputSchema={AwsSagemakerWorkteamOutputSchema}
       {...props}
     />
   )
@@ -84,11 +86,21 @@ export const useAwsSagemakerWorkteam = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSagemakerWorkteam, idFilter, baseNode, optional)
+  useTypedNode<AwsSagemakerWorkteamOutputProps>(
+    AwsSagemakerWorkteam,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSagemakerWorkteams = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSagemakerWorkteam, idFilter, baseNode, optional)
+  useTypedNodes<AwsSagemakerWorkteamOutputProps>(
+    AwsSagemakerWorkteam,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsGrafanaWorkspaceInputSchema = TfMetaSchema.extend({
   account_access_type: resolvableValue(z.string()),
   authentication_providers: resolvableValue(z.string().array()),
   permission_type: resolvableValue(z.string()),
@@ -47,7 +47,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsGrafanaWorkspaceOutputSchema = z.object({
   arn: z.string().optional(),
   endpoint: z.string().optional(),
   grafana_version: z.string().optional(),
@@ -55,18 +55,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsGrafanaWorkspaceInputProps =
+  & z.input<typeof AwsGrafanaWorkspaceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsGrafanaWorkspaceOutputProps =
+  & z.output<typeof AwsGrafanaWorkspaceOutputSchema>
+  & z.output<typeof AwsGrafanaWorkspaceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/grafana_workspace
 
-export function AwsGrafanaWorkspace(props: Partial<InputProps>) {
+export function AwsGrafanaWorkspace(
+  props: Partial<AwsGrafanaWorkspaceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -76,8 +78,8 @@ export function AwsGrafanaWorkspace(props: Partial<InputProps>) {
       _type='aws_grafana_workspace'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsGrafanaWorkspaceInputSchema}
+      _outputSchema={AwsGrafanaWorkspaceOutputSchema}
       {...props}
     />
   )
@@ -88,11 +90,21 @@ export const useAwsGrafanaWorkspace = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsGrafanaWorkspace, idFilter, baseNode, optional)
+  useTypedNode<AwsGrafanaWorkspaceOutputProps>(
+    AwsGrafanaWorkspace,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsGrafanaWorkspaces = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsGrafanaWorkspace, idFilter, baseNode, optional)
+  useTypedNodes<AwsGrafanaWorkspaceOutputProps>(
+    AwsGrafanaWorkspace,
+    idFilter,
+    baseNode,
+    optional,
+  )

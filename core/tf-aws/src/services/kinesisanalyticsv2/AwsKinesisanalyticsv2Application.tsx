@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsKinesisanalyticsv2ApplicationInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   runtime_environment: resolvableValue(z.string()),
   service_execution_role: resolvableValue(z.string()),
@@ -184,7 +184,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsKinesisanalyticsv2ApplicationOutputSchema = z.object({
   arn: z.string().optional(),
   create_timestamp: z.string().optional(),
   id: z.string().optional(),
@@ -194,18 +194,20 @@ export const OutputSchema = z.object({
   version_id: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsKinesisanalyticsv2ApplicationInputProps =
+  & z.input<typeof AwsKinesisanalyticsv2ApplicationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsKinesisanalyticsv2ApplicationOutputProps =
+  & z.output<typeof AwsKinesisanalyticsv2ApplicationOutputSchema>
+  & z.output<typeof AwsKinesisanalyticsv2ApplicationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/kinesisanalyticsv2_application
 
-export function AwsKinesisanalyticsv2Application(props: Partial<InputProps>) {
+export function AwsKinesisanalyticsv2Application(
+  props: Partial<AwsKinesisanalyticsv2ApplicationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -215,8 +217,8 @@ export function AwsKinesisanalyticsv2Application(props: Partial<InputProps>) {
       _type='aws_kinesisanalyticsv2_application'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsKinesisanalyticsv2ApplicationInputSchema}
+      _outputSchema={AwsKinesisanalyticsv2ApplicationOutputSchema}
       {...props}
     />
   )
@@ -227,7 +229,7 @@ export const useAwsKinesisanalyticsv2Application = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsKinesisanalyticsv2ApplicationOutputProps>(
     AwsKinesisanalyticsv2Application,
     idFilter,
     baseNode,
@@ -239,7 +241,7 @@ export const useAwsKinesisanalyticsv2Applications = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsKinesisanalyticsv2ApplicationOutputProps>(
     AwsKinesisanalyticsv2Application,
     idFilter,
     baseNode,

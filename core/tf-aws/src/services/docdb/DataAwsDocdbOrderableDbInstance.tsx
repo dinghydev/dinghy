@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsDocdbOrderableDbInstanceInputSchema = TfMetaSchema.extend({
   engine: resolvableValue(z.string().optional()),
   engine_version: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
@@ -20,22 +20,24 @@ export const InputSchema = TfMetaSchema.extend({
   vpc: resolvableValue(z.boolean().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsDocdbOrderableDbInstanceOutputSchema = z.object({
   availability_zones: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsDocdbOrderableDbInstanceInputProps =
+  & z.input<typeof DataAwsDocdbOrderableDbInstanceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsDocdbOrderableDbInstanceOutputProps =
+  & z.output<typeof DataAwsDocdbOrderableDbInstanceOutputSchema>
+  & z.output<typeof DataAwsDocdbOrderableDbInstanceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/docdb_orderable_db_instance
 
-export function DataAwsDocdbOrderableDbInstance(props: Partial<InputProps>) {
+export function DataAwsDocdbOrderableDbInstance(
+  props: Partial<DataAwsDocdbOrderableDbInstanceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,8 +47,8 @@ export function DataAwsDocdbOrderableDbInstance(props: Partial<InputProps>) {
       _type='aws_docdb_orderable_db_instance'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsDocdbOrderableDbInstanceInputSchema}
+      _outputSchema={DataAwsDocdbOrderableDbInstanceOutputSchema}
       {...props}
     />
   )
@@ -57,7 +59,7 @@ export const useDataAwsDocdbOrderableDbInstance = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsDocdbOrderableDbInstanceOutputProps>(
     DataAwsDocdbOrderableDbInstance,
     idFilter,
     baseNode,
@@ -69,7 +71,7 @@ export const useDataAwsDocdbOrderableDbInstances = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsDocdbOrderableDbInstanceOutputProps>(
     DataAwsDocdbOrderableDbInstance,
     idFilter,
     baseNode,

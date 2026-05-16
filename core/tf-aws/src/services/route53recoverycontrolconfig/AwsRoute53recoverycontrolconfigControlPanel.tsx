@@ -9,34 +9,37 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  cluster_arn: resolvableValue(z.string()),
-  name: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+export const AwsRoute53recoverycontrolconfigControlPanelInputSchema =
+  TfMetaSchema.extend({
+    cluster_arn: resolvableValue(z.string()),
+    name: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  })
 
-export const OutputSchema = z.object({
-  arn: z.string().optional(),
-  default_control_panel: z.boolean().optional(),
-  routing_control_count: z.number().optional(),
-  status: z.string().optional(),
-  tags_all: z.record(z.string(), z.string()).optional(),
-})
+export const AwsRoute53recoverycontrolconfigControlPanelOutputSchema = z.object(
+  {
+    arn: z.string().optional(),
+    default_control_panel: z.boolean().optional(),
+    routing_control_count: z.number().optional(),
+    status: z.string().optional(),
+    tags_all: z.record(z.string(), z.string()).optional(),
+  },
+)
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRoute53recoverycontrolconfigControlPanelInputProps =
+  & z.input<typeof AwsRoute53recoverycontrolconfigControlPanelInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRoute53recoverycontrolconfigControlPanelOutputProps =
+  & z.output<typeof AwsRoute53recoverycontrolconfigControlPanelOutputSchema>
+  & z.output<typeof AwsRoute53recoverycontrolconfigControlPanelInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/route53recoverycontrolconfig_control_panel
 
 export function AwsRoute53recoverycontrolconfigControlPanel(
-  props: Partial<InputProps>,
+  props: Partial<AwsRoute53recoverycontrolconfigControlPanelInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -47,8 +50,8 @@ export function AwsRoute53recoverycontrolconfigControlPanel(
       _type='aws_route53recoverycontrolconfig_control_panel'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRoute53recoverycontrolconfigControlPanelInputSchema}
+      _outputSchema={AwsRoute53recoverycontrolconfigControlPanelOutputSchema}
       {...props}
     />
   )
@@ -59,7 +62,7 @@ export const useAwsRoute53recoverycontrolconfigControlPanel = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRoute53recoverycontrolconfigControlPanelOutputProps>(
     AwsRoute53recoverycontrolconfigControlPanel,
     idFilter,
     baseNode,
@@ -71,7 +74,7 @@ export const useAwsRoute53recoverycontrolconfigControlPanels = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRoute53recoverycontrolconfigControlPanelOutputProps>(
     AwsRoute53recoverycontrolconfigControlPanel,
     idFilter,
     baseNode,

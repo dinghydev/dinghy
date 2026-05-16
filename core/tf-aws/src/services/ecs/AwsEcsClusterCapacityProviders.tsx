@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEcsClusterCapacityProvidersInputSchema = TfMetaSchema.extend({
   cluster_name: resolvableValue(z.string()),
   capacity_providers: resolvableValue(z.string().array().optional()),
   default_capacity_provider_strategy: resolvableValue(
@@ -21,22 +21,24 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsEcsClusterCapacityProvidersOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEcsClusterCapacityProvidersInputProps =
+  & z.input<typeof AwsEcsClusterCapacityProvidersInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEcsClusterCapacityProvidersOutputProps =
+  & z.output<typeof AwsEcsClusterCapacityProvidersOutputSchema>
+  & z.output<typeof AwsEcsClusterCapacityProvidersInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ecs_cluster_capacity_providers
 
-export function AwsEcsClusterCapacityProviders(props: Partial<InputProps>) {
+export function AwsEcsClusterCapacityProviders(
+  props: Partial<AwsEcsClusterCapacityProvidersInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function AwsEcsClusterCapacityProviders(props: Partial<InputProps>) {
       _type='aws_ecs_cluster_capacity_providers'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEcsClusterCapacityProvidersInputSchema}
+      _outputSchema={AwsEcsClusterCapacityProvidersOutputSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useAwsEcsClusterCapacityProviderss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEcsClusterCapacityProvidersOutputProps>(
     AwsEcsClusterCapacityProviders,
     idFilter,
     baseNode,

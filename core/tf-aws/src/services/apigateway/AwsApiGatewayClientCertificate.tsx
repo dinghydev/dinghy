@@ -9,13 +9,13 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsApiGatewayClientCertificateInputSchema = TfMetaSchema.extend({
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsApiGatewayClientCertificateOutputSchema = z.object({
   arn: z.string().optional(),
   created_date: z.string().optional(),
   expiration_date: z.string().optional(),
@@ -24,18 +24,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsApiGatewayClientCertificateInputProps =
+  & z.input<typeof AwsApiGatewayClientCertificateInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApiGatewayClientCertificateOutputProps =
+  & z.output<typeof AwsApiGatewayClientCertificateOutputSchema>
+  & z.output<typeof AwsApiGatewayClientCertificateInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/api_gateway_client_certificate
 
-export function AwsApiGatewayClientCertificate(props: Partial<InputProps>) {
+export function AwsApiGatewayClientCertificate(
+  props: Partial<AwsApiGatewayClientCertificateInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,8 +47,8 @@ export function AwsApiGatewayClientCertificate(props: Partial<InputProps>) {
       _type='aws_api_gateway_client_certificate'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsApiGatewayClientCertificateInputSchema}
+      _outputSchema={AwsApiGatewayClientCertificateOutputSchema}
       {...props}
     />
   )
@@ -57,7 +59,7 @@ export const useAwsApiGatewayClientCertificate = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsApiGatewayClientCertificateOutputProps>(
     AwsApiGatewayClientCertificate,
     idFilter,
     baseNode,
@@ -69,7 +71,7 @@ export const useAwsApiGatewayClientCertificates = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsApiGatewayClientCertificateOutputProps>(
     AwsApiGatewayClientCertificate,
     idFilter,
     baseNode,

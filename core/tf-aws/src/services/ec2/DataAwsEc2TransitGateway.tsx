@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsEc2TransitGateway } from './AwsEc2TransitGateway.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsEc2TransitGatewayInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -25,7 +25,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsEc2TransitGatewayOutputSchema = z.object({
   amazon_side_asn: z.number().optional(),
   arn: z.string().optional(),
   association_default_route_table_id: z.string().optional(),
@@ -45,18 +45,20 @@ export const OutputSchema = z.object({
   vpn_ecmp_support: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEc2TransitGatewayInputProps =
+  & z.input<typeof DataAwsEc2TransitGatewayInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEc2TransitGatewayOutputProps =
+  & z.output<typeof DataAwsEc2TransitGatewayOutputSchema>
+  & z.output<typeof DataAwsEc2TransitGatewayInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ec2_transit_gateway
 
-export function DataAwsEc2TransitGateway(props: Partial<InputProps>) {
+export function DataAwsEc2TransitGateway(
+  props: Partial<DataAwsEc2TransitGatewayInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -66,8 +68,8 @@ export function DataAwsEc2TransitGateway(props: Partial<InputProps>) {
       _type='aws_ec2_transit_gateway'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEc2TransitGatewayInputSchema}
+      _outputSchema={DataAwsEc2TransitGatewayOutputSchema}
       {...props as any}
     />
   )
@@ -78,7 +80,7 @@ export const useDataAwsEc2TransitGateway = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsEc2TransitGatewayOutputProps>(
     DataAwsEc2TransitGateway,
     idFilter,
     baseNode,
@@ -90,7 +92,7 @@ export const useDataAwsEc2TransitGateways = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsEc2TransitGatewayOutputProps>(
     DataAwsEc2TransitGateway,
     idFilter,
     baseNode,

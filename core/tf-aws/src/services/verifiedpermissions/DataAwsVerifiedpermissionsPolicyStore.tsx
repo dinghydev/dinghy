@@ -9,12 +9,13 @@ import {
 import z from 'zod'
 import { AwsVerifiedpermissionsPolicyStore } from './AwsVerifiedpermissionsPolicyStore.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  id: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsVerifiedpermissionsPolicyStoreInputSchema = TfMetaSchema
+  .extend({
+    id: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsVerifiedpermissionsPolicyStoreOutputSchema = z.object({
   arn: z.string().optional(),
   created_date: z.string().optional(),
   deletion_protection: z.string().optional(),
@@ -26,19 +27,19 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsVerifiedpermissionsPolicyStoreInputProps =
+  & z.input<typeof DataAwsVerifiedpermissionsPolicyStoreInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsVerifiedpermissionsPolicyStoreOutputProps =
+  & z.output<typeof DataAwsVerifiedpermissionsPolicyStoreOutputSchema>
+  & z.output<typeof DataAwsVerifiedpermissionsPolicyStoreInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/verifiedpermissions_policy_store
 
 export function DataAwsVerifiedpermissionsPolicyStore(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsVerifiedpermissionsPolicyStoreInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -49,8 +50,8 @@ export function DataAwsVerifiedpermissionsPolicyStore(
       _type='aws_verifiedpermissions_policy_store'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsVerifiedpermissionsPolicyStoreInputSchema}
+      _outputSchema={DataAwsVerifiedpermissionsPolicyStoreOutputSchema}
       {...props as any}
     />
   )
@@ -61,7 +62,7 @@ export const useDataAwsVerifiedpermissionsPolicyStore = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsVerifiedpermissionsPolicyStoreOutputProps>(
     DataAwsVerifiedpermissionsPolicyStore,
     idFilter,
     baseNode,
@@ -73,7 +74,7 @@ export const useDataAwsVerifiedpermissionsPolicyStores = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsVerifiedpermissionsPolicyStoreOutputProps>(
     DataAwsVerifiedpermissionsPolicyStore,
     idFilter,
     baseNode,

@@ -8,12 +8,12 @@ import {
 import z from 'zod'
 import { AwsKmsAlias } from './AwsKmsAlias.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsKmsAliasInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsKmsAliasOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   name: z.string().optional(),
@@ -21,18 +21,18 @@ export const OutputSchema = z.object({
   target_key_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsKmsAliasInputProps =
+  & z.input<typeof DataAwsKmsAliasInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsKmsAliasOutputProps =
+  & z.output<typeof DataAwsKmsAliasOutputSchema>
+  & z.output<typeof DataAwsKmsAliasInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/kms_alias
 
-export function DataAwsKmsAlias(props: Partial<InputProps>) {
+export function DataAwsKmsAlias(props: Partial<DataAwsKmsAliasInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +42,8 @@ export function DataAwsKmsAlias(props: Partial<InputProps>) {
       _type='aws_kms_alias'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsKmsAliasInputSchema}
+      _outputSchema={DataAwsKmsAliasOutputSchema}
       {...props as any}
     />
   )
@@ -53,4 +53,10 @@ export const useDataAwsKmsAliass = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsKmsAlias, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsKmsAliasOutputProps>(
+    DataAwsKmsAlias,
+    idFilter,
+    baseNode,
+    optional,
+  )

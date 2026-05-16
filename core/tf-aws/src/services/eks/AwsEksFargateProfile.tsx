@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEksFargateProfileInputSchema = TfMetaSchema.extend({
   cluster_name: resolvableValue(z.string()),
   fargate_profile_name: resolvableValue(z.string()),
   pod_execution_role_arn: resolvableValue(z.string()),
@@ -30,33 +30,35 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsEksFargateProfileOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   status: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsEksFargateProfileImportSchema = z.object({
   cluster_name: resolvableValue(z.string()),
   fargate_profile_name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsEksFargateProfileInputProps =
+  & z.input<typeof AwsEksFargateProfileInputSchema>
+  & z.input<typeof AwsEksFargateProfileImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEksFargateProfileOutputProps =
+  & z.output<typeof AwsEksFargateProfileOutputSchema>
+  & z.output<typeof AwsEksFargateProfileInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/eks_fargate_profile
 
-export function AwsEksFargateProfile(props: Partial<InputProps>) {
+export function AwsEksFargateProfile(
+  props: Partial<AwsEksFargateProfileInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -66,9 +68,9 @@ export function AwsEksFargateProfile(props: Partial<InputProps>) {
       _type='aws_eks_fargate_profile'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsEksFargateProfileInputSchema}
+      _outputSchema={AwsEksFargateProfileOutputSchema}
+      _importSchema={AwsEksFargateProfileImportSchema}
       {...props}
     />
   )
@@ -79,11 +81,21 @@ export const useAwsEksFargateProfile = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsEksFargateProfile, idFilter, baseNode, optional)
+  useTypedNode<AwsEksFargateProfileOutputProps>(
+    AwsEksFargateProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEksFargateProfiles = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsEksFargateProfile, idFilter, baseNode, optional)
+  useTypedNodes<AwsEksFargateProfileOutputProps>(
+    AwsEksFargateProfile,
+    idFilter,
+    baseNode,
+    optional,
+  )

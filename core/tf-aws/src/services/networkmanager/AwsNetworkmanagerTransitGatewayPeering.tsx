@@ -9,19 +9,20 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  core_network_id: resolvableValue(z.string()),
-  transit_gateway_arn: resolvableValue(z.string()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsNetworkmanagerTransitGatewayPeeringInputSchema = TfMetaSchema
+  .extend({
+    core_network_id: resolvableValue(z.string()),
+    transit_gateway_arn: resolvableValue(z.string()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsNetworkmanagerTransitGatewayPeeringOutputSchema = z.object({
   arn: z.string().optional(),
   core_network_arn: z.string().optional(),
   edge_location: z.string().optional(),
@@ -33,19 +34,19 @@ export const OutputSchema = z.object({
   transit_gateway_peering_attachment_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsNetworkmanagerTransitGatewayPeeringInputProps =
+  & z.input<typeof AwsNetworkmanagerTransitGatewayPeeringInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNetworkmanagerTransitGatewayPeeringOutputProps =
+  & z.output<typeof AwsNetworkmanagerTransitGatewayPeeringOutputSchema>
+  & z.output<typeof AwsNetworkmanagerTransitGatewayPeeringInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/networkmanager_transit_gateway_peering
 
 export function AwsNetworkmanagerTransitGatewayPeering(
-  props: Partial<InputProps>,
+  props: Partial<AwsNetworkmanagerTransitGatewayPeeringInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -56,8 +57,8 @@ export function AwsNetworkmanagerTransitGatewayPeering(
       _type='aws_networkmanager_transit_gateway_peering'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsNetworkmanagerTransitGatewayPeeringInputSchema}
+      _outputSchema={AwsNetworkmanagerTransitGatewayPeeringOutputSchema}
       {...props}
     />
   )
@@ -68,7 +69,7 @@ export const useAwsNetworkmanagerTransitGatewayPeering = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsNetworkmanagerTransitGatewayPeeringOutputProps>(
     AwsNetworkmanagerTransitGatewayPeering,
     idFilter,
     baseNode,
@@ -80,7 +81,7 @@ export const useAwsNetworkmanagerTransitGatewayPeerings = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsNetworkmanagerTransitGatewayPeeringOutputProps>(
     AwsNetworkmanagerTransitGatewayPeering,
     idFilter,
     baseNode,

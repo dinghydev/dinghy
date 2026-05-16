@@ -9,27 +9,29 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const EphemeralAwsEksClusterAuthInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const EphemeralAwsEksClusterAuthOutputSchema = z.object({
   token: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type EphemeralAwsEksClusterAuthInputProps =
+  & z.input<typeof EphemeralAwsEksClusterAuthInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type EphemeralAwsEksClusterAuthOutputProps =
+  & z.output<typeof EphemeralAwsEksClusterAuthOutputSchema>
+  & z.output<typeof EphemeralAwsEksClusterAuthInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/ephemeral-resources/eks_cluster_auth
 
-export function EphemeralAwsEksClusterAuth(props: Partial<InputProps>) {
+export function EphemeralAwsEksClusterAuth(
+  props: Partial<EphemeralAwsEksClusterAuthInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -39,8 +41,8 @@ export function EphemeralAwsEksClusterAuth(props: Partial<InputProps>) {
       _type='aws_eks_cluster_auth'
       _category='ephemeral'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={EphemeralAwsEksClusterAuthInputSchema}
+      _outputSchema={EphemeralAwsEksClusterAuthOutputSchema}
       {...props}
     />
   )
@@ -51,7 +53,7 @@ export const useEphemeralAwsEksClusterAuth = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<EphemeralAwsEksClusterAuthOutputProps>(
     EphemeralAwsEksClusterAuth,
     idFilter,
     baseNode,
@@ -63,7 +65,7 @@ export const useEphemeralAwsEksClusterAuths = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<EphemeralAwsEksClusterAuthOutputProps>(
     EphemeralAwsEksClusterAuth,
     idFilter,
     baseNode,

@@ -9,40 +9,41 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  name: resolvableValue(z.string()),
-  policy: resolvableValue(z.string()),
-  type: resolvableValue(z.string()),
-  description: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsOpensearchserverlessSecurityPolicyInputSchema = TfMetaSchema
+  .extend({
+    name: resolvableValue(z.string()),
+    policy: resolvableValue(z.string()),
+    type: resolvableValue(z.string()),
+    description: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsOpensearchserverlessSecurityPolicyOutputSchema = z.object({
   id: z.string().optional(),
   policy_version: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsOpensearchserverlessSecurityPolicyImportSchema = z.object({
   name: resolvableValue(z.string()),
   type: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsOpensearchserverlessSecurityPolicyInputProps =
+  & z.input<typeof AwsOpensearchserverlessSecurityPolicyInputSchema>
+  & z.input<typeof AwsOpensearchserverlessSecurityPolicyImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsOpensearchserverlessSecurityPolicyOutputProps =
+  & z.output<typeof AwsOpensearchserverlessSecurityPolicyOutputSchema>
+  & z.output<typeof AwsOpensearchserverlessSecurityPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/opensearchserverless_security_policy
 
 export function AwsOpensearchserverlessSecurityPolicy(
-  props: Partial<InputProps>,
+  props: Partial<AwsOpensearchserverlessSecurityPolicyInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -53,9 +54,9 @@ export function AwsOpensearchserverlessSecurityPolicy(
       _type='aws_opensearchserverless_security_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsOpensearchserverlessSecurityPolicyInputSchema}
+      _outputSchema={AwsOpensearchserverlessSecurityPolicyOutputSchema}
+      _importSchema={AwsOpensearchserverlessSecurityPolicyImportSchema}
       {...props}
     />
   )
@@ -66,7 +67,7 @@ export const useAwsOpensearchserverlessSecurityPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsOpensearchserverlessSecurityPolicyOutputProps>(
     AwsOpensearchserverlessSecurityPolicy,
     idFilter,
     baseNode,
@@ -78,7 +79,7 @@ export const useAwsOpensearchserverlessSecurityPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsOpensearchserverlessSecurityPolicyOutputProps>(
     AwsOpensearchserverlessSecurityPolicy,
     idFilter,
     baseNode,

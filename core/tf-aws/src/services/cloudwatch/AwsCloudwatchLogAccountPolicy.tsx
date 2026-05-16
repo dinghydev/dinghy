@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudwatchLogAccountPolicyInputSchema = TfMetaSchema.extend({
   policy_document: resolvableValue(z.string()),
   policy_name: resolvableValue(z.string()),
   policy_type: resolvableValue(z.string()),
@@ -19,20 +19,22 @@ export const InputSchema = TfMetaSchema.extend({
   selection_criteria: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsCloudwatchLogAccountPolicyOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudwatchLogAccountPolicyInputProps =
+  & z.input<typeof AwsCloudwatchLogAccountPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudwatchLogAccountPolicyOutputProps =
+  & z.output<typeof AwsCloudwatchLogAccountPolicyOutputSchema>
+  & z.output<typeof AwsCloudwatchLogAccountPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudwatch_log_account_policy
 
-export function AwsCloudwatchLogAccountPolicy(props: Partial<InputProps>) {
+export function AwsCloudwatchLogAccountPolicy(
+  props: Partial<AwsCloudwatchLogAccountPolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +44,8 @@ export function AwsCloudwatchLogAccountPolicy(props: Partial<InputProps>) {
       _type='aws_cloudwatch_log_account_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudwatchLogAccountPolicyInputSchema}
+      _outputSchema={AwsCloudwatchLogAccountPolicyOutputSchema}
       {...props}
     />
   )
@@ -54,7 +56,7 @@ export const useAwsCloudwatchLogAccountPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudwatchLogAccountPolicyOutputProps>(
     AwsCloudwatchLogAccountPolicy,
     idFilter,
     baseNode,
@@ -66,7 +68,7 @@ export const useAwsCloudwatchLogAccountPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudwatchLogAccountPolicyOutputProps>(
     AwsCloudwatchLogAccountPolicy,
     idFilter,
     baseNode,

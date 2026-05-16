@@ -9,13 +9,14 @@ import {
 import z from 'zod'
 import { AwsOpensearchserverlessCollectionGroup } from './AwsOpensearchserverlessCollectionGroup.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  id: resolvableValue(z.string().optional()),
-  name: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsOpensearchserverlessCollectionGroupInputSchema =
+  TfMetaSchema.extend({
+    id: resolvableValue(z.string().optional()),
+    name: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsOpensearchserverlessCollectionGroupOutputSchema = z.object({
   arn: z.string().optional(),
   capacity_limits: z.object({
     max_indexing_capacity_in_ocu: z.number(),
@@ -29,19 +30,19 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsOpensearchserverlessCollectionGroupInputProps =
+  & z.input<typeof DataAwsOpensearchserverlessCollectionGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsOpensearchserverlessCollectionGroupOutputProps =
+  & z.output<typeof DataAwsOpensearchserverlessCollectionGroupOutputSchema>
+  & z.output<typeof DataAwsOpensearchserverlessCollectionGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/opensearchserverless_collection_group
 
 export function DataAwsOpensearchserverlessCollectionGroup(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsOpensearchserverlessCollectionGroupInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -52,8 +53,8 @@ export function DataAwsOpensearchserverlessCollectionGroup(
       _type='aws_opensearchserverless_collection_group'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsOpensearchserverlessCollectionGroupInputSchema}
+      _outputSchema={DataAwsOpensearchserverlessCollectionGroupOutputSchema}
       {...props as any}
     />
   )
@@ -64,7 +65,7 @@ export const useDataAwsOpensearchserverlessCollectionGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsOpensearchserverlessCollectionGroupOutputProps>(
     DataAwsOpensearchserverlessCollectionGroup,
     idFilter,
     baseNode,
@@ -76,7 +77,7 @@ export const useDataAwsOpensearchserverlessCollectionGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsOpensearchserverlessCollectionGroupOutputProps>(
     DataAwsOpensearchserverlessCollectionGroup,
     idFilter,
     baseNode,

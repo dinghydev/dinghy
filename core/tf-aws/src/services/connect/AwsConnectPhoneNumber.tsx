@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsConnectPhoneNumberInputSchema = TfMetaSchema.extend({
   country_code: resolvableValue(z.string()),
   target_arn: resolvableValue(z.string()),
   type: resolvableValue(z.string()),
@@ -26,7 +26,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsConnectPhoneNumberOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   phone_number: z.string().optional(),
@@ -37,25 +37,27 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsConnectPhoneNumberImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsConnectPhoneNumberInputProps =
+  & z.input<typeof AwsConnectPhoneNumberInputSchema>
+  & z.input<typeof AwsConnectPhoneNumberImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsConnectPhoneNumberOutputProps =
+  & z.output<typeof AwsConnectPhoneNumberOutputSchema>
+  & z.output<typeof AwsConnectPhoneNumberInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/connect_phone_number
 
-export function AwsConnectPhoneNumber(props: Partial<InputProps>) {
+export function AwsConnectPhoneNumber(
+  props: Partial<AwsConnectPhoneNumberInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -65,9 +67,9 @@ export function AwsConnectPhoneNumber(props: Partial<InputProps>) {
       _type='aws_connect_phone_number'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsConnectPhoneNumberInputSchema}
+      _outputSchema={AwsConnectPhoneNumberOutputSchema}
+      _importSchema={AwsConnectPhoneNumberImportSchema}
       {...props}
     />
   )
@@ -78,14 +80,19 @@ export const useAwsConnectPhoneNumber = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsConnectPhoneNumber, idFilter, baseNode, optional)
+  useTypedNode<AwsConnectPhoneNumberOutputProps>(
+    AwsConnectPhoneNumber,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsConnectPhoneNumbers = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsConnectPhoneNumberOutputProps>(
     AwsConnectPhoneNumber,
     idFilter,
     baseNode,

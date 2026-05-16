@@ -9,30 +9,32 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const EphemeralAwsStsWebIdentityTokenInputSchema = TfMetaSchema.extend({
   audience: resolvableValue(z.string().array()),
   signing_algorithm: resolvableValue(z.string()),
   duration_seconds: resolvableValue(z.number().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const EphemeralAwsStsWebIdentityTokenOutputSchema = z.object({
   expiration: z.string().optional(),
   web_identity_token: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type EphemeralAwsStsWebIdentityTokenInputProps =
+  & z.input<typeof EphemeralAwsStsWebIdentityTokenInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type EphemeralAwsStsWebIdentityTokenOutputProps =
+  & z.output<typeof EphemeralAwsStsWebIdentityTokenOutputSchema>
+  & z.output<typeof EphemeralAwsStsWebIdentityTokenInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/ephemeral-resources/sts_web_identity_token
 
-export function EphemeralAwsStsWebIdentityToken(props: Partial<InputProps>) {
+export function EphemeralAwsStsWebIdentityToken(
+  props: Partial<EphemeralAwsStsWebIdentityTokenInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +44,8 @@ export function EphemeralAwsStsWebIdentityToken(props: Partial<InputProps>) {
       _type='aws_sts_web_identity_token'
       _category='ephemeral'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={EphemeralAwsStsWebIdentityTokenInputSchema}
+      _outputSchema={EphemeralAwsStsWebIdentityTokenOutputSchema}
       {...props}
     />
   )
@@ -54,7 +56,7 @@ export const useEphemeralAwsStsWebIdentityToken = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<EphemeralAwsStsWebIdentityTokenOutputProps>(
     EphemeralAwsStsWebIdentityToken,
     idFilter,
     baseNode,
@@ -66,7 +68,7 @@ export const useEphemeralAwsStsWebIdentityTokens = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<EphemeralAwsStsWebIdentityTokenOutputProps>(
     EphemeralAwsStsWebIdentityToken,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEc2TransitGatewayConnectInputSchema = TfMetaSchema.extend({
   transit_gateway_id: resolvableValue(z.string()),
   transport_attachment_id: resolvableValue(z.string()),
   protocol: resolvableValue(z.string().optional()),
@@ -30,23 +30,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsEc2TransitGatewayConnectOutputSchema = z.object({
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEc2TransitGatewayConnectInputProps =
+  & z.input<typeof AwsEc2TransitGatewayConnectInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEc2TransitGatewayConnectOutputProps =
+  & z.output<typeof AwsEc2TransitGatewayConnectOutputSchema>
+  & z.output<typeof AwsEc2TransitGatewayConnectInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ec2_transit_gateway_connect
 
-export function AwsEc2TransitGatewayConnect(props: Partial<InputProps>) {
+export function AwsEc2TransitGatewayConnect(
+  props: Partial<AwsEc2TransitGatewayConnectInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -56,8 +58,8 @@ export function AwsEc2TransitGatewayConnect(props: Partial<InputProps>) {
       _type='aws_ec2_transit_gateway_connect'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEc2TransitGatewayConnectInputSchema}
+      _outputSchema={AwsEc2TransitGatewayConnectOutputSchema}
       {...props}
     />
   )
@@ -68,7 +70,7 @@ export const useAwsEc2TransitGatewayConnect = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsEc2TransitGatewayConnectOutputProps>(
     AwsEc2TransitGatewayConnect,
     idFilter,
     baseNode,
@@ -80,7 +82,7 @@ export const useAwsEc2TransitGatewayConnects = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEc2TransitGatewayConnectOutputProps>(
     AwsEc2TransitGatewayConnect,
     idFilter,
     baseNode,

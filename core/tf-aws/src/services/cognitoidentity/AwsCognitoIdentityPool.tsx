@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCognitoIdentityPoolInputSchema = TfMetaSchema.extend({
   identity_pool_name: resolvableValue(z.string()),
   allow_classic_flow: resolvableValue(z.boolean().optional()),
   allow_unauthenticated_identities: resolvableValue(z.boolean().optional()),
@@ -30,24 +30,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCognitoIdentityPoolOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCognitoIdentityPoolInputProps =
+  & z.input<typeof AwsCognitoIdentityPoolInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCognitoIdentityPoolOutputProps =
+  & z.output<typeof AwsCognitoIdentityPoolOutputSchema>
+  & z.output<typeof AwsCognitoIdentityPoolInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cognito_identity_pool
 
-export function AwsCognitoIdentityPool(props: Partial<InputProps>) {
+export function AwsCognitoIdentityPool(
+  props: Partial<AwsCognitoIdentityPoolInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -57,8 +59,8 @@ export function AwsCognitoIdentityPool(props: Partial<InputProps>) {
       _type='aws_cognito_identity_pool'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCognitoIdentityPoolInputSchema}
+      _outputSchema={AwsCognitoIdentityPoolOutputSchema}
       {...props}
     />
   )
@@ -69,7 +71,7 @@ export const useAwsCognitoIdentityPool = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCognitoIdentityPoolOutputProps>(
     AwsCognitoIdentityPool,
     idFilter,
     baseNode,
@@ -81,7 +83,7 @@ export const useAwsCognitoIdentityPools = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCognitoIdentityPoolOutputProps>(
     AwsCognitoIdentityPool,
     idFilter,
     baseNode,

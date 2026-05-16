@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsKmsSecretInputSchema = TfMetaSchema.extend({
   secret: resolvableValue(
     z.object({
       context: z.record(z.string(), z.string()).optional(),
@@ -22,20 +22,20 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const DataAwsKmsSecretOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsKmsSecretInputProps =
+  & z.input<typeof DataAwsKmsSecretInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsKmsSecretOutputProps =
+  & z.output<typeof DataAwsKmsSecretOutputSchema>
+  & z.output<typeof DataAwsKmsSecretInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/kms_secret
 
-export function DataAwsKmsSecret(props: Partial<InputProps>) {
+export function DataAwsKmsSecret(props: Partial<DataAwsKmsSecretInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,8 +45,8 @@ export function DataAwsKmsSecret(props: Partial<InputProps>) {
       _type='aws_kms_secret'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsKmsSecretInputSchema}
+      _outputSchema={DataAwsKmsSecretOutputSchema}
       {...props}
     />
   )
@@ -56,10 +56,22 @@ export const useDataAwsKmsSecret = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsKmsSecret, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsKmsSecretOutputProps>(
+    DataAwsKmsSecret,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsKmsSecrets = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsKmsSecret, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsKmsSecretOutputProps>(
+    DataAwsKmsSecret,
+    idFilter,
+    baseNode,
+    optional,
+  )

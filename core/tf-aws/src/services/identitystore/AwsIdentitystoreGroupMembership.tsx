@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIdentitystoreGroupMembershipInputSchema = TfMetaSchema.extend({
   group_id: resolvableValue(z.string()),
   identity_store_id: resolvableValue(z.string()),
   member_id: resolvableValue(z.string()),
@@ -17,22 +17,24 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsIdentitystoreGroupMembershipOutputSchema = z.object({
   membership_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsIdentitystoreGroupMembershipInputProps =
+  & z.input<typeof AwsIdentitystoreGroupMembershipInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIdentitystoreGroupMembershipOutputProps =
+  & z.output<typeof AwsIdentitystoreGroupMembershipOutputSchema>
+  & z.output<typeof AwsIdentitystoreGroupMembershipInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/identitystore_group_membership
 
-export function AwsIdentitystoreGroupMembership(props: Partial<InputProps>) {
+export function AwsIdentitystoreGroupMembership(
+  props: Partial<AwsIdentitystoreGroupMembershipInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +44,8 @@ export function AwsIdentitystoreGroupMembership(props: Partial<InputProps>) {
       _type='aws_identitystore_group_membership'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsIdentitystoreGroupMembershipInputSchema}
+      _outputSchema={AwsIdentitystoreGroupMembershipOutputSchema}
       {...props}
     />
   )
@@ -54,7 +56,7 @@ export const useAwsIdentitystoreGroupMembership = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsIdentitystoreGroupMembershipOutputProps>(
     AwsIdentitystoreGroupMembership,
     idFilter,
     baseNode,
@@ -66,7 +68,7 @@ export const useAwsIdentitystoreGroupMemberships = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsIdentitystoreGroupMembershipOutputProps>(
     AwsIdentitystoreGroupMembership,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudwatchLogMetricFilterInputSchema = TfMetaSchema.extend({
   log_group_name: resolvableValue(z.string()),
   metric_transformation: resolvableValue(z.object({
     default_value: z.string().optional(),
@@ -25,30 +25,32 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudwatchLogMetricFilterOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsCloudwatchLogMetricFilterImportSchema = z.object({
   log_group_name: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsCloudwatchLogMetricFilterInputProps =
+  & z.input<typeof AwsCloudwatchLogMetricFilterInputSchema>
+  & z.input<typeof AwsCloudwatchLogMetricFilterImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudwatchLogMetricFilterOutputProps =
+  & z.output<typeof AwsCloudwatchLogMetricFilterOutputSchema>
+  & z.output<typeof AwsCloudwatchLogMetricFilterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudwatch_log_metric_filter
 
-export function AwsCloudwatchLogMetricFilter(props: Partial<InputProps>) {
+export function AwsCloudwatchLogMetricFilter(
+  props: Partial<AwsCloudwatchLogMetricFilterInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -58,9 +60,9 @@ export function AwsCloudwatchLogMetricFilter(props: Partial<InputProps>) {
       _type='aws_cloudwatch_log_metric_filter'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsCloudwatchLogMetricFilterInputSchema}
+      _outputSchema={AwsCloudwatchLogMetricFilterOutputSchema}
+      _importSchema={AwsCloudwatchLogMetricFilterImportSchema}
       {...props}
     />
   )
@@ -71,7 +73,7 @@ export const useAwsCloudwatchLogMetricFilter = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudwatchLogMetricFilterOutputProps>(
     AwsCloudwatchLogMetricFilter,
     idFilter,
     baseNode,
@@ -83,7 +85,7 @@ export const useAwsCloudwatchLogMetricFilters = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudwatchLogMetricFilterOutputProps>(
     AwsCloudwatchLogMetricFilter,
     idFilter,
     baseNode,

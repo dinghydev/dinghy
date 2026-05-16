@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsBedrockagentcoreGatewayTargetInputSchema = TfMetaSchema.extend({
   gateway_identifier: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   credential_provider_configuration: resolvableValue(
@@ -212,22 +212,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsBedrockagentcoreGatewayTargetOutputSchema = z.object({
   target_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsBedrockagentcoreGatewayTargetInputProps =
+  & z.input<typeof AwsBedrockagentcoreGatewayTargetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBedrockagentcoreGatewayTargetOutputProps =
+  & z.output<typeof AwsBedrockagentcoreGatewayTargetOutputSchema>
+  & z.output<typeof AwsBedrockagentcoreGatewayTargetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/bedrockagentcore_gateway_target
 
-export function AwsBedrockagentcoreGatewayTarget(props: Partial<InputProps>) {
+export function AwsBedrockagentcoreGatewayTarget(
+  props: Partial<AwsBedrockagentcoreGatewayTargetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -237,8 +239,8 @@ export function AwsBedrockagentcoreGatewayTarget(props: Partial<InputProps>) {
       _type='aws_bedrockagentcore_gateway_target'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsBedrockagentcoreGatewayTargetInputSchema}
+      _outputSchema={AwsBedrockagentcoreGatewayTargetOutputSchema}
       {...props}
     />
   )
@@ -249,7 +251,7 @@ export const useAwsBedrockagentcoreGatewayTarget = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsBedrockagentcoreGatewayTargetOutputProps>(
     AwsBedrockagentcoreGatewayTarget,
     idFilter,
     baseNode,
@@ -261,7 +263,7 @@ export const useAwsBedrockagentcoreGatewayTargets = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsBedrockagentcoreGatewayTargetOutputProps>(
     AwsBedrockagentcoreGatewayTarget,
     idFilter,
     baseNode,

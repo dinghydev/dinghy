@@ -9,34 +9,38 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  account_id: resolvableValue(z.string()),
-  detector_id: resolvableValue(z.string()),
-  name: resolvableValue(z.string()),
-  status: resolvableValue(z.string()),
-  additional_configuration: resolvableValue(
-    z.object({
-      name: z.string(),
-      status: z.string(),
-    }).array().optional(),
-  ),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsGuarddutyMemberDetectorFeatureInputSchema = TfMetaSchema.extend(
+  {
+    account_id: resolvableValue(z.string()),
+    detector_id: resolvableValue(z.string()),
+    name: resolvableValue(z.string()),
+    status: resolvableValue(z.string()),
+    additional_configuration: resolvableValue(
+      z.object({
+        name: z.string(),
+        status: z.string(),
+      }).array().optional(),
+    ),
+    region: resolvableValue(z.string().optional()),
+  },
+)
 
-export const OutputSchema = z.object({})
+export const AwsGuarddutyMemberDetectorFeatureOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsGuarddutyMemberDetectorFeatureInputProps =
+  & z.input<typeof AwsGuarddutyMemberDetectorFeatureInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsGuarddutyMemberDetectorFeatureOutputProps =
+  & z.output<typeof AwsGuarddutyMemberDetectorFeatureOutputSchema>
+  & z.output<typeof AwsGuarddutyMemberDetectorFeatureInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/guardduty_member_detector_feature
 
-export function AwsGuarddutyMemberDetectorFeature(props: Partial<InputProps>) {
+export function AwsGuarddutyMemberDetectorFeature(
+  props: Partial<AwsGuarddutyMemberDetectorFeatureInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +50,8 @@ export function AwsGuarddutyMemberDetectorFeature(props: Partial<InputProps>) {
       _type='aws_guardduty_member_detector_feature'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsGuarddutyMemberDetectorFeatureInputSchema}
+      _outputSchema={AwsGuarddutyMemberDetectorFeatureOutputSchema}
       {...props}
     />
   )
@@ -58,7 +62,7 @@ export const useAwsGuarddutyMemberDetectorFeature = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsGuarddutyMemberDetectorFeatureOutputProps>(
     AwsGuarddutyMemberDetectorFeature,
     idFilter,
     baseNode,
@@ -70,7 +74,7 @@ export const useAwsGuarddutyMemberDetectorFeatures = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsGuarddutyMemberDetectorFeatureOutputProps>(
     AwsGuarddutyMemberDetectorFeature,
     idFilter,
     baseNode,

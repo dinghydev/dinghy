@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsNetworkInterfaceAttachmentInputSchema = TfMetaSchema.extend({
   device_index: resolvableValue(z.number()),
   instance_id: resolvableValue(z.string()),
   network_interface_id: resolvableValue(z.string()),
@@ -18,25 +18,27 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsNetworkInterfaceAttachmentOutputSchema = z.object({
   attachment_id: z.string().optional(),
   instance_id: z.string().optional(),
   network_interface_id: z.string().optional(),
   status: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsNetworkInterfaceAttachmentInputProps =
+  & z.input<typeof AwsNetworkInterfaceAttachmentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNetworkInterfaceAttachmentOutputProps =
+  & z.output<typeof AwsNetworkInterfaceAttachmentOutputSchema>
+  & z.output<typeof AwsNetworkInterfaceAttachmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/network_interface_attachment
 
-export function AwsNetworkInterfaceAttachment(props: Partial<InputProps>) {
+export function AwsNetworkInterfaceAttachment(
+  props: Partial<AwsNetworkInterfaceAttachmentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function AwsNetworkInterfaceAttachment(props: Partial<InputProps>) {
       _type='aws_network_interface_attachment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsNetworkInterfaceAttachmentInputSchema}
+      _outputSchema={AwsNetworkInterfaceAttachmentOutputSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useAwsNetworkInterfaceAttachment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsNetworkInterfaceAttachmentOutputProps>(
     AwsNetworkInterfaceAttachment,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useAwsNetworkInterfaceAttachments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsNetworkInterfaceAttachmentOutputProps>(
     AwsNetworkInterfaceAttachment,
     idFilter,
     baseNode,

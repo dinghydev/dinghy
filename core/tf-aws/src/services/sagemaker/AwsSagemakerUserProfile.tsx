@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSagemakerUserProfileInputSchema = TfMetaSchema.extend({
   domain_id: resolvableValue(z.string()),
   user_profile_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
@@ -196,32 +196,34 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsSagemakerUserProfileOutputSchema = z.object({
   arn: z.string().optional(),
   home_efs_file_system_uid: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSagemakerUserProfileImportSchema = z.object({
   domain_id: resolvableValue(z.string()),
   user_profile_name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSagemakerUserProfileInputProps =
+  & z.input<typeof AwsSagemakerUserProfileInputSchema>
+  & z.input<typeof AwsSagemakerUserProfileImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSagemakerUserProfileOutputProps =
+  & z.output<typeof AwsSagemakerUserProfileOutputSchema>
+  & z.output<typeof AwsSagemakerUserProfileInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sagemaker_user_profile
 
-export function AwsSagemakerUserProfile(props: Partial<InputProps>) {
+export function AwsSagemakerUserProfile(
+  props: Partial<AwsSagemakerUserProfileInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -231,9 +233,9 @@ export function AwsSagemakerUserProfile(props: Partial<InputProps>) {
       _type='aws_sagemaker_user_profile'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSagemakerUserProfileInputSchema}
+      _outputSchema={AwsSagemakerUserProfileOutputSchema}
+      _importSchema={AwsSagemakerUserProfileImportSchema}
       {...props}
     />
   )
@@ -244,7 +246,7 @@ export const useAwsSagemakerUserProfile = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSagemakerUserProfileOutputProps>(
     AwsSagemakerUserProfile,
     idFilter,
     baseNode,
@@ -256,7 +258,7 @@ export const useAwsSagemakerUserProfiles = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSagemakerUserProfileOutputProps>(
     AwsSagemakerUserProfile,
     idFilter,
     baseNode,

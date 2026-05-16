@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsConnectInstanceStorageConfigInputSchema = TfMetaSchema.extend({
   instance_id: resolvableValue(z.string()),
   resource_type: resolvableValue(z.string()),
   storage_config: resolvableValue(z.object({
@@ -40,23 +40,25 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsConnectInstanceStorageConfigOutputSchema = z.object({
   association_id: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsConnectInstanceStorageConfigInputProps =
+  & z.input<typeof AwsConnectInstanceStorageConfigInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsConnectInstanceStorageConfigOutputProps =
+  & z.output<typeof AwsConnectInstanceStorageConfigOutputSchema>
+  & z.output<typeof AwsConnectInstanceStorageConfigInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/connect_instance_storage_config
 
-export function AwsConnectInstanceStorageConfig(props: Partial<InputProps>) {
+export function AwsConnectInstanceStorageConfig(
+  props: Partial<AwsConnectInstanceStorageConfigInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -66,8 +68,8 @@ export function AwsConnectInstanceStorageConfig(props: Partial<InputProps>) {
       _type='aws_connect_instance_storage_config'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsConnectInstanceStorageConfigInputSchema}
+      _outputSchema={AwsConnectInstanceStorageConfigOutputSchema}
       {...props}
     />
   )
@@ -78,7 +80,7 @@ export const useAwsConnectInstanceStorageConfig = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsConnectInstanceStorageConfigOutputProps>(
     AwsConnectInstanceStorageConfig,
     idFilter,
     baseNode,
@@ -90,7 +92,7 @@ export const useAwsConnectInstanceStorageConfigs = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsConnectInstanceStorageConfigOutputProps>(
     AwsConnectInstanceStorageConfig,
     idFilter,
     baseNode,

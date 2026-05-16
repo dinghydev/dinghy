@@ -9,27 +9,29 @@ import {
 import z from 'zod'
 import { AwsWafregionalRule } from './AwsWafregionalRule.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsWafregionalRuleInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsWafregionalRuleOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsWafregionalRuleInputProps =
+  & z.input<typeof DataAwsWafregionalRuleInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsWafregionalRuleOutputProps =
+  & z.output<typeof DataAwsWafregionalRuleOutputSchema>
+  & z.output<typeof DataAwsWafregionalRuleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/wafregional_rule
 
-export function DataAwsWafregionalRule(props: Partial<InputProps>) {
+export function DataAwsWafregionalRule(
+  props: Partial<DataAwsWafregionalRuleInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -39,8 +41,8 @@ export function DataAwsWafregionalRule(props: Partial<InputProps>) {
       _type='aws_wafregional_rule'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsWafregionalRuleInputSchema}
+      _outputSchema={DataAwsWafregionalRuleOutputSchema}
       {...props as any}
     />
   )
@@ -51,7 +53,7 @@ export const useDataAwsWafregionalRule = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsWafregionalRuleOutputProps>(
     DataAwsWafregionalRule,
     idFilter,
     baseNode,
@@ -63,7 +65,7 @@ export const useDataAwsWafregionalRules = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsWafregionalRuleOutputProps>(
     DataAwsWafregionalRule,
     idFilter,
     baseNode,

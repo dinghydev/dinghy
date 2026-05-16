@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRdsClusterActivityStreamInputSchema = TfMetaSchema.extend({
   kms_key_id: resolvableValue(z.string()),
   mode: resolvableValue(z.string()),
   resource_arn: resolvableValue(z.string()),
@@ -17,23 +17,25 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRdsClusterActivityStreamOutputSchema = z.object({
   id: z.string().optional(),
   kinesis_stream_name: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRdsClusterActivityStreamInputProps =
+  & z.input<typeof AwsRdsClusterActivityStreamInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRdsClusterActivityStreamOutputProps =
+  & z.output<typeof AwsRdsClusterActivityStreamOutputSchema>
+  & z.output<typeof AwsRdsClusterActivityStreamInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/rds_cluster_activity_stream
 
-export function AwsRdsClusterActivityStream(props: Partial<InputProps>) {
+export function AwsRdsClusterActivityStream(
+  props: Partial<AwsRdsClusterActivityStreamInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function AwsRdsClusterActivityStream(props: Partial<InputProps>) {
       _type='aws_rds_cluster_activity_stream'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRdsClusterActivityStreamInputSchema}
+      _outputSchema={AwsRdsClusterActivityStreamOutputSchema}
       {...props}
     />
   )
@@ -55,7 +57,7 @@ export const useAwsRdsClusterActivityStream = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRdsClusterActivityStreamOutputProps>(
     AwsRdsClusterActivityStream,
     idFilter,
     baseNode,
@@ -67,7 +69,7 @@ export const useAwsRdsClusterActivityStreams = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRdsClusterActivityStreamOutputProps>(
     AwsRdsClusterActivityStream,
     idFilter,
     baseNode,

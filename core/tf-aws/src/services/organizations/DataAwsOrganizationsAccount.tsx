@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsOrganizationsAccount } from './AwsOrganizationsAccount.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsOrganizationsAccountInputSchema = TfMetaSchema.extend({
   account_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsOrganizationsAccountOutputSchema = z.object({
   arn: z.string().optional(),
   email: z.string().optional(),
   joined_method: z.string().optional(),
@@ -25,18 +25,20 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsOrganizationsAccountInputProps =
+  & z.input<typeof DataAwsOrganizationsAccountInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsOrganizationsAccountOutputProps =
+  & z.output<typeof DataAwsOrganizationsAccountOutputSchema>
+  & z.output<typeof DataAwsOrganizationsAccountInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/organizations_account
 
-export function DataAwsOrganizationsAccount(props: Partial<InputProps>) {
+export function DataAwsOrganizationsAccount(
+  props: Partial<DataAwsOrganizationsAccountInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function DataAwsOrganizationsAccount(props: Partial<InputProps>) {
       _type='aws_organizations_account'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsOrganizationsAccountInputSchema}
+      _outputSchema={DataAwsOrganizationsAccountOutputSchema}
       {...props as any}
     />
   )
@@ -58,7 +60,7 @@ export const useDataAwsOrganizationsAccount = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsOrganizationsAccountOutputProps>(
     DataAwsOrganizationsAccount,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useDataAwsOrganizationsAccounts = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsOrganizationsAccountOutputProps>(
     DataAwsOrganizationsAccount,
     idFilter,
     baseNode,

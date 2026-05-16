@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsConnectUserHierarchyGroupInputSchema = TfMetaSchema.extend({
   instance_id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   parent_group_id: resolvableValue(z.string().optional()),
@@ -17,7 +17,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsConnectUserHierarchyGroupOutputSchema = z.object({
   arn: z.string().optional(),
   hierarchy_group_id: z.string().optional(),
   hierarchy_path: z.object({
@@ -53,18 +53,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsConnectUserHierarchyGroupInputProps =
+  & z.input<typeof AwsConnectUserHierarchyGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsConnectUserHierarchyGroupOutputProps =
+  & z.output<typeof AwsConnectUserHierarchyGroupOutputSchema>
+  & z.output<typeof AwsConnectUserHierarchyGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/connect_user_hierarchy_group
 
-export function AwsConnectUserHierarchyGroup(props: Partial<InputProps>) {
+export function AwsConnectUserHierarchyGroup(
+  props: Partial<AwsConnectUserHierarchyGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -74,8 +76,8 @@ export function AwsConnectUserHierarchyGroup(props: Partial<InputProps>) {
       _type='aws_connect_user_hierarchy_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsConnectUserHierarchyGroupInputSchema}
+      _outputSchema={AwsConnectUserHierarchyGroupOutputSchema}
       {...props}
     />
   )
@@ -86,7 +88,7 @@ export const useAwsConnectUserHierarchyGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsConnectUserHierarchyGroupOutputProps>(
     AwsConnectUserHierarchyGroup,
     idFilter,
     baseNode,
@@ -98,7 +100,7 @@ export const useAwsConnectUserHierarchyGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsConnectUserHierarchyGroupOutputProps>(
     AwsConnectUserHierarchyGroup,
     idFilter,
     baseNode,

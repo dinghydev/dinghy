@@ -9,14 +9,14 @@ import {
 import z from 'zod'
 import { AwsServicequotasServiceQuota } from './AwsServicequotasServiceQuota.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsServicequotasServiceQuotaInputSchema = TfMetaSchema.extend({
   service_code: resolvableValue(z.string()),
   quota_code: resolvableValue(z.string().optional()),
   quota_name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsServicequotasServiceQuotaOutputSchema = z.object({
   adjustable: z.boolean().optional(),
   arn: z.string().optional(),
   default_value: z.number().optional(),
@@ -37,18 +37,20 @@ export const OutputSchema = z.object({
   value: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsServicequotasServiceQuotaInputProps =
+  & z.input<typeof DataAwsServicequotasServiceQuotaInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsServicequotasServiceQuotaOutputProps =
+  & z.output<typeof DataAwsServicequotasServiceQuotaOutputSchema>
+  & z.output<typeof DataAwsServicequotasServiceQuotaInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/servicequotas_service_quota
 
-export function DataAwsServicequotasServiceQuota(props: Partial<InputProps>) {
+export function DataAwsServicequotasServiceQuota(
+  props: Partial<DataAwsServicequotasServiceQuotaInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -58,8 +60,8 @@ export function DataAwsServicequotasServiceQuota(props: Partial<InputProps>) {
       _type='aws_servicequotas_service_quota'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsServicequotasServiceQuotaInputSchema}
+      _outputSchema={DataAwsServicequotasServiceQuotaOutputSchema}
       {...props as any}
     />
   )
@@ -70,7 +72,7 @@ export const useDataAwsServicequotasServiceQuota = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsServicequotasServiceQuotaOutputProps>(
     DataAwsServicequotasServiceQuota,
     idFilter,
     baseNode,
@@ -82,7 +84,7 @@ export const useDataAwsServicequotasServiceQuotas = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsServicequotasServiceQuotaOutputProps>(
     DataAwsServicequotasServiceQuota,
     idFilter,
     baseNode,

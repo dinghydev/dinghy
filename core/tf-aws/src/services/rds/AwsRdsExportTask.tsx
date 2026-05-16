@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRdsExportTaskInputSchema = TfMetaSchema.extend({
   export_task_identifier: resolvableValue(z.string()),
   iam_role_arn: resolvableValue(z.string()),
   kms_key_id: resolvableValue(z.string()),
@@ -26,7 +26,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsRdsExportTaskOutputSchema = z.object({
   failure_cause: z.string().optional(),
   id: z.string().optional(),
   percent_progress: z.number().optional(),
@@ -38,18 +38,18 @@ export const OutputSchema = z.object({
   warning_message: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRdsExportTaskInputProps =
+  & z.input<typeof AwsRdsExportTaskInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRdsExportTaskOutputProps =
+  & z.output<typeof AwsRdsExportTaskOutputSchema>
+  & z.output<typeof AwsRdsExportTaskInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/rds_export_task
 
-export function AwsRdsExportTask(props: Partial<InputProps>) {
+export function AwsRdsExportTask(props: Partial<AwsRdsExportTaskInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -59,8 +59,8 @@ export function AwsRdsExportTask(props: Partial<InputProps>) {
       _type='aws_rds_export_task'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRdsExportTaskInputSchema}
+      _outputSchema={AwsRdsExportTaskOutputSchema}
       {...props}
     />
   )
@@ -70,10 +70,22 @@ export const useAwsRdsExportTask = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsRdsExportTask, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsRdsExportTaskOutputProps>(
+    AwsRdsExportTask,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRdsExportTasks = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsRdsExportTask, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsRdsExportTaskOutputProps>(
+    AwsRdsExportTask,
+    idFilter,
+    baseNode,
+    optional,
+  )

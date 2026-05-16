@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRedshiftserverlessNamespaceInputSchema = TfMetaSchema.extend({
   namespace_name: resolvableValue(z.string()),
   admin_password_secret_kms_key_id: resolvableValue(z.string().optional()),
   admin_user_password: resolvableValue(z.string().optional()),
@@ -26,7 +26,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRedshiftserverlessNamespaceOutputSchema = z.object({
   admin_password_secret_arn: z.string().optional(),
   arn: z.string().optional(),
   id: z.string().optional(),
@@ -34,18 +34,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRedshiftserverlessNamespaceInputProps =
+  & z.input<typeof AwsRedshiftserverlessNamespaceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRedshiftserverlessNamespaceOutputProps =
+  & z.output<typeof AwsRedshiftserverlessNamespaceOutputSchema>
+  & z.output<typeof AwsRedshiftserverlessNamespaceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/redshiftserverless_namespace
 
-export function AwsRedshiftserverlessNamespace(props: Partial<InputProps>) {
+export function AwsRedshiftserverlessNamespace(
+  props: Partial<AwsRedshiftserverlessNamespaceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,8 +57,8 @@ export function AwsRedshiftserverlessNamespace(props: Partial<InputProps>) {
       _type='aws_redshiftserverless_namespace'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRedshiftserverlessNamespaceInputSchema}
+      _outputSchema={AwsRedshiftserverlessNamespaceOutputSchema}
       {...props}
     />
   )
@@ -67,7 +69,7 @@ export const useAwsRedshiftserverlessNamespace = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRedshiftserverlessNamespaceOutputProps>(
     AwsRedshiftserverlessNamespace,
     idFilter,
     baseNode,
@@ -79,7 +81,7 @@ export const useAwsRedshiftserverlessNamespaces = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRedshiftserverlessNamespaceOutputProps>(
     AwsRedshiftserverlessNamespace,
     idFilter,
     baseNode,

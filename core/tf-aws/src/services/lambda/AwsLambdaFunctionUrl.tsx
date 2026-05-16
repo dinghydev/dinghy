@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLambdaFunctionUrlInputSchema = TfMetaSchema.extend({
   authorization_type: resolvableValue(z.string()),
   function_name: resolvableValue(z.string()),
   cors: resolvableValue(
@@ -33,24 +33,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsLambdaFunctionUrlOutputSchema = z.object({
   function_arn: z.string().optional(),
   function_url: z.string().optional(),
   url_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLambdaFunctionUrlInputProps =
+  & z.input<typeof AwsLambdaFunctionUrlInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLambdaFunctionUrlOutputProps =
+  & z.output<typeof AwsLambdaFunctionUrlOutputSchema>
+  & z.output<typeof AwsLambdaFunctionUrlInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lambda_function_url
 
-export function AwsLambdaFunctionUrl(props: Partial<InputProps>) {
+export function AwsLambdaFunctionUrl(
+  props: Partial<AwsLambdaFunctionUrlInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -60,8 +62,8 @@ export function AwsLambdaFunctionUrl(props: Partial<InputProps>) {
       _type='aws_lambda_function_url'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLambdaFunctionUrlInputSchema}
+      _outputSchema={AwsLambdaFunctionUrlOutputSchema}
       {...props}
     />
   )
@@ -72,11 +74,21 @@ export const useAwsLambdaFunctionUrl = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsLambdaFunctionUrl, idFilter, baseNode, optional)
+  useTypedNode<AwsLambdaFunctionUrlOutputProps>(
+    AwsLambdaFunctionUrl,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLambdaFunctionUrls = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsLambdaFunctionUrl, idFilter, baseNode, optional)
+  useTypedNodes<AwsLambdaFunctionUrlOutputProps>(
+    AwsLambdaFunctionUrl,
+    idFilter,
+    baseNode,
+    optional,
+  )

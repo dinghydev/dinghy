@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudfrontRealtimeLogConfigInputSchema = TfMetaSchema.extend({
   endpoint: resolvableValue(z.object({
     stream_type: z.string(),
     kinesis_stream_config: z.object({
@@ -22,28 +22,30 @@ export const InputSchema = TfMetaSchema.extend({
   sampling_rate: resolvableValue(z.number()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudfrontRealtimeLogConfigOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsCloudfrontRealtimeLogConfigImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsCloudfrontRealtimeLogConfigInputProps =
+  & z.input<typeof AwsCloudfrontRealtimeLogConfigInputSchema>
+  & z.input<typeof AwsCloudfrontRealtimeLogConfigImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudfrontRealtimeLogConfigOutputProps =
+  & z.output<typeof AwsCloudfrontRealtimeLogConfigOutputSchema>
+  & z.output<typeof AwsCloudfrontRealtimeLogConfigInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudfront_realtime_log_config
 
-export function AwsCloudfrontRealtimeLogConfig(props: Partial<InputProps>) {
+export function AwsCloudfrontRealtimeLogConfig(
+  props: Partial<AwsCloudfrontRealtimeLogConfigInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,9 +55,9 @@ export function AwsCloudfrontRealtimeLogConfig(props: Partial<InputProps>) {
       _type='aws_cloudfront_realtime_log_config'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsCloudfrontRealtimeLogConfigInputSchema}
+      _outputSchema={AwsCloudfrontRealtimeLogConfigOutputSchema}
+      _importSchema={AwsCloudfrontRealtimeLogConfigImportSchema}
       {...props}
     />
   )
@@ -66,7 +68,7 @@ export const useAwsCloudfrontRealtimeLogConfig = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudfrontRealtimeLogConfigOutputProps>(
     AwsCloudfrontRealtimeLogConfig,
     idFilter,
     baseNode,
@@ -78,7 +80,7 @@ export const useAwsCloudfrontRealtimeLogConfigs = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudfrontRealtimeLogConfigOutputProps>(
     AwsCloudfrontRealtimeLogConfig,
     idFilter,
     baseNode,

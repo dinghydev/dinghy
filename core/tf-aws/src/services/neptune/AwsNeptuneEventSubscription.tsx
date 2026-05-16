@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsNeptuneEventSubscriptionInputSchema = TfMetaSchema.extend({
   sns_topic_arn: resolvableValue(z.string()),
   enabled: resolvableValue(z.boolean().optional()),
   event_categories: resolvableValue(z.string().array().optional()),
@@ -28,25 +28,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsNeptuneEventSubscriptionOutputSchema = z.object({
   arn: z.string().optional(),
   customer_aws_id: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsNeptuneEventSubscriptionInputProps =
+  & z.input<typeof AwsNeptuneEventSubscriptionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNeptuneEventSubscriptionOutputProps =
+  & z.output<typeof AwsNeptuneEventSubscriptionOutputSchema>
+  & z.output<typeof AwsNeptuneEventSubscriptionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/neptune_event_subscription
 
-export function AwsNeptuneEventSubscription(props: Partial<InputProps>) {
+export function AwsNeptuneEventSubscription(
+  props: Partial<AwsNeptuneEventSubscriptionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -56,8 +58,8 @@ export function AwsNeptuneEventSubscription(props: Partial<InputProps>) {
       _type='aws_neptune_event_subscription'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsNeptuneEventSubscriptionInputSchema}
+      _outputSchema={AwsNeptuneEventSubscriptionOutputSchema}
       {...props}
     />
   )
@@ -68,7 +70,7 @@ export const useAwsNeptuneEventSubscription = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsNeptuneEventSubscriptionOutputProps>(
     AwsNeptuneEventSubscription,
     idFilter,
     baseNode,
@@ -80,7 +82,7 @@ export const useAwsNeptuneEventSubscriptions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsNeptuneEventSubscriptionOutputProps>(
     AwsNeptuneEventSubscription,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRoute53HealthCheckInputSchema = TfMetaSchema.extend({
   type: resolvableValue(z.string()),
   child_health_threshold: resolvableValue(z.number().optional()),
   child_healthchecks: resolvableValue(z.string().array().optional()),
@@ -34,24 +34,26 @@ export const InputSchema = TfMetaSchema.extend({
   triggers: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRoute53HealthCheckOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRoute53HealthCheckInputProps =
+  & z.input<typeof AwsRoute53HealthCheckInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRoute53HealthCheckOutputProps =
+  & z.output<typeof AwsRoute53HealthCheckOutputSchema>
+  & z.output<typeof AwsRoute53HealthCheckInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/route53_health_check
 
-export function AwsRoute53HealthCheck(props: Partial<InputProps>) {
+export function AwsRoute53HealthCheck(
+  props: Partial<AwsRoute53HealthCheckInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -61,8 +63,8 @@ export function AwsRoute53HealthCheck(props: Partial<InputProps>) {
       _type='aws_route53_health_check'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRoute53HealthCheckInputSchema}
+      _outputSchema={AwsRoute53HealthCheckOutputSchema}
       {...props}
     />
   )
@@ -73,14 +75,19 @@ export const useAwsRoute53HealthCheck = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsRoute53HealthCheck, idFilter, baseNode, optional)
+  useTypedNode<AwsRoute53HealthCheckOutputProps>(
+    AwsRoute53HealthCheck,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRoute53HealthChecks = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRoute53HealthCheckOutputProps>(
     AwsRoute53HealthCheck,
     idFilter,
     baseNode,

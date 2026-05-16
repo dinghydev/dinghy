@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsMemorydbAcl } from './AwsMemorydbAcl.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsMemorydbAclInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsMemorydbAclOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   minimum_engine_version: z.string().optional(),
@@ -22,18 +22,20 @@ export const OutputSchema = z.object({
   user_names: z.set(z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsMemorydbAclInputProps =
+  & z.input<typeof DataAwsMemorydbAclInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsMemorydbAclOutputProps =
+  & z.output<typeof DataAwsMemorydbAclOutputSchema>
+  & z.output<typeof DataAwsMemorydbAclInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/memorydb_acl
 
-export function DataAwsMemorydbAcl(props: Partial<InputProps>) {
+export function DataAwsMemorydbAcl(
+  props: Partial<DataAwsMemorydbAclInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function DataAwsMemorydbAcl(props: Partial<InputProps>) {
       _type='aws_memorydb_acl'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsMemorydbAclInputSchema}
+      _outputSchema={DataAwsMemorydbAclOutputSchema}
       {...props as any}
     />
   )
@@ -54,11 +56,22 @@ export const useDataAwsMemorydbAcl = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsMemorydbAcl, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsMemorydbAclOutputProps>(
+    DataAwsMemorydbAcl,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsMemorydbAcls = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsMemorydbAcl, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsMemorydbAclOutputProps>(
+    DataAwsMemorydbAcl,
+    idFilter,
+    baseNode,
+    optional,
+  )

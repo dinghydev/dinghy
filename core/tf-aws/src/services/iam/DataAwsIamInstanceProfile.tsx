@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsIamInstanceProfile } from './AwsIamInstanceProfile.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsIamInstanceProfileInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsIamInstanceProfileOutputSchema = z.object({
   arn: z.string().optional(),
   create_date: z.string().optional(),
   path: z.string().optional(),
@@ -23,18 +23,20 @@ export const OutputSchema = z.object({
   role_name: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsIamInstanceProfileInputProps =
+  & z.input<typeof DataAwsIamInstanceProfileInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsIamInstanceProfileOutputProps =
+  & z.output<typeof DataAwsIamInstanceProfileOutputSchema>
+  & z.output<typeof DataAwsIamInstanceProfileInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/iam_instance_profile
 
-export function DataAwsIamInstanceProfile(props: Partial<InputProps>) {
+export function DataAwsIamInstanceProfile(
+  props: Partial<DataAwsIamInstanceProfileInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +46,8 @@ export function DataAwsIamInstanceProfile(props: Partial<InputProps>) {
       _type='aws_iam_instance_profile'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsIamInstanceProfileInputSchema}
+      _outputSchema={DataAwsIamInstanceProfileOutputSchema}
       {...props as any}
     />
   )
@@ -56,7 +58,7 @@ export const useDataAwsIamInstanceProfile = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsIamInstanceProfileOutputProps>(
     DataAwsIamInstanceProfile,
     idFilter,
     baseNode,
@@ -68,7 +70,7 @@ export const useDataAwsIamInstanceProfiles = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsIamInstanceProfileOutputProps>(
     DataAwsIamInstanceProfile,
     idFilter,
     baseNode,

@@ -8,59 +8,60 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  display_name: resolvableValue(z.string()),
-  additional_encryption_context: resolvableValue(
-    z.record(z.string(), z.string()).optional(),
-  ),
-  customer_managed_key: resolvableValue(z.string().optional()),
-  description: resolvableValue(z.string().optional()),
-  inline_redaction_configuration: resolvableValue(
-    z.object({
-      global_confidence_level: z.number().optional(),
-      global_enforced_urls: z.string().array().optional(),
-      global_exempt_urls: z.string().array().optional(),
-      inline_redaction_pattern: z.object({
-        built_in_pattern_id: z.string().optional(),
-        confidence_level: z.number().optional(),
-        enforced_urls: z.string().array().optional(),
-        exempt_urls: z.string().array().optional(),
-        custom_pattern: z.object({
-          keyword_regex: z.string().optional(),
-          pattern_description: z.string().optional(),
-          pattern_name: z.string(),
-          pattern_regex: z.string(),
-        }).array().optional(),
-        redaction_place_holder: z.object({
-          redaction_place_holder_text: z.string().optional(),
-          redaction_place_holder_type: z.string(),
+export const AwsWorkspaceswebDataProtectionSettingsInputSchema = TfMetaSchema
+  .extend({
+    display_name: resolvableValue(z.string()),
+    additional_encryption_context: resolvableValue(
+      z.record(z.string(), z.string()).optional(),
+    ),
+    customer_managed_key: resolvableValue(z.string().optional()),
+    description: resolvableValue(z.string().optional()),
+    inline_redaction_configuration: resolvableValue(
+      z.object({
+        global_confidence_level: z.number().optional(),
+        global_enforced_urls: z.string().array().optional(),
+        global_exempt_urls: z.string().array().optional(),
+        inline_redaction_pattern: z.object({
+          built_in_pattern_id: z.string().optional(),
+          confidence_level: z.number().optional(),
+          enforced_urls: z.string().array().optional(),
+          exempt_urls: z.string().array().optional(),
+          custom_pattern: z.object({
+            keyword_regex: z.string().optional(),
+            pattern_description: z.string().optional(),
+            pattern_name: z.string(),
+            pattern_regex: z.string(),
+          }).array().optional(),
+          redaction_place_holder: z.object({
+            redaction_place_holder_text: z.string().optional(),
+            redaction_place_holder_type: z.string(),
+          }).array().optional(),
         }).array().optional(),
       }).array().optional(),
-    }).array().optional(),
-  ),
-  region: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+    ),
+    region: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsWorkspaceswebDataProtectionSettingsOutputSchema = z.object({
   associated_portal_arns: z.string().array().optional(),
   data_protection_settings_arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsWorkspaceswebDataProtectionSettingsInputProps =
+  & z.input<typeof AwsWorkspaceswebDataProtectionSettingsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWorkspaceswebDataProtectionSettingsOutputProps =
+  & z.output<typeof AwsWorkspaceswebDataProtectionSettingsOutputSchema>
+  & z.output<typeof AwsWorkspaceswebDataProtectionSettingsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workspacesweb_data_protection_settings
 
 export function AwsWorkspaceswebDataProtectionSettings(
-  props: Partial<InputProps>,
+  props: Partial<AwsWorkspaceswebDataProtectionSettingsInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -71,8 +72,8 @@ export function AwsWorkspaceswebDataProtectionSettings(
       _type='aws_workspacesweb_data_protection_settings'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsWorkspaceswebDataProtectionSettingsInputSchema}
+      _outputSchema={AwsWorkspaceswebDataProtectionSettingsOutputSchema}
       {...props}
     />
   )
@@ -83,7 +84,7 @@ export const useAwsWorkspaceswebDataProtectionSettingss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsWorkspaceswebDataProtectionSettingsOutputProps>(
     AwsWorkspaceswebDataProtectionSettings,
     idFilter,
     baseNode,

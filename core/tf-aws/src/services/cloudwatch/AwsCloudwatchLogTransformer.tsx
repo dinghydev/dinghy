@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudwatchLogTransformerInputSchema = TfMetaSchema.extend({
   log_group_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   transformer_config: resolvableValue(
@@ -137,25 +137,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({})
+export const AwsCloudwatchLogTransformerOutputSchema = z.object({})
 
-export const ImportSchema = z.object({
+export const AwsCloudwatchLogTransformerImportSchema = z.object({
   log_group_arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsCloudwatchLogTransformerInputProps =
+  & z.input<typeof AwsCloudwatchLogTransformerInputSchema>
+  & z.input<typeof AwsCloudwatchLogTransformerImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudwatchLogTransformerOutputProps =
+  & z.output<typeof AwsCloudwatchLogTransformerOutputSchema>
+  & z.output<typeof AwsCloudwatchLogTransformerInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudwatch_log_transformer
 
-export function AwsCloudwatchLogTransformer(props: Partial<InputProps>) {
+export function AwsCloudwatchLogTransformer(
+  props: Partial<AwsCloudwatchLogTransformerInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -165,9 +167,9 @@ export function AwsCloudwatchLogTransformer(props: Partial<InputProps>) {
       _type='aws_cloudwatch_log_transformer'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsCloudwatchLogTransformerInputSchema}
+      _outputSchema={AwsCloudwatchLogTransformerOutputSchema}
+      _importSchema={AwsCloudwatchLogTransformerImportSchema}
       {...props}
     />
   )
@@ -178,7 +180,7 @@ export const useAwsCloudwatchLogTransformer = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudwatchLogTransformerOutputProps>(
     AwsCloudwatchLogTransformer,
     idFilter,
     baseNode,
@@ -190,7 +192,7 @@ export const useAwsCloudwatchLogTransformers = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudwatchLogTransformerOutputProps>(
     AwsCloudwatchLogTransformer,
     idFilter,
     baseNode,

@@ -9,13 +9,14 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  name: resolvableValue(z.string()),
-  type: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsServiceDiscoveryDnsNamespaceInputSchema = TfMetaSchema
+  .extend({
+    name: resolvableValue(z.string()),
+    type: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsServiceDiscoveryDnsNamespaceOutputSchema = z.object({
   arn: z.string().optional(),
   description: z.string().optional(),
   hosted_zone: z.string().optional(),
@@ -23,19 +24,19 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsServiceDiscoveryDnsNamespaceInputProps =
+  & z.input<typeof DataAwsServiceDiscoveryDnsNamespaceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsServiceDiscoveryDnsNamespaceOutputProps =
+  & z.output<typeof DataAwsServiceDiscoveryDnsNamespaceOutputSchema>
+  & z.output<typeof DataAwsServiceDiscoveryDnsNamespaceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/service_discovery_dns_namespace
 
 export function DataAwsServiceDiscoveryDnsNamespace(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsServiceDiscoveryDnsNamespaceInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -46,8 +47,8 @@ export function DataAwsServiceDiscoveryDnsNamespace(
       _type='aws_service_discovery_dns_namespace'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsServiceDiscoveryDnsNamespaceInputSchema}
+      _outputSchema={DataAwsServiceDiscoveryDnsNamespaceOutputSchema}
       {...props}
     />
   )
@@ -58,7 +59,7 @@ export const useDataAwsServiceDiscoveryDnsNamespace = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsServiceDiscoveryDnsNamespaceOutputProps>(
     DataAwsServiceDiscoveryDnsNamespace,
     idFilter,
     baseNode,
@@ -70,7 +71,7 @@ export const useDataAwsServiceDiscoveryDnsNamespaces = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsServiceDiscoveryDnsNamespaceOutputProps>(
     DataAwsServiceDiscoveryDnsNamespace,
     idFilter,
     baseNode,

@@ -9,34 +9,35 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  data_share_arn: resolvableValue(z.string()),
-  allow_writes: resolvableValue(z.boolean().optional()),
-  associate_entire_account: resolvableValue(z.boolean().optional()),
-  consumer_arn: resolvableValue(z.string().optional()),
-  consumer_region: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsRedshiftDataShareConsumerAssociationInputSchema = TfMetaSchema
+  .extend({
+    data_share_arn: resolvableValue(z.string()),
+    allow_writes: resolvableValue(z.boolean().optional()),
+    associate_entire_account: resolvableValue(z.boolean().optional()),
+    consumer_arn: resolvableValue(z.string().optional()),
+    consumer_region: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsRedshiftDataShareConsumerAssociationOutputSchema = z.object({
   id: z.string().optional(),
   managed_by: z.string().optional(),
   producer_arn: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRedshiftDataShareConsumerAssociationInputProps =
+  & z.input<typeof AwsRedshiftDataShareConsumerAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRedshiftDataShareConsumerAssociationOutputProps =
+  & z.output<typeof AwsRedshiftDataShareConsumerAssociationOutputSchema>
+  & z.output<typeof AwsRedshiftDataShareConsumerAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/redshift_data_share_consumer_association
 
 export function AwsRedshiftDataShareConsumerAssociation(
-  props: Partial<InputProps>,
+  props: Partial<AwsRedshiftDataShareConsumerAssociationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -47,8 +48,8 @@ export function AwsRedshiftDataShareConsumerAssociation(
       _type='aws_redshift_data_share_consumer_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRedshiftDataShareConsumerAssociationInputSchema}
+      _outputSchema={AwsRedshiftDataShareConsumerAssociationOutputSchema}
       {...props}
     />
   )
@@ -59,7 +60,7 @@ export const useAwsRedshiftDataShareConsumerAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRedshiftDataShareConsumerAssociationOutputProps>(
     AwsRedshiftDataShareConsumerAssociation,
     idFilter,
     baseNode,
@@ -71,7 +72,7 @@ export const useAwsRedshiftDataShareConsumerAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRedshiftDataShareConsumerAssociationOutputProps>(
     AwsRedshiftDataShareConsumerAssociation,
     idFilter,
     baseNode,

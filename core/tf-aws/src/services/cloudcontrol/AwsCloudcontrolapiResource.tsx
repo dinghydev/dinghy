@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudcontrolapiResourceInputSchema = TfMetaSchema.extend({
   desired_state: resolvableValue(z.string()),
   type_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
@@ -26,22 +26,24 @@ export const InputSchema = TfMetaSchema.extend({
   type_version_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudcontrolapiResourceOutputSchema = z.object({
   properties: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudcontrolapiResourceInputProps =
+  & z.input<typeof AwsCloudcontrolapiResourceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudcontrolapiResourceOutputProps =
+  & z.output<typeof AwsCloudcontrolapiResourceOutputSchema>
+  & z.output<typeof AwsCloudcontrolapiResourceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudcontrolapi_resource
 
-export function AwsCloudcontrolapiResource(props: Partial<InputProps>) {
+export function AwsCloudcontrolapiResource(
+  props: Partial<AwsCloudcontrolapiResourceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -51,8 +53,8 @@ export function AwsCloudcontrolapiResource(props: Partial<InputProps>) {
       _type='aws_cloudcontrolapi_resource'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudcontrolapiResourceInputSchema}
+      _outputSchema={AwsCloudcontrolapiResourceOutputSchema}
       {...props}
     />
   )
@@ -63,7 +65,7 @@ export const useAwsCloudcontrolapiResource = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudcontrolapiResourceOutputProps>(
     AwsCloudcontrolapiResource,
     idFilter,
     baseNode,
@@ -75,7 +77,7 @@ export const useAwsCloudcontrolapiResources = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudcontrolapiResourceOutputProps>(
     AwsCloudcontrolapiResource,
     idFilter,
     baseNode,

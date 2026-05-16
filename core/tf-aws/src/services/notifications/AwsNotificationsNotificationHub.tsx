@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsNotificationsNotificationHubInputSchema = TfMetaSchema.extend({
   notification_hub_region: resolvableValue(z.string()),
   timeouts: resolvableValue(
     z.object({
@@ -19,20 +19,22 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({})
+export const AwsNotificationsNotificationHubOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsNotificationsNotificationHubInputProps =
+  & z.input<typeof AwsNotificationsNotificationHubInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNotificationsNotificationHubOutputProps =
+  & z.output<typeof AwsNotificationsNotificationHubOutputSchema>
+  & z.output<typeof AwsNotificationsNotificationHubInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/notifications_notification_hub
 
-export function AwsNotificationsNotificationHub(props: Partial<InputProps>) {
+export function AwsNotificationsNotificationHub(
+  props: Partial<AwsNotificationsNotificationHubInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +44,8 @@ export function AwsNotificationsNotificationHub(props: Partial<InputProps>) {
       _type='aws_notifications_notification_hub'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsNotificationsNotificationHubInputSchema}
+      _outputSchema={AwsNotificationsNotificationHubOutputSchema}
       {...props}
     />
   )
@@ -54,7 +56,7 @@ export const useAwsNotificationsNotificationHub = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsNotificationsNotificationHubOutputProps>(
     AwsNotificationsNotificationHub,
     idFilter,
     baseNode,
@@ -66,7 +68,7 @@ export const useAwsNotificationsNotificationHubs = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsNotificationsNotificationHubOutputProps>(
     AwsNotificationsNotificationHub,
     idFilter,
     baseNode,

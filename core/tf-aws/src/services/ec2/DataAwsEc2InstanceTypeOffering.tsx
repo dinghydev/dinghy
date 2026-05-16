@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsEc2InstanceTypeOfferingInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -26,24 +26,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsEc2InstanceTypeOfferingOutputSchema = z.object({
   id: z.string().optional(),
   instance_type: z.string().optional(),
   location: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEc2InstanceTypeOfferingInputProps =
+  & z.input<typeof DataAwsEc2InstanceTypeOfferingInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEc2InstanceTypeOfferingOutputProps =
+  & z.output<typeof DataAwsEc2InstanceTypeOfferingOutputSchema>
+  & z.output<typeof DataAwsEc2InstanceTypeOfferingInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ec2_instance_type_offering
 
-export function DataAwsEc2InstanceTypeOffering(props: Partial<InputProps>) {
+export function DataAwsEc2InstanceTypeOffering(
+  props: Partial<DataAwsEc2InstanceTypeOfferingInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,8 +55,8 @@ export function DataAwsEc2InstanceTypeOffering(props: Partial<InputProps>) {
       _type='aws_ec2_instance_type_offering'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEc2InstanceTypeOfferingInputSchema}
+      _outputSchema={DataAwsEc2InstanceTypeOfferingOutputSchema}
       {...props}
     />
   )
@@ -65,7 +67,7 @@ export const useDataAwsEc2InstanceTypeOffering = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsEc2InstanceTypeOfferingOutputProps>(
     DataAwsEc2InstanceTypeOffering,
     idFilter,
     baseNode,
@@ -77,7 +79,7 @@ export const useDataAwsEc2InstanceTypeOfferings = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsEc2InstanceTypeOfferingOutputProps>(
     DataAwsEc2InstanceTypeOffering,
     idFilter,
     baseNode,

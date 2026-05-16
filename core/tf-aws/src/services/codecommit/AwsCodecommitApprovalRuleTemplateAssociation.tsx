@@ -9,29 +9,31 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  approval_rule_template_name: resolvableValue(z.string()),
-  repository_name: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsCodecommitApprovalRuleTemplateAssociationInputSchema =
+  TfMetaSchema.extend({
+    approval_rule_template_name: resolvableValue(z.string()),
+    repository_name: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
-  id: z.string().optional(),
-})
+export const AwsCodecommitApprovalRuleTemplateAssociationOutputSchema = z
+  .object({
+    id: z.string().optional(),
+  })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCodecommitApprovalRuleTemplateAssociationInputProps =
+  & z.input<typeof AwsCodecommitApprovalRuleTemplateAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCodecommitApprovalRuleTemplateAssociationOutputProps =
+  & z.output<typeof AwsCodecommitApprovalRuleTemplateAssociationOutputSchema>
+  & z.output<typeof AwsCodecommitApprovalRuleTemplateAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/codecommit_approval_rule_template_association
 
 export function AwsCodecommitApprovalRuleTemplateAssociation(
-  props: Partial<InputProps>,
+  props: Partial<AwsCodecommitApprovalRuleTemplateAssociationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -42,8 +44,8 @@ export function AwsCodecommitApprovalRuleTemplateAssociation(
       _type='aws_codecommit_approval_rule_template_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCodecommitApprovalRuleTemplateAssociationInputSchema}
+      _outputSchema={AwsCodecommitApprovalRuleTemplateAssociationOutputSchema}
       {...props}
     />
   )
@@ -54,7 +56,7 @@ export const useAwsCodecommitApprovalRuleTemplateAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCodecommitApprovalRuleTemplateAssociationOutputProps>(
     AwsCodecommitApprovalRuleTemplateAssociation,
     idFilter,
     baseNode,
@@ -66,7 +68,7 @@ export const useAwsCodecommitApprovalRuleTemplateAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCodecommitApprovalRuleTemplateAssociationOutputProps>(
     AwsCodecommitApprovalRuleTemplateAssociation,
     idFilter,
     baseNode,

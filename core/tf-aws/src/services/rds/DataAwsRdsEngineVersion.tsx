@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsRdsEngineVersionInputSchema = TfMetaSchema.extend({
   engine: resolvableValue(z.string()),
   default_only: resolvableValue(z.boolean().optional()),
   filter: resolvableValue(
@@ -31,7 +31,7 @@ export const InputSchema = TfMetaSchema.extend({
   version: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsRdsEngineVersionOutputSchema = z.object({
   default_character_set: z.string().optional(),
   engine_description: z.string().optional(),
   exportable_log_types: z.set(z.string()).optional(),
@@ -55,18 +55,20 @@ export const OutputSchema = z.object({
   version_description: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsRdsEngineVersionInputProps =
+  & z.input<typeof DataAwsRdsEngineVersionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsRdsEngineVersionOutputProps =
+  & z.output<typeof DataAwsRdsEngineVersionOutputSchema>
+  & z.output<typeof DataAwsRdsEngineVersionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/rds_engine_version
 
-export function DataAwsRdsEngineVersion(props: Partial<InputProps>) {
+export function DataAwsRdsEngineVersion(
+  props: Partial<DataAwsRdsEngineVersionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -76,8 +78,8 @@ export function DataAwsRdsEngineVersion(props: Partial<InputProps>) {
       _type='aws_rds_engine_version'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsRdsEngineVersionInputSchema}
+      _outputSchema={DataAwsRdsEngineVersionOutputSchema}
       {...props}
     />
   )
@@ -88,7 +90,7 @@ export const useDataAwsRdsEngineVersion = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsRdsEngineVersionOutputProps>(
     DataAwsRdsEngineVersion,
     idFilter,
     baseNode,
@@ -100,7 +102,7 @@ export const useDataAwsRdsEngineVersions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsRdsEngineVersionOutputProps>(
     DataAwsRdsEngineVersion,
     idFilter,
     baseNode,

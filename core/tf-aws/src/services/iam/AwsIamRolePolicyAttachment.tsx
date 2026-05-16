@@ -9,33 +9,35 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIamRolePolicyAttachmentInputSchema = TfMetaSchema.extend({
   policy_arn: resolvableValue(z.string()),
   role: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsIamRolePolicyAttachmentOutputSchema = z.object({})
 
-export const ImportSchema = z.object({
+export const AwsIamRolePolicyAttachmentImportSchema = z.object({
   policy_arn: resolvableValue(z.string()),
   role: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsIamRolePolicyAttachmentInputProps =
+  & z.input<typeof AwsIamRolePolicyAttachmentInputSchema>
+  & z.input<typeof AwsIamRolePolicyAttachmentImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIamRolePolicyAttachmentOutputProps =
+  & z.output<typeof AwsIamRolePolicyAttachmentOutputSchema>
+  & z.output<typeof AwsIamRolePolicyAttachmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iam_role_policy_attachment
 
-export function AwsIamRolePolicyAttachment(props: Partial<InputProps>) {
+export function AwsIamRolePolicyAttachment(
+  props: Partial<AwsIamRolePolicyAttachmentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,9 +47,9 @@ export function AwsIamRolePolicyAttachment(props: Partial<InputProps>) {
       _type='aws_iam_role_policy_attachment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsIamRolePolicyAttachmentInputSchema}
+      _outputSchema={AwsIamRolePolicyAttachmentOutputSchema}
+      _importSchema={AwsIamRolePolicyAttachmentImportSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useAwsIamRolePolicyAttachment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsIamRolePolicyAttachmentOutputProps>(
     AwsIamRolePolicyAttachment,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useAwsIamRolePolicyAttachments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsIamRolePolicyAttachmentOutputProps>(
     AwsIamRolePolicyAttachment,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsBedrockagentAgentActionGroupInputSchema = TfMetaSchema.extend({
   action_group_name: resolvableValue(z.string()),
   agent_id: resolvableValue(z.string()),
   agent_version: resolvableValue(z.string()),
@@ -58,23 +58,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsBedrockagentAgentActionGroupOutputSchema = z.object({
   action_group_id: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsBedrockagentAgentActionGroupInputProps =
+  & z.input<typeof AwsBedrockagentAgentActionGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBedrockagentAgentActionGroupOutputProps =
+  & z.output<typeof AwsBedrockagentAgentActionGroupOutputSchema>
+  & z.output<typeof AwsBedrockagentAgentActionGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/bedrockagent_agent_action_group
 
-export function AwsBedrockagentAgentActionGroup(props: Partial<InputProps>) {
+export function AwsBedrockagentAgentActionGroup(
+  props: Partial<AwsBedrockagentAgentActionGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -84,8 +86,8 @@ export function AwsBedrockagentAgentActionGroup(props: Partial<InputProps>) {
       _type='aws_bedrockagent_agent_action_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsBedrockagentAgentActionGroupInputSchema}
+      _outputSchema={AwsBedrockagentAgentActionGroupOutputSchema}
       {...props}
     />
   )
@@ -96,7 +98,7 @@ export const useAwsBedrockagentAgentActionGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsBedrockagentAgentActionGroupOutputProps>(
     AwsBedrockagentAgentActionGroup,
     idFilter,
     baseNode,
@@ -108,7 +110,7 @@ export const useAwsBedrockagentAgentActionGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsBedrockagentAgentActionGroupOutputProps>(
     AwsBedrockagentAgentActionGroup,
     idFilter,
     baseNode,

@@ -9,26 +9,26 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRdsCertificateInputSchema = TfMetaSchema.extend({
   certificate_identifier: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsRdsCertificateOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRdsCertificateInputProps =
+  & z.input<typeof AwsRdsCertificateInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRdsCertificateOutputProps =
+  & z.output<typeof AwsRdsCertificateOutputSchema>
+  & z.output<typeof AwsRdsCertificateInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/rds_certificate
 
-export function AwsRdsCertificate(props: Partial<InputProps>) {
+export function AwsRdsCertificate(props: Partial<AwsRdsCertificateInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -38,8 +38,8 @@ export function AwsRdsCertificate(props: Partial<InputProps>) {
       _type='aws_rds_certificate'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRdsCertificateInputSchema}
+      _outputSchema={AwsRdsCertificateOutputSchema}
       {...props}
     />
   )
@@ -49,10 +49,22 @@ export const useAwsRdsCertificate = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsRdsCertificate, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsRdsCertificateOutputProps>(
+    AwsRdsCertificate,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRdsCertificates = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsRdsCertificate, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsRdsCertificateOutputProps>(
+    AwsRdsCertificate,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsResourceexplorer2ViewInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   default_view: resolvableValue(z.boolean().optional()),
   filters: resolvableValue(
@@ -27,29 +27,31 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsResourceexplorer2ViewOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsResourceexplorer2ViewImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsResourceexplorer2ViewInputProps =
+  & z.input<typeof AwsResourceexplorer2ViewInputSchema>
+  & z.input<typeof AwsResourceexplorer2ViewImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsResourceexplorer2ViewOutputProps =
+  & z.output<typeof AwsResourceexplorer2ViewOutputSchema>
+  & z.output<typeof AwsResourceexplorer2ViewInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/resourceexplorer2_view
 
-export function AwsResourceexplorer2View(props: Partial<InputProps>) {
+export function AwsResourceexplorer2View(
+  props: Partial<AwsResourceexplorer2ViewInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -59,9 +61,9 @@ export function AwsResourceexplorer2View(props: Partial<InputProps>) {
       _type='aws_resourceexplorer2_view'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsResourceexplorer2ViewInputSchema}
+      _outputSchema={AwsResourceexplorer2ViewOutputSchema}
+      _importSchema={AwsResourceexplorer2ViewImportSchema}
       {...props}
     />
   )
@@ -72,7 +74,7 @@ export const useAwsResourceexplorer2View = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsResourceexplorer2ViewOutputProps>(
     AwsResourceexplorer2View,
     idFilter,
     baseNode,
@@ -84,7 +86,7 @@ export const useAwsResourceexplorer2Views = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsResourceexplorer2ViewOutputProps>(
     AwsResourceexplorer2View,
     idFilter,
     baseNode,

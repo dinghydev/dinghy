@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCleanroomsConfiguredTableInputSchema = TfMetaSchema.extend({
   allowed_columns: resolvableValue(z.string().array()),
   analysis_method: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -30,32 +30,34 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsCleanroomsConfiguredTableOutputSchema = z.object({
   arn: z.string().optional(),
   create_time: z.string().optional(),
   id: z.string().optional(),
   update_time: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsCleanroomsConfiguredTableImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsCleanroomsConfiguredTableInputProps =
+  & z.input<typeof AwsCleanroomsConfiguredTableInputSchema>
+  & z.input<typeof AwsCleanroomsConfiguredTableImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCleanroomsConfiguredTableOutputProps =
+  & z.output<typeof AwsCleanroomsConfiguredTableOutputSchema>
+  & z.output<typeof AwsCleanroomsConfiguredTableInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cleanrooms_configured_table
 
-export function AwsCleanroomsConfiguredTable(props: Partial<InputProps>) {
+export function AwsCleanroomsConfiguredTable(
+  props: Partial<AwsCleanroomsConfiguredTableInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -65,9 +67,9 @@ export function AwsCleanroomsConfiguredTable(props: Partial<InputProps>) {
       _type='aws_cleanrooms_configured_table'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsCleanroomsConfiguredTableInputSchema}
+      _outputSchema={AwsCleanroomsConfiguredTableOutputSchema}
+      _importSchema={AwsCleanroomsConfiguredTableImportSchema}
       {...props}
     />
   )
@@ -78,7 +80,7 @@ export const useAwsCleanroomsConfiguredTable = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCleanroomsConfiguredTableOutputProps>(
     AwsCleanroomsConfiguredTable,
     idFilter,
     baseNode,
@@ -90,7 +92,7 @@ export const useAwsCleanroomsConfiguredTables = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCleanroomsConfiguredTableOutputProps>(
     AwsCleanroomsConfiguredTable,
     idFilter,
     baseNode,

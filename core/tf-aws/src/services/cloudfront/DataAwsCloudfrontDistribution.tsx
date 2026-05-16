@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsCloudfrontDistribution } from './AwsCloudfrontDistribution.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsCloudfrontDistributionInputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsCloudfrontDistributionOutputSchema = z.object({
   aliases: z.set(z.string()).optional(),
   anycast_ip_list_id: z.string().optional(),
   arn: z.string().optional(),
@@ -29,18 +29,20 @@ export const OutputSchema = z.object({
   web_acl_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsCloudfrontDistributionInputProps =
+  & z.input<typeof DataAwsCloudfrontDistributionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsCloudfrontDistributionOutputProps =
+  & z.output<typeof DataAwsCloudfrontDistributionOutputSchema>
+  & z.output<typeof DataAwsCloudfrontDistributionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/cloudfront_distribution
 
-export function DataAwsCloudfrontDistribution(props: Partial<InputProps>) {
+export function DataAwsCloudfrontDistribution(
+  props: Partial<DataAwsCloudfrontDistributionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -50,8 +52,8 @@ export function DataAwsCloudfrontDistribution(props: Partial<InputProps>) {
       _type='aws_cloudfront_distribution'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsCloudfrontDistributionInputSchema}
+      _outputSchema={DataAwsCloudfrontDistributionOutputSchema}
       {...props as any}
     />
   )
@@ -62,7 +64,7 @@ export const useDataAwsCloudfrontDistribution = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsCloudfrontDistributionOutputProps>(
     DataAwsCloudfrontDistribution,
     idFilter,
     baseNode,
@@ -74,7 +76,7 @@ export const useDataAwsCloudfrontDistributions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsCloudfrontDistributionOutputProps>(
     DataAwsCloudfrontDistribution,
     idFilter,
     baseNode,

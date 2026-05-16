@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLbTargetGroupInputSchema = TfMetaSchema.extend({
   connection_termination: resolvableValue(z.boolean().optional()),
   deregistration_delay: resolvableValue(z.string().optional()),
   health_check: resolvableValue(
@@ -77,7 +77,7 @@ export const InputSchema = TfMetaSchema.extend({
   vpc_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsLbTargetGroupOutputSchema = z.object({
   arn: z.string().optional(),
   arn_suffix: z.string().optional(),
   id: z.string().optional(),
@@ -86,23 +86,23 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsLbTargetGroupImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsLbTargetGroupInputProps =
+  & z.input<typeof AwsLbTargetGroupInputSchema>
+  & z.input<typeof AwsLbTargetGroupImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLbTargetGroupOutputProps =
+  & z.output<typeof AwsLbTargetGroupOutputSchema>
+  & z.output<typeof AwsLbTargetGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lb_target_group
 
-export function AwsLbTargetGroup(props: Partial<InputProps>) {
+export function AwsLbTargetGroup(props: Partial<AwsLbTargetGroupInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -112,9 +112,9 @@ export function AwsLbTargetGroup(props: Partial<InputProps>) {
       _type='aws_lb_target_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsLbTargetGroupInputSchema}
+      _outputSchema={AwsLbTargetGroupOutputSchema}
+      _importSchema={AwsLbTargetGroupImportSchema}
       {...props}
     />
   )
@@ -124,10 +124,22 @@ export const useAwsLbTargetGroup = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsLbTargetGroup, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsLbTargetGroupOutputProps>(
+    AwsLbTargetGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLbTargetGroups = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsLbTargetGroup, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsLbTargetGroupOutputProps>(
+    AwsLbTargetGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

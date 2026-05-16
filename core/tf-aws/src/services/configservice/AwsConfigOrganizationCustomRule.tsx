@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsConfigOrganizationCustomRuleInputSchema = TfMetaSchema.extend({
   lambda_function_arn: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   trigger_types: resolvableValue(z.string().array()),
@@ -32,29 +32,31 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsConfigOrganizationCustomRuleOutputSchema = z.object({
   arn: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsConfigOrganizationCustomRuleImportSchema = z.object({
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsConfigOrganizationCustomRuleInputProps =
+  & z.input<typeof AwsConfigOrganizationCustomRuleInputSchema>
+  & z.input<typeof AwsConfigOrganizationCustomRuleImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsConfigOrganizationCustomRuleOutputProps =
+  & z.output<typeof AwsConfigOrganizationCustomRuleOutputSchema>
+  & z.output<typeof AwsConfigOrganizationCustomRuleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/config_organization_custom_rule
 
-export function AwsConfigOrganizationCustomRule(props: Partial<InputProps>) {
+export function AwsConfigOrganizationCustomRule(
+  props: Partial<AwsConfigOrganizationCustomRuleInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -64,9 +66,9 @@ export function AwsConfigOrganizationCustomRule(props: Partial<InputProps>) {
       _type='aws_config_organization_custom_rule'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsConfigOrganizationCustomRuleInputSchema}
+      _outputSchema={AwsConfigOrganizationCustomRuleOutputSchema}
+      _importSchema={AwsConfigOrganizationCustomRuleImportSchema}
       {...props}
     />
   )
@@ -77,7 +79,7 @@ export const useAwsConfigOrganizationCustomRule = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsConfigOrganizationCustomRuleOutputProps>(
     AwsConfigOrganizationCustomRule,
     idFilter,
     baseNode,
@@ -89,7 +91,7 @@ export const useAwsConfigOrganizationCustomRules = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsConfigOrganizationCustomRuleOutputProps>(
     AwsConfigOrganizationCustomRule,
     idFilter,
     baseNode,

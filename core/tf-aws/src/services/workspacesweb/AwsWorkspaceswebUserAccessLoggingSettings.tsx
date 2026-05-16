@@ -8,31 +8,32 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  kinesis_stream_arn: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+export const AwsWorkspaceswebUserAccessLoggingSettingsInputSchema = TfMetaSchema
+  .extend({
+    kinesis_stream_arn: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsWorkspaceswebUserAccessLoggingSettingsOutputSchema = z.object({
   associated_portal_arns: z.string().array().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   user_access_logging_settings_arn: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsWorkspaceswebUserAccessLoggingSettingsInputProps =
+  & z.input<typeof AwsWorkspaceswebUserAccessLoggingSettingsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWorkspaceswebUserAccessLoggingSettingsOutputProps =
+  & z.output<typeof AwsWorkspaceswebUserAccessLoggingSettingsOutputSchema>
+  & z.output<typeof AwsWorkspaceswebUserAccessLoggingSettingsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workspacesweb_user_access_logging_settings
 
 export function AwsWorkspaceswebUserAccessLoggingSettings(
-  props: Partial<InputProps>,
+  props: Partial<AwsWorkspaceswebUserAccessLoggingSettingsInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -43,8 +44,8 @@ export function AwsWorkspaceswebUserAccessLoggingSettings(
       _type='aws_workspacesweb_user_access_logging_settings'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsWorkspaceswebUserAccessLoggingSettingsInputSchema}
+      _outputSchema={AwsWorkspaceswebUserAccessLoggingSettingsOutputSchema}
       {...props}
     />
   )
@@ -55,7 +56,7 @@ export const useAwsWorkspaceswebUserAccessLoggingSettingss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsWorkspaceswebUserAccessLoggingSettingsOutputProps>(
     AwsWorkspaceswebUserAccessLoggingSettings,
     idFilter,
     baseNode,

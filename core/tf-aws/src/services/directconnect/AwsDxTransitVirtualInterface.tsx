@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDxTransitVirtualInterfaceInputSchema = TfMetaSchema.extend({
   address_family: resolvableValue(z.string()),
   bgp_asn: resolvableValue(z.number()),
   connection_id: resolvableValue(z.string()),
@@ -32,7 +32,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDxTransitVirtualInterfaceOutputSchema = z.object({
   amazon_side_asn: z.string().optional(),
   arn: z.string().optional(),
   aws_device: z.string().optional(),
@@ -41,18 +41,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDxTransitVirtualInterfaceInputProps =
+  & z.input<typeof AwsDxTransitVirtualInterfaceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDxTransitVirtualInterfaceOutputProps =
+  & z.output<typeof AwsDxTransitVirtualInterfaceOutputSchema>
+  & z.output<typeof AwsDxTransitVirtualInterfaceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dx_transit_virtual_interface
 
-export function AwsDxTransitVirtualInterface(props: Partial<InputProps>) {
+export function AwsDxTransitVirtualInterface(
+  props: Partial<AwsDxTransitVirtualInterfaceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -62,8 +64,8 @@ export function AwsDxTransitVirtualInterface(props: Partial<InputProps>) {
       _type='aws_dx_transit_virtual_interface'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDxTransitVirtualInterfaceInputSchema}
+      _outputSchema={AwsDxTransitVirtualInterfaceOutputSchema}
       {...props}
     />
   )
@@ -74,7 +76,7 @@ export const useAwsDxTransitVirtualInterface = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDxTransitVirtualInterfaceOutputProps>(
     AwsDxTransitVirtualInterface,
     idFilter,
     baseNode,
@@ -86,7 +88,7 @@ export const useAwsDxTransitVirtualInterfaces = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDxTransitVirtualInterfaceOutputProps>(
     AwsDxTransitVirtualInterface,
     idFilter,
     baseNode,

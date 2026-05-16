@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIvschatLoggingConfigurationInputSchema = TfMetaSchema.extend({
   destination_configuration: resolvableValue(
     z.object({
       cloudwatch_logs: z.object({
@@ -35,30 +35,32 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsIvschatLoggingConfigurationOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   state: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsIvschatLoggingConfigurationImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsIvschatLoggingConfigurationInputProps =
+  & z.input<typeof AwsIvschatLoggingConfigurationInputSchema>
+  & z.input<typeof AwsIvschatLoggingConfigurationImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIvschatLoggingConfigurationOutputProps =
+  & z.output<typeof AwsIvschatLoggingConfigurationOutputSchema>
+  & z.output<typeof AwsIvschatLoggingConfigurationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ivschat_logging_configuration
 
-export function AwsIvschatLoggingConfiguration(props: Partial<InputProps>) {
+export function AwsIvschatLoggingConfiguration(
+  props: Partial<AwsIvschatLoggingConfigurationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -68,9 +70,9 @@ export function AwsIvschatLoggingConfiguration(props: Partial<InputProps>) {
       _type='aws_ivschat_logging_configuration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsIvschatLoggingConfigurationInputSchema}
+      _outputSchema={AwsIvschatLoggingConfigurationOutputSchema}
+      _importSchema={AwsIvschatLoggingConfigurationImportSchema}
       {...props}
     />
   )
@@ -81,7 +83,7 @@ export const useAwsIvschatLoggingConfiguration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsIvschatLoggingConfigurationOutputProps>(
     AwsIvschatLoggingConfiguration,
     idFilter,
     baseNode,
@@ -93,7 +95,7 @@ export const useAwsIvschatLoggingConfigurations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsIvschatLoggingConfigurationOutputProps>(
     AwsIvschatLoggingConfiguration,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAutoscalingAttachmentInputSchema = TfMetaSchema.extend({
   autoscaling_group_name: resolvableValue(z.string()),
   elb: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
@@ -17,20 +17,22 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsAutoscalingAttachmentOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAutoscalingAttachmentInputProps =
+  & z.input<typeof AwsAutoscalingAttachmentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAutoscalingAttachmentOutputProps =
+  & z.output<typeof AwsAutoscalingAttachmentOutputSchema>
+  & z.output<typeof AwsAutoscalingAttachmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/autoscaling_attachment
 
-export function AwsAutoscalingAttachment(props: Partial<InputProps>) {
+export function AwsAutoscalingAttachment(
+  props: Partial<AwsAutoscalingAttachmentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function AwsAutoscalingAttachment(props: Partial<InputProps>) {
       _type='aws_autoscaling_attachment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAutoscalingAttachmentInputSchema}
+      _outputSchema={AwsAutoscalingAttachmentOutputSchema}
       {...props}
     />
   )
@@ -52,7 +54,7 @@ export const useAwsAutoscalingAttachment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAutoscalingAttachmentOutputProps>(
     AwsAutoscalingAttachment,
     idFilter,
     baseNode,
@@ -64,7 +66,7 @@ export const useAwsAutoscalingAttachments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAutoscalingAttachmentOutputProps>(
     AwsAutoscalingAttachment,
     idFilter,
     baseNode,

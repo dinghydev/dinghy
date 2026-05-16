@@ -8,28 +8,31 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  tracker_name: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsLocationTrackerAssociationsInputSchema = TfMetaSchema
+  .extend({
+    tracker_name: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsLocationTrackerAssociationsOutputSchema = z.object({
   consumer_arns: z.set(z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsLocationTrackerAssociationsInputProps =
+  & z.input<typeof DataAwsLocationTrackerAssociationsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsLocationTrackerAssociationsOutputProps =
+  & z.output<typeof DataAwsLocationTrackerAssociationsOutputSchema>
+  & z.output<typeof DataAwsLocationTrackerAssociationsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/location_tracker_associations
 
-export function DataAwsLocationTrackerAssociations(props: Partial<InputProps>) {
+export function DataAwsLocationTrackerAssociations(
+  props: Partial<DataAwsLocationTrackerAssociationsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -39,8 +42,8 @@ export function DataAwsLocationTrackerAssociations(props: Partial<InputProps>) {
       _type='aws_location_tracker_associations'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsLocationTrackerAssociationsInputSchema}
+      _outputSchema={DataAwsLocationTrackerAssociationsOutputSchema}
       {...props}
     />
   )
@@ -51,7 +54,7 @@ export const useDataAwsLocationTrackerAssociationss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsLocationTrackerAssociationsOutputProps>(
     DataAwsLocationTrackerAssociations,
     idFilter,
     baseNode,

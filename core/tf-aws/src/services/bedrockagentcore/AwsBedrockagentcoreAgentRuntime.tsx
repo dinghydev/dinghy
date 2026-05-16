@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsBedrockagentcoreAgentRuntimeInputSchema = TfMetaSchema.extend({
   agent_runtime_name: resolvableValue(z.string()),
   role_arn: resolvableValue(z.string()),
   agent_runtime_artifact: resolvableValue(
@@ -91,7 +91,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsBedrockagentcoreAgentRuntimeOutputSchema = z.object({
   agent_runtime_arn: z.string().optional(),
   agent_runtime_id: z.string().optional(),
   agent_runtime_version: z.string().optional(),
@@ -101,18 +101,20 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsBedrockagentcoreAgentRuntimeInputProps =
+  & z.input<typeof AwsBedrockagentcoreAgentRuntimeInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBedrockagentcoreAgentRuntimeOutputProps =
+  & z.output<typeof AwsBedrockagentcoreAgentRuntimeOutputSchema>
+  & z.output<typeof AwsBedrockagentcoreAgentRuntimeInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/bedrockagentcore_agent_runtime
 
-export function AwsBedrockagentcoreAgentRuntime(props: Partial<InputProps>) {
+export function AwsBedrockagentcoreAgentRuntime(
+  props: Partial<AwsBedrockagentcoreAgentRuntimeInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -122,8 +124,8 @@ export function AwsBedrockagentcoreAgentRuntime(props: Partial<InputProps>) {
       _type='aws_bedrockagentcore_agent_runtime'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsBedrockagentcoreAgentRuntimeInputSchema}
+      _outputSchema={AwsBedrockagentcoreAgentRuntimeOutputSchema}
       {...props}
     />
   )
@@ -134,7 +136,7 @@ export const useAwsBedrockagentcoreAgentRuntime = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsBedrockagentcoreAgentRuntimeOutputProps>(
     AwsBedrockagentcoreAgentRuntime,
     idFilter,
     baseNode,
@@ -146,7 +148,7 @@ export const useAwsBedrockagentcoreAgentRuntimes = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsBedrockagentcoreAgentRuntimeOutputProps>(
     AwsBedrockagentcoreAgentRuntime,
     idFilter,
     baseNode,

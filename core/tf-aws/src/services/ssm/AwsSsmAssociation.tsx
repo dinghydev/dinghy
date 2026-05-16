@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSsmAssociationInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   apply_only_at_cron_interval: resolvableValue(z.boolean().optional()),
   association_name: resolvableValue(z.string().optional()),
@@ -41,7 +41,7 @@ export const InputSchema = TfMetaSchema.extend({
   wait_for_success_timeout_seconds: resolvableValue(z.number().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSsmAssociationOutputSchema = z.object({
   arn: z.string().optional(),
   association_id: z.string().optional(),
   name: z.string().optional(),
@@ -49,25 +49,25 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSsmAssociationImportSchema = z.object({
   association_id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSsmAssociationInputProps =
+  & z.input<typeof AwsSsmAssociationInputSchema>
+  & z.input<typeof AwsSsmAssociationImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSsmAssociationOutputProps =
+  & z.output<typeof AwsSsmAssociationOutputSchema>
+  & z.output<typeof AwsSsmAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssm_association
 
-export function AwsSsmAssociation(props: Partial<InputProps>) {
+export function AwsSsmAssociation(props: Partial<AwsSsmAssociationInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -77,9 +77,9 @@ export function AwsSsmAssociation(props: Partial<InputProps>) {
       _type='aws_ssm_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSsmAssociationInputSchema}
+      _outputSchema={AwsSsmAssociationOutputSchema}
+      _importSchema={AwsSsmAssociationImportSchema}
       {...props}
     />
   )
@@ -89,10 +89,22 @@ export const useAwsSsmAssociation = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsSsmAssociation, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsSsmAssociationOutputProps>(
+    AwsSsmAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSsmAssociations = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsSsmAssociation, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsSsmAssociationOutputProps>(
+    AwsSsmAssociation,
+    idFilter,
+    baseNode,
+    optional,
+  )

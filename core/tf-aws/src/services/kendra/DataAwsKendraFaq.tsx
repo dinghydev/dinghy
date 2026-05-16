@@ -9,13 +9,13 @@ import {
 import z from 'zod'
 import { AwsKendraFaq } from './AwsKendraFaq.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsKendraFaqInputSchema = TfMetaSchema.extend({
   faq_id: resolvableValue(z.string()),
   index_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsKendraFaqOutputSchema = z.object({
   arn: z.string().optional(),
   created_at: z.string().optional(),
   description: z.string().optional(),
@@ -34,18 +34,18 @@ export const OutputSchema = z.object({
   updated_at: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsKendraFaqInputProps =
+  & z.input<typeof DataAwsKendraFaqInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsKendraFaqOutputProps =
+  & z.output<typeof DataAwsKendraFaqOutputSchema>
+  & z.output<typeof DataAwsKendraFaqInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/kendra_faq
 
-export function DataAwsKendraFaq(props: Partial<InputProps>) {
+export function DataAwsKendraFaq(props: Partial<DataAwsKendraFaqInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,8 +55,8 @@ export function DataAwsKendraFaq(props: Partial<InputProps>) {
       _type='aws_kendra_faq'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsKendraFaqInputSchema}
+      _outputSchema={DataAwsKendraFaqOutputSchema}
       {...props as any}
     />
   )
@@ -66,10 +66,22 @@ export const useDataAwsKendraFaq = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsKendraFaq, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsKendraFaqOutputProps>(
+    DataAwsKendraFaq,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsKendraFaqs = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsKendraFaq, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsKendraFaqOutputProps>(
+    DataAwsKendraFaq,
+    idFilter,
+    baseNode,
+    optional,
+  )

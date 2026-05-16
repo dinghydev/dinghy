@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIamServerCertificateInputSchema = TfMetaSchema.extend({
   certificate_body: resolvableValue(z.string()),
   private_key: resolvableValue(z.string()),
   certificate_chain: resolvableValue(z.string().optional()),
@@ -24,7 +24,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsIamServerCertificateOutputSchema = z.object({
   arn: z.string().optional(),
   expiration: z.string().optional(),
   id: z.string().optional(),
@@ -32,18 +32,20 @@ export const OutputSchema = z.object({
   upload_date: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsIamServerCertificateInputProps =
+  & z.input<typeof AwsIamServerCertificateInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIamServerCertificateOutputProps =
+  & z.output<typeof AwsIamServerCertificateOutputSchema>
+  & z.output<typeof AwsIamServerCertificateInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iam_server_certificate
 
-export function AwsIamServerCertificate(props: Partial<InputProps>) {
+export function AwsIamServerCertificate(
+  props: Partial<AwsIamServerCertificateInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,8 +55,8 @@ export function AwsIamServerCertificate(props: Partial<InputProps>) {
       _type='aws_iam_server_certificate'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsIamServerCertificateInputSchema}
+      _outputSchema={AwsIamServerCertificateOutputSchema}
       {...props}
     />
   )
@@ -65,7 +67,7 @@ export const useAwsIamServerCertificate = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsIamServerCertificateOutputProps>(
     AwsIamServerCertificate,
     idFilter,
     baseNode,
@@ -77,7 +79,7 @@ export const useAwsIamServerCertificates = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsIamServerCertificateOutputProps>(
     AwsIamServerCertificate,
     idFilter,
     baseNode,

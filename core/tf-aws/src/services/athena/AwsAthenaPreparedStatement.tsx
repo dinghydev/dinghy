@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAthenaPreparedStatementInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   query_statement: resolvableValue(z.string()),
   workgroup: resolvableValue(z.string()),
@@ -24,22 +24,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsAthenaPreparedStatementOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAthenaPreparedStatementInputProps =
+  & z.input<typeof AwsAthenaPreparedStatementInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAthenaPreparedStatementOutputProps =
+  & z.output<typeof AwsAthenaPreparedStatementOutputSchema>
+  & z.output<typeof AwsAthenaPreparedStatementInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/athena_prepared_statement
 
-export function AwsAthenaPreparedStatement(props: Partial<InputProps>) {
+export function AwsAthenaPreparedStatement(
+  props: Partial<AwsAthenaPreparedStatementInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,8 +51,8 @@ export function AwsAthenaPreparedStatement(props: Partial<InputProps>) {
       _type='aws_athena_prepared_statement'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAthenaPreparedStatementInputSchema}
+      _outputSchema={AwsAthenaPreparedStatementOutputSchema}
       {...props}
     />
   )
@@ -61,7 +63,7 @@ export const useAwsAthenaPreparedStatement = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAthenaPreparedStatementOutputProps>(
     AwsAthenaPreparedStatement,
     idFilter,
     baseNode,
@@ -73,7 +75,7 @@ export const useAwsAthenaPreparedStatements = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAthenaPreparedStatementOutputProps>(
     AwsAthenaPreparedStatement,
     idFilter,
     baseNode,

@@ -8,27 +8,28 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  global_endpoint_token_version: resolvableValue(z.string()),
-})
+export const AwsIamSecurityTokenServicePreferencesInputSchema = TfMetaSchema
+  .extend({
+    global_endpoint_token_version: resolvableValue(z.string()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsIamSecurityTokenServicePreferencesOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsIamSecurityTokenServicePreferencesInputProps =
+  & z.input<typeof AwsIamSecurityTokenServicePreferencesInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIamSecurityTokenServicePreferencesOutputProps =
+  & z.output<typeof AwsIamSecurityTokenServicePreferencesOutputSchema>
+  & z.output<typeof AwsIamSecurityTokenServicePreferencesInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iam_security_token_service_preferences
 
 export function AwsIamSecurityTokenServicePreferences(
-  props: Partial<InputProps>,
+  props: Partial<AwsIamSecurityTokenServicePreferencesInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -39,8 +40,8 @@ export function AwsIamSecurityTokenServicePreferences(
       _type='aws_iam_security_token_service_preferences'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsIamSecurityTokenServicePreferencesInputSchema}
+      _outputSchema={AwsIamSecurityTokenServicePreferencesOutputSchema}
       {...props}
     />
   )
@@ -51,7 +52,7 @@ export const useAwsIamSecurityTokenServicePreferencess = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsIamSecurityTokenServicePreferencesOutputProps>(
     AwsIamSecurityTokenServicePreferences,
     idFilter,
     baseNode,

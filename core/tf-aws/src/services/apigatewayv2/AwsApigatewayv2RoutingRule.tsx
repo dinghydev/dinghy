@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsApigatewayv2RoutingRuleInputSchema = TfMetaSchema.extend({
   domain_name: resolvableValue(z.string()),
   priority: resolvableValue(z.number()),
   action: resolvableValue(
@@ -37,23 +37,25 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsApigatewayv2RoutingRuleOutputSchema = z.object({
   routing_rule_arn: z.string().optional(),
   routing_rule_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsApigatewayv2RoutingRuleInputProps =
+  & z.input<typeof AwsApigatewayv2RoutingRuleInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApigatewayv2RoutingRuleOutputProps =
+  & z.output<typeof AwsApigatewayv2RoutingRuleOutputSchema>
+  & z.output<typeof AwsApigatewayv2RoutingRuleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/apigatewayv2_routing_rule
 
-export function AwsApigatewayv2RoutingRule(props: Partial<InputProps>) {
+export function AwsApigatewayv2RoutingRule(
+  props: Partial<AwsApigatewayv2RoutingRuleInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -63,8 +65,8 @@ export function AwsApigatewayv2RoutingRule(props: Partial<InputProps>) {
       _type='aws_apigatewayv2_routing_rule'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsApigatewayv2RoutingRuleInputSchema}
+      _outputSchema={AwsApigatewayv2RoutingRuleOutputSchema}
       {...props}
     />
   )
@@ -75,7 +77,7 @@ export const useAwsApigatewayv2RoutingRule = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsApigatewayv2RoutingRuleOutputProps>(
     AwsApigatewayv2RoutingRule,
     idFilter,
     baseNode,
@@ -87,7 +89,7 @@ export const useAwsApigatewayv2RoutingRules = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsApigatewayv2RoutingRuleOutputProps>(
     AwsApigatewayv2RoutingRule,
     idFilter,
     baseNode,

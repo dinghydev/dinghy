@@ -9,27 +9,29 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsWafSubscribedRuleGroupInputSchema = TfMetaSchema.extend({
   metric_name: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsWafSubscribedRuleGroupOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsWafSubscribedRuleGroupInputProps =
+  & z.input<typeof DataAwsWafSubscribedRuleGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsWafSubscribedRuleGroupOutputProps =
+  & z.output<typeof DataAwsWafSubscribedRuleGroupOutputSchema>
+  & z.output<typeof DataAwsWafSubscribedRuleGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/waf_subscribed_rule_group
 
-export function DataAwsWafSubscribedRuleGroup(props: Partial<InputProps>) {
+export function DataAwsWafSubscribedRuleGroup(
+  props: Partial<DataAwsWafSubscribedRuleGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -39,8 +41,8 @@ export function DataAwsWafSubscribedRuleGroup(props: Partial<InputProps>) {
       _type='aws_waf_subscribed_rule_group'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsWafSubscribedRuleGroupInputSchema}
+      _outputSchema={DataAwsWafSubscribedRuleGroupOutputSchema}
       {...props}
     />
   )
@@ -51,7 +53,7 @@ export const useDataAwsWafSubscribedRuleGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsWafSubscribedRuleGroupOutputProps>(
     DataAwsWafSubscribedRuleGroup,
     idFilter,
     baseNode,
@@ -63,7 +65,7 @@ export const useDataAwsWafSubscribedRuleGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsWafSubscribedRuleGroupOutputProps>(
     DataAwsWafSubscribedRuleGroup,
     idFilter,
     baseNode,

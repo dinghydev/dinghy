@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsFsxOntapFileSystemInputSchema = TfMetaSchema.extend({
   deployment_type: resolvableValue(z.string()),
   preferred_subnet_id: resolvableValue(z.string()),
   storage_capacity: resolvableValue(z.number()),
@@ -43,7 +43,7 @@ export const InputSchema = TfMetaSchema.extend({
   weekly_maintenance_start_time: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsFsxOntapFileSystemOutputSchema = z.object({
   arn: z.string().optional(),
   dns_name: z.string().optional(),
   endpoints: z.object({
@@ -63,18 +63,20 @@ export const OutputSchema = z.object({
   vpc_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsFsxOntapFileSystemInputProps =
+  & z.input<typeof AwsFsxOntapFileSystemInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsFsxOntapFileSystemOutputProps =
+  & z.output<typeof AwsFsxOntapFileSystemOutputSchema>
+  & z.output<typeof AwsFsxOntapFileSystemInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/fsx_ontap_file_system
 
-export function AwsFsxOntapFileSystem(props: Partial<InputProps>) {
+export function AwsFsxOntapFileSystem(
+  props: Partial<AwsFsxOntapFileSystemInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -84,8 +86,8 @@ export function AwsFsxOntapFileSystem(props: Partial<InputProps>) {
       _type='aws_fsx_ontap_file_system'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsFsxOntapFileSystemInputSchema}
+      _outputSchema={AwsFsxOntapFileSystemOutputSchema}
       {...props}
     />
   )
@@ -96,14 +98,19 @@ export const useAwsFsxOntapFileSystem = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsFsxOntapFileSystem, idFilter, baseNode, optional)
+  useTypedNode<AwsFsxOntapFileSystemOutputProps>(
+    AwsFsxOntapFileSystem,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsFsxOntapFileSystems = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsFsxOntapFileSystemOutputProps>(
     AwsFsxOntapFileSystem,
     idFilter,
     baseNode,

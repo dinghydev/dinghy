@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsNetworkInterface } from './AwsNetworkInterface.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsNetworkInterfaceInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -25,7 +25,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsNetworkInterfaceOutputSchema = z.object({
   arn: z.string().optional(),
   association: z.object({
     allocation_id: z.string(),
@@ -66,18 +66,20 @@ export const OutputSchema = z.object({
   vpc_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsNetworkInterfaceInputProps =
+  & z.input<typeof DataAwsNetworkInterfaceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsNetworkInterfaceOutputProps =
+  & z.output<typeof DataAwsNetworkInterfaceOutputSchema>
+  & z.output<typeof DataAwsNetworkInterfaceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/network_interface
 
-export function DataAwsNetworkInterface(props: Partial<InputProps>) {
+export function DataAwsNetworkInterface(
+  props: Partial<DataAwsNetworkInterfaceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -87,8 +89,8 @@ export function DataAwsNetworkInterface(props: Partial<InputProps>) {
       _type='aws_network_interface'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsNetworkInterfaceInputSchema}
+      _outputSchema={DataAwsNetworkInterfaceOutputSchema}
       {...props as any}
     />
   )
@@ -99,7 +101,7 @@ export const useDataAwsNetworkInterface = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsNetworkInterfaceOutputProps>(
     DataAwsNetworkInterface,
     idFilter,
     baseNode,
@@ -111,7 +113,7 @@ export const useDataAwsNetworkInterfaces = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsNetworkInterfaceOutputProps>(
     DataAwsNetworkInterface,
     idFilter,
     baseNode,

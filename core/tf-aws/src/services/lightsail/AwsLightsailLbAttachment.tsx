@@ -9,28 +9,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLightsailLbAttachmentInputSchema = TfMetaSchema.extend({
   instance_name: resolvableValue(z.string()),
   lb_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsLightsailLbAttachmentOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLightsailLbAttachmentInputProps =
+  & z.input<typeof AwsLightsailLbAttachmentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLightsailLbAttachmentOutputProps =
+  & z.output<typeof AwsLightsailLbAttachmentOutputSchema>
+  & z.output<typeof AwsLightsailLbAttachmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lightsail_lb_attachment
 
-export function AwsLightsailLbAttachment(props: Partial<InputProps>) {
+export function AwsLightsailLbAttachment(
+  props: Partial<AwsLightsailLbAttachmentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function AwsLightsailLbAttachment(props: Partial<InputProps>) {
       _type='aws_lightsail_lb_attachment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLightsailLbAttachmentInputSchema}
+      _outputSchema={AwsLightsailLbAttachmentOutputSchema}
       {...props}
     />
   )
@@ -52,7 +54,7 @@ export const useAwsLightsailLbAttachment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsLightsailLbAttachmentOutputProps>(
     AwsLightsailLbAttachment,
     idFilter,
     baseNode,
@@ -64,7 +66,7 @@ export const useAwsLightsailLbAttachments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsLightsailLbAttachmentOutputProps>(
     AwsLightsailLbAttachment,
     idFilter,
     baseNode,

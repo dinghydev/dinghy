@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsSecurityGroupsInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -24,25 +24,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsSecurityGroupsOutputSchema = z.object({
   arns: z.string().array().optional(),
   id: z.string().optional(),
   ids: z.string().array().optional(),
   vpc_ids: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsSecurityGroupsInputProps =
+  & z.input<typeof DataAwsSecurityGroupsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsSecurityGroupsOutputProps =
+  & z.output<typeof DataAwsSecurityGroupsOutputSchema>
+  & z.output<typeof DataAwsSecurityGroupsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/security_groups
 
-export function DataAwsSecurityGroups(props: Partial<InputProps>) {
+export function DataAwsSecurityGroups(
+  props: Partial<DataAwsSecurityGroupsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,8 +54,8 @@ export function DataAwsSecurityGroups(props: Partial<InputProps>) {
       _type='aws_security_groups'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsSecurityGroupsInputSchema}
+      _outputSchema={DataAwsSecurityGroupsOutputSchema}
       {...props}
     />
   )
@@ -64,7 +66,7 @@ export const useDataAwsSecurityGroupss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsSecurityGroupsOutputProps>(
     DataAwsSecurityGroups,
     idFilter,
     baseNode,

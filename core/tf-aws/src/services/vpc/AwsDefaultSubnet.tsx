@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDefaultSubnetInputSchema = TfMetaSchema.extend({
   availability_zone: resolvableValue(z.string()),
   assign_ipv6_address_on_creation: resolvableValue(z.boolean().optional()),
   customer_owned_ipv4_pool: resolvableValue(z.string().optional()),
@@ -38,7 +38,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDefaultSubnetOutputSchema = z.object({
   arn: z.string().optional(),
   availability_zone_id: z.string().optional(),
   cidr_block: z.string().optional(),
@@ -50,18 +50,18 @@ export const OutputSchema = z.object({
   vpc_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDefaultSubnetInputProps =
+  & z.input<typeof AwsDefaultSubnetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDefaultSubnetOutputProps =
+  & z.output<typeof AwsDefaultSubnetOutputSchema>
+  & z.output<typeof AwsDefaultSubnetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/default_subnet
 
-export function AwsDefaultSubnet(props: Partial<InputProps>) {
+export function AwsDefaultSubnet(props: Partial<AwsDefaultSubnetInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -71,8 +71,8 @@ export function AwsDefaultSubnet(props: Partial<InputProps>) {
       _type='aws_default_subnet'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDefaultSubnetInputSchema}
+      _outputSchema={AwsDefaultSubnetOutputSchema}
       {...props}
     />
   )
@@ -82,10 +82,22 @@ export const useAwsDefaultSubnet = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsDefaultSubnet, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsDefaultSubnetOutputProps>(
+    AwsDefaultSubnet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDefaultSubnets = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsDefaultSubnet, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsDefaultSubnetOutputProps>(
+    AwsDefaultSubnet,
+    idFilter,
+    baseNode,
+    optional,
+  )

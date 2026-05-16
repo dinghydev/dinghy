@@ -9,13 +9,13 @@ import {
 import z from 'zod'
 import { AwsLocationMap } from './AwsLocationMap.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsLocationMapInputSchema = TfMetaSchema.extend({
   map_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsLocationMapOutputSchema = z.object({
   configuration: z.object({
     style: z.string(),
   }).array().optional(),
@@ -26,18 +26,20 @@ export const OutputSchema = z.object({
   update_time: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsLocationMapInputProps =
+  & z.input<typeof DataAwsLocationMapInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsLocationMapOutputProps =
+  & z.output<typeof DataAwsLocationMapOutputSchema>
+  & z.output<typeof DataAwsLocationMapInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/location_map
 
-export function DataAwsLocationMap(props: Partial<InputProps>) {
+export function DataAwsLocationMap(
+  props: Partial<DataAwsLocationMapInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +49,8 @@ export function DataAwsLocationMap(props: Partial<InputProps>) {
       _type='aws_location_map'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsLocationMapInputSchema}
+      _outputSchema={DataAwsLocationMapOutputSchema}
       {...props as any}
     />
   )
@@ -58,11 +60,22 @@ export const useDataAwsLocationMap = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsLocationMap, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsLocationMapOutputProps>(
+    DataAwsLocationMap,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsLocationMaps = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsLocationMap, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsLocationMapOutputProps>(
+    DataAwsLocationMap,
+    idFilter,
+    baseNode,
+    optional,
+  )

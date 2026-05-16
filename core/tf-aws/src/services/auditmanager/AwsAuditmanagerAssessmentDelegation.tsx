@@ -9,34 +9,35 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  assessment_id: resolvableValue(z.string()),
-  control_set_id: resolvableValue(z.string()),
-  role_arn: resolvableValue(z.string()),
-  role_type: resolvableValue(z.string()),
-  comment: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsAuditmanagerAssessmentDelegationInputSchema = TfMetaSchema
+  .extend({
+    assessment_id: resolvableValue(z.string()),
+    control_set_id: resolvableValue(z.string()),
+    role_arn: resolvableValue(z.string()),
+    role_type: resolvableValue(z.string()),
+    comment: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsAuditmanagerAssessmentDelegationOutputSchema = z.object({
   delegation_id: z.string().optional(),
   id: z.string().optional(),
   status: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAuditmanagerAssessmentDelegationInputProps =
+  & z.input<typeof AwsAuditmanagerAssessmentDelegationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAuditmanagerAssessmentDelegationOutputProps =
+  & z.output<typeof AwsAuditmanagerAssessmentDelegationOutputSchema>
+  & z.output<typeof AwsAuditmanagerAssessmentDelegationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/auditmanager_assessment_delegation
 
 export function AwsAuditmanagerAssessmentDelegation(
-  props: Partial<InputProps>,
+  props: Partial<AwsAuditmanagerAssessmentDelegationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -47,8 +48,8 @@ export function AwsAuditmanagerAssessmentDelegation(
       _type='aws_auditmanager_assessment_delegation'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAuditmanagerAssessmentDelegationInputSchema}
+      _outputSchema={AwsAuditmanagerAssessmentDelegationOutputSchema}
       {...props}
     />
   )
@@ -59,7 +60,7 @@ export const useAwsAuditmanagerAssessmentDelegation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAuditmanagerAssessmentDelegationOutputProps>(
     AwsAuditmanagerAssessmentDelegation,
     idFilter,
     baseNode,
@@ -71,7 +72,7 @@ export const useAwsAuditmanagerAssessmentDelegations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAuditmanagerAssessmentDelegationOutputProps>(
     AwsAuditmanagerAssessmentDelegation,
     idFilter,
     baseNode,

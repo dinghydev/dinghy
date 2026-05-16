@@ -9,27 +9,29 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsMediaStoreContainerPolicyInputSchema = TfMetaSchema.extend({
   container_name: resolvableValue(z.string()),
   policy: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsMediaStoreContainerPolicyOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsMediaStoreContainerPolicyInputProps =
+  & z.input<typeof AwsMediaStoreContainerPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsMediaStoreContainerPolicyOutputProps =
+  & z.output<typeof AwsMediaStoreContainerPolicyOutputSchema>
+  & z.output<typeof AwsMediaStoreContainerPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/media_store_container_policy
 
-export function AwsMediaStoreContainerPolicy(props: Partial<InputProps>) {
+export function AwsMediaStoreContainerPolicy(
+  props: Partial<AwsMediaStoreContainerPolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -39,8 +41,8 @@ export function AwsMediaStoreContainerPolicy(props: Partial<InputProps>) {
       _type='aws_media_store_container_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsMediaStoreContainerPolicyInputSchema}
+      _outputSchema={AwsMediaStoreContainerPolicyOutputSchema}
       {...props}
     />
   )
@@ -51,7 +53,7 @@ export const useAwsMediaStoreContainerPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsMediaStoreContainerPolicyOutputProps>(
     AwsMediaStoreContainerPolicy,
     idFilter,
     baseNode,
@@ -63,7 +65,7 @@ export const useAwsMediaStoreContainerPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsMediaStoreContainerPolicyOutputProps>(
     AwsMediaStoreContainerPolicy,
     idFilter,
     baseNode,

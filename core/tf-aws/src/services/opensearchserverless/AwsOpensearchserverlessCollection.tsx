@@ -9,29 +9,31 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  name: resolvableValue(z.string()),
-  collection_group_name: resolvableValue(z.string().optional()),
-  description: resolvableValue(z.string().optional()),
-  encryption_config: resolvableValue(
-    z.object({
-      aws_owned_key: z.boolean(),
-      kms_key_arn: z.string(),
-    }).array().optional(),
-  ),
-  region: resolvableValue(z.string().optional()),
-  standby_replicas: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-    }).optional(),
-  ),
-  type: resolvableValue(z.string().optional()),
-})
+export const AwsOpensearchserverlessCollectionInputSchema = TfMetaSchema.extend(
+  {
+    name: resolvableValue(z.string()),
+    collection_group_name: resolvableValue(z.string().optional()),
+    description: resolvableValue(z.string().optional()),
+    encryption_config: resolvableValue(
+      z.object({
+        aws_owned_key: z.boolean(),
+        kms_key_arn: z.string(),
+      }).array().optional(),
+    ),
+    region: resolvableValue(z.string().optional()),
+    standby_replicas: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+      }).optional(),
+    ),
+    type: resolvableValue(z.string().optional()),
+  },
+)
 
-export const OutputSchema = z.object({
+export const AwsOpensearchserverlessCollectionOutputSchema = z.object({
   arn: z.string().optional(),
   collection_endpoint: z.string().optional(),
   dashboard_endpoint: z.string().optional(),
@@ -40,25 +42,27 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsOpensearchserverlessCollectionImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsOpensearchserverlessCollectionInputProps =
+  & z.input<typeof AwsOpensearchserverlessCollectionInputSchema>
+  & z.input<typeof AwsOpensearchserverlessCollectionImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsOpensearchserverlessCollectionOutputProps =
+  & z.output<typeof AwsOpensearchserverlessCollectionOutputSchema>
+  & z.output<typeof AwsOpensearchserverlessCollectionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/opensearchserverless_collection
 
-export function AwsOpensearchserverlessCollection(props: Partial<InputProps>) {
+export function AwsOpensearchserverlessCollection(
+  props: Partial<AwsOpensearchserverlessCollectionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -68,9 +72,9 @@ export function AwsOpensearchserverlessCollection(props: Partial<InputProps>) {
       _type='aws_opensearchserverless_collection'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsOpensearchserverlessCollectionInputSchema}
+      _outputSchema={AwsOpensearchserverlessCollectionOutputSchema}
+      _importSchema={AwsOpensearchserverlessCollectionImportSchema}
       {...props}
     />
   )
@@ -81,7 +85,7 @@ export const useAwsOpensearchserverlessCollection = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsOpensearchserverlessCollectionOutputProps>(
     AwsOpensearchserverlessCollection,
     idFilter,
     baseNode,
@@ -93,7 +97,7 @@ export const useAwsOpensearchserverlessCollections = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsOpensearchserverlessCollectionOutputProps>(
     AwsOpensearchserverlessCollection,
     idFilter,
     baseNode,

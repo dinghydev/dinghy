@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsSsmMaintenanceWindowsInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -19,22 +19,24 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsSsmMaintenanceWindowsOutputSchema = z.object({
   ids: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsSsmMaintenanceWindowsInputProps =
+  & z.input<typeof DataAwsSsmMaintenanceWindowsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsSsmMaintenanceWindowsOutputProps =
+  & z.output<typeof DataAwsSsmMaintenanceWindowsOutputSchema>
+  & z.output<typeof DataAwsSsmMaintenanceWindowsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ssm_maintenance_windows
 
-export function DataAwsSsmMaintenanceWindows(props: Partial<InputProps>) {
+export function DataAwsSsmMaintenanceWindows(
+  props: Partial<DataAwsSsmMaintenanceWindowsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +46,8 @@ export function DataAwsSsmMaintenanceWindows(props: Partial<InputProps>) {
       _type='aws_ssm_maintenance_windows'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsSsmMaintenanceWindowsInputSchema}
+      _outputSchema={DataAwsSsmMaintenanceWindowsOutputSchema}
       {...props}
     />
   )
@@ -56,7 +58,7 @@ export const useDataAwsSsmMaintenanceWindowss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsSsmMaintenanceWindowsOutputProps>(
     DataAwsSsmMaintenanceWindows,
     idFilter,
     baseNode,

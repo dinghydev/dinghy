@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEfsAccessPointInputSchema = TfMetaSchema.extend({
   file_system_id: resolvableValue(z.string()),
   posix_user: resolvableValue(
     z.object({
@@ -32,7 +32,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsEfsAccessPointOutputSchema = z.object({
   arn: z.string().optional(),
   file_system_arn: z.string().optional(),
   id: z.string().optional(),
@@ -40,18 +40,18 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEfsAccessPointInputProps =
+  & z.input<typeof AwsEfsAccessPointInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEfsAccessPointOutputProps =
+  & z.output<typeof AwsEfsAccessPointOutputSchema>
+  & z.output<typeof AwsEfsAccessPointInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/efs_access_point
 
-export function AwsEfsAccessPoint(props: Partial<InputProps>) {
+export function AwsEfsAccessPoint(props: Partial<AwsEfsAccessPointInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -61,8 +61,8 @@ export function AwsEfsAccessPoint(props: Partial<InputProps>) {
       _type='aws_efs_access_point'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEfsAccessPointInputSchema}
+      _outputSchema={AwsEfsAccessPointOutputSchema}
       {...props}
     />
   )
@@ -72,10 +72,22 @@ export const useAwsEfsAccessPoint = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsEfsAccessPoint, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsEfsAccessPointOutputProps>(
+    AwsEfsAccessPoint,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEfsAccessPoints = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsEfsAccessPoint, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsEfsAccessPointOutputProps>(
+    AwsEfsAccessPoint,
+    idFilter,
+    baseNode,
+    optional,
+  )

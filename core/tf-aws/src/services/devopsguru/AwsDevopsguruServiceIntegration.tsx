@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDevopsguruServiceIntegrationInputSchema = TfMetaSchema.extend({
   kms_server_side_encryption: resolvableValue(
     z.object({
       kms_key_id: z.string().optional(),
@@ -30,22 +30,24 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDevopsguruServiceIntegrationOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDevopsguruServiceIntegrationInputProps =
+  & z.input<typeof AwsDevopsguruServiceIntegrationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDevopsguruServiceIntegrationOutputProps =
+  & z.output<typeof AwsDevopsguruServiceIntegrationOutputSchema>
+  & z.output<typeof AwsDevopsguruServiceIntegrationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/devopsguru_service_integration
 
-export function AwsDevopsguruServiceIntegration(props: Partial<InputProps>) {
+export function AwsDevopsguruServiceIntegration(
+  props: Partial<AwsDevopsguruServiceIntegrationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,8 +57,8 @@ export function AwsDevopsguruServiceIntegration(props: Partial<InputProps>) {
       _type='aws_devopsguru_service_integration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDevopsguruServiceIntegrationInputSchema}
+      _outputSchema={AwsDevopsguruServiceIntegrationOutputSchema}
       {...props}
     />
   )
@@ -67,7 +69,7 @@ export const useAwsDevopsguruServiceIntegration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDevopsguruServiceIntegrationOutputProps>(
     AwsDevopsguruServiceIntegration,
     idFilter,
     baseNode,
@@ -79,7 +81,7 @@ export const useAwsDevopsguruServiceIntegrations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDevopsguruServiceIntegrationOutputProps>(
     AwsDevopsguruServiceIntegration,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEksCapabilityInputSchema = TfMetaSchema.extend({
   capability_name: resolvableValue(z.string()),
   cluster_name: resolvableValue(z.string()),
   delete_propagation_policy: resolvableValue(z.string()),
@@ -49,32 +49,32 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsEksCapabilityOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   version: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsEksCapabilityImportSchema = z.object({
   capability_name: resolvableValue(z.string()),
   cluster_name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsEksCapabilityInputProps =
+  & z.input<typeof AwsEksCapabilityInputSchema>
+  & z.input<typeof AwsEksCapabilityImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEksCapabilityOutputProps =
+  & z.output<typeof AwsEksCapabilityOutputSchema>
+  & z.output<typeof AwsEksCapabilityInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/eks_capability
 
-export function AwsEksCapability(props: Partial<InputProps>) {
+export function AwsEksCapability(props: Partial<AwsEksCapabilityInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -84,9 +84,9 @@ export function AwsEksCapability(props: Partial<InputProps>) {
       _type='aws_eks_capability'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsEksCapabilityInputSchema}
+      _outputSchema={AwsEksCapabilityOutputSchema}
+      _importSchema={AwsEksCapabilityImportSchema}
       {...props}
     />
   )
@@ -96,10 +96,22 @@ export const useAwsEksCapability = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsEksCapability, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsEksCapabilityOutputProps>(
+    AwsEksCapability,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEksCapabilitys = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsEksCapability, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsEksCapabilityOutputProps>(
+    AwsEksCapability,
+    idFilter,
+    baseNode,
+    optional,
+  )

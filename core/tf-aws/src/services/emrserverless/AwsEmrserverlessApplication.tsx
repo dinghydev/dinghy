@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEmrserverlessApplicationInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   release_label: resolvableValue(z.string()),
   type: resolvableValue(z.string()),
@@ -108,24 +108,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsEmrserverlessApplicationOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEmrserverlessApplicationInputProps =
+  & z.input<typeof AwsEmrserverlessApplicationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEmrserverlessApplicationOutputProps =
+  & z.output<typeof AwsEmrserverlessApplicationOutputSchema>
+  & z.output<typeof AwsEmrserverlessApplicationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/emrserverless_application
 
-export function AwsEmrserverlessApplication(props: Partial<InputProps>) {
+export function AwsEmrserverlessApplication(
+  props: Partial<AwsEmrserverlessApplicationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -135,8 +137,8 @@ export function AwsEmrserverlessApplication(props: Partial<InputProps>) {
       _type='aws_emrserverless_application'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEmrserverlessApplicationInputSchema}
+      _outputSchema={AwsEmrserverlessApplicationOutputSchema}
       {...props}
     />
   )
@@ -147,7 +149,7 @@ export const useAwsEmrserverlessApplication = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsEmrserverlessApplicationOutputProps>(
     AwsEmrserverlessApplication,
     idFilter,
     baseNode,
@@ -159,7 +161,7 @@ export const useAwsEmrserverlessApplications = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEmrserverlessApplicationOutputProps>(
     AwsEmrserverlessApplication,
     idFilter,
     baseNode,

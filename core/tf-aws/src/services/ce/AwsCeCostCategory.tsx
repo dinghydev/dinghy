@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCeCostCategoryInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   rule: resolvableValue(
     z.object({
@@ -259,30 +259,30 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCeCostCategoryOutputSchema = z.object({
   arn: z.string().optional(),
   effective_end: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsCeCostCategoryImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsCeCostCategoryInputProps =
+  & z.input<typeof AwsCeCostCategoryInputSchema>
+  & z.input<typeof AwsCeCostCategoryImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCeCostCategoryOutputProps =
+  & z.output<typeof AwsCeCostCategoryOutputSchema>
+  & z.output<typeof AwsCeCostCategoryInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ce_cost_category
 
-export function AwsCeCostCategory(props: Partial<InputProps>) {
+export function AwsCeCostCategory(props: Partial<AwsCeCostCategoryInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -292,9 +292,9 @@ export function AwsCeCostCategory(props: Partial<InputProps>) {
       _type='aws_ce_cost_category'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsCeCostCategoryInputSchema}
+      _outputSchema={AwsCeCostCategoryOutputSchema}
+      _importSchema={AwsCeCostCategoryImportSchema}
       {...props}
     />
   )
@@ -304,10 +304,22 @@ export const useAwsCeCostCategory = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsCeCostCategory, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsCeCostCategoryOutputProps>(
+    AwsCeCostCategory,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCeCostCategorys = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsCeCostCategory, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsCeCostCategoryOutputProps>(
+    AwsCeCostCategory,
+    idFilter,
+    baseNode,
+    optional,
+  )

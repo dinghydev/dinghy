@@ -9,31 +9,33 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSyntheticsGroupAssociationInputSchema = TfMetaSchema.extend({
   canary_arn: resolvableValue(z.string()),
   group_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSyntheticsGroupAssociationOutputSchema = z.object({
   group_arn: z.string().optional(),
   group_id: z.string().optional(),
   group_name: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSyntheticsGroupAssociationInputProps =
+  & z.input<typeof AwsSyntheticsGroupAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSyntheticsGroupAssociationOutputProps =
+  & z.output<typeof AwsSyntheticsGroupAssociationOutputSchema>
+  & z.output<typeof AwsSyntheticsGroupAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/synthetics_group_association
 
-export function AwsSyntheticsGroupAssociation(props: Partial<InputProps>) {
+export function AwsSyntheticsGroupAssociation(
+  props: Partial<AwsSyntheticsGroupAssociationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function AwsSyntheticsGroupAssociation(props: Partial<InputProps>) {
       _type='aws_synthetics_group_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSyntheticsGroupAssociationInputSchema}
+      _outputSchema={AwsSyntheticsGroupAssociationOutputSchema}
       {...props}
     />
   )
@@ -55,7 +57,7 @@ export const useAwsSyntheticsGroupAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSyntheticsGroupAssociationOutputProps>(
     AwsSyntheticsGroupAssociation,
     idFilter,
     baseNode,
@@ -67,7 +69,7 @@ export const useAwsSyntheticsGroupAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSyntheticsGroupAssociationOutputProps>(
     AwsSyntheticsGroupAssociation,
     idFilter,
     baseNode,

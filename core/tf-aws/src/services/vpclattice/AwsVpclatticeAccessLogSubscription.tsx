@@ -9,33 +9,36 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  destination_arn: resolvableValue(z.string()),
-  resource_identifier: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-  service_network_log_type: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-  tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+export const AwsVpclatticeAccessLogSubscriptionInputSchema = TfMetaSchema
+  .extend({
+    destination_arn: resolvableValue(z.string()),
+    resource_identifier: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+    service_network_log_type: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+    tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsVpclatticeAccessLogSubscriptionOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   resource_arn: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVpclatticeAccessLogSubscriptionInputProps =
+  & z.input<typeof AwsVpclatticeAccessLogSubscriptionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVpclatticeAccessLogSubscriptionOutputProps =
+  & z.output<typeof AwsVpclatticeAccessLogSubscriptionOutputSchema>
+  & z.output<typeof AwsVpclatticeAccessLogSubscriptionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpclattice_access_log_subscription
 
-export function AwsVpclatticeAccessLogSubscription(props: Partial<InputProps>) {
+export function AwsVpclatticeAccessLogSubscription(
+  props: Partial<AwsVpclatticeAccessLogSubscriptionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,8 +48,8 @@ export function AwsVpclatticeAccessLogSubscription(props: Partial<InputProps>) {
       _type='aws_vpclattice_access_log_subscription'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVpclatticeAccessLogSubscriptionInputSchema}
+      _outputSchema={AwsVpclatticeAccessLogSubscriptionOutputSchema}
       {...props}
     />
   )
@@ -57,7 +60,7 @@ export const useAwsVpclatticeAccessLogSubscription = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsVpclatticeAccessLogSubscriptionOutputProps>(
     AwsVpclatticeAccessLogSubscription,
     idFilter,
     baseNode,
@@ -69,7 +72,7 @@ export const useAwsVpclatticeAccessLogSubscriptions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsVpclatticeAccessLogSubscriptionOutputProps>(
     AwsVpclatticeAccessLogSubscription,
     idFilter,
     baseNode,

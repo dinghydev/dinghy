@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsS3AccountPublicAccessBlockInputSchema = TfMetaSchema.extend({
   account_id: resolvableValue(z.string().optional()),
   block_public_acls: resolvableValue(z.boolean().optional()),
   block_public_policy: resolvableValue(z.boolean().optional()),
@@ -17,22 +17,24 @@ export const InputSchema = TfMetaSchema.extend({
   restrict_public_buckets: resolvableValue(z.boolean().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsS3AccountPublicAccessBlockOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsS3AccountPublicAccessBlockInputProps =
+  & z.input<typeof AwsS3AccountPublicAccessBlockInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3AccountPublicAccessBlockOutputProps =
+  & z.output<typeof AwsS3AccountPublicAccessBlockOutputSchema>
+  & z.output<typeof AwsS3AccountPublicAccessBlockInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3_account_public_access_block
 
-export function AwsS3AccountPublicAccessBlock(props: Partial<InputProps>) {
+export function AwsS3AccountPublicAccessBlock(
+  props: Partial<AwsS3AccountPublicAccessBlockInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +44,8 @@ export function AwsS3AccountPublicAccessBlock(props: Partial<InputProps>) {
       _type='aws_s3_account_public_access_block'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsS3AccountPublicAccessBlockInputSchema}
+      _outputSchema={AwsS3AccountPublicAccessBlockOutputSchema}
       {...props}
     />
   )
@@ -54,7 +56,7 @@ export const useAwsS3AccountPublicAccessBlock = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsS3AccountPublicAccessBlockOutputProps>(
     AwsS3AccountPublicAccessBlock,
     idFilter,
     baseNode,
@@ -66,7 +68,7 @@ export const useAwsS3AccountPublicAccessBlocks = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsS3AccountPublicAccessBlockOutputProps>(
     AwsS3AccountPublicAccessBlock,
     idFilter,
     baseNode,

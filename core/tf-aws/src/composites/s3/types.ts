@@ -5,8 +5,8 @@ import {
   ResolvableStringSchema,
 } from '@dinghy/base-components'
 import { z } from 'zod'
-import { InputSchema } from '../../services/s3/AwsS3Bucket.tsx'
-export const S3BucketSchema = InputSchema.extend({
+import { AwsS3BucketInputSchema } from '../../services/s3/AwsS3Bucket.tsx'
+export const S3BucketSchema = AwsS3BucketInputSchema.extend({
   bucket: ResolvableStringSchema,
   useData: ResolvableBooleanSchema.default(false),
   versioningEnabled: ResolvableBooleanSchema.default(false),

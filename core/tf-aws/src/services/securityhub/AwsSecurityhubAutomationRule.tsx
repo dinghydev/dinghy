@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSecurityhubAutomationRuleInputSchema = TfMetaSchema.extend({
   description: resolvableValue(z.string()),
   rule_name: resolvableValue(z.string()),
   rule_order: resolvableValue(z.number()),
@@ -231,29 +231,31 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSecurityhubAutomationRuleOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSecurityhubAutomationRuleImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSecurityhubAutomationRuleInputProps =
+  & z.input<typeof AwsSecurityhubAutomationRuleInputSchema>
+  & z.input<typeof AwsSecurityhubAutomationRuleImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSecurityhubAutomationRuleOutputProps =
+  & z.output<typeof AwsSecurityhubAutomationRuleOutputSchema>
+  & z.output<typeof AwsSecurityhubAutomationRuleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_automation_rule
 
-export function AwsSecurityhubAutomationRule(props: Partial<InputProps>) {
+export function AwsSecurityhubAutomationRule(
+  props: Partial<AwsSecurityhubAutomationRuleInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -263,9 +265,9 @@ export function AwsSecurityhubAutomationRule(props: Partial<InputProps>) {
       _type='aws_securityhub_automation_rule'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSecurityhubAutomationRuleInputSchema}
+      _outputSchema={AwsSecurityhubAutomationRuleOutputSchema}
+      _importSchema={AwsSecurityhubAutomationRuleImportSchema}
       {...props}
     />
   )
@@ -276,7 +278,7 @@ export const useAwsSecurityhubAutomationRule = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSecurityhubAutomationRuleOutputProps>(
     AwsSecurityhubAutomationRule,
     idFilter,
     baseNode,
@@ -288,7 +290,7 @@ export const useAwsSecurityhubAutomationRules = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSecurityhubAutomationRuleOutputProps>(
     AwsSecurityhubAutomationRule,
     idFilter,
     baseNode,

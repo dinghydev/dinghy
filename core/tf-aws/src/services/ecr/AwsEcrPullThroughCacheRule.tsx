@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEcrPullThroughCacheRuleInputSchema = TfMetaSchema.extend({
   ecr_repository_prefix: resolvableValue(z.string()),
   upstream_registry_url: resolvableValue(z.string()),
   credential_arn: resolvableValue(z.string().optional()),
@@ -19,22 +19,24 @@ export const InputSchema = TfMetaSchema.extend({
   upstream_repository_prefix: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsEcrPullThroughCacheRuleOutputSchema = z.object({
   registry_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEcrPullThroughCacheRuleInputProps =
+  & z.input<typeof AwsEcrPullThroughCacheRuleInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEcrPullThroughCacheRuleOutputProps =
+  & z.output<typeof AwsEcrPullThroughCacheRuleOutputSchema>
+  & z.output<typeof AwsEcrPullThroughCacheRuleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ecr_pull_through_cache_rule
 
-export function AwsEcrPullThroughCacheRule(props: Partial<InputProps>) {
+export function AwsEcrPullThroughCacheRule(
+  props: Partial<AwsEcrPullThroughCacheRuleInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +46,8 @@ export function AwsEcrPullThroughCacheRule(props: Partial<InputProps>) {
       _type='aws_ecr_pull_through_cache_rule'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEcrPullThroughCacheRuleInputSchema}
+      _outputSchema={AwsEcrPullThroughCacheRuleOutputSchema}
       {...props}
     />
   )
@@ -56,7 +58,7 @@ export const useAwsEcrPullThroughCacheRule = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsEcrPullThroughCacheRuleOutputProps>(
     AwsEcrPullThroughCacheRule,
     idFilter,
     baseNode,
@@ -68,7 +70,7 @@ export const useAwsEcrPullThroughCacheRules = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEcrPullThroughCacheRuleOutputProps>(
     AwsEcrPullThroughCacheRule,
     idFilter,
     baseNode,

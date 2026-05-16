@@ -9,27 +9,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  directory_id: resolvableValue(z.string()),
-  log_group_name: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsDirectoryServiceLogSubscriptionInputSchema = TfMetaSchema
+  .extend({
+    directory_id: resolvableValue(z.string()),
+    log_group_name: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({})
+export const AwsDirectoryServiceLogSubscriptionOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDirectoryServiceLogSubscriptionInputProps =
+  & z.input<typeof AwsDirectoryServiceLogSubscriptionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDirectoryServiceLogSubscriptionOutputProps =
+  & z.output<typeof AwsDirectoryServiceLogSubscriptionOutputSchema>
+  & z.output<typeof AwsDirectoryServiceLogSubscriptionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/directory_service_log_subscription
 
-export function AwsDirectoryServiceLogSubscription(props: Partial<InputProps>) {
+export function AwsDirectoryServiceLogSubscription(
+  props: Partial<AwsDirectoryServiceLogSubscriptionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -39,8 +42,8 @@ export function AwsDirectoryServiceLogSubscription(props: Partial<InputProps>) {
       _type='aws_directory_service_log_subscription'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDirectoryServiceLogSubscriptionInputSchema}
+      _outputSchema={AwsDirectoryServiceLogSubscriptionOutputSchema}
       {...props}
     />
   )
@@ -51,7 +54,7 @@ export const useAwsDirectoryServiceLogSubscription = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDirectoryServiceLogSubscriptionOutputProps>(
     AwsDirectoryServiceLogSubscription,
     idFilter,
     baseNode,
@@ -63,7 +66,7 @@ export const useAwsDirectoryServiceLogSubscriptions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDirectoryServiceLogSubscriptionOutputProps>(
     AwsDirectoryServiceLogSubscription,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAppfabricIngestionDestinationInputSchema = TfMetaSchema.extend({
   app_bundle_arn: resolvableValue(z.string()),
   ingestion_arn: resolvableValue(z.string()),
   destination_configuration: resolvableValue(
@@ -46,24 +46,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsAppfabricIngestionDestinationOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAppfabricIngestionDestinationInputProps =
+  & z.input<typeof AwsAppfabricIngestionDestinationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppfabricIngestionDestinationOutputProps =
+  & z.output<typeof AwsAppfabricIngestionDestinationOutputSchema>
+  & z.output<typeof AwsAppfabricIngestionDestinationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appfabric_ingestion_destination
 
-export function AwsAppfabricIngestionDestination(props: Partial<InputProps>) {
+export function AwsAppfabricIngestionDestination(
+  props: Partial<AwsAppfabricIngestionDestinationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -73,8 +75,8 @@ export function AwsAppfabricIngestionDestination(props: Partial<InputProps>) {
       _type='aws_appfabric_ingestion_destination'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAppfabricIngestionDestinationInputSchema}
+      _outputSchema={AwsAppfabricIngestionDestinationOutputSchema}
       {...props}
     />
   )
@@ -85,7 +87,7 @@ export const useAwsAppfabricIngestionDestination = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAppfabricIngestionDestinationOutputProps>(
     AwsAppfabricIngestionDestination,
     idFilter,
     baseNode,
@@ -97,7 +99,7 @@ export const useAwsAppfabricIngestionDestinations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAppfabricIngestionDestinationOutputProps>(
     AwsAppfabricIngestionDestination,
     idFilter,
     baseNode,

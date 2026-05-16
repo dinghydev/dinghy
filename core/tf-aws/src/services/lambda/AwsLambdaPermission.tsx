@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLambdaPermissionInputSchema = TfMetaSchema.extend({
   action: resolvableValue(z.string()),
   function_name: resolvableValue(z.string()),
   principal: resolvableValue(z.string()),
@@ -26,9 +26,9 @@ export const InputSchema = TfMetaSchema.extend({
   statement_id_prefix: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsLambdaPermissionOutputSchema = z.object({})
 
-export const ImportSchema = z.object({
+export const AwsLambdaPermissionImportSchema = z.object({
   function_name: resolvableValue(z.string()),
   statement_id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
@@ -36,19 +36,21 @@ export const ImportSchema = z.object({
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsLambdaPermissionInputProps =
+  & z.input<typeof AwsLambdaPermissionInputSchema>
+  & z.input<typeof AwsLambdaPermissionImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLambdaPermissionOutputProps =
+  & z.output<typeof AwsLambdaPermissionOutputSchema>
+  & z.output<typeof AwsLambdaPermissionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lambda_permission
 
-export function AwsLambdaPermission(props: Partial<InputProps>) {
+export function AwsLambdaPermission(
+  props: Partial<AwsLambdaPermissionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -58,9 +60,9 @@ export function AwsLambdaPermission(props: Partial<InputProps>) {
       _type='aws_lambda_permission'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsLambdaPermissionInputSchema}
+      _outputSchema={AwsLambdaPermissionOutputSchema}
+      _importSchema={AwsLambdaPermissionImportSchema}
       {...props}
     />
   )
@@ -71,11 +73,21 @@ export const useAwsLambdaPermission = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsLambdaPermission, idFilter, baseNode, optional)
+  useTypedNode<AwsLambdaPermissionOutputProps>(
+    AwsLambdaPermission,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLambdaPermissions = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsLambdaPermission, idFilter, baseNode, optional)
+  useTypedNodes<AwsLambdaPermissionOutputProps>(
+    AwsLambdaPermission,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSagemakerMonitoringScheduleInputSchema = TfMetaSchema.extend({
   monitoring_schedule_config: resolvableValue(z.object({
     monitoring_job_definition_name: z.string().optional(),
     monitoring_type: z.string(),
@@ -108,24 +108,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSagemakerMonitoringScheduleOutputSchema = z.object({
   arn: z.string().optional(),
   name: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSagemakerMonitoringScheduleInputProps =
+  & z.input<typeof AwsSagemakerMonitoringScheduleInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSagemakerMonitoringScheduleOutputProps =
+  & z.output<typeof AwsSagemakerMonitoringScheduleOutputSchema>
+  & z.output<typeof AwsSagemakerMonitoringScheduleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sagemaker_monitoring_schedule
 
-export function AwsSagemakerMonitoringSchedule(props: Partial<InputProps>) {
+export function AwsSagemakerMonitoringSchedule(
+  props: Partial<AwsSagemakerMonitoringScheduleInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -135,8 +137,8 @@ export function AwsSagemakerMonitoringSchedule(props: Partial<InputProps>) {
       _type='aws_sagemaker_monitoring_schedule'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSagemakerMonitoringScheduleInputSchema}
+      _outputSchema={AwsSagemakerMonitoringScheduleOutputSchema}
       {...props}
     />
   )
@@ -147,7 +149,7 @@ export const useAwsSagemakerMonitoringSchedule = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSagemakerMonitoringScheduleOutputProps>(
     AwsSagemakerMonitoringSchedule,
     idFilter,
     baseNode,
@@ -159,7 +161,7 @@ export const useAwsSagemakerMonitoringSchedules = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSagemakerMonitoringScheduleOutputProps>(
     AwsSagemakerMonitoringSchedule,
     idFilter,
     baseNode,

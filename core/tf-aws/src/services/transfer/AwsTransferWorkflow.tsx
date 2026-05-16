@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsTransferWorkflowInputSchema = TfMetaSchema.extend({
   steps: resolvableValue(
     z.object({
       type: z.string(),
@@ -123,24 +123,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsTransferWorkflowOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsTransferWorkflowInputProps =
+  & z.input<typeof AwsTransferWorkflowInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsTransferWorkflowOutputProps =
+  & z.output<typeof AwsTransferWorkflowOutputSchema>
+  & z.output<typeof AwsTransferWorkflowInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/transfer_workflow
 
-export function AwsTransferWorkflow(props: Partial<InputProps>) {
+export function AwsTransferWorkflow(
+  props: Partial<AwsTransferWorkflowInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -150,8 +152,8 @@ export function AwsTransferWorkflow(props: Partial<InputProps>) {
       _type='aws_transfer_workflow'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsTransferWorkflowInputSchema}
+      _outputSchema={AwsTransferWorkflowOutputSchema}
       {...props}
     />
   )
@@ -162,11 +164,21 @@ export const useAwsTransferWorkflow = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsTransferWorkflow, idFilter, baseNode, optional)
+  useTypedNode<AwsTransferWorkflowOutputProps>(
+    AwsTransferWorkflow,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsTransferWorkflows = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsTransferWorkflow, idFilter, baseNode, optional)
+  useTypedNodes<AwsTransferWorkflowOutputProps>(
+    AwsTransferWorkflow,
+    idFilter,
+    baseNode,
+    optional,
+  )

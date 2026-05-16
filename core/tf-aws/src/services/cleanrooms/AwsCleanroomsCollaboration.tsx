@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCleanroomsCollaborationInputSchema = TfMetaSchema.extend({
   creator_display_name: resolvableValue(z.string()),
   creator_member_abilities: resolvableValue(z.string().array()),
   description: resolvableValue(z.string()),
@@ -44,32 +44,34 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsCleanroomsCollaborationOutputSchema = z.object({
   arn: z.string().optional(),
   create_time: z.string().optional(),
   id: z.string().optional(),
   update_time: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsCleanroomsCollaborationImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsCleanroomsCollaborationInputProps =
+  & z.input<typeof AwsCleanroomsCollaborationInputSchema>
+  & z.input<typeof AwsCleanroomsCollaborationImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCleanroomsCollaborationOutputProps =
+  & z.output<typeof AwsCleanroomsCollaborationOutputSchema>
+  & z.output<typeof AwsCleanroomsCollaborationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cleanrooms_collaboration
 
-export function AwsCleanroomsCollaboration(props: Partial<InputProps>) {
+export function AwsCleanroomsCollaboration(
+  props: Partial<AwsCleanroomsCollaborationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -79,9 +81,9 @@ export function AwsCleanroomsCollaboration(props: Partial<InputProps>) {
       _type='aws_cleanrooms_collaboration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsCleanroomsCollaborationInputSchema}
+      _outputSchema={AwsCleanroomsCollaborationOutputSchema}
+      _importSchema={AwsCleanroomsCollaborationImportSchema}
       {...props}
     />
   )
@@ -92,7 +94,7 @@ export const useAwsCleanroomsCollaboration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCleanroomsCollaborationOutputProps>(
     AwsCleanroomsCollaboration,
     idFilter,
     baseNode,
@@ -104,7 +106,7 @@ export const useAwsCleanroomsCollaborations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCleanroomsCollaborationOutputProps>(
     AwsCleanroomsCollaboration,
     idFilter,
     baseNode,

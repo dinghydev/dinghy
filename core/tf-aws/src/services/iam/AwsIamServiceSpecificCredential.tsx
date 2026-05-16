@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIamServiceSpecificCredentialInputSchema = TfMetaSchema.extend({
   service_name: resolvableValue(z.string()),
   user_name: resolvableValue(z.string()),
   credential_age_days: resolvableValue(z.number().optional()),
@@ -17,7 +17,7 @@ export const InputSchema = TfMetaSchema.extend({
   status: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsIamServiceSpecificCredentialOutputSchema = z.object({
   create_date: z.string().optional(),
   expiration_date: z.string().optional(),
   service_credential_alias: z.string().optional(),
@@ -27,18 +27,20 @@ export const OutputSchema = z.object({
   service_user_name: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsIamServiceSpecificCredentialInputProps =
+  & z.input<typeof AwsIamServiceSpecificCredentialInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIamServiceSpecificCredentialOutputProps =
+  & z.output<typeof AwsIamServiceSpecificCredentialOutputSchema>
+  & z.output<typeof AwsIamServiceSpecificCredentialInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iam_service_specific_credential
 
-export function AwsIamServiceSpecificCredential(props: Partial<InputProps>) {
+export function AwsIamServiceSpecificCredential(
+  props: Partial<AwsIamServiceSpecificCredentialInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +50,8 @@ export function AwsIamServiceSpecificCredential(props: Partial<InputProps>) {
       _type='aws_iam_service_specific_credential'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsIamServiceSpecificCredentialInputSchema}
+      _outputSchema={AwsIamServiceSpecificCredentialOutputSchema}
       {...props}
     />
   )
@@ -60,7 +62,7 @@ export const useAwsIamServiceSpecificCredential = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsIamServiceSpecificCredentialOutputProps>(
     AwsIamServiceSpecificCredential,
     idFilter,
     baseNode,
@@ -72,7 +74,7 @@ export const useAwsIamServiceSpecificCredentials = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsIamServiceSpecificCredentialOutputProps>(
     AwsIamServiceSpecificCredential,
     idFilter,
     baseNode,

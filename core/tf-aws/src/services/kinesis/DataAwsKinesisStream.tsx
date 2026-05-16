@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsKinesisStream } from './AwsKinesisStream.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsKinesisStreamInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsKinesisStreamOutputSchema = z.object({
   arn: z.string().optional(),
   closed_shards: z.set(z.string()).optional(),
   creation_timestamp: z.number().optional(),
@@ -33,18 +33,20 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsKinesisStreamInputProps =
+  & z.input<typeof DataAwsKinesisStreamInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsKinesisStreamOutputProps =
+  & z.output<typeof DataAwsKinesisStreamOutputSchema>
+  & z.output<typeof DataAwsKinesisStreamInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/kinesis_stream
 
-export function DataAwsKinesisStream(props: Partial<InputProps>) {
+export function DataAwsKinesisStream(
+  props: Partial<DataAwsKinesisStreamInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -54,8 +56,8 @@ export function DataAwsKinesisStream(props: Partial<InputProps>) {
       _type='aws_kinesis_stream'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsKinesisStreamInputSchema}
+      _outputSchema={DataAwsKinesisStreamOutputSchema}
       {...props as any}
     />
   )
@@ -66,11 +68,21 @@ export const useDataAwsKinesisStream = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsKinesisStream, idFilter, baseNode, optional)
+  useTypedNode<DataAwsKinesisStreamOutputProps>(
+    DataAwsKinesisStream,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsKinesisStreams = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsKinesisStream, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsKinesisStreamOutputProps>(
+    DataAwsKinesisStream,
+    idFilter,
+    baseNode,
+    optional,
+  )

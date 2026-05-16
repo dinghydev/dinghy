@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSesDomainIdentityVerificationInputSchema = TfMetaSchema.extend({
   domain: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
@@ -19,23 +19,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsSesDomainIdentityVerificationOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSesDomainIdentityVerificationInputProps =
+  & z.input<typeof AwsSesDomainIdentityVerificationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSesDomainIdentityVerificationOutputProps =
+  & z.output<typeof AwsSesDomainIdentityVerificationOutputSchema>
+  & z.output<typeof AwsSesDomainIdentityVerificationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ses_domain_identity_verification
 
-export function AwsSesDomainIdentityVerification(props: Partial<InputProps>) {
+export function AwsSesDomainIdentityVerification(
+  props: Partial<AwsSesDomainIdentityVerificationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,8 +47,8 @@ export function AwsSesDomainIdentityVerification(props: Partial<InputProps>) {
       _type='aws_ses_domain_identity_verification'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSesDomainIdentityVerificationInputSchema}
+      _outputSchema={AwsSesDomainIdentityVerificationOutputSchema}
       {...props}
     />
   )
@@ -57,7 +59,7 @@ export const useAwsSesDomainIdentityVerification = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSesDomainIdentityVerificationOutputProps>(
     AwsSesDomainIdentityVerification,
     idFilter,
     baseNode,
@@ -69,7 +71,7 @@ export const useAwsSesDomainIdentityVerifications = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSesDomainIdentityVerificationOutputProps>(
     AwsSesDomainIdentityVerification,
     idFilter,
     baseNode,

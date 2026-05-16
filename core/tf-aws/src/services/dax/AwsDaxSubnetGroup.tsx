@@ -9,30 +9,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDaxSubnetGroupInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   subnet_ids: resolvableValue(z.string().array()),
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDaxSubnetGroupOutputSchema = z.object({
   id: z.string().optional(),
   vpc_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDaxSubnetGroupInputProps =
+  & z.input<typeof AwsDaxSubnetGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDaxSubnetGroupOutputProps =
+  & z.output<typeof AwsDaxSubnetGroupOutputSchema>
+  & z.output<typeof AwsDaxSubnetGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dax_subnet_group
 
-export function AwsDaxSubnetGroup(props: Partial<InputProps>) {
+export function AwsDaxSubnetGroup(props: Partial<AwsDaxSubnetGroupInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +42,8 @@ export function AwsDaxSubnetGroup(props: Partial<InputProps>) {
       _type='aws_dax_subnet_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDaxSubnetGroupInputSchema}
+      _outputSchema={AwsDaxSubnetGroupOutputSchema}
       {...props}
     />
   )
@@ -53,10 +53,22 @@ export const useAwsDaxSubnetGroup = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsDaxSubnetGroup, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsDaxSubnetGroupOutputProps>(
+    AwsDaxSubnetGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDaxSubnetGroups = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsDaxSubnetGroup, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsDaxSubnetGroupOutputProps>(
+    AwsDaxSubnetGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

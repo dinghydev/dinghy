@@ -9,11 +9,13 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  region: resolvableValue(z.string().optional()),
-})
+export const EphemeralAwsEcrAuthorizationTokenInputSchema = TfMetaSchema.extend(
+  {
+    region: resolvableValue(z.string().optional()),
+  },
+)
 
-export const OutputSchema = z.object({
+export const EphemeralAwsEcrAuthorizationTokenOutputSchema = z.object({
   authorization_token: z.string().optional(),
   expires_at: z.string().optional(),
   password: z.string().optional(),
@@ -21,18 +23,20 @@ export const OutputSchema = z.object({
   user_name: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type EphemeralAwsEcrAuthorizationTokenInputProps =
+  & z.input<typeof EphemeralAwsEcrAuthorizationTokenInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type EphemeralAwsEcrAuthorizationTokenOutputProps =
+  & z.output<typeof EphemeralAwsEcrAuthorizationTokenOutputSchema>
+  & z.output<typeof EphemeralAwsEcrAuthorizationTokenInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/ephemeral-resources/ecr_authorization_token
 
-export function EphemeralAwsEcrAuthorizationToken(props: Partial<InputProps>) {
+export function EphemeralAwsEcrAuthorizationToken(
+  props: Partial<EphemeralAwsEcrAuthorizationTokenInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +46,8 @@ export function EphemeralAwsEcrAuthorizationToken(props: Partial<InputProps>) {
       _type='aws_ecr_authorization_token'
       _category='ephemeral'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={EphemeralAwsEcrAuthorizationTokenInputSchema}
+      _outputSchema={EphemeralAwsEcrAuthorizationTokenOutputSchema}
       {...props}
     />
   )
@@ -54,7 +58,7 @@ export const useEphemeralAwsEcrAuthorizationToken = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<EphemeralAwsEcrAuthorizationTokenOutputProps>(
     EphemeralAwsEcrAuthorizationToken,
     idFilter,
     baseNode,
@@ -66,7 +70,7 @@ export const useEphemeralAwsEcrAuthorizationTokens = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<EphemeralAwsEcrAuthorizationTokenOutputProps>(
     EphemeralAwsEcrAuthorizationToken,
     idFilter,
     baseNode,

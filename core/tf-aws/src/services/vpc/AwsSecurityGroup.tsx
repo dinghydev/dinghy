@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSecurityGroupInputSchema = TfMetaSchema.extend({
   description: resolvableValue(z.string().optional()),
   egress: resolvableValue(
     z.object({
@@ -51,32 +51,32 @@ export const InputSchema = TfMetaSchema.extend({
   vpc_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSecurityGroupOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   owner_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSecurityGroupImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSecurityGroupInputProps =
+  & z.input<typeof AwsSecurityGroupInputSchema>
+  & z.input<typeof AwsSecurityGroupImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSecurityGroupOutputProps =
+  & z.output<typeof AwsSecurityGroupOutputSchema>
+  & z.output<typeof AwsSecurityGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/security_group
 
-export function AwsSecurityGroup(props: Partial<InputProps>) {
+export function AwsSecurityGroup(props: Partial<AwsSecurityGroupInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -86,9 +86,9 @@ export function AwsSecurityGroup(props: Partial<InputProps>) {
       _type='aws_security_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSecurityGroupInputSchema}
+      _outputSchema={AwsSecurityGroupOutputSchema}
+      _importSchema={AwsSecurityGroupImportSchema}
       {...props}
     />
   )
@@ -98,10 +98,22 @@ export const useAwsSecurityGroup = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsSecurityGroup, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsSecurityGroupOutputProps>(
+    AwsSecurityGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSecurityGroups = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsSecurityGroup, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsSecurityGroupOutputProps>(
+    AwsSecurityGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

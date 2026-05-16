@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsMemorydbMultiRegionClusterInputSchema = TfMetaSchema.extend({
   multi_region_cluster_name_suffix: resolvableValue(z.string()),
   node_type: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
@@ -30,25 +30,27 @@ export const InputSchema = TfMetaSchema.extend({
   update_strategy: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsMemorydbMultiRegionClusterOutputSchema = z.object({
   arn: z.string().optional(),
   multi_region_cluster_name: z.string().optional(),
   status: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsMemorydbMultiRegionClusterInputProps =
+  & z.input<typeof AwsMemorydbMultiRegionClusterInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsMemorydbMultiRegionClusterOutputProps =
+  & z.output<typeof AwsMemorydbMultiRegionClusterOutputSchema>
+  & z.output<typeof AwsMemorydbMultiRegionClusterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/memorydb_multi_region_cluster
 
-export function AwsMemorydbMultiRegionCluster(props: Partial<InputProps>) {
+export function AwsMemorydbMultiRegionCluster(
+  props: Partial<AwsMemorydbMultiRegionClusterInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -58,8 +60,8 @@ export function AwsMemorydbMultiRegionCluster(props: Partial<InputProps>) {
       _type='aws_memorydb_multi_region_cluster'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsMemorydbMultiRegionClusterInputSchema}
+      _outputSchema={AwsMemorydbMultiRegionClusterOutputSchema}
       {...props}
     />
   )
@@ -70,7 +72,7 @@ export const useAwsMemorydbMultiRegionCluster = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsMemorydbMultiRegionClusterOutputProps>(
     AwsMemorydbMultiRegionCluster,
     idFilter,
     baseNode,
@@ -82,7 +84,7 @@ export const useAwsMemorydbMultiRegionClusters = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsMemorydbMultiRegionClusterOutputProps>(
     AwsMemorydbMultiRegionCluster,
     idFilter,
     baseNode,

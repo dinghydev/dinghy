@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsPinpointApnsVoipChannelInputSchema = TfMetaSchema.extend({
   application_id: resolvableValue(z.string()),
   bundle_id: resolvableValue(z.string().optional()),
   certificate: resolvableValue(z.string().optional()),
@@ -23,20 +23,22 @@ export const InputSchema = TfMetaSchema.extend({
   token_key_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsPinpointApnsVoipChannelOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsPinpointApnsVoipChannelInputProps =
+  & z.input<typeof AwsPinpointApnsVoipChannelInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsPinpointApnsVoipChannelOutputProps =
+  & z.output<typeof AwsPinpointApnsVoipChannelOutputSchema>
+  & z.output<typeof AwsPinpointApnsVoipChannelInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/pinpoint_apns_voip_channel
 
-export function AwsPinpointApnsVoipChannel(props: Partial<InputProps>) {
+export function AwsPinpointApnsVoipChannel(
+  props: Partial<AwsPinpointApnsVoipChannelInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function AwsPinpointApnsVoipChannel(props: Partial<InputProps>) {
       _type='aws_pinpoint_apns_voip_channel'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsPinpointApnsVoipChannelInputSchema}
+      _outputSchema={AwsPinpointApnsVoipChannelOutputSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useAwsPinpointApnsVoipChannel = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsPinpointApnsVoipChannelOutputProps>(
     AwsPinpointApnsVoipChannel,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useAwsPinpointApnsVoipChannels = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsPinpointApnsVoipChannelOutputProps>(
     AwsPinpointApnsVoipChannel,
     idFilter,
     baseNode,

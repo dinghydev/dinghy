@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsWafv2WebAclRuleInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   priority: resolvableValue(z.number()),
   web_acl_arn: resolvableValue(z.string()),
@@ -58141,28 +58141,30 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({})
+export const AwsWafv2WebAclRuleOutputSchema = z.object({})
 
-export const ImportSchema = z.object({
+export const AwsWafv2WebAclRuleImportSchema = z.object({
   name: resolvableValue(z.string()),
   web_acl_arn: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsWafv2WebAclRuleInputProps =
+  & z.input<typeof AwsWafv2WebAclRuleInputSchema>
+  & z.input<typeof AwsWafv2WebAclRuleImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWafv2WebAclRuleOutputProps =
+  & z.output<typeof AwsWafv2WebAclRuleOutputSchema>
+  & z.output<typeof AwsWafv2WebAclRuleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/wafv2_web_acl_rule
 
-export function AwsWafv2WebAclRule(props: Partial<InputProps>) {
+export function AwsWafv2WebAclRule(
+  props: Partial<AwsWafv2WebAclRuleInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -58172,9 +58174,9 @@ export function AwsWafv2WebAclRule(props: Partial<InputProps>) {
       _type='aws_wafv2_web_acl_rule'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsWafv2WebAclRuleInputSchema}
+      _outputSchema={AwsWafv2WebAclRuleOutputSchema}
+      _importSchema={AwsWafv2WebAclRuleImportSchema}
       {...props}
     />
   )
@@ -58184,11 +58186,22 @@ export const useAwsWafv2WebAclRule = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsWafv2WebAclRule, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsWafv2WebAclRuleOutputProps>(
+    AwsWafv2WebAclRule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsWafv2WebAclRules = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsWafv2WebAclRule, idFilter, baseNode, optional)
+  useTypedNodes<AwsWafv2WebAclRuleOutputProps>(
+    AwsWafv2WebAclRule,
+    idFilter,
+    baseNode,
+    optional,
+  )

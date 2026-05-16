@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsPinpointEmailTemplateInputSchema = TfMetaSchema.extend({
   template_name: resolvableValue(z.string()),
   email_template: resolvableValue(
     z.object({
@@ -29,23 +29,25 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsPinpointEmailTemplateOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsPinpointEmailTemplateInputProps =
+  & z.input<typeof AwsPinpointEmailTemplateInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsPinpointEmailTemplateOutputProps =
+  & z.output<typeof AwsPinpointEmailTemplateOutputSchema>
+  & z.output<typeof AwsPinpointEmailTemplateInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/pinpoint_email_template
 
-export function AwsPinpointEmailTemplate(props: Partial<InputProps>) {
+export function AwsPinpointEmailTemplate(
+  props: Partial<AwsPinpointEmailTemplateInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,8 +57,8 @@ export function AwsPinpointEmailTemplate(props: Partial<InputProps>) {
       _type='aws_pinpoint_email_template'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsPinpointEmailTemplateInputSchema}
+      _outputSchema={AwsPinpointEmailTemplateOutputSchema}
       {...props}
     />
   )
@@ -67,7 +69,7 @@ export const useAwsPinpointEmailTemplate = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsPinpointEmailTemplateOutputProps>(
     AwsPinpointEmailTemplate,
     idFilter,
     baseNode,
@@ -79,7 +81,7 @@ export const useAwsPinpointEmailTemplates = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsPinpointEmailTemplateOutputProps>(
     AwsPinpointEmailTemplate,
     idFilter,
     baseNode,

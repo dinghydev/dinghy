@@ -9,14 +9,14 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsDxRouterConfigurationInputSchema = TfMetaSchema.extend({
   router_type_identifier: resolvableValue(z.string()),
   virtual_interface_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsDxRouterConfigurationOutputSchema = z.object({
   customer_router_config: z.string().optional(),
   router: z.object({
     platform: z.string(),
@@ -30,18 +30,20 @@ export const OutputSchema = z.object({
   virtual_interface_name: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsDxRouterConfigurationInputProps =
+  & z.input<typeof DataAwsDxRouterConfigurationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsDxRouterConfigurationOutputProps =
+  & z.output<typeof DataAwsDxRouterConfigurationOutputSchema>
+  & z.output<typeof DataAwsDxRouterConfigurationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/dx_router_configuration
 
-export function DataAwsDxRouterConfiguration(props: Partial<InputProps>) {
+export function DataAwsDxRouterConfiguration(
+  props: Partial<DataAwsDxRouterConfigurationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -51,8 +53,8 @@ export function DataAwsDxRouterConfiguration(props: Partial<InputProps>) {
       _type='aws_dx_router_configuration'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsDxRouterConfigurationInputSchema}
+      _outputSchema={DataAwsDxRouterConfigurationOutputSchema}
       {...props}
     />
   )
@@ -63,7 +65,7 @@ export const useDataAwsDxRouterConfiguration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsDxRouterConfigurationOutputProps>(
     DataAwsDxRouterConfiguration,
     idFilter,
     baseNode,
@@ -75,7 +77,7 @@ export const useDataAwsDxRouterConfigurations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsDxRouterConfigurationOutputProps>(
     DataAwsDxRouterConfiguration,
     idFilter,
     baseNode,

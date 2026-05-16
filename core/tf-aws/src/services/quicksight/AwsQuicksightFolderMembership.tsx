@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsQuicksightFolderMembershipInputSchema = TfMetaSchema.extend({
   folder_id: resolvableValue(z.string()),
   member_id: resolvableValue(z.string()),
   member_type: resolvableValue(z.string()),
@@ -17,22 +17,24 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsQuicksightFolderMembershipOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsQuicksightFolderMembershipInputProps =
+  & z.input<typeof AwsQuicksightFolderMembershipInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsQuicksightFolderMembershipOutputProps =
+  & z.output<typeof AwsQuicksightFolderMembershipOutputSchema>
+  & z.output<typeof AwsQuicksightFolderMembershipInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/quicksight_folder_membership
 
-export function AwsQuicksightFolderMembership(props: Partial<InputProps>) {
+export function AwsQuicksightFolderMembership(
+  props: Partial<AwsQuicksightFolderMembershipInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +44,8 @@ export function AwsQuicksightFolderMembership(props: Partial<InputProps>) {
       _type='aws_quicksight_folder_membership'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsQuicksightFolderMembershipInputSchema}
+      _outputSchema={AwsQuicksightFolderMembershipOutputSchema}
       {...props}
     />
   )
@@ -54,7 +56,7 @@ export const useAwsQuicksightFolderMembership = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsQuicksightFolderMembershipOutputProps>(
     AwsQuicksightFolderMembership,
     idFilter,
     baseNode,
@@ -66,7 +68,7 @@ export const useAwsQuicksightFolderMemberships = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsQuicksightFolderMembershipOutputProps>(
     AwsQuicksightFolderMembership,
     idFilter,
     baseNode,

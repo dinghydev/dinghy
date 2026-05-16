@@ -8,12 +8,12 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsServicequotasTemplatesInputSchema = TfMetaSchema.extend({
   aws_region: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsServicequotasTemplatesOutputSchema = z.object({
   id: z.string().optional(),
   templates: z.object({
     global_quota: z.boolean(),
@@ -27,18 +27,20 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsServicequotasTemplatesInputProps =
+  & z.input<typeof DataAwsServicequotasTemplatesInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsServicequotasTemplatesOutputProps =
+  & z.output<typeof DataAwsServicequotasTemplatesOutputSchema>
+  & z.output<typeof DataAwsServicequotasTemplatesInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/servicequotas_templates
 
-export function DataAwsServicequotasTemplates(props: Partial<InputProps>) {
+export function DataAwsServicequotasTemplates(
+  props: Partial<DataAwsServicequotasTemplatesInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +50,8 @@ export function DataAwsServicequotasTemplates(props: Partial<InputProps>) {
       _type='aws_servicequotas_templates'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsServicequotasTemplatesInputSchema}
+      _outputSchema={DataAwsServicequotasTemplatesOutputSchema}
       {...props}
     />
   )
@@ -60,7 +62,7 @@ export const useDataAwsServicequotasTemplatess = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsServicequotasTemplatesOutputProps>(
     DataAwsServicequotasTemplates,
     idFilter,
     baseNode,

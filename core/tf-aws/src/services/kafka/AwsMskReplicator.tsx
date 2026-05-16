@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsMskReplicatorInputSchema = TfMetaSchema.extend({
   replication_info_list: resolvableValue(z.object({
     source_kafka_cluster_alias: z.string().optional(),
     source_kafka_cluster_arn: z.string(),
@@ -62,24 +62,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsMskReplicatorOutputSchema = z.object({
   arn: z.string().optional(),
   current_version: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsMskReplicatorInputProps =
+  & z.input<typeof AwsMskReplicatorInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsMskReplicatorOutputProps =
+  & z.output<typeof AwsMskReplicatorOutputSchema>
+  & z.output<typeof AwsMskReplicatorInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/msk_replicator
 
-export function AwsMskReplicator(props: Partial<InputProps>) {
+export function AwsMskReplicator(props: Partial<AwsMskReplicatorInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -89,8 +89,8 @@ export function AwsMskReplicator(props: Partial<InputProps>) {
       _type='aws_msk_replicator'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsMskReplicatorInputSchema}
+      _outputSchema={AwsMskReplicatorOutputSchema}
       {...props}
     />
   )
@@ -100,10 +100,22 @@ export const useAwsMskReplicator = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsMskReplicator, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsMskReplicatorOutputProps>(
+    AwsMskReplicator,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsMskReplicators = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsMskReplicator, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsMskReplicatorOutputProps>(
+    AwsMskReplicator,
+    idFilter,
+    baseNode,
+    optional,
+  )

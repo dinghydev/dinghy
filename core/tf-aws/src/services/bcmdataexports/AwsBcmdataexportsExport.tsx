@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsBcmdataexportsExportInputSchema = TfMetaSchema.extend({
   export: resolvableValue(
     z.object({
       description: z.string().optional(),
@@ -49,29 +49,31 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsBcmdataexportsExportOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsBcmdataexportsExportImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsBcmdataexportsExportInputProps =
+  & z.input<typeof AwsBcmdataexportsExportInputSchema>
+  & z.input<typeof AwsBcmdataexportsExportImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBcmdataexportsExportOutputProps =
+  & z.output<typeof AwsBcmdataexportsExportOutputSchema>
+  & z.output<typeof AwsBcmdataexportsExportInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/bcmdataexports_export
 
-export function AwsBcmdataexportsExport(props: Partial<InputProps>) {
+export function AwsBcmdataexportsExport(
+  props: Partial<AwsBcmdataexportsExportInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -81,9 +83,9 @@ export function AwsBcmdataexportsExport(props: Partial<InputProps>) {
       _type='aws_bcmdataexports_export'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsBcmdataexportsExportInputSchema}
+      _outputSchema={AwsBcmdataexportsExportOutputSchema}
+      _importSchema={AwsBcmdataexportsExportImportSchema}
       {...props}
     />
   )
@@ -94,7 +96,7 @@ export const useAwsBcmdataexportsExport = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsBcmdataexportsExportOutputProps>(
     AwsBcmdataexportsExport,
     idFilter,
     baseNode,
@@ -106,7 +108,7 @@ export const useAwsBcmdataexportsExports = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsBcmdataexportsExportOutputProps>(
     AwsBcmdataexportsExport,
     idFilter,
     baseNode,

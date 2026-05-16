@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRedshiftClusterSnapshotInputSchema = TfMetaSchema.extend({
   cluster_identifier: resolvableValue(z.string()),
   snapshot_identifier: resolvableValue(z.string()),
   manual_snapshot_retention_period: resolvableValue(z.number().optional()),
@@ -17,7 +17,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRedshiftClusterSnapshotOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   kms_key_id: z.string().optional(),
@@ -25,18 +25,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRedshiftClusterSnapshotInputProps =
+  & z.input<typeof AwsRedshiftClusterSnapshotInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRedshiftClusterSnapshotOutputProps =
+  & z.output<typeof AwsRedshiftClusterSnapshotOutputSchema>
+  & z.output<typeof AwsRedshiftClusterSnapshotInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/redshift_cluster_snapshot
 
-export function AwsRedshiftClusterSnapshot(props: Partial<InputProps>) {
+export function AwsRedshiftClusterSnapshot(
+  props: Partial<AwsRedshiftClusterSnapshotInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function AwsRedshiftClusterSnapshot(props: Partial<InputProps>) {
       _type='aws_redshift_cluster_snapshot'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRedshiftClusterSnapshotInputSchema}
+      _outputSchema={AwsRedshiftClusterSnapshotOutputSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useAwsRedshiftClusterSnapshot = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRedshiftClusterSnapshotOutputProps>(
     AwsRedshiftClusterSnapshot,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useAwsRedshiftClusterSnapshots = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRedshiftClusterSnapshotOutputProps>(
     AwsRedshiftClusterSnapshot,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudwatchEventRuleInputSchema = TfMetaSchema.extend({
   description: resolvableValue(z.string().optional()),
   event_bus_name: resolvableValue(z.string().optional()),
   event_pattern: resolvableValue(z.string().optional()),
@@ -24,31 +24,33 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudwatchEventRuleOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsCloudwatchEventRuleImportSchema = z.object({
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsCloudwatchEventRuleInputProps =
+  & z.input<typeof AwsCloudwatchEventRuleInputSchema>
+  & z.input<typeof AwsCloudwatchEventRuleImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudwatchEventRuleOutputProps =
+  & z.output<typeof AwsCloudwatchEventRuleOutputSchema>
+  & z.output<typeof AwsCloudwatchEventRuleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudwatch_event_rule
 
-export function AwsCloudwatchEventRule(props: Partial<InputProps>) {
+export function AwsCloudwatchEventRule(
+  props: Partial<AwsCloudwatchEventRuleInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -58,9 +60,9 @@ export function AwsCloudwatchEventRule(props: Partial<InputProps>) {
       _type='aws_cloudwatch_event_rule'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsCloudwatchEventRuleInputSchema}
+      _outputSchema={AwsCloudwatchEventRuleOutputSchema}
+      _importSchema={AwsCloudwatchEventRuleImportSchema}
       {...props}
     />
   )
@@ -71,7 +73,7 @@ export const useAwsCloudwatchEventRule = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudwatchEventRuleOutputProps>(
     AwsCloudwatchEventRule,
     idFilter,
     baseNode,
@@ -83,7 +85,7 @@ export const useAwsCloudwatchEventRules = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudwatchEventRuleOutputProps>(
     AwsCloudwatchEventRule,
     idFilter,
     baseNode,

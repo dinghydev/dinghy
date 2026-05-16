@@ -6,7 +6,7 @@ import {
   RenderOptions,
 } from '@dinghy/base-components'
 import { z } from 'zod'
-import { InputSchema as AwsLambdaFunctionInputSchema } from '../../services/lambda/AwsLambdaFunction.tsx'
+import { AwsLambdaFunctionInputSchema } from '../../services/lambda/AwsLambdaFunction.tsx'
 import { existsSync } from '@std/fs/exists'
 
 const LambdaFunctionSchema = AwsLambdaFunctionInputSchema.extend({

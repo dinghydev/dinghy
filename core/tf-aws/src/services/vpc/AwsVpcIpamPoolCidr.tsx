@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsVpcIpamPoolCidrInputSchema = TfMetaSchema.extend({
   ipam_pool_id: resolvableValue(z.string()),
   cidr: resolvableValue(z.string().optional()),
   cidr_authorization_context: resolvableValue(
@@ -28,23 +28,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsVpcIpamPoolCidrOutputSchema = z.object({
   id: z.string().optional(),
   ipam_pool_cidr_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVpcIpamPoolCidrInputProps =
+  & z.input<typeof AwsVpcIpamPoolCidrInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVpcIpamPoolCidrOutputProps =
+  & z.output<typeof AwsVpcIpamPoolCidrOutputSchema>
+  & z.output<typeof AwsVpcIpamPoolCidrInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpc_ipam_pool_cidr
 
-export function AwsVpcIpamPoolCidr(props: Partial<InputProps>) {
+export function AwsVpcIpamPoolCidr(
+  props: Partial<AwsVpcIpamPoolCidrInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -54,8 +56,8 @@ export function AwsVpcIpamPoolCidr(props: Partial<InputProps>) {
       _type='aws_vpc_ipam_pool_cidr'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVpcIpamPoolCidrInputSchema}
+      _outputSchema={AwsVpcIpamPoolCidrOutputSchema}
       {...props}
     />
   )
@@ -65,11 +67,22 @@ export const useAwsVpcIpamPoolCidr = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsVpcIpamPoolCidr, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsVpcIpamPoolCidrOutputProps>(
+    AwsVpcIpamPoolCidr,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVpcIpamPoolCidrs = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsVpcIpamPoolCidr, idFilter, baseNode, optional)
+  useTypedNodes<AwsVpcIpamPoolCidrOutputProps>(
+    AwsVpcIpamPoolCidr,
+    idFilter,
+    baseNode,
+    optional,
+  )

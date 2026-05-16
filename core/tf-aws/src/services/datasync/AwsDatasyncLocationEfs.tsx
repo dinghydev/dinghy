@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDatasyncLocationEfsInputSchema = TfMetaSchema.extend({
   ec2_config: resolvableValue(z.object({
     security_group_arns: z.string().array(),
     subnet_arn: z.string(),
@@ -22,30 +22,32 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDatasyncLocationEfsOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   uri: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsDatasyncLocationEfsImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsDatasyncLocationEfsInputProps =
+  & z.input<typeof AwsDatasyncLocationEfsInputSchema>
+  & z.input<typeof AwsDatasyncLocationEfsImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDatasyncLocationEfsOutputProps =
+  & z.output<typeof AwsDatasyncLocationEfsOutputSchema>
+  & z.output<typeof AwsDatasyncLocationEfsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/datasync_location_efs
 
-export function AwsDatasyncLocationEfs(props: Partial<InputProps>) {
+export function AwsDatasyncLocationEfs(
+  props: Partial<AwsDatasyncLocationEfsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,9 +57,9 @@ export function AwsDatasyncLocationEfs(props: Partial<InputProps>) {
       _type='aws_datasync_location_efs'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsDatasyncLocationEfsInputSchema}
+      _outputSchema={AwsDatasyncLocationEfsOutputSchema}
+      _importSchema={AwsDatasyncLocationEfsImportSchema}
       {...props}
     />
   )
@@ -68,7 +70,7 @@ export const useAwsDatasyncLocationEfss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDatasyncLocationEfsOutputProps>(
     AwsDatasyncLocationEfs,
     idFilter,
     baseNode,

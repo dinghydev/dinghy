@@ -9,11 +9,12 @@ import {
 import z from 'zod'
 import { AwsCloudfrontOriginAccessControl } from './AwsCloudfrontOriginAccessControl.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  id: resolvableValue(z.string()),
-})
+export const DataAwsCloudfrontOriginAccessControlInputSchema = TfMetaSchema
+  .extend({
+    id: resolvableValue(z.string()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsCloudfrontOriginAccessControlOutputSchema = z.object({
   arn: z.string().optional(),
   description: z.string().optional(),
   etag: z.string().optional(),
@@ -23,19 +24,19 @@ export const OutputSchema = z.object({
   signing_protocol: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsCloudfrontOriginAccessControlInputProps =
+  & z.input<typeof DataAwsCloudfrontOriginAccessControlInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsCloudfrontOriginAccessControlOutputProps =
+  & z.output<typeof DataAwsCloudfrontOriginAccessControlOutputSchema>
+  & z.output<typeof DataAwsCloudfrontOriginAccessControlInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/cloudfront_origin_access_control
 
 export function DataAwsCloudfrontOriginAccessControl(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsCloudfrontOriginAccessControlInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -46,8 +47,8 @@ export function DataAwsCloudfrontOriginAccessControl(
       _type='aws_cloudfront_origin_access_control'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsCloudfrontOriginAccessControlInputSchema}
+      _outputSchema={DataAwsCloudfrontOriginAccessControlOutputSchema}
       {...props as any}
     />
   )
@@ -58,7 +59,7 @@ export const useDataAwsCloudfrontOriginAccessControl = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsCloudfrontOriginAccessControlOutputProps>(
     DataAwsCloudfrontOriginAccessControl,
     idFilter,
     baseNode,
@@ -70,7 +71,7 @@ export const useDataAwsCloudfrontOriginAccessControls = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsCloudfrontOriginAccessControlOutputProps>(
     DataAwsCloudfrontOriginAccessControl,
     idFilter,
     baseNode,

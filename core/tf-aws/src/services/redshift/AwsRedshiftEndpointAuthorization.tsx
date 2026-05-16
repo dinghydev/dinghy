@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRedshiftEndpointAuthorizationInputSchema = TfMetaSchema.extend({
   account: resolvableValue(z.string()),
   cluster_identifier: resolvableValue(z.string()),
   force_delete: resolvableValue(z.boolean().optional()),
@@ -17,7 +17,7 @@ export const InputSchema = TfMetaSchema.extend({
   vpc_ids: resolvableValue(z.string().array().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRedshiftEndpointAuthorizationOutputSchema = z.object({
   allowed_all_vpcs: z.boolean().optional(),
   endpoint_count: z.number().optional(),
   grantee: z.string().optional(),
@@ -25,18 +25,20 @@ export const OutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRedshiftEndpointAuthorizationInputProps =
+  & z.input<typeof AwsRedshiftEndpointAuthorizationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRedshiftEndpointAuthorizationOutputProps =
+  & z.output<typeof AwsRedshiftEndpointAuthorizationOutputSchema>
+  & z.output<typeof AwsRedshiftEndpointAuthorizationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/redshift_endpoint_authorization
 
-export function AwsRedshiftEndpointAuthorization(props: Partial<InputProps>) {
+export function AwsRedshiftEndpointAuthorization(
+  props: Partial<AwsRedshiftEndpointAuthorizationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function AwsRedshiftEndpointAuthorization(props: Partial<InputProps>) {
       _type='aws_redshift_endpoint_authorization'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRedshiftEndpointAuthorizationInputSchema}
+      _outputSchema={AwsRedshiftEndpointAuthorizationOutputSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useAwsRedshiftEndpointAuthorization = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRedshiftEndpointAuthorizationOutputProps>(
     AwsRedshiftEndpointAuthorization,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useAwsRedshiftEndpointAuthorizations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRedshiftEndpointAuthorizationOutputProps>(
     AwsRedshiftEndpointAuthorization,
     idFilter,
     baseNode,

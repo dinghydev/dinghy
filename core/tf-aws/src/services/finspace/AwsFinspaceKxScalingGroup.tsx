@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsFinspaceKxScalingGroupInputSchema = TfMetaSchema.extend({
   availability_zone_id: resolvableValue(z.string()),
   environment_id: resolvableValue(z.string()),
   host_type: resolvableValue(z.string()),
@@ -26,7 +26,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsFinspaceKxScalingGroupOutputSchema = z.object({
   arn: z.string().optional(),
   clusters: z.string().array().optional(),
   created_timestamp: z.string().optional(),
@@ -36,18 +36,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsFinspaceKxScalingGroupInputProps =
+  & z.input<typeof AwsFinspaceKxScalingGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsFinspaceKxScalingGroupOutputProps =
+  & z.output<typeof AwsFinspaceKxScalingGroupOutputSchema>
+  & z.output<typeof AwsFinspaceKxScalingGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/finspace_kx_scaling_group
 
-export function AwsFinspaceKxScalingGroup(props: Partial<InputProps>) {
+export function AwsFinspaceKxScalingGroup(
+  props: Partial<AwsFinspaceKxScalingGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -57,8 +59,8 @@ export function AwsFinspaceKxScalingGroup(props: Partial<InputProps>) {
       _type='aws_finspace_kx_scaling_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsFinspaceKxScalingGroupInputSchema}
+      _outputSchema={AwsFinspaceKxScalingGroupOutputSchema}
       {...props}
     />
   )
@@ -69,7 +71,7 @@ export const useAwsFinspaceKxScalingGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsFinspaceKxScalingGroupOutputProps>(
     AwsFinspaceKxScalingGroup,
     idFilter,
     baseNode,
@@ -81,7 +83,7 @@ export const useAwsFinspaceKxScalingGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsFinspaceKxScalingGroupOutputProps>(
     AwsFinspaceKxScalingGroup,
     idFilter,
     baseNode,

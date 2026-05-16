@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsKmsCiphertextInputSchema = TfMetaSchema.extend({
   key_id: resolvableValue(z.string()),
   context: resolvableValue(z.record(z.string(), z.string()).optional()),
   id: resolvableValue(z.string().optional()),
@@ -19,22 +19,22 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsKmsCiphertextOutputSchema = z.object({
   ciphertext_blob: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsKmsCiphertextInputProps =
+  & z.input<typeof AwsKmsCiphertextInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsKmsCiphertextOutputProps =
+  & z.output<typeof AwsKmsCiphertextOutputSchema>
+  & z.output<typeof AwsKmsCiphertextInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/kms_ciphertext
 
-export function AwsKmsCiphertext(props: Partial<InputProps>) {
+export function AwsKmsCiphertext(props: Partial<AwsKmsCiphertextInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +44,8 @@ export function AwsKmsCiphertext(props: Partial<InputProps>) {
       _type='aws_kms_ciphertext'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsKmsCiphertextInputSchema}
+      _outputSchema={AwsKmsCiphertextOutputSchema}
       {...props}
     />
   )
@@ -55,10 +55,22 @@ export const useAwsKmsCiphertext = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsKmsCiphertext, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsKmsCiphertextOutputProps>(
+    AwsKmsCiphertext,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsKmsCiphertexts = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsKmsCiphertext, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsKmsCiphertextOutputProps>(
+    AwsKmsCiphertext,
+    idFilter,
+    baseNode,
+    optional,
+  )

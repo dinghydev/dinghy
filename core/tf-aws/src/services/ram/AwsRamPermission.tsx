@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRamPermissionInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   policy_template: resolvableValue(z.string()),
   resource_type: resolvableValue(z.string()),
@@ -22,7 +22,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsRamPermissionOutputSchema = z.object({
   arn: z.string().optional(),
   default_version: z.boolean().optional(),
   status: z.string().optional(),
@@ -30,23 +30,23 @@ export const OutputSchema = z.object({
   version: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsRamPermissionImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsRamPermissionInputProps =
+  & z.input<typeof AwsRamPermissionInputSchema>
+  & z.input<typeof AwsRamPermissionImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRamPermissionOutputProps =
+  & z.output<typeof AwsRamPermissionOutputSchema>
+  & z.output<typeof AwsRamPermissionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ram_permission
 
-export function AwsRamPermission(props: Partial<InputProps>) {
+export function AwsRamPermission(props: Partial<AwsRamPermissionInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -56,9 +56,9 @@ export function AwsRamPermission(props: Partial<InputProps>) {
       _type='aws_ram_permission'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsRamPermissionInputSchema}
+      _outputSchema={AwsRamPermissionOutputSchema}
+      _importSchema={AwsRamPermissionImportSchema}
       {...props}
     />
   )
@@ -68,10 +68,22 @@ export const useAwsRamPermission = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsRamPermission, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsRamPermissionOutputProps>(
+    AwsRamPermission,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRamPermissions = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsRamPermission, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsRamPermissionOutputProps>(
+    AwsRamPermission,
+    idFilter,
+    baseNode,
+    optional,
+  )

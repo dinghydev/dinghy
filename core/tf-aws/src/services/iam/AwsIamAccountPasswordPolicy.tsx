@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIamAccountPasswordPolicyInputSchema = TfMetaSchema.extend({
   allow_users_to_change_password: resolvableValue(z.boolean().optional()),
   hard_expiry: resolvableValue(z.boolean().optional()),
   id: resolvableValue(z.string().optional()),
@@ -22,22 +22,24 @@ export const InputSchema = TfMetaSchema.extend({
   require_uppercase_characters: resolvableValue(z.boolean().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsIamAccountPasswordPolicyOutputSchema = z.object({
   expire_passwords: z.boolean().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsIamAccountPasswordPolicyInputProps =
+  & z.input<typeof AwsIamAccountPasswordPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIamAccountPasswordPolicyOutputProps =
+  & z.output<typeof AwsIamAccountPasswordPolicyOutputSchema>
+  & z.output<typeof AwsIamAccountPasswordPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iam_account_password_policy
 
-export function AwsIamAccountPasswordPolicy(props: Partial<InputProps>) {
+export function AwsIamAccountPasswordPolicy(
+  props: Partial<AwsIamAccountPasswordPolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +49,8 @@ export function AwsIamAccountPasswordPolicy(props: Partial<InputProps>) {
       _type='aws_iam_account_password_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsIamAccountPasswordPolicyInputSchema}
+      _outputSchema={AwsIamAccountPasswordPolicyOutputSchema}
       {...props}
     />
   )
@@ -59,7 +61,7 @@ export const useAwsIamAccountPasswordPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsIamAccountPasswordPolicyOutputProps>(
     AwsIamAccountPasswordPolicy,
     idFilter,
     baseNode,
@@ -71,7 +73,7 @@ export const useAwsIamAccountPasswordPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsIamAccountPasswordPolicyOutputProps>(
     AwsIamAccountPasswordPolicy,
     idFilter,
     baseNode,

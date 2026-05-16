@@ -9,39 +9,42 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  bucket: resolvableValue(z.string()),
-  expected_bucket_owner: resolvableValue(z.string().optional()),
-  object_lock_enabled: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  rule: resolvableValue(
-    z.object({
-      default_retention: z.object({
-        days: z.number().optional(),
-        mode: z.string().optional(),
-        years: z.number().optional(),
-      }),
-    }).optional(),
-  ),
-  token: resolvableValue(z.string().optional()),
-})
+export const AwsS3BucketObjectLockConfigurationInputSchema = TfMetaSchema
+  .extend({
+    bucket: resolvableValue(z.string()),
+    expected_bucket_owner: resolvableValue(z.string().optional()),
+    object_lock_enabled: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    rule: resolvableValue(
+      z.object({
+        default_retention: z.object({
+          days: z.number().optional(),
+          mode: z.string().optional(),
+          years: z.number().optional(),
+        }),
+      }).optional(),
+    ),
+    token: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsS3BucketObjectLockConfigurationOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsS3BucketObjectLockConfigurationInputProps =
+  & z.input<typeof AwsS3BucketObjectLockConfigurationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3BucketObjectLockConfigurationOutputProps =
+  & z.output<typeof AwsS3BucketObjectLockConfigurationOutputSchema>
+  & z.output<typeof AwsS3BucketObjectLockConfigurationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3_bucket_object_lock_configuration
 
-export function AwsS3BucketObjectLockConfiguration(props: Partial<InputProps>) {
+export function AwsS3BucketObjectLockConfiguration(
+  props: Partial<AwsS3BucketObjectLockConfigurationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -51,8 +54,8 @@ export function AwsS3BucketObjectLockConfiguration(props: Partial<InputProps>) {
       _type='aws_s3_bucket_object_lock_configuration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsS3BucketObjectLockConfigurationInputSchema}
+      _outputSchema={AwsS3BucketObjectLockConfigurationOutputSchema}
       {...props}
     />
   )
@@ -63,7 +66,7 @@ export const useAwsS3BucketObjectLockConfiguration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsS3BucketObjectLockConfigurationOutputProps>(
     AwsS3BucketObjectLockConfiguration,
     idFilter,
     baseNode,
@@ -75,7 +78,7 @@ export const useAwsS3BucketObjectLockConfigurations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsS3BucketObjectLockConfigurationOutputProps>(
     AwsS3BucketObjectLockConfiguration,
     idFilter,
     baseNode,

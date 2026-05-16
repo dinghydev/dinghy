@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEcsExpressGatewayServiceInputSchema = TfMetaSchema.extend({
   execution_role_arn: resolvableValue(z.string()),
   infrastructure_role_arn: resolvableValue(z.string()),
   cluster: resolvableValue(z.string().optional()),
@@ -66,7 +66,7 @@ export const InputSchema = TfMetaSchema.extend({
   wait_for_steady_state: resolvableValue(z.boolean().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsEcsExpressGatewayServiceOutputSchema = z.object({
   current_deployment: z.string().optional(),
   ingress_paths: z.object({
     access_type: z.string(),
@@ -77,18 +77,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEcsExpressGatewayServiceInputProps =
+  & z.input<typeof AwsEcsExpressGatewayServiceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEcsExpressGatewayServiceOutputProps =
+  & z.output<typeof AwsEcsExpressGatewayServiceOutputSchema>
+  & z.output<typeof AwsEcsExpressGatewayServiceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ecs_express_gateway_service
 
-export function AwsEcsExpressGatewayService(props: Partial<InputProps>) {
+export function AwsEcsExpressGatewayService(
+  props: Partial<AwsEcsExpressGatewayServiceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -98,8 +100,8 @@ export function AwsEcsExpressGatewayService(props: Partial<InputProps>) {
       _type='aws_ecs_express_gateway_service'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEcsExpressGatewayServiceInputSchema}
+      _outputSchema={AwsEcsExpressGatewayServiceOutputSchema}
       {...props}
     />
   )
@@ -110,7 +112,7 @@ export const useAwsEcsExpressGatewayService = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsEcsExpressGatewayServiceOutputProps>(
     AwsEcsExpressGatewayService,
     idFilter,
     baseNode,
@@ -122,7 +124,7 @@ export const useAwsEcsExpressGatewayServices = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEcsExpressGatewayServiceOutputProps>(
     AwsEcsExpressGatewayService,
     idFilter,
     baseNode,

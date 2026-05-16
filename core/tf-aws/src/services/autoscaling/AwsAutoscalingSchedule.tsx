@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAutoscalingScheduleInputSchema = TfMetaSchema.extend({
   autoscaling_group_name: resolvableValue(z.string()),
   scheduled_action_name: resolvableValue(z.string()),
   desired_capacity: resolvableValue(z.number().optional()),
@@ -23,30 +23,32 @@ export const InputSchema = TfMetaSchema.extend({
   time_zone: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAutoscalingScheduleOutputSchema = z.object({
   arn: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsAutoscalingScheduleImportSchema = z.object({
   autoscaling_group_name: resolvableValue(z.string()),
   scheduled_action_name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsAutoscalingScheduleInputProps =
+  & z.input<typeof AwsAutoscalingScheduleInputSchema>
+  & z.input<typeof AwsAutoscalingScheduleImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAutoscalingScheduleOutputProps =
+  & z.output<typeof AwsAutoscalingScheduleOutputSchema>
+  & z.output<typeof AwsAutoscalingScheduleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/autoscaling_schedule
 
-export function AwsAutoscalingSchedule(props: Partial<InputProps>) {
+export function AwsAutoscalingSchedule(
+  props: Partial<AwsAutoscalingScheduleInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -56,9 +58,9 @@ export function AwsAutoscalingSchedule(props: Partial<InputProps>) {
       _type='aws_autoscaling_schedule'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsAutoscalingScheduleInputSchema}
+      _outputSchema={AwsAutoscalingScheduleOutputSchema}
+      _importSchema={AwsAutoscalingScheduleImportSchema}
       {...props}
     />
   )
@@ -69,7 +71,7 @@ export const useAwsAutoscalingSchedule = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAutoscalingScheduleOutputProps>(
     AwsAutoscalingSchedule,
     idFilter,
     baseNode,
@@ -81,7 +83,7 @@ export const useAwsAutoscalingSchedules = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAutoscalingScheduleOutputProps>(
     AwsAutoscalingSchedule,
     idFilter,
     baseNode,

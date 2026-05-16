@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEc2FleetInputSchema = TfMetaSchema.extend({
   launch_template_config: resolvableValue(
     z.object({
       launch_template_specification: z.object({
@@ -137,7 +137,7 @@ export const InputSchema = TfMetaSchema.extend({
   valid_until: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsEc2FleetOutputSchema = z.object({
   arn: z.string().optional(),
   fleet_instance_set: z.object({
     instance_ids: z.string().array().optional(),
@@ -152,18 +152,18 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEc2FleetInputProps =
+  & z.input<typeof AwsEc2FleetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEc2FleetOutputProps =
+  & z.output<typeof AwsEc2FleetOutputSchema>
+  & z.output<typeof AwsEc2FleetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ec2_fleet
 
-export function AwsEc2Fleet(props: Partial<InputProps>) {
+export function AwsEc2Fleet(props: Partial<AwsEc2FleetInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -173,8 +173,8 @@ export function AwsEc2Fleet(props: Partial<InputProps>) {
       _type='aws_ec2_fleet'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEc2FleetInputSchema}
+      _outputSchema={AwsEc2FleetOutputSchema}
       {...props}
     />
   )
@@ -184,10 +184,22 @@ export const useAwsEc2Fleet = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsEc2Fleet, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsEc2FleetOutputProps>(
+    AwsEc2Fleet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEc2Fleets = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsEc2Fleet, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsEc2FleetOutputProps>(
+    AwsEc2Fleet,
+    idFilter,
+    baseNode,
+    optional,
+  )

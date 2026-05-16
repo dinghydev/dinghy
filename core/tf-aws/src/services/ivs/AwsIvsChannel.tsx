@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIvsChannelInputSchema = TfMetaSchema.extend({
   authorized: resolvableValue(z.boolean().optional()),
   id: resolvableValue(z.string().optional()),
   latency_mode: resolvableValue(z.string().optional()),
@@ -27,30 +27,30 @@ export const InputSchema = TfMetaSchema.extend({
   type: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsIvsChannelOutputSchema = z.object({
   arn: z.string().optional(),
   ingest_endpoint: z.string().optional(),
   playback_url: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsIvsChannelImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsIvsChannelInputProps =
+  & z.input<typeof AwsIvsChannelInputSchema>
+  & z.input<typeof AwsIvsChannelImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIvsChannelOutputProps =
+  & z.output<typeof AwsIvsChannelOutputSchema>
+  & z.output<typeof AwsIvsChannelInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ivs_channel
 
-export function AwsIvsChannel(props: Partial<InputProps>) {
+export function AwsIvsChannel(props: Partial<AwsIvsChannelInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -60,9 +60,9 @@ export function AwsIvsChannel(props: Partial<InputProps>) {
       _type='aws_ivs_channel'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsIvsChannelInputSchema}
+      _outputSchema={AwsIvsChannelOutputSchema}
+      _importSchema={AwsIvsChannelImportSchema}
       {...props}
     />
   )
@@ -72,10 +72,22 @@ export const useAwsIvsChannel = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsIvsChannel, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsIvsChannelOutputProps>(
+    AwsIvsChannel,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIvsChannels = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsIvsChannel, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsIvsChannelOutputProps>(
+    AwsIvsChannel,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsRdsOrderableDbInstanceInputSchema = TfMetaSchema.extend({
   engine: resolvableValue(z.string()),
   availability_zone_group: resolvableValue(z.string().optional()),
   engine_latest_version: resolvableValue(z.boolean().optional()),
@@ -37,7 +37,7 @@ export const InputSchema = TfMetaSchema.extend({
   vpc: resolvableValue(z.boolean().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsRdsOrderableDbInstanceOutputSchema = z.object({
   availability_zones: z.string().array().optional(),
   max_iops_per_db_instance: z.number().optional(),
   max_iops_per_gib: z.number().optional(),
@@ -49,18 +49,20 @@ export const OutputSchema = z.object({
   outpost_capable: z.boolean().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsRdsOrderableDbInstanceInputProps =
+  & z.input<typeof DataAwsRdsOrderableDbInstanceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsRdsOrderableDbInstanceOutputProps =
+  & z.output<typeof DataAwsRdsOrderableDbInstanceOutputSchema>
+  & z.output<typeof DataAwsRdsOrderableDbInstanceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/rds_orderable_db_instance
 
-export function DataAwsRdsOrderableDbInstance(props: Partial<InputProps>) {
+export function DataAwsRdsOrderableDbInstance(
+  props: Partial<DataAwsRdsOrderableDbInstanceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -70,8 +72,8 @@ export function DataAwsRdsOrderableDbInstance(props: Partial<InputProps>) {
       _type='aws_rds_orderable_db_instance'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsRdsOrderableDbInstanceInputSchema}
+      _outputSchema={DataAwsRdsOrderableDbInstanceOutputSchema}
       {...props}
     />
   )
@@ -82,7 +84,7 @@ export const useDataAwsRdsOrderableDbInstance = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsRdsOrderableDbInstanceOutputProps>(
     DataAwsRdsOrderableDbInstance,
     idFilter,
     baseNode,
@@ -94,7 +96,7 @@ export const useDataAwsRdsOrderableDbInstances = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsRdsOrderableDbInstanceOutputProps>(
     DataAwsRdsOrderableDbInstance,
     idFilter,
     baseNode,

@@ -8,29 +8,39 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  id: resolvableValue(z.string().optional()),
-  name: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsServicecatalogappregistryAttributeGroupAssociationsInputSchema =
+  TfMetaSchema.extend({
+    id: resolvableValue(z.string().optional()),
+    name: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
-  attribute_group_ids: z.set(z.string()).optional(),
-})
+export const DataAwsServicecatalogappregistryAttributeGroupAssociationsOutputSchema =
+  z.object({
+    attribute_group_ids: z.set(z.string()).optional(),
+  })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsServicecatalogappregistryAttributeGroupAssociationsInputProps =
+  & z.input<
+    typeof DataAwsServicecatalogappregistryAttributeGroupAssociationsInputSchema
+  >
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsServicecatalogappregistryAttributeGroupAssociationsOutputProps =
+  & z.output<
+    typeof DataAwsServicecatalogappregistryAttributeGroupAssociationsOutputSchema
+  >
+  & z.output<
+    typeof DataAwsServicecatalogappregistryAttributeGroupAssociationsInputSchema
+  >
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/servicecatalogappregistry_attribute_group_associations
 
 export function DataAwsServicecatalogappregistryAttributeGroupAssociations(
-  props: Partial<InputProps>,
+  props: Partial<
+    DataAwsServicecatalogappregistryAttributeGroupAssociationsInputProps
+  >,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -41,8 +51,8 @@ export function DataAwsServicecatalogappregistryAttributeGroupAssociations(
       _type='aws_servicecatalogappregistry_attribute_group_associations'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsServicecatalogappregistryAttributeGroupAssociationsInputSchema}
+      _outputSchema={DataAwsServicecatalogappregistryAttributeGroupAssociationsOutputSchema}
       {...props}
     />
   )
@@ -53,7 +63,9 @@ export const useDataAwsServicecatalogappregistryAttributeGroupAssociationss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<
+    DataAwsServicecatalogappregistryAttributeGroupAssociationsOutputProps
+  >(
     DataAwsServicecatalogappregistryAttributeGroupAssociations,
     idFilter,
     baseNode,

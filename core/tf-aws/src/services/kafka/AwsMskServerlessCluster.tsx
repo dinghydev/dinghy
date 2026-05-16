@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsMskServerlessClusterInputSchema = TfMetaSchema.extend({
   client_authentication: resolvableValue(z.object({
     sasl: z.object({
       iam: z.object({
@@ -35,30 +35,32 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsMskServerlessClusterOutputSchema = z.object({
   arn: z.string().optional(),
   bootstrap_brokers_sasl_iam: z.string().optional(),
   cluster_uuid: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsMskServerlessClusterImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsMskServerlessClusterInputProps =
+  & z.input<typeof AwsMskServerlessClusterInputSchema>
+  & z.input<typeof AwsMskServerlessClusterImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsMskServerlessClusterOutputProps =
+  & z.output<typeof AwsMskServerlessClusterOutputSchema>
+  & z.output<typeof AwsMskServerlessClusterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/msk_serverless_cluster
 
-export function AwsMskServerlessCluster(props: Partial<InputProps>) {
+export function AwsMskServerlessCluster(
+  props: Partial<AwsMskServerlessClusterInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -68,9 +70,9 @@ export function AwsMskServerlessCluster(props: Partial<InputProps>) {
       _type='aws_msk_serverless_cluster'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsMskServerlessClusterInputSchema}
+      _outputSchema={AwsMskServerlessClusterOutputSchema}
+      _importSchema={AwsMskServerlessClusterImportSchema}
       {...props}
     />
   )
@@ -81,7 +83,7 @@ export const useAwsMskServerlessCluster = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsMskServerlessClusterOutputProps>(
     AwsMskServerlessCluster,
     idFilter,
     baseNode,
@@ -93,7 +95,7 @@ export const useAwsMskServerlessClusters = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsMskServerlessClusterOutputProps>(
     AwsMskServerlessCluster,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDaxClusterInputSchema = TfMetaSchema.extend({
   cluster_name: resolvableValue(z.string()),
   iam_role_arn: resolvableValue(z.string()),
   node_type: resolvableValue(z.string()),
@@ -39,7 +39,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDaxClusterOutputSchema = z.object({
   arn: z.string().optional(),
   cluster_address: z.string().optional(),
   configuration_endpoint: z.string().optional(),
@@ -53,18 +53,18 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDaxClusterInputProps =
+  & z.input<typeof AwsDaxClusterInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDaxClusterOutputProps =
+  & z.output<typeof AwsDaxClusterOutputSchema>
+  & z.output<typeof AwsDaxClusterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dax_cluster
 
-export function AwsDaxCluster(props: Partial<InputProps>) {
+export function AwsDaxCluster(props: Partial<AwsDaxClusterInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -74,8 +74,8 @@ export function AwsDaxCluster(props: Partial<InputProps>) {
       _type='aws_dax_cluster'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDaxClusterInputSchema}
+      _outputSchema={AwsDaxClusterOutputSchema}
       {...props}
     />
   )
@@ -85,10 +85,22 @@ export const useAwsDaxCluster = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsDaxCluster, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsDaxClusterOutputProps>(
+    AwsDaxCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDaxClusters = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsDaxCluster, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsDaxClusterOutputProps>(
+    AwsDaxCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,28 +9,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsXrayEncryptionConfigInputSchema = TfMetaSchema.extend({
   type: resolvableValue(z.string()),
   key_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsXrayEncryptionConfigOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsXrayEncryptionConfigInputProps =
+  & z.input<typeof AwsXrayEncryptionConfigInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsXrayEncryptionConfigOutputProps =
+  & z.output<typeof AwsXrayEncryptionConfigOutputSchema>
+  & z.output<typeof AwsXrayEncryptionConfigInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/xray_encryption_config
 
-export function AwsXrayEncryptionConfig(props: Partial<InputProps>) {
+export function AwsXrayEncryptionConfig(
+  props: Partial<AwsXrayEncryptionConfigInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function AwsXrayEncryptionConfig(props: Partial<InputProps>) {
       _type='aws_xray_encryption_config'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsXrayEncryptionConfigInputSchema}
+      _outputSchema={AwsXrayEncryptionConfigOutputSchema}
       {...props}
     />
   )
@@ -52,7 +54,7 @@ export const useAwsXrayEncryptionConfig = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsXrayEncryptionConfigOutputProps>(
     AwsXrayEncryptionConfig,
     idFilter,
     baseNode,
@@ -64,7 +66,7 @@ export const useAwsXrayEncryptionConfigs = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsXrayEncryptionConfigOutputProps>(
     AwsXrayEncryptionConfig,
     idFilter,
     baseNode,

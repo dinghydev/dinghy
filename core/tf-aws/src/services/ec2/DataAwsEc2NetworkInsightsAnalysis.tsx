@@ -8,20 +8,22 @@ import {
 import z from 'zod'
 import { AwsEc2NetworkInsightsAnalysis } from './AwsEc2NetworkInsightsAnalysis.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  filter: resolvableValue(
-    z.object({
-      name: z.string(),
-      values: z.string().array(),
-    }).array().optional(),
-  ),
-  id: resolvableValue(z.string().optional()),
-  network_insights_analysis_id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+export const DataAwsEc2NetworkInsightsAnalysisInputSchema = TfMetaSchema.extend(
+  {
+    filter: resolvableValue(
+      z.object({
+        name: z.string(),
+        values: z.string().array(),
+      }).array().optional(),
+    ),
+    id: resolvableValue(z.string().optional()),
+    network_insights_analysis_id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  },
+)
 
-export const OutputSchema = z.object({
+export const DataAwsEc2NetworkInsightsAnalysisOutputSchema = z.object({
   alternate_path_hints: z.object({
     component_arn: z.string(),
     component_id: z.string(),
@@ -473,18 +475,20 @@ export const OutputSchema = z.object({
   warning_message: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEc2NetworkInsightsAnalysisInputProps =
+  & z.input<typeof DataAwsEc2NetworkInsightsAnalysisInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEc2NetworkInsightsAnalysisOutputProps =
+  & z.output<typeof DataAwsEc2NetworkInsightsAnalysisOutputSchema>
+  & z.output<typeof DataAwsEc2NetworkInsightsAnalysisInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ec2_network_insights_analysis
 
-export function DataAwsEc2NetworkInsightsAnalysis(props: Partial<InputProps>) {
+export function DataAwsEc2NetworkInsightsAnalysis(
+  props: Partial<DataAwsEc2NetworkInsightsAnalysisInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -494,8 +498,8 @@ export function DataAwsEc2NetworkInsightsAnalysis(props: Partial<InputProps>) {
       _type='aws_ec2_network_insights_analysis'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEc2NetworkInsightsAnalysisInputSchema}
+      _outputSchema={DataAwsEc2NetworkInsightsAnalysisOutputSchema}
       {...props as any}
     />
   )
@@ -506,7 +510,7 @@ export const useDataAwsEc2NetworkInsightsAnalysiss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsEc2NetworkInsightsAnalysisOutputProps>(
     DataAwsEc2NetworkInsightsAnalysis,
     idFilter,
     baseNode,

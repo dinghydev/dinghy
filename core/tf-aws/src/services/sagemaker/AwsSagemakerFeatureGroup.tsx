@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSagemakerFeatureGroupInputSchema = TfMetaSchema.extend({
   event_time_feature_name: resolvableValue(z.string()),
   feature_definition: resolvableValue(
     z.object({
@@ -68,23 +68,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsSagemakerFeatureGroupOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSagemakerFeatureGroupInputProps =
+  & z.input<typeof AwsSagemakerFeatureGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSagemakerFeatureGroupOutputProps =
+  & z.output<typeof AwsSagemakerFeatureGroupOutputSchema>
+  & z.output<typeof AwsSagemakerFeatureGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sagemaker_feature_group
 
-export function AwsSagemakerFeatureGroup(props: Partial<InputProps>) {
+export function AwsSagemakerFeatureGroup(
+  props: Partial<AwsSagemakerFeatureGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -94,8 +96,8 @@ export function AwsSagemakerFeatureGroup(props: Partial<InputProps>) {
       _type='aws_sagemaker_feature_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSagemakerFeatureGroupInputSchema}
+      _outputSchema={AwsSagemakerFeatureGroupOutputSchema}
       {...props}
     />
   )
@@ -106,7 +108,7 @@ export const useAwsSagemakerFeatureGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSagemakerFeatureGroupOutputProps>(
     AwsSagemakerFeatureGroup,
     idFilter,
     baseNode,
@@ -118,7 +120,7 @@ export const useAwsSagemakerFeatureGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSagemakerFeatureGroupOutputProps>(
     AwsSagemakerFeatureGroup,
     idFilter,
     baseNode,

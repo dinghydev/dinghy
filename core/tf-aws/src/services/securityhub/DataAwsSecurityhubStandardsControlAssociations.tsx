@@ -8,39 +8,41 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  security_control_id: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsSecurityhubStandardsControlAssociationsInputSchema =
+  TfMetaSchema.extend({
+    security_control_id: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
-  id: z.string().optional(),
-  standards_control_associations: z.object({
-    association_status: z.string(),
-    related_requirements: z.string().array(),
-    security_control_arn: z.string(),
-    security_control_id: z.string(),
-    standards_arn: z.string(),
-    standards_control_description: z.string(),
-    standards_control_title: z.string(),
-    updated_at: z.string(),
-    updated_reason: z.string(),
-  }).array().optional(),
-})
+export const DataAwsSecurityhubStandardsControlAssociationsOutputSchema = z
+  .object({
+    id: z.string().optional(),
+    standards_control_associations: z.object({
+      association_status: z.string(),
+      related_requirements: z.string().array(),
+      security_control_arn: z.string(),
+      security_control_id: z.string(),
+      standards_arn: z.string(),
+      standards_control_description: z.string(),
+      standards_control_title: z.string(),
+      updated_at: z.string(),
+      updated_reason: z.string(),
+    }).array().optional(),
+  })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsSecurityhubStandardsControlAssociationsInputProps =
+  & z.input<typeof DataAwsSecurityhubStandardsControlAssociationsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsSecurityhubStandardsControlAssociationsOutputProps =
+  & z.output<typeof DataAwsSecurityhubStandardsControlAssociationsOutputSchema>
+  & z.output<typeof DataAwsSecurityhubStandardsControlAssociationsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/securityhub_standards_control_associations
 
 export function DataAwsSecurityhubStandardsControlAssociations(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsSecurityhubStandardsControlAssociationsInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -51,8 +53,8 @@ export function DataAwsSecurityhubStandardsControlAssociations(
       _type='aws_securityhub_standards_control_associations'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsSecurityhubStandardsControlAssociationsInputSchema}
+      _outputSchema={DataAwsSecurityhubStandardsControlAssociationsOutputSchema}
       {...props}
     />
   )
@@ -63,7 +65,7 @@ export const useDataAwsSecurityhubStandardsControlAssociationss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsSecurityhubStandardsControlAssociationsOutputProps>(
     DataAwsSecurityhubStandardsControlAssociations,
     idFilter,
     baseNode,

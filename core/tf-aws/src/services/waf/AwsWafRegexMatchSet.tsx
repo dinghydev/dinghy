@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsWafRegexMatchSetInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   regex_match_tuple: resolvableValue(
     z.object({
@@ -23,23 +23,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsWafRegexMatchSetOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsWafRegexMatchSetInputProps =
+  & z.input<typeof AwsWafRegexMatchSetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWafRegexMatchSetOutputProps =
+  & z.output<typeof AwsWafRegexMatchSetOutputSchema>
+  & z.output<typeof AwsWafRegexMatchSetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/waf_regex_match_set
 
-export function AwsWafRegexMatchSet(props: Partial<InputProps>) {
+export function AwsWafRegexMatchSet(
+  props: Partial<AwsWafRegexMatchSetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,8 +51,8 @@ export function AwsWafRegexMatchSet(props: Partial<InputProps>) {
       _type='aws_waf_regex_match_set'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsWafRegexMatchSetInputSchema}
+      _outputSchema={AwsWafRegexMatchSetOutputSchema}
       {...props}
     />
   )
@@ -61,11 +63,21 @@ export const useAwsWafRegexMatchSet = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsWafRegexMatchSet, idFilter, baseNode, optional)
+  useTypedNode<AwsWafRegexMatchSetOutputProps>(
+    AwsWafRegexMatchSet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsWafRegexMatchSets = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsWafRegexMatchSet, idFilter, baseNode, optional)
+  useTypedNodes<AwsWafRegexMatchSetOutputProps>(
+    AwsWafRegexMatchSet,
+    idFilter,
+    baseNode,
+    optional,
+  )

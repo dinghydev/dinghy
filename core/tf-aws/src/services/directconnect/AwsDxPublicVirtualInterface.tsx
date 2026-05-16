@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDxPublicVirtualInterfaceInputSchema = TfMetaSchema.extend({
   address_family: resolvableValue(z.string()),
   bgp_asn: resolvableValue(z.number()),
   connection_id: resolvableValue(z.string()),
@@ -29,7 +29,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDxPublicVirtualInterfaceOutputSchema = z.object({
   amazon_side_asn: z.string().optional(),
   arn: z.string().optional(),
   aws_device: z.string().optional(),
@@ -37,18 +37,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDxPublicVirtualInterfaceInputProps =
+  & z.input<typeof AwsDxPublicVirtualInterfaceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDxPublicVirtualInterfaceOutputProps =
+  & z.output<typeof AwsDxPublicVirtualInterfaceOutputSchema>
+  & z.output<typeof AwsDxPublicVirtualInterfaceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dx_public_virtual_interface
 
-export function AwsDxPublicVirtualInterface(props: Partial<InputProps>) {
+export function AwsDxPublicVirtualInterface(
+  props: Partial<AwsDxPublicVirtualInterfaceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -58,8 +60,8 @@ export function AwsDxPublicVirtualInterface(props: Partial<InputProps>) {
       _type='aws_dx_public_virtual_interface'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDxPublicVirtualInterfaceInputSchema}
+      _outputSchema={AwsDxPublicVirtualInterfaceOutputSchema}
       {...props}
     />
   )
@@ -70,7 +72,7 @@ export const useAwsDxPublicVirtualInterface = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDxPublicVirtualInterfaceOutputProps>(
     AwsDxPublicVirtualInterface,
     idFilter,
     baseNode,
@@ -82,7 +84,7 @@ export const useAwsDxPublicVirtualInterfaces = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDxPublicVirtualInterfaceOutputProps>(
     AwsDxPublicVirtualInterface,
     idFilter,
     baseNode,

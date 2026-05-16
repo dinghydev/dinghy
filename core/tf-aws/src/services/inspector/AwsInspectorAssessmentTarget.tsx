@@ -9,34 +9,36 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsInspectorAssessmentTargetInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   resource_group_arn: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsInspectorAssessmentTargetOutputSchema = z.object({
   arn: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsInspectorAssessmentTargetImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsInspectorAssessmentTargetInputProps =
+  & z.input<typeof AwsInspectorAssessmentTargetInputSchema>
+  & z.input<typeof AwsInspectorAssessmentTargetImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsInspectorAssessmentTargetOutputProps =
+  & z.output<typeof AwsInspectorAssessmentTargetOutputSchema>
+  & z.output<typeof AwsInspectorAssessmentTargetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/inspector_assessment_target
 
-export function AwsInspectorAssessmentTarget(props: Partial<InputProps>) {
+export function AwsInspectorAssessmentTarget(
+  props: Partial<AwsInspectorAssessmentTargetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,9 +48,9 @@ export function AwsInspectorAssessmentTarget(props: Partial<InputProps>) {
       _type='aws_inspector_assessment_target'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsInspectorAssessmentTargetInputSchema}
+      _outputSchema={AwsInspectorAssessmentTargetOutputSchema}
+      _importSchema={AwsInspectorAssessmentTargetImportSchema}
       {...props}
     />
   )
@@ -59,7 +61,7 @@ export const useAwsInspectorAssessmentTarget = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsInspectorAssessmentTargetOutputProps>(
     AwsInspectorAssessmentTarget,
     idFilter,
     baseNode,
@@ -71,7 +73,7 @@ export const useAwsInspectorAssessmentTargets = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsInspectorAssessmentTargetOutputProps>(
     AwsInspectorAssessmentTarget,
     idFilter,
     baseNode,

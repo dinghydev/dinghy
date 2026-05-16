@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDatasyncTaskInputSchema = TfMetaSchema.extend({
   destination_location_arn: resolvableValue(z.string()),
   source_location_arn: resolvableValue(z.string()),
   cloudwatch_log_group_arn: resolvableValue(z.string().optional()),
@@ -79,29 +79,29 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDatasyncTaskOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsDatasyncTaskImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsDatasyncTaskInputProps =
+  & z.input<typeof AwsDatasyncTaskInputSchema>
+  & z.input<typeof AwsDatasyncTaskImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDatasyncTaskOutputProps =
+  & z.output<typeof AwsDatasyncTaskOutputSchema>
+  & z.output<typeof AwsDatasyncTaskInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/datasync_task
 
-export function AwsDatasyncTask(props: Partial<InputProps>) {
+export function AwsDatasyncTask(props: Partial<AwsDatasyncTaskInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -111,9 +111,9 @@ export function AwsDatasyncTask(props: Partial<InputProps>) {
       _type='aws_datasync_task'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsDatasyncTaskInputSchema}
+      _outputSchema={AwsDatasyncTaskOutputSchema}
+      _importSchema={AwsDatasyncTaskImportSchema}
       {...props}
     />
   )
@@ -123,10 +123,22 @@ export const useAwsDatasyncTask = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsDatasyncTask, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsDatasyncTaskOutputProps>(
+    AwsDatasyncTask,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDatasyncTasks = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsDatasyncTask, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsDatasyncTaskOutputProps>(
+    AwsDatasyncTask,
+    idFilter,
+    baseNode,
+    optional,
+  )

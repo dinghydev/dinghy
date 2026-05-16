@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsApigatewayv2ApiInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   protocol_type: resolvableValue(z.string()),
   api_key_selection_expression: resolvableValue(z.string().optional()),
@@ -37,7 +37,7 @@ export const InputSchema = TfMetaSchema.extend({
   version: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsApigatewayv2ApiOutputSchema = z.object({
   api_endpoint: z.string().optional(),
   arn: z.string().optional(),
   execution_arn: z.string().optional(),
@@ -45,25 +45,27 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsApigatewayv2ApiImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsApigatewayv2ApiInputProps =
+  & z.input<typeof AwsApigatewayv2ApiInputSchema>
+  & z.input<typeof AwsApigatewayv2ApiImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApigatewayv2ApiOutputProps =
+  & z.output<typeof AwsApigatewayv2ApiOutputSchema>
+  & z.output<typeof AwsApigatewayv2ApiInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/apigatewayv2_api
 
-export function AwsApigatewayv2Api(props: Partial<InputProps>) {
+export function AwsApigatewayv2Api(
+  props: Partial<AwsApigatewayv2ApiInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -73,9 +75,9 @@ export function AwsApigatewayv2Api(props: Partial<InputProps>) {
       _type='aws_apigatewayv2_api'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsApigatewayv2ApiInputSchema}
+      _outputSchema={AwsApigatewayv2ApiOutputSchema}
+      _importSchema={AwsApigatewayv2ApiImportSchema}
       {...props}
     />
   )
@@ -85,11 +87,22 @@ export const useAwsApigatewayv2Api = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsApigatewayv2Api, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsApigatewayv2ApiOutputProps>(
+    AwsApigatewayv2Api,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsApigatewayv2Apis = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsApigatewayv2Api, idFilter, baseNode, optional)
+  useTypedNodes<AwsApigatewayv2ApiOutputProps>(
+    AwsApigatewayv2Api,
+    idFilter,
+    baseNode,
+    optional,
+  )

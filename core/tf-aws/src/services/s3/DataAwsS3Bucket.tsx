@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsS3Bucket } from './AwsS3Bucket.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsS3BucketInputSchema = TfMetaSchema.extend({
   bucket: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsS3BucketOutputSchema = z.object({
   arn: z.string().optional(),
   bucket_domain_name: z.string().optional(),
   bucket_region: z.string().optional(),
@@ -25,18 +25,18 @@ export const OutputSchema = z.object({
   website_endpoint: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsS3BucketInputProps =
+  & z.input<typeof DataAwsS3BucketInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsS3BucketOutputProps =
+  & z.output<typeof DataAwsS3BucketOutputSchema>
+  & z.output<typeof DataAwsS3BucketInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/s3_bucket
 
-export function DataAwsS3Bucket(props: Partial<InputProps>) {
+export function DataAwsS3Bucket(props: Partial<DataAwsS3BucketInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +46,8 @@ export function DataAwsS3Bucket(props: Partial<InputProps>) {
       _type='aws_s3_bucket'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsS3BucketInputSchema}
+      _outputSchema={DataAwsS3BucketOutputSchema}
       {...props as any}
     />
   )
@@ -57,10 +57,22 @@ export const useDataAwsS3Bucket = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsS3Bucket, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsS3BucketOutputProps>(
+    DataAwsS3Bucket,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsS3Buckets = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsS3Bucket, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsS3BucketOutputProps>(
+    DataAwsS3Bucket,
+    idFilter,
+    baseNode,
+    optional,
+  )

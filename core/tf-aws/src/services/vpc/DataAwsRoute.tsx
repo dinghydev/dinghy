@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsRoute } from './AwsRoute.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsRouteInputSchema = TfMetaSchema.extend({
   route_table_id: resolvableValue(z.string()),
   carrier_gateway_id: resolvableValue(z.string().optional()),
   core_network_arn: resolvableValue(z.string().optional()),
@@ -33,20 +33,20 @@ export const InputSchema = TfMetaSchema.extend({
   vpc_peering_connection_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const DataAwsRouteOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsRouteInputProps =
+  & z.input<typeof DataAwsRouteInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsRouteOutputProps =
+  & z.output<typeof DataAwsRouteOutputSchema>
+  & z.output<typeof DataAwsRouteInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/route
 
-export function DataAwsRoute(props: Partial<InputProps>) {
+export function DataAwsRoute(props: Partial<DataAwsRouteInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -56,8 +56,8 @@ export function DataAwsRoute(props: Partial<InputProps>) {
       _type='aws_route'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsRouteInputSchema}
+      _outputSchema={DataAwsRouteOutputSchema}
       {...props as any}
     />
   )
@@ -67,10 +67,22 @@ export const useDataAwsRoute = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsRoute, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsRouteOutputProps>(
+    DataAwsRoute,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsRoutes = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsRoute, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsRouteOutputProps>(
+    DataAwsRoute,
+    idFilter,
+    baseNode,
+    optional,
+  )

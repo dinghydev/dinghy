@@ -9,33 +9,34 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  name: resolvableValue(z.string()),
-  description: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+export const AwsServiceDiscoveryPublicDnsNamespaceInputSchema = TfMetaSchema
+  .extend({
+    name: resolvableValue(z.string()),
+    description: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsServiceDiscoveryPublicDnsNamespaceOutputSchema = z.object({
   arn: z.string().optional(),
   hosted_zone: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsServiceDiscoveryPublicDnsNamespaceInputProps =
+  & z.input<typeof AwsServiceDiscoveryPublicDnsNamespaceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsServiceDiscoveryPublicDnsNamespaceOutputProps =
+  & z.output<typeof AwsServiceDiscoveryPublicDnsNamespaceOutputSchema>
+  & z.output<typeof AwsServiceDiscoveryPublicDnsNamespaceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/service_discovery_public_dns_namespace
 
 export function AwsServiceDiscoveryPublicDnsNamespace(
-  props: Partial<InputProps>,
+  props: Partial<AwsServiceDiscoveryPublicDnsNamespaceInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -46,8 +47,8 @@ export function AwsServiceDiscoveryPublicDnsNamespace(
       _type='aws_service_discovery_public_dns_namespace'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsServiceDiscoveryPublicDnsNamespaceInputSchema}
+      _outputSchema={AwsServiceDiscoveryPublicDnsNamespaceOutputSchema}
       {...props}
     />
   )
@@ -58,7 +59,7 @@ export const useAwsServiceDiscoveryPublicDnsNamespace = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsServiceDiscoveryPublicDnsNamespaceOutputProps>(
     AwsServiceDiscoveryPublicDnsNamespace,
     idFilter,
     baseNode,
@@ -70,7 +71,7 @@ export const useAwsServiceDiscoveryPublicDnsNamespaces = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsServiceDiscoveryPublicDnsNamespaceOutputProps>(
     AwsServiceDiscoveryPublicDnsNamespace,
     idFilter,
     baseNode,

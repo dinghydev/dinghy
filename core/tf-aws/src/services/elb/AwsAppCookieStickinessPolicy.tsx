@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAppCookieStickinessPolicyInputSchema = TfMetaSchema.extend({
   cookie_name: resolvableValue(z.string()),
   lb_port: resolvableValue(z.number()),
   load_balancer: resolvableValue(z.string()),
@@ -17,7 +17,7 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAppCookieStickinessPolicyOutputSchema = z.object({
   cookie_name: z.string().optional(),
   id: z.string().optional(),
   lb_port: z.number().optional(),
@@ -25,18 +25,20 @@ export const OutputSchema = z.object({
   name: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAppCookieStickinessPolicyInputProps =
+  & z.input<typeof AwsAppCookieStickinessPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppCookieStickinessPolicyOutputProps =
+  & z.output<typeof AwsAppCookieStickinessPolicyOutputSchema>
+  & z.output<typeof AwsAppCookieStickinessPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/app_cookie_stickiness_policy
 
-export function AwsAppCookieStickinessPolicy(props: Partial<InputProps>) {
+export function AwsAppCookieStickinessPolicy(
+  props: Partial<AwsAppCookieStickinessPolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function AwsAppCookieStickinessPolicy(props: Partial<InputProps>) {
       _type='aws_app_cookie_stickiness_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAppCookieStickinessPolicyInputSchema}
+      _outputSchema={AwsAppCookieStickinessPolicyOutputSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useAwsAppCookieStickinessPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAppCookieStickinessPolicyOutputProps>(
     AwsAppCookieStickinessPolicy,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useAwsAppCookieStickinessPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAppCookieStickinessPolicyOutputProps>(
     AwsAppCookieStickinessPolicy,
     idFilter,
     baseNode,

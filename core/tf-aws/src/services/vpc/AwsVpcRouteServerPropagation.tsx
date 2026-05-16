@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsVpcRouteServerPropagationInputSchema = TfMetaSchema.extend({
   route_server_id: resolvableValue(z.string()),
   route_table_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
@@ -21,20 +21,22 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({})
+export const AwsVpcRouteServerPropagationOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVpcRouteServerPropagationInputProps =
+  & z.input<typeof AwsVpcRouteServerPropagationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVpcRouteServerPropagationOutputProps =
+  & z.output<typeof AwsVpcRouteServerPropagationOutputSchema>
+  & z.output<typeof AwsVpcRouteServerPropagationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpc_route_server_propagation
 
-export function AwsVpcRouteServerPropagation(props: Partial<InputProps>) {
+export function AwsVpcRouteServerPropagation(
+  props: Partial<AwsVpcRouteServerPropagationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +46,8 @@ export function AwsVpcRouteServerPropagation(props: Partial<InputProps>) {
       _type='aws_vpc_route_server_propagation'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVpcRouteServerPropagationInputSchema}
+      _outputSchema={AwsVpcRouteServerPropagationOutputSchema}
       {...props}
     />
   )
@@ -56,7 +58,7 @@ export const useAwsVpcRouteServerPropagation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsVpcRouteServerPropagationOutputProps>(
     AwsVpcRouteServerPropagation,
     idFilter,
     baseNode,
@@ -68,7 +70,7 @@ export const useAwsVpcRouteServerPropagations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsVpcRouteServerPropagationOutputProps>(
     AwsVpcRouteServerPropagation,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCodebuildWebhookInputSchema = TfMetaSchema.extend({
   project_name: resolvableValue(z.string()),
   branch_filter: resolvableValue(z.string().optional()),
   build_type: resolvableValue(z.string().optional()),
@@ -39,25 +39,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsCodebuildWebhookOutputSchema = z.object({
   id: z.string().optional(),
   payload_url: z.string().optional(),
   secret: z.string().optional(),
   url: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCodebuildWebhookInputProps =
+  & z.input<typeof AwsCodebuildWebhookInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCodebuildWebhookOutputProps =
+  & z.output<typeof AwsCodebuildWebhookOutputSchema>
+  & z.output<typeof AwsCodebuildWebhookInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/codebuild_webhook
 
-export function AwsCodebuildWebhook(props: Partial<InputProps>) {
+export function AwsCodebuildWebhook(
+  props: Partial<AwsCodebuildWebhookInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -67,8 +69,8 @@ export function AwsCodebuildWebhook(props: Partial<InputProps>) {
       _type='aws_codebuild_webhook'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCodebuildWebhookInputSchema}
+      _outputSchema={AwsCodebuildWebhookOutputSchema}
       {...props}
     />
   )
@@ -79,11 +81,21 @@ export const useAwsCodebuildWebhook = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsCodebuildWebhook, idFilter, baseNode, optional)
+  useTypedNode<AwsCodebuildWebhookOutputProps>(
+    AwsCodebuildWebhook,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCodebuildWebhooks = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsCodebuildWebhook, idFilter, baseNode, optional)
+  useTypedNodes<AwsCodebuildWebhookOutputProps>(
+    AwsCodebuildWebhook,
+    idFilter,
+    baseNode,
+    optional,
+  )

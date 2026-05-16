@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsAvailabilityZonesInputSchema = TfMetaSchema.extend({
   all_availability_zones: resolvableValue(z.boolean().optional()),
   exclude_names: resolvableValue(z.string().array().optional()),
   exclude_zone_ids: resolvableValue(z.string().array().optional()),
@@ -27,25 +27,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsAvailabilityZonesOutputSchema = z.object({
   group_names: z.set(z.string()).optional(),
   id: z.string().optional(),
   names: z.string().array().optional(),
   zone_ids: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsAvailabilityZonesInputProps =
+  & z.input<typeof DataAwsAvailabilityZonesInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsAvailabilityZonesOutputProps =
+  & z.output<typeof DataAwsAvailabilityZonesOutputSchema>
+  & z.output<typeof DataAwsAvailabilityZonesInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/availability_zones
 
-export function DataAwsAvailabilityZones(props: Partial<InputProps>) {
+export function DataAwsAvailabilityZones(
+  props: Partial<DataAwsAvailabilityZonesInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,8 +57,8 @@ export function DataAwsAvailabilityZones(props: Partial<InputProps>) {
       _type='aws_availability_zones'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsAvailabilityZonesInputSchema}
+      _outputSchema={DataAwsAvailabilityZonesOutputSchema}
       {...props}
     />
   )
@@ -67,7 +69,7 @@ export const useDataAwsAvailabilityZoness = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsAvailabilityZonesOutputProps>(
     DataAwsAvailabilityZones,
     idFilter,
     baseNode,

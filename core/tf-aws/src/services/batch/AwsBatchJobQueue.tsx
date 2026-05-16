@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsBatchJobQueueInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   priority: resolvableValue(z.number()),
   state: resolvableValue(z.string()),
@@ -39,29 +39,29 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsBatchJobQueueOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsBatchJobQueueImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsBatchJobQueueInputProps =
+  & z.input<typeof AwsBatchJobQueueInputSchema>
+  & z.input<typeof AwsBatchJobQueueImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBatchJobQueueOutputProps =
+  & z.output<typeof AwsBatchJobQueueOutputSchema>
+  & z.output<typeof AwsBatchJobQueueInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/batch_job_queue
 
-export function AwsBatchJobQueue(props: Partial<InputProps>) {
+export function AwsBatchJobQueue(props: Partial<AwsBatchJobQueueInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -71,9 +71,9 @@ export function AwsBatchJobQueue(props: Partial<InputProps>) {
       _type='aws_batch_job_queue'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsBatchJobQueueInputSchema}
+      _outputSchema={AwsBatchJobQueueOutputSchema}
+      _importSchema={AwsBatchJobQueueImportSchema}
       {...props}
     />
   )
@@ -83,10 +83,22 @@ export const useAwsBatchJobQueue = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsBatchJobQueue, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsBatchJobQueueOutputProps>(
+    AwsBatchJobQueue,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsBatchJobQueues = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsBatchJobQueue, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsBatchJobQueueOutputProps>(
+    AwsBatchJobQueue,
+    idFilter,
+    baseNode,
+    optional,
+  )

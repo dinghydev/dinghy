@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsS3ObjectInputSchema = TfMetaSchema.extend({
   __key: resolvableValue(z.string()),
   bucket: resolvableValue(z.string()),
   acl: resolvableValue(z.string().optional()),
@@ -46,7 +46,7 @@ export const InputSchema = TfMetaSchema.extend({
   website_redirect: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsS3ObjectOutputSchema = z.object({
   arn: z.string().optional(),
   checksum_crc32: z.string().optional(),
   checksum_crc32c: z.string().optional(),
@@ -58,26 +58,26 @@ export const OutputSchema = z.object({
   version_id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsS3ObjectImportSchema = z.object({
   __key: resolvableValue(z.string()),
   bucket: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsS3ObjectInputProps =
+  & z.input<typeof AwsS3ObjectInputSchema>
+  & z.input<typeof AwsS3ObjectImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3ObjectOutputProps =
+  & z.output<typeof AwsS3ObjectOutputSchema>
+  & z.output<typeof AwsS3ObjectInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3_object
 
-export function AwsS3Object(props: Partial<InputProps>) {
+export function AwsS3Object(props: Partial<AwsS3ObjectInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -87,9 +87,9 @@ export function AwsS3Object(props: Partial<InputProps>) {
       _type='aws_s3_object'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsS3ObjectInputSchema}
+      _outputSchema={AwsS3ObjectOutputSchema}
+      _importSchema={AwsS3ObjectImportSchema}
       {...props}
     />
   )
@@ -99,10 +99,22 @@ export const useAwsS3Object = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsS3Object, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsS3ObjectOutputProps>(
+    AwsS3Object,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsS3Objects = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsS3Object, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsS3ObjectOutputProps>(
+    AwsS3Object,
+    idFilter,
+    baseNode,
+    optional,
+  )

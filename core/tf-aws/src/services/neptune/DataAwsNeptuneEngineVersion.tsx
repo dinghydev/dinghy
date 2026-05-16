@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsNeptuneEngineVersionInputSchema = TfMetaSchema.extend({
   default_only: resolvableValue(z.boolean().optional()),
   engine: resolvableValue(z.string().optional()),
   has_major_target: resolvableValue(z.boolean().optional()),
@@ -24,7 +24,7 @@ export const InputSchema = TfMetaSchema.extend({
   version: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsNeptuneEngineVersionOutputSchema = z.object({
   default_character_set: z.string().optional(),
   engine_description: z.string().optional(),
   exportable_log_types: z.set(z.string()).optional(),
@@ -40,18 +40,20 @@ export const OutputSchema = z.object({
   version_description: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsNeptuneEngineVersionInputProps =
+  & z.input<typeof DataAwsNeptuneEngineVersionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsNeptuneEngineVersionOutputProps =
+  & z.output<typeof DataAwsNeptuneEngineVersionOutputSchema>
+  & z.output<typeof DataAwsNeptuneEngineVersionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/neptune_engine_version
 
-export function DataAwsNeptuneEngineVersion(props: Partial<InputProps>) {
+export function DataAwsNeptuneEngineVersion(
+  props: Partial<DataAwsNeptuneEngineVersionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -61,8 +63,8 @@ export function DataAwsNeptuneEngineVersion(props: Partial<InputProps>) {
       _type='aws_neptune_engine_version'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsNeptuneEngineVersionInputSchema}
+      _outputSchema={DataAwsNeptuneEngineVersionOutputSchema}
       {...props}
     />
   )
@@ -73,7 +75,7 @@ export const useDataAwsNeptuneEngineVersion = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsNeptuneEngineVersionOutputProps>(
     DataAwsNeptuneEngineVersion,
     idFilter,
     baseNode,
@@ -85,7 +87,7 @@ export const useDataAwsNeptuneEngineVersions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsNeptuneEngineVersionOutputProps>(
     DataAwsNeptuneEngineVersion,
     idFilter,
     baseNode,

@@ -9,13 +9,14 @@ import {
 import z from 'zod'
 import { AwsCloudfrontDistributionTenant } from './AwsCloudfrontDistributionTenant.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  domain: resolvableValue(z.string().optional()),
-  id: resolvableValue(z.string().optional()),
-  name: resolvableValue(z.string().optional()),
-})
+export const DataAwsCloudfrontDistributionTenantInputSchema = TfMetaSchema
+  .extend({
+    domain: resolvableValue(z.string().optional()),
+    id: resolvableValue(z.string().optional()),
+    name: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsCloudfrontDistributionTenantOutputSchema = z.object({
   arn: z.string().optional(),
   connection_group_id: z.string().optional(),
   customizations: z.object({
@@ -51,19 +52,19 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsCloudfrontDistributionTenantInputProps =
+  & z.input<typeof DataAwsCloudfrontDistributionTenantInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsCloudfrontDistributionTenantOutputProps =
+  & z.output<typeof DataAwsCloudfrontDistributionTenantOutputSchema>
+  & z.output<typeof DataAwsCloudfrontDistributionTenantInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/cloudfront_distribution_tenant
 
 export function DataAwsCloudfrontDistributionTenant(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsCloudfrontDistributionTenantInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -74,8 +75,8 @@ export function DataAwsCloudfrontDistributionTenant(
       _type='aws_cloudfront_distribution_tenant'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsCloudfrontDistributionTenantInputSchema}
+      _outputSchema={DataAwsCloudfrontDistributionTenantOutputSchema}
       {...props as any}
     />
   )
@@ -86,7 +87,7 @@ export const useDataAwsCloudfrontDistributionTenant = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsCloudfrontDistributionTenantOutputProps>(
     DataAwsCloudfrontDistributionTenant,
     idFilter,
     baseNode,
@@ -98,7 +99,7 @@ export const useDataAwsCloudfrontDistributionTenants = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsCloudfrontDistributionTenantOutputProps>(
     DataAwsCloudfrontDistributionTenant,
     idFilter,
     baseNode,

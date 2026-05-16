@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsWafv2WebAclInputSchema = TfMetaSchema.extend({
   default_action: resolvableValue(z.object({
     allow: z.object({
       custom_request_handling: z.object({
@@ -26629,7 +26629,7 @@ export const InputSchema = TfMetaSchema.extend({
   token_domains: resolvableValue(z.string().array().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsWafv2WebAclOutputSchema = z.object({
   application_integration_url: z.string().optional(),
   arn: z.string().optional(),
   capacity: z.number().optional(),
@@ -26638,18 +26638,18 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsWafv2WebAclInputProps =
+  & z.input<typeof AwsWafv2WebAclInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWafv2WebAclOutputProps =
+  & z.output<typeof AwsWafv2WebAclOutputSchema>
+  & z.output<typeof AwsWafv2WebAclInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/wafv2_web_acl
 
-export function AwsWafv2WebAcl(props: Partial<InputProps>) {
+export function AwsWafv2WebAcl(props: Partial<AwsWafv2WebAclInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -26659,8 +26659,8 @@ export function AwsWafv2WebAcl(props: Partial<InputProps>) {
       _type='aws_wafv2_web_acl'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsWafv2WebAclInputSchema}
+      _outputSchema={AwsWafv2WebAclOutputSchema}
       {...props}
     />
   )
@@ -26670,10 +26670,22 @@ export const useAwsWafv2WebAcl = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsWafv2WebAcl, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsWafv2WebAclOutputProps>(
+    AwsWafv2WebAcl,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsWafv2WebAcls = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsWafv2WebAcl, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsWafv2WebAclOutputProps>(
+    AwsWafv2WebAcl,
+    idFilter,
+    baseNode,
+    optional,
+  )

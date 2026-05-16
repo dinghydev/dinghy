@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDevicefarmTestGridProjectInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
@@ -24,28 +24,30 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDevicefarmTestGridProjectOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsDevicefarmTestGridProjectImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsDevicefarmTestGridProjectInputProps =
+  & z.input<typeof AwsDevicefarmTestGridProjectInputSchema>
+  & z.input<typeof AwsDevicefarmTestGridProjectImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDevicefarmTestGridProjectOutputProps =
+  & z.output<typeof AwsDevicefarmTestGridProjectOutputSchema>
+  & z.output<typeof AwsDevicefarmTestGridProjectInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/devicefarm_test_grid_project
 
-export function AwsDevicefarmTestGridProject(props: Partial<InputProps>) {
+export function AwsDevicefarmTestGridProject(
+  props: Partial<AwsDevicefarmTestGridProjectInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,9 +57,9 @@ export function AwsDevicefarmTestGridProject(props: Partial<InputProps>) {
       _type='aws_devicefarm_test_grid_project'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsDevicefarmTestGridProjectInputSchema}
+      _outputSchema={AwsDevicefarmTestGridProjectOutputSchema}
+      _importSchema={AwsDevicefarmTestGridProjectImportSchema}
       {...props}
     />
   )
@@ -68,7 +70,7 @@ export const useAwsDevicefarmTestGridProject = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDevicefarmTestGridProjectOutputProps>(
     AwsDevicefarmTestGridProject,
     idFilter,
     baseNode,
@@ -80,7 +82,7 @@ export const useAwsDevicefarmTestGridProjects = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDevicefarmTestGridProjectOutputProps>(
     AwsDevicefarmTestGridProject,
     idFilter,
     baseNode,

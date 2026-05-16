@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsFinspaceKxEnvironmentInputSchema = TfMetaSchema.extend({
   kms_key_id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   custom_dns_configuration: resolvableValue(
@@ -50,7 +50,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsFinspaceKxEnvironmentOutputSchema = z.object({
   arn: z.string().optional(),
   availability_zones: z.string().array().optional(),
   created_timestamp: z.string().optional(),
@@ -61,18 +61,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsFinspaceKxEnvironmentInputProps =
+  & z.input<typeof AwsFinspaceKxEnvironmentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsFinspaceKxEnvironmentOutputProps =
+  & z.output<typeof AwsFinspaceKxEnvironmentOutputSchema>
+  & z.output<typeof AwsFinspaceKxEnvironmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/finspace_kx_environment
 
-export function AwsFinspaceKxEnvironment(props: Partial<InputProps>) {
+export function AwsFinspaceKxEnvironment(
+  props: Partial<AwsFinspaceKxEnvironmentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -82,8 +84,8 @@ export function AwsFinspaceKxEnvironment(props: Partial<InputProps>) {
       _type='aws_finspace_kx_environment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsFinspaceKxEnvironmentInputSchema}
+      _outputSchema={AwsFinspaceKxEnvironmentOutputSchema}
       {...props}
     />
   )
@@ -94,7 +96,7 @@ export const useAwsFinspaceKxEnvironment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsFinspaceKxEnvironmentOutputProps>(
     AwsFinspaceKxEnvironment,
     idFilter,
     baseNode,
@@ -106,7 +108,7 @@ export const useAwsFinspaceKxEnvironments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsFinspaceKxEnvironmentOutputProps>(
     AwsFinspaceKxEnvironment,
     idFilter,
     baseNode,

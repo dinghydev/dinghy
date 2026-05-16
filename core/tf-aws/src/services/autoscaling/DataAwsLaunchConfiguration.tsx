@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsLaunchConfiguration } from './AwsLaunchConfiguration.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsLaunchConfigurationInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsLaunchConfigurationOutputSchema = z.object({
   arn: z.string().optional(),
   associate_public_ip_address: z.boolean().optional(),
   ebs_block_device: z.set(z.object({
@@ -59,18 +59,20 @@ export const OutputSchema = z.object({
   user_data: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsLaunchConfigurationInputProps =
+  & z.input<typeof DataAwsLaunchConfigurationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsLaunchConfigurationOutputProps =
+  & z.output<typeof DataAwsLaunchConfigurationOutputSchema>
+  & z.output<typeof DataAwsLaunchConfigurationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/launch_configuration
 
-export function DataAwsLaunchConfiguration(props: Partial<InputProps>) {
+export function DataAwsLaunchConfiguration(
+  props: Partial<DataAwsLaunchConfigurationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -80,8 +82,8 @@ export function DataAwsLaunchConfiguration(props: Partial<InputProps>) {
       _type='aws_launch_configuration'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsLaunchConfigurationInputSchema}
+      _outputSchema={DataAwsLaunchConfigurationOutputSchema}
       {...props as any}
     />
   )
@@ -92,7 +94,7 @@ export const useDataAwsLaunchConfiguration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsLaunchConfigurationOutputProps>(
     DataAwsLaunchConfiguration,
     idFilter,
     baseNode,
@@ -104,7 +106,7 @@ export const useDataAwsLaunchConfigurations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsLaunchConfigurationOutputProps>(
     DataAwsLaunchConfiguration,
     idFilter,
     baseNode,

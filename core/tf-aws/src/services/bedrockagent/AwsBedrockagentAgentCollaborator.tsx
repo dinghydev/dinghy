@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsBedrockagentAgentCollaboratorInputSchema = TfMetaSchema.extend({
   agent_id: resolvableValue(z.string()),
   collaboration_instruction: resolvableValue(z.string()),
   collaborator_name: resolvableValue(z.string()),
@@ -31,23 +31,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsBedrockagentAgentCollaboratorOutputSchema = z.object({
   collaborator_id: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsBedrockagentAgentCollaboratorInputProps =
+  & z.input<typeof AwsBedrockagentAgentCollaboratorInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBedrockagentAgentCollaboratorOutputProps =
+  & z.output<typeof AwsBedrockagentAgentCollaboratorOutputSchema>
+  & z.output<typeof AwsBedrockagentAgentCollaboratorInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/bedrockagent_agent_collaborator
 
-export function AwsBedrockagentAgentCollaborator(props: Partial<InputProps>) {
+export function AwsBedrockagentAgentCollaborator(
+  props: Partial<AwsBedrockagentAgentCollaboratorInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -57,8 +59,8 @@ export function AwsBedrockagentAgentCollaborator(props: Partial<InputProps>) {
       _type='aws_bedrockagent_agent_collaborator'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsBedrockagentAgentCollaboratorInputSchema}
+      _outputSchema={AwsBedrockagentAgentCollaboratorOutputSchema}
       {...props}
     />
   )
@@ -69,7 +71,7 @@ export const useAwsBedrockagentAgentCollaborator = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsBedrockagentAgentCollaboratorOutputProps>(
     AwsBedrockagentAgentCollaborator,
     idFilter,
     baseNode,
@@ -81,7 +83,7 @@ export const useAwsBedrockagentAgentCollaborators = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsBedrockagentAgentCollaboratorOutputProps>(
     AwsBedrockagentAgentCollaborator,
     idFilter,
     baseNode,

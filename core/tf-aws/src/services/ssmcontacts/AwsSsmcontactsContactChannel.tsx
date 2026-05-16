@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSsmcontactsContactChannelInputSchema = TfMetaSchema.extend({
   contact_id: resolvableValue(z.string()),
   delivery_address: resolvableValue(z.object({
     simple_address: z.string(),
@@ -20,28 +20,30 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSsmcontactsContactChannelOutputSchema = z.object({
   activation_status: z.string().optional(),
   arn: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSsmcontactsContactChannelImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSsmcontactsContactChannelInputProps =
+  & z.input<typeof AwsSsmcontactsContactChannelInputSchema>
+  & z.input<typeof AwsSsmcontactsContactChannelImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSsmcontactsContactChannelOutputProps =
+  & z.output<typeof AwsSsmcontactsContactChannelOutputSchema>
+  & z.output<typeof AwsSsmcontactsContactChannelInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssmcontacts_contact_channel
 
-export function AwsSsmcontactsContactChannel(props: Partial<InputProps>) {
+export function AwsSsmcontactsContactChannel(
+  props: Partial<AwsSsmcontactsContactChannelInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -51,9 +53,9 @@ export function AwsSsmcontactsContactChannel(props: Partial<InputProps>) {
       _type='aws_ssmcontacts_contact_channel'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSsmcontactsContactChannelInputSchema}
+      _outputSchema={AwsSsmcontactsContactChannelOutputSchema}
+      _importSchema={AwsSsmcontactsContactChannelImportSchema}
       {...props}
     />
   )
@@ -64,7 +66,7 @@ export const useAwsSsmcontactsContactChannel = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSsmcontactsContactChannelOutputProps>(
     AwsSsmcontactsContactChannel,
     idFilter,
     baseNode,
@@ -76,7 +78,7 @@ export const useAwsSsmcontactsContactChannels = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSsmcontactsContactChannelOutputProps>(
     AwsSsmcontactsContactChannel,
     idFilter,
     baseNode,

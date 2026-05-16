@@ -8,26 +8,28 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsUxcAccountCustomizationsInputSchema = TfMetaSchema.extend({
   account_color: resolvableValue(z.string().optional()),
   visible_regions: resolvableValue(z.string().array().optional()),
   visible_services: resolvableValue(z.string().array().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsUxcAccountCustomizationsOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsUxcAccountCustomizationsInputProps =
+  & z.input<typeof AwsUxcAccountCustomizationsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsUxcAccountCustomizationsOutputProps =
+  & z.output<typeof AwsUxcAccountCustomizationsOutputSchema>
+  & z.output<typeof AwsUxcAccountCustomizationsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/uxc_account_customizations
 
-export function AwsUxcAccountCustomizations(props: Partial<InputProps>) {
+export function AwsUxcAccountCustomizations(
+  props: Partial<AwsUxcAccountCustomizationsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -37,8 +39,8 @@ export function AwsUxcAccountCustomizations(props: Partial<InputProps>) {
       _type='aws_uxc_account_customizations'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsUxcAccountCustomizationsInputSchema}
+      _outputSchema={AwsUxcAccountCustomizationsOutputSchema}
       {...props}
     />
   )
@@ -49,7 +51,7 @@ export const useAwsUxcAccountCustomizationss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsUxcAccountCustomizationsOutputProps>(
     AwsUxcAccountCustomizations,
     idFilter,
     baseNode,

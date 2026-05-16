@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEc2TrafficMirrorFilterRuleInputSchema = TfMetaSchema.extend({
   destination_cidr_block: resolvableValue(z.string()),
   rule_action: resolvableValue(z.string()),
   rule_number: resolvableValue(z.number()),
@@ -33,23 +33,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsEc2TrafficMirrorFilterRuleOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEc2TrafficMirrorFilterRuleInputProps =
+  & z.input<typeof AwsEc2TrafficMirrorFilterRuleInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEc2TrafficMirrorFilterRuleOutputProps =
+  & z.output<typeof AwsEc2TrafficMirrorFilterRuleOutputSchema>
+  & z.output<typeof AwsEc2TrafficMirrorFilterRuleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ec2_traffic_mirror_filter_rule
 
-export function AwsEc2TrafficMirrorFilterRule(props: Partial<InputProps>) {
+export function AwsEc2TrafficMirrorFilterRule(
+  props: Partial<AwsEc2TrafficMirrorFilterRuleInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -59,8 +61,8 @@ export function AwsEc2TrafficMirrorFilterRule(props: Partial<InputProps>) {
       _type='aws_ec2_traffic_mirror_filter_rule'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEc2TrafficMirrorFilterRuleInputSchema}
+      _outputSchema={AwsEc2TrafficMirrorFilterRuleOutputSchema}
       {...props}
     />
   )
@@ -71,7 +73,7 @@ export const useAwsEc2TrafficMirrorFilterRule = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsEc2TrafficMirrorFilterRuleOutputProps>(
     AwsEc2TrafficMirrorFilterRule,
     idFilter,
     baseNode,
@@ -83,7 +85,7 @@ export const useAwsEc2TrafficMirrorFilterRules = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEc2TrafficMirrorFilterRuleOutputProps>(
     AwsEc2TrafficMirrorFilterRule,
     idFilter,
     baseNode,

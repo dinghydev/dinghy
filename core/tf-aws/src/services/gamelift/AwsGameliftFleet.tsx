@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsGameliftFleetInputSchema = TfMetaSchema.extend({
   ec2_instance_type: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   build_id: resolvableValue(z.string().optional()),
@@ -59,7 +59,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsGameliftFleetOutputSchema = z.object({
   arn: z.string().optional(),
   build_arn: z.string().optional(),
   id: z.string().optional(),
@@ -69,18 +69,18 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsGameliftFleetInputProps =
+  & z.input<typeof AwsGameliftFleetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsGameliftFleetOutputProps =
+  & z.output<typeof AwsGameliftFleetOutputSchema>
+  & z.output<typeof AwsGameliftFleetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/gamelift_fleet
 
-export function AwsGameliftFleet(props: Partial<InputProps>) {
+export function AwsGameliftFleet(props: Partial<AwsGameliftFleetInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -90,8 +90,8 @@ export function AwsGameliftFleet(props: Partial<InputProps>) {
       _type='aws_gamelift_fleet'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsGameliftFleetInputSchema}
+      _outputSchema={AwsGameliftFleetOutputSchema}
       {...props}
     />
   )
@@ -101,10 +101,22 @@ export const useAwsGameliftFleet = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsGameliftFleet, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsGameliftFleetOutputProps>(
+    AwsGameliftFleet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsGameliftFleets = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsGameliftFleet, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsGameliftFleetOutputProps>(
+    AwsGameliftFleet,
+    idFilter,
+    baseNode,
+    optional,
+  )

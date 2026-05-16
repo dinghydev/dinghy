@@ -9,42 +9,46 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  resolver_rule_id: resolvableValue(z.string()),
-  vpc_id: resolvableValue(z.string()),
-  name: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsRoute53ResolverRuleAssociationInputSchema = TfMetaSchema.extend(
+  {
+    resolver_rule_id: resolvableValue(z.string()),
+    vpc_id: resolvableValue(z.string()),
+    name: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+      }).optional(),
+    ),
+  },
+)
 
-export const OutputSchema = z.object({
+export const AwsRoute53ResolverRuleAssociationOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsRoute53ResolverRuleAssociationImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsRoute53ResolverRuleAssociationInputProps =
+  & z.input<typeof AwsRoute53ResolverRuleAssociationInputSchema>
+  & z.input<typeof AwsRoute53ResolverRuleAssociationImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRoute53ResolverRuleAssociationOutputProps =
+  & z.output<typeof AwsRoute53ResolverRuleAssociationOutputSchema>
+  & z.output<typeof AwsRoute53ResolverRuleAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/route53_resolver_rule_association
 
-export function AwsRoute53ResolverRuleAssociation(props: Partial<InputProps>) {
+export function AwsRoute53ResolverRuleAssociation(
+  props: Partial<AwsRoute53ResolverRuleAssociationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -54,9 +58,9 @@ export function AwsRoute53ResolverRuleAssociation(props: Partial<InputProps>) {
       _type='aws_route53_resolver_rule_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsRoute53ResolverRuleAssociationInputSchema}
+      _outputSchema={AwsRoute53ResolverRuleAssociationOutputSchema}
+      _importSchema={AwsRoute53ResolverRuleAssociationImportSchema}
       {...props}
     />
   )
@@ -67,7 +71,7 @@ export const useAwsRoute53ResolverRuleAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRoute53ResolverRuleAssociationOutputProps>(
     AwsRoute53ResolverRuleAssociation,
     idFilter,
     baseNode,
@@ -79,7 +83,7 @@ export const useAwsRoute53ResolverRuleAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRoute53ResolverRuleAssociationOutputProps>(
     AwsRoute53ResolverRuleAssociation,
     idFilter,
     baseNode,

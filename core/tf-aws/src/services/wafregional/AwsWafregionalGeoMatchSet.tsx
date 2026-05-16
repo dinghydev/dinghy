@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsWafregionalGeoMatchSetInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   geo_match_constraint: resolvableValue(
     z.object({
@@ -20,22 +20,24 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsWafregionalGeoMatchSetOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsWafregionalGeoMatchSetInputProps =
+  & z.input<typeof AwsWafregionalGeoMatchSetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWafregionalGeoMatchSetOutputProps =
+  & z.output<typeof AwsWafregionalGeoMatchSetOutputSchema>
+  & z.output<typeof AwsWafregionalGeoMatchSetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/wafregional_geo_match_set
 
-export function AwsWafregionalGeoMatchSet(props: Partial<InputProps>) {
+export function AwsWafregionalGeoMatchSet(
+  props: Partial<AwsWafregionalGeoMatchSetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,8 +47,8 @@ export function AwsWafregionalGeoMatchSet(props: Partial<InputProps>) {
       _type='aws_wafregional_geo_match_set'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsWafregionalGeoMatchSetInputSchema}
+      _outputSchema={AwsWafregionalGeoMatchSetOutputSchema}
       {...props}
     />
   )
@@ -57,7 +59,7 @@ export const useAwsWafregionalGeoMatchSet = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsWafregionalGeoMatchSetOutputProps>(
     AwsWafregionalGeoMatchSet,
     idFilter,
     baseNode,
@@ -69,7 +71,7 @@ export const useAwsWafregionalGeoMatchSets = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsWafregionalGeoMatchSetOutputProps>(
     AwsWafregionalGeoMatchSet,
     idFilter,
     baseNode,

@@ -1,7 +1,7 @@
 import { getRenderOptions } from '@dinghy/base-components'
 import { z } from 'zod'
-import { InputSchema as AwsApigatewayv2ApiInputSchema } from '../../services/apigatewayv2/AwsApigatewayv2Api.tsx'
-import { InputSchema as AwsApigatewayv2RouteInputSchema } from '../../services/apigatewayv2/AwsApigatewayv2Route.tsx'
+import { AwsApigatewayv2ApiInputSchema } from '../../services/apigatewayv2/AwsApigatewayv2Api.tsx'
+import { AwsApigatewayv2RouteInputSchema } from '../../services/apigatewayv2/AwsApigatewayv2Route.tsx'
 
 const RouteSchema = AwsApigatewayv2RouteInputSchema.extend({
   // composite-specific: identifies the Lambda target for the AWS_PROXY

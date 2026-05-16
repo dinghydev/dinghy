@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsS3filesAccessPointInputSchema = TfMetaSchema.extend({
   file_system_id: resolvableValue(z.string()),
   posix_user: resolvableValue(
     z.object({
@@ -38,7 +38,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsS3filesAccessPointOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   name: z.string().optional(),
@@ -47,25 +47,27 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsS3filesAccessPointImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsS3filesAccessPointInputProps =
+  & z.input<typeof AwsS3filesAccessPointInputSchema>
+  & z.input<typeof AwsS3filesAccessPointImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3filesAccessPointOutputProps =
+  & z.output<typeof AwsS3filesAccessPointOutputSchema>
+  & z.output<typeof AwsS3filesAccessPointInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3files_access_point
 
-export function AwsS3filesAccessPoint(props: Partial<InputProps>) {
+export function AwsS3filesAccessPoint(
+  props: Partial<AwsS3filesAccessPointInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -75,9 +77,9 @@ export function AwsS3filesAccessPoint(props: Partial<InputProps>) {
       _type='aws_s3files_access_point'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsS3filesAccessPointInputSchema}
+      _outputSchema={AwsS3filesAccessPointOutputSchema}
+      _importSchema={AwsS3filesAccessPointImportSchema}
       {...props}
     />
   )
@@ -88,14 +90,19 @@ export const useAwsS3filesAccessPoint = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsS3filesAccessPoint, idFilter, baseNode, optional)
+  useTypedNode<AwsS3filesAccessPointOutputProps>(
+    AwsS3filesAccessPoint,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsS3filesAccessPoints = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsS3filesAccessPointOutputProps>(
     AwsS3filesAccessPoint,
     idFilter,
     baseNode,

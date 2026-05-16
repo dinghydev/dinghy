@@ -9,34 +9,35 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  role_arn: resolvableValue(z.string()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-      update: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsShieldDrtAccessRoleArnAssociationInputSchema = TfMetaSchema
+  .extend({
+    role_arn: resolvableValue(z.string()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+        update: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsShieldDrtAccessRoleArnAssociationOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsShieldDrtAccessRoleArnAssociationInputProps =
+  & z.input<typeof AwsShieldDrtAccessRoleArnAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsShieldDrtAccessRoleArnAssociationOutputProps =
+  & z.output<typeof AwsShieldDrtAccessRoleArnAssociationOutputSchema>
+  & z.output<typeof AwsShieldDrtAccessRoleArnAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/shield_drt_access_role_arn_association
 
 export function AwsShieldDrtAccessRoleArnAssociation(
-  props: Partial<InputProps>,
+  props: Partial<AwsShieldDrtAccessRoleArnAssociationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -47,8 +48,8 @@ export function AwsShieldDrtAccessRoleArnAssociation(
       _type='aws_shield_drt_access_role_arn_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsShieldDrtAccessRoleArnAssociationInputSchema}
+      _outputSchema={AwsShieldDrtAccessRoleArnAssociationOutputSchema}
       {...props}
     />
   )
@@ -59,7 +60,7 @@ export const useAwsShieldDrtAccessRoleArnAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsShieldDrtAccessRoleArnAssociationOutputProps>(
     AwsShieldDrtAccessRoleArnAssociation,
     idFilter,
     baseNode,
@@ -71,7 +72,7 @@ export const useAwsShieldDrtAccessRoleArnAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsShieldDrtAccessRoleArnAssociationOutputProps>(
     AwsShieldDrtAccessRoleArnAssociation,
     idFilter,
     baseNode,

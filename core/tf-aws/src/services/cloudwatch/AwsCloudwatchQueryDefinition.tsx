@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudwatchQueryDefinitionInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   query_string: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
@@ -17,22 +17,24 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudwatchQueryDefinitionOutputSchema = z.object({
   query_definition_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudwatchQueryDefinitionInputProps =
+  & z.input<typeof AwsCloudwatchQueryDefinitionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudwatchQueryDefinitionOutputProps =
+  & z.output<typeof AwsCloudwatchQueryDefinitionOutputSchema>
+  & z.output<typeof AwsCloudwatchQueryDefinitionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudwatch_query_definition
 
-export function AwsCloudwatchQueryDefinition(props: Partial<InputProps>) {
+export function AwsCloudwatchQueryDefinition(
+  props: Partial<AwsCloudwatchQueryDefinitionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +44,8 @@ export function AwsCloudwatchQueryDefinition(props: Partial<InputProps>) {
       _type='aws_cloudwatch_query_definition'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudwatchQueryDefinitionInputSchema}
+      _outputSchema={AwsCloudwatchQueryDefinitionOutputSchema}
       {...props}
     />
   )
@@ -54,7 +56,7 @@ export const useAwsCloudwatchQueryDefinition = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudwatchQueryDefinitionOutputProps>(
     AwsCloudwatchQueryDefinition,
     idFilter,
     baseNode,
@@ -66,7 +68,7 @@ export const useAwsCloudwatchQueryDefinitions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudwatchQueryDefinitionOutputProps>(
     AwsCloudwatchQueryDefinition,
     idFilter,
     baseNode,

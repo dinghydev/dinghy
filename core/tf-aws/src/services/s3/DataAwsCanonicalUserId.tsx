@@ -8,25 +8,27 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({})
+export const DataAwsCanonicalUserIdInputSchema = TfMetaSchema.extend({})
 
-export const OutputSchema = z.object({
+export const DataAwsCanonicalUserIdOutputSchema = z.object({
   display_name: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsCanonicalUserIdInputProps =
+  & z.input<typeof DataAwsCanonicalUserIdInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsCanonicalUserIdOutputProps =
+  & z.output<typeof DataAwsCanonicalUserIdOutputSchema>
+  & z.output<typeof DataAwsCanonicalUserIdInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/canonical_user_id
 
-export function DataAwsCanonicalUserId(props: Partial<InputProps>) {
+export function DataAwsCanonicalUserId(
+  props: Partial<DataAwsCanonicalUserIdInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -36,8 +38,8 @@ export function DataAwsCanonicalUserId(props: Partial<InputProps>) {
       _type='aws_canonical_user_id'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsCanonicalUserIdInputSchema}
+      _outputSchema={DataAwsCanonicalUserIdOutputSchema}
       {...props}
     />
   )
@@ -48,7 +50,7 @@ export const useDataAwsCanonicalUserId = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsCanonicalUserIdOutputProps>(
     DataAwsCanonicalUserId,
     idFilter,
     baseNode,
@@ -60,7 +62,7 @@ export const useDataAwsCanonicalUserIds = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsCanonicalUserIdOutputProps>(
     DataAwsCanonicalUserId,
     idFilter,
     baseNode,

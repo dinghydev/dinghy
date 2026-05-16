@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsBedrockagentAgentAliasInputSchema = TfMetaSchema.extend({
   agent_alias_name: resolvableValue(z.string()),
   agent_id: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
@@ -29,25 +29,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsBedrockagentAgentAliasOutputSchema = z.object({
   agent_alias_arn: z.string().optional(),
   agent_alias_id: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsBedrockagentAgentAliasInputProps =
+  & z.input<typeof AwsBedrockagentAgentAliasInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBedrockagentAgentAliasOutputProps =
+  & z.output<typeof AwsBedrockagentAgentAliasOutputSchema>
+  & z.output<typeof AwsBedrockagentAgentAliasInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/bedrockagent_agent_alias
 
-export function AwsBedrockagentAgentAlias(props: Partial<InputProps>) {
+export function AwsBedrockagentAgentAlias(
+  props: Partial<AwsBedrockagentAgentAliasInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -57,8 +59,8 @@ export function AwsBedrockagentAgentAlias(props: Partial<InputProps>) {
       _type='aws_bedrockagent_agent_alias'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsBedrockagentAgentAliasInputSchema}
+      _outputSchema={AwsBedrockagentAgentAliasOutputSchema}
       {...props}
     />
   )
@@ -69,7 +71,7 @@ export const useAwsBedrockagentAgentAliass = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsBedrockagentAgentAliasOutputProps>(
     AwsBedrockagentAgentAlias,
     idFilter,
     baseNode,

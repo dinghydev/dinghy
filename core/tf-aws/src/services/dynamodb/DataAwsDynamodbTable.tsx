@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsDynamodbTable } from './AwsDynamodbTable.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsDynamodbTableInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -22,7 +22,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsDynamodbTableOutputSchema = z.object({
   arn: z.string().optional(),
   attribute: z.set(z.object({
     name: z.string(),
@@ -88,18 +88,20 @@ export const OutputSchema = z.object({
   write_capacity: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsDynamodbTableInputProps =
+  & z.input<typeof DataAwsDynamodbTableInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsDynamodbTableOutputProps =
+  & z.output<typeof DataAwsDynamodbTableOutputSchema>
+  & z.output<typeof DataAwsDynamodbTableInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/dynamodb_table
 
-export function DataAwsDynamodbTable(props: Partial<InputProps>) {
+export function DataAwsDynamodbTable(
+  props: Partial<DataAwsDynamodbTableInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -109,8 +111,8 @@ export function DataAwsDynamodbTable(props: Partial<InputProps>) {
       _type='aws_dynamodb_table'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsDynamodbTableInputSchema}
+      _outputSchema={DataAwsDynamodbTableOutputSchema}
       {...props as any}
     />
   )
@@ -121,11 +123,21 @@ export const useDataAwsDynamodbTable = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsDynamodbTable, idFilter, baseNode, optional)
+  useTypedNode<DataAwsDynamodbTableOutputProps>(
+    DataAwsDynamodbTable,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsDynamodbTables = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsDynamodbTable, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsDynamodbTableOutputProps>(
+    DataAwsDynamodbTable,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,34 +9,36 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsOrganizationsPolicyAttachmentInputSchema = TfMetaSchema.extend({
   policy_id: resolvableValue(z.string()),
   target_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   skip_destroy: resolvableValue(z.boolean().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsOrganizationsPolicyAttachmentOutputSchema = z.object({})
 
-export const ImportSchema = z.object({
+export const AwsOrganizationsPolicyAttachmentImportSchema = z.object({
   policy_id: resolvableValue(z.string()),
   target_id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsOrganizationsPolicyAttachmentInputProps =
+  & z.input<typeof AwsOrganizationsPolicyAttachmentInputSchema>
+  & z.input<typeof AwsOrganizationsPolicyAttachmentImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsOrganizationsPolicyAttachmentOutputProps =
+  & z.output<typeof AwsOrganizationsPolicyAttachmentOutputSchema>
+  & z.output<typeof AwsOrganizationsPolicyAttachmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/organizations_policy_attachment
 
-export function AwsOrganizationsPolicyAttachment(props: Partial<InputProps>) {
+export function AwsOrganizationsPolicyAttachment(
+  props: Partial<AwsOrganizationsPolicyAttachmentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,9 +48,9 @@ export function AwsOrganizationsPolicyAttachment(props: Partial<InputProps>) {
       _type='aws_organizations_policy_attachment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsOrganizationsPolicyAttachmentInputSchema}
+      _outputSchema={AwsOrganizationsPolicyAttachmentOutputSchema}
+      _importSchema={AwsOrganizationsPolicyAttachmentImportSchema}
       {...props}
     />
   )
@@ -59,7 +61,7 @@ export const useAwsOrganizationsPolicyAttachment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsOrganizationsPolicyAttachmentOutputProps>(
     AwsOrganizationsPolicyAttachment,
     idFilter,
     baseNode,
@@ -71,7 +73,7 @@ export const useAwsOrganizationsPolicyAttachments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsOrganizationsPolicyAttachmentOutputProps>(
     AwsOrganizationsPolicyAttachment,
     idFilter,
     baseNode,

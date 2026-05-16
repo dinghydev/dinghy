@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDatazoneGlossaryTermInputSchema = TfMetaSchema.extend({
   glossary_identifier: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   domain_identifier: resolvableValue(z.string().optional()),
@@ -30,24 +30,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDatazoneGlossaryTermOutputSchema = z.object({
   created_at: z.string().optional(),
   created_by: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDatazoneGlossaryTermInputProps =
+  & z.input<typeof AwsDatazoneGlossaryTermInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDatazoneGlossaryTermOutputProps =
+  & z.output<typeof AwsDatazoneGlossaryTermOutputSchema>
+  & z.output<typeof AwsDatazoneGlossaryTermInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/datazone_glossary_term
 
-export function AwsDatazoneGlossaryTerm(props: Partial<InputProps>) {
+export function AwsDatazoneGlossaryTerm(
+  props: Partial<AwsDatazoneGlossaryTermInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -57,8 +59,8 @@ export function AwsDatazoneGlossaryTerm(props: Partial<InputProps>) {
       _type='aws_datazone_glossary_term'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDatazoneGlossaryTermInputSchema}
+      _outputSchema={AwsDatazoneGlossaryTermOutputSchema}
       {...props}
     />
   )
@@ -69,7 +71,7 @@ export const useAwsDatazoneGlossaryTerm = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDatazoneGlossaryTermOutputProps>(
     AwsDatazoneGlossaryTerm,
     idFilter,
     baseNode,
@@ -81,7 +83,7 @@ export const useAwsDatazoneGlossaryTerms = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDatazoneGlossaryTermOutputProps>(
     AwsDatazoneGlossaryTerm,
     idFilter,
     baseNode,

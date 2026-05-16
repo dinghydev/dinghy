@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEc2SubnetCidrReservationInputSchema = TfMetaSchema.extend({
   cidr_block: resolvableValue(z.string()),
   reservation_type: resolvableValue(z.string()),
   subnet_id: resolvableValue(z.string()),
@@ -17,23 +17,25 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsEc2SubnetCidrReservationOutputSchema = z.object({
   id: z.string().optional(),
   owner_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEc2SubnetCidrReservationInputProps =
+  & z.input<typeof AwsEc2SubnetCidrReservationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEc2SubnetCidrReservationOutputProps =
+  & z.output<typeof AwsEc2SubnetCidrReservationOutputSchema>
+  & z.output<typeof AwsEc2SubnetCidrReservationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ec2_subnet_cidr_reservation
 
-export function AwsEc2SubnetCidrReservation(props: Partial<InputProps>) {
+export function AwsEc2SubnetCidrReservation(
+  props: Partial<AwsEc2SubnetCidrReservationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function AwsEc2SubnetCidrReservation(props: Partial<InputProps>) {
       _type='aws_ec2_subnet_cidr_reservation'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEc2SubnetCidrReservationInputSchema}
+      _outputSchema={AwsEc2SubnetCidrReservationOutputSchema}
       {...props}
     />
   )
@@ -55,7 +57,7 @@ export const useAwsEc2SubnetCidrReservation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsEc2SubnetCidrReservationOutputProps>(
     AwsEc2SubnetCidrReservation,
     idFilter,
     baseNode,
@@ -67,7 +69,7 @@ export const useAwsEc2SubnetCidrReservations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEc2SubnetCidrReservationOutputProps>(
     AwsEc2SubnetCidrReservation,
     idFilter,
     baseNode,

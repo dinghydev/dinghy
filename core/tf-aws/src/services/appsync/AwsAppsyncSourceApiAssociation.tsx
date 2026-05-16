@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAppsyncSourceApiAssociationInputSchema = TfMetaSchema.extend({
   description: resolvableValue(z.string().optional()),
   merged_api_arn: resolvableValue(z.string().optional()),
   merged_api_id: resolvableValue(z.string().optional()),
@@ -30,24 +30,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsAppsyncSourceApiAssociationOutputSchema = z.object({
   arn: z.string().optional(),
   association_id: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAppsyncSourceApiAssociationInputProps =
+  & z.input<typeof AwsAppsyncSourceApiAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppsyncSourceApiAssociationOutputProps =
+  & z.output<typeof AwsAppsyncSourceApiAssociationOutputSchema>
+  & z.output<typeof AwsAppsyncSourceApiAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appsync_source_api_association
 
-export function AwsAppsyncSourceApiAssociation(props: Partial<InputProps>) {
+export function AwsAppsyncSourceApiAssociation(
+  props: Partial<AwsAppsyncSourceApiAssociationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -57,8 +59,8 @@ export function AwsAppsyncSourceApiAssociation(props: Partial<InputProps>) {
       _type='aws_appsync_source_api_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAppsyncSourceApiAssociationInputSchema}
+      _outputSchema={AwsAppsyncSourceApiAssociationOutputSchema}
       {...props}
     />
   )
@@ -69,7 +71,7 @@ export const useAwsAppsyncSourceApiAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAppsyncSourceApiAssociationOutputProps>(
     AwsAppsyncSourceApiAssociation,
     idFilter,
     baseNode,
@@ -81,7 +83,7 @@ export const useAwsAppsyncSourceApiAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAppsyncSourceApiAssociationOutputProps>(
     AwsAppsyncSourceApiAssociation,
     idFilter,
     baseNode,

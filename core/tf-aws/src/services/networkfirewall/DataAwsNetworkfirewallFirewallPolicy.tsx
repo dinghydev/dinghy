@@ -9,14 +9,15 @@ import {
 import z from 'zod'
 import { AwsNetworkfirewallFirewallPolicy } from './AwsNetworkfirewallFirewallPolicy.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string().optional()),
-  id: resolvableValue(z.string().optional()),
-  name: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsNetworkfirewallFirewallPolicyInputSchema = TfMetaSchema
+  .extend({
+    arn: resolvableValue(z.string().optional()),
+    id: resolvableValue(z.string().optional()),
+    name: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsNetworkfirewallFirewallPolicyOutputSchema = z.object({
   description: z.string().optional(),
   firewall_policy: z.object({
     enable_tls_session_holding: z.boolean(),
@@ -66,19 +67,19 @@ export const OutputSchema = z.object({
   update_token: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsNetworkfirewallFirewallPolicyInputProps =
+  & z.input<typeof DataAwsNetworkfirewallFirewallPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsNetworkfirewallFirewallPolicyOutputProps =
+  & z.output<typeof DataAwsNetworkfirewallFirewallPolicyOutputSchema>
+  & z.output<typeof DataAwsNetworkfirewallFirewallPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/networkfirewall_firewall_policy
 
 export function DataAwsNetworkfirewallFirewallPolicy(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsNetworkfirewallFirewallPolicyInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -89,8 +90,8 @@ export function DataAwsNetworkfirewallFirewallPolicy(
       _type='aws_networkfirewall_firewall_policy'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsNetworkfirewallFirewallPolicyInputSchema}
+      _outputSchema={DataAwsNetworkfirewallFirewallPolicyOutputSchema}
       {...props as any}
     />
   )
@@ -101,7 +102,7 @@ export const useDataAwsNetworkfirewallFirewallPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsNetworkfirewallFirewallPolicyOutputProps>(
     DataAwsNetworkfirewallFirewallPolicy,
     idFilter,
     baseNode,
@@ -113,7 +114,7 @@ export const useDataAwsNetworkfirewallFirewallPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsNetworkfirewallFirewallPolicyOutputProps>(
     DataAwsNetworkfirewallFirewallPolicy,
     idFilter,
     baseNode,

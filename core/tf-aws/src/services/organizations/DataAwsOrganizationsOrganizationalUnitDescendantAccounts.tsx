@@ -8,37 +8,47 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  parent_id: resolvableValue(z.string()),
-})
+export const DataAwsOrganizationsOrganizationalUnitDescendantAccountsInputSchema =
+  TfMetaSchema.extend({
+    parent_id: resolvableValue(z.string()),
+  })
 
-export const OutputSchema = z.object({
-  accounts: z.object({
-    arn: z.string(),
-    email: z.string(),
-    id: z.string(),
-    joined_method: z.string(),
-    joined_timestamp: z.string(),
-    name: z.string(),
-    state: z.string(),
-    status: z.string(),
-  }).array().optional(),
-  id: z.string().optional(),
-})
+export const DataAwsOrganizationsOrganizationalUnitDescendantAccountsOutputSchema =
+  z.object({
+    accounts: z.object({
+      arn: z.string(),
+      email: z.string(),
+      id: z.string(),
+      joined_method: z.string(),
+      joined_timestamp: z.string(),
+      name: z.string(),
+      state: z.string(),
+      status: z.string(),
+    }).array().optional(),
+    id: z.string().optional(),
+  })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsOrganizationsOrganizationalUnitDescendantAccountsInputProps =
+  & z.input<
+    typeof DataAwsOrganizationsOrganizationalUnitDescendantAccountsInputSchema
+  >
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsOrganizationsOrganizationalUnitDescendantAccountsOutputProps =
+  & z.output<
+    typeof DataAwsOrganizationsOrganizationalUnitDescendantAccountsOutputSchema
+  >
+  & z.output<
+    typeof DataAwsOrganizationsOrganizationalUnitDescendantAccountsInputSchema
+  >
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/organizations_organizational_unit_descendant_accounts
 
 export function DataAwsOrganizationsOrganizationalUnitDescendantAccounts(
-  props: Partial<InputProps>,
+  props: Partial<
+    DataAwsOrganizationsOrganizationalUnitDescendantAccountsInputProps
+  >,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -49,8 +59,8 @@ export function DataAwsOrganizationsOrganizationalUnitDescendantAccounts(
       _type='aws_organizations_organizational_unit_descendant_accounts'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsOrganizationsOrganizationalUnitDescendantAccountsInputSchema}
+      _outputSchema={DataAwsOrganizationsOrganizationalUnitDescendantAccountsOutputSchema}
       {...props}
     />
   )
@@ -61,7 +71,9 @@ export const useDataAwsOrganizationsOrganizationalUnitDescendantAccountss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<
+    DataAwsOrganizationsOrganizationalUnitDescendantAccountsOutputProps
+  >(
     DataAwsOrganizationsOrganizationalUnitDescendantAccounts,
     idFilter,
     baseNode,

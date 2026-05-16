@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSagemakerMlflowTrackingServerInputSchema = TfMetaSchema.extend({
   artifact_store_uri: resolvableValue(z.string()),
   role_arn: resolvableValue(z.string()),
   tracking_server_name: resolvableValue(z.string()),
@@ -21,25 +21,27 @@ export const InputSchema = TfMetaSchema.extend({
   weekly_maintenance_window_start: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSagemakerMlflowTrackingServerOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   tracking_server_url: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSagemakerMlflowTrackingServerInputProps =
+  & z.input<typeof AwsSagemakerMlflowTrackingServerInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSagemakerMlflowTrackingServerOutputProps =
+  & z.output<typeof AwsSagemakerMlflowTrackingServerOutputSchema>
+  & z.output<typeof AwsSagemakerMlflowTrackingServerInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sagemaker_mlflow_tracking_server
 
-export function AwsSagemakerMlflowTrackingServer(props: Partial<InputProps>) {
+export function AwsSagemakerMlflowTrackingServer(
+  props: Partial<AwsSagemakerMlflowTrackingServerInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,8 +51,8 @@ export function AwsSagemakerMlflowTrackingServer(props: Partial<InputProps>) {
       _type='aws_sagemaker_mlflow_tracking_server'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSagemakerMlflowTrackingServerInputSchema}
+      _outputSchema={AwsSagemakerMlflowTrackingServerOutputSchema}
       {...props}
     />
   )
@@ -61,7 +63,7 @@ export const useAwsSagemakerMlflowTrackingServer = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSagemakerMlflowTrackingServerOutputProps>(
     AwsSagemakerMlflowTrackingServer,
     idFilter,
     baseNode,
@@ -73,7 +75,7 @@ export const useAwsSagemakerMlflowTrackingServers = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSagemakerMlflowTrackingServerOutputProps>(
     AwsSagemakerMlflowTrackingServer,
     idFilter,
     baseNode,

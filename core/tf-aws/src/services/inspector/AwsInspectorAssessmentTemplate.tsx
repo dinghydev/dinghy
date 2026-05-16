@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsInspectorAssessmentTemplateInputSchema = TfMetaSchema.extend({
   duration: resolvableValue(z.number()),
   name: resolvableValue(z.string()),
   rules_package_arns: resolvableValue(z.string().array()),
@@ -25,28 +25,30 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsInspectorAssessmentTemplateOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsInspectorAssessmentTemplateImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsInspectorAssessmentTemplateInputProps =
+  & z.input<typeof AwsInspectorAssessmentTemplateInputSchema>
+  & z.input<typeof AwsInspectorAssessmentTemplateImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsInspectorAssessmentTemplateOutputProps =
+  & z.output<typeof AwsInspectorAssessmentTemplateOutputSchema>
+  & z.output<typeof AwsInspectorAssessmentTemplateInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/inspector_assessment_template
 
-export function AwsInspectorAssessmentTemplate(props: Partial<InputProps>) {
+export function AwsInspectorAssessmentTemplate(
+  props: Partial<AwsInspectorAssessmentTemplateInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -56,9 +58,9 @@ export function AwsInspectorAssessmentTemplate(props: Partial<InputProps>) {
       _type='aws_inspector_assessment_template'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsInspectorAssessmentTemplateInputSchema}
+      _outputSchema={AwsInspectorAssessmentTemplateOutputSchema}
+      _importSchema={AwsInspectorAssessmentTemplateImportSchema}
       {...props}
     />
   )
@@ -69,7 +71,7 @@ export const useAwsInspectorAssessmentTemplate = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsInspectorAssessmentTemplateOutputProps>(
     AwsInspectorAssessmentTemplate,
     idFilter,
     baseNode,
@@ -81,7 +83,7 @@ export const useAwsInspectorAssessmentTemplates = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsInspectorAssessmentTemplateOutputProps>(
     AwsInspectorAssessmentTemplate,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsResiliencehubResiliencyPolicyInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   tier: resolvableValue(z.string()),
   data_location_constraint: resolvableValue(z.string().optional()),
@@ -45,24 +45,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsResiliencehubResiliencyPolicyOutputSchema = z.object({
   arn: z.string().optional(),
   estimated_cost_tier: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsResiliencehubResiliencyPolicyInputProps =
+  & z.input<typeof AwsResiliencehubResiliencyPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsResiliencehubResiliencyPolicyOutputProps =
+  & z.output<typeof AwsResiliencehubResiliencyPolicyOutputSchema>
+  & z.output<typeof AwsResiliencehubResiliencyPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/resiliencehub_resiliency_policy
 
-export function AwsResiliencehubResiliencyPolicy(props: Partial<InputProps>) {
+export function AwsResiliencehubResiliencyPolicy(
+  props: Partial<AwsResiliencehubResiliencyPolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -72,8 +74,8 @@ export function AwsResiliencehubResiliencyPolicy(props: Partial<InputProps>) {
       _type='aws_resiliencehub_resiliency_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsResiliencehubResiliencyPolicyInputSchema}
+      _outputSchema={AwsResiliencehubResiliencyPolicyOutputSchema}
       {...props}
     />
   )
@@ -84,7 +86,7 @@ export const useAwsResiliencehubResiliencyPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsResiliencehubResiliencyPolicyOutputProps>(
     AwsResiliencehubResiliencyPolicy,
     idFilter,
     baseNode,
@@ -96,7 +98,7 @@ export const useAwsResiliencehubResiliencyPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsResiliencehubResiliencyPolicyOutputProps>(
     AwsResiliencehubResiliencyPolicy,
     idFilter,
     baseNode,

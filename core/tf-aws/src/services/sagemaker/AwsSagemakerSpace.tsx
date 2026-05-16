@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSagemakerSpaceInputSchema = TfMetaSchema.extend({
   domain_id: resolvableValue(z.string()),
   space_name: resolvableValue(z.string()),
   ownership_settings: resolvableValue(
@@ -101,7 +101,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSagemakerSpaceOutputSchema = z.object({
   arn: z.string().optional(),
   home_efs_file_system_uid: z.string().optional(),
   id: z.string().optional(),
@@ -109,18 +109,18 @@ export const OutputSchema = z.object({
   url: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSagemakerSpaceInputProps =
+  & z.input<typeof AwsSagemakerSpaceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSagemakerSpaceOutputProps =
+  & z.output<typeof AwsSagemakerSpaceOutputSchema>
+  & z.output<typeof AwsSagemakerSpaceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sagemaker_space
 
-export function AwsSagemakerSpace(props: Partial<InputProps>) {
+export function AwsSagemakerSpace(props: Partial<AwsSagemakerSpaceInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -130,8 +130,8 @@ export function AwsSagemakerSpace(props: Partial<InputProps>) {
       _type='aws_sagemaker_space'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSagemakerSpaceInputSchema}
+      _outputSchema={AwsSagemakerSpaceOutputSchema}
       {...props}
     />
   )
@@ -141,10 +141,22 @@ export const useAwsSagemakerSpace = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsSagemakerSpace, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsSagemakerSpaceOutputProps>(
+    AwsSagemakerSpace,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSagemakerSpaces = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsSagemakerSpace, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsSagemakerSpaceOutputProps>(
+    AwsSagemakerSpace,
+    idFilter,
+    baseNode,
+    optional,
+  )

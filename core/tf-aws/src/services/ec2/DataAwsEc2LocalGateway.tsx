@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsEc2LocalGatewayInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -27,24 +27,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsEc2LocalGatewayOutputSchema = z.object({
   outpost_arn: z.string().optional(),
   owner_id: z.string().optional(),
   state: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEc2LocalGatewayInputProps =
+  & z.input<typeof DataAwsEc2LocalGatewayInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEc2LocalGatewayOutputProps =
+  & z.output<typeof DataAwsEc2LocalGatewayOutputSchema>
+  & z.output<typeof DataAwsEc2LocalGatewayInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ec2_local_gateway
 
-export function DataAwsEc2LocalGateway(props: Partial<InputProps>) {
+export function DataAwsEc2LocalGateway(
+  props: Partial<DataAwsEc2LocalGatewayInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -54,8 +56,8 @@ export function DataAwsEc2LocalGateway(props: Partial<InputProps>) {
       _type='aws_ec2_local_gateway'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEc2LocalGatewayInputSchema}
+      _outputSchema={DataAwsEc2LocalGatewayOutputSchema}
       {...props}
     />
   )
@@ -66,7 +68,7 @@ export const useDataAwsEc2LocalGateway = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsEc2LocalGatewayOutputProps>(
     DataAwsEc2LocalGateway,
     idFilter,
     baseNode,
@@ -78,7 +80,7 @@ export const useDataAwsEc2LocalGateways = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsEc2LocalGatewayOutputProps>(
     DataAwsEc2LocalGateway,
     idFilter,
     baseNode,

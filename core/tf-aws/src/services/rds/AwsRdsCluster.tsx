@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRdsClusterInputSchema = TfMetaSchema.extend({
   engine: resolvableValue(z.string()),
   allocated_storage: resolvableValue(z.number().optional()),
   allow_major_version_upgrade: resolvableValue(z.boolean().optional()),
@@ -116,7 +116,7 @@ export const InputSchema = TfMetaSchema.extend({
   vpc_security_group_ids: resolvableValue(z.string().array().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRdsClusterOutputSchema = z.object({
   arn: z.string().optional(),
   availability_zones: z.set(z.string()).optional(),
   backup_retention_period: z.number().optional(),
@@ -147,18 +147,18 @@ export const OutputSchema = z.object({
   upgrade_rollout_order: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRdsClusterInputProps =
+  & z.input<typeof AwsRdsClusterInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRdsClusterOutputProps =
+  & z.output<typeof AwsRdsClusterOutputSchema>
+  & z.output<typeof AwsRdsClusterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/rds_cluster
 
-export function AwsRdsCluster(props: Partial<InputProps>) {
+export function AwsRdsCluster(props: Partial<AwsRdsClusterInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -168,8 +168,8 @@ export function AwsRdsCluster(props: Partial<InputProps>) {
       _type='aws_rds_cluster'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRdsClusterInputSchema}
+      _outputSchema={AwsRdsClusterOutputSchema}
       {...props}
     />
   )
@@ -179,10 +179,22 @@ export const useAwsRdsCluster = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsRdsCluster, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsRdsClusterOutputProps>(
+    AwsRdsCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRdsClusters = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsRdsCluster, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsRdsClusterOutputProps>(
+    AwsRdsCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )

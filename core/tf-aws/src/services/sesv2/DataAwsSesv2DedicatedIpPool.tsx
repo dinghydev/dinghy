@@ -9,13 +9,13 @@ import {
 import z from 'zod'
 import { AwsSesv2DedicatedIpPool } from './AwsSesv2DedicatedIpPool.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsSesv2DedicatedIpPoolInputSchema = TfMetaSchema.extend({
   pool_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsSesv2DedicatedIpPoolOutputSchema = z.object({
   arn: z.string().optional(),
   dedicated_ips: z.object({
     ip: z.string(),
@@ -26,18 +26,20 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsSesv2DedicatedIpPoolInputProps =
+  & z.input<typeof DataAwsSesv2DedicatedIpPoolInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsSesv2DedicatedIpPoolOutputProps =
+  & z.output<typeof DataAwsSesv2DedicatedIpPoolOutputSchema>
+  & z.output<typeof DataAwsSesv2DedicatedIpPoolInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/sesv2_dedicated_ip_pool
 
-export function DataAwsSesv2DedicatedIpPool(props: Partial<InputProps>) {
+export function DataAwsSesv2DedicatedIpPool(
+  props: Partial<DataAwsSesv2DedicatedIpPoolInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +49,8 @@ export function DataAwsSesv2DedicatedIpPool(props: Partial<InputProps>) {
       _type='aws_sesv2_dedicated_ip_pool'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsSesv2DedicatedIpPoolInputSchema}
+      _outputSchema={DataAwsSesv2DedicatedIpPoolOutputSchema}
       {...props as any}
     />
   )
@@ -59,7 +61,7 @@ export const useDataAwsSesv2DedicatedIpPool = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsSesv2DedicatedIpPoolOutputProps>(
     DataAwsSesv2DedicatedIpPool,
     idFilter,
     baseNode,
@@ -71,7 +73,7 @@ export const useDataAwsSesv2DedicatedIpPools = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsSesv2DedicatedIpPoolOutputProps>(
     DataAwsSesv2DedicatedIpPool,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDxGatewayInputSchema = TfMetaSchema.extend({
   amazon_side_asn: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -21,31 +21,31 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDxGatewayOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   owner_account_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsDxGatewayImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsDxGatewayInputProps =
+  & z.input<typeof AwsDxGatewayInputSchema>
+  & z.input<typeof AwsDxGatewayImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDxGatewayOutputProps =
+  & z.output<typeof AwsDxGatewayOutputSchema>
+  & z.output<typeof AwsDxGatewayInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dx_gateway
 
-export function AwsDxGateway(props: Partial<InputProps>) {
+export function AwsDxGateway(props: Partial<AwsDxGatewayInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,9 +55,9 @@ export function AwsDxGateway(props: Partial<InputProps>) {
       _type='aws_dx_gateway'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsDxGatewayInputSchema}
+      _outputSchema={AwsDxGatewayOutputSchema}
+      _importSchema={AwsDxGatewayImportSchema}
       {...props}
     />
   )
@@ -67,10 +67,22 @@ export const useAwsDxGateway = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsDxGateway, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsDxGatewayOutputProps>(
+    AwsDxGateway,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDxGateways = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsDxGateway, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsDxGatewayOutputProps>(
+    AwsDxGateway,
+    idFilter,
+    baseNode,
+    optional,
+  )

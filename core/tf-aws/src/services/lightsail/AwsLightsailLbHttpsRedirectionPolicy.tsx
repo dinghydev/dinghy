@@ -9,29 +9,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  enabled: resolvableValue(z.boolean()),
-  lb_name: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsLightsailLbHttpsRedirectionPolicyInputSchema = TfMetaSchema
+  .extend({
+    enabled: resolvableValue(z.boolean()),
+    lb_name: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsLightsailLbHttpsRedirectionPolicyOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLightsailLbHttpsRedirectionPolicyInputProps =
+  & z.input<typeof AwsLightsailLbHttpsRedirectionPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLightsailLbHttpsRedirectionPolicyOutputProps =
+  & z.output<typeof AwsLightsailLbHttpsRedirectionPolicyOutputSchema>
+  & z.output<typeof AwsLightsailLbHttpsRedirectionPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lightsail_lb_https_redirection_policy
 
 export function AwsLightsailLbHttpsRedirectionPolicy(
-  props: Partial<InputProps>,
+  props: Partial<AwsLightsailLbHttpsRedirectionPolicyInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -42,8 +43,8 @@ export function AwsLightsailLbHttpsRedirectionPolicy(
       _type='aws_lightsail_lb_https_redirection_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLightsailLbHttpsRedirectionPolicyInputSchema}
+      _outputSchema={AwsLightsailLbHttpsRedirectionPolicyOutputSchema}
       {...props}
     />
   )
@@ -54,7 +55,7 @@ export const useAwsLightsailLbHttpsRedirectionPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsLightsailLbHttpsRedirectionPolicyOutputProps>(
     AwsLightsailLbHttpsRedirectionPolicy,
     idFilter,
     baseNode,
@@ -66,7 +67,7 @@ export const useAwsLightsailLbHttpsRedirectionPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsLightsailLbHttpsRedirectionPolicyOutputProps>(
     AwsLightsailLbHttpsRedirectionPolicy,
     idFilter,
     baseNode,

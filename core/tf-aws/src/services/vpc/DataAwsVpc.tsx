@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsVpc } from './AwsVpc.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsVpcInputSchema = TfMetaSchema.extend({
   cidr_block: resolvableValue(z.string().optional()),
   default: resolvableValue(z.boolean().optional()),
   dhcp_options_id: resolvableValue(z.string().optional()),
@@ -30,7 +30,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsVpcOutputSchema = z.object({
   arn: z.string().optional(),
   cidr_block_associations: z.object({
     association_id: z.string(),
@@ -47,18 +47,18 @@ export const OutputSchema = z.object({
   owner_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsVpcInputProps =
+  & z.input<typeof DataAwsVpcInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsVpcOutputProps =
+  & z.output<typeof DataAwsVpcOutputSchema>
+  & z.output<typeof DataAwsVpcInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/vpc
 
-export function DataAwsVpc(props: Partial<InputProps>) {
+export function DataAwsVpc(props: Partial<DataAwsVpcInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -68,8 +68,8 @@ export function DataAwsVpc(props: Partial<InputProps>) {
       _type='aws_vpc'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsVpcInputSchema}
+      _outputSchema={DataAwsVpcOutputSchema}
       {...props as any}
     />
   )
@@ -79,10 +79,12 @@ export const useDataAwsVpc = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsVpc, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsVpcOutputProps>(DataAwsVpc, idFilter, baseNode, optional)
 
 export const useDataAwsVpcs = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsVpc, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsVpcOutputProps>(DataAwsVpc, idFilter, baseNode, optional)

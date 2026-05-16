@@ -9,12 +9,13 @@ import {
 import z from 'zod'
 import { AwsCloudfrontOriginRequestPolicy } from './AwsCloudfrontOriginRequestPolicy.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  id: resolvableValue(z.string().optional()),
-  name: resolvableValue(z.string().optional()),
-})
+export const DataAwsCloudfrontOriginRequestPolicyInputSchema = TfMetaSchema
+  .extend({
+    id: resolvableValue(z.string().optional()),
+    name: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsCloudfrontOriginRequestPolicyOutputSchema = z.object({
   arn: z.string().optional(),
   comment: z.string().optional(),
   cookies_config: z.object({
@@ -38,19 +39,19 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsCloudfrontOriginRequestPolicyInputProps =
+  & z.input<typeof DataAwsCloudfrontOriginRequestPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsCloudfrontOriginRequestPolicyOutputProps =
+  & z.output<typeof DataAwsCloudfrontOriginRequestPolicyOutputSchema>
+  & z.output<typeof DataAwsCloudfrontOriginRequestPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/cloudfront_origin_request_policy
 
 export function DataAwsCloudfrontOriginRequestPolicy(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsCloudfrontOriginRequestPolicyInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -61,8 +62,8 @@ export function DataAwsCloudfrontOriginRequestPolicy(
       _type='aws_cloudfront_origin_request_policy'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsCloudfrontOriginRequestPolicyInputSchema}
+      _outputSchema={DataAwsCloudfrontOriginRequestPolicyOutputSchema}
       {...props as any}
     />
   )
@@ -73,7 +74,7 @@ export const useDataAwsCloudfrontOriginRequestPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsCloudfrontOriginRequestPolicyOutputProps>(
     DataAwsCloudfrontOriginRequestPolicy,
     idFilter,
     baseNode,
@@ -85,7 +86,7 @@ export const useDataAwsCloudfrontOriginRequestPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsCloudfrontOriginRequestPolicyOutputProps>(
     DataAwsCloudfrontOriginRequestPolicy,
     idFilter,
     baseNode,

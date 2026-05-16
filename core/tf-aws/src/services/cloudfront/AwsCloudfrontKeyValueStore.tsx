@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudfrontKeyValueStoreInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   comment: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
@@ -19,31 +19,33 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudfrontKeyValueStoreOutputSchema = z.object({
   arn: z.string().optional(),
   etag: z.string().optional(),
   id: z.string().optional(),
   last_modified_time: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsCloudfrontKeyValueStoreImportSchema = z.object({
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsCloudfrontKeyValueStoreInputProps =
+  & z.input<typeof AwsCloudfrontKeyValueStoreInputSchema>
+  & z.input<typeof AwsCloudfrontKeyValueStoreImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudfrontKeyValueStoreOutputProps =
+  & z.output<typeof AwsCloudfrontKeyValueStoreOutputSchema>
+  & z.output<typeof AwsCloudfrontKeyValueStoreInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudfront_key_value_store
 
-export function AwsCloudfrontKeyValueStore(props: Partial<InputProps>) {
+export function AwsCloudfrontKeyValueStore(
+  props: Partial<AwsCloudfrontKeyValueStoreInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,9 +55,9 @@ export function AwsCloudfrontKeyValueStore(props: Partial<InputProps>) {
       _type='aws_cloudfront_key_value_store'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsCloudfrontKeyValueStoreInputSchema}
+      _outputSchema={AwsCloudfrontKeyValueStoreOutputSchema}
+      _importSchema={AwsCloudfrontKeyValueStoreImportSchema}
       {...props}
     />
   )
@@ -66,7 +68,7 @@ export const useAwsCloudfrontKeyValueStore = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudfrontKeyValueStoreOutputProps>(
     AwsCloudfrontKeyValueStore,
     idFilter,
     baseNode,
@@ -78,7 +80,7 @@ export const useAwsCloudfrontKeyValueStores = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudfrontKeyValueStoreOutputProps>(
     AwsCloudfrontKeyValueStore,
     idFilter,
     baseNode,

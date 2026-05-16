@@ -9,12 +9,13 @@ import {
 import z from 'zod'
 import { AwsEmrcontainersVirtualCluster } from './AwsEmrcontainersVirtualCluster.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  virtual_cluster_id: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsEmrcontainersVirtualClusterInputSchema = TfMetaSchema
+  .extend({
+    virtual_cluster_id: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsEmrcontainersVirtualClusterOutputSchema = z.object({
   arn: z.string().optional(),
   container_provider: z.object({
     id: z.string(),
@@ -32,18 +33,20 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEmrcontainersVirtualClusterInputProps =
+  & z.input<typeof DataAwsEmrcontainersVirtualClusterInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEmrcontainersVirtualClusterOutputProps =
+  & z.output<typeof DataAwsEmrcontainersVirtualClusterOutputSchema>
+  & z.output<typeof DataAwsEmrcontainersVirtualClusterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/emrcontainers_virtual_cluster
 
-export function DataAwsEmrcontainersVirtualCluster(props: Partial<InputProps>) {
+export function DataAwsEmrcontainersVirtualCluster(
+  props: Partial<DataAwsEmrcontainersVirtualClusterInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,8 +56,8 @@ export function DataAwsEmrcontainersVirtualCluster(props: Partial<InputProps>) {
       _type='aws_emrcontainers_virtual_cluster'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEmrcontainersVirtualClusterInputSchema}
+      _outputSchema={DataAwsEmrcontainersVirtualClusterOutputSchema}
       {...props as any}
     />
   )
@@ -65,7 +68,7 @@ export const useDataAwsEmrcontainersVirtualCluster = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsEmrcontainersVirtualClusterOutputProps>(
     DataAwsEmrcontainersVirtualCluster,
     idFilter,
     baseNode,
@@ -77,7 +80,7 @@ export const useDataAwsEmrcontainersVirtualClusters = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsEmrcontainersVirtualClusterOutputProps>(
     DataAwsEmrcontainersVirtualCluster,
     idFilter,
     baseNode,

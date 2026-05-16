@@ -8,59 +8,61 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  resource_type: resolvableValue(z.string()),
-  enhanced_infrastructure_metrics: resolvableValue(z.string().optional()),
-  external_metrics_preference: resolvableValue(
-    z.object({
-      source: z.string(),
-    }).array().optional(),
-  ),
-  inferred_workload_types: resolvableValue(z.string().optional()),
-  look_back_period: resolvableValue(z.string().optional()),
-  preferred_resource: resolvableValue(
-    z.object({
-      exclude_list: z.string().array().optional(),
-      include_list: z.string().array().optional(),
-      name: z.string(),
-    }).array().optional(),
-  ),
-  region: resolvableValue(z.string().optional()),
-  savings_estimation_mode: resolvableValue(z.string().optional()),
-  scope: resolvableValue(
-    z.object({
-      name: z.string(),
-      value: z.string(),
-    }).array().optional(),
-  ),
-  utilization_preference: resolvableValue(
-    z.object({
-      metric_name: z.string(),
-      metric_parameters: z.object({
-        headroom: z.string(),
-        threshold: z.string().optional(),
+export const AwsComputeoptimizerRecommendationPreferencesInputSchema =
+  TfMetaSchema.extend({
+    resource_type: resolvableValue(z.string()),
+    enhanced_infrastructure_metrics: resolvableValue(z.string().optional()),
+    external_metrics_preference: resolvableValue(
+      z.object({
+        source: z.string(),
       }).array().optional(),
-    }).array().optional(),
-  ),
-})
+    ),
+    inferred_workload_types: resolvableValue(z.string().optional()),
+    look_back_period: resolvableValue(z.string().optional()),
+    preferred_resource: resolvableValue(
+      z.object({
+        exclude_list: z.string().array().optional(),
+        include_list: z.string().array().optional(),
+        name: z.string(),
+      }).array().optional(),
+    ),
+    region: resolvableValue(z.string().optional()),
+    savings_estimation_mode: resolvableValue(z.string().optional()),
+    scope: resolvableValue(
+      z.object({
+        name: z.string(),
+        value: z.string(),
+      }).array().optional(),
+    ),
+    utilization_preference: resolvableValue(
+      z.object({
+        metric_name: z.string(),
+        metric_parameters: z.object({
+          headroom: z.string(),
+          threshold: z.string().optional(),
+        }).array().optional(),
+      }).array().optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
-  id: z.string().optional(),
-})
+export const AwsComputeoptimizerRecommendationPreferencesOutputSchema = z
+  .object({
+    id: z.string().optional(),
+  })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsComputeoptimizerRecommendationPreferencesInputProps =
+  & z.input<typeof AwsComputeoptimizerRecommendationPreferencesInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsComputeoptimizerRecommendationPreferencesOutputProps =
+  & z.output<typeof AwsComputeoptimizerRecommendationPreferencesOutputSchema>
+  & z.output<typeof AwsComputeoptimizerRecommendationPreferencesInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/computeoptimizer_recommendation_preferences
 
 export function AwsComputeoptimizerRecommendationPreferences(
-  props: Partial<InputProps>,
+  props: Partial<AwsComputeoptimizerRecommendationPreferencesInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -71,8 +73,8 @@ export function AwsComputeoptimizerRecommendationPreferences(
       _type='aws_computeoptimizer_recommendation_preferences'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsComputeoptimizerRecommendationPreferencesInputSchema}
+      _outputSchema={AwsComputeoptimizerRecommendationPreferencesOutputSchema}
       {...props}
     />
   )
@@ -83,7 +85,7 @@ export const useAwsComputeoptimizerRecommendationPreferencess = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsComputeoptimizerRecommendationPreferencesOutputProps>(
     AwsComputeoptimizerRecommendationPreferences,
     idFilter,
     baseNode,

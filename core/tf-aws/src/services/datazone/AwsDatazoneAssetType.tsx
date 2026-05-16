@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDatazoneAssetTypeInputSchema = TfMetaSchema.extend({
   domain_identifier: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   owning_project_identifier: resolvableValue(z.string()),
@@ -30,24 +30,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDatazoneAssetTypeOutputSchema = z.object({
   created_at: z.string().optional(),
   created_by: z.string().optional(),
   revision: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDatazoneAssetTypeInputProps =
+  & z.input<typeof AwsDatazoneAssetTypeInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDatazoneAssetTypeOutputProps =
+  & z.output<typeof AwsDatazoneAssetTypeOutputSchema>
+  & z.output<typeof AwsDatazoneAssetTypeInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/datazone_asset_type
 
-export function AwsDatazoneAssetType(props: Partial<InputProps>) {
+export function AwsDatazoneAssetType(
+  props: Partial<AwsDatazoneAssetTypeInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -57,8 +59,8 @@ export function AwsDatazoneAssetType(props: Partial<InputProps>) {
       _type='aws_datazone_asset_type'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDatazoneAssetTypeInputSchema}
+      _outputSchema={AwsDatazoneAssetTypeOutputSchema}
       {...props}
     />
   )
@@ -69,11 +71,21 @@ export const useAwsDatazoneAssetType = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsDatazoneAssetType, idFilter, baseNode, optional)
+  useTypedNode<AwsDatazoneAssetTypeOutputProps>(
+    AwsDatazoneAssetType,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDatazoneAssetTypes = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsDatazoneAssetType, idFilter, baseNode, optional)
+  useTypedNodes<AwsDatazoneAssetTypeOutputProps>(
+    AwsDatazoneAssetType,
+    idFilter,
+    baseNode,
+    optional,
+  )

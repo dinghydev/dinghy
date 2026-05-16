@@ -9,13 +9,13 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsOdbDbServerInputSchema = TfMetaSchema.extend({
   cloud_exadata_infrastructure_id: resolvableValue(z.string()),
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsOdbDbServerOutputSchema = z.object({
   autonomous_virtual_machine_ids: z.string().array().optional(),
   autonomous_vm_cluster_ids: z.string().array().optional(),
   compute_model: z.string().optional(),
@@ -42,18 +42,20 @@ export const OutputSchema = z.object({
   vm_cluster_ids: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsOdbDbServerInputProps =
+  & z.input<typeof DataAwsOdbDbServerInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsOdbDbServerOutputProps =
+  & z.output<typeof DataAwsOdbDbServerOutputSchema>
+  & z.output<typeof DataAwsOdbDbServerInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/odb_db_server
 
-export function DataAwsOdbDbServer(props: Partial<InputProps>) {
+export function DataAwsOdbDbServer(
+  props: Partial<DataAwsOdbDbServerInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -63,8 +65,8 @@ export function DataAwsOdbDbServer(props: Partial<InputProps>) {
       _type='aws_odb_db_server'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsOdbDbServerInputSchema}
+      _outputSchema={DataAwsOdbDbServerOutputSchema}
       {...props}
     />
   )
@@ -74,11 +76,22 @@ export const useDataAwsOdbDbServer = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsOdbDbServer, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsOdbDbServerOutputProps>(
+    DataAwsOdbDbServer,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsOdbDbServers = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsOdbDbServer, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsOdbDbServerOutputProps>(
+    DataAwsOdbDbServer,
+    idFilter,
+    baseNode,
+    optional,
+  )

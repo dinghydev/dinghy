@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsNatGatewaysInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -25,23 +25,25 @@ export const InputSchema = TfMetaSchema.extend({
   vpc_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsNatGatewaysOutputSchema = z.object({
   id: z.string().optional(),
   ids: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsNatGatewaysInputProps =
+  & z.input<typeof DataAwsNatGatewaysInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsNatGatewaysOutputProps =
+  & z.output<typeof DataAwsNatGatewaysOutputSchema>
+  & z.output<typeof DataAwsNatGatewaysInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/nat_gateways
 
-export function DataAwsNatGateways(props: Partial<InputProps>) {
+export function DataAwsNatGateways(
+  props: Partial<DataAwsNatGatewaysInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -51,8 +53,8 @@ export function DataAwsNatGateways(props: Partial<InputProps>) {
       _type='aws_nat_gateways'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsNatGatewaysInputSchema}
+      _outputSchema={DataAwsNatGatewaysOutputSchema}
       {...props}
     />
   )
@@ -63,4 +65,9 @@ export const useDataAwsNatGatewayss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsNatGateways, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsNatGatewaysOutputProps>(
+    DataAwsNatGateways,
+    idFilter,
+    baseNode,
+    optional,
+  )

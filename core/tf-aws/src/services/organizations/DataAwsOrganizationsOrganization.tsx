@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsOrganizationsOrganization } from './AwsOrganizationsOrganization.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsOrganizationsOrganizationInputSchema = TfMetaSchema.extend({
   return_organization_only: resolvableValue(z.boolean().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsOrganizationsOrganizationOutputSchema = z.object({
   accounts: z.object({
     arn: z.string(),
     email: z.string(),
@@ -54,18 +54,20 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsOrganizationsOrganizationInputProps =
+  & z.input<typeof DataAwsOrganizationsOrganizationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsOrganizationsOrganizationOutputProps =
+  & z.output<typeof DataAwsOrganizationsOrganizationOutputSchema>
+  & z.output<typeof DataAwsOrganizationsOrganizationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/organizations_organization
 
-export function DataAwsOrganizationsOrganization(props: Partial<InputProps>) {
+export function DataAwsOrganizationsOrganization(
+  props: Partial<DataAwsOrganizationsOrganizationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -75,8 +77,8 @@ export function DataAwsOrganizationsOrganization(props: Partial<InputProps>) {
       _type='aws_organizations_organization'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsOrganizationsOrganizationInputSchema}
+      _outputSchema={DataAwsOrganizationsOrganizationOutputSchema}
       {...props as any}
     />
   )
@@ -87,7 +89,7 @@ export const useDataAwsOrganizationsOrganization = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsOrganizationsOrganizationOutputProps>(
     DataAwsOrganizationsOrganization,
     idFilter,
     baseNode,
@@ -99,7 +101,7 @@ export const useDataAwsOrganizationsOrganizations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsOrganizationsOrganizationOutputProps>(
     DataAwsOrganizationsOrganization,
     idFilter,
     baseNode,

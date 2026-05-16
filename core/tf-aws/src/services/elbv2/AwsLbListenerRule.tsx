@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLbListenerRuleInputSchema = TfMetaSchema.extend({
   action: resolvableValue(
     z.object({
       order: z.number().optional(),
@@ -124,29 +124,29 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsLbListenerRuleOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsLbListenerRuleImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsLbListenerRuleInputProps =
+  & z.input<typeof AwsLbListenerRuleInputSchema>
+  & z.input<typeof AwsLbListenerRuleImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLbListenerRuleOutputProps =
+  & z.output<typeof AwsLbListenerRuleOutputSchema>
+  & z.output<typeof AwsLbListenerRuleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lb_listener_rule
 
-export function AwsLbListenerRule(props: Partial<InputProps>) {
+export function AwsLbListenerRule(props: Partial<AwsLbListenerRuleInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -156,9 +156,9 @@ export function AwsLbListenerRule(props: Partial<InputProps>) {
       _type='aws_lb_listener_rule'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsLbListenerRuleInputSchema}
+      _outputSchema={AwsLbListenerRuleOutputSchema}
+      _importSchema={AwsLbListenerRuleImportSchema}
       {...props}
     />
   )
@@ -168,10 +168,22 @@ export const useAwsLbListenerRule = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsLbListenerRule, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsLbListenerRuleOutputProps>(
+    AwsLbListenerRule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLbListenerRules = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsLbListenerRule, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsLbListenerRuleOutputProps>(
+    AwsLbListenerRule,
+    idFilter,
+    baseNode,
+    optional,
+  )

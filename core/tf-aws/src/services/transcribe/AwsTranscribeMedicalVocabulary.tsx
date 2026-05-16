@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsTranscribeMedicalVocabularyInputSchema = TfMetaSchema.extend({
   language_code: resolvableValue(z.string()),
   vocabulary_file_uri: resolvableValue(z.string()),
   vocabulary_name: resolvableValue(z.string()),
@@ -25,24 +25,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsTranscribeMedicalVocabularyOutputSchema = z.object({
   arn: z.string().optional(),
   download_uri: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsTranscribeMedicalVocabularyInputProps =
+  & z.input<typeof AwsTranscribeMedicalVocabularyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsTranscribeMedicalVocabularyOutputProps =
+  & z.output<typeof AwsTranscribeMedicalVocabularyOutputSchema>
+  & z.output<typeof AwsTranscribeMedicalVocabularyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/transcribe_medical_vocabulary
 
-export function AwsTranscribeMedicalVocabulary(props: Partial<InputProps>) {
+export function AwsTranscribeMedicalVocabulary(
+  props: Partial<AwsTranscribeMedicalVocabularyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,8 +54,8 @@ export function AwsTranscribeMedicalVocabulary(props: Partial<InputProps>) {
       _type='aws_transcribe_medical_vocabulary'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsTranscribeMedicalVocabularyInputSchema}
+      _outputSchema={AwsTranscribeMedicalVocabularyOutputSchema}
       {...props}
     />
   )
@@ -64,7 +66,7 @@ export const useAwsTranscribeMedicalVocabulary = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsTranscribeMedicalVocabularyOutputProps>(
     AwsTranscribeMedicalVocabulary,
     idFilter,
     baseNode,
@@ -76,7 +78,7 @@ export const useAwsTranscribeMedicalVocabularys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsTranscribeMedicalVocabularyOutputProps>(
     AwsTranscribeMedicalVocabulary,
     idFilter,
     baseNode,

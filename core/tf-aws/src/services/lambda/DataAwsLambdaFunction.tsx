@@ -9,14 +9,14 @@ import {
 import z from 'zod'
 import { AwsLambdaFunction } from './AwsLambdaFunction.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsLambdaFunctionInputSchema = TfMetaSchema.extend({
   function_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   qualifier: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsLambdaFunctionOutputSchema = z.object({
   architectures: z.string().array().optional(),
   arn: z.string().optional(),
   capacity_provider_config: z.object({
@@ -87,18 +87,20 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsLambdaFunctionInputProps =
+  & z.input<typeof DataAwsLambdaFunctionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsLambdaFunctionOutputProps =
+  & z.output<typeof DataAwsLambdaFunctionOutputSchema>
+  & z.output<typeof DataAwsLambdaFunctionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/lambda_function
 
-export function DataAwsLambdaFunction(props: Partial<InputProps>) {
+export function DataAwsLambdaFunction(
+  props: Partial<DataAwsLambdaFunctionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -108,8 +110,8 @@ export function DataAwsLambdaFunction(props: Partial<InputProps>) {
       _type='aws_lambda_function'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsLambdaFunctionInputSchema}
+      _outputSchema={DataAwsLambdaFunctionOutputSchema}
       {...props as any}
     />
   )
@@ -120,14 +122,19 @@ export const useDataAwsLambdaFunction = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsLambdaFunction, idFilter, baseNode, optional)
+  useTypedNode<DataAwsLambdaFunctionOutputProps>(
+    DataAwsLambdaFunction,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsLambdaFunctions = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsLambdaFunctionOutputProps>(
     DataAwsLambdaFunction,
     idFilter,
     baseNode,

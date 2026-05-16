@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsMacie2CustomDataIdentifierInputSchema = TfMetaSchema.extend({
   description: resolvableValue(z.string().optional()),
   ignore_words: resolvableValue(z.string().array().optional()),
   keywords: resolvableValue(z.string().array().optional()),
@@ -26,25 +26,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsMacie2CustomDataIdentifierOutputSchema = z.object({
   arn: z.string().optional(),
   created_at: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsMacie2CustomDataIdentifierInputProps =
+  & z.input<typeof AwsMacie2CustomDataIdentifierInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsMacie2CustomDataIdentifierOutputProps =
+  & z.output<typeof AwsMacie2CustomDataIdentifierOutputSchema>
+  & z.output<typeof AwsMacie2CustomDataIdentifierInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/macie2_custom_data_identifier
 
-export function AwsMacie2CustomDataIdentifier(props: Partial<InputProps>) {
+export function AwsMacie2CustomDataIdentifier(
+  props: Partial<AwsMacie2CustomDataIdentifierInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -54,8 +56,8 @@ export function AwsMacie2CustomDataIdentifier(props: Partial<InputProps>) {
       _type='aws_macie2_custom_data_identifier'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsMacie2CustomDataIdentifierInputSchema}
+      _outputSchema={AwsMacie2CustomDataIdentifierOutputSchema}
       {...props}
     />
   )
@@ -66,7 +68,7 @@ export const useAwsMacie2CustomDataIdentifier = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsMacie2CustomDataIdentifierOutputProps>(
     AwsMacie2CustomDataIdentifier,
     idFilter,
     baseNode,
@@ -78,7 +80,7 @@ export const useAwsMacie2CustomDataIdentifiers = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsMacie2CustomDataIdentifierOutputProps>(
     AwsMacie2CustomDataIdentifier,
     idFilter,
     baseNode,

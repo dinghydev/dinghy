@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSsmResourceDataSyncInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   s3_destination: resolvableValue(z.object({
     bucket_name: z.string(),
@@ -22,20 +22,22 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsSsmResourceDataSyncOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSsmResourceDataSyncInputProps =
+  & z.input<typeof AwsSsmResourceDataSyncInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSsmResourceDataSyncOutputProps =
+  & z.output<typeof AwsSsmResourceDataSyncOutputSchema>
+  & z.output<typeof AwsSsmResourceDataSyncInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssm_resource_data_sync
 
-export function AwsSsmResourceDataSync(props: Partial<InputProps>) {
+export function AwsSsmResourceDataSync(
+  props: Partial<AwsSsmResourceDataSyncInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,8 +47,8 @@ export function AwsSsmResourceDataSync(props: Partial<InputProps>) {
       _type='aws_ssm_resource_data_sync'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSsmResourceDataSyncInputSchema}
+      _outputSchema={AwsSsmResourceDataSyncOutputSchema}
       {...props}
     />
   )
@@ -57,7 +59,7 @@ export const useAwsSsmResourceDataSync = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSsmResourceDataSyncOutputProps>(
     AwsSsmResourceDataSync,
     idFilter,
     baseNode,
@@ -69,7 +71,7 @@ export const useAwsSsmResourceDataSyncs = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSsmResourceDataSyncOutputProps>(
     AwsSsmResourceDataSync,
     idFilter,
     baseNode,

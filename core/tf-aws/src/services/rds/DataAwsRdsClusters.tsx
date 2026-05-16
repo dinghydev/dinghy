@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsRdsClustersInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -19,23 +19,25 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsRdsClustersOutputSchema = z.object({
   cluster_arns: z.set(z.string()).optional(),
   cluster_identifiers: z.set(z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsRdsClustersInputProps =
+  & z.input<typeof DataAwsRdsClustersInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsRdsClustersOutputProps =
+  & z.output<typeof DataAwsRdsClustersOutputSchema>
+  & z.output<typeof DataAwsRdsClustersInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/rds_clusters
 
-export function DataAwsRdsClusters(props: Partial<InputProps>) {
+export function DataAwsRdsClusters(
+  props: Partial<DataAwsRdsClustersInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,8 +47,8 @@ export function DataAwsRdsClusters(props: Partial<InputProps>) {
       _type='aws_rds_clusters'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsRdsClustersInputSchema}
+      _outputSchema={DataAwsRdsClustersOutputSchema}
       {...props}
     />
   )
@@ -57,4 +59,9 @@ export const useDataAwsRdsClusterss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsRdsClusters, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsRdsClustersOutputProps>(
+    DataAwsRdsClusters,
+    idFilter,
+    baseNode,
+    optional,
+  )

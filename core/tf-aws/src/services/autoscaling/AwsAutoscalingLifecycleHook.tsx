@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAutoscalingLifecycleHookInputSchema = TfMetaSchema.extend({
   autoscaling_group_name: resolvableValue(z.string()),
   lifecycle_transition: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -22,28 +22,30 @@ export const InputSchema = TfMetaSchema.extend({
   role_arn: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsAutoscalingLifecycleHookOutputSchema = z.object({})
 
-export const ImportSchema = z.object({
+export const AwsAutoscalingLifecycleHookImportSchema = z.object({
   autoscaling_group_name: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsAutoscalingLifecycleHookInputProps =
+  & z.input<typeof AwsAutoscalingLifecycleHookInputSchema>
+  & z.input<typeof AwsAutoscalingLifecycleHookImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAutoscalingLifecycleHookOutputProps =
+  & z.output<typeof AwsAutoscalingLifecycleHookOutputSchema>
+  & z.output<typeof AwsAutoscalingLifecycleHookInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/autoscaling_lifecycle_hook
 
-export function AwsAutoscalingLifecycleHook(props: Partial<InputProps>) {
+export function AwsAutoscalingLifecycleHook(
+  props: Partial<AwsAutoscalingLifecycleHookInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,9 +55,9 @@ export function AwsAutoscalingLifecycleHook(props: Partial<InputProps>) {
       _type='aws_autoscaling_lifecycle_hook'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsAutoscalingLifecycleHookInputSchema}
+      _outputSchema={AwsAutoscalingLifecycleHookOutputSchema}
+      _importSchema={AwsAutoscalingLifecycleHookImportSchema}
       {...props}
     />
   )
@@ -66,7 +68,7 @@ export const useAwsAutoscalingLifecycleHook = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAutoscalingLifecycleHookOutputProps>(
     AwsAutoscalingLifecycleHook,
     idFilter,
     baseNode,
@@ -78,7 +80,7 @@ export const useAwsAutoscalingLifecycleHooks = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAutoscalingLifecycleHookOutputProps>(
     AwsAutoscalingLifecycleHook,
     idFilter,
     baseNode,

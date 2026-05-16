@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDatazoneDomainInputSchema = TfMetaSchema.extend({
   domain_execution_role: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
@@ -33,7 +33,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDatazoneDomainOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   portal_url: z.string().optional(),
@@ -41,18 +41,18 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDatazoneDomainInputProps =
+  & z.input<typeof AwsDatazoneDomainInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDatazoneDomainOutputProps =
+  & z.output<typeof AwsDatazoneDomainOutputSchema>
+  & z.output<typeof AwsDatazoneDomainInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/datazone_domain
 
-export function AwsDatazoneDomain(props: Partial<InputProps>) {
+export function AwsDatazoneDomain(props: Partial<AwsDatazoneDomainInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -62,8 +62,8 @@ export function AwsDatazoneDomain(props: Partial<InputProps>) {
       _type='aws_datazone_domain'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDatazoneDomainInputSchema}
+      _outputSchema={AwsDatazoneDomainOutputSchema}
       {...props}
     />
   )
@@ -73,10 +73,22 @@ export const useAwsDatazoneDomain = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsDatazoneDomain, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsDatazoneDomainOutputProps>(
+    AwsDatazoneDomain,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDatazoneDomains = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsDatazoneDomain, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsDatazoneDomainOutputProps>(
+    AwsDatazoneDomain,
+    idFilter,
+    baseNode,
+    optional,
+  )

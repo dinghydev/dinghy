@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsKinesisVideoStreamInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   data_retention_in_hours: resolvableValue(z.number().optional()),
   device_name: resolvableValue(z.string().optional()),
@@ -26,7 +26,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsKinesisVideoStreamOutputSchema = z.object({
   arn: z.string().optional(),
   creation_time: z.string().optional(),
   id: z.string().optional(),
@@ -34,18 +34,20 @@ export const OutputSchema = z.object({
   version: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsKinesisVideoStreamInputProps =
+  & z.input<typeof AwsKinesisVideoStreamInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsKinesisVideoStreamOutputProps =
+  & z.output<typeof AwsKinesisVideoStreamOutputSchema>
+  & z.output<typeof AwsKinesisVideoStreamInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/kinesis_video_stream
 
-export function AwsKinesisVideoStream(props: Partial<InputProps>) {
+export function AwsKinesisVideoStream(
+  props: Partial<AwsKinesisVideoStreamInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,8 +57,8 @@ export function AwsKinesisVideoStream(props: Partial<InputProps>) {
       _type='aws_kinesis_video_stream'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsKinesisVideoStreamInputSchema}
+      _outputSchema={AwsKinesisVideoStreamOutputSchema}
       {...props}
     />
   )
@@ -67,14 +69,19 @@ export const useAwsKinesisVideoStream = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsKinesisVideoStream, idFilter, baseNode, optional)
+  useTypedNode<AwsKinesisVideoStreamOutputProps>(
+    AwsKinesisVideoStream,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsKinesisVideoStreams = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsKinesisVideoStreamOutputProps>(
     AwsKinesisVideoStream,
     idFilter,
     baseNode,

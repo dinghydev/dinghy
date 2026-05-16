@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAppconfigEnvironmentInputSchema = TfMetaSchema.extend({
   application_id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
@@ -23,7 +23,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAppconfigEnvironmentOutputSchema = z.object({
   arn: z.string().optional(),
   environment_id: z.string().optional(),
   id: z.string().optional(),
@@ -31,18 +31,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAppconfigEnvironmentInputProps =
+  & z.input<typeof AwsAppconfigEnvironmentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppconfigEnvironmentOutputProps =
+  & z.output<typeof AwsAppconfigEnvironmentOutputSchema>
+  & z.output<typeof AwsAppconfigEnvironmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appconfig_environment
 
-export function AwsAppconfigEnvironment(props: Partial<InputProps>) {
+export function AwsAppconfigEnvironment(
+  props: Partial<AwsAppconfigEnvironmentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,8 +54,8 @@ export function AwsAppconfigEnvironment(props: Partial<InputProps>) {
       _type='aws_appconfig_environment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAppconfigEnvironmentInputSchema}
+      _outputSchema={AwsAppconfigEnvironmentOutputSchema}
       {...props}
     />
   )
@@ -64,7 +66,7 @@ export const useAwsAppconfigEnvironment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAppconfigEnvironmentOutputProps>(
     AwsAppconfigEnvironment,
     idFilter,
     baseNode,
@@ -76,7 +78,7 @@ export const useAwsAppconfigEnvironments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAppconfigEnvironmentOutputProps>(
     AwsAppconfigEnvironment,
     idFilter,
     baseNode,

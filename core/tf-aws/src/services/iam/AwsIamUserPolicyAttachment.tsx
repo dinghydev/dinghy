@@ -9,33 +9,35 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIamUserPolicyAttachmentInputSchema = TfMetaSchema.extend({
   policy_arn: resolvableValue(z.string()),
   user: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsIamUserPolicyAttachmentOutputSchema = z.object({})
 
-export const ImportSchema = z.object({
+export const AwsIamUserPolicyAttachmentImportSchema = z.object({
   policy_arn: resolvableValue(z.string()),
   user: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsIamUserPolicyAttachmentInputProps =
+  & z.input<typeof AwsIamUserPolicyAttachmentInputSchema>
+  & z.input<typeof AwsIamUserPolicyAttachmentImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIamUserPolicyAttachmentOutputProps =
+  & z.output<typeof AwsIamUserPolicyAttachmentOutputSchema>
+  & z.output<typeof AwsIamUserPolicyAttachmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iam_user_policy_attachment
 
-export function AwsIamUserPolicyAttachment(props: Partial<InputProps>) {
+export function AwsIamUserPolicyAttachment(
+  props: Partial<AwsIamUserPolicyAttachmentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,9 +47,9 @@ export function AwsIamUserPolicyAttachment(props: Partial<InputProps>) {
       _type='aws_iam_user_policy_attachment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsIamUserPolicyAttachmentInputSchema}
+      _outputSchema={AwsIamUserPolicyAttachmentOutputSchema}
+      _importSchema={AwsIamUserPolicyAttachmentImportSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useAwsIamUserPolicyAttachment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsIamUserPolicyAttachmentOutputProps>(
     AwsIamUserPolicyAttachment,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useAwsIamUserPolicyAttachments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsIamUserPolicyAttachmentOutputProps>(
     AwsIamUserPolicyAttachment,
     idFilter,
     baseNode,

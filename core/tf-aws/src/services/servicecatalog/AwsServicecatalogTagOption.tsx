@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsServicecatalogTagOptionInputSchema = TfMetaSchema.extend({
   __key: resolvableValue(z.string()),
   value: resolvableValue(z.string()),
   active: resolvableValue(z.boolean().optional()),
@@ -24,23 +24,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsServicecatalogTagOptionOutputSchema = z.object({
   id: z.string().optional(),
   owner: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsServicecatalogTagOptionInputProps =
+  & z.input<typeof AwsServicecatalogTagOptionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsServicecatalogTagOptionOutputProps =
+  & z.output<typeof AwsServicecatalogTagOptionOutputSchema>
+  & z.output<typeof AwsServicecatalogTagOptionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/servicecatalog_tag_option
 
-export function AwsServicecatalogTagOption(props: Partial<InputProps>) {
+export function AwsServicecatalogTagOption(
+  props: Partial<AwsServicecatalogTagOptionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -50,8 +52,8 @@ export function AwsServicecatalogTagOption(props: Partial<InputProps>) {
       _type='aws_servicecatalog_tag_option'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsServicecatalogTagOptionInputSchema}
+      _outputSchema={AwsServicecatalogTagOptionOutputSchema}
       {...props}
     />
   )
@@ -62,7 +64,7 @@ export const useAwsServicecatalogTagOption = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsServicecatalogTagOptionOutputProps>(
     AwsServicecatalogTagOption,
     idFilter,
     baseNode,
@@ -74,7 +76,7 @@ export const useAwsServicecatalogTagOptions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsServicecatalogTagOptionOutputProps>(
     AwsServicecatalogTagOption,
     idFilter,
     baseNode,

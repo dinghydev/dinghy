@@ -9,40 +9,41 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  action: resolvableValue(z.string()),
-  resource_arn: resolvableValue(z.string()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-      update: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsShieldApplicationLayerAutomaticResponseInputSchema =
+  TfMetaSchema.extend({
+    action: resolvableValue(z.string()),
+    resource_arn: resolvableValue(z.string()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+        update: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsShieldApplicationLayerAutomaticResponseOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsShieldApplicationLayerAutomaticResponseImportSchema = z.object({
   resource_arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsShieldApplicationLayerAutomaticResponseInputProps =
+  & z.input<typeof AwsShieldApplicationLayerAutomaticResponseInputSchema>
+  & z.input<typeof AwsShieldApplicationLayerAutomaticResponseImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsShieldApplicationLayerAutomaticResponseOutputProps =
+  & z.output<typeof AwsShieldApplicationLayerAutomaticResponseOutputSchema>
+  & z.output<typeof AwsShieldApplicationLayerAutomaticResponseInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/shield_application_layer_automatic_response
 
 export function AwsShieldApplicationLayerAutomaticResponse(
-  props: Partial<InputProps>,
+  props: Partial<AwsShieldApplicationLayerAutomaticResponseInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -53,9 +54,9 @@ export function AwsShieldApplicationLayerAutomaticResponse(
       _type='aws_shield_application_layer_automatic_response'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsShieldApplicationLayerAutomaticResponseInputSchema}
+      _outputSchema={AwsShieldApplicationLayerAutomaticResponseOutputSchema}
+      _importSchema={AwsShieldApplicationLayerAutomaticResponseImportSchema}
       {...props}
     />
   )
@@ -66,7 +67,7 @@ export const useAwsShieldApplicationLayerAutomaticResponse = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsShieldApplicationLayerAutomaticResponseOutputProps>(
     AwsShieldApplicationLayerAutomaticResponse,
     idFilter,
     baseNode,
@@ -78,7 +79,7 @@ export const useAwsShieldApplicationLayerAutomaticResponses = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsShieldApplicationLayerAutomaticResponseOutputProps>(
     AwsShieldApplicationLayerAutomaticResponse,
     idFilter,
     baseNode,

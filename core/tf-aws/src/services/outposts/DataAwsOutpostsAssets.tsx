@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsOutpostsAssetsInputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   host_id_filter: resolvableValue(z.string().array().optional()),
   id: resolvableValue(z.string().optional()),
@@ -16,22 +16,24 @@ export const InputSchema = TfMetaSchema.extend({
   status_id_filter: resolvableValue(z.string().array().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsOutpostsAssetsOutputSchema = z.object({
   asset_ids: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsOutpostsAssetsInputProps =
+  & z.input<typeof DataAwsOutpostsAssetsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsOutpostsAssetsOutputProps =
+  & z.output<typeof DataAwsOutpostsAssetsOutputSchema>
+  & z.output<typeof DataAwsOutpostsAssetsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/outposts_assets
 
-export function DataAwsOutpostsAssets(props: Partial<InputProps>) {
+export function DataAwsOutpostsAssets(
+  props: Partial<DataAwsOutpostsAssetsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -41,8 +43,8 @@ export function DataAwsOutpostsAssets(props: Partial<InputProps>) {
       _type='aws_outposts_assets'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsOutpostsAssetsInputSchema}
+      _outputSchema={DataAwsOutpostsAssetsOutputSchema}
       {...props}
     />
   )
@@ -53,7 +55,7 @@ export const useDataAwsOutpostsAssetss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsOutpostsAssetsOutputProps>(
     DataAwsOutpostsAssets,
     idFilter,
     baseNode,

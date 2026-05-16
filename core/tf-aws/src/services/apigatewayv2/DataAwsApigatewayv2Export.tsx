@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsApigatewayv2ExportInputSchema = TfMetaSchema.extend({
   api_id: resolvableValue(z.string()),
   output_type: resolvableValue(z.string()),
   specification: resolvableValue(z.string()),
@@ -19,23 +19,25 @@ export const InputSchema = TfMetaSchema.extend({
   stage_name: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsApigatewayv2ExportOutputSchema = z.object({
   body: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsApigatewayv2ExportInputProps =
+  & z.input<typeof DataAwsApigatewayv2ExportInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsApigatewayv2ExportOutputProps =
+  & z.output<typeof DataAwsApigatewayv2ExportOutputSchema>
+  & z.output<typeof DataAwsApigatewayv2ExportInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/apigatewayv2_export
 
-export function DataAwsApigatewayv2Export(props: Partial<InputProps>) {
+export function DataAwsApigatewayv2Export(
+  props: Partial<DataAwsApigatewayv2ExportInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,8 +47,8 @@ export function DataAwsApigatewayv2Export(props: Partial<InputProps>) {
       _type='aws_apigatewayv2_export'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsApigatewayv2ExportInputSchema}
+      _outputSchema={DataAwsApigatewayv2ExportOutputSchema}
       {...props}
     />
   )
@@ -57,7 +59,7 @@ export const useDataAwsApigatewayv2Export = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsApigatewayv2ExportOutputProps>(
     DataAwsApigatewayv2Export,
     idFilter,
     baseNode,
@@ -69,7 +71,7 @@ export const useDataAwsApigatewayv2Exports = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsApigatewayv2ExportOutputProps>(
     DataAwsApigatewayv2Export,
     idFilter,
     baseNode,

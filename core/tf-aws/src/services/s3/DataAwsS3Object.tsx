@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsS3Object } from './AwsS3Object.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsS3ObjectInputSchema = TfMetaSchema.extend({
   __key: resolvableValue(z.string()),
   bucket: resolvableValue(z.string()),
   checksum_mode: resolvableValue(z.string().optional()),
@@ -20,7 +20,7 @@ export const InputSchema = TfMetaSchema.extend({
   version_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsS3ObjectOutputSchema = z.object({
   arn: z.string().optional(),
   body: z.string().optional(),
   body_base64: z.string().optional(),
@@ -52,18 +52,18 @@ export const OutputSchema = z.object({
   website_redirect_location: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsS3ObjectInputProps =
+  & z.input<typeof DataAwsS3ObjectInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsS3ObjectOutputProps =
+  & z.output<typeof DataAwsS3ObjectOutputSchema>
+  & z.output<typeof DataAwsS3ObjectInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/s3_object
 
-export function DataAwsS3Object(props: Partial<InputProps>) {
+export function DataAwsS3Object(props: Partial<DataAwsS3ObjectInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -73,8 +73,8 @@ export function DataAwsS3Object(props: Partial<InputProps>) {
       _type='aws_s3_object'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsS3ObjectInputSchema}
+      _outputSchema={DataAwsS3ObjectOutputSchema}
       {...props as any}
     />
   )
@@ -84,10 +84,22 @@ export const useDataAwsS3Object = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsS3Object, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsS3ObjectOutputProps>(
+    DataAwsS3Object,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsS3Objects = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsS3Object, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsS3ObjectOutputProps>(
+    DataAwsS3Object,
+    idFilter,
+    baseNode,
+    optional,
+  )

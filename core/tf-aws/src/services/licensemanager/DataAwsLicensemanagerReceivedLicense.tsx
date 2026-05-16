@@ -9,12 +9,13 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  license_arn: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsLicensemanagerReceivedLicenseInputSchema = TfMetaSchema
+  .extend({
+    license_arn: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsLicensemanagerReceivedLicenseOutputSchema = z.object({
   beneficiary: z.string().optional(),
   consumption_configuration: z.object({
     borrow_configuration: z.object({
@@ -63,19 +64,19 @@ export const OutputSchema = z.object({
   version: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsLicensemanagerReceivedLicenseInputProps =
+  & z.input<typeof DataAwsLicensemanagerReceivedLicenseInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsLicensemanagerReceivedLicenseOutputProps =
+  & z.output<typeof DataAwsLicensemanagerReceivedLicenseOutputSchema>
+  & z.output<typeof DataAwsLicensemanagerReceivedLicenseInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/licensemanager_received_license
 
 export function DataAwsLicensemanagerReceivedLicense(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsLicensemanagerReceivedLicenseInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -86,8 +87,8 @@ export function DataAwsLicensemanagerReceivedLicense(
       _type='aws_licensemanager_received_license'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsLicensemanagerReceivedLicenseInputSchema}
+      _outputSchema={DataAwsLicensemanagerReceivedLicenseOutputSchema}
       {...props}
     />
   )
@@ -98,7 +99,7 @@ export const useDataAwsLicensemanagerReceivedLicense = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsLicensemanagerReceivedLicenseOutputProps>(
     DataAwsLicensemanagerReceivedLicense,
     idFilter,
     baseNode,
@@ -110,7 +111,7 @@ export const useDataAwsLicensemanagerReceivedLicenses = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsLicensemanagerReceivedLicenseOutputProps>(
     DataAwsLicensemanagerReceivedLicense,
     idFilter,
     baseNode,

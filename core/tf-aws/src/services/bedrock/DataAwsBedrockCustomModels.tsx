@@ -8,11 +8,11 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsBedrockCustomModelsInputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsBedrockCustomModelsOutputSchema = z.object({
   id: z.string().optional(),
   model_summaries: z.object({
     creation_time: z.string(),
@@ -21,18 +21,20 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsBedrockCustomModelsInputProps =
+  & z.input<typeof DataAwsBedrockCustomModelsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsBedrockCustomModelsOutputProps =
+  & z.output<typeof DataAwsBedrockCustomModelsOutputSchema>
+  & z.output<typeof DataAwsBedrockCustomModelsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/bedrock_custom_models
 
-export function DataAwsBedrockCustomModels(props: Partial<InputProps>) {
+export function DataAwsBedrockCustomModels(
+  props: Partial<DataAwsBedrockCustomModelsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +44,8 @@ export function DataAwsBedrockCustomModels(props: Partial<InputProps>) {
       _type='aws_bedrock_custom_models'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsBedrockCustomModelsInputSchema}
+      _outputSchema={DataAwsBedrockCustomModelsOutputSchema}
       {...props}
     />
   )
@@ -54,7 +56,7 @@ export const useDataAwsBedrockCustomModelss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsBedrockCustomModelsOutputProps>(
     DataAwsBedrockCustomModels,
     idFilter,
     baseNode,

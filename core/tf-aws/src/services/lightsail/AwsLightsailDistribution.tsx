@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLightsailDistributionInputSchema = TfMetaSchema.extend({
   bundle_id: resolvableValue(z.string()),
   default_cache_behavior: resolvableValue(z.object({
     behavior: z.string(),
@@ -63,7 +63,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsLightsailDistributionOutputSchema = z.object({
   alternative_domain_names: z.string().array().optional(),
   arn: z.string().optional(),
   created_at: z.string().optional(),
@@ -79,18 +79,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLightsailDistributionInputProps =
+  & z.input<typeof AwsLightsailDistributionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLightsailDistributionOutputProps =
+  & z.output<typeof AwsLightsailDistributionOutputSchema>
+  & z.output<typeof AwsLightsailDistributionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lightsail_distribution
 
-export function AwsLightsailDistribution(props: Partial<InputProps>) {
+export function AwsLightsailDistribution(
+  props: Partial<AwsLightsailDistributionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -100,8 +102,8 @@ export function AwsLightsailDistribution(props: Partial<InputProps>) {
       _type='aws_lightsail_distribution'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLightsailDistributionInputSchema}
+      _outputSchema={AwsLightsailDistributionOutputSchema}
       {...props}
     />
   )
@@ -112,7 +114,7 @@ export const useAwsLightsailDistribution = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsLightsailDistributionOutputProps>(
     AwsLightsailDistribution,
     idFilter,
     baseNode,
@@ -124,7 +126,7 @@ export const useAwsLightsailDistributions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsLightsailDistributionOutputProps>(
     AwsLightsailDistribution,
     idFilter,
     baseNode,

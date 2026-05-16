@@ -9,14 +9,14 @@ import {
 import z from 'zod'
 import { AwsDmsEndpoint } from './AwsDmsEndpoint.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsDmsEndpointInputSchema = TfMetaSchema.extend({
   endpoint_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsDmsEndpointOutputSchema = z.object({
   certificate_arn: z.string().optional(),
   database_name: z.string().optional(),
   elasticsearch_settings: z.object({
@@ -171,18 +171,20 @@ export const OutputSchema = z.object({
   username: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsDmsEndpointInputProps =
+  & z.input<typeof DataAwsDmsEndpointInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsDmsEndpointOutputProps =
+  & z.output<typeof DataAwsDmsEndpointOutputSchema>
+  & z.output<typeof DataAwsDmsEndpointInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/dms_endpoint
 
-export function DataAwsDmsEndpoint(props: Partial<InputProps>) {
+export function DataAwsDmsEndpoint(
+  props: Partial<DataAwsDmsEndpointInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -192,8 +194,8 @@ export function DataAwsDmsEndpoint(props: Partial<InputProps>) {
       _type='aws_dms_endpoint'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsDmsEndpointInputSchema}
+      _outputSchema={DataAwsDmsEndpointOutputSchema}
       {...props as any}
     />
   )
@@ -203,11 +205,22 @@ export const useDataAwsDmsEndpoint = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsDmsEndpoint, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsDmsEndpointOutputProps>(
+    DataAwsDmsEndpoint,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsDmsEndpoints = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsDmsEndpoint, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsDmsEndpointOutputProps>(
+    DataAwsDmsEndpoint,
+    idFilter,
+    baseNode,
+    optional,
+  )

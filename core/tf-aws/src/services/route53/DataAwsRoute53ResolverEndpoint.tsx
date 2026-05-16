@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsRoute53ResolverEndpoint } from './AwsRoute53ResolverEndpoint.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsRoute53ResolverEndpointInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -21,7 +21,7 @@ export const InputSchema = TfMetaSchema.extend({
   resolver_endpoint_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsRoute53ResolverEndpointOutputSchema = z.object({
   arn: z.string().optional(),
   direction: z.string().optional(),
   ip_addresses: z.set(z.string()).optional(),
@@ -34,18 +34,20 @@ export const OutputSchema = z.object({
   vpc_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsRoute53ResolverEndpointInputProps =
+  & z.input<typeof DataAwsRoute53ResolverEndpointInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsRoute53ResolverEndpointOutputProps =
+  & z.output<typeof DataAwsRoute53ResolverEndpointOutputSchema>
+  & z.output<typeof DataAwsRoute53ResolverEndpointInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/route53_resolver_endpoint
 
-export function DataAwsRoute53ResolverEndpoint(props: Partial<InputProps>) {
+export function DataAwsRoute53ResolverEndpoint(
+  props: Partial<DataAwsRoute53ResolverEndpointInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,8 +57,8 @@ export function DataAwsRoute53ResolverEndpoint(props: Partial<InputProps>) {
       _type='aws_route53_resolver_endpoint'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsRoute53ResolverEndpointInputSchema}
+      _outputSchema={DataAwsRoute53ResolverEndpointOutputSchema}
       {...props as any}
     />
   )
@@ -67,7 +69,7 @@ export const useDataAwsRoute53ResolverEndpoint = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsRoute53ResolverEndpointOutputProps>(
     DataAwsRoute53ResolverEndpoint,
     idFilter,
     baseNode,
@@ -79,7 +81,7 @@ export const useDataAwsRoute53ResolverEndpoints = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsRoute53ResolverEndpointOutputProps>(
     DataAwsRoute53ResolverEndpoint,
     idFilter,
     baseNode,

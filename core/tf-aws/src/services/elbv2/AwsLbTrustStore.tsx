@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLbTrustStoreInputSchema = TfMetaSchema.extend({
   ca_certificates_bundle_s3_bucket: resolvableValue(z.string()),
   ca_certificates_bundle_s3_key: resolvableValue(z.string()),
   ca_certificates_bundle_s3_object_version: resolvableValue(
@@ -27,7 +27,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsLbTrustStoreOutputSchema = z.object({
   arn: z.string().optional(),
   arn_suffix: z.string().optional(),
   id: z.string().optional(),
@@ -35,23 +35,23 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsLbTrustStoreImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsLbTrustStoreInputProps =
+  & z.input<typeof AwsLbTrustStoreInputSchema>
+  & z.input<typeof AwsLbTrustStoreImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLbTrustStoreOutputProps =
+  & z.output<typeof AwsLbTrustStoreOutputSchema>
+  & z.output<typeof AwsLbTrustStoreInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lb_trust_store
 
-export function AwsLbTrustStore(props: Partial<InputProps>) {
+export function AwsLbTrustStore(props: Partial<AwsLbTrustStoreInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -61,9 +61,9 @@ export function AwsLbTrustStore(props: Partial<InputProps>) {
       _type='aws_lb_trust_store'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsLbTrustStoreInputSchema}
+      _outputSchema={AwsLbTrustStoreOutputSchema}
+      _importSchema={AwsLbTrustStoreImportSchema}
       {...props}
     />
   )
@@ -73,10 +73,22 @@ export const useAwsLbTrustStore = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsLbTrustStore, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsLbTrustStoreOutputProps>(
+    AwsLbTrustStore,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLbTrustStores = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsLbTrustStore, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsLbTrustStoreOutputProps>(
+    AwsLbTrustStore,
+    idFilter,
+    baseNode,
+    optional,
+  )

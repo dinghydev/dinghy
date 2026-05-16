@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsIamSamlProvider } from './AwsIamSamlProvider.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsIamSamlProviderInputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsIamSamlProviderOutputSchema = z.object({
   create_date: z.string().optional(),
   name: z.string().optional(),
   saml_metadata_document: z.string().optional(),
@@ -23,18 +23,20 @@ export const OutputSchema = z.object({
   valid_until: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsIamSamlProviderInputProps =
+  & z.input<typeof DataAwsIamSamlProviderInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsIamSamlProviderOutputProps =
+  & z.output<typeof DataAwsIamSamlProviderOutputSchema>
+  & z.output<typeof DataAwsIamSamlProviderInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/iam_saml_provider
 
-export function DataAwsIamSamlProvider(props: Partial<InputProps>) {
+export function DataAwsIamSamlProvider(
+  props: Partial<DataAwsIamSamlProviderInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +46,8 @@ export function DataAwsIamSamlProvider(props: Partial<InputProps>) {
       _type='aws_iam_saml_provider'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsIamSamlProviderInputSchema}
+      _outputSchema={DataAwsIamSamlProviderOutputSchema}
       {...props as any}
     />
   )
@@ -56,7 +58,7 @@ export const useDataAwsIamSamlProvider = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsIamSamlProviderOutputProps>(
     DataAwsIamSamlProvider,
     idFilter,
     baseNode,
@@ -68,7 +70,7 @@ export const useDataAwsIamSamlProviders = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsIamSamlProviderOutputProps>(
     DataAwsIamSamlProvider,
     idFilter,
     baseNode,

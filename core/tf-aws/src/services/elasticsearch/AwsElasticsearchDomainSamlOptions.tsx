@@ -8,47 +8,51 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  domain_name: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-  saml_options: resolvableValue(
-    z.object({
-      enabled: z.boolean().optional(),
-      master_backend_role: z.string().optional(),
-      master_user_name: z.string().optional(),
-      roles_key: z.string().optional(),
-      session_timeout_minutes: z.number().optional(),
-      subject_key: z.string().optional(),
-      idp: z.object({
-        entity_id: z.string(),
-        metadata_content: z.string(),
+export const AwsElasticsearchDomainSamlOptionsInputSchema = TfMetaSchema.extend(
+  {
+    domain_name: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+    saml_options: resolvableValue(
+      z.object({
+        enabled: z.boolean().optional(),
+        master_backend_role: z.string().optional(),
+        master_user_name: z.string().optional(),
+        roles_key: z.string().optional(),
+        session_timeout_minutes: z.number().optional(),
+        subject_key: z.string().optional(),
+        idp: z.object({
+          entity_id: z.string(),
+          metadata_content: z.string(),
+        }).optional(),
       }).optional(),
-    }).optional(),
-  ),
-  timeouts: resolvableValue(
-    z.object({
-      delete: z.string().optional(),
-      update: z.string().optional(),
-    }).optional(),
-  ),
-})
+    ),
+    timeouts: resolvableValue(
+      z.object({
+        delete: z.string().optional(),
+        update: z.string().optional(),
+      }).optional(),
+    ),
+  },
+)
 
-export const OutputSchema = z.object({
+export const AwsElasticsearchDomainSamlOptionsOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsElasticsearchDomainSamlOptionsInputProps =
+  & z.input<typeof AwsElasticsearchDomainSamlOptionsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsElasticsearchDomainSamlOptionsOutputProps =
+  & z.output<typeof AwsElasticsearchDomainSamlOptionsOutputSchema>
+  & z.output<typeof AwsElasticsearchDomainSamlOptionsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/elasticsearch_domain_saml_options
 
-export function AwsElasticsearchDomainSamlOptions(props: Partial<InputProps>) {
+export function AwsElasticsearchDomainSamlOptions(
+  props: Partial<AwsElasticsearchDomainSamlOptionsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -58,8 +62,8 @@ export function AwsElasticsearchDomainSamlOptions(props: Partial<InputProps>) {
       _type='aws_elasticsearch_domain_saml_options'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsElasticsearchDomainSamlOptionsInputSchema}
+      _outputSchema={AwsElasticsearchDomainSamlOptionsOutputSchema}
       {...props}
     />
   )
@@ -70,7 +74,7 @@ export const useAwsElasticsearchDomainSamlOptions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsElasticsearchDomainSamlOptionsOutputProps>(
     AwsElasticsearchDomainSamlOptions,
     idFilter,
     baseNode,

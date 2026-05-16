@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsVpcIpamsInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -19,7 +19,7 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsVpcIpamsOutputSchema = z.object({
   ipams: z.object({
     arn: z.string(),
     default_resource_discovery_association_id: z.string(),
@@ -43,18 +43,18 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsVpcIpamsInputProps =
+  & z.input<typeof DataAwsVpcIpamsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsVpcIpamsOutputProps =
+  & z.output<typeof DataAwsVpcIpamsOutputSchema>
+  & z.output<typeof DataAwsVpcIpamsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/vpc_ipams
 
-export function DataAwsVpcIpams(props: Partial<InputProps>) {
+export function DataAwsVpcIpams(props: Partial<DataAwsVpcIpamsInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -64,8 +64,8 @@ export function DataAwsVpcIpams(props: Partial<InputProps>) {
       _type='aws_vpc_ipams'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsVpcIpamsInputSchema}
+      _outputSchema={DataAwsVpcIpamsOutputSchema}
       {...props}
     />
   )
@@ -75,4 +75,10 @@ export const useDataAwsVpcIpamss = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsVpcIpams, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsVpcIpamsOutputProps>(
+    DataAwsVpcIpams,
+    idFilter,
+    baseNode,
+    optional,
+  )

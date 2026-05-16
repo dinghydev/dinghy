@@ -9,31 +9,33 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSyntheticsGroupInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSyntheticsGroupOutputSchema = z.object({
   arn: z.string().optional(),
   group_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSyntheticsGroupInputProps =
+  & z.input<typeof AwsSyntheticsGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSyntheticsGroupOutputProps =
+  & z.output<typeof AwsSyntheticsGroupOutputSchema>
+  & z.output<typeof AwsSyntheticsGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/synthetics_group
 
-export function AwsSyntheticsGroup(props: Partial<InputProps>) {
+export function AwsSyntheticsGroup(
+  props: Partial<AwsSyntheticsGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function AwsSyntheticsGroup(props: Partial<InputProps>) {
       _type='aws_synthetics_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSyntheticsGroupInputSchema}
+      _outputSchema={AwsSyntheticsGroupOutputSchema}
       {...props}
     />
   )
@@ -54,11 +56,22 @@ export const useAwsSyntheticsGroup = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsSyntheticsGroup, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsSyntheticsGroupOutputProps>(
+    AwsSyntheticsGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSyntheticsGroups = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSyntheticsGroup, idFilter, baseNode, optional)
+  useTypedNodes<AwsSyntheticsGroupOutputProps>(
+    AwsSyntheticsGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsFisTargetAccountConfigurationInputSchema = TfMetaSchema.extend({
   account_id: resolvableValue(z.string()),
   experiment_template_id: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
@@ -17,20 +17,22 @@ export const InputSchema = TfMetaSchema.extend({
   role_arn: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsFisTargetAccountConfigurationOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsFisTargetAccountConfigurationInputProps =
+  & z.input<typeof AwsFisTargetAccountConfigurationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsFisTargetAccountConfigurationOutputProps =
+  & z.output<typeof AwsFisTargetAccountConfigurationOutputSchema>
+  & z.output<typeof AwsFisTargetAccountConfigurationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/fis_target_account_configuration
 
-export function AwsFisTargetAccountConfiguration(props: Partial<InputProps>) {
+export function AwsFisTargetAccountConfiguration(
+  props: Partial<AwsFisTargetAccountConfigurationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function AwsFisTargetAccountConfiguration(props: Partial<InputProps>) {
       _type='aws_fis_target_account_configuration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsFisTargetAccountConfigurationInputSchema}
+      _outputSchema={AwsFisTargetAccountConfigurationOutputSchema}
       {...props}
     />
   )
@@ -52,7 +54,7 @@ export const useAwsFisTargetAccountConfiguration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsFisTargetAccountConfigurationOutputProps>(
     AwsFisTargetAccountConfiguration,
     idFilter,
     baseNode,
@@ -64,7 +66,7 @@ export const useAwsFisTargetAccountConfigurations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsFisTargetAccountConfigurationOutputProps>(
     AwsFisTargetAccountConfiguration,
     idFilter,
     baseNode,

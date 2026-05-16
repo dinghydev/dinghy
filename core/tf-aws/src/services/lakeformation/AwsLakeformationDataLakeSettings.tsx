@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLakeformationDataLakeSettingsInputSchema = TfMetaSchema.extend({
   admins: resolvableValue(z.string().array().optional()),
   allow_external_data_filtering: resolvableValue(z.boolean().optional()),
   allow_full_table_external_data_access: resolvableValue(
@@ -40,20 +40,22 @@ export const InputSchema = TfMetaSchema.extend({
   trusted_resource_owners: resolvableValue(z.string().array().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsLakeformationDataLakeSettingsOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLakeformationDataLakeSettingsInputProps =
+  & z.input<typeof AwsLakeformationDataLakeSettingsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLakeformationDataLakeSettingsOutputProps =
+  & z.output<typeof AwsLakeformationDataLakeSettingsOutputSchema>
+  & z.output<typeof AwsLakeformationDataLakeSettingsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lakeformation_data_lake_settings
 
-export function AwsLakeformationDataLakeSettings(props: Partial<InputProps>) {
+export function AwsLakeformationDataLakeSettings(
+  props: Partial<AwsLakeformationDataLakeSettingsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -63,8 +65,8 @@ export function AwsLakeformationDataLakeSettings(props: Partial<InputProps>) {
       _type='aws_lakeformation_data_lake_settings'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLakeformationDataLakeSettingsInputSchema}
+      _outputSchema={AwsLakeformationDataLakeSettingsOutputSchema}
       {...props}
     />
   )
@@ -75,7 +77,7 @@ export const useAwsLakeformationDataLakeSettingss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsLakeformationDataLakeSettingsOutputProps>(
     AwsLakeformationDataLakeSettings,
     idFilter,
     baseNode,

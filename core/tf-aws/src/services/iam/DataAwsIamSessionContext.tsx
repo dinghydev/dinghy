@@ -9,30 +9,32 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsIamSessionContextInputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsIamSessionContextOutputSchema = z.object({
   issuer_arn: z.string().optional(),
   issuer_id: z.string().optional(),
   issuer_name: z.string().optional(),
   session_name: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsIamSessionContextInputProps =
+  & z.input<typeof DataAwsIamSessionContextInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsIamSessionContextOutputProps =
+  & z.output<typeof DataAwsIamSessionContextOutputSchema>
+  & z.output<typeof DataAwsIamSessionContextInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/iam_session_context
 
-export function DataAwsIamSessionContext(props: Partial<InputProps>) {
+export function DataAwsIamSessionContext(
+  props: Partial<DataAwsIamSessionContextInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +44,8 @@ export function DataAwsIamSessionContext(props: Partial<InputProps>) {
       _type='aws_iam_session_context'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsIamSessionContextInputSchema}
+      _outputSchema={DataAwsIamSessionContextOutputSchema}
       {...props}
     />
   )
@@ -54,7 +56,7 @@ export const useDataAwsIamSessionContext = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsIamSessionContextOutputProps>(
     DataAwsIamSessionContext,
     idFilter,
     baseNode,
@@ -66,7 +68,7 @@ export const useDataAwsIamSessionContexts = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsIamSessionContextOutputProps>(
     DataAwsIamSessionContext,
     idFilter,
     baseNode,

@@ -8,12 +8,13 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  plan_arn: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsArcregionswitchRoute53HealthChecksInputSchema = TfMetaSchema
+  .extend({
+    plan_arn: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsArcregionswitchRoute53HealthChecksOutputSchema = z.object({
   health_checks: z.object({
     health_check_id: z.string(),
     hosted_zone_id: z.string(),
@@ -24,19 +25,19 @@ export const OutputSchema = z.object({
   region: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsArcregionswitchRoute53HealthChecksInputProps =
+  & z.input<typeof DataAwsArcregionswitchRoute53HealthChecksInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsArcregionswitchRoute53HealthChecksOutputProps =
+  & z.output<typeof DataAwsArcregionswitchRoute53HealthChecksOutputSchema>
+  & z.output<typeof DataAwsArcregionswitchRoute53HealthChecksInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/arcregionswitch_route53_health_checks
 
 export function DataAwsArcregionswitchRoute53HealthChecks(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsArcregionswitchRoute53HealthChecksInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -47,8 +48,8 @@ export function DataAwsArcregionswitchRoute53HealthChecks(
       _type='aws_arcregionswitch_route53_health_checks'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsArcregionswitchRoute53HealthChecksInputSchema}
+      _outputSchema={DataAwsArcregionswitchRoute53HealthChecksOutputSchema}
       {...props}
     />
   )
@@ -59,7 +60,7 @@ export const useDataAwsArcregionswitchRoute53HealthCheckss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsArcregionswitchRoute53HealthChecksOutputProps>(
     DataAwsArcregionswitchRoute53HealthChecks,
     idFilter,
     baseNode,

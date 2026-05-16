@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsQbusinessApplicationInputSchema = TfMetaSchema.extend({
   display_name: resolvableValue(z.string()),
   iam_service_role_arn: resolvableValue(z.string()),
   identity_center_instance_arn: resolvableValue(z.string()),
@@ -35,25 +35,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsQbusinessApplicationOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   identity_center_application_arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsQbusinessApplicationInputProps =
+  & z.input<typeof AwsQbusinessApplicationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsQbusinessApplicationOutputProps =
+  & z.output<typeof AwsQbusinessApplicationOutputSchema>
+  & z.output<typeof AwsQbusinessApplicationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/qbusiness_application
 
-export function AwsQbusinessApplication(props: Partial<InputProps>) {
+export function AwsQbusinessApplication(
+  props: Partial<AwsQbusinessApplicationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -63,8 +65,8 @@ export function AwsQbusinessApplication(props: Partial<InputProps>) {
       _type='aws_qbusiness_application'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsQbusinessApplicationInputSchema}
+      _outputSchema={AwsQbusinessApplicationOutputSchema}
       {...props}
     />
   )
@@ -75,7 +77,7 @@ export const useAwsQbusinessApplication = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsQbusinessApplicationOutputProps>(
     AwsQbusinessApplication,
     idFilter,
     baseNode,
@@ -87,7 +89,7 @@ export const useAwsQbusinessApplications = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsQbusinessApplicationOutputProps>(
     AwsQbusinessApplication,
     idFilter,
     baseNode,

@@ -9,21 +9,22 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  ipam_id: resolvableValue(z.string()),
-  ipam_resource_discovery_id: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-      update: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsVpcIpamResourceDiscoveryAssociationInputSchema = TfMetaSchema
+  .extend({
+    ipam_id: resolvableValue(z.string()),
+    ipam_resource_discovery_id: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+        update: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsVpcIpamResourceDiscoveryAssociationOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   ipam_arn: z.string().optional(),
@@ -34,19 +35,19 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVpcIpamResourceDiscoveryAssociationInputProps =
+  & z.input<typeof AwsVpcIpamResourceDiscoveryAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVpcIpamResourceDiscoveryAssociationOutputProps =
+  & z.output<typeof AwsVpcIpamResourceDiscoveryAssociationOutputSchema>
+  & z.output<typeof AwsVpcIpamResourceDiscoveryAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpc_ipam_resource_discovery_association
 
 export function AwsVpcIpamResourceDiscoveryAssociation(
-  props: Partial<InputProps>,
+  props: Partial<AwsVpcIpamResourceDiscoveryAssociationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -57,8 +58,8 @@ export function AwsVpcIpamResourceDiscoveryAssociation(
       _type='aws_vpc_ipam_resource_discovery_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVpcIpamResourceDiscoveryAssociationInputSchema}
+      _outputSchema={AwsVpcIpamResourceDiscoveryAssociationOutputSchema}
       {...props}
     />
   )
@@ -69,7 +70,7 @@ export const useAwsVpcIpamResourceDiscoveryAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsVpcIpamResourceDiscoveryAssociationOutputProps>(
     AwsVpcIpamResourceDiscoveryAssociation,
     idFilter,
     baseNode,
@@ -81,7 +82,7 @@ export const useAwsVpcIpamResourceDiscoveryAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsVpcIpamResourceDiscoveryAssociationOutputProps>(
     AwsVpcIpamResourceDiscoveryAssociation,
     idFilter,
     baseNode,

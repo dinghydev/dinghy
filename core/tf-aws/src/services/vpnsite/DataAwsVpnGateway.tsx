@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsVpnGateway } from './AwsVpnGateway.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsVpnGatewayInputSchema = TfMetaSchema.extend({
   amazon_side_asn: resolvableValue(z.string().optional()),
   attached_vpc_id: resolvableValue(z.string().optional()),
   availability_zone: resolvableValue(z.string().optional()),
@@ -30,22 +30,22 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsVpnGatewayOutputSchema = z.object({
   arn: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsVpnGatewayInputProps =
+  & z.input<typeof DataAwsVpnGatewayInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsVpnGatewayOutputProps =
+  & z.output<typeof DataAwsVpnGatewayOutputSchema>
+  & z.output<typeof DataAwsVpnGatewayInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/vpn_gateway
 
-export function DataAwsVpnGateway(props: Partial<InputProps>) {
+export function DataAwsVpnGateway(props: Partial<DataAwsVpnGatewayInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,8 +55,8 @@ export function DataAwsVpnGateway(props: Partial<InputProps>) {
       _type='aws_vpn_gateway'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsVpnGatewayInputSchema}
+      _outputSchema={DataAwsVpnGatewayOutputSchema}
       {...props as any}
     />
   )
@@ -66,10 +66,22 @@ export const useDataAwsVpnGateway = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsVpnGateway, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsVpnGatewayOutputProps>(
+    DataAwsVpnGateway,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsVpnGateways = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsVpnGateway, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsVpnGatewayOutputProps>(
+    DataAwsVpnGateway,
+    idFilter,
+    baseNode,
+    optional,
+  )

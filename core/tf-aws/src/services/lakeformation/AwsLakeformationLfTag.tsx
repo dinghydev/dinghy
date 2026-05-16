@@ -9,29 +9,31 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLakeformationLfTagInputSchema = TfMetaSchema.extend({
   __key: resolvableValue(z.string()),
   values: resolvableValue(z.string().array()),
   catalog_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsLakeformationLfTagOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLakeformationLfTagInputProps =
+  & z.input<typeof AwsLakeformationLfTagInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLakeformationLfTagOutputProps =
+  & z.output<typeof AwsLakeformationLfTagOutputSchema>
+  & z.output<typeof AwsLakeformationLfTagInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lakeformation_lf_tag
 
-export function AwsLakeformationLfTag(props: Partial<InputProps>) {
+export function AwsLakeformationLfTag(
+  props: Partial<AwsLakeformationLfTagInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -41,8 +43,8 @@ export function AwsLakeformationLfTag(props: Partial<InputProps>) {
       _type='aws_lakeformation_lf_tag'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLakeformationLfTagInputSchema}
+      _outputSchema={AwsLakeformationLfTagOutputSchema}
       {...props}
     />
   )
@@ -53,14 +55,19 @@ export const useAwsLakeformationLfTag = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsLakeformationLfTag, idFilter, baseNode, optional)
+  useTypedNode<AwsLakeformationLfTagOutputProps>(
+    AwsLakeformationLfTag,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLakeformationLfTags = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsLakeformationLfTagOutputProps>(
     AwsLakeformationLfTag,
     idFilter,
     baseNode,

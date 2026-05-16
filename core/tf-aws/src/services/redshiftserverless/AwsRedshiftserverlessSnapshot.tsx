@@ -9,14 +9,14 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRedshiftserverlessSnapshotInputSchema = TfMetaSchema.extend({
   namespace_name: resolvableValue(z.string()),
   snapshot_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   retention_period: resolvableValue(z.number().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRedshiftserverlessSnapshotOutputSchema = z.object({
   accounts_with_provisioned_restore_access: z.set(z.string()).optional(),
   accounts_with_restore_access: z.set(z.string()).optional(),
   admin_username: z.string().optional(),
@@ -27,18 +27,20 @@ export const OutputSchema = z.object({
   owner_account: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRedshiftserverlessSnapshotInputProps =
+  & z.input<typeof AwsRedshiftserverlessSnapshotInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRedshiftserverlessSnapshotOutputProps =
+  & z.output<typeof AwsRedshiftserverlessSnapshotOutputSchema>
+  & z.output<typeof AwsRedshiftserverlessSnapshotInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/redshiftserverless_snapshot
 
-export function AwsRedshiftserverlessSnapshot(props: Partial<InputProps>) {
+export function AwsRedshiftserverlessSnapshot(
+  props: Partial<AwsRedshiftserverlessSnapshotInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +50,8 @@ export function AwsRedshiftserverlessSnapshot(props: Partial<InputProps>) {
       _type='aws_redshiftserverless_snapshot'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRedshiftserverlessSnapshotInputSchema}
+      _outputSchema={AwsRedshiftserverlessSnapshotOutputSchema}
       {...props}
     />
   )
@@ -60,7 +62,7 @@ export const useAwsRedshiftserverlessSnapshot = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRedshiftserverlessSnapshotOutputProps>(
     AwsRedshiftserverlessSnapshot,
     idFilter,
     baseNode,
@@ -72,7 +74,7 @@ export const useAwsRedshiftserverlessSnapshots = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRedshiftserverlessSnapshotOutputProps>(
     AwsRedshiftserverlessSnapshot,
     idFilter,
     baseNode,

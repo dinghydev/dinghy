@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSagemakerAlgorithmInputSchema = TfMetaSchema.extend({
   algorithm_name: resolvableValue(z.string()),
   algorithm_description: resolvableValue(z.string().optional()),
   certify_for_marketplace: resolvableValue(z.boolean().optional()),
@@ -228,7 +228,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsSagemakerAlgorithmOutputSchema = z.object({
   algorithm_status: z.string().optional(),
   arn: z.string().optional(),
   creation_time: z.string().optional(),
@@ -236,25 +236,27 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSagemakerAlgorithmImportSchema = z.object({
   algorithm_name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSagemakerAlgorithmInputProps =
+  & z.input<typeof AwsSagemakerAlgorithmInputSchema>
+  & z.input<typeof AwsSagemakerAlgorithmImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSagemakerAlgorithmOutputProps =
+  & z.output<typeof AwsSagemakerAlgorithmOutputSchema>
+  & z.output<typeof AwsSagemakerAlgorithmInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sagemaker_algorithm
 
-export function AwsSagemakerAlgorithm(props: Partial<InputProps>) {
+export function AwsSagemakerAlgorithm(
+  props: Partial<AwsSagemakerAlgorithmInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -264,9 +266,9 @@ export function AwsSagemakerAlgorithm(props: Partial<InputProps>) {
       _type='aws_sagemaker_algorithm'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSagemakerAlgorithmInputSchema}
+      _outputSchema={AwsSagemakerAlgorithmOutputSchema}
+      _importSchema={AwsSagemakerAlgorithmImportSchema}
       {...props}
     />
   )
@@ -277,14 +279,19 @@ export const useAwsSagemakerAlgorithm = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSagemakerAlgorithm, idFilter, baseNode, optional)
+  useTypedNode<AwsSagemakerAlgorithmOutputProps>(
+    AwsSagemakerAlgorithm,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSagemakerAlgorithms = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSagemakerAlgorithmOutputProps>(
     AwsSagemakerAlgorithm,
     idFilter,
     baseNode,

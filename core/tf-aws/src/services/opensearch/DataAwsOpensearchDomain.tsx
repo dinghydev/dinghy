@@ -9,13 +9,13 @@ import {
 import z from 'zod'
 import { AwsOpensearchDomain } from './AwsOpensearchDomain.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsOpensearchDomainInputSchema = TfMetaSchema.extend({
   domain_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsOpensearchDomainOutputSchema = z.object({
   access_policies: z.string().optional(),
   advanced_options: z.record(z.string(), z.string()).optional(),
   advanced_security_options: z.object({
@@ -132,18 +132,20 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsOpensearchDomainInputProps =
+  & z.input<typeof DataAwsOpensearchDomainInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsOpensearchDomainOutputProps =
+  & z.output<typeof DataAwsOpensearchDomainOutputSchema>
+  & z.output<typeof DataAwsOpensearchDomainInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/opensearch_domain
 
-export function DataAwsOpensearchDomain(props: Partial<InputProps>) {
+export function DataAwsOpensearchDomain(
+  props: Partial<DataAwsOpensearchDomainInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -153,8 +155,8 @@ export function DataAwsOpensearchDomain(props: Partial<InputProps>) {
       _type='aws_opensearch_domain'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsOpensearchDomainInputSchema}
+      _outputSchema={DataAwsOpensearchDomainOutputSchema}
       {...props as any}
     />
   )
@@ -165,7 +167,7 @@ export const useDataAwsOpensearchDomain = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsOpensearchDomainOutputProps>(
     DataAwsOpensearchDomain,
     idFilter,
     baseNode,
@@ -177,7 +179,7 @@ export const useDataAwsOpensearchDomains = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsOpensearchDomainOutputProps>(
     DataAwsOpensearchDomain,
     idFilter,
     baseNode,

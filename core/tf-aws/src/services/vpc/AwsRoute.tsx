@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRouteInputSchema = TfMetaSchema.extend({
   route_table_id: resolvableValue(z.string()),
   carrier_gateway_id: resolvableValue(z.string().optional()),
   core_network_arn: resolvableValue(z.string().optional()),
@@ -34,7 +34,7 @@ export const InputSchema = TfMetaSchema.extend({
   vpc_peering_connection_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRouteOutputSchema = z.object({
   id: z.string().optional(),
   instance_id: z.string().optional(),
   instance_owner_id: z.string().optional(),
@@ -42,7 +42,7 @@ export const OutputSchema = z.object({
   state: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsRouteImportSchema = z.object({
   route_table_id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   destination_cidr_block: resolvableValue(z.string().optional()),
@@ -51,19 +51,19 @@ export const ImportSchema = z.object({
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsRouteInputProps =
+  & z.input<typeof AwsRouteInputSchema>
+  & z.input<typeof AwsRouteImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRouteOutputProps =
+  & z.output<typeof AwsRouteOutputSchema>
+  & z.output<typeof AwsRouteInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/route
 
-export function AwsRoute(props: Partial<InputProps>) {
+export function AwsRoute(props: Partial<AwsRouteInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -73,9 +73,9 @@ export function AwsRoute(props: Partial<InputProps>) {
       _type='aws_route'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsRouteInputSchema}
+      _outputSchema={AwsRouteOutputSchema}
+      _importSchema={AwsRouteImportSchema}
       {...props}
     />
   )
@@ -85,10 +85,10 @@ export const useAwsRoute = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsRoute, idFilter, baseNode, optional)
+) => useTypedNode<AwsRouteOutputProps>(AwsRoute, idFilter, baseNode, optional)
 
 export const useAwsRoutes = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsRoute, idFilter, baseNode, optional)
+) => useTypedNodes<AwsRouteOutputProps>(AwsRoute, idFilter, baseNode, optional)

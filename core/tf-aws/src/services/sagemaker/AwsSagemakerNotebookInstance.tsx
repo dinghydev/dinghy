@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSagemakerNotebookInstanceInputSchema = TfMetaSchema.extend({
   instance_type: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   role_arn: resolvableValue(z.string()),
@@ -32,7 +32,7 @@ export const InputSchema = TfMetaSchema.extend({
   volume_size: resolvableValue(z.number().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSagemakerNotebookInstanceOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   network_interface_id: z.string().optional(),
@@ -40,18 +40,20 @@ export const OutputSchema = z.object({
   url: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSagemakerNotebookInstanceInputProps =
+  & z.input<typeof AwsSagemakerNotebookInstanceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSagemakerNotebookInstanceOutputProps =
+  & z.output<typeof AwsSagemakerNotebookInstanceOutputSchema>
+  & z.output<typeof AwsSagemakerNotebookInstanceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sagemaker_notebook_instance
 
-export function AwsSagemakerNotebookInstance(props: Partial<InputProps>) {
+export function AwsSagemakerNotebookInstance(
+  props: Partial<AwsSagemakerNotebookInstanceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -61,8 +63,8 @@ export function AwsSagemakerNotebookInstance(props: Partial<InputProps>) {
       _type='aws_sagemaker_notebook_instance'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSagemakerNotebookInstanceInputSchema}
+      _outputSchema={AwsSagemakerNotebookInstanceOutputSchema}
       {...props}
     />
   )
@@ -73,7 +75,7 @@ export const useAwsSagemakerNotebookInstance = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSagemakerNotebookInstanceOutputProps>(
     AwsSagemakerNotebookInstance,
     idFilter,
     baseNode,
@@ -85,7 +87,7 @@ export const useAwsSagemakerNotebookInstances = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSagemakerNotebookInstanceOutputProps>(
     AwsSagemakerNotebookInstance,
     idFilter,
     baseNode,

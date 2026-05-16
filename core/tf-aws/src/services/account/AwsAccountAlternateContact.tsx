@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAccountAlternateContactInputSchema = TfMetaSchema.extend({
   alternate_contact_type: resolvableValue(z.string()),
   email_address: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -26,20 +26,22 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({})
+export const AwsAccountAlternateContactOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAccountAlternateContactInputProps =
+  & z.input<typeof AwsAccountAlternateContactInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAccountAlternateContactOutputProps =
+  & z.output<typeof AwsAccountAlternateContactOutputSchema>
+  & z.output<typeof AwsAccountAlternateContactInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/account_alternate_contact
 
-export function AwsAccountAlternateContact(props: Partial<InputProps>) {
+export function AwsAccountAlternateContact(
+  props: Partial<AwsAccountAlternateContactInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,8 +51,8 @@ export function AwsAccountAlternateContact(props: Partial<InputProps>) {
       _type='aws_account_alternate_contact'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAccountAlternateContactInputSchema}
+      _outputSchema={AwsAccountAlternateContactOutputSchema}
       {...props}
     />
   )
@@ -61,7 +63,7 @@ export const useAwsAccountAlternateContact = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAccountAlternateContactOutputProps>(
     AwsAccountAlternateContact,
     idFilter,
     baseNode,
@@ -73,7 +75,7 @@ export const useAwsAccountAlternateContacts = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAccountAlternateContactOutputProps>(
     AwsAccountAlternateContact,
     idFilter,
     baseNode,

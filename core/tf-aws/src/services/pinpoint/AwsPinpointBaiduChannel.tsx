@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsPinpointBaiduChannelInputSchema = TfMetaSchema.extend({
   api_key: resolvableValue(z.string()),
   application_id: resolvableValue(z.string()),
   secret_key: resolvableValue(z.string()),
@@ -18,20 +18,22 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsPinpointBaiduChannelOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsPinpointBaiduChannelInputProps =
+  & z.input<typeof AwsPinpointBaiduChannelInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsPinpointBaiduChannelOutputProps =
+  & z.output<typeof AwsPinpointBaiduChannelOutputSchema>
+  & z.output<typeof AwsPinpointBaiduChannelInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/pinpoint_baidu_channel
 
-export function AwsPinpointBaiduChannel(props: Partial<InputProps>) {
+export function AwsPinpointBaiduChannel(
+  props: Partial<AwsPinpointBaiduChannelInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -41,8 +43,8 @@ export function AwsPinpointBaiduChannel(props: Partial<InputProps>) {
       _type='aws_pinpoint_baidu_channel'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsPinpointBaiduChannelInputSchema}
+      _outputSchema={AwsPinpointBaiduChannelOutputSchema}
       {...props}
     />
   )
@@ -53,7 +55,7 @@ export const useAwsPinpointBaiduChannel = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsPinpointBaiduChannelOutputProps>(
     AwsPinpointBaiduChannel,
     idFilter,
     baseNode,
@@ -65,7 +67,7 @@ export const useAwsPinpointBaiduChannels = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsPinpointBaiduChannelOutputProps>(
     AwsPinpointBaiduChannel,
     idFilter,
     baseNode,

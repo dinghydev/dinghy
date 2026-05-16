@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsInternetGatewayAttachmentInputSchema = TfMetaSchema.extend({
   internet_gateway_id: resolvableValue(z.string()),
   vpc_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
@@ -21,22 +21,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsInternetGatewayAttachmentOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsInternetGatewayAttachmentInputProps =
+  & z.input<typeof AwsInternetGatewayAttachmentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsInternetGatewayAttachmentOutputProps =
+  & z.output<typeof AwsInternetGatewayAttachmentOutputSchema>
+  & z.output<typeof AwsInternetGatewayAttachmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/internet_gateway_attachment
 
-export function AwsInternetGatewayAttachment(props: Partial<InputProps>) {
+export function AwsInternetGatewayAttachment(
+  props: Partial<AwsInternetGatewayAttachmentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function AwsInternetGatewayAttachment(props: Partial<InputProps>) {
       _type='aws_internet_gateway_attachment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsInternetGatewayAttachmentInputSchema}
+      _outputSchema={AwsInternetGatewayAttachmentOutputSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useAwsInternetGatewayAttachment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsInternetGatewayAttachmentOutputProps>(
     AwsInternetGatewayAttachment,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useAwsInternetGatewayAttachments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsInternetGatewayAttachmentOutputProps>(
     AwsInternetGatewayAttachment,
     idFilter,
     baseNode,

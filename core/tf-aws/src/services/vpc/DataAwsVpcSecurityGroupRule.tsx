@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsVpcSecurityGroupRuleInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -20,7 +20,7 @@ export const InputSchema = TfMetaSchema.extend({
   security_group_rule_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsVpcSecurityGroupRuleOutputSchema = z.object({
   arn: z.string().optional(),
   cidr_ipv4: z.string().optional(),
   cidr_ipv6: z.string().optional(),
@@ -36,18 +36,20 @@ export const OutputSchema = z.object({
   to_port: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsVpcSecurityGroupRuleInputProps =
+  & z.input<typeof DataAwsVpcSecurityGroupRuleInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsVpcSecurityGroupRuleOutputProps =
+  & z.output<typeof DataAwsVpcSecurityGroupRuleOutputSchema>
+  & z.output<typeof DataAwsVpcSecurityGroupRuleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/vpc_security_group_rule
 
-export function DataAwsVpcSecurityGroupRule(props: Partial<InputProps>) {
+export function DataAwsVpcSecurityGroupRule(
+  props: Partial<DataAwsVpcSecurityGroupRuleInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -57,8 +59,8 @@ export function DataAwsVpcSecurityGroupRule(props: Partial<InputProps>) {
       _type='aws_vpc_security_group_rule'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsVpcSecurityGroupRuleInputSchema}
+      _outputSchema={DataAwsVpcSecurityGroupRuleOutputSchema}
       {...props}
     />
   )
@@ -69,7 +71,7 @@ export const useDataAwsVpcSecurityGroupRule = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsVpcSecurityGroupRuleOutputProps>(
     DataAwsVpcSecurityGroupRule,
     idFilter,
     baseNode,
@@ -81,7 +83,7 @@ export const useDataAwsVpcSecurityGroupRules = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsVpcSecurityGroupRuleOutputProps>(
     DataAwsVpcSecurityGroupRule,
     idFilter,
     baseNode,

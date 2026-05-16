@@ -1,6 +1,6 @@
 import { getRenderOptions } from '@dinghy/base-components'
 import { z } from 'zod'
-import { InputSchema as AwsDynamodbTableInputSchema } from '../../services/dynamodb/AwsDynamodbTable.tsx'
+import { AwsDynamodbTableInputSchema } from '../../services/dynamodb/AwsDynamodbTable.tsx'
 
 const AttributeTypeSchema = z.enum(['S', 'N', 'B'])
 

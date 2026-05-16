@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsVpclatticeAuthPolicyInputSchema = TfMetaSchema.extend({
   policy: resolvableValue(z.string()),
   resource_identifier: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
@@ -22,24 +22,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsVpclatticeAuthPolicyOutputSchema = z.object({
   id: z.string().optional(),
   policy: z.string().optional(),
   state: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVpclatticeAuthPolicyInputProps =
+  & z.input<typeof AwsVpclatticeAuthPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVpclatticeAuthPolicyOutputProps =
+  & z.output<typeof AwsVpclatticeAuthPolicyOutputSchema>
+  & z.output<typeof AwsVpclatticeAuthPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpclattice_auth_policy
 
-export function AwsVpclatticeAuthPolicy(props: Partial<InputProps>) {
+export function AwsVpclatticeAuthPolicy(
+  props: Partial<AwsVpclatticeAuthPolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,8 +51,8 @@ export function AwsVpclatticeAuthPolicy(props: Partial<InputProps>) {
       _type='aws_vpclattice_auth_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVpclatticeAuthPolicyInputSchema}
+      _outputSchema={AwsVpclatticeAuthPolicyOutputSchema}
       {...props}
     />
   )
@@ -61,7 +63,7 @@ export const useAwsVpclatticeAuthPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsVpclatticeAuthPolicyOutputProps>(
     AwsVpclatticeAuthPolicy,
     idFilter,
     baseNode,
@@ -73,7 +75,7 @@ export const useAwsVpclatticeAuthPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsVpclatticeAuthPolicyOutputProps>(
     AwsVpclatticeAuthPolicy,
     idFilter,
     baseNode,

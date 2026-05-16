@@ -8,12 +8,12 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsIamAccessKeysInputSchema = TfMetaSchema.extend({
   user: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsIamAccessKeysOutputSchema = z.object({
   access_keys: z.set(z.object({
     access_key_id: z.string(),
     create_date: z.string(),
@@ -21,18 +21,20 @@ export const OutputSchema = z.object({
   })).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsIamAccessKeysInputProps =
+  & z.input<typeof DataAwsIamAccessKeysInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsIamAccessKeysOutputProps =
+  & z.output<typeof DataAwsIamAccessKeysOutputSchema>
+  & z.output<typeof DataAwsIamAccessKeysInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/iam_access_keys
 
-export function DataAwsIamAccessKeys(props: Partial<InputProps>) {
+export function DataAwsIamAccessKeys(
+  props: Partial<DataAwsIamAccessKeysInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +44,8 @@ export function DataAwsIamAccessKeys(props: Partial<InputProps>) {
       _type='aws_iam_access_keys'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsIamAccessKeysInputSchema}
+      _outputSchema={DataAwsIamAccessKeysOutputSchema}
       {...props}
     />
   )
@@ -54,4 +56,9 @@ export const useDataAwsIamAccessKeyss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsIamAccessKeys, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsIamAccessKeysOutputProps>(
+    DataAwsIamAccessKeys,
+    idFilter,
+    baseNode,
+    optional,
+  )

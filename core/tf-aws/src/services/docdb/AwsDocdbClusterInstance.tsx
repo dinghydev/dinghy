@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDocdbClusterInstanceInputSchema = TfMetaSchema.extend({
   cluster_identifier: resolvableValue(z.string()),
   instance_class: resolvableValue(z.string()),
   apply_immediately: resolvableValue(z.boolean().optional()),
@@ -37,7 +37,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDocdbClusterInstanceOutputSchema = z.object({
   arn: z.string().optional(),
   db_subnet_group_name: z.string().optional(),
   dbi_resource_id: z.string().optional(),
@@ -52,18 +52,20 @@ export const OutputSchema = z.object({
   writer: z.boolean().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDocdbClusterInstanceInputProps =
+  & z.input<typeof AwsDocdbClusterInstanceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDocdbClusterInstanceOutputProps =
+  & z.output<typeof AwsDocdbClusterInstanceOutputSchema>
+  & z.output<typeof AwsDocdbClusterInstanceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/docdb_cluster_instance
 
-export function AwsDocdbClusterInstance(props: Partial<InputProps>) {
+export function AwsDocdbClusterInstance(
+  props: Partial<AwsDocdbClusterInstanceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -73,8 +75,8 @@ export function AwsDocdbClusterInstance(props: Partial<InputProps>) {
       _type='aws_docdb_cluster_instance'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDocdbClusterInstanceInputSchema}
+      _outputSchema={AwsDocdbClusterInstanceOutputSchema}
       {...props}
     />
   )
@@ -85,7 +87,7 @@ export const useAwsDocdbClusterInstance = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDocdbClusterInstanceOutputProps>(
     AwsDocdbClusterInstance,
     idFilter,
     baseNode,
@@ -97,7 +99,7 @@ export const useAwsDocdbClusterInstances = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDocdbClusterInstanceOutputProps>(
     AwsDocdbClusterInstance,
     idFilter,
     baseNode,

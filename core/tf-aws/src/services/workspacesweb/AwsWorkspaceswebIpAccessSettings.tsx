@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsWorkspaceswebIpAccessSettingsInputSchema = TfMetaSchema.extend({
   display_name: resolvableValue(z.string()),
   additional_encryption_context: resolvableValue(
     z.record(z.string(), z.string()).optional(),
@@ -25,24 +25,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsWorkspaceswebIpAccessSettingsOutputSchema = z.object({
   associated_portal_arns: z.string().array().optional(),
   ip_access_settings_arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsWorkspaceswebIpAccessSettingsInputProps =
+  & z.input<typeof AwsWorkspaceswebIpAccessSettingsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWorkspaceswebIpAccessSettingsOutputProps =
+  & z.output<typeof AwsWorkspaceswebIpAccessSettingsOutputSchema>
+  & z.output<typeof AwsWorkspaceswebIpAccessSettingsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workspacesweb_ip_access_settings
 
-export function AwsWorkspaceswebIpAccessSettings(props: Partial<InputProps>) {
+export function AwsWorkspaceswebIpAccessSettings(
+  props: Partial<AwsWorkspaceswebIpAccessSettingsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,8 +54,8 @@ export function AwsWorkspaceswebIpAccessSettings(props: Partial<InputProps>) {
       _type='aws_workspacesweb_ip_access_settings'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsWorkspaceswebIpAccessSettingsInputSchema}
+      _outputSchema={AwsWorkspaceswebIpAccessSettingsOutputSchema}
       {...props}
     />
   )
@@ -64,7 +66,7 @@ export const useAwsWorkspaceswebIpAccessSettingss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsWorkspaceswebIpAccessSettingsOutputProps>(
     AwsWorkspaceswebIpAccessSettings,
     idFilter,
     baseNode,

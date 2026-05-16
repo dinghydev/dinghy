@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsMskClusterInputSchema = TfMetaSchema.extend({
   broker_node_group_info: resolvableValue(z.object({
     az_distribution: z.string().optional(),
     client_subnets: z.string().array(),
@@ -120,7 +120,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsMskClusterOutputSchema = z.object({
   arn: z.string().optional(),
   bootstrap_brokers: z.string().optional(),
   bootstrap_brokers_public_sasl_iam: z.string().optional(),
@@ -139,23 +139,23 @@ export const OutputSchema = z.object({
   zookeeper_connect_string_tls: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsMskClusterImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsMskClusterInputProps =
+  & z.input<typeof AwsMskClusterInputSchema>
+  & z.input<typeof AwsMskClusterImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsMskClusterOutputProps =
+  & z.output<typeof AwsMskClusterOutputSchema>
+  & z.output<typeof AwsMskClusterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/msk_cluster
 
-export function AwsMskCluster(props: Partial<InputProps>) {
+export function AwsMskCluster(props: Partial<AwsMskClusterInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -165,9 +165,9 @@ export function AwsMskCluster(props: Partial<InputProps>) {
       _type='aws_msk_cluster'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsMskClusterInputSchema}
+      _outputSchema={AwsMskClusterOutputSchema}
+      _importSchema={AwsMskClusterImportSchema}
       {...props}
     />
   )
@@ -177,10 +177,22 @@ export const useAwsMskCluster = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsMskCluster, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsMskClusterOutputProps>(
+    AwsMskCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsMskClusters = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsMskCluster, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsMskClusterOutputProps>(
+    AwsMskCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )

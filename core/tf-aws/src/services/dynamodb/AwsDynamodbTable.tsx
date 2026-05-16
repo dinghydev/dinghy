@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDynamodbTableInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   attribute: resolvableValue(
     z.object({
@@ -138,7 +138,7 @@ export const InputSchema = TfMetaSchema.extend({
   write_capacity: resolvableValue(z.number().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDynamodbTableOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   stream_arn: z.string().optional(),
@@ -146,25 +146,25 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsDynamodbTableImportSchema = z.object({
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsDynamodbTableInputProps =
+  & z.input<typeof AwsDynamodbTableInputSchema>
+  & z.input<typeof AwsDynamodbTableImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDynamodbTableOutputProps =
+  & z.output<typeof AwsDynamodbTableOutputSchema>
+  & z.output<typeof AwsDynamodbTableInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dynamodb_table
 
-export function AwsDynamodbTable(props: Partial<InputProps>) {
+export function AwsDynamodbTable(props: Partial<AwsDynamodbTableInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -174,9 +174,9 @@ export function AwsDynamodbTable(props: Partial<InputProps>) {
       _type='aws_dynamodb_table'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsDynamodbTableInputSchema}
+      _outputSchema={AwsDynamodbTableOutputSchema}
+      _importSchema={AwsDynamodbTableImportSchema}
       {...props}
     />
   )
@@ -186,10 +186,22 @@ export const useAwsDynamodbTable = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsDynamodbTable, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsDynamodbTableOutputProps>(
+    AwsDynamodbTable,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDynamodbTables = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsDynamodbTable, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsDynamodbTableOutputProps>(
+    AwsDynamodbTable,
+    idFilter,
+    baseNode,
+    optional,
+  )

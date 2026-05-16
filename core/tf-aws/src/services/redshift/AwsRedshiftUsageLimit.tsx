@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRedshiftUsageLimitInputSchema = TfMetaSchema.extend({
   amount: resolvableValue(z.number()),
   cluster_identifier: resolvableValue(z.string()),
   feature_type: resolvableValue(z.string()),
@@ -20,24 +20,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRedshiftUsageLimitOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRedshiftUsageLimitInputProps =
+  & z.input<typeof AwsRedshiftUsageLimitInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRedshiftUsageLimitOutputProps =
+  & z.output<typeof AwsRedshiftUsageLimitOutputSchema>
+  & z.output<typeof AwsRedshiftUsageLimitInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/redshift_usage_limit
 
-export function AwsRedshiftUsageLimit(props: Partial<InputProps>) {
+export function AwsRedshiftUsageLimit(
+  props: Partial<AwsRedshiftUsageLimitInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +49,8 @@ export function AwsRedshiftUsageLimit(props: Partial<InputProps>) {
       _type='aws_redshift_usage_limit'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRedshiftUsageLimitInputSchema}
+      _outputSchema={AwsRedshiftUsageLimitOutputSchema}
       {...props}
     />
   )
@@ -59,14 +61,19 @@ export const useAwsRedshiftUsageLimit = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsRedshiftUsageLimit, idFilter, baseNode, optional)
+  useTypedNode<AwsRedshiftUsageLimitOutputProps>(
+    AwsRedshiftUsageLimit,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRedshiftUsageLimits = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRedshiftUsageLimitOutputProps>(
     AwsRedshiftUsageLimit,
     idFilter,
     baseNode,

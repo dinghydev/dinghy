@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsElasticsearchDomainPolicyInputSchema = TfMetaSchema.extend({
   access_policies: resolvableValue(z.string()),
   domain_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
@@ -22,20 +22,22 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({})
+export const AwsElasticsearchDomainPolicyOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsElasticsearchDomainPolicyInputProps =
+  & z.input<typeof AwsElasticsearchDomainPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsElasticsearchDomainPolicyOutputProps =
+  & z.output<typeof AwsElasticsearchDomainPolicyOutputSchema>
+  & z.output<typeof AwsElasticsearchDomainPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/elasticsearch_domain_policy
 
-export function AwsElasticsearchDomainPolicy(props: Partial<InputProps>) {
+export function AwsElasticsearchDomainPolicy(
+  props: Partial<AwsElasticsearchDomainPolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,8 +47,8 @@ export function AwsElasticsearchDomainPolicy(props: Partial<InputProps>) {
       _type='aws_elasticsearch_domain_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsElasticsearchDomainPolicyInputSchema}
+      _outputSchema={AwsElasticsearchDomainPolicyOutputSchema}
       {...props}
     />
   )
@@ -57,7 +59,7 @@ export const useAwsElasticsearchDomainPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsElasticsearchDomainPolicyOutputProps>(
     AwsElasticsearchDomainPolicy,
     idFilter,
     baseNode,
@@ -69,7 +71,7 @@ export const useAwsElasticsearchDomainPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsElasticsearchDomainPolicyOutputProps>(
     AwsElasticsearchDomainPolicy,
     idFilter,
     baseNode,

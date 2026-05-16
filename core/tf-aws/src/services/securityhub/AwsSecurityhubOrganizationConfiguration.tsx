@@ -9,41 +9,42 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  auto_enable: resolvableValue(z.boolean()),
-  auto_enable_standards: resolvableValue(z.string().optional()),
-  organization_configuration: resolvableValue(
-    z.object({
-      configuration_type: z.string(),
-    }).optional(),
-  ),
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-      update: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsSecurityhubOrganizationConfigurationInputSchema = TfMetaSchema
+  .extend({
+    auto_enable: resolvableValue(z.boolean()),
+    auto_enable_standards: resolvableValue(z.string().optional()),
+    organization_configuration: resolvableValue(
+      z.object({
+        configuration_type: z.string(),
+      }).optional(),
+    ),
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+        update: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsSecurityhubOrganizationConfigurationOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSecurityhubOrganizationConfigurationInputProps =
+  & z.input<typeof AwsSecurityhubOrganizationConfigurationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSecurityhubOrganizationConfigurationOutputProps =
+  & z.output<typeof AwsSecurityhubOrganizationConfigurationOutputSchema>
+  & z.output<typeof AwsSecurityhubOrganizationConfigurationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_organization_configuration
 
 export function AwsSecurityhubOrganizationConfiguration(
-  props: Partial<InputProps>,
+  props: Partial<AwsSecurityhubOrganizationConfigurationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -54,8 +55,8 @@ export function AwsSecurityhubOrganizationConfiguration(
       _type='aws_securityhub_organization_configuration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSecurityhubOrganizationConfigurationInputSchema}
+      _outputSchema={AwsSecurityhubOrganizationConfigurationOutputSchema}
       {...props}
     />
   )
@@ -66,7 +67,7 @@ export const useAwsSecurityhubOrganizationConfiguration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSecurityhubOrganizationConfigurationOutputProps>(
     AwsSecurityhubOrganizationConfiguration,
     idFilter,
     baseNode,
@@ -78,7 +79,7 @@ export const useAwsSecurityhubOrganizationConfigurations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSecurityhubOrganizationConfigurationOutputProps>(
     AwsSecurityhubOrganizationConfiguration,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsEc2LocalGatewayRouteTableInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -30,20 +30,22 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({})
+export const DataAwsEc2LocalGatewayRouteTableOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEc2LocalGatewayRouteTableInputProps =
+  & z.input<typeof DataAwsEc2LocalGatewayRouteTableInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEc2LocalGatewayRouteTableOutputProps =
+  & z.output<typeof DataAwsEc2LocalGatewayRouteTableOutputSchema>
+  & z.output<typeof DataAwsEc2LocalGatewayRouteTableInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ec2_local_gateway_route_table
 
-export function DataAwsEc2LocalGatewayRouteTable(props: Partial<InputProps>) {
+export function DataAwsEc2LocalGatewayRouteTable(
+  props: Partial<DataAwsEc2LocalGatewayRouteTableInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,8 +55,8 @@ export function DataAwsEc2LocalGatewayRouteTable(props: Partial<InputProps>) {
       _type='aws_ec2_local_gateway_route_table'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEc2LocalGatewayRouteTableInputSchema}
+      _outputSchema={DataAwsEc2LocalGatewayRouteTableOutputSchema}
       {...props}
     />
   )
@@ -65,7 +67,7 @@ export const useDataAwsEc2LocalGatewayRouteTable = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsEc2LocalGatewayRouteTableOutputProps>(
     DataAwsEc2LocalGatewayRouteTable,
     idFilter,
     baseNode,
@@ -77,7 +79,7 @@ export const useDataAwsEc2LocalGatewayRouteTables = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsEc2LocalGatewayRouteTableOutputProps>(
     DataAwsEc2LocalGatewayRouteTable,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsAppmeshVirtualGateway } from './AwsAppmeshVirtualGateway.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsAppmeshVirtualGatewayInputSchema = TfMetaSchema.extend({
   mesh_name: resolvableValue(z.string()),
   mesh_owner: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -17,7 +17,7 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsAppmeshVirtualGatewayOutputSchema = z.object({
   arn: z.string().optional(),
   created_date: z.string().optional(),
   last_updated_date: z.string().optional(),
@@ -134,18 +134,20 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsAppmeshVirtualGatewayInputProps =
+  & z.input<typeof DataAwsAppmeshVirtualGatewayInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsAppmeshVirtualGatewayOutputProps =
+  & z.output<typeof DataAwsAppmeshVirtualGatewayOutputSchema>
+  & z.output<typeof DataAwsAppmeshVirtualGatewayInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/appmesh_virtual_gateway
 
-export function DataAwsAppmeshVirtualGateway(props: Partial<InputProps>) {
+export function DataAwsAppmeshVirtualGateway(
+  props: Partial<DataAwsAppmeshVirtualGatewayInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -155,8 +157,8 @@ export function DataAwsAppmeshVirtualGateway(props: Partial<InputProps>) {
       _type='aws_appmesh_virtual_gateway'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsAppmeshVirtualGatewayInputSchema}
+      _outputSchema={DataAwsAppmeshVirtualGatewayOutputSchema}
       {...props as any}
     />
   )
@@ -167,7 +169,7 @@ export const useDataAwsAppmeshVirtualGateway = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsAppmeshVirtualGatewayOutputProps>(
     DataAwsAppmeshVirtualGateway,
     idFilter,
     baseNode,
@@ -179,7 +181,7 @@ export const useDataAwsAppmeshVirtualGateways = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsAppmeshVirtualGatewayOutputProps>(
     DataAwsAppmeshVirtualGateway,
     idFilter,
     baseNode,

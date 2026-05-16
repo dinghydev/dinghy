@@ -9,26 +9,28 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLambdaFunctionRecursionConfigInputSchema = TfMetaSchema.extend({
   function_name: resolvableValue(z.string()),
   recursive_loop: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsLambdaFunctionRecursionConfigOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLambdaFunctionRecursionConfigInputProps =
+  & z.input<typeof AwsLambdaFunctionRecursionConfigInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLambdaFunctionRecursionConfigOutputProps =
+  & z.output<typeof AwsLambdaFunctionRecursionConfigOutputSchema>
+  & z.output<typeof AwsLambdaFunctionRecursionConfigInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lambda_function_recursion_config
 
-export function AwsLambdaFunctionRecursionConfig(props: Partial<InputProps>) {
+export function AwsLambdaFunctionRecursionConfig(
+  props: Partial<AwsLambdaFunctionRecursionConfigInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -38,8 +40,8 @@ export function AwsLambdaFunctionRecursionConfig(props: Partial<InputProps>) {
       _type='aws_lambda_function_recursion_config'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLambdaFunctionRecursionConfigInputSchema}
+      _outputSchema={AwsLambdaFunctionRecursionConfigOutputSchema}
       {...props}
     />
   )
@@ -50,7 +52,7 @@ export const useAwsLambdaFunctionRecursionConfig = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsLambdaFunctionRecursionConfigOutputProps>(
     AwsLambdaFunctionRecursionConfig,
     idFilter,
     baseNode,
@@ -62,7 +64,7 @@ export const useAwsLambdaFunctionRecursionConfigs = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsLambdaFunctionRecursionConfigOutputProps>(
     AwsLambdaFunctionRecursionConfig,
     idFilter,
     baseNode,

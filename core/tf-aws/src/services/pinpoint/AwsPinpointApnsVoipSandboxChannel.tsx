@@ -9,34 +9,38 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  application_id: resolvableValue(z.string()),
-  bundle_id: resolvableValue(z.string().optional()),
-  certificate: resolvableValue(z.string().optional()),
-  default_authentication_method: resolvableValue(z.string().optional()),
-  enabled: resolvableValue(z.boolean().optional()),
-  id: resolvableValue(z.string().optional()),
-  private_key: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  team_id: resolvableValue(z.string().optional()),
-  token_key: resolvableValue(z.string().optional()),
-  token_key_id: resolvableValue(z.string().optional()),
-})
+export const AwsPinpointApnsVoipSandboxChannelInputSchema = TfMetaSchema.extend(
+  {
+    application_id: resolvableValue(z.string()),
+    bundle_id: resolvableValue(z.string().optional()),
+    certificate: resolvableValue(z.string().optional()),
+    default_authentication_method: resolvableValue(z.string().optional()),
+    enabled: resolvableValue(z.boolean().optional()),
+    id: resolvableValue(z.string().optional()),
+    private_key: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    team_id: resolvableValue(z.string().optional()),
+    token_key: resolvableValue(z.string().optional()),
+    token_key_id: resolvableValue(z.string().optional()),
+  },
+)
 
-export const OutputSchema = z.object({})
+export const AwsPinpointApnsVoipSandboxChannelOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsPinpointApnsVoipSandboxChannelInputProps =
+  & z.input<typeof AwsPinpointApnsVoipSandboxChannelInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsPinpointApnsVoipSandboxChannelOutputProps =
+  & z.output<typeof AwsPinpointApnsVoipSandboxChannelOutputSchema>
+  & z.output<typeof AwsPinpointApnsVoipSandboxChannelInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/pinpoint_apns_voip_sandbox_channel
 
-export function AwsPinpointApnsVoipSandboxChannel(props: Partial<InputProps>) {
+export function AwsPinpointApnsVoipSandboxChannel(
+  props: Partial<AwsPinpointApnsVoipSandboxChannelInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +50,8 @@ export function AwsPinpointApnsVoipSandboxChannel(props: Partial<InputProps>) {
       _type='aws_pinpoint_apns_voip_sandbox_channel'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsPinpointApnsVoipSandboxChannelInputSchema}
+      _outputSchema={AwsPinpointApnsVoipSandboxChannelOutputSchema}
       {...props}
     />
   )
@@ -58,7 +62,7 @@ export const useAwsPinpointApnsVoipSandboxChannel = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsPinpointApnsVoipSandboxChannelOutputProps>(
     AwsPinpointApnsVoipSandboxChannel,
     idFilter,
     baseNode,
@@ -70,7 +74,7 @@ export const useAwsPinpointApnsVoipSandboxChannels = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsPinpointApnsVoipSandboxChannelOutputProps>(
     AwsPinpointApnsVoipSandboxChannel,
     idFilter,
     baseNode,

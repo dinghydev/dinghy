@@ -2,7 +2,7 @@ import { NodeProps } from '@dinghy/base-components'
 import { AwsIamRole } from '../../services/iam/AwsIamRole.tsx'
 import { deepMerge, getRenderOptions } from '@dinghy/base-components'
 import { z } from 'zod'
-import { InputSchema as AwsIamRoleInputSchema } from '../../services/iam/AwsIamRole.tsx'
+import { AwsIamRoleInputSchema } from '../../services/iam/AwsIamRole.tsx'
 import { IamRolePolicies } from './IamRolePolicies.tsx'
 
 export const IamRoleSchema = AwsIamRoleInputSchema.extend({

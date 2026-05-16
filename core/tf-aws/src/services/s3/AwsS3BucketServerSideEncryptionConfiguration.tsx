@@ -9,46 +9,49 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  bucket: resolvableValue(z.string()),
-  rule: resolvableValue(
-    z.object({
-      blocked_encryption_types: z.string().array().optional(),
-      bucket_key_enabled: z.boolean().optional(),
-      apply_server_side_encryption_by_default: z.object({
-        kms_master_key_id: z.string().optional(),
-        sse_algorithm: z.string(),
-      }).optional(),
-    }).array(),
-  ),
-  expected_bucket_owner: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsS3BucketServerSideEncryptionConfigurationInputSchema =
+  TfMetaSchema.extend({
+    bucket: resolvableValue(z.string()),
+    rule: resolvableValue(
+      z.object({
+        blocked_encryption_types: z.string().array().optional(),
+        bucket_key_enabled: z.boolean().optional(),
+        apply_server_side_encryption_by_default: z.object({
+          kms_master_key_id: z.string().optional(),
+          sse_algorithm: z.string(),
+        }).optional(),
+      }).array(),
+    ),
+    expected_bucket_owner: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
-  id: z.string().optional(),
-})
+export const AwsS3BucketServerSideEncryptionConfigurationOutputSchema = z
+  .object({
+    id: z.string().optional(),
+  })
 
-export const ImportSchema = z.object({
-  bucket: resolvableValue(z.string()),
-  account_id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsS3BucketServerSideEncryptionConfigurationImportSchema = z
+  .object({
+    bucket: resolvableValue(z.string()),
+    account_id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsS3BucketServerSideEncryptionConfigurationInputProps =
+  & z.input<typeof AwsS3BucketServerSideEncryptionConfigurationInputSchema>
+  & z.input<typeof AwsS3BucketServerSideEncryptionConfigurationImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3BucketServerSideEncryptionConfigurationOutputProps =
+  & z.output<typeof AwsS3BucketServerSideEncryptionConfigurationOutputSchema>
+  & z.output<typeof AwsS3BucketServerSideEncryptionConfigurationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3_bucket_server_side_encryption_configuration
 
 export function AwsS3BucketServerSideEncryptionConfiguration(
-  props: Partial<InputProps>,
+  props: Partial<AwsS3BucketServerSideEncryptionConfigurationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -59,9 +62,9 @@ export function AwsS3BucketServerSideEncryptionConfiguration(
       _type='aws_s3_bucket_server_side_encryption_configuration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsS3BucketServerSideEncryptionConfigurationInputSchema}
+      _outputSchema={AwsS3BucketServerSideEncryptionConfigurationOutputSchema}
+      _importSchema={AwsS3BucketServerSideEncryptionConfigurationImportSchema}
       {...props}
     />
   )
@@ -72,7 +75,7 @@ export const useAwsS3BucketServerSideEncryptionConfiguration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsS3BucketServerSideEncryptionConfigurationOutputProps>(
     AwsS3BucketServerSideEncryptionConfiguration,
     idFilter,
     baseNode,
@@ -84,7 +87,7 @@ export const useAwsS3BucketServerSideEncryptionConfigurations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsS3BucketServerSideEncryptionConfigurationOutputProps>(
     AwsS3BucketServerSideEncryptionConfiguration,
     idFilter,
     baseNode,

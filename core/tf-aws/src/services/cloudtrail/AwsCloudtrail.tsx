@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudtrailInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   s3_bucket_name: resolvableValue(z.string()),
   advanced_event_selector: resolvableValue(
@@ -56,7 +56,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudtrailOutputSchema = z.object({
   arn: z.string().optional(),
   home_region: z.string().optional(),
   id: z.string().optional(),
@@ -64,23 +64,23 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsCloudtrailImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsCloudtrailInputProps =
+  & z.input<typeof AwsCloudtrailInputSchema>
+  & z.input<typeof AwsCloudtrailImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudtrailOutputProps =
+  & z.output<typeof AwsCloudtrailOutputSchema>
+  & z.output<typeof AwsCloudtrailInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudtrail
 
-export function AwsCloudtrail(props: Partial<InputProps>) {
+export function AwsCloudtrail(props: Partial<AwsCloudtrailInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -90,9 +90,9 @@ export function AwsCloudtrail(props: Partial<InputProps>) {
       _type='aws_cloudtrail'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsCloudtrailInputSchema}
+      _outputSchema={AwsCloudtrailOutputSchema}
+      _importSchema={AwsCloudtrailImportSchema}
       {...props}
     />
   )
@@ -102,10 +102,22 @@ export const useAwsCloudtrail = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsCloudtrail, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsCloudtrailOutputProps>(
+    AwsCloudtrail,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCloudtrails = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsCloudtrail, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsCloudtrailOutputProps>(
+    AwsCloudtrail,
+    idFilter,
+    baseNode,
+    optional,
+  )

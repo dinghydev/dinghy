@@ -9,35 +9,38 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  event_filter: resolvableValue(z.object({
-    source: z.string(),
-  })),
-  eventbridge_bus: resolvableValue(z.string()),
-  name: resolvableValue(z.string()),
-  description: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+export const AwsAppintegrationsEventIntegrationInputSchema = TfMetaSchema
+  .extend({
+    event_filter: resolvableValue(z.object({
+      source: z.string(),
+    })),
+    eventbridge_bus: resolvableValue(z.string()),
+    name: resolvableValue(z.string()),
+    description: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsAppintegrationsEventIntegrationOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAppintegrationsEventIntegrationInputProps =
+  & z.input<typeof AwsAppintegrationsEventIntegrationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppintegrationsEventIntegrationOutputProps =
+  & z.output<typeof AwsAppintegrationsEventIntegrationOutputSchema>
+  & z.output<typeof AwsAppintegrationsEventIntegrationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appintegrations_event_integration
 
-export function AwsAppintegrationsEventIntegration(props: Partial<InputProps>) {
+export function AwsAppintegrationsEventIntegration(
+  props: Partial<AwsAppintegrationsEventIntegrationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +50,8 @@ export function AwsAppintegrationsEventIntegration(props: Partial<InputProps>) {
       _type='aws_appintegrations_event_integration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAppintegrationsEventIntegrationInputSchema}
+      _outputSchema={AwsAppintegrationsEventIntegrationOutputSchema}
       {...props}
     />
   )
@@ -59,7 +62,7 @@ export const useAwsAppintegrationsEventIntegration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAppintegrationsEventIntegrationOutputProps>(
     AwsAppintegrationsEventIntegration,
     idFilter,
     baseNode,
@@ -71,7 +74,7 @@ export const useAwsAppintegrationsEventIntegrations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAppintegrationsEventIntegrationOutputProps>(
     AwsAppintegrationsEventIntegration,
     idFilter,
     baseNode,

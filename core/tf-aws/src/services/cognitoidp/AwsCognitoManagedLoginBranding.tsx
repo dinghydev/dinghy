@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCognitoManagedLoginBrandingInputSchema = TfMetaSchema.extend({
   client_id: resolvableValue(z.string()),
   user_pool_id: resolvableValue(z.string()),
   asset: resolvableValue(
@@ -26,23 +26,25 @@ export const InputSchema = TfMetaSchema.extend({
   use_cognito_provided_values: resolvableValue(z.boolean().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCognitoManagedLoginBrandingOutputSchema = z.object({
   managed_login_branding_id: z.string().optional(),
   settings_all: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCognitoManagedLoginBrandingInputProps =
+  & z.input<typeof AwsCognitoManagedLoginBrandingInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCognitoManagedLoginBrandingOutputProps =
+  & z.output<typeof AwsCognitoManagedLoginBrandingOutputSchema>
+  & z.output<typeof AwsCognitoManagedLoginBrandingInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cognito_managed_login_branding
 
-export function AwsCognitoManagedLoginBranding(props: Partial<InputProps>) {
+export function AwsCognitoManagedLoginBranding(
+  props: Partial<AwsCognitoManagedLoginBrandingInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,8 +54,8 @@ export function AwsCognitoManagedLoginBranding(props: Partial<InputProps>) {
       _type='aws_cognito_managed_login_branding'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCognitoManagedLoginBrandingInputSchema}
+      _outputSchema={AwsCognitoManagedLoginBrandingOutputSchema}
       {...props}
     />
   )
@@ -64,7 +66,7 @@ export const useAwsCognitoManagedLoginBranding = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCognitoManagedLoginBrandingOutputProps>(
     AwsCognitoManagedLoginBranding,
     idFilter,
     baseNode,
@@ -76,7 +78,7 @@ export const useAwsCognitoManagedLoginBrandings = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCognitoManagedLoginBrandingOutputProps>(
     AwsCognitoManagedLoginBranding,
     idFilter,
     baseNode,

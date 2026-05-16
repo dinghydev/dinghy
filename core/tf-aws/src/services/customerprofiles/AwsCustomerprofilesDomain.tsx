@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCustomerprofilesDomainInputSchema = TfMetaSchema.extend({
   default_expiration_days: resolvableValue(z.number()),
   domain_name: resolvableValue(z.string()),
   dead_letter_queue_url: resolvableValue(z.string().optional()),
@@ -71,24 +71,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCustomerprofilesDomainOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCustomerprofilesDomainInputProps =
+  & z.input<typeof AwsCustomerprofilesDomainInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCustomerprofilesDomainOutputProps =
+  & z.output<typeof AwsCustomerprofilesDomainOutputSchema>
+  & z.output<typeof AwsCustomerprofilesDomainInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/customerprofiles_domain
 
-export function AwsCustomerprofilesDomain(props: Partial<InputProps>) {
+export function AwsCustomerprofilesDomain(
+  props: Partial<AwsCustomerprofilesDomainInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -98,8 +100,8 @@ export function AwsCustomerprofilesDomain(props: Partial<InputProps>) {
       _type='aws_customerprofiles_domain'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCustomerprofilesDomainInputSchema}
+      _outputSchema={AwsCustomerprofilesDomainOutputSchema}
       {...props}
     />
   )
@@ -110,7 +112,7 @@ export const useAwsCustomerprofilesDomain = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCustomerprofilesDomainOutputProps>(
     AwsCustomerprofilesDomain,
     idFilter,
     baseNode,
@@ -122,7 +124,7 @@ export const useAwsCustomerprofilesDomains = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCustomerprofilesDomainOutputProps>(
     AwsCustomerprofilesDomain,
     idFilter,
     baseNode,

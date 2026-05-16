@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsInspector2FilterInputSchema = TfMetaSchema.extend({
   action: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   tags_all: resolvableValue(z.record(z.string(), z.string())),
@@ -238,28 +238,30 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsInspector2FilterOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsInspector2FilterImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsInspector2FilterInputProps =
+  & z.input<typeof AwsInspector2FilterInputSchema>
+  & z.input<typeof AwsInspector2FilterImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsInspector2FilterOutputProps =
+  & z.output<typeof AwsInspector2FilterOutputSchema>
+  & z.output<typeof AwsInspector2FilterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/inspector2_filter
 
-export function AwsInspector2Filter(props: Partial<InputProps>) {
+export function AwsInspector2Filter(
+  props: Partial<AwsInspector2FilterInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -269,9 +271,9 @@ export function AwsInspector2Filter(props: Partial<InputProps>) {
       _type='aws_inspector2_filter'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsInspector2FilterInputSchema}
+      _outputSchema={AwsInspector2FilterOutputSchema}
+      _importSchema={AwsInspector2FilterImportSchema}
       {...props}
     />
   )
@@ -282,11 +284,21 @@ export const useAwsInspector2Filter = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsInspector2Filter, idFilter, baseNode, optional)
+  useTypedNode<AwsInspector2FilterOutputProps>(
+    AwsInspector2Filter,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsInspector2Filters = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsInspector2Filter, idFilter, baseNode, optional)
+  useTypedNodes<AwsInspector2FilterOutputProps>(
+    AwsInspector2Filter,
+    idFilter,
+    baseNode,
+    optional,
+  )

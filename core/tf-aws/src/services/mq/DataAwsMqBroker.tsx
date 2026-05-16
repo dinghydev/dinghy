@@ -9,14 +9,14 @@ import {
 import z from 'zod'
 import { AwsMqBroker } from './AwsMqBroker.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsMqBrokerInputSchema = TfMetaSchema.extend({
   broker_id: resolvableValue(z.string().optional()),
   broker_name: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsMqBrokerOutputSchema = z.object({
   arn: z.string().optional(),
   authentication_strategy: z.string().optional(),
   auto_minor_version_upgrade: z.boolean().optional(),
@@ -72,18 +72,18 @@ export const OutputSchema = z.object({
   })).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsMqBrokerInputProps =
+  & z.input<typeof DataAwsMqBrokerInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsMqBrokerOutputProps =
+  & z.output<typeof DataAwsMqBrokerOutputSchema>
+  & z.output<typeof DataAwsMqBrokerInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/mq_broker
 
-export function DataAwsMqBroker(props: Partial<InputProps>) {
+export function DataAwsMqBroker(props: Partial<DataAwsMqBrokerInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -93,8 +93,8 @@ export function DataAwsMqBroker(props: Partial<InputProps>) {
       _type='aws_mq_broker'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsMqBrokerInputSchema}
+      _outputSchema={DataAwsMqBrokerOutputSchema}
       {...props as any}
     />
   )
@@ -104,10 +104,22 @@ export const useDataAwsMqBroker = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsMqBroker, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsMqBrokerOutputProps>(
+    DataAwsMqBroker,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsMqBrokers = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsMqBroker, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsMqBrokerOutputProps>(
+    DataAwsMqBroker,
+    idFilter,
+    baseNode,
+    optional,
+  )

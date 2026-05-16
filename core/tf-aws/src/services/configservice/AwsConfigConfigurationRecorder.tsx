@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsConfigConfigurationRecorderInputSchema = TfMetaSchema.extend({
   role_arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
@@ -39,27 +39,29 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsConfigConfigurationRecorderOutputSchema = z.object({})
 
-export const ImportSchema = z.object({
+export const AwsConfigConfigurationRecorderImportSchema = z.object({
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsConfigConfigurationRecorderInputProps =
+  & z.input<typeof AwsConfigConfigurationRecorderInputSchema>
+  & z.input<typeof AwsConfigConfigurationRecorderImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsConfigConfigurationRecorderOutputProps =
+  & z.output<typeof AwsConfigConfigurationRecorderOutputSchema>
+  & z.output<typeof AwsConfigConfigurationRecorderInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/config_configuration_recorder
 
-export function AwsConfigConfigurationRecorder(props: Partial<InputProps>) {
+export function AwsConfigConfigurationRecorder(
+  props: Partial<AwsConfigConfigurationRecorderInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -69,9 +71,9 @@ export function AwsConfigConfigurationRecorder(props: Partial<InputProps>) {
       _type='aws_config_configuration_recorder'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsConfigConfigurationRecorderInputSchema}
+      _outputSchema={AwsConfigConfigurationRecorderOutputSchema}
+      _importSchema={AwsConfigConfigurationRecorderImportSchema}
       {...props}
     />
   )
@@ -82,7 +84,7 @@ export const useAwsConfigConfigurationRecorder = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsConfigConfigurationRecorderOutputProps>(
     AwsConfigConfigurationRecorder,
     idFilter,
     baseNode,
@@ -94,7 +96,7 @@ export const useAwsConfigConfigurationRecorders = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsConfigConfigurationRecorderOutputProps>(
     AwsConfigConfigurationRecorder,
     idFilter,
     baseNode,

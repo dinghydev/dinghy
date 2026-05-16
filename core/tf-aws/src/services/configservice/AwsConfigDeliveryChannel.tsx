@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsConfigDeliveryChannelInputSchema = TfMetaSchema.extend({
   s3_bucket_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
@@ -24,27 +24,29 @@ export const InputSchema = TfMetaSchema.extend({
   sns_topic_arn: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsConfigDeliveryChannelOutputSchema = z.object({})
 
-export const ImportSchema = z.object({
+export const AwsConfigDeliveryChannelImportSchema = z.object({
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsConfigDeliveryChannelInputProps =
+  & z.input<typeof AwsConfigDeliveryChannelInputSchema>
+  & z.input<typeof AwsConfigDeliveryChannelImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsConfigDeliveryChannelOutputProps =
+  & z.output<typeof AwsConfigDeliveryChannelOutputSchema>
+  & z.output<typeof AwsConfigDeliveryChannelInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/config_delivery_channel
 
-export function AwsConfigDeliveryChannel(props: Partial<InputProps>) {
+export function AwsConfigDeliveryChannel(
+  props: Partial<AwsConfigDeliveryChannelInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -54,9 +56,9 @@ export function AwsConfigDeliveryChannel(props: Partial<InputProps>) {
       _type='aws_config_delivery_channel'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsConfigDeliveryChannelInputSchema}
+      _outputSchema={AwsConfigDeliveryChannelOutputSchema}
+      _importSchema={AwsConfigDeliveryChannelImportSchema}
       {...props}
     />
   )
@@ -67,7 +69,7 @@ export const useAwsConfigDeliveryChannel = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsConfigDeliveryChannelOutputProps>(
     AwsConfigDeliveryChannel,
     idFilter,
     baseNode,
@@ -79,7 +81,7 @@ export const useAwsConfigDeliveryChannels = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsConfigDeliveryChannelOutputProps>(
     AwsConfigDeliveryChannel,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsApiGatewayUsagePlanInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   api_stages: resolvableValue(
     z.object({
@@ -41,7 +41,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsApiGatewayUsagePlanOutputSchema = z.object({
   api_stages: z.object({
     api_id: z.string(),
     stage: z.string(),
@@ -68,18 +68,20 @@ export const OutputSchema = z.object({
   }).optional().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsApiGatewayUsagePlanInputProps =
+  & z.input<typeof AwsApiGatewayUsagePlanInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApiGatewayUsagePlanOutputProps =
+  & z.output<typeof AwsApiGatewayUsagePlanOutputSchema>
+  & z.output<typeof AwsApiGatewayUsagePlanInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/api_gateway_usage_plan
 
-export function AwsApiGatewayUsagePlan(props: Partial<InputProps>) {
+export function AwsApiGatewayUsagePlan(
+  props: Partial<AwsApiGatewayUsagePlanInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -89,8 +91,8 @@ export function AwsApiGatewayUsagePlan(props: Partial<InputProps>) {
       _type='aws_api_gateway_usage_plan'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsApiGatewayUsagePlanInputSchema}
+      _outputSchema={AwsApiGatewayUsagePlanOutputSchema}
       {...props}
     />
   )
@@ -101,7 +103,7 @@ export const useAwsApiGatewayUsagePlan = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsApiGatewayUsagePlanOutputProps>(
     AwsApiGatewayUsagePlan,
     idFilter,
     baseNode,
@@ -113,7 +115,7 @@ export const useAwsApiGatewayUsagePlans = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsApiGatewayUsagePlanOutputProps>(
     AwsApiGatewayUsagePlan,
     idFilter,
     baseNode,

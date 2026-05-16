@@ -8,25 +8,27 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({})
+export const DataAwsBillingServiceAccountInputSchema = TfMetaSchema.extend({})
 
-export const OutputSchema = z.object({
+export const DataAwsBillingServiceAccountOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsBillingServiceAccountInputProps =
+  & z.input<typeof DataAwsBillingServiceAccountInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsBillingServiceAccountOutputProps =
+  & z.output<typeof DataAwsBillingServiceAccountOutputSchema>
+  & z.output<typeof DataAwsBillingServiceAccountInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/billing_service_account
 
-export function DataAwsBillingServiceAccount(props: Partial<InputProps>) {
+export function DataAwsBillingServiceAccount(
+  props: Partial<DataAwsBillingServiceAccountInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -36,8 +38,8 @@ export function DataAwsBillingServiceAccount(props: Partial<InputProps>) {
       _type='aws_billing_service_account'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsBillingServiceAccountInputSchema}
+      _outputSchema={DataAwsBillingServiceAccountOutputSchema}
       {...props}
     />
   )
@@ -48,7 +50,7 @@ export const useDataAwsBillingServiceAccount = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsBillingServiceAccountOutputProps>(
     DataAwsBillingServiceAccount,
     idFilter,
     baseNode,
@@ -60,7 +62,7 @@ export const useDataAwsBillingServiceAccounts = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsBillingServiceAccountOutputProps>(
     DataAwsBillingServiceAccount,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEvidentlySegmentInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   pattern: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
@@ -17,7 +17,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsEvidentlySegmentOutputSchema = z.object({
   arn: z.string().optional(),
   created_time: z.string().optional(),
   experiment_count: z.number().optional(),
@@ -27,18 +27,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEvidentlySegmentInputProps =
+  & z.input<typeof AwsEvidentlySegmentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEvidentlySegmentOutputProps =
+  & z.output<typeof AwsEvidentlySegmentOutputSchema>
+  & z.output<typeof AwsEvidentlySegmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/evidently_segment
 
-export function AwsEvidentlySegment(props: Partial<InputProps>) {
+export function AwsEvidentlySegment(
+  props: Partial<AwsEvidentlySegmentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +50,8 @@ export function AwsEvidentlySegment(props: Partial<InputProps>) {
       _type='aws_evidently_segment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEvidentlySegmentInputSchema}
+      _outputSchema={AwsEvidentlySegmentOutputSchema}
       {...props}
     />
   )
@@ -60,11 +62,21 @@ export const useAwsEvidentlySegment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsEvidentlySegment, idFilter, baseNode, optional)
+  useTypedNode<AwsEvidentlySegmentOutputProps>(
+    AwsEvidentlySegment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEvidentlySegments = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsEvidentlySegment, idFilter, baseNode, optional)
+  useTypedNodes<AwsEvidentlySegmentOutputProps>(
+    AwsEvidentlySegment,
+    idFilter,
+    baseNode,
+    optional,
+  )

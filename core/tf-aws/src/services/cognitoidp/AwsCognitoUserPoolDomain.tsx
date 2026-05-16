@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCognitoUserPoolDomainInputSchema = TfMetaSchema.extend({
   domain: resolvableValue(z.string()),
   user_pool_id: resolvableValue(z.string()),
   certificate_arn: resolvableValue(z.string().optional()),
@@ -18,7 +18,7 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCognitoUserPoolDomainOutputSchema = z.object({
   aws_account_id: z.string().optional(),
   cloudfront_distribution: z.string().optional(),
   cloudfront_distribution_arn: z.string().optional(),
@@ -27,18 +27,20 @@ export const OutputSchema = z.object({
   version: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCognitoUserPoolDomainInputProps =
+  & z.input<typeof AwsCognitoUserPoolDomainInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCognitoUserPoolDomainOutputProps =
+  & z.output<typeof AwsCognitoUserPoolDomainOutputSchema>
+  & z.output<typeof AwsCognitoUserPoolDomainInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cognito_user_pool_domain
 
-export function AwsCognitoUserPoolDomain(props: Partial<InputProps>) {
+export function AwsCognitoUserPoolDomain(
+  props: Partial<AwsCognitoUserPoolDomainInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +50,8 @@ export function AwsCognitoUserPoolDomain(props: Partial<InputProps>) {
       _type='aws_cognito_user_pool_domain'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCognitoUserPoolDomainInputSchema}
+      _outputSchema={AwsCognitoUserPoolDomainOutputSchema}
       {...props}
     />
   )
@@ -60,7 +62,7 @@ export const useAwsCognitoUserPoolDomain = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCognitoUserPoolDomainOutputProps>(
     AwsCognitoUserPoolDomain,
     idFilter,
     baseNode,
@@ -72,7 +74,7 @@ export const useAwsCognitoUserPoolDomains = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCognitoUserPoolDomainOutputProps>(
     AwsCognitoUserPoolDomain,
     idFilter,
     baseNode,

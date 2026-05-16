@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDxBgpPeerInputSchema = TfMetaSchema.extend({
   address_family: resolvableValue(z.string()),
   bgp_asn: resolvableValue(z.number()),
   virtual_interface_id: resolvableValue(z.string()),
@@ -25,25 +25,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDxBgpPeerOutputSchema = z.object({
   aws_device: z.string().optional(),
   bgp_peer_id: z.string().optional(),
   bgp_status: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDxBgpPeerInputProps =
+  & z.input<typeof AwsDxBgpPeerInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDxBgpPeerOutputProps =
+  & z.output<typeof AwsDxBgpPeerOutputSchema>
+  & z.output<typeof AwsDxBgpPeerInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dx_bgp_peer
 
-export function AwsDxBgpPeer(props: Partial<InputProps>) {
+export function AwsDxBgpPeer(props: Partial<AwsDxBgpPeerInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,8 +53,8 @@ export function AwsDxBgpPeer(props: Partial<InputProps>) {
       _type='aws_dx_bgp_peer'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDxBgpPeerInputSchema}
+      _outputSchema={AwsDxBgpPeerOutputSchema}
       {...props}
     />
   )
@@ -64,10 +64,22 @@ export const useAwsDxBgpPeer = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsDxBgpPeer, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsDxBgpPeerOutputProps>(
+    AwsDxBgpPeer,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDxBgpPeers = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsDxBgpPeer, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsDxBgpPeerOutputProps>(
+    AwsDxBgpPeer,
+    idFilter,
+    baseNode,
+    optional,
+  )

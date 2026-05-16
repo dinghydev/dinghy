@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLbTrustStoreRevocationInputSchema = TfMetaSchema.extend({
   revocations_s3_bucket: resolvableValue(z.string()),
   revocations_s3_key: resolvableValue(z.string()),
   trust_store_arn: resolvableValue(z.string()),
@@ -22,23 +22,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsLbTrustStoreRevocationOutputSchema = z.object({
   id: z.string().optional(),
   revocation_id: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLbTrustStoreRevocationInputProps =
+  & z.input<typeof AwsLbTrustStoreRevocationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLbTrustStoreRevocationOutputProps =
+  & z.output<typeof AwsLbTrustStoreRevocationOutputSchema>
+  & z.output<typeof AwsLbTrustStoreRevocationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lb_trust_store_revocation
 
-export function AwsLbTrustStoreRevocation(props: Partial<InputProps>) {
+export function AwsLbTrustStoreRevocation(
+  props: Partial<AwsLbTrustStoreRevocationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +50,8 @@ export function AwsLbTrustStoreRevocation(props: Partial<InputProps>) {
       _type='aws_lb_trust_store_revocation'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLbTrustStoreRevocationInputSchema}
+      _outputSchema={AwsLbTrustStoreRevocationOutputSchema}
       {...props}
     />
   )
@@ -60,7 +62,7 @@ export const useAwsLbTrustStoreRevocation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsLbTrustStoreRevocationOutputProps>(
     AwsLbTrustStoreRevocation,
     idFilter,
     baseNode,
@@ -72,7 +74,7 @@ export const useAwsLbTrustStoreRevocations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsLbTrustStoreRevocationOutputProps>(
     AwsLbTrustStoreRevocation,
     idFilter,
     baseNode,

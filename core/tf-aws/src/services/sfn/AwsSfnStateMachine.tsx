@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSfnStateMachineInputSchema = TfMetaSchema.extend({
   definition: resolvableValue(z.string()),
   role_arn: resolvableValue(z.string()),
   encryption_configuration: resolvableValue(
@@ -46,7 +46,7 @@ export const InputSchema = TfMetaSchema.extend({
   type: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSfnStateMachineOutputSchema = z.object({
   arn: z.string().optional(),
   creation_date: z.string().optional(),
   description: z.string().optional(),
@@ -58,23 +58,25 @@ export const OutputSchema = z.object({
   version_description: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSfnStateMachineImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSfnStateMachineInputProps =
+  & z.input<typeof AwsSfnStateMachineInputSchema>
+  & z.input<typeof AwsSfnStateMachineImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSfnStateMachineOutputProps =
+  & z.output<typeof AwsSfnStateMachineOutputSchema>
+  & z.output<typeof AwsSfnStateMachineInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sfn_state_machine
 
-export function AwsSfnStateMachine(props: Partial<InputProps>) {
+export function AwsSfnStateMachine(
+  props: Partial<AwsSfnStateMachineInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -84,9 +86,9 @@ export function AwsSfnStateMachine(props: Partial<InputProps>) {
       _type='aws_sfn_state_machine'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSfnStateMachineInputSchema}
+      _outputSchema={AwsSfnStateMachineOutputSchema}
+      _importSchema={AwsSfnStateMachineImportSchema}
       {...props}
     />
   )
@@ -96,11 +98,22 @@ export const useAwsSfnStateMachine = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsSfnStateMachine, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsSfnStateMachineOutputProps>(
+    AwsSfnStateMachine,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSfnStateMachines = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSfnStateMachine, idFilter, baseNode, optional)
+  useTypedNodes<AwsSfnStateMachineOutputProps>(
+    AwsSfnStateMachine,
+    idFilter,
+    baseNode,
+    optional,
+  )

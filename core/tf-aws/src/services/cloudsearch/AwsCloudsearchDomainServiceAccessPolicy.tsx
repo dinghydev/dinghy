@@ -9,34 +9,35 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  access_policy: resolvableValue(z.string()),
-  domain_name: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      delete: z.string().optional(),
-      update: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsCloudsearchDomainServiceAccessPolicyInputSchema = TfMetaSchema
+  .extend({
+    access_policy: resolvableValue(z.string()),
+    domain_name: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        delete: z.string().optional(),
+        update: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({})
+export const AwsCloudsearchDomainServiceAccessPolicyOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudsearchDomainServiceAccessPolicyInputProps =
+  & z.input<typeof AwsCloudsearchDomainServiceAccessPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudsearchDomainServiceAccessPolicyOutputProps =
+  & z.output<typeof AwsCloudsearchDomainServiceAccessPolicyOutputSchema>
+  & z.output<typeof AwsCloudsearchDomainServiceAccessPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudsearch_domain_service_access_policy
 
 export function AwsCloudsearchDomainServiceAccessPolicy(
-  props: Partial<InputProps>,
+  props: Partial<AwsCloudsearchDomainServiceAccessPolicyInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -47,8 +48,8 @@ export function AwsCloudsearchDomainServiceAccessPolicy(
       _type='aws_cloudsearch_domain_service_access_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudsearchDomainServiceAccessPolicyInputSchema}
+      _outputSchema={AwsCloudsearchDomainServiceAccessPolicyOutputSchema}
       {...props}
     />
   )
@@ -59,7 +60,7 @@ export const useAwsCloudsearchDomainServiceAccessPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudsearchDomainServiceAccessPolicyOutputProps>(
     AwsCloudsearchDomainServiceAccessPolicy,
     idFilter,
     baseNode,
@@ -71,7 +72,7 @@ export const useAwsCloudsearchDomainServiceAccessPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudsearchDomainServiceAccessPolicyOutputProps>(
     AwsCloudsearchDomainServiceAccessPolicy,
     idFilter,
     baseNode,

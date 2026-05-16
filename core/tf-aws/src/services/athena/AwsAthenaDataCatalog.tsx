@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAthenaDataCatalogInputSchema = TfMetaSchema.extend({
   description: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   parameters: resolvableValue(z.record(z.string(), z.string())),
@@ -20,22 +20,24 @@ export const InputSchema = TfMetaSchema.extend({
   tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAthenaDataCatalogOutputSchema = z.object({
   arn: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAthenaDataCatalogInputProps =
+  & z.input<typeof AwsAthenaDataCatalogInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAthenaDataCatalogOutputProps =
+  & z.output<typeof AwsAthenaDataCatalogOutputSchema>
+  & z.output<typeof AwsAthenaDataCatalogInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/athena_data_catalog
 
-export function AwsAthenaDataCatalog(props: Partial<InputProps>) {
+export function AwsAthenaDataCatalog(
+  props: Partial<AwsAthenaDataCatalogInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,8 +47,8 @@ export function AwsAthenaDataCatalog(props: Partial<InputProps>) {
       _type='aws_athena_data_catalog'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAthenaDataCatalogInputSchema}
+      _outputSchema={AwsAthenaDataCatalogOutputSchema}
       {...props}
     />
   )
@@ -57,11 +59,21 @@ export const useAwsAthenaDataCatalog = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsAthenaDataCatalog, idFilter, baseNode, optional)
+  useTypedNode<AwsAthenaDataCatalogOutputProps>(
+    AwsAthenaDataCatalog,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAthenaDataCatalogs = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsAthenaDataCatalog, idFilter, baseNode, optional)
+  useTypedNodes<AwsAthenaDataCatalogOutputProps>(
+    AwsAthenaDataCatalog,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,31 +9,35 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  action: resolvableValue(z.string()),
-  principal: resolvableValue(z.string()),
-  profile_name: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  profile_version: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  statement_id: resolvableValue(z.string().optional()),
-  statement_id_prefix: resolvableValue(z.string().optional()),
-})
+export const AwsSignerSigningProfilePermissionInputSchema = TfMetaSchema.extend(
+  {
+    action: resolvableValue(z.string()),
+    principal: resolvableValue(z.string()),
+    profile_name: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    profile_version: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    statement_id: resolvableValue(z.string().optional()),
+    statement_id_prefix: resolvableValue(z.string().optional()),
+  },
+)
 
-export const OutputSchema = z.object({})
+export const AwsSignerSigningProfilePermissionOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSignerSigningProfilePermissionInputProps =
+  & z.input<typeof AwsSignerSigningProfilePermissionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSignerSigningProfilePermissionOutputProps =
+  & z.output<typeof AwsSignerSigningProfilePermissionOutputSchema>
+  & z.output<typeof AwsSignerSigningProfilePermissionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/signer_signing_profile_permission
 
-export function AwsSignerSigningProfilePermission(props: Partial<InputProps>) {
+export function AwsSignerSigningProfilePermission(
+  props: Partial<AwsSignerSigningProfilePermissionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +47,8 @@ export function AwsSignerSigningProfilePermission(props: Partial<InputProps>) {
       _type='aws_signer_signing_profile_permission'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSignerSigningProfilePermissionInputSchema}
+      _outputSchema={AwsSignerSigningProfilePermissionOutputSchema}
       {...props}
     />
   )
@@ -55,7 +59,7 @@ export const useAwsSignerSigningProfilePermission = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSignerSigningProfilePermissionOutputProps>(
     AwsSignerSigningProfilePermission,
     idFilter,
     baseNode,
@@ -67,7 +71,7 @@ export const useAwsSignerSigningProfilePermissions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSignerSigningProfilePermissionOutputProps>(
     AwsSignerSigningProfilePermission,
     idFilter,
     baseNode,

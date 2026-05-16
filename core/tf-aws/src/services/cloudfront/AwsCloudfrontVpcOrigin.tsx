@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudfrontVpcOriginInputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
     z.object({
@@ -33,25 +33,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudfrontVpcOriginOutputSchema = z.object({
   arn: z.string().optional(),
   etag: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudfrontVpcOriginInputProps =
+  & z.input<typeof AwsCloudfrontVpcOriginInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudfrontVpcOriginOutputProps =
+  & z.output<typeof AwsCloudfrontVpcOriginOutputSchema>
+  & z.output<typeof AwsCloudfrontVpcOriginInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudfront_vpc_origin
 
-export function AwsCloudfrontVpcOrigin(props: Partial<InputProps>) {
+export function AwsCloudfrontVpcOrigin(
+  props: Partial<AwsCloudfrontVpcOriginInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -61,8 +63,8 @@ export function AwsCloudfrontVpcOrigin(props: Partial<InputProps>) {
       _type='aws_cloudfront_vpc_origin'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudfrontVpcOriginInputSchema}
+      _outputSchema={AwsCloudfrontVpcOriginOutputSchema}
       {...props}
     />
   )
@@ -73,7 +75,7 @@ export const useAwsCloudfrontVpcOrigin = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudfrontVpcOriginOutputProps>(
     AwsCloudfrontVpcOrigin,
     idFilter,
     baseNode,
@@ -85,7 +87,7 @@ export const useAwsCloudfrontVpcOrigins = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudfrontVpcOriginOutputProps>(
     AwsCloudfrontVpcOrigin,
     idFilter,
     baseNode,

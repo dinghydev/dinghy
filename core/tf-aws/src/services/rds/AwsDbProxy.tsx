@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDbProxyInputSchema = TfMetaSchema.extend({
   engine_family: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   role_arn: resolvableValue(z.string()),
@@ -42,25 +42,25 @@ export const InputSchema = TfMetaSchema.extend({
   vpc_security_group_ids: resolvableValue(z.string().array().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDbProxyOutputSchema = z.object({
   arn: z.string().optional(),
   endpoint: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDbProxyInputProps =
+  & z.input<typeof AwsDbProxyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDbProxyOutputProps =
+  & z.output<typeof AwsDbProxyOutputSchema>
+  & z.output<typeof AwsDbProxyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/db_proxy
 
-export function AwsDbProxy(props: Partial<InputProps>) {
+export function AwsDbProxy(props: Partial<AwsDbProxyInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -70,8 +70,8 @@ export function AwsDbProxy(props: Partial<InputProps>) {
       _type='aws_db_proxy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDbProxyInputSchema}
+      _outputSchema={AwsDbProxyOutputSchema}
       {...props}
     />
   )
@@ -81,10 +81,12 @@ export const useAwsDbProxy = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsDbProxy, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsDbProxyOutputProps>(AwsDbProxy, idFilter, baseNode, optional)
 
 export const useAwsDbProxys = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsDbProxy, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsDbProxyOutputProps>(AwsDbProxy, idFilter, baseNode, optional)

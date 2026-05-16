@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsApiGatewayRestApiInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   api_key_source: resolvableValue(z.string().optional()),
   binary_media_types: resolvableValue(z.string().array().optional()),
@@ -32,7 +32,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsApiGatewayRestApiOutputSchema = z.object({
   arn: z.string().optional(),
   created_date: z.string().optional(),
   execution_arn: z.string().optional(),
@@ -41,25 +41,27 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsApiGatewayRestApiImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsApiGatewayRestApiInputProps =
+  & z.input<typeof AwsApiGatewayRestApiInputSchema>
+  & z.input<typeof AwsApiGatewayRestApiImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApiGatewayRestApiOutputProps =
+  & z.output<typeof AwsApiGatewayRestApiOutputSchema>
+  & z.output<typeof AwsApiGatewayRestApiInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/api_gateway_rest_api
 
-export function AwsApiGatewayRestApi(props: Partial<InputProps>) {
+export function AwsApiGatewayRestApi(
+  props: Partial<AwsApiGatewayRestApiInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -69,9 +71,9 @@ export function AwsApiGatewayRestApi(props: Partial<InputProps>) {
       _type='aws_api_gateway_rest_api'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsApiGatewayRestApiInputSchema}
+      _outputSchema={AwsApiGatewayRestApiOutputSchema}
+      _importSchema={AwsApiGatewayRestApiImportSchema}
       {...props}
     />
   )
@@ -82,11 +84,21 @@ export const useAwsApiGatewayRestApi = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsApiGatewayRestApi, idFilter, baseNode, optional)
+  useTypedNode<AwsApiGatewayRestApiOutputProps>(
+    AwsApiGatewayRestApi,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsApiGatewayRestApis = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsApiGatewayRestApi, idFilter, baseNode, optional)
+  useTypedNodes<AwsApiGatewayRestApiOutputProps>(
+    AwsApiGatewayRestApi,
+    idFilter,
+    baseNode,
+    optional,
+  )

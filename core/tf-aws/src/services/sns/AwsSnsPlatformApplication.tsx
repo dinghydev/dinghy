@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSnsPlatformApplicationInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   platform: resolvableValue(z.string()),
   platform_credential: resolvableValue(z.string()),
@@ -26,23 +26,25 @@ export const InputSchema = TfMetaSchema.extend({
   success_feedback_sample_rate: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSnsPlatformApplicationOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSnsPlatformApplicationInputProps =
+  & z.input<typeof AwsSnsPlatformApplicationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSnsPlatformApplicationOutputProps =
+  & z.output<typeof AwsSnsPlatformApplicationOutputSchema>
+  & z.output<typeof AwsSnsPlatformApplicationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sns_platform_application
 
-export function AwsSnsPlatformApplication(props: Partial<InputProps>) {
+export function AwsSnsPlatformApplication(
+  props: Partial<AwsSnsPlatformApplicationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,8 +54,8 @@ export function AwsSnsPlatformApplication(props: Partial<InputProps>) {
       _type='aws_sns_platform_application'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSnsPlatformApplicationInputSchema}
+      _outputSchema={AwsSnsPlatformApplicationOutputSchema}
       {...props}
     />
   )
@@ -64,7 +66,7 @@ export const useAwsSnsPlatformApplication = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSnsPlatformApplicationOutputProps>(
     AwsSnsPlatformApplication,
     idFilter,
     baseNode,
@@ -76,7 +78,7 @@ export const useAwsSnsPlatformApplications = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSnsPlatformApplicationOutputProps>(
     AwsSnsPlatformApplication,
     idFilter,
     baseNode,

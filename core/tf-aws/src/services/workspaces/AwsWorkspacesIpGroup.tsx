@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsWorkspacesIpGroupInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -22,23 +22,25 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsWorkspacesIpGroupOutputSchema = z.object({
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsWorkspacesIpGroupInputProps =
+  & z.input<typeof AwsWorkspacesIpGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWorkspacesIpGroupOutputProps =
+  & z.output<typeof AwsWorkspacesIpGroupOutputSchema>
+  & z.output<typeof AwsWorkspacesIpGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workspaces_ip_group
 
-export function AwsWorkspacesIpGroup(props: Partial<InputProps>) {
+export function AwsWorkspacesIpGroup(
+  props: Partial<AwsWorkspacesIpGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +50,8 @@ export function AwsWorkspacesIpGroup(props: Partial<InputProps>) {
       _type='aws_workspaces_ip_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsWorkspacesIpGroupInputSchema}
+      _outputSchema={AwsWorkspacesIpGroupOutputSchema}
       {...props}
     />
   )
@@ -60,11 +62,21 @@ export const useAwsWorkspacesIpGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsWorkspacesIpGroup, idFilter, baseNode, optional)
+  useTypedNode<AwsWorkspacesIpGroupOutputProps>(
+    AwsWorkspacesIpGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsWorkspacesIpGroups = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsWorkspacesIpGroup, idFilter, baseNode, optional)
+  useTypedNodes<AwsWorkspacesIpGroupOutputProps>(
+    AwsWorkspacesIpGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

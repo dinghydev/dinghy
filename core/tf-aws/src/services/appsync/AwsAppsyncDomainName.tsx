@@ -9,31 +9,33 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAppsyncDomainNameInputSchema = TfMetaSchema.extend({
   certificate_arn: resolvableValue(z.string()),
   domain_name: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAppsyncDomainNameOutputSchema = z.object({
   appsync_domain_name: z.string().optional(),
   hosted_zone_id: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAppsyncDomainNameInputProps =
+  & z.input<typeof AwsAppsyncDomainNameInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppsyncDomainNameOutputProps =
+  & z.output<typeof AwsAppsyncDomainNameOutputSchema>
+  & z.output<typeof AwsAppsyncDomainNameInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appsync_domain_name
 
-export function AwsAppsyncDomainName(props: Partial<InputProps>) {
+export function AwsAppsyncDomainName(
+  props: Partial<AwsAppsyncDomainNameInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function AwsAppsyncDomainName(props: Partial<InputProps>) {
       _type='aws_appsync_domain_name'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAppsyncDomainNameInputSchema}
+      _outputSchema={AwsAppsyncDomainNameOutputSchema}
       {...props}
     />
   )
@@ -55,11 +57,21 @@ export const useAwsAppsyncDomainName = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsAppsyncDomainName, idFilter, baseNode, optional)
+  useTypedNode<AwsAppsyncDomainNameOutputProps>(
+    AwsAppsyncDomainName,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAppsyncDomainNames = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsAppsyncDomainName, idFilter, baseNode, optional)
+  useTypedNodes<AwsAppsyncDomainNameOutputProps>(
+    AwsAppsyncDomainName,
+    idFilter,
+    baseNode,
+    optional,
+  )

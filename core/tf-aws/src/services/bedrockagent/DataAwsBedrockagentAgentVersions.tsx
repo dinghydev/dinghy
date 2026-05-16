@@ -8,12 +8,12 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsBedrockagentAgentVersionsInputSchema = TfMetaSchema.extend({
   agent_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsBedrockagentAgentVersionsOutputSchema = z.object({
   agent_version_summaries: z.object({
     agent_name: z.string().optional(),
     agent_status: z.string().optional(),
@@ -28,18 +28,20 @@ export const OutputSchema = z.object({
   }).array().optional().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsBedrockagentAgentVersionsInputProps =
+  & z.input<typeof DataAwsBedrockagentAgentVersionsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsBedrockagentAgentVersionsOutputProps =
+  & z.output<typeof DataAwsBedrockagentAgentVersionsOutputSchema>
+  & z.output<typeof DataAwsBedrockagentAgentVersionsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/bedrockagent_agent_versions
 
-export function DataAwsBedrockagentAgentVersions(props: Partial<InputProps>) {
+export function DataAwsBedrockagentAgentVersions(
+  props: Partial<DataAwsBedrockagentAgentVersionsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,8 +51,8 @@ export function DataAwsBedrockagentAgentVersions(props: Partial<InputProps>) {
       _type='aws_bedrockagent_agent_versions'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsBedrockagentAgentVersionsInputSchema}
+      _outputSchema={DataAwsBedrockagentAgentVersionsOutputSchema}
       {...props}
     />
   )
@@ -61,7 +63,7 @@ export const useDataAwsBedrockagentAgentVersionss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsBedrockagentAgentVersionsOutputProps>(
     DataAwsBedrockagentAgentVersions,
     idFilter,
     baseNode,

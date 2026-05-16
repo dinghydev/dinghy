@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsWafregionalByteMatchSetInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   byte_match_tuples: resolvableValue(
     z.object({
@@ -25,22 +25,24 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsWafregionalByteMatchSetOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsWafregionalByteMatchSetInputProps =
+  & z.input<typeof AwsWafregionalByteMatchSetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWafregionalByteMatchSetOutputProps =
+  & z.output<typeof AwsWafregionalByteMatchSetOutputSchema>
+  & z.output<typeof AwsWafregionalByteMatchSetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/wafregional_byte_match_set
 
-export function AwsWafregionalByteMatchSet(props: Partial<InputProps>) {
+export function AwsWafregionalByteMatchSet(
+  props: Partial<AwsWafregionalByteMatchSetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -50,8 +52,8 @@ export function AwsWafregionalByteMatchSet(props: Partial<InputProps>) {
       _type='aws_wafregional_byte_match_set'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsWafregionalByteMatchSetInputSchema}
+      _outputSchema={AwsWafregionalByteMatchSetOutputSchema}
       {...props}
     />
   )
@@ -62,7 +64,7 @@ export const useAwsWafregionalByteMatchSet = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsWafregionalByteMatchSetOutputProps>(
     AwsWafregionalByteMatchSet,
     idFilter,
     baseNode,
@@ -74,7 +76,7 @@ export const useAwsWafregionalByteMatchSets = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsWafregionalByteMatchSetOutputProps>(
     AwsWafregionalByteMatchSet,
     idFilter,
     baseNode,

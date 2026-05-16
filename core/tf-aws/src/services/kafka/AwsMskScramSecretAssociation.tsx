@@ -9,28 +9,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsMskScramSecretAssociationInputSchema = TfMetaSchema.extend({
   cluster_arn: resolvableValue(z.string()),
   secret_arn_list: resolvableValue(z.string().array()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsMskScramSecretAssociationOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsMskScramSecretAssociationInputProps =
+  & z.input<typeof AwsMskScramSecretAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsMskScramSecretAssociationOutputProps =
+  & z.output<typeof AwsMskScramSecretAssociationOutputSchema>
+  & z.output<typeof AwsMskScramSecretAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/msk_scram_secret_association
 
-export function AwsMskScramSecretAssociation(props: Partial<InputProps>) {
+export function AwsMskScramSecretAssociation(
+  props: Partial<AwsMskScramSecretAssociationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function AwsMskScramSecretAssociation(props: Partial<InputProps>) {
       _type='aws_msk_scram_secret_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsMskScramSecretAssociationInputSchema}
+      _outputSchema={AwsMskScramSecretAssociationOutputSchema}
       {...props}
     />
   )
@@ -52,7 +54,7 @@ export const useAwsMskScramSecretAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsMskScramSecretAssociationOutputProps>(
     AwsMskScramSecretAssociation,
     idFilter,
     baseNode,
@@ -64,7 +66,7 @@ export const useAwsMskScramSecretAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsMskScramSecretAssociationOutputProps>(
     AwsMskScramSecretAssociation,
     idFilter,
     baseNode,

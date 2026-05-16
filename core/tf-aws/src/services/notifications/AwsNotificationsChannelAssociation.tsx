@@ -9,25 +9,28 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string()),
-  notification_configuration_arn: resolvableValue(z.string()),
-})
+export const AwsNotificationsChannelAssociationInputSchema = TfMetaSchema
+  .extend({
+    arn: resolvableValue(z.string()),
+    notification_configuration_arn: resolvableValue(z.string()),
+  })
 
-export const OutputSchema = z.object({})
+export const AwsNotificationsChannelAssociationOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsNotificationsChannelAssociationInputProps =
+  & z.input<typeof AwsNotificationsChannelAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNotificationsChannelAssociationOutputProps =
+  & z.output<typeof AwsNotificationsChannelAssociationOutputSchema>
+  & z.output<typeof AwsNotificationsChannelAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/notifications_channel_association
 
-export function AwsNotificationsChannelAssociation(props: Partial<InputProps>) {
+export function AwsNotificationsChannelAssociation(
+  props: Partial<AwsNotificationsChannelAssociationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -37,8 +40,8 @@ export function AwsNotificationsChannelAssociation(props: Partial<InputProps>) {
       _type='aws_notifications_channel_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsNotificationsChannelAssociationInputSchema}
+      _outputSchema={AwsNotificationsChannelAssociationOutputSchema}
       {...props}
     />
   )
@@ -49,7 +52,7 @@ export const useAwsNotificationsChannelAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsNotificationsChannelAssociationOutputProps>(
     AwsNotificationsChannelAssociation,
     idFilter,
     baseNode,
@@ -61,7 +64,7 @@ export const useAwsNotificationsChannelAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsNotificationsChannelAssociationOutputProps>(
     AwsNotificationsChannelAssociation,
     idFilter,
     baseNode,

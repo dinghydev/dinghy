@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsXrayGroupInputSchema = TfMetaSchema.extend({
   filter_expression: resolvableValue(z.string()),
   group_name: resolvableValue(z.string()),
   insights_configuration: resolvableValue(
@@ -22,29 +22,29 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsXrayGroupOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsXrayGroupImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsXrayGroupInputProps =
+  & z.input<typeof AwsXrayGroupInputSchema>
+  & z.input<typeof AwsXrayGroupImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsXrayGroupOutputProps =
+  & z.output<typeof AwsXrayGroupOutputSchema>
+  & z.output<typeof AwsXrayGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/xray_group
 
-export function AwsXrayGroup(props: Partial<InputProps>) {
+export function AwsXrayGroup(props: Partial<AwsXrayGroupInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -54,9 +54,9 @@ export function AwsXrayGroup(props: Partial<InputProps>) {
       _type='aws_xray_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsXrayGroupInputSchema}
+      _outputSchema={AwsXrayGroupOutputSchema}
+      _importSchema={AwsXrayGroupImportSchema}
       {...props}
     />
   )
@@ -66,10 +66,22 @@ export const useAwsXrayGroup = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsXrayGroup, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsXrayGroupOutputProps>(
+    AwsXrayGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsXrayGroups = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsXrayGroup, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsXrayGroupOutputProps>(
+    AwsXrayGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

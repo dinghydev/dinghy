@@ -9,13 +9,13 @@ import {
 import z from 'zod'
 import { AwsBatchJobQueue } from './AwsBatchJobQueue.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsBatchJobQueueInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsBatchJobQueueOutputSchema = z.object({
   arn: z.string().optional(),
   compute_environment_order: z.object({
     compute_environment: z.string(),
@@ -35,18 +35,20 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsBatchJobQueueInputProps =
+  & z.input<typeof DataAwsBatchJobQueueInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsBatchJobQueueOutputProps =
+  & z.output<typeof DataAwsBatchJobQueueOutputSchema>
+  & z.output<typeof DataAwsBatchJobQueueInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/batch_job_queue
 
-export function DataAwsBatchJobQueue(props: Partial<InputProps>) {
+export function DataAwsBatchJobQueue(
+  props: Partial<DataAwsBatchJobQueueInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -56,8 +58,8 @@ export function DataAwsBatchJobQueue(props: Partial<InputProps>) {
       _type='aws_batch_job_queue'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsBatchJobQueueInputSchema}
+      _outputSchema={DataAwsBatchJobQueueOutputSchema}
       {...props as any}
     />
   )
@@ -68,11 +70,21 @@ export const useDataAwsBatchJobQueue = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsBatchJobQueue, idFilter, baseNode, optional)
+  useTypedNode<DataAwsBatchJobQueueOutputProps>(
+    DataAwsBatchJobQueue,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsBatchJobQueues = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsBatchJobQueue, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsBatchJobQueueOutputProps>(
+    DataAwsBatchJobQueue,
+    idFilter,
+    baseNode,
+    optional,
+  )

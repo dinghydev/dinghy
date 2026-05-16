@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIotProvisioningTemplateInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   provisioning_role_arn: resolvableValue(z.string()),
   template_body: resolvableValue(z.string()),
@@ -27,24 +27,26 @@ export const InputSchema = TfMetaSchema.extend({
   type: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsIotProvisioningTemplateOutputSchema = z.object({
   arn: z.string().optional(),
   default_version_id: z.number().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsIotProvisioningTemplateInputProps =
+  & z.input<typeof AwsIotProvisioningTemplateInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIotProvisioningTemplateOutputProps =
+  & z.output<typeof AwsIotProvisioningTemplateOutputSchema>
+  & z.output<typeof AwsIotProvisioningTemplateInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iot_provisioning_template
 
-export function AwsIotProvisioningTemplate(props: Partial<InputProps>) {
+export function AwsIotProvisioningTemplate(
+  props: Partial<AwsIotProvisioningTemplateInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -54,8 +56,8 @@ export function AwsIotProvisioningTemplate(props: Partial<InputProps>) {
       _type='aws_iot_provisioning_template'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsIotProvisioningTemplateInputSchema}
+      _outputSchema={AwsIotProvisioningTemplateOutputSchema}
       {...props}
     />
   )
@@ -66,7 +68,7 @@ export const useAwsIotProvisioningTemplate = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsIotProvisioningTemplateOutputProps>(
     AwsIotProvisioningTemplate,
     idFilter,
     baseNode,
@@ -78,7 +80,7 @@ export const useAwsIotProvisioningTemplates = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsIotProvisioningTemplateOutputProps>(
     AwsIotProvisioningTemplate,
     idFilter,
     baseNode,

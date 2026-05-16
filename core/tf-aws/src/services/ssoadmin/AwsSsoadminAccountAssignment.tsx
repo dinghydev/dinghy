@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSsoadminAccountAssignmentInputSchema = TfMetaSchema.extend({
   instance_arn: resolvableValue(z.string()),
   permission_set_arn: resolvableValue(z.string()),
   principal_id: resolvableValue(z.string()),
@@ -25,11 +25,11 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsSsoadminAccountAssignmentOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSsoadminAccountAssignmentImportSchema = z.object({
   instance_arn: resolvableValue(z.string()),
   permission_set_arn: resolvableValue(z.string()),
   principal_id: resolvableValue(z.string()),
@@ -40,19 +40,21 @@ export const ImportSchema = z.object({
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSsoadminAccountAssignmentInputProps =
+  & z.input<typeof AwsSsoadminAccountAssignmentInputSchema>
+  & z.input<typeof AwsSsoadminAccountAssignmentImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSsoadminAccountAssignmentOutputProps =
+  & z.output<typeof AwsSsoadminAccountAssignmentOutputSchema>
+  & z.output<typeof AwsSsoadminAccountAssignmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssoadmin_account_assignment
 
-export function AwsSsoadminAccountAssignment(props: Partial<InputProps>) {
+export function AwsSsoadminAccountAssignment(
+  props: Partial<AwsSsoadminAccountAssignmentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -62,9 +64,9 @@ export function AwsSsoadminAccountAssignment(props: Partial<InputProps>) {
       _type='aws_ssoadmin_account_assignment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSsoadminAccountAssignmentInputSchema}
+      _outputSchema={AwsSsoadminAccountAssignmentOutputSchema}
+      _importSchema={AwsSsoadminAccountAssignmentImportSchema}
       {...props}
     />
   )
@@ -75,7 +77,7 @@ export const useAwsSsoadminAccountAssignment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSsoadminAccountAssignmentOutputProps>(
     AwsSsoadminAccountAssignment,
     idFilter,
     baseNode,
@@ -87,7 +89,7 @@ export const useAwsSsoadminAccountAssignments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSsoadminAccountAssignmentOutputProps>(
     AwsSsoadminAccountAssignment,
     idFilter,
     baseNode,

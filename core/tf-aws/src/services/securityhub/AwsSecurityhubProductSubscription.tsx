@@ -9,36 +9,40 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  product_arn: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsSecurityhubProductSubscriptionInputSchema = TfMetaSchema.extend(
+  {
+    product_arn: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  },
+)
 
-export const OutputSchema = z.object({
+export const AwsSecurityhubProductSubscriptionOutputSchema = z.object({
   arn: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSecurityhubProductSubscriptionImportSchema = z.object({
   arn: resolvableValue(z.string()),
   product_arn: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSecurityhubProductSubscriptionInputProps =
+  & z.input<typeof AwsSecurityhubProductSubscriptionInputSchema>
+  & z.input<typeof AwsSecurityhubProductSubscriptionImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSecurityhubProductSubscriptionOutputProps =
+  & z.output<typeof AwsSecurityhubProductSubscriptionOutputSchema>
+  & z.output<typeof AwsSecurityhubProductSubscriptionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_product_subscription
 
-export function AwsSecurityhubProductSubscription(props: Partial<InputProps>) {
+export function AwsSecurityhubProductSubscription(
+  props: Partial<AwsSecurityhubProductSubscriptionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,9 +52,9 @@ export function AwsSecurityhubProductSubscription(props: Partial<InputProps>) {
       _type='aws_securityhub_product_subscription'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSecurityhubProductSubscriptionInputSchema}
+      _outputSchema={AwsSecurityhubProductSubscriptionOutputSchema}
+      _importSchema={AwsSecurityhubProductSubscriptionImportSchema}
       {...props}
     />
   )
@@ -61,7 +65,7 @@ export const useAwsSecurityhubProductSubscription = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSecurityhubProductSubscriptionOutputProps>(
     AwsSecurityhubProductSubscription,
     idFilter,
     baseNode,
@@ -73,7 +77,7 @@ export const useAwsSecurityhubProductSubscriptions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSecurityhubProductSubscriptionOutputProps>(
     AwsSecurityhubProductSubscription,
     idFilter,
     baseNode,

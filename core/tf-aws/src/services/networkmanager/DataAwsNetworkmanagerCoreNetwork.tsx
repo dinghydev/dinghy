@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsNetworkmanagerCoreNetwork } from './AwsNetworkmanagerCoreNetwork.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsNetworkmanagerCoreNetworkInputSchema = TfMetaSchema.extend({
   core_network_id: resolvableValue(z.string()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsNetworkmanagerCoreNetworkOutputSchema = z.object({
   arn: z.string().optional(),
   created_at: z.string().optional(),
   description: z.string().optional(),
@@ -40,18 +40,20 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsNetworkmanagerCoreNetworkInputProps =
+  & z.input<typeof DataAwsNetworkmanagerCoreNetworkInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsNetworkmanagerCoreNetworkOutputProps =
+  & z.output<typeof DataAwsNetworkmanagerCoreNetworkOutputSchema>
+  & z.output<typeof DataAwsNetworkmanagerCoreNetworkInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/networkmanager_core_network
 
-export function DataAwsNetworkmanagerCoreNetwork(props: Partial<InputProps>) {
+export function DataAwsNetworkmanagerCoreNetwork(
+  props: Partial<DataAwsNetworkmanagerCoreNetworkInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -61,8 +63,8 @@ export function DataAwsNetworkmanagerCoreNetwork(props: Partial<InputProps>) {
       _type='aws_networkmanager_core_network'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsNetworkmanagerCoreNetworkInputSchema}
+      _outputSchema={DataAwsNetworkmanagerCoreNetworkOutputSchema}
       {...props as any}
     />
   )
@@ -73,7 +75,7 @@ export const useDataAwsNetworkmanagerCoreNetwork = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsNetworkmanagerCoreNetworkOutputProps>(
     DataAwsNetworkmanagerCoreNetwork,
     idFilter,
     baseNode,
@@ -85,7 +87,7 @@ export const useDataAwsNetworkmanagerCoreNetworks = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsNetworkmanagerCoreNetworkOutputProps>(
     DataAwsNetworkmanagerCoreNetwork,
     idFilter,
     baseNode,

@@ -9,27 +9,28 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  firewall_arn: resolvableValue(z.string()),
-  vpc_id: resolvableValue(z.string()),
-  description: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  subnet_mapping: resolvableValue(
-    z.object({
-      ip_address_type: z.string().optional(),
-      subnet_id: z.string(),
-    }).array().optional(),
-  ),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsNetworkfirewallVpcEndpointAssociationInputSchema = TfMetaSchema
+  .extend({
+    firewall_arn: resolvableValue(z.string()),
+    vpc_id: resolvableValue(z.string()),
+    description: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    subnet_mapping: resolvableValue(
+      z.object({
+        ip_address_type: z.string().optional(),
+        subnet_id: z.string(),
+      }).array().optional(),
+    ),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsNetworkfirewallVpcEndpointAssociationOutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
   vpc_endpoint_association_arn: z.string().optional(),
   vpc_endpoint_association_id: z.string().optional(),
@@ -46,19 +47,19 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsNetworkfirewallVpcEndpointAssociationInputProps =
+  & z.input<typeof AwsNetworkfirewallVpcEndpointAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNetworkfirewallVpcEndpointAssociationOutputProps =
+  & z.output<typeof AwsNetworkfirewallVpcEndpointAssociationOutputSchema>
+  & z.output<typeof AwsNetworkfirewallVpcEndpointAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/networkfirewall_vpc_endpoint_association
 
 export function AwsNetworkfirewallVpcEndpointAssociation(
-  props: Partial<InputProps>,
+  props: Partial<AwsNetworkfirewallVpcEndpointAssociationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -69,8 +70,8 @@ export function AwsNetworkfirewallVpcEndpointAssociation(
       _type='aws_networkfirewall_vpc_endpoint_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsNetworkfirewallVpcEndpointAssociationInputSchema}
+      _outputSchema={AwsNetworkfirewallVpcEndpointAssociationOutputSchema}
       {...props}
     />
   )
@@ -81,7 +82,7 @@ export const useAwsNetworkfirewallVpcEndpointAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsNetworkfirewallVpcEndpointAssociationOutputProps>(
     AwsNetworkfirewallVpcEndpointAssociation,
     idFilter,
     baseNode,
@@ -93,7 +94,7 @@ export const useAwsNetworkfirewallVpcEndpointAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsNetworkfirewallVpcEndpointAssociationOutputProps>(
     AwsNetworkfirewallVpcEndpointAssociation,
     idFilter,
     baseNode,

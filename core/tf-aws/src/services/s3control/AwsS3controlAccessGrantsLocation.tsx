@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsS3controlAccessGrantsLocationInputSchema = TfMetaSchema.extend({
   iam_role_arn: resolvableValue(z.string()),
   location_scope: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
@@ -17,25 +17,27 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsS3controlAccessGrantsLocationOutputSchema = z.object({
   access_grants_location_arn: z.string().optional(),
   access_grants_location_id: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsS3controlAccessGrantsLocationInputProps =
+  & z.input<typeof AwsS3controlAccessGrantsLocationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3controlAccessGrantsLocationOutputProps =
+  & z.output<typeof AwsS3controlAccessGrantsLocationOutputSchema>
+  & z.output<typeof AwsS3controlAccessGrantsLocationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3control_access_grants_location
 
-export function AwsS3controlAccessGrantsLocation(props: Partial<InputProps>) {
+export function AwsS3controlAccessGrantsLocation(
+  props: Partial<AwsS3controlAccessGrantsLocationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,8 +47,8 @@ export function AwsS3controlAccessGrantsLocation(props: Partial<InputProps>) {
       _type='aws_s3control_access_grants_location'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsS3controlAccessGrantsLocationInputSchema}
+      _outputSchema={AwsS3controlAccessGrantsLocationOutputSchema}
       {...props}
     />
   )
@@ -57,7 +59,7 @@ export const useAwsS3controlAccessGrantsLocation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsS3controlAccessGrantsLocationOutputProps>(
     AwsS3controlAccessGrantsLocation,
     idFilter,
     baseNode,
@@ -69,7 +71,7 @@ export const useAwsS3controlAccessGrantsLocations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsS3controlAccessGrantsLocationOutputProps>(
     AwsS3controlAccessGrantsLocation,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsGlueClassifierInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   csv_classifier: resolvableValue(
     z.object({
@@ -45,22 +45,22 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsGlueClassifierOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsGlueClassifierInputProps =
+  & z.input<typeof AwsGlueClassifierInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsGlueClassifierOutputProps =
+  & z.output<typeof AwsGlueClassifierOutputSchema>
+  & z.output<typeof AwsGlueClassifierInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/glue_classifier
 
-export function AwsGlueClassifier(props: Partial<InputProps>) {
+export function AwsGlueClassifier(props: Partial<AwsGlueClassifierInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -70,8 +70,8 @@ export function AwsGlueClassifier(props: Partial<InputProps>) {
       _type='aws_glue_classifier'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsGlueClassifierInputSchema}
+      _outputSchema={AwsGlueClassifierOutputSchema}
       {...props}
     />
   )
@@ -81,10 +81,22 @@ export const useAwsGlueClassifier = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsGlueClassifier, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsGlueClassifierOutputProps>(
+    AwsGlueClassifier,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsGlueClassifiers = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsGlueClassifier, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsGlueClassifierOutputProps>(
+    AwsGlueClassifier,
+    idFilter,
+    baseNode,
+    optional,
+  )

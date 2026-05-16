@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsBackupSelectionInputSchema = TfMetaSchema.extend({
   iam_role_arn: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   plan_id: resolvableValue(z.string()),
@@ -45,22 +45,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsBackupSelectionOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsBackupSelectionInputProps =
+  & z.input<typeof AwsBackupSelectionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBackupSelectionOutputProps =
+  & z.output<typeof AwsBackupSelectionOutputSchema>
+  & z.output<typeof AwsBackupSelectionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/backup_selection
 
-export function AwsBackupSelection(props: Partial<InputProps>) {
+export function AwsBackupSelection(
+  props: Partial<AwsBackupSelectionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -70,8 +72,8 @@ export function AwsBackupSelection(props: Partial<InputProps>) {
       _type='aws_backup_selection'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsBackupSelectionInputSchema}
+      _outputSchema={AwsBackupSelectionOutputSchema}
       {...props}
     />
   )
@@ -81,11 +83,22 @@ export const useAwsBackupSelection = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsBackupSelection, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsBackupSelectionOutputProps>(
+    AwsBackupSelection,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsBackupSelections = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsBackupSelection, idFilter, baseNode, optional)
+  useTypedNodes<AwsBackupSelectionOutputProps>(
+    AwsBackupSelection,
+    idFilter,
+    baseNode,
+    optional,
+  )

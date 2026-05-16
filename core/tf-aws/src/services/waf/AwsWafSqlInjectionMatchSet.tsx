@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsWafSqlInjectionMatchSetInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   sql_injection_match_tuples: resolvableValue(
     z.object({
@@ -22,23 +22,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsWafSqlInjectionMatchSetOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsWafSqlInjectionMatchSetInputProps =
+  & z.input<typeof AwsWafSqlInjectionMatchSetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWafSqlInjectionMatchSetOutputProps =
+  & z.output<typeof AwsWafSqlInjectionMatchSetOutputSchema>
+  & z.output<typeof AwsWafSqlInjectionMatchSetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/waf_sql_injection_match_set
 
-export function AwsWafSqlInjectionMatchSet(props: Partial<InputProps>) {
+export function AwsWafSqlInjectionMatchSet(
+  props: Partial<AwsWafSqlInjectionMatchSetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +50,8 @@ export function AwsWafSqlInjectionMatchSet(props: Partial<InputProps>) {
       _type='aws_waf_sql_injection_match_set'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsWafSqlInjectionMatchSetInputSchema}
+      _outputSchema={AwsWafSqlInjectionMatchSetOutputSchema}
       {...props}
     />
   )
@@ -60,7 +62,7 @@ export const useAwsWafSqlInjectionMatchSet = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsWafSqlInjectionMatchSetOutputProps>(
     AwsWafSqlInjectionMatchSet,
     idFilter,
     baseNode,
@@ -72,7 +74,7 @@ export const useAwsWafSqlInjectionMatchSets = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsWafSqlInjectionMatchSetOutputProps>(
     AwsWafSqlInjectionMatchSet,
     idFilter,
     baseNode,

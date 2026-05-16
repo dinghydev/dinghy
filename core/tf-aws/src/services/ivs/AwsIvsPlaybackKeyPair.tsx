@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIvsPlaybackKeyPairInputSchema = TfMetaSchema.extend({
   public_key: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
@@ -23,29 +23,31 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsIvsPlaybackKeyPairOutputSchema = z.object({
   arn: z.string().optional(),
   fingerprint: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsIvsPlaybackKeyPairImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsIvsPlaybackKeyPairInputProps =
+  & z.input<typeof AwsIvsPlaybackKeyPairInputSchema>
+  & z.input<typeof AwsIvsPlaybackKeyPairImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIvsPlaybackKeyPairOutputProps =
+  & z.output<typeof AwsIvsPlaybackKeyPairOutputSchema>
+  & z.output<typeof AwsIvsPlaybackKeyPairInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ivs_playback_key_pair
 
-export function AwsIvsPlaybackKeyPair(props: Partial<InputProps>) {
+export function AwsIvsPlaybackKeyPair(
+  props: Partial<AwsIvsPlaybackKeyPairInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,9 +57,9 @@ export function AwsIvsPlaybackKeyPair(props: Partial<InputProps>) {
       _type='aws_ivs_playback_key_pair'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsIvsPlaybackKeyPairInputSchema}
+      _outputSchema={AwsIvsPlaybackKeyPairOutputSchema}
+      _importSchema={AwsIvsPlaybackKeyPairImportSchema}
       {...props}
     />
   )
@@ -68,14 +70,19 @@ export const useAwsIvsPlaybackKeyPair = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsIvsPlaybackKeyPair, idFilter, baseNode, optional)
+  useTypedNode<AwsIvsPlaybackKeyPairOutputProps>(
+    AwsIvsPlaybackKeyPair,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIvsPlaybackKeyPairs = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsIvsPlaybackKeyPairOutputProps>(
     AwsIvsPlaybackKeyPair,
     idFilter,
     baseNode,

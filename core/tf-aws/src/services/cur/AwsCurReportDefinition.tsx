@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCurReportDefinitionInputSchema = TfMetaSchema.extend({
   additional_schema_elements: resolvableValue(z.string().array()),
   compression: resolvableValue(z.string()),
   format: resolvableValue(z.string()),
@@ -25,23 +25,25 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCurReportDefinitionOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCurReportDefinitionInputProps =
+  & z.input<typeof AwsCurReportDefinitionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCurReportDefinitionOutputProps =
+  & z.output<typeof AwsCurReportDefinitionOutputSchema>
+  & z.output<typeof AwsCurReportDefinitionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cur_report_definition
 
-export function AwsCurReportDefinition(props: Partial<InputProps>) {
+export function AwsCurReportDefinition(
+  props: Partial<AwsCurReportDefinitionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -51,8 +53,8 @@ export function AwsCurReportDefinition(props: Partial<InputProps>) {
       _type='aws_cur_report_definition'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCurReportDefinitionInputSchema}
+      _outputSchema={AwsCurReportDefinitionOutputSchema}
       {...props}
     />
   )
@@ -63,7 +65,7 @@ export const useAwsCurReportDefinition = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCurReportDefinitionOutputProps>(
     AwsCurReportDefinition,
     idFilter,
     baseNode,
@@ -75,7 +77,7 @@ export const useAwsCurReportDefinitions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCurReportDefinitionOutputProps>(
     AwsCurReportDefinition,
     idFilter,
     baseNode,

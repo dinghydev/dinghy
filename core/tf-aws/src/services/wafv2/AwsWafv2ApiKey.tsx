@@ -9,28 +9,28 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsWafv2ApiKeyInputSchema = TfMetaSchema.extend({
   scope: resolvableValue(z.string()),
   token_domains: resolvableValue(z.string().array()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsWafv2ApiKeyOutputSchema = z.object({
   api_key: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsWafv2ApiKeyInputProps =
+  & z.input<typeof AwsWafv2ApiKeyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWafv2ApiKeyOutputProps =
+  & z.output<typeof AwsWafv2ApiKeyOutputSchema>
+  & z.output<typeof AwsWafv2ApiKeyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/wafv2_api_key
 
-export function AwsWafv2ApiKey(props: Partial<InputProps>) {
+export function AwsWafv2ApiKey(props: Partial<AwsWafv2ApiKeyInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +40,8 @@ export function AwsWafv2ApiKey(props: Partial<InputProps>) {
       _type='aws_wafv2_api_key'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsWafv2ApiKeyInputSchema}
+      _outputSchema={AwsWafv2ApiKeyOutputSchema}
       {...props}
     />
   )
@@ -51,10 +51,22 @@ export const useAwsWafv2ApiKey = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsWafv2ApiKey, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsWafv2ApiKeyOutputProps>(
+    AwsWafv2ApiKey,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsWafv2ApiKeys = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsWafv2ApiKey, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsWafv2ApiKeyOutputProps>(
+    AwsWafv2ApiKey,
+    idFilter,
+    baseNode,
+    optional,
+  )

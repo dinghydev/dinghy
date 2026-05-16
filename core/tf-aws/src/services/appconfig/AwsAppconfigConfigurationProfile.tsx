@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAppconfigConfigurationProfileInputSchema = TfMetaSchema.extend({
   application_id: resolvableValue(z.string()),
   location_uri: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -27,25 +27,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsAppconfigConfigurationProfileOutputSchema = z.object({
   arn: z.string().optional(),
   configuration_profile_id: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAppconfigConfigurationProfileInputProps =
+  & z.input<typeof AwsAppconfigConfigurationProfileInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppconfigConfigurationProfileOutputProps =
+  & z.output<typeof AwsAppconfigConfigurationProfileOutputSchema>
+  & z.output<typeof AwsAppconfigConfigurationProfileInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appconfig_configuration_profile
 
-export function AwsAppconfigConfigurationProfile(props: Partial<InputProps>) {
+export function AwsAppconfigConfigurationProfile(
+  props: Partial<AwsAppconfigConfigurationProfileInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,8 +57,8 @@ export function AwsAppconfigConfigurationProfile(props: Partial<InputProps>) {
       _type='aws_appconfig_configuration_profile'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAppconfigConfigurationProfileInputSchema}
+      _outputSchema={AwsAppconfigConfigurationProfileOutputSchema}
       {...props}
     />
   )
@@ -67,7 +69,7 @@ export const useAwsAppconfigConfigurationProfile = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAppconfigConfigurationProfileOutputProps>(
     AwsAppconfigConfigurationProfile,
     idFilter,
     baseNode,
@@ -79,7 +81,7 @@ export const useAwsAppconfigConfigurationProfiles = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAppconfigConfigurationProfileOutputProps>(
     AwsAppconfigConfigurationProfile,
     idFilter,
     baseNode,

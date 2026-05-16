@@ -9,14 +9,14 @@ import {
 import z from 'zod'
 import { AwsKmsKey } from './AwsKmsKey.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsKmsKeyInputSchema = TfMetaSchema.extend({
   key_id: resolvableValue(z.string()),
   grant_tokens: resolvableValue(z.string().array().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsKmsKeyOutputSchema = z.object({
   arn: z.string().optional(),
   aws_account_id: z.string().optional(),
   cloud_hsm_cluster_id: z.string().optional(),
@@ -51,18 +51,18 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsKmsKeyInputProps =
+  & z.input<typeof DataAwsKmsKeyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsKmsKeyOutputProps =
+  & z.output<typeof DataAwsKmsKeyOutputSchema>
+  & z.output<typeof DataAwsKmsKeyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/kms_key
 
-export function DataAwsKmsKey(props: Partial<InputProps>) {
+export function DataAwsKmsKey(props: Partial<DataAwsKmsKeyInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -72,8 +72,8 @@ export function DataAwsKmsKey(props: Partial<InputProps>) {
       _type='aws_kms_key'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsKmsKeyInputSchema}
+      _outputSchema={DataAwsKmsKeyOutputSchema}
       {...props as any}
     />
   )
@@ -83,10 +83,22 @@ export const useDataAwsKmsKey = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsKmsKey, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsKmsKeyOutputProps>(
+    DataAwsKmsKey,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsKmsKeys = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsKmsKey, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsKmsKeyOutputProps>(
+    DataAwsKmsKey,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsGrafanaRoleAssociationInputSchema = TfMetaSchema.extend({
   role: resolvableValue(z.string()),
   workspace_id: resolvableValue(z.string()),
   group_ids: resolvableValue(z.string().array().optional()),
@@ -24,20 +24,22 @@ export const InputSchema = TfMetaSchema.extend({
   user_ids: resolvableValue(z.string().array().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsGrafanaRoleAssociationOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsGrafanaRoleAssociationInputProps =
+  & z.input<typeof AwsGrafanaRoleAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsGrafanaRoleAssociationOutputProps =
+  & z.output<typeof AwsGrafanaRoleAssociationOutputSchema>
+  & z.output<typeof AwsGrafanaRoleAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/grafana_role_association
 
-export function AwsGrafanaRoleAssociation(props: Partial<InputProps>) {
+export function AwsGrafanaRoleAssociation(
+  props: Partial<AwsGrafanaRoleAssociationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +49,8 @@ export function AwsGrafanaRoleAssociation(props: Partial<InputProps>) {
       _type='aws_grafana_role_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsGrafanaRoleAssociationInputSchema}
+      _outputSchema={AwsGrafanaRoleAssociationOutputSchema}
       {...props}
     />
   )
@@ -59,7 +61,7 @@ export const useAwsGrafanaRoleAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsGrafanaRoleAssociationOutputProps>(
     AwsGrafanaRoleAssociation,
     idFilter,
     baseNode,
@@ -71,7 +73,7 @@ export const useAwsGrafanaRoleAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsGrafanaRoleAssociationOutputProps>(
     AwsGrafanaRoleAssociation,
     idFilter,
     baseNode,

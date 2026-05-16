@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAuditmanagerAssessmentInputSchema = TfMetaSchema.extend({
   framework_id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   assessment_reports_destination: resolvableValue(
@@ -39,7 +39,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAuditmanagerAssessmentOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   roles_all: z.object({
@@ -50,25 +50,27 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsAuditmanagerAssessmentImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsAuditmanagerAssessmentInputProps =
+  & z.input<typeof AwsAuditmanagerAssessmentInputSchema>
+  & z.input<typeof AwsAuditmanagerAssessmentImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAuditmanagerAssessmentOutputProps =
+  & z.output<typeof AwsAuditmanagerAssessmentOutputSchema>
+  & z.output<typeof AwsAuditmanagerAssessmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/auditmanager_assessment
 
-export function AwsAuditmanagerAssessment(props: Partial<InputProps>) {
+export function AwsAuditmanagerAssessment(
+  props: Partial<AwsAuditmanagerAssessmentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -78,9 +80,9 @@ export function AwsAuditmanagerAssessment(props: Partial<InputProps>) {
       _type='aws_auditmanager_assessment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsAuditmanagerAssessmentInputSchema}
+      _outputSchema={AwsAuditmanagerAssessmentOutputSchema}
+      _importSchema={AwsAuditmanagerAssessmentImportSchema}
       {...props}
     />
   )
@@ -91,7 +93,7 @@ export const useAwsAuditmanagerAssessment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAuditmanagerAssessmentOutputProps>(
     AwsAuditmanagerAssessment,
     idFilter,
     baseNode,
@@ -103,7 +105,7 @@ export const useAwsAuditmanagerAssessments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAuditmanagerAssessmentOutputProps>(
     AwsAuditmanagerAssessment,
     idFilter,
     baseNode,

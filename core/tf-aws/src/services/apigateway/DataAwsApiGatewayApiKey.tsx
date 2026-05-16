@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsApiGatewayApiKey } from './AwsApiGatewayApiKey.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsApiGatewayApiKeyInputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsApiGatewayApiKeyOutputSchema = z.object({
   arn: z.string().optional(),
   created_date: z.string().optional(),
   customer_id: z.string().optional(),
@@ -27,18 +27,20 @@ export const OutputSchema = z.object({
   value: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsApiGatewayApiKeyInputProps =
+  & z.input<typeof DataAwsApiGatewayApiKeyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsApiGatewayApiKeyOutputProps =
+  & z.output<typeof DataAwsApiGatewayApiKeyOutputSchema>
+  & z.output<typeof DataAwsApiGatewayApiKeyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/api_gateway_api_key
 
-export function DataAwsApiGatewayApiKey(props: Partial<InputProps>) {
+export function DataAwsApiGatewayApiKey(
+  props: Partial<DataAwsApiGatewayApiKeyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +50,8 @@ export function DataAwsApiGatewayApiKey(props: Partial<InputProps>) {
       _type='aws_api_gateway_api_key'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsApiGatewayApiKeyInputSchema}
+      _outputSchema={DataAwsApiGatewayApiKeyOutputSchema}
       {...props as any}
     />
   )
@@ -60,7 +62,7 @@ export const useDataAwsApiGatewayApiKey = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsApiGatewayApiKeyOutputProps>(
     DataAwsApiGatewayApiKey,
     idFilter,
     baseNode,
@@ -72,7 +74,7 @@ export const useDataAwsApiGatewayApiKeys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsApiGatewayApiKeyOutputProps>(
     DataAwsApiGatewayApiKey,
     idFilter,
     baseNode,

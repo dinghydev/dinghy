@@ -9,145 +9,147 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  core_network_configuration: resolvableValue(
-    z.object({
-      asn_ranges: z.string().array(),
-      dns_support: z.boolean().optional(),
-      inside_cidr_blocks: z.string().array().optional(),
-      security_group_referencing_support: z.boolean().optional(),
-      vpn_ecmp_support: z.boolean().optional(),
-      edge_locations: z.object({
-        asn: z.string().optional(),
+export const DataAwsNetworkmanagerCoreNetworkPolicyDocumentInputSchema =
+  TfMetaSchema.extend({
+    core_network_configuration: resolvableValue(
+      z.object({
+        asn_ranges: z.string().array(),
+        dns_support: z.boolean().optional(),
         inside_cidr_blocks: z.string().array().optional(),
-        location: z.string(),
+        security_group_referencing_support: z.boolean().optional(),
+        vpn_ecmp_support: z.boolean().optional(),
+        edge_locations: z.object({
+          asn: z.string().optional(),
+          inside_cidr_blocks: z.string().array().optional(),
+          location: z.string(),
+        }).array(),
       }).array(),
-    }).array(),
-  ),
-  segments: resolvableValue(
-    z.object({
-      allow_filter: z.string().array().optional(),
-      deny_filter: z.string().array().optional(),
-      description: z.string().optional(),
-      edge_locations: z.string().array().optional(),
-      isolate_attachments: z.boolean().optional(),
-      name: z.string(),
-      require_attachment_acceptance: z.boolean().optional(),
-    }).array(),
-  ),
-  attachment_policies: resolvableValue(
-    z.object({
-      condition_logic: z.string().optional(),
-      description: z.string().optional(),
-      rule_number: z.number(),
-      action: z.object({
-        add_to_network_function_group: z.string().optional(),
-        association_method: z.string().optional(),
-        require_acceptance: z.boolean().optional(),
-        segment: z.string().optional(),
-        tag_value_of_key: z.string().optional(),
-      }),
-      conditions: z.object({
-        key: z.string().optional(),
-        operator: z.string().optional(),
-        type: z.string(),
-        value: z.string().optional(),
+    ),
+    segments: resolvableValue(
+      z.object({
+        allow_filter: z.string().array().optional(),
+        deny_filter: z.string().array().optional(),
+        description: z.string().optional(),
+        edge_locations: z.string().array().optional(),
+        isolate_attachments: z.boolean().optional(),
+        name: z.string(),
+        require_attachment_acceptance: z.boolean().optional(),
       }).array(),
-    }).array().optional(),
-  ),
-  attachment_routing_policy_rules: resolvableValue(
-    z.object({
-      description: z.string().optional(),
-      edge_locations: z.string().array().optional(),
-      rule_number: z.number(),
-      action: z.object({
-        associate_routing_policies: z.string().array(),
-      }),
-      conditions: z.object({
-        type: z.string(),
-        value: z.string(),
-      }).array(),
-    }).array().optional(),
-  ),
-  id: resolvableValue(z.string().optional()),
-  network_function_groups: resolvableValue(
-    z.object({
-      description: z.string().optional(),
-      name: z.string(),
-      require_attachment_acceptance: z.boolean(),
-    }).array().optional(),
-  ),
-  routing_policies: resolvableValue(
-    z.object({
-      routing_policy_description: z.string().optional(),
-      routing_policy_direction: z.string(),
-      routing_policy_name: z.string(),
-      routing_policy_number: z.number(),
-      routing_policy_rules: z.object({
+    ),
+    attachment_policies: resolvableValue(
+      z.object({
+        condition_logic: z.string().optional(),
+        description: z.string().optional(),
         rule_number: z.number(),
-        rule_definition: z.object({
-          condition_logic: z.string().optional(),
-          action: z.object({
-            type: z.string(),
-            value: z.string().optional(),
-          }),
-          match_conditions: z.object({
-            type: z.string(),
-            value: z.string(),
-          }).array().optional(),
+        action: z.object({
+          add_to_network_function_group: z.string().optional(),
+          association_method: z.string().optional(),
+          require_acceptance: z.boolean().optional(),
+          segment: z.string().optional(),
+          tag_value_of_key: z.string().optional(),
         }),
-      }).array(),
-    }).array().optional(),
-  ),
-  segment_actions: resolvableValue(
-    z.object({
-      action: z.string(),
-      description: z.string().optional(),
-      destination_cidr_blocks: z.string().array().optional(),
-      destinations: z.string().array().optional(),
-      mode: z.string().optional(),
-      routing_policy_names: z.string().array().optional(),
-      segment: z.string(),
-      share_with: z.string().array().optional(),
-      share_with_except: z.string().array().optional(),
-      edge_location_association: z.object({
-        edge_location: z.string(),
-        peer_edge_location: z.string(),
-        routing_policy_names: z.string().array(),
-      }).optional(),
-      via: z.object({
-        network_function_groups: z.string().array().optional(),
-        with_edge_override: z.object({
-          edge_sets: z.string().array().array().optional(),
-          use_edge: z.string().optional(),
-          use_edge_location: z.string().optional(),
-        }).array().optional(),
-      }).optional(),
-      when_sent_to: z.object({
-        segments: z.string().array().optional(),
-      }).optional(),
-    }).array().optional(),
-  ),
-  version: resolvableValue(z.string().optional()),
-})
+        conditions: z.object({
+          key: z.string().optional(),
+          operator: z.string().optional(),
+          type: z.string(),
+          value: z.string().optional(),
+        }).array(),
+      }).array().optional(),
+    ),
+    attachment_routing_policy_rules: resolvableValue(
+      z.object({
+        description: z.string().optional(),
+        edge_locations: z.string().array().optional(),
+        rule_number: z.number(),
+        action: z.object({
+          associate_routing_policies: z.string().array(),
+        }),
+        conditions: z.object({
+          type: z.string(),
+          value: z.string(),
+        }).array(),
+      }).array().optional(),
+    ),
+    id: resolvableValue(z.string().optional()),
+    network_function_groups: resolvableValue(
+      z.object({
+        description: z.string().optional(),
+        name: z.string(),
+        require_attachment_acceptance: z.boolean(),
+      }).array().optional(),
+    ),
+    routing_policies: resolvableValue(
+      z.object({
+        routing_policy_description: z.string().optional(),
+        routing_policy_direction: z.string(),
+        routing_policy_name: z.string(),
+        routing_policy_number: z.number(),
+        routing_policy_rules: z.object({
+          rule_number: z.number(),
+          rule_definition: z.object({
+            condition_logic: z.string().optional(),
+            action: z.object({
+              type: z.string(),
+              value: z.string().optional(),
+            }),
+            match_conditions: z.object({
+              type: z.string(),
+              value: z.string(),
+            }).array().optional(),
+          }),
+        }).array(),
+      }).array().optional(),
+    ),
+    segment_actions: resolvableValue(
+      z.object({
+        action: z.string(),
+        description: z.string().optional(),
+        destination_cidr_blocks: z.string().array().optional(),
+        destinations: z.string().array().optional(),
+        mode: z.string().optional(),
+        routing_policy_names: z.string().array().optional(),
+        segment: z.string(),
+        share_with: z.string().array().optional(),
+        share_with_except: z.string().array().optional(),
+        edge_location_association: z.object({
+          edge_location: z.string(),
+          peer_edge_location: z.string(),
+          routing_policy_names: z.string().array(),
+        }).optional(),
+        via: z.object({
+          network_function_groups: z.string().array().optional(),
+          with_edge_override: z.object({
+            edge_sets: z.string().array().array().optional(),
+            use_edge: z.string().optional(),
+            use_edge_location: z.string().optional(),
+          }).array().optional(),
+        }).optional(),
+        when_sent_to: z.object({
+          segments: z.string().array().optional(),
+        }).optional(),
+      }).array().optional(),
+    ),
+    version: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
-  json: z.string().optional(),
-})
+export const DataAwsNetworkmanagerCoreNetworkPolicyDocumentOutputSchema = z
+  .object({
+    json: z.string().optional(),
+  })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsNetworkmanagerCoreNetworkPolicyDocumentInputProps =
+  & z.input<typeof DataAwsNetworkmanagerCoreNetworkPolicyDocumentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsNetworkmanagerCoreNetworkPolicyDocumentOutputProps =
+  & z.output<typeof DataAwsNetworkmanagerCoreNetworkPolicyDocumentOutputSchema>
+  & z.output<typeof DataAwsNetworkmanagerCoreNetworkPolicyDocumentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/networkmanager_core_network_policy_document
 
 export function DataAwsNetworkmanagerCoreNetworkPolicyDocument(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsNetworkmanagerCoreNetworkPolicyDocumentInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -158,8 +160,8 @@ export function DataAwsNetworkmanagerCoreNetworkPolicyDocument(
       _type='aws_networkmanager_core_network_policy_document'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsNetworkmanagerCoreNetworkPolicyDocumentInputSchema}
+      _outputSchema={DataAwsNetworkmanagerCoreNetworkPolicyDocumentOutputSchema}
       {...props}
     />
   )
@@ -170,7 +172,7 @@ export const useDataAwsNetworkmanagerCoreNetworkPolicyDocument = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsNetworkmanagerCoreNetworkPolicyDocumentOutputProps>(
     DataAwsNetworkmanagerCoreNetworkPolicyDocument,
     idFilter,
     baseNode,
@@ -182,7 +184,7 @@ export const useDataAwsNetworkmanagerCoreNetworkPolicyDocuments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsNetworkmanagerCoreNetworkPolicyDocumentOutputProps>(
     DataAwsNetworkmanagerCoreNetworkPolicyDocument,
     idFilter,
     baseNode,

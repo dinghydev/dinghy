@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIotThingPrincipalAttachmentInputSchema = TfMetaSchema.extend({
   principal: resolvableValue(z.string()),
   thing: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
@@ -17,20 +17,22 @@ export const InputSchema = TfMetaSchema.extend({
   thing_principal_type: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsIotThingPrincipalAttachmentOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsIotThingPrincipalAttachmentInputProps =
+  & z.input<typeof AwsIotThingPrincipalAttachmentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIotThingPrincipalAttachmentOutputProps =
+  & z.output<typeof AwsIotThingPrincipalAttachmentOutputSchema>
+  & z.output<typeof AwsIotThingPrincipalAttachmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iot_thing_principal_attachment
 
-export function AwsIotThingPrincipalAttachment(props: Partial<InputProps>) {
+export function AwsIotThingPrincipalAttachment(
+  props: Partial<AwsIotThingPrincipalAttachmentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function AwsIotThingPrincipalAttachment(props: Partial<InputProps>) {
       _type='aws_iot_thing_principal_attachment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsIotThingPrincipalAttachmentInputSchema}
+      _outputSchema={AwsIotThingPrincipalAttachmentOutputSchema}
       {...props}
     />
   )
@@ -52,7 +54,7 @@ export const useAwsIotThingPrincipalAttachment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsIotThingPrincipalAttachmentOutputProps>(
     AwsIotThingPrincipalAttachment,
     idFilter,
     baseNode,
@@ -64,7 +66,7 @@ export const useAwsIotThingPrincipalAttachments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsIotThingPrincipalAttachmentOutputProps>(
     AwsIotThingPrincipalAttachment,
     idFilter,
     baseNode,

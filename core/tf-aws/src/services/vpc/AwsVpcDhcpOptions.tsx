@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsVpcDhcpOptionsInputSchema = TfMetaSchema.extend({
   domain_name: resolvableValue(z.string().optional()),
   domain_name_servers: resolvableValue(z.string().array().optional()),
   ipv6_address_preferred_lease_time: resolvableValue(z.string().optional()),
@@ -19,25 +19,25 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsVpcDhcpOptionsOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   owner_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVpcDhcpOptionsInputProps =
+  & z.input<typeof AwsVpcDhcpOptionsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVpcDhcpOptionsOutputProps =
+  & z.output<typeof AwsVpcDhcpOptionsOutputSchema>
+  & z.output<typeof AwsVpcDhcpOptionsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpc_dhcp_options
 
-export function AwsVpcDhcpOptions(props: Partial<InputProps>) {
+export function AwsVpcDhcpOptions(props: Partial<AwsVpcDhcpOptionsInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +47,8 @@ export function AwsVpcDhcpOptions(props: Partial<InputProps>) {
       _type='aws_vpc_dhcp_options'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVpcDhcpOptionsInputSchema}
+      _outputSchema={AwsVpcDhcpOptionsOutputSchema}
       {...props}
     />
   )
@@ -58,4 +58,10 @@ export const useAwsVpcDhcpOptions = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsVpcDhcpOptions, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsVpcDhcpOptionsOutputProps>(
+    AwsVpcDhcpOptions,
+    idFilter,
+    baseNode,
+    optional,
+  )

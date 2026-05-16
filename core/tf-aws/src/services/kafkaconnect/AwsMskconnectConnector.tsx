@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsMskconnectConnectorInputSchema = TfMetaSchema.extend({
   capacity: resolvableValue(z.object({
     autoscaling: z.object({
       max_worker_count: z.number(),
@@ -92,24 +92,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsMskconnectConnectorOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   version: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsMskconnectConnectorInputProps =
+  & z.input<typeof AwsMskconnectConnectorInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsMskconnectConnectorOutputProps =
+  & z.output<typeof AwsMskconnectConnectorOutputSchema>
+  & z.output<typeof AwsMskconnectConnectorInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/mskconnect_connector
 
-export function AwsMskconnectConnector(props: Partial<InputProps>) {
+export function AwsMskconnectConnector(
+  props: Partial<AwsMskconnectConnectorInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -119,8 +121,8 @@ export function AwsMskconnectConnector(props: Partial<InputProps>) {
       _type='aws_mskconnect_connector'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsMskconnectConnectorInputSchema}
+      _outputSchema={AwsMskconnectConnectorOutputSchema}
       {...props}
     />
   )
@@ -131,7 +133,7 @@ export const useAwsMskconnectConnector = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsMskconnectConnectorOutputProps>(
     AwsMskconnectConnector,
     idFilter,
     baseNode,
@@ -143,7 +145,7 @@ export const useAwsMskconnectConnectors = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsMskconnectConnectorOutputProps>(
     AwsMskconnectConnector,
     idFilter,
     baseNode,

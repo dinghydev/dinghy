@@ -9,13 +9,13 @@ import {
 import z from 'zod'
 import { AwsAuditmanagerFramework } from './AwsAuditmanagerFramework.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsAuditmanagerFrameworkInputSchema = TfMetaSchema.extend({
   framework_type: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsAuditmanagerFrameworkOutputSchema = z.object({
   arn: z.string().optional(),
   compliance_type: z.string().optional(),
   control_sets: z.object({
@@ -30,18 +30,20 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsAuditmanagerFrameworkInputProps =
+  & z.input<typeof DataAwsAuditmanagerFrameworkInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsAuditmanagerFrameworkOutputProps =
+  & z.output<typeof DataAwsAuditmanagerFrameworkOutputSchema>
+  & z.output<typeof DataAwsAuditmanagerFrameworkInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/auditmanager_framework
 
-export function DataAwsAuditmanagerFramework(props: Partial<InputProps>) {
+export function DataAwsAuditmanagerFramework(
+  props: Partial<DataAwsAuditmanagerFrameworkInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -51,8 +53,8 @@ export function DataAwsAuditmanagerFramework(props: Partial<InputProps>) {
       _type='aws_auditmanager_framework'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsAuditmanagerFrameworkInputSchema}
+      _outputSchema={DataAwsAuditmanagerFrameworkOutputSchema}
       {...props as any}
     />
   )
@@ -63,7 +65,7 @@ export const useDataAwsAuditmanagerFramework = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsAuditmanagerFrameworkOutputProps>(
     DataAwsAuditmanagerFramework,
     idFilter,
     baseNode,
@@ -75,7 +77,7 @@ export const useDataAwsAuditmanagerFrameworks = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsAuditmanagerFrameworkOutputProps>(
     DataAwsAuditmanagerFramework,
     idFilter,
     baseNode,

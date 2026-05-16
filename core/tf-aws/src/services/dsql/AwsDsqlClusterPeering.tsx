@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDsqlClusterPeeringInputSchema = TfMetaSchema.extend({
   clusters: resolvableValue(z.string().array()),
   identifier: resolvableValue(z.string()),
   witness_region: resolvableValue(z.string()),
@@ -21,20 +21,22 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({})
+export const AwsDsqlClusterPeeringOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDsqlClusterPeeringInputProps =
+  & z.input<typeof AwsDsqlClusterPeeringInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDsqlClusterPeeringOutputProps =
+  & z.output<typeof AwsDsqlClusterPeeringOutputSchema>
+  & z.output<typeof AwsDsqlClusterPeeringInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dsql_cluster_peering
 
-export function AwsDsqlClusterPeering(props: Partial<InputProps>) {
+export function AwsDsqlClusterPeering(
+  props: Partial<AwsDsqlClusterPeeringInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +46,8 @@ export function AwsDsqlClusterPeering(props: Partial<InputProps>) {
       _type='aws_dsql_cluster_peering'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDsqlClusterPeeringInputSchema}
+      _outputSchema={AwsDsqlClusterPeeringOutputSchema}
       {...props}
     />
   )
@@ -56,14 +58,19 @@ export const useAwsDsqlClusterPeering = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsDsqlClusterPeering, idFilter, baseNode, optional)
+  useTypedNode<AwsDsqlClusterPeeringOutputProps>(
+    AwsDsqlClusterPeering,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDsqlClusterPeerings = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDsqlClusterPeeringOutputProps>(
     AwsDsqlClusterPeering,
     idFilter,
     baseNode,

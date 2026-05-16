@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsVpcEncryptionControlInputSchema = TfMetaSchema.extend({
   mode: resolvableValue(z.string()),
   vpc_id: resolvableValue(z.string()),
   egress_only_internet_gateway_exclusion: resolvableValue(
@@ -33,7 +33,7 @@ export const InputSchema = TfMetaSchema.extend({
   vpc_peering_exclusion: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsVpcEncryptionControlOutputSchema = z.object({
   id: z.string().optional(),
   resource_exclusions: z.object({
     egress_only_internet_gateway: z.object({
@@ -74,25 +74,27 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsVpcEncryptionControlImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsVpcEncryptionControlInputProps =
+  & z.input<typeof AwsVpcEncryptionControlInputSchema>
+  & z.input<typeof AwsVpcEncryptionControlImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVpcEncryptionControlOutputProps =
+  & z.output<typeof AwsVpcEncryptionControlOutputSchema>
+  & z.output<typeof AwsVpcEncryptionControlInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpc_encryption_control
 
-export function AwsVpcEncryptionControl(props: Partial<InputProps>) {
+export function AwsVpcEncryptionControl(
+  props: Partial<AwsVpcEncryptionControlInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -102,9 +104,9 @@ export function AwsVpcEncryptionControl(props: Partial<InputProps>) {
       _type='aws_vpc_encryption_control'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsVpcEncryptionControlInputSchema}
+      _outputSchema={AwsVpcEncryptionControlOutputSchema}
+      _importSchema={AwsVpcEncryptionControlImportSchema}
       {...props}
     />
   )
@@ -115,7 +117,7 @@ export const useAwsVpcEncryptionControl = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsVpcEncryptionControlOutputProps>(
     AwsVpcEncryptionControl,
     idFilter,
     baseNode,
@@ -127,7 +129,7 @@ export const useAwsVpcEncryptionControls = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsVpcEncryptionControlOutputProps>(
     AwsVpcEncryptionControl,
     idFilter,
     baseNode,

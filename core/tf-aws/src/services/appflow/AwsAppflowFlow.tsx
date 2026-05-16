@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAppflowFlowInputSchema = TfMetaSchema.extend({
   destination_flow_config: resolvableValue(
     z.object({
       api_version: z.string().optional(),
@@ -279,31 +279,31 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAppflowFlowOutputSchema = z.object({
   arn: z.string().optional(),
   flow_status: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsAppflowFlowImportSchema = z.object({
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsAppflowFlowInputProps =
+  & z.input<typeof AwsAppflowFlowInputSchema>
+  & z.input<typeof AwsAppflowFlowImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppflowFlowOutputProps =
+  & z.output<typeof AwsAppflowFlowOutputSchema>
+  & z.output<typeof AwsAppflowFlowInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appflow_flow
 
-export function AwsAppflowFlow(props: Partial<InputProps>) {
+export function AwsAppflowFlow(props: Partial<AwsAppflowFlowInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -313,9 +313,9 @@ export function AwsAppflowFlow(props: Partial<InputProps>) {
       _type='aws_appflow_flow'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsAppflowFlowInputSchema}
+      _outputSchema={AwsAppflowFlowOutputSchema}
+      _importSchema={AwsAppflowFlowImportSchema}
       {...props}
     />
   )
@@ -325,10 +325,22 @@ export const useAwsAppflowFlow = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsAppflowFlow, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsAppflowFlowOutputProps>(
+    AwsAppflowFlow,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAppflowFlows = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsAppflowFlow, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsAppflowFlowOutputProps>(
+    AwsAppflowFlow,
+    idFilter,
+    baseNode,
+    optional,
+  )

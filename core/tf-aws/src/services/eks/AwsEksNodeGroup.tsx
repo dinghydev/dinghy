@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEksNodeGroupInputSchema = TfMetaSchema.extend({
   cluster_name: resolvableValue(z.string()),
   node_role_arn: resolvableValue(z.string()),
   scaling_config: resolvableValue(z.object({
@@ -81,7 +81,7 @@ export const InputSchema = TfMetaSchema.extend({
   version: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsEksNodeGroupOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   resources: z.object({
@@ -94,26 +94,26 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsEksNodeGroupImportSchema = z.object({
   cluster_name: resolvableValue(z.string()),
   node_group_name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsEksNodeGroupInputProps =
+  & z.input<typeof AwsEksNodeGroupInputSchema>
+  & z.input<typeof AwsEksNodeGroupImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEksNodeGroupOutputProps =
+  & z.output<typeof AwsEksNodeGroupOutputSchema>
+  & z.output<typeof AwsEksNodeGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/eks_node_group
 
-export function AwsEksNodeGroup(props: Partial<InputProps>) {
+export function AwsEksNodeGroup(props: Partial<AwsEksNodeGroupInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -123,9 +123,9 @@ export function AwsEksNodeGroup(props: Partial<InputProps>) {
       _type='aws_eks_node_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsEksNodeGroupInputSchema}
+      _outputSchema={AwsEksNodeGroupOutputSchema}
+      _importSchema={AwsEksNodeGroupImportSchema}
       {...props}
     />
   )
@@ -135,10 +135,22 @@ export const useAwsEksNodeGroup = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsEksNodeGroup, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsEksNodeGroupOutputProps>(
+    AwsEksNodeGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEksNodeGroups = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsEksNodeGroup, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsEksNodeGroupOutputProps>(
+    AwsEksNodeGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

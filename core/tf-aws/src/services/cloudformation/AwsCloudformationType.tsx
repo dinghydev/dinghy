@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudformationTypeInputSchema = TfMetaSchema.extend({
   schema_handler_package: resolvableValue(z.string()),
   type_name: resolvableValue(z.string()),
   execution_role_arn: resolvableValue(z.string().optional()),
@@ -24,7 +24,7 @@ export const InputSchema = TfMetaSchema.extend({
   type: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudformationTypeOutputSchema = z.object({
   arn: z.string().optional(),
   default_version_id: z.string().optional(),
   deprecated_status: z.string().optional(),
@@ -39,18 +39,20 @@ export const OutputSchema = z.object({
   visibility: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudformationTypeInputProps =
+  & z.input<typeof AwsCloudformationTypeInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudformationTypeOutputProps =
+  & z.output<typeof AwsCloudformationTypeOutputSchema>
+  & z.output<typeof AwsCloudformationTypeInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudformation_type
 
-export function AwsCloudformationType(props: Partial<InputProps>) {
+export function AwsCloudformationType(
+  props: Partial<AwsCloudformationTypeInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -60,8 +62,8 @@ export function AwsCloudformationType(props: Partial<InputProps>) {
       _type='aws_cloudformation_type'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudformationTypeInputSchema}
+      _outputSchema={AwsCloudformationTypeOutputSchema}
       {...props}
     />
   )
@@ -72,14 +74,19 @@ export const useAwsCloudformationType = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsCloudformationType, idFilter, baseNode, optional)
+  useTypedNode<AwsCloudformationTypeOutputProps>(
+    AwsCloudformationType,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCloudformationTypes = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudformationTypeOutputProps>(
     AwsCloudformationType,
     idFilter,
     baseNode,

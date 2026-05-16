@@ -9,28 +9,30 @@ import {
 import z from 'zod'
 import { AwsGlueRegistry } from './AwsGlueRegistry.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsGlueRegistryInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsGlueRegistryOutputSchema = z.object({
   arn: z.string().optional(),
   description: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsGlueRegistryInputProps =
+  & z.input<typeof DataAwsGlueRegistryInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsGlueRegistryOutputProps =
+  & z.output<typeof DataAwsGlueRegistryOutputSchema>
+  & z.output<typeof DataAwsGlueRegistryInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/glue_registry
 
-export function DataAwsGlueRegistry(props: Partial<InputProps>) {
+export function DataAwsGlueRegistry(
+  props: Partial<DataAwsGlueRegistryInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function DataAwsGlueRegistry(props: Partial<InputProps>) {
       _type='aws_glue_registry'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsGlueRegistryInputSchema}
+      _outputSchema={DataAwsGlueRegistryOutputSchema}
       {...props as any}
     />
   )
@@ -52,11 +54,21 @@ export const useDataAwsGlueRegistry = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsGlueRegistry, idFilter, baseNode, optional)
+  useTypedNode<DataAwsGlueRegistryOutputProps>(
+    DataAwsGlueRegistry,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsGlueRegistrys = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsGlueRegistry, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsGlueRegistryOutputProps>(
+    DataAwsGlueRegistry,
+    idFilter,
+    baseNode,
+    optional,
+  )

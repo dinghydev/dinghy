@@ -9,28 +9,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRamResourceAssociationInputSchema = TfMetaSchema.extend({
   resource_arn: resolvableValue(z.string()),
   resource_share_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRamResourceAssociationOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRamResourceAssociationInputProps =
+  & z.input<typeof AwsRamResourceAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRamResourceAssociationOutputProps =
+  & z.output<typeof AwsRamResourceAssociationOutputSchema>
+  & z.output<typeof AwsRamResourceAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ram_resource_association
 
-export function AwsRamResourceAssociation(props: Partial<InputProps>) {
+export function AwsRamResourceAssociation(
+  props: Partial<AwsRamResourceAssociationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function AwsRamResourceAssociation(props: Partial<InputProps>) {
       _type='aws_ram_resource_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRamResourceAssociationInputSchema}
+      _outputSchema={AwsRamResourceAssociationOutputSchema}
       {...props}
     />
   )
@@ -52,7 +54,7 @@ export const useAwsRamResourceAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRamResourceAssociationOutputProps>(
     AwsRamResourceAssociation,
     idFilter,
     baseNode,
@@ -64,7 +66,7 @@ export const useAwsRamResourceAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRamResourceAssociationOutputProps>(
     AwsRamResourceAssociation,
     idFilter,
     baseNode,

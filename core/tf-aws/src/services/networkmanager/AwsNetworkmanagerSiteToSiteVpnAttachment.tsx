@@ -9,21 +9,22 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  core_network_id: resolvableValue(z.string()),
-  vpn_connection_arn: resolvableValue(z.string()),
-  routing_policy_label: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-      update: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsNetworkmanagerSiteToSiteVpnAttachmentInputSchema = TfMetaSchema
+  .extend({
+    core_network_id: resolvableValue(z.string()),
+    vpn_connection_arn: resolvableValue(z.string()),
+    routing_policy_label: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+        update: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsNetworkmanagerSiteToSiteVpnAttachmentOutputSchema = z.object({
   arn: z.string().optional(),
   attachment_policy_rule_number: z.number().optional(),
   attachment_type: z.string().optional(),
@@ -37,19 +38,19 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsNetworkmanagerSiteToSiteVpnAttachmentInputProps =
+  & z.input<typeof AwsNetworkmanagerSiteToSiteVpnAttachmentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNetworkmanagerSiteToSiteVpnAttachmentOutputProps =
+  & z.output<typeof AwsNetworkmanagerSiteToSiteVpnAttachmentOutputSchema>
+  & z.output<typeof AwsNetworkmanagerSiteToSiteVpnAttachmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/networkmanager_site_to_site_vpn_attachment
 
 export function AwsNetworkmanagerSiteToSiteVpnAttachment(
-  props: Partial<InputProps>,
+  props: Partial<AwsNetworkmanagerSiteToSiteVpnAttachmentInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -60,8 +61,8 @@ export function AwsNetworkmanagerSiteToSiteVpnAttachment(
       _type='aws_networkmanager_site_to_site_vpn_attachment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsNetworkmanagerSiteToSiteVpnAttachmentInputSchema}
+      _outputSchema={AwsNetworkmanagerSiteToSiteVpnAttachmentOutputSchema}
       {...props}
     />
   )
@@ -72,7 +73,7 @@ export const useAwsNetworkmanagerSiteToSiteVpnAttachment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsNetworkmanagerSiteToSiteVpnAttachmentOutputProps>(
     AwsNetworkmanagerSiteToSiteVpnAttachment,
     idFilter,
     baseNode,
@@ -84,7 +85,7 @@ export const useAwsNetworkmanagerSiteToSiteVpnAttachments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsNetworkmanagerSiteToSiteVpnAttachmentOutputProps>(
     AwsNetworkmanagerSiteToSiteVpnAttachment,
     idFilter,
     baseNode,

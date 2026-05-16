@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsResourcegroupsResourceInputSchema = TfMetaSchema.extend({
   group_arn: resolvableValue(z.string()),
   resource_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
@@ -21,23 +21,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsResourcegroupsResourceOutputSchema = z.object({
   id: z.string().optional(),
   resource_type: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsResourcegroupsResourceInputProps =
+  & z.input<typeof AwsResourcegroupsResourceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsResourcegroupsResourceOutputProps =
+  & z.output<typeof AwsResourcegroupsResourceOutputSchema>
+  & z.output<typeof AwsResourcegroupsResourceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/resourcegroups_resource
 
-export function AwsResourcegroupsResource(props: Partial<InputProps>) {
+export function AwsResourcegroupsResource(
+  props: Partial<AwsResourcegroupsResourceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +49,8 @@ export function AwsResourcegroupsResource(props: Partial<InputProps>) {
       _type='aws_resourcegroups_resource'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsResourcegroupsResourceInputSchema}
+      _outputSchema={AwsResourcegroupsResourceOutputSchema}
       {...props}
     />
   )
@@ -59,7 +61,7 @@ export const useAwsResourcegroupsResource = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsResourcegroupsResourceOutputProps>(
     AwsResourcegroupsResource,
     idFilter,
     baseNode,
@@ -71,7 +73,7 @@ export const useAwsResourcegroupsResources = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsResourcegroupsResourceOutputProps>(
     AwsResourcegroupsResource,
     idFilter,
     baseNode,

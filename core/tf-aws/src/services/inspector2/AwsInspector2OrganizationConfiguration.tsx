@@ -9,42 +9,43 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  auto_enable: resolvableValue(z.object({
-    code_repository: z.boolean().optional(),
-    ec2: z.boolean(),
-    ecr: z.boolean(),
-    lambda: z.boolean().optional(),
-    lambda_code: z.boolean().optional(),
-  })),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-      update: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsInspector2OrganizationConfigurationInputSchema = TfMetaSchema
+  .extend({
+    auto_enable: resolvableValue(z.object({
+      code_repository: z.boolean().optional(),
+      ec2: z.boolean(),
+      ecr: z.boolean(),
+      lambda: z.boolean().optional(),
+      lambda_code: z.boolean().optional(),
+    })),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+        update: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsInspector2OrganizationConfigurationOutputSchema = z.object({
   max_account_limit_reached: z.boolean().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsInspector2OrganizationConfigurationInputProps =
+  & z.input<typeof AwsInspector2OrganizationConfigurationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsInspector2OrganizationConfigurationOutputProps =
+  & z.output<typeof AwsInspector2OrganizationConfigurationOutputSchema>
+  & z.output<typeof AwsInspector2OrganizationConfigurationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/inspector2_organization_configuration
 
 export function AwsInspector2OrganizationConfiguration(
-  props: Partial<InputProps>,
+  props: Partial<AwsInspector2OrganizationConfigurationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -55,8 +56,8 @@ export function AwsInspector2OrganizationConfiguration(
       _type='aws_inspector2_organization_configuration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsInspector2OrganizationConfigurationInputSchema}
+      _outputSchema={AwsInspector2OrganizationConfigurationOutputSchema}
       {...props}
     />
   )
@@ -67,7 +68,7 @@ export const useAwsInspector2OrganizationConfiguration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsInspector2OrganizationConfigurationOutputProps>(
     AwsInspector2OrganizationConfiguration,
     idFilter,
     baseNode,
@@ -79,7 +80,7 @@ export const useAwsInspector2OrganizationConfigurations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsInspector2OrganizationConfigurationOutputProps>(
     AwsInspector2OrganizationConfiguration,
     idFilter,
     baseNode,

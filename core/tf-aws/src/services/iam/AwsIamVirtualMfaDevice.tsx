@@ -9,13 +9,13 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIamVirtualMfaDeviceInputSchema = TfMetaSchema.extend({
   virtual_mfa_device_name: resolvableValue(z.string()),
   path: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsIamVirtualMfaDeviceOutputSchema = z.object({
   arn: z.string().optional(),
   base_32_string_seed: z.string().optional(),
   enable_date: z.string().optional(),
@@ -26,18 +26,20 @@ export const OutputSchema = z.object({
   user_name: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsIamVirtualMfaDeviceInputProps =
+  & z.input<typeof AwsIamVirtualMfaDeviceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIamVirtualMfaDeviceOutputProps =
+  & z.output<typeof AwsIamVirtualMfaDeviceOutputSchema>
+  & z.output<typeof AwsIamVirtualMfaDeviceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iam_virtual_mfa_device
 
-export function AwsIamVirtualMfaDevice(props: Partial<InputProps>) {
+export function AwsIamVirtualMfaDevice(
+  props: Partial<AwsIamVirtualMfaDeviceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +49,8 @@ export function AwsIamVirtualMfaDevice(props: Partial<InputProps>) {
       _type='aws_iam_virtual_mfa_device'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsIamVirtualMfaDeviceInputSchema}
+      _outputSchema={AwsIamVirtualMfaDeviceOutputSchema}
       {...props}
     />
   )
@@ -59,7 +61,7 @@ export const useAwsIamVirtualMfaDevice = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsIamVirtualMfaDeviceOutputProps>(
     AwsIamVirtualMfaDevice,
     idFilter,
     baseNode,
@@ -71,7 +73,7 @@ export const useAwsIamVirtualMfaDevices = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsIamVirtualMfaDeviceOutputProps>(
     AwsIamVirtualMfaDevice,
     idFilter,
     baseNode,

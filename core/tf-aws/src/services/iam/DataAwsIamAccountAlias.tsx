@@ -7,25 +7,27 @@ import {
 import z from 'zod'
 import { AwsIamAccountAlias } from './AwsIamAccountAlias.tsx'
 
-export const InputSchema = TfMetaSchema.extend({})
+export const DataAwsIamAccountAliasInputSchema = TfMetaSchema.extend({})
 
-export const OutputSchema = z.object({
+export const DataAwsIamAccountAliasOutputSchema = z.object({
   account_alias: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsIamAccountAliasInputProps =
+  & z.input<typeof DataAwsIamAccountAliasInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsIamAccountAliasOutputProps =
+  & z.output<typeof DataAwsIamAccountAliasOutputSchema>
+  & z.output<typeof DataAwsIamAccountAliasInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/iam_account_alias
 
-export function DataAwsIamAccountAlias(props: Partial<InputProps>) {
+export function DataAwsIamAccountAlias(
+  props: Partial<DataAwsIamAccountAliasInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -35,8 +37,8 @@ export function DataAwsIamAccountAlias(props: Partial<InputProps>) {
       _type='aws_iam_account_alias'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsIamAccountAliasInputSchema}
+      _outputSchema={DataAwsIamAccountAliasOutputSchema}
       {...props as any}
     />
   )
@@ -47,7 +49,7 @@ export const useDataAwsIamAccountAliass = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsIamAccountAliasOutputProps>(
     DataAwsIamAccountAlias,
     idFilter,
     baseNode,

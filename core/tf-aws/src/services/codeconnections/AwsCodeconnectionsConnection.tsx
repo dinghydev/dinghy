@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCodeconnectionsConnectionInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   host_arn: resolvableValue(z.string().optional()),
   provider_type: resolvableValue(z.string().optional()),
@@ -24,7 +24,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsCodeconnectionsConnectionOutputSchema = z.object({
   arn: z.string().optional(),
   connection_status: z.string().optional(),
   id: z.string().optional(),
@@ -32,23 +32,25 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsCodeconnectionsConnectionImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsCodeconnectionsConnectionInputProps =
+  & z.input<typeof AwsCodeconnectionsConnectionInputSchema>
+  & z.input<typeof AwsCodeconnectionsConnectionImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCodeconnectionsConnectionOutputProps =
+  & z.output<typeof AwsCodeconnectionsConnectionOutputSchema>
+  & z.output<typeof AwsCodeconnectionsConnectionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/codeconnections_connection
 
-export function AwsCodeconnectionsConnection(props: Partial<InputProps>) {
+export function AwsCodeconnectionsConnection(
+  props: Partial<AwsCodeconnectionsConnectionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -58,9 +60,9 @@ export function AwsCodeconnectionsConnection(props: Partial<InputProps>) {
       _type='aws_codeconnections_connection'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsCodeconnectionsConnectionInputSchema}
+      _outputSchema={AwsCodeconnectionsConnectionOutputSchema}
+      _importSchema={AwsCodeconnectionsConnectionImportSchema}
       {...props}
     />
   )
@@ -71,7 +73,7 @@ export const useAwsCodeconnectionsConnection = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCodeconnectionsConnectionOutputProps>(
     AwsCodeconnectionsConnection,
     idFilter,
     baseNode,
@@ -83,7 +85,7 @@ export const useAwsCodeconnectionsConnections = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCodeconnectionsConnectionOutputProps>(
     AwsCodeconnectionsConnection,
     idFilter,
     baseNode,

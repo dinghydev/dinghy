@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAutoscalingplansScalingPlanInputSchema = TfMetaSchema.extend({
   application_source: resolvableValue(z.object({
     cloudformation_stack_arn: z.string().optional(),
     tag_filter: z.object({
@@ -65,23 +65,25 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAutoscalingplansScalingPlanOutputSchema = z.object({
   id: z.string().optional(),
   scaling_plan_version: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAutoscalingplansScalingPlanInputProps =
+  & z.input<typeof AwsAutoscalingplansScalingPlanInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAutoscalingplansScalingPlanOutputProps =
+  & z.output<typeof AwsAutoscalingplansScalingPlanOutputSchema>
+  & z.output<typeof AwsAutoscalingplansScalingPlanInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/autoscalingplans_scaling_plan
 
-export function AwsAutoscalingplansScalingPlan(props: Partial<InputProps>) {
+export function AwsAutoscalingplansScalingPlan(
+  props: Partial<AwsAutoscalingplansScalingPlanInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -91,8 +93,8 @@ export function AwsAutoscalingplansScalingPlan(props: Partial<InputProps>) {
       _type='aws_autoscalingplans_scaling_plan'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAutoscalingplansScalingPlanInputSchema}
+      _outputSchema={AwsAutoscalingplansScalingPlanOutputSchema}
       {...props}
     />
   )
@@ -103,7 +105,7 @@ export const useAwsAutoscalingplansScalingPlan = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAutoscalingplansScalingPlanOutputProps>(
     AwsAutoscalingplansScalingPlan,
     idFilter,
     baseNode,
@@ -115,7 +117,7 @@ export const useAwsAutoscalingplansScalingPlans = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAutoscalingplansScalingPlanOutputProps>(
     AwsAutoscalingplansScalingPlan,
     idFilter,
     baseNode,

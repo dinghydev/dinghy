@@ -8,31 +8,34 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsResourcegroupstaggingapiRequiredTagsInputSchema =
+  TfMetaSchema.extend({
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
-  required_tags: z.object({
-    cloud_formation_resource_types: z.string().array(),
-    reporting_tag_keys: z.string().array(),
-    resource_type: z.string(),
-  }).array().optional(),
-})
+export const DataAwsResourcegroupstaggingapiRequiredTagsOutputSchema = z.object(
+  {
+    required_tags: z.object({
+      cloud_formation_resource_types: z.string().array(),
+      reporting_tag_keys: z.string().array(),
+      resource_type: z.string(),
+    }).array().optional(),
+  },
+)
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsResourcegroupstaggingapiRequiredTagsInputProps =
+  & z.input<typeof DataAwsResourcegroupstaggingapiRequiredTagsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsResourcegroupstaggingapiRequiredTagsOutputProps =
+  & z.output<typeof DataAwsResourcegroupstaggingapiRequiredTagsOutputSchema>
+  & z.output<typeof DataAwsResourcegroupstaggingapiRequiredTagsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/resourcegroupstaggingapi_required_tags
 
 export function DataAwsResourcegroupstaggingapiRequiredTags(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsResourcegroupstaggingapiRequiredTagsInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -43,8 +46,8 @@ export function DataAwsResourcegroupstaggingapiRequiredTags(
       _type='aws_resourcegroupstaggingapi_required_tags'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsResourcegroupstaggingapiRequiredTagsInputSchema}
+      _outputSchema={DataAwsResourcegroupstaggingapiRequiredTagsOutputSchema}
       {...props}
     />
   )
@@ -55,7 +58,7 @@ export const useDataAwsResourcegroupstaggingapiRequiredTagss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsResourcegroupstaggingapiRequiredTagsOutputProps>(
     DataAwsResourcegroupstaggingapiRequiredTags,
     idFilter,
     baseNode,

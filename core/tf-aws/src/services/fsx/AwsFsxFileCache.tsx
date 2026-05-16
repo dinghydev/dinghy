@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsFsxFileCacheInputSchema = TfMetaSchema.extend({
   file_cache_type: resolvableValue(z.string()),
   file_cache_type_version: resolvableValue(z.string()),
   storage_capacity: resolvableValue(z.number()),
@@ -64,7 +64,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsFsxFileCacheOutputSchema = z.object({
   arn: z.string().optional(),
   data_repository_association_ids: z.set(z.string()).optional(),
   dns_name: z.string().optional(),
@@ -75,18 +75,18 @@ export const OutputSchema = z.object({
   vpc_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsFsxFileCacheInputProps =
+  & z.input<typeof AwsFsxFileCacheInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsFsxFileCacheOutputProps =
+  & z.output<typeof AwsFsxFileCacheOutputSchema>
+  & z.output<typeof AwsFsxFileCacheInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/fsx_file_cache
 
-export function AwsFsxFileCache(props: Partial<InputProps>) {
+export function AwsFsxFileCache(props: Partial<AwsFsxFileCacheInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -96,8 +96,8 @@ export function AwsFsxFileCache(props: Partial<InputProps>) {
       _type='aws_fsx_file_cache'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsFsxFileCacheInputSchema}
+      _outputSchema={AwsFsxFileCacheOutputSchema}
       {...props}
     />
   )
@@ -107,10 +107,22 @@ export const useAwsFsxFileCache = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsFsxFileCache, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsFsxFileCacheOutputProps>(
+    AwsFsxFileCache,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsFsxFileCaches = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsFsxFileCache, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsFsxFileCacheOutputProps>(
+    AwsFsxFileCache,
+    idFilter,
+    baseNode,
+    optional,
+  )

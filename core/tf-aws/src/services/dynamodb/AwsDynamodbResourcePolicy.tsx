@@ -9,35 +9,37 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDynamodbResourcePolicyInputSchema = TfMetaSchema.extend({
   policy: resolvableValue(z.string()),
   resource_arn: resolvableValue(z.string()),
   confirm_remove_self_resource_access: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDynamodbResourcePolicyOutputSchema = z.object({
   id: z.string().optional(),
   revision_id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsDynamodbResourcePolicyImportSchema = z.object({
   resource_arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsDynamodbResourcePolicyInputProps =
+  & z.input<typeof AwsDynamodbResourcePolicyInputSchema>
+  & z.input<typeof AwsDynamodbResourcePolicyImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDynamodbResourcePolicyOutputProps =
+  & z.output<typeof AwsDynamodbResourcePolicyOutputSchema>
+  & z.output<typeof AwsDynamodbResourcePolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dynamodb_resource_policy
 
-export function AwsDynamodbResourcePolicy(props: Partial<InputProps>) {
+export function AwsDynamodbResourcePolicy(
+  props: Partial<AwsDynamodbResourcePolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,9 +49,9 @@ export function AwsDynamodbResourcePolicy(props: Partial<InputProps>) {
       _type='aws_dynamodb_resource_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsDynamodbResourcePolicyInputSchema}
+      _outputSchema={AwsDynamodbResourcePolicyOutputSchema}
+      _importSchema={AwsDynamodbResourcePolicyImportSchema}
       {...props}
     />
   )
@@ -60,7 +62,7 @@ export const useAwsDynamodbResourcePolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDynamodbResourcePolicyOutputProps>(
     AwsDynamodbResourcePolicy,
     idFilter,
     baseNode,
@@ -72,7 +74,7 @@ export const useAwsDynamodbResourcePolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDynamodbResourcePolicyOutputProps>(
     AwsDynamodbResourcePolicy,
     idFilter,
     baseNode,

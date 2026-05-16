@@ -9,47 +9,50 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  user_pool_id: resolvableValue(z.string()),
-  log_configurations: resolvableValue(
-    z.object({
-      event_source: z.string(),
-      log_level: z.string(),
-      cloud_watch_logs_configuration: z.object({
-        log_group_arn: z.string().optional(),
+export const AwsCognitoLogDeliveryConfigurationInputSchema = TfMetaSchema
+  .extend({
+    user_pool_id: resolvableValue(z.string()),
+    log_configurations: resolvableValue(
+      z.object({
+        event_source: z.string(),
+        log_level: z.string(),
+        cloud_watch_logs_configuration: z.object({
+          log_group_arn: z.string().optional(),
+        }).array().optional(),
+        firehose_configuration: z.object({
+          stream_arn: z.string().optional(),
+        }).array().optional(),
+        s3_configuration: z.object({
+          bucket_arn: z.string().optional(),
+        }).array().optional(),
       }).array().optional(),
-      firehose_configuration: z.object({
-        stream_arn: z.string().optional(),
-      }).array().optional(),
-      s3_configuration: z.object({
-        bucket_arn: z.string().optional(),
-      }).array().optional(),
-    }).array().optional(),
-  ),
-  region: resolvableValue(z.string().optional()),
-})
+    ),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({})
+export const AwsCognitoLogDeliveryConfigurationOutputSchema = z.object({})
 
-export const ImportSchema = z.object({
+export const AwsCognitoLogDeliveryConfigurationImportSchema = z.object({
   user_pool_id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsCognitoLogDeliveryConfigurationInputProps =
+  & z.input<typeof AwsCognitoLogDeliveryConfigurationInputSchema>
+  & z.input<typeof AwsCognitoLogDeliveryConfigurationImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCognitoLogDeliveryConfigurationOutputProps =
+  & z.output<typeof AwsCognitoLogDeliveryConfigurationOutputSchema>
+  & z.output<typeof AwsCognitoLogDeliveryConfigurationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cognito_log_delivery_configuration
 
-export function AwsCognitoLogDeliveryConfiguration(props: Partial<InputProps>) {
+export function AwsCognitoLogDeliveryConfiguration(
+  props: Partial<AwsCognitoLogDeliveryConfigurationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -59,9 +62,9 @@ export function AwsCognitoLogDeliveryConfiguration(props: Partial<InputProps>) {
       _type='aws_cognito_log_delivery_configuration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsCognitoLogDeliveryConfigurationInputSchema}
+      _outputSchema={AwsCognitoLogDeliveryConfigurationOutputSchema}
+      _importSchema={AwsCognitoLogDeliveryConfigurationImportSchema}
       {...props}
     />
   )
@@ -72,7 +75,7 @@ export const useAwsCognitoLogDeliveryConfiguration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCognitoLogDeliveryConfigurationOutputProps>(
     AwsCognitoLogDeliveryConfiguration,
     idFilter,
     baseNode,
@@ -84,7 +87,7 @@ export const useAwsCognitoLogDeliveryConfigurations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCognitoLogDeliveryConfigurationOutputProps>(
     AwsCognitoLogDeliveryConfiguration,
     idFilter,
     baseNode,

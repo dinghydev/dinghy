@@ -9,36 +9,40 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  resource_group_name: resolvableValue(z.string()),
-  auto_config_enabled: resolvableValue(z.boolean().optional()),
-  auto_create: resolvableValue(z.boolean().optional()),
-  cwe_monitor_enabled: resolvableValue(z.boolean().optional()),
-  grouping_type: resolvableValue(z.string().optional()),
-  ops_center_enabled: resolvableValue(z.boolean().optional()),
-  ops_item_sns_topic_arn: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+export const AwsApplicationinsightsApplicationInputSchema = TfMetaSchema.extend(
+  {
+    resource_group_name: resolvableValue(z.string()),
+    auto_config_enabled: resolvableValue(z.boolean().optional()),
+    auto_create: resolvableValue(z.boolean().optional()),
+    cwe_monitor_enabled: resolvableValue(z.boolean().optional()),
+    grouping_type: resolvableValue(z.string().optional()),
+    ops_center_enabled: resolvableValue(z.boolean().optional()),
+    ops_item_sns_topic_arn: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  },
+)
 
-export const OutputSchema = z.object({
+export const AwsApplicationinsightsApplicationOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsApplicationinsightsApplicationInputProps =
+  & z.input<typeof AwsApplicationinsightsApplicationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApplicationinsightsApplicationOutputProps =
+  & z.output<typeof AwsApplicationinsightsApplicationOutputSchema>
+  & z.output<typeof AwsApplicationinsightsApplicationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/applicationinsights_application
 
-export function AwsApplicationinsightsApplication(props: Partial<InputProps>) {
+export function AwsApplicationinsightsApplication(
+  props: Partial<AwsApplicationinsightsApplicationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +52,8 @@ export function AwsApplicationinsightsApplication(props: Partial<InputProps>) {
       _type='aws_applicationinsights_application'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsApplicationinsightsApplicationInputSchema}
+      _outputSchema={AwsApplicationinsightsApplicationOutputSchema}
       {...props}
     />
   )
@@ -60,7 +64,7 @@ export const useAwsApplicationinsightsApplication = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsApplicationinsightsApplicationOutputProps>(
     AwsApplicationinsightsApplication,
     idFilter,
     baseNode,
@@ -72,7 +76,7 @@ export const useAwsApplicationinsightsApplications = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsApplicationinsightsApplicationOutputProps>(
     AwsApplicationinsightsApplication,
     idFilter,
     baseNode,

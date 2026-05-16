@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDxPrivateVirtualInterfaceInputSchema = TfMetaSchema.extend({
   address_family: resolvableValue(z.string()),
   bgp_asn: resolvableValue(z.number()),
   connection_id: resolvableValue(z.string()),
@@ -33,7 +33,7 @@ export const InputSchema = TfMetaSchema.extend({
   vpn_gateway_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDxPrivateVirtualInterfaceOutputSchema = z.object({
   amazon_side_asn: z.string().optional(),
   arn: z.string().optional(),
   aws_device: z.string().optional(),
@@ -42,18 +42,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDxPrivateVirtualInterfaceInputProps =
+  & z.input<typeof AwsDxPrivateVirtualInterfaceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDxPrivateVirtualInterfaceOutputProps =
+  & z.output<typeof AwsDxPrivateVirtualInterfaceOutputSchema>
+  & z.output<typeof AwsDxPrivateVirtualInterfaceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dx_private_virtual_interface
 
-export function AwsDxPrivateVirtualInterface(props: Partial<InputProps>) {
+export function AwsDxPrivateVirtualInterface(
+  props: Partial<AwsDxPrivateVirtualInterfaceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -63,8 +65,8 @@ export function AwsDxPrivateVirtualInterface(props: Partial<InputProps>) {
       _type='aws_dx_private_virtual_interface'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDxPrivateVirtualInterfaceInputSchema}
+      _outputSchema={AwsDxPrivateVirtualInterfaceOutputSchema}
       {...props}
     />
   )
@@ -75,7 +77,7 @@ export const useAwsDxPrivateVirtualInterface = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDxPrivateVirtualInterfaceOutputProps>(
     AwsDxPrivateVirtualInterface,
     idFilter,
     baseNode,
@@ -87,7 +89,7 @@ export const useAwsDxPrivateVirtualInterfaces = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDxPrivateVirtualInterfaceOutputProps>(
     AwsDxPrivateVirtualInterface,
     idFilter,
     baseNode,

@@ -9,27 +9,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsCloudfrontLogDeliveryCanonicalUserIdInputSchema =
+  TfMetaSchema.extend({
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
-  id: z.string().optional(),
-})
+export const DataAwsCloudfrontLogDeliveryCanonicalUserIdOutputSchema = z.object(
+  {
+    id: z.string().optional(),
+  },
+)
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsCloudfrontLogDeliveryCanonicalUserIdInputProps =
+  & z.input<typeof DataAwsCloudfrontLogDeliveryCanonicalUserIdInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsCloudfrontLogDeliveryCanonicalUserIdOutputProps =
+  & z.output<typeof DataAwsCloudfrontLogDeliveryCanonicalUserIdOutputSchema>
+  & z.output<typeof DataAwsCloudfrontLogDeliveryCanonicalUserIdInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/cloudfront_log_delivery_canonical_user_id
 
 export function DataAwsCloudfrontLogDeliveryCanonicalUserId(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsCloudfrontLogDeliveryCanonicalUserIdInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -40,8 +43,8 @@ export function DataAwsCloudfrontLogDeliveryCanonicalUserId(
       _type='aws_cloudfront_log_delivery_canonical_user_id'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsCloudfrontLogDeliveryCanonicalUserIdInputSchema}
+      _outputSchema={DataAwsCloudfrontLogDeliveryCanonicalUserIdOutputSchema}
       {...props}
     />
   )
@@ -52,7 +55,7 @@ export const useDataAwsCloudfrontLogDeliveryCanonicalUserId = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsCloudfrontLogDeliveryCanonicalUserIdOutputProps>(
     DataAwsCloudfrontLogDeliveryCanonicalUserId,
     idFilter,
     baseNode,
@@ -64,7 +67,7 @@ export const useDataAwsCloudfrontLogDeliveryCanonicalUserIds = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsCloudfrontLogDeliveryCanonicalUserIdOutputProps>(
     DataAwsCloudfrontLogDeliveryCanonicalUserId,
     idFilter,
     baseNode,

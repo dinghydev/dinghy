@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCodecommitTriggerInputSchema = TfMetaSchema.extend({
   repository_name: resolvableValue(z.string()),
   trigger: resolvableValue(
     z.object({
@@ -24,22 +24,24 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCodecommitTriggerOutputSchema = z.object({
   configuration_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCodecommitTriggerInputProps =
+  & z.input<typeof AwsCodecommitTriggerInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCodecommitTriggerOutputProps =
+  & z.output<typeof AwsCodecommitTriggerOutputSchema>
+  & z.output<typeof AwsCodecommitTriggerInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/codecommit_trigger
 
-export function AwsCodecommitTrigger(props: Partial<InputProps>) {
+export function AwsCodecommitTrigger(
+  props: Partial<AwsCodecommitTriggerInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,8 +51,8 @@ export function AwsCodecommitTrigger(props: Partial<InputProps>) {
       _type='aws_codecommit_trigger'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCodecommitTriggerInputSchema}
+      _outputSchema={AwsCodecommitTriggerOutputSchema}
       {...props}
     />
   )
@@ -61,11 +63,21 @@ export const useAwsCodecommitTrigger = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsCodecommitTrigger, idFilter, baseNode, optional)
+  useTypedNode<AwsCodecommitTriggerOutputProps>(
+    AwsCodecommitTrigger,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCodecommitTriggers = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsCodecommitTrigger, idFilter, baseNode, optional)
+  useTypedNodes<AwsCodecommitTriggerOutputProps>(
+    AwsCodecommitTrigger,
+    idFilter,
+    baseNode,
+    optional,
+  )

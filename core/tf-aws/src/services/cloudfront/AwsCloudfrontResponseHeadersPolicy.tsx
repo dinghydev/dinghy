@@ -9,101 +9,104 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  name: resolvableValue(z.string()),
-  comment: resolvableValue(z.string().optional()),
-  cors_config: resolvableValue(
-    z.object({
-      access_control_allow_credentials: z.boolean(),
-      access_control_max_age_sec: z.number().optional(),
-      origin_override: z.boolean(),
-      access_control_allow_headers: z.object({
-        items: z.string().array().optional(),
-      }),
-      access_control_allow_methods: z.object({
-        items: z.string().array().optional(),
-      }),
-      access_control_allow_origins: z.object({
-        items: z.string().array().optional(),
-      }),
-      access_control_expose_headers: z.object({
-        items: z.string().array().optional(),
+export const AwsCloudfrontResponseHeadersPolicyInputSchema = TfMetaSchema
+  .extend({
+    name: resolvableValue(z.string()),
+    comment: resolvableValue(z.string().optional()),
+    cors_config: resolvableValue(
+      z.object({
+        access_control_allow_credentials: z.boolean(),
+        access_control_max_age_sec: z.number().optional(),
+        origin_override: z.boolean(),
+        access_control_allow_headers: z.object({
+          items: z.string().array().optional(),
+        }),
+        access_control_allow_methods: z.object({
+          items: z.string().array().optional(),
+        }),
+        access_control_allow_origins: z.object({
+          items: z.string().array().optional(),
+        }),
+        access_control_expose_headers: z.object({
+          items: z.string().array().optional(),
+        }).optional(),
       }).optional(),
-    }).optional(),
-  ),
-  custom_headers_config: resolvableValue(
-    z.object({
-      items: z.object({
-        header: z.string(),
-        override: z.boolean(),
-        value: z.string(),
-      }).array().optional(),
-    }).optional(),
-  ),
-  remove_headers_config: resolvableValue(
-    z.object({
-      items: z.object({
-        header: z.string(),
-      }).array().optional(),
-    }).optional(),
-  ),
-  security_headers_config: resolvableValue(
-    z.object({
-      content_security_policy: z.object({
-        content_security_policy: z.string(),
-        override: z.boolean(),
+    ),
+    custom_headers_config: resolvableValue(
+      z.object({
+        items: z.object({
+          header: z.string(),
+          override: z.boolean(),
+          value: z.string(),
+        }).array().optional(),
       }).optional(),
-      content_type_options: z.object({
-        override: z.boolean(),
+    ),
+    remove_headers_config: resolvableValue(
+      z.object({
+        items: z.object({
+          header: z.string(),
+        }).array().optional(),
       }).optional(),
-      frame_options: z.object({
-        frame_option: z.string(),
-        override: z.boolean(),
+    ),
+    security_headers_config: resolvableValue(
+      z.object({
+        content_security_policy: z.object({
+          content_security_policy: z.string(),
+          override: z.boolean(),
+        }).optional(),
+        content_type_options: z.object({
+          override: z.boolean(),
+        }).optional(),
+        frame_options: z.object({
+          frame_option: z.string(),
+          override: z.boolean(),
+        }).optional(),
+        referrer_policy: z.object({
+          override: z.boolean(),
+          referrer_policy: z.string(),
+        }).optional(),
+        strict_transport_security: z.object({
+          access_control_max_age_sec: z.number(),
+          include_subdomains: z.boolean().optional(),
+          override: z.boolean(),
+          preload: z.boolean().optional(),
+        }).optional(),
+        xss_protection: z.object({
+          mode_block: z.boolean().optional(),
+          override: z.boolean(),
+          protection: z.boolean(),
+          report_uri: z.string().optional(),
+        }).optional(),
       }).optional(),
-      referrer_policy: z.object({
-        override: z.boolean(),
-        referrer_policy: z.string(),
+    ),
+    server_timing_headers_config: resolvableValue(
+      z.object({
+        enabled: z.boolean(),
+        sampling_rate: z.number(),
       }).optional(),
-      strict_transport_security: z.object({
-        access_control_max_age_sec: z.number(),
-        include_subdomains: z.boolean().optional(),
-        override: z.boolean(),
-        preload: z.boolean().optional(),
-      }).optional(),
-      xss_protection: z.object({
-        mode_block: z.boolean().optional(),
-        override: z.boolean(),
-        protection: z.boolean(),
-        report_uri: z.string().optional(),
-      }).optional(),
-    }).optional(),
-  ),
-  server_timing_headers_config: resolvableValue(
-    z.object({
-      enabled: z.boolean(),
-      sampling_rate: z.number(),
-    }).optional(),
-  ),
-})
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsCloudfrontResponseHeadersPolicyOutputSchema = z.object({
   arn: z.string().optional(),
   etag: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudfrontResponseHeadersPolicyInputProps =
+  & z.input<typeof AwsCloudfrontResponseHeadersPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudfrontResponseHeadersPolicyOutputProps =
+  & z.output<typeof AwsCloudfrontResponseHeadersPolicyOutputSchema>
+  & z.output<typeof AwsCloudfrontResponseHeadersPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudfront_response_headers_policy
 
-export function AwsCloudfrontResponseHeadersPolicy(props: Partial<InputProps>) {
+export function AwsCloudfrontResponseHeadersPolicy(
+  props: Partial<AwsCloudfrontResponseHeadersPolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -113,8 +116,8 @@ export function AwsCloudfrontResponseHeadersPolicy(props: Partial<InputProps>) {
       _type='aws_cloudfront_response_headers_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudfrontResponseHeadersPolicyInputSchema}
+      _outputSchema={AwsCloudfrontResponseHeadersPolicyOutputSchema}
       {...props}
     />
   )
@@ -125,7 +128,7 @@ export const useAwsCloudfrontResponseHeadersPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudfrontResponseHeadersPolicyOutputProps>(
     AwsCloudfrontResponseHeadersPolicy,
     idFilter,
     baseNode,
@@ -137,7 +140,7 @@ export const useAwsCloudfrontResponseHeadersPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudfrontResponseHeadersPolicyOutputProps>(
     AwsCloudfrontResponseHeadersPolicy,
     idFilter,
     baseNode,

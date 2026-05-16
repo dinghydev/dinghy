@@ -9,28 +9,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSecurityhubInviteAccepterInputSchema = TfMetaSchema.extend({
   master_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSecurityhubInviteAccepterOutputSchema = z.object({
   invitation_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSecurityhubInviteAccepterInputProps =
+  & z.input<typeof AwsSecurityhubInviteAccepterInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSecurityhubInviteAccepterOutputProps =
+  & z.output<typeof AwsSecurityhubInviteAccepterOutputSchema>
+  & z.output<typeof AwsSecurityhubInviteAccepterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_invite_accepter
 
-export function AwsSecurityhubInviteAccepter(props: Partial<InputProps>) {
+export function AwsSecurityhubInviteAccepter(
+  props: Partial<AwsSecurityhubInviteAccepterInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function AwsSecurityhubInviteAccepter(props: Partial<InputProps>) {
       _type='aws_securityhub_invite_accepter'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSecurityhubInviteAccepterInputSchema}
+      _outputSchema={AwsSecurityhubInviteAccepterOutputSchema}
       {...props}
     />
   )
@@ -52,7 +54,7 @@ export const useAwsSecurityhubInviteAccepter = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSecurityhubInviteAccepterOutputProps>(
     AwsSecurityhubInviteAccepter,
     idFilter,
     baseNode,
@@ -64,7 +66,7 @@ export const useAwsSecurityhubInviteAccepters = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSecurityhubInviteAccepterOutputProps>(
     AwsSecurityhubInviteAccepter,
     idFilter,
     baseNode,

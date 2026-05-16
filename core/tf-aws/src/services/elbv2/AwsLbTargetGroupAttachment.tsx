@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLbTargetGroupAttachmentInputSchema = TfMetaSchema.extend({
   target_group_arn: resolvableValue(z.string()),
   target_id: resolvableValue(z.string()),
   availability_zone: resolvableValue(z.string().optional()),
@@ -18,11 +18,11 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsLbTargetGroupAttachmentOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsLbTargetGroupAttachmentImportSchema = z.object({
   target_group_arn: resolvableValue(z.string()),
   target_id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
@@ -32,19 +32,21 @@ export const ImportSchema = z.object({
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsLbTargetGroupAttachmentInputProps =
+  & z.input<typeof AwsLbTargetGroupAttachmentInputSchema>
+  & z.input<typeof AwsLbTargetGroupAttachmentImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLbTargetGroupAttachmentOutputProps =
+  & z.output<typeof AwsLbTargetGroupAttachmentOutputSchema>
+  & z.output<typeof AwsLbTargetGroupAttachmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lb_target_group_attachment
 
-export function AwsLbTargetGroupAttachment(props: Partial<InputProps>) {
+export function AwsLbTargetGroupAttachment(
+  props: Partial<AwsLbTargetGroupAttachmentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -54,9 +56,9 @@ export function AwsLbTargetGroupAttachment(props: Partial<InputProps>) {
       _type='aws_lb_target_group_attachment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsLbTargetGroupAttachmentInputSchema}
+      _outputSchema={AwsLbTargetGroupAttachmentOutputSchema}
+      _importSchema={AwsLbTargetGroupAttachmentImportSchema}
       {...props}
     />
   )
@@ -67,7 +69,7 @@ export const useAwsLbTargetGroupAttachment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsLbTargetGroupAttachmentOutputProps>(
     AwsLbTargetGroupAttachment,
     idFilter,
     baseNode,
@@ -79,7 +81,7 @@ export const useAwsLbTargetGroupAttachments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsLbTargetGroupAttachmentOutputProps>(
     AwsLbTargetGroupAttachment,
     idFilter,
     baseNode,

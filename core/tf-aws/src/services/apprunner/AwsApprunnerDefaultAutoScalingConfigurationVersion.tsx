@@ -9,28 +9,36 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  auto_scaling_configuration_arn: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsApprunnerDefaultAutoScalingConfigurationVersionInputSchema =
+  TfMetaSchema.extend({
+    auto_scaling_configuration_arn: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
-  id: z.string().optional(),
-})
+export const AwsApprunnerDefaultAutoScalingConfigurationVersionOutputSchema = z
+  .object({
+    id: z.string().optional(),
+  })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsApprunnerDefaultAutoScalingConfigurationVersionInputProps =
+  & z.input<
+    typeof AwsApprunnerDefaultAutoScalingConfigurationVersionInputSchema
+  >
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApprunnerDefaultAutoScalingConfigurationVersionOutputProps =
+  & z.output<
+    typeof AwsApprunnerDefaultAutoScalingConfigurationVersionOutputSchema
+  >
+  & z.output<
+    typeof AwsApprunnerDefaultAutoScalingConfigurationVersionInputSchema
+  >
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/apprunner_default_auto_scaling_configuration_version
 
 export function AwsApprunnerDefaultAutoScalingConfigurationVersion(
-  props: Partial<InputProps>,
+  props: Partial<AwsApprunnerDefaultAutoScalingConfigurationVersionInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -41,8 +49,8 @@ export function AwsApprunnerDefaultAutoScalingConfigurationVersion(
       _type='aws_apprunner_default_auto_scaling_configuration_version'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsApprunnerDefaultAutoScalingConfigurationVersionInputSchema}
+      _outputSchema={AwsApprunnerDefaultAutoScalingConfigurationVersionOutputSchema}
       {...props}
     />
   )
@@ -53,7 +61,7 @@ export const useAwsApprunnerDefaultAutoScalingConfigurationVersion = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsApprunnerDefaultAutoScalingConfigurationVersionOutputProps>(
     AwsApprunnerDefaultAutoScalingConfigurationVersion,
     idFilter,
     baseNode,
@@ -65,7 +73,7 @@ export const useAwsApprunnerDefaultAutoScalingConfigurationVersions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsApprunnerDefaultAutoScalingConfigurationVersionOutputProps>(
     AwsApprunnerDefaultAutoScalingConfigurationVersion,
     idFilter,
     baseNode,

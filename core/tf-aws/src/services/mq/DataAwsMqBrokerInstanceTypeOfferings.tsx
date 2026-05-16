@@ -8,15 +8,16 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  engine_type: resolvableValue(z.string().optional()),
-  host_instance_type: resolvableValue(z.string().optional()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  storage_type: resolvableValue(z.string().optional()),
-})
+export const DataAwsMqBrokerInstanceTypeOfferingsInputSchema = TfMetaSchema
+  .extend({
+    engine_type: resolvableValue(z.string().optional()),
+    host_instance_type: resolvableValue(z.string().optional()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    storage_type: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsMqBrokerInstanceTypeOfferingsOutputSchema = z.object({
   broker_instance_options: z.object({
     availability_zones: z.set(z.object({
       name: z.string(),
@@ -29,19 +30,19 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsMqBrokerInstanceTypeOfferingsInputProps =
+  & z.input<typeof DataAwsMqBrokerInstanceTypeOfferingsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsMqBrokerInstanceTypeOfferingsOutputProps =
+  & z.output<typeof DataAwsMqBrokerInstanceTypeOfferingsOutputSchema>
+  & z.output<typeof DataAwsMqBrokerInstanceTypeOfferingsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/mq_broker_instance_type_offerings
 
 export function DataAwsMqBrokerInstanceTypeOfferings(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsMqBrokerInstanceTypeOfferingsInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -52,8 +53,8 @@ export function DataAwsMqBrokerInstanceTypeOfferings(
       _type='aws_mq_broker_instance_type_offerings'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsMqBrokerInstanceTypeOfferingsInputSchema}
+      _outputSchema={DataAwsMqBrokerInstanceTypeOfferingsOutputSchema}
       {...props}
     />
   )
@@ -64,7 +65,7 @@ export const useDataAwsMqBrokerInstanceTypeOfferingss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsMqBrokerInstanceTypeOfferingsOutputProps>(
     DataAwsMqBrokerInstanceTypeOfferings,
     idFilter,
     baseNode,

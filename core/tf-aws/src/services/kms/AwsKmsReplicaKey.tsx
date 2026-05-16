@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsKmsReplicaKeyInputSchema = TfMetaSchema.extend({
   primary_key_arn: resolvableValue(z.string()),
   bypass_policy_lockout_safety_check: resolvableValue(z.boolean().optional()),
   deletion_window_in_days: resolvableValue(z.number().optional()),
@@ -21,7 +21,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsKmsReplicaKeyOutputSchema = z.object({
   arn: z.string().optional(),
   key_id: z.string().optional(),
   key_rotation_enabled: z.boolean().optional(),
@@ -30,18 +30,18 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsKmsReplicaKeyInputProps =
+  & z.input<typeof AwsKmsReplicaKeyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsKmsReplicaKeyOutputProps =
+  & z.output<typeof AwsKmsReplicaKeyOutputSchema>
+  & z.output<typeof AwsKmsReplicaKeyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/kms_replica_key
 
-export function AwsKmsReplicaKey(props: Partial<InputProps>) {
+export function AwsKmsReplicaKey(props: Partial<AwsKmsReplicaKeyInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -51,8 +51,8 @@ export function AwsKmsReplicaKey(props: Partial<InputProps>) {
       _type='aws_kms_replica_key'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsKmsReplicaKeyInputSchema}
+      _outputSchema={AwsKmsReplicaKeyOutputSchema}
       {...props}
     />
   )
@@ -62,10 +62,22 @@ export const useAwsKmsReplicaKey = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsKmsReplicaKey, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsKmsReplicaKeyOutputProps>(
+    AwsKmsReplicaKey,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsKmsReplicaKeys = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsKmsReplicaKey, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsKmsReplicaKeyOutputProps>(
+    AwsKmsReplicaKey,
+    idFilter,
+    baseNode,
+    optional,
+  )

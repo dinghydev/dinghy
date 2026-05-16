@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsQuicksightAccountSubscriptionInputSchema = TfMetaSchema.extend({
   account_name: resolvableValue(z.string()),
   authentication_method: resolvableValue(z.string()),
   edition: resolvableValue(z.string()),
@@ -40,22 +40,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsQuicksightAccountSubscriptionOutputSchema = z.object({
   account_subscription_status: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsQuicksightAccountSubscriptionInputProps =
+  & z.input<typeof AwsQuicksightAccountSubscriptionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsQuicksightAccountSubscriptionOutputProps =
+  & z.output<typeof AwsQuicksightAccountSubscriptionOutputSchema>
+  & z.output<typeof AwsQuicksightAccountSubscriptionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/quicksight_account_subscription
 
-export function AwsQuicksightAccountSubscription(props: Partial<InputProps>) {
+export function AwsQuicksightAccountSubscription(
+  props: Partial<AwsQuicksightAccountSubscriptionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -65,8 +67,8 @@ export function AwsQuicksightAccountSubscription(props: Partial<InputProps>) {
       _type='aws_quicksight_account_subscription'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsQuicksightAccountSubscriptionInputSchema}
+      _outputSchema={AwsQuicksightAccountSubscriptionOutputSchema}
       {...props}
     />
   )
@@ -77,7 +79,7 @@ export const useAwsQuicksightAccountSubscription = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsQuicksightAccountSubscriptionOutputProps>(
     AwsQuicksightAccountSubscription,
     idFilter,
     baseNode,
@@ -89,7 +91,7 @@ export const useAwsQuicksightAccountSubscriptions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsQuicksightAccountSubscriptionOutputProps>(
     AwsQuicksightAccountSubscription,
     idFilter,
     baseNode,

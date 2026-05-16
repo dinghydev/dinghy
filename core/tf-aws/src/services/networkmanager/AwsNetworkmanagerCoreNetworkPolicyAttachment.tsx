@@ -9,34 +9,36 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  core_network_id: resolvableValue(z.string()),
-  policy_document: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      update: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsNetworkmanagerCoreNetworkPolicyAttachmentInputSchema =
+  TfMetaSchema.extend({
+    core_network_id: resolvableValue(z.string()),
+    policy_document: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        update: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
-  state: z.string().optional(),
-})
+export const AwsNetworkmanagerCoreNetworkPolicyAttachmentOutputSchema = z
+  .object({
+    state: z.string().optional(),
+  })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsNetworkmanagerCoreNetworkPolicyAttachmentInputProps =
+  & z.input<typeof AwsNetworkmanagerCoreNetworkPolicyAttachmentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNetworkmanagerCoreNetworkPolicyAttachmentOutputProps =
+  & z.output<typeof AwsNetworkmanagerCoreNetworkPolicyAttachmentOutputSchema>
+  & z.output<typeof AwsNetworkmanagerCoreNetworkPolicyAttachmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/networkmanager_core_network_policy_attachment
 
 export function AwsNetworkmanagerCoreNetworkPolicyAttachment(
-  props: Partial<InputProps>,
+  props: Partial<AwsNetworkmanagerCoreNetworkPolicyAttachmentInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -47,8 +49,8 @@ export function AwsNetworkmanagerCoreNetworkPolicyAttachment(
       _type='aws_networkmanager_core_network_policy_attachment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsNetworkmanagerCoreNetworkPolicyAttachmentInputSchema}
+      _outputSchema={AwsNetworkmanagerCoreNetworkPolicyAttachmentOutputSchema}
       {...props}
     />
   )
@@ -59,7 +61,7 @@ export const useAwsNetworkmanagerCoreNetworkPolicyAttachment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsNetworkmanagerCoreNetworkPolicyAttachmentOutputProps>(
     AwsNetworkmanagerCoreNetworkPolicyAttachment,
     idFilter,
     baseNode,
@@ -71,7 +73,7 @@ export const useAwsNetworkmanagerCoreNetworkPolicyAttachments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsNetworkmanagerCoreNetworkPolicyAttachmentOutputProps>(
     AwsNetworkmanagerCoreNetworkPolicyAttachment,
     idFilter,
     baseNode,

@@ -9,30 +9,32 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsS3tablesNamespaceInputSchema = TfMetaSchema.extend({
   namespace: resolvableValue(z.string()),
   table_bucket_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsS3tablesNamespaceOutputSchema = z.object({
   created_at: z.string().optional(),
   created_by: z.string().optional(),
   owner_account_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsS3tablesNamespaceInputProps =
+  & z.input<typeof AwsS3tablesNamespaceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3tablesNamespaceOutputProps =
+  & z.output<typeof AwsS3tablesNamespaceOutputSchema>
+  & z.output<typeof AwsS3tablesNamespaceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3tables_namespace
 
-export function AwsS3tablesNamespace(props: Partial<InputProps>) {
+export function AwsS3tablesNamespace(
+  props: Partial<AwsS3tablesNamespaceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +44,8 @@ export function AwsS3tablesNamespace(props: Partial<InputProps>) {
       _type='aws_s3tables_namespace'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsS3tablesNamespaceInputSchema}
+      _outputSchema={AwsS3tablesNamespaceOutputSchema}
       {...props}
     />
   )
@@ -54,11 +56,21 @@ export const useAwsS3tablesNamespace = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsS3tablesNamespace, idFilter, baseNode, optional)
+  useTypedNode<AwsS3tablesNamespaceOutputProps>(
+    AwsS3tablesNamespace,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsS3tablesNamespaces = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsS3tablesNamespace, idFilter, baseNode, optional)
+  useTypedNodes<AwsS3tablesNamespaceOutputProps>(
+    AwsS3tablesNamespace,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLambdaFunctionInputSchema = TfMetaSchema.extend({
   function_name: resolvableValue(z.string()),
   role: resolvableValue(z.string()),
   architectures: resolvableValue(z.string().array().optional()),
@@ -125,7 +125,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsLambdaFunctionOutputSchema = z.object({
   arn: z.string().optional(),
   invoke_arn: z.string().optional(),
   last_modified: z.string().optional(),
@@ -139,25 +139,25 @@ export const OutputSchema = z.object({
   version: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsLambdaFunctionImportSchema = z.object({
   function_name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsLambdaFunctionInputProps =
+  & z.input<typeof AwsLambdaFunctionInputSchema>
+  & z.input<typeof AwsLambdaFunctionImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLambdaFunctionOutputProps =
+  & z.output<typeof AwsLambdaFunctionOutputSchema>
+  & z.output<typeof AwsLambdaFunctionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lambda_function
 
-export function AwsLambdaFunction(props: Partial<InputProps>) {
+export function AwsLambdaFunction(props: Partial<AwsLambdaFunctionInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -167,9 +167,9 @@ export function AwsLambdaFunction(props: Partial<InputProps>) {
       _type='aws_lambda_function'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsLambdaFunctionInputSchema}
+      _outputSchema={AwsLambdaFunctionOutputSchema}
+      _importSchema={AwsLambdaFunctionImportSchema}
       {...props}
     />
   )
@@ -179,10 +179,22 @@ export const useAwsLambdaFunction = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsLambdaFunction, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsLambdaFunctionOutputProps>(
+    AwsLambdaFunction,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLambdaFunctions = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsLambdaFunction, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsLambdaFunctionOutputProps>(
+    AwsLambdaFunction,
+    idFilter,
+    baseNode,
+    optional,
+  )

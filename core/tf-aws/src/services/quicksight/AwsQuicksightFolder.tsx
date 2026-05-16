@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsQuicksightFolderInputSchema = TfMetaSchema.extend({
   folder_id: resolvableValue(z.string()),
   aws_account_id: resolvableValue(z.string().optional()),
   folder_type: resolvableValue(z.string().optional()),
@@ -33,7 +33,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsQuicksightFolderOutputSchema = z.object({
   arn: z.string().optional(),
   created_time: z.string().optional(),
   folder_path: z.string().array().optional(),
@@ -42,18 +42,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsQuicksightFolderInputProps =
+  & z.input<typeof AwsQuicksightFolderInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsQuicksightFolderOutputProps =
+  & z.output<typeof AwsQuicksightFolderOutputSchema>
+  & z.output<typeof AwsQuicksightFolderInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/quicksight_folder
 
-export function AwsQuicksightFolder(props: Partial<InputProps>) {
+export function AwsQuicksightFolder(
+  props: Partial<AwsQuicksightFolderInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -63,8 +65,8 @@ export function AwsQuicksightFolder(props: Partial<InputProps>) {
       _type='aws_quicksight_folder'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsQuicksightFolderInputSchema}
+      _outputSchema={AwsQuicksightFolderOutputSchema}
       {...props}
     />
   )
@@ -75,11 +77,21 @@ export const useAwsQuicksightFolder = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsQuicksightFolder, idFilter, baseNode, optional)
+  useTypedNode<AwsQuicksightFolderOutputProps>(
+    AwsQuicksightFolder,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsQuicksightFolders = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsQuicksightFolder, idFilter, baseNode, optional)
+  useTypedNodes<AwsQuicksightFolderOutputProps>(
+    AwsQuicksightFolder,
+    idFilter,
+    baseNode,
+    optional,
+  )

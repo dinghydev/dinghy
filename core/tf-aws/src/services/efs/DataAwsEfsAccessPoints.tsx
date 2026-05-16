@@ -8,29 +8,31 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsEfsAccessPointsInputSchema = TfMetaSchema.extend({
   file_system_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsEfsAccessPointsOutputSchema = z.object({
   arns: z.string().array().optional(),
   id: z.string().optional(),
   ids: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEfsAccessPointsInputProps =
+  & z.input<typeof DataAwsEfsAccessPointsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEfsAccessPointsOutputProps =
+  & z.output<typeof DataAwsEfsAccessPointsOutputSchema>
+  & z.output<typeof DataAwsEfsAccessPointsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/efs_access_points
 
-export function DataAwsEfsAccessPoints(props: Partial<InputProps>) {
+export function DataAwsEfsAccessPoints(
+  props: Partial<DataAwsEfsAccessPointsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function DataAwsEfsAccessPoints(props: Partial<InputProps>) {
       _type='aws_efs_access_points'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEfsAccessPointsInputSchema}
+      _outputSchema={DataAwsEfsAccessPointsOutputSchema}
       {...props}
     />
   )
@@ -52,7 +54,7 @@ export const useDataAwsEfsAccessPointss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsEfsAccessPointsOutputProps>(
     DataAwsEfsAccessPoints,
     idFilter,
     baseNode,

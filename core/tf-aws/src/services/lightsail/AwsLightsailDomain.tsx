@@ -9,28 +9,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLightsailDomainInputSchema = TfMetaSchema.extend({
   domain_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsLightsailDomainOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLightsailDomainInputProps =
+  & z.input<typeof AwsLightsailDomainInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLightsailDomainOutputProps =
+  & z.output<typeof AwsLightsailDomainOutputSchema>
+  & z.output<typeof AwsLightsailDomainInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lightsail_domain
 
-export function AwsLightsailDomain(props: Partial<InputProps>) {
+export function AwsLightsailDomain(
+  props: Partial<AwsLightsailDomainInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function AwsLightsailDomain(props: Partial<InputProps>) {
       _type='aws_lightsail_domain'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLightsailDomainInputSchema}
+      _outputSchema={AwsLightsailDomainOutputSchema}
       {...props}
     />
   )
@@ -51,11 +53,22 @@ export const useAwsLightsailDomain = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsLightsailDomain, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsLightsailDomainOutputProps>(
+    AwsLightsailDomain,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLightsailDomains = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsLightsailDomain, idFilter, baseNode, optional)
+  useTypedNodes<AwsLightsailDomainOutputProps>(
+    AwsLightsailDomain,
+    idFilter,
+    baseNode,
+    optional,
+  )

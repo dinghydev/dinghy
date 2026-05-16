@@ -9,26 +9,28 @@ import {
 import z from 'zod'
 import { AwsWafRateBasedRule } from './AwsWafRateBasedRule.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsWafRateBasedRuleInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsWafRateBasedRuleOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsWafRateBasedRuleInputProps =
+  & z.input<typeof DataAwsWafRateBasedRuleInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsWafRateBasedRuleOutputProps =
+  & z.output<typeof DataAwsWafRateBasedRuleOutputSchema>
+  & z.output<typeof DataAwsWafRateBasedRuleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/waf_rate_based_rule
 
-export function DataAwsWafRateBasedRule(props: Partial<InputProps>) {
+export function DataAwsWafRateBasedRule(
+  props: Partial<DataAwsWafRateBasedRuleInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -38,8 +40,8 @@ export function DataAwsWafRateBasedRule(props: Partial<InputProps>) {
       _type='aws_waf_rate_based_rule'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsWafRateBasedRuleInputSchema}
+      _outputSchema={DataAwsWafRateBasedRuleOutputSchema}
       {...props as any}
     />
   )
@@ -50,7 +52,7 @@ export const useDataAwsWafRateBasedRule = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsWafRateBasedRuleOutputProps>(
     DataAwsWafRateBasedRule,
     idFilter,
     baseNode,
@@ -62,7 +64,7 @@ export const useDataAwsWafRateBasedRules = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsWafRateBasedRuleOutputProps>(
     DataAwsWafRateBasedRule,
     idFilter,
     baseNode,

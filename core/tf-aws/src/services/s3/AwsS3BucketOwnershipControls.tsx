@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsS3BucketOwnershipControlsInputSchema = TfMetaSchema.extend({
   bucket: resolvableValue(z.string()),
   rule: resolvableValue(z.object({
     object_ownership: z.string(),
@@ -16,29 +16,31 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsS3BucketOwnershipControlsOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsS3BucketOwnershipControlsImportSchema = z.object({
   bucket: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsS3BucketOwnershipControlsInputProps =
+  & z.input<typeof AwsS3BucketOwnershipControlsInputSchema>
+  & z.input<typeof AwsS3BucketOwnershipControlsImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3BucketOwnershipControlsOutputProps =
+  & z.output<typeof AwsS3BucketOwnershipControlsOutputSchema>
+  & z.output<typeof AwsS3BucketOwnershipControlsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3_bucket_ownership_controls
 
-export function AwsS3BucketOwnershipControls(props: Partial<InputProps>) {
+export function AwsS3BucketOwnershipControls(
+  props: Partial<AwsS3BucketOwnershipControlsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,9 +50,9 @@ export function AwsS3BucketOwnershipControls(props: Partial<InputProps>) {
       _type='aws_s3_bucket_ownership_controls'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsS3BucketOwnershipControlsInputSchema}
+      _outputSchema={AwsS3BucketOwnershipControlsOutputSchema}
+      _importSchema={AwsS3BucketOwnershipControlsImportSchema}
       {...props}
     />
   )
@@ -61,7 +63,7 @@ export const useAwsS3BucketOwnershipControlss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsS3BucketOwnershipControlsOutputProps>(
     AwsS3BucketOwnershipControls,
     idFilter,
     baseNode,

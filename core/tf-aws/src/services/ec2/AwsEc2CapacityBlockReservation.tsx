@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEc2CapacityBlockReservationInputSchema = TfMetaSchema.extend({
   capacity_block_offering_id: resolvableValue(z.string()),
   instance_platform: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
@@ -21,7 +21,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsEc2CapacityBlockReservationOutputSchema = z.object({
   arn: z.string().optional(),
   availability_zone: z.string().optional(),
   created_date: z.string().optional(),
@@ -39,18 +39,20 @@ export const OutputSchema = z.object({
   tenancy: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEc2CapacityBlockReservationInputProps =
+  & z.input<typeof AwsEc2CapacityBlockReservationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEc2CapacityBlockReservationOutputProps =
+  & z.output<typeof AwsEc2CapacityBlockReservationOutputSchema>
+  & z.output<typeof AwsEc2CapacityBlockReservationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ec2_capacity_block_reservation
 
-export function AwsEc2CapacityBlockReservation(props: Partial<InputProps>) {
+export function AwsEc2CapacityBlockReservation(
+  props: Partial<AwsEc2CapacityBlockReservationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -60,8 +62,8 @@ export function AwsEc2CapacityBlockReservation(props: Partial<InputProps>) {
       _type='aws_ec2_capacity_block_reservation'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEc2CapacityBlockReservationInputSchema}
+      _outputSchema={AwsEc2CapacityBlockReservationOutputSchema}
       {...props}
     />
   )
@@ -72,7 +74,7 @@ export const useAwsEc2CapacityBlockReservation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsEc2CapacityBlockReservationOutputProps>(
     AwsEc2CapacityBlockReservation,
     idFilter,
     baseNode,
@@ -84,7 +86,7 @@ export const useAwsEc2CapacityBlockReservations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEc2CapacityBlockReservationOutputProps>(
     AwsEc2CapacityBlockReservation,
     idFilter,
     baseNode,

@@ -8,12 +8,13 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  region: resolvableValue(z.string().optional()),
-  standards_subscription_arns: resolvableValue(z.string().array().optional()),
-})
+export const DataAwsSecurityhubEnabledStandardsInputSchema = TfMetaSchema
+  .extend({
+    region: resolvableValue(z.string().optional()),
+    standards_subscription_arns: resolvableValue(z.string().array().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsSecurityhubEnabledStandardsOutputSchema = z.object({
   standards_subscriptions: z.object({
     standards_arn: z.string(),
     standards_controls_updatable: z.string(),
@@ -26,18 +27,20 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsSecurityhubEnabledStandardsInputProps =
+  & z.input<typeof DataAwsSecurityhubEnabledStandardsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsSecurityhubEnabledStandardsOutputProps =
+  & z.output<typeof DataAwsSecurityhubEnabledStandardsOutputSchema>
+  & z.output<typeof DataAwsSecurityhubEnabledStandardsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/securityhub_enabled_standards
 
-export function DataAwsSecurityhubEnabledStandards(props: Partial<InputProps>) {
+export function DataAwsSecurityhubEnabledStandards(
+  props: Partial<DataAwsSecurityhubEnabledStandardsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +50,8 @@ export function DataAwsSecurityhubEnabledStandards(props: Partial<InputProps>) {
       _type='aws_securityhub_enabled_standards'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsSecurityhubEnabledStandardsInputSchema}
+      _outputSchema={DataAwsSecurityhubEnabledStandardsOutputSchema}
       {...props}
     />
   )
@@ -59,7 +62,7 @@ export const useDataAwsSecurityhubEnabledStandardss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsSecurityhubEnabledStandardsOutputProps>(
     DataAwsSecurityhubEnabledStandards,
     idFilter,
     baseNode,

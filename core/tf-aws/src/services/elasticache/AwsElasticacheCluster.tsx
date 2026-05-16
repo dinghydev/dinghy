@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsElasticacheClusterInputSchema = TfMetaSchema.extend({
   cluster_id: resolvableValue(z.string()),
   apply_immediately: resolvableValue(z.boolean().optional()),
   auto_minor_version_upgrade: resolvableValue(z.string().optional()),
@@ -57,7 +57,7 @@ export const InputSchema = TfMetaSchema.extend({
   transit_encryption_enabled: resolvableValue(z.boolean().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsElasticacheClusterOutputSchema = z.object({
   arn: z.string().optional(),
   cache_nodes: z.object({
     address: z.string(),
@@ -72,18 +72,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsElasticacheClusterInputProps =
+  & z.input<typeof AwsElasticacheClusterInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsElasticacheClusterOutputProps =
+  & z.output<typeof AwsElasticacheClusterOutputSchema>
+  & z.output<typeof AwsElasticacheClusterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/elasticache_cluster
 
-export function AwsElasticacheCluster(props: Partial<InputProps>) {
+export function AwsElasticacheCluster(
+  props: Partial<AwsElasticacheClusterInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -93,8 +95,8 @@ export function AwsElasticacheCluster(props: Partial<InputProps>) {
       _type='aws_elasticache_cluster'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsElasticacheClusterInputSchema}
+      _outputSchema={AwsElasticacheClusterOutputSchema}
       {...props}
     />
   )
@@ -105,14 +107,19 @@ export const useAwsElasticacheCluster = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsElasticacheCluster, idFilter, baseNode, optional)
+  useTypedNode<AwsElasticacheClusterOutputProps>(
+    AwsElasticacheCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsElasticacheClusters = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsElasticacheClusterOutputProps>(
     AwsElasticacheCluster,
     idFilter,
     baseNode,

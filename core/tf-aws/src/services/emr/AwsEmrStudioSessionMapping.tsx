@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEmrStudioSessionMappingInputSchema = TfMetaSchema.extend({
   identity_type: resolvableValue(z.string()),
   session_policy_arn: resolvableValue(z.string()),
   studio_id: resolvableValue(z.string()),
@@ -19,20 +19,22 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsEmrStudioSessionMappingOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEmrStudioSessionMappingInputProps =
+  & z.input<typeof AwsEmrStudioSessionMappingInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEmrStudioSessionMappingOutputProps =
+  & z.output<typeof AwsEmrStudioSessionMappingOutputSchema>
+  & z.output<typeof AwsEmrStudioSessionMappingInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/emr_studio_session_mapping
 
-export function AwsEmrStudioSessionMapping(props: Partial<InputProps>) {
+export function AwsEmrStudioSessionMapping(
+  props: Partial<AwsEmrStudioSessionMappingInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +44,8 @@ export function AwsEmrStudioSessionMapping(props: Partial<InputProps>) {
       _type='aws_emr_studio_session_mapping'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEmrStudioSessionMappingInputSchema}
+      _outputSchema={AwsEmrStudioSessionMappingOutputSchema}
       {...props}
     />
   )
@@ -54,7 +56,7 @@ export const useAwsEmrStudioSessionMapping = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsEmrStudioSessionMappingOutputProps>(
     AwsEmrStudioSessionMapping,
     idFilter,
     baseNode,
@@ -66,7 +68,7 @@ export const useAwsEmrStudioSessionMappings = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEmrStudioSessionMappingOutputProps>(
     AwsEmrStudioSessionMapping,
     idFilter,
     baseNode,

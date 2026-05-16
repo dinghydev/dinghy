@@ -9,12 +9,12 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsApiGatewayAccountInputSchema = TfMetaSchema.extend({
   cloudwatch_role_arn: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsApiGatewayAccountOutputSchema = z.object({
   api_key_version: z.string().optional(),
   features: z.set(z.string()).optional(),
   id: z.string().optional(),
@@ -24,18 +24,20 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsApiGatewayAccountInputProps =
+  & z.input<typeof AwsApiGatewayAccountInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApiGatewayAccountOutputProps =
+  & z.output<typeof AwsApiGatewayAccountOutputSchema>
+  & z.output<typeof AwsApiGatewayAccountInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/api_gateway_account
 
-export function AwsApiGatewayAccount(props: Partial<InputProps>) {
+export function AwsApiGatewayAccount(
+  props: Partial<AwsApiGatewayAccountInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,8 +47,8 @@ export function AwsApiGatewayAccount(props: Partial<InputProps>) {
       _type='aws_api_gateway_account'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsApiGatewayAccountInputSchema}
+      _outputSchema={AwsApiGatewayAccountOutputSchema}
       {...props}
     />
   )
@@ -57,11 +59,21 @@ export const useAwsApiGatewayAccount = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsApiGatewayAccount, idFilter, baseNode, optional)
+  useTypedNode<AwsApiGatewayAccountOutputProps>(
+    AwsApiGatewayAccount,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsApiGatewayAccounts = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsApiGatewayAccount, idFilter, baseNode, optional)
+  useTypedNodes<AwsApiGatewayAccountOutputProps>(
+    AwsApiGatewayAccount,
+    idFilter,
+    baseNode,
+    optional,
+  )

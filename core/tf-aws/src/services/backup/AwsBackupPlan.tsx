@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsBackupPlanInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   rule: resolvableValue(
     z.object({
@@ -58,25 +58,25 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsBackupPlanOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   version: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsBackupPlanInputProps =
+  & z.input<typeof AwsBackupPlanInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBackupPlanOutputProps =
+  & z.output<typeof AwsBackupPlanOutputSchema>
+  & z.output<typeof AwsBackupPlanInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/backup_plan
 
-export function AwsBackupPlan(props: Partial<InputProps>) {
+export function AwsBackupPlan(props: Partial<AwsBackupPlanInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -86,8 +86,8 @@ export function AwsBackupPlan(props: Partial<InputProps>) {
       _type='aws_backup_plan'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsBackupPlanInputSchema}
+      _outputSchema={AwsBackupPlanOutputSchema}
       {...props}
     />
   )
@@ -97,10 +97,22 @@ export const useAwsBackupPlan = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsBackupPlan, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsBackupPlanOutputProps>(
+    AwsBackupPlan,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsBackupPlans = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsBackupPlan, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsBackupPlanOutputProps>(
+    AwsBackupPlan,
+    idFilter,
+    baseNode,
+    optional,
+  )

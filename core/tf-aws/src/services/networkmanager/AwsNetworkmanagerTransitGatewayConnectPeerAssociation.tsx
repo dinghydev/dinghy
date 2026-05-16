@@ -9,35 +9,45 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  device_id: resolvableValue(z.string()),
-  global_network_id: resolvableValue(z.string()),
-  transit_gateway_connect_peer_arn: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  link_id: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsNetworkmanagerTransitGatewayConnectPeerAssociationInputSchema =
+  TfMetaSchema.extend({
+    device_id: resolvableValue(z.string()),
+    global_network_id: resolvableValue(z.string()),
+    transit_gateway_connect_peer_arn: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    link_id: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({})
+export const AwsNetworkmanagerTransitGatewayConnectPeerAssociationOutputSchema =
+  z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsNetworkmanagerTransitGatewayConnectPeerAssociationInputProps =
+  & z.input<
+    typeof AwsNetworkmanagerTransitGatewayConnectPeerAssociationInputSchema
+  >
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNetworkmanagerTransitGatewayConnectPeerAssociationOutputProps =
+  & z.output<
+    typeof AwsNetworkmanagerTransitGatewayConnectPeerAssociationOutputSchema
+  >
+  & z.output<
+    typeof AwsNetworkmanagerTransitGatewayConnectPeerAssociationInputSchema
+  >
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/networkmanager_transit_gateway_connect_peer_association
 
 export function AwsNetworkmanagerTransitGatewayConnectPeerAssociation(
-  props: Partial<InputProps>,
+  props: Partial<
+    AwsNetworkmanagerTransitGatewayConnectPeerAssociationInputProps
+  >,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -48,8 +58,8 @@ export function AwsNetworkmanagerTransitGatewayConnectPeerAssociation(
       _type='aws_networkmanager_transit_gateway_connect_peer_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsNetworkmanagerTransitGatewayConnectPeerAssociationInputSchema}
+      _outputSchema={AwsNetworkmanagerTransitGatewayConnectPeerAssociationOutputSchema}
       {...props}
     />
   )
@@ -60,7 +70,9 @@ export const useAwsNetworkmanagerTransitGatewayConnectPeerAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<
+    AwsNetworkmanagerTransitGatewayConnectPeerAssociationOutputProps
+  >(
     AwsNetworkmanagerTransitGatewayConnectPeerAssociation,
     idFilter,
     baseNode,
@@ -72,7 +84,9 @@ export const useAwsNetworkmanagerTransitGatewayConnectPeerAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<
+    AwsNetworkmanagerTransitGatewayConnectPeerAssociationOutputProps
+  >(
     AwsNetworkmanagerTransitGatewayConnectPeerAssociation,
     idFilter,
     baseNode,

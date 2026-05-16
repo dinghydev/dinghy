@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsAcmCertificate } from './AwsAcmCertificate.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsAcmCertificateInputSchema = TfMetaSchema.extend({
   domain: resolvableValue(z.string().optional()),
   key_types: resolvableValue(z.string().array().optional()),
   most_recent: resolvableValue(z.boolean().optional()),
@@ -19,7 +19,7 @@ export const InputSchema = TfMetaSchema.extend({
   types: resolvableValue(z.string().array().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsAcmCertificateOutputSchema = z.object({
   arn: z.string().optional(),
   certificate: z.string().optional(),
   certificate_chain: z.string().optional(),
@@ -28,18 +28,20 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsAcmCertificateInputProps =
+  & z.input<typeof DataAwsAcmCertificateInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsAcmCertificateOutputProps =
+  & z.output<typeof DataAwsAcmCertificateOutputSchema>
+  & z.output<typeof DataAwsAcmCertificateInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/acm_certificate
 
-export function DataAwsAcmCertificate(props: Partial<InputProps>) {
+export function DataAwsAcmCertificate(
+  props: Partial<DataAwsAcmCertificateInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,8 +51,8 @@ export function DataAwsAcmCertificate(props: Partial<InputProps>) {
       _type='aws_acm_certificate'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsAcmCertificateInputSchema}
+      _outputSchema={DataAwsAcmCertificateOutputSchema}
       {...props as any}
     />
   )
@@ -61,14 +63,19 @@ export const useDataAwsAcmCertificate = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsAcmCertificate, idFilter, baseNode, optional)
+  useTypedNode<DataAwsAcmCertificateOutputProps>(
+    DataAwsAcmCertificate,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsAcmCertificates = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsAcmCertificateOutputProps>(
     DataAwsAcmCertificate,
     idFilter,
     baseNode,

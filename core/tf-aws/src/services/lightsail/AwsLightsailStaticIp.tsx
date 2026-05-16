@@ -9,30 +9,32 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLightsailStaticIpInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsLightsailStaticIpOutputSchema = z.object({
   arn: z.string().optional(),
   ip_address: z.string().optional(),
   support_code: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLightsailStaticIpInputProps =
+  & z.input<typeof AwsLightsailStaticIpInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLightsailStaticIpOutputProps =
+  & z.output<typeof AwsLightsailStaticIpOutputSchema>
+  & z.output<typeof AwsLightsailStaticIpInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lightsail_static_ip
 
-export function AwsLightsailStaticIp(props: Partial<InputProps>) {
+export function AwsLightsailStaticIp(
+  props: Partial<AwsLightsailStaticIpInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +44,8 @@ export function AwsLightsailStaticIp(props: Partial<InputProps>) {
       _type='aws_lightsail_static_ip'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLightsailStaticIpInputSchema}
+      _outputSchema={AwsLightsailStaticIpOutputSchema}
       {...props}
     />
   )
@@ -54,11 +56,21 @@ export const useAwsLightsailStaticIp = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsLightsailStaticIp, idFilter, baseNode, optional)
+  useTypedNode<AwsLightsailStaticIpOutputProps>(
+    AwsLightsailStaticIp,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLightsailStaticIps = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsLightsailStaticIp, idFilter, baseNode, optional)
+  useTypedNodes<AwsLightsailStaticIpOutputProps>(
+    AwsLightsailStaticIp,
+    idFilter,
+    baseNode,
+    optional,
+  )

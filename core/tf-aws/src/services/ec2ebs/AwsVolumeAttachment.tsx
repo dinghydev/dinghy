@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsVolumeAttachmentInputSchema = TfMetaSchema.extend({
   device_name: resolvableValue(z.string()),
   instance_id: resolvableValue(z.string()),
   volume_id: resolvableValue(z.string()),
@@ -26,13 +26,13 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsVolumeAttachmentOutputSchema = z.object({
   device_name: z.string().optional(),
   instance_id: z.string().optional(),
   volume_id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsVolumeAttachmentImportSchema = z.object({
   device_name: resolvableValue(z.string()),
   instance_id: resolvableValue(z.string()),
   volume_id: resolvableValue(z.string()),
@@ -40,19 +40,21 @@ export const ImportSchema = z.object({
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsVolumeAttachmentInputProps =
+  & z.input<typeof AwsVolumeAttachmentInputSchema>
+  & z.input<typeof AwsVolumeAttachmentImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVolumeAttachmentOutputProps =
+  & z.output<typeof AwsVolumeAttachmentOutputSchema>
+  & z.output<typeof AwsVolumeAttachmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/volume_attachment
 
-export function AwsVolumeAttachment(props: Partial<InputProps>) {
+export function AwsVolumeAttachment(
+  props: Partial<AwsVolumeAttachmentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -62,9 +64,9 @@ export function AwsVolumeAttachment(props: Partial<InputProps>) {
       _type='aws_volume_attachment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsVolumeAttachmentInputSchema}
+      _outputSchema={AwsVolumeAttachmentOutputSchema}
+      _importSchema={AwsVolumeAttachmentImportSchema}
       {...props}
     />
   )
@@ -75,11 +77,21 @@ export const useAwsVolumeAttachment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsVolumeAttachment, idFilter, baseNode, optional)
+  useTypedNode<AwsVolumeAttachmentOutputProps>(
+    AwsVolumeAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVolumeAttachments = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsVolumeAttachment, idFilter, baseNode, optional)
+  useTypedNodes<AwsVolumeAttachmentOutputProps>(
+    AwsVolumeAttachment,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsVpclatticeServiceNetworkInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   auth_type: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
@@ -17,23 +17,25 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsVpclatticeServiceNetworkOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVpclatticeServiceNetworkInputProps =
+  & z.input<typeof AwsVpclatticeServiceNetworkInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVpclatticeServiceNetworkOutputProps =
+  & z.output<typeof AwsVpclatticeServiceNetworkOutputSchema>
+  & z.output<typeof AwsVpclatticeServiceNetworkInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpclattice_service_network
 
-export function AwsVpclatticeServiceNetwork(props: Partial<InputProps>) {
+export function AwsVpclatticeServiceNetwork(
+  props: Partial<AwsVpclatticeServiceNetworkInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function AwsVpclatticeServiceNetwork(props: Partial<InputProps>) {
       _type='aws_vpclattice_service_network'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVpclatticeServiceNetworkInputSchema}
+      _outputSchema={AwsVpclatticeServiceNetworkOutputSchema}
       {...props}
     />
   )
@@ -55,7 +57,7 @@ export const useAwsVpclatticeServiceNetwork = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsVpclatticeServiceNetworkOutputProps>(
     AwsVpclatticeServiceNetwork,
     idFilter,
     baseNode,
@@ -67,7 +69,7 @@ export const useAwsVpclatticeServiceNetworks = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsVpclatticeServiceNetworkOutputProps>(
     AwsVpclatticeServiceNetwork,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAppmeshMeshInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   spec: resolvableValue(
@@ -25,7 +25,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAppmeshMeshOutputSchema = z.object({
   arn: z.string().optional(),
   created_date: z.string().optional(),
   id: z.string().optional(),
@@ -35,18 +35,18 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAppmeshMeshInputProps =
+  & z.input<typeof AwsAppmeshMeshInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppmeshMeshOutputProps =
+  & z.output<typeof AwsAppmeshMeshOutputSchema>
+  & z.output<typeof AwsAppmeshMeshInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appmesh_mesh
 
-export function AwsAppmeshMesh(props: Partial<InputProps>) {
+export function AwsAppmeshMesh(props: Partial<AwsAppmeshMeshInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -56,8 +56,8 @@ export function AwsAppmeshMesh(props: Partial<InputProps>) {
       _type='aws_appmesh_mesh'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAppmeshMeshInputSchema}
+      _outputSchema={AwsAppmeshMeshOutputSchema}
       {...props}
     />
   )
@@ -67,10 +67,22 @@ export const useAwsAppmeshMesh = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsAppmeshMesh, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsAppmeshMeshOutputProps>(
+    AwsAppmeshMesh,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAppmeshMeshs = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsAppmeshMesh, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsAppmeshMeshOutputProps>(
+    AwsAppmeshMesh,
+    idFilter,
+    baseNode,
+    optional,
+  )

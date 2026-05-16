@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsElasticacheReplicationGroupInputSchema = TfMetaSchema.extend({
   description: resolvableValue(z.string()),
   replication_group_id: resolvableValue(z.string()),
   apply_immediately: resolvableValue(z.boolean().optional()),
@@ -77,7 +77,7 @@ export const InputSchema = TfMetaSchema.extend({
   user_group_ids: resolvableValue(z.string().array().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsElasticacheReplicationGroupOutputSchema = z.object({
   arn: z.string().optional(),
   cluster_enabled: z.boolean().optional(),
   configuration_endpoint_address: z.string().optional(),
@@ -89,18 +89,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsElasticacheReplicationGroupInputProps =
+  & z.input<typeof AwsElasticacheReplicationGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsElasticacheReplicationGroupOutputProps =
+  & z.output<typeof AwsElasticacheReplicationGroupOutputSchema>
+  & z.output<typeof AwsElasticacheReplicationGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/elasticache_replication_group
 
-export function AwsElasticacheReplicationGroup(props: Partial<InputProps>) {
+export function AwsElasticacheReplicationGroup(
+  props: Partial<AwsElasticacheReplicationGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -110,8 +112,8 @@ export function AwsElasticacheReplicationGroup(props: Partial<InputProps>) {
       _type='aws_elasticache_replication_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsElasticacheReplicationGroupInputSchema}
+      _outputSchema={AwsElasticacheReplicationGroupOutputSchema}
       {...props}
     />
   )
@@ -122,7 +124,7 @@ export const useAwsElasticacheReplicationGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsElasticacheReplicationGroupOutputProps>(
     AwsElasticacheReplicationGroup,
     idFilter,
     baseNode,
@@ -134,7 +136,7 @@ export const useAwsElasticacheReplicationGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsElasticacheReplicationGroupOutputProps>(
     AwsElasticacheReplicationGroup,
     idFilter,
     baseNode,

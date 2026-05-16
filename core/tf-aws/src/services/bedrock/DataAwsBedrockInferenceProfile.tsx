@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsBedrockInferenceProfile } from './AwsBedrockInferenceProfile.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsBedrockInferenceProfileInputSchema = TfMetaSchema.extend({
   inference_profile_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsBedrockInferenceProfileOutputSchema = z.object({
   created_at: z.string().optional(),
   description: z.string().optional(),
   inference_profile_arn: z.string().optional(),
@@ -27,18 +27,20 @@ export const OutputSchema = z.object({
   updated_at: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsBedrockInferenceProfileInputProps =
+  & z.input<typeof DataAwsBedrockInferenceProfileInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsBedrockInferenceProfileOutputProps =
+  & z.output<typeof DataAwsBedrockInferenceProfileOutputSchema>
+  & z.output<typeof DataAwsBedrockInferenceProfileInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/bedrock_inference_profile
 
-export function DataAwsBedrockInferenceProfile(props: Partial<InputProps>) {
+export function DataAwsBedrockInferenceProfile(
+  props: Partial<DataAwsBedrockInferenceProfileInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +50,8 @@ export function DataAwsBedrockInferenceProfile(props: Partial<InputProps>) {
       _type='aws_bedrock_inference_profile'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsBedrockInferenceProfileInputSchema}
+      _outputSchema={DataAwsBedrockInferenceProfileOutputSchema}
       {...props as any}
     />
   )
@@ -60,7 +62,7 @@ export const useDataAwsBedrockInferenceProfile = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsBedrockInferenceProfileOutputProps>(
     DataAwsBedrockInferenceProfile,
     idFilter,
     baseNode,
@@ -72,7 +74,7 @@ export const useDataAwsBedrockInferenceProfiles = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsBedrockInferenceProfileOutputProps>(
     DataAwsBedrockInferenceProfile,
     idFilter,
     baseNode,

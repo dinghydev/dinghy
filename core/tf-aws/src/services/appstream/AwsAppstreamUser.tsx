@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAppstreamUserInputSchema = TfMetaSchema.extend({
   authentication_type: resolvableValue(z.string()),
   user_name: resolvableValue(z.string()),
   enabled: resolvableValue(z.boolean().optional()),
@@ -19,24 +19,24 @@ export const InputSchema = TfMetaSchema.extend({
   send_email_notification: resolvableValue(z.boolean().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAppstreamUserOutputSchema = z.object({
   arn: z.string().optional(),
   created_time: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAppstreamUserInputProps =
+  & z.input<typeof AwsAppstreamUserInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppstreamUserOutputProps =
+  & z.output<typeof AwsAppstreamUserOutputSchema>
+  & z.output<typeof AwsAppstreamUserInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appstream_user
 
-export function AwsAppstreamUser(props: Partial<InputProps>) {
+export function AwsAppstreamUser(props: Partial<AwsAppstreamUserInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +46,8 @@ export function AwsAppstreamUser(props: Partial<InputProps>) {
       _type='aws_appstream_user'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAppstreamUserInputSchema}
+      _outputSchema={AwsAppstreamUserOutputSchema}
       {...props}
     />
   )
@@ -57,10 +57,22 @@ export const useAwsAppstreamUser = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsAppstreamUser, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsAppstreamUserOutputProps>(
+    AwsAppstreamUser,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAppstreamUsers = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsAppstreamUser, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsAppstreamUserOutputProps>(
+    AwsAppstreamUser,
+    idFilter,
+    baseNode,
+    optional,
+  )

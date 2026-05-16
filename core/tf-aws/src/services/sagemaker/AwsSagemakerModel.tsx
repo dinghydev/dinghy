@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSagemakerModelInputSchema = TfMetaSchema.extend({
   execution_role_arn: resolvableValue(z.string()),
   container: resolvableValue(
     z.object({
@@ -111,24 +111,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsSagemakerModelOutputSchema = z.object({
   arn: z.string().optional(),
   name: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSagemakerModelInputProps =
+  & z.input<typeof AwsSagemakerModelInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSagemakerModelOutputProps =
+  & z.output<typeof AwsSagemakerModelOutputSchema>
+  & z.output<typeof AwsSagemakerModelInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sagemaker_model
 
-export function AwsSagemakerModel(props: Partial<InputProps>) {
+export function AwsSagemakerModel(props: Partial<AwsSagemakerModelInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -138,8 +138,8 @@ export function AwsSagemakerModel(props: Partial<InputProps>) {
       _type='aws_sagemaker_model'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSagemakerModelInputSchema}
+      _outputSchema={AwsSagemakerModelOutputSchema}
       {...props}
     />
   )
@@ -149,10 +149,22 @@ export const useAwsSagemakerModel = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsSagemakerModel, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsSagemakerModelOutputProps>(
+    AwsSagemakerModel,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSagemakerModels = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsSagemakerModel, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsSagemakerModelOutputProps>(
+    AwsSagemakerModel,
+    idFilter,
+    baseNode,
+    optional,
+  )

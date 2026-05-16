@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsAppmeshGatewayRoute } from './AwsAppmeshGatewayRoute.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsAppmeshGatewayRouteInputSchema = TfMetaSchema.extend({
   mesh_name: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   virtual_gateway_name: resolvableValue(z.string()),
@@ -18,7 +18,7 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsAppmeshGatewayRouteOutputSchema = z.object({
   arn: z.string().optional(),
   created_date: z.string().optional(),
   last_updated_date: z.string().optional(),
@@ -151,18 +151,20 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsAppmeshGatewayRouteInputProps =
+  & z.input<typeof DataAwsAppmeshGatewayRouteInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsAppmeshGatewayRouteOutputProps =
+  & z.output<typeof DataAwsAppmeshGatewayRouteOutputSchema>
+  & z.output<typeof DataAwsAppmeshGatewayRouteInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/appmesh_gateway_route
 
-export function DataAwsAppmeshGatewayRoute(props: Partial<InputProps>) {
+export function DataAwsAppmeshGatewayRoute(
+  props: Partial<DataAwsAppmeshGatewayRouteInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -172,8 +174,8 @@ export function DataAwsAppmeshGatewayRoute(props: Partial<InputProps>) {
       _type='aws_appmesh_gateway_route'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsAppmeshGatewayRouteInputSchema}
+      _outputSchema={DataAwsAppmeshGatewayRouteOutputSchema}
       {...props as any}
     />
   )
@@ -184,7 +186,7 @@ export const useDataAwsAppmeshGatewayRoute = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsAppmeshGatewayRouteOutputProps>(
     DataAwsAppmeshGatewayRoute,
     idFilter,
     baseNode,
@@ -196,7 +198,7 @@ export const useDataAwsAppmeshGatewayRoutes = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsAppmeshGatewayRouteOutputProps>(
     DataAwsAppmeshGatewayRoute,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsOdbCloudExadataInfrastructureInputSchema = TfMetaSchema.extend({
   availability_zone_id: resolvableValue(z.string()),
   display_name: resolvableValue(z.string()),
   shape: resolvableValue(z.string()),
@@ -51,7 +51,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsOdbCloudExadataInfrastructureOutputSchema = z.object({
   activated_storage_count: z.number().optional(),
   additional_storage_count: z.number().optional(),
   arn: z.string().optional(),
@@ -83,18 +83,20 @@ export const OutputSchema = z.object({
   total_storage_size_in_gbs: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsOdbCloudExadataInfrastructureInputProps =
+  & z.input<typeof AwsOdbCloudExadataInfrastructureInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsOdbCloudExadataInfrastructureOutputProps =
+  & z.output<typeof AwsOdbCloudExadataInfrastructureOutputSchema>
+  & z.output<typeof AwsOdbCloudExadataInfrastructureInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/odb_cloud_exadata_infrastructure
 
-export function AwsOdbCloudExadataInfrastructure(props: Partial<InputProps>) {
+export function AwsOdbCloudExadataInfrastructure(
+  props: Partial<AwsOdbCloudExadataInfrastructureInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -104,8 +106,8 @@ export function AwsOdbCloudExadataInfrastructure(props: Partial<InputProps>) {
       _type='aws_odb_cloud_exadata_infrastructure'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsOdbCloudExadataInfrastructureInputSchema}
+      _outputSchema={AwsOdbCloudExadataInfrastructureOutputSchema}
       {...props}
     />
   )
@@ -116,7 +118,7 @@ export const useAwsOdbCloudExadataInfrastructure = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsOdbCloudExadataInfrastructureOutputProps>(
     AwsOdbCloudExadataInfrastructure,
     idFilter,
     baseNode,
@@ -128,7 +130,7 @@ export const useAwsOdbCloudExadataInfrastructures = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsOdbCloudExadataInfrastructureOutputProps>(
     AwsOdbCloudExadataInfrastructure,
     idFilter,
     baseNode,

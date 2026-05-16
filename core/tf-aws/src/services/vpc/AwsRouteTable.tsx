@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRouteTableInputSchema = TfMetaSchema.extend({
   vpc_id: resolvableValue(z.string()),
   propagating_vgws: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
@@ -40,32 +40,32 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsRouteTableOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   owner_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsRouteTableImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsRouteTableInputProps =
+  & z.input<typeof AwsRouteTableInputSchema>
+  & z.input<typeof AwsRouteTableImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRouteTableOutputProps =
+  & z.output<typeof AwsRouteTableOutputSchema>
+  & z.output<typeof AwsRouteTableInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/route_table
 
-export function AwsRouteTable(props: Partial<InputProps>) {
+export function AwsRouteTable(props: Partial<AwsRouteTableInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -75,9 +75,9 @@ export function AwsRouteTable(props: Partial<InputProps>) {
       _type='aws_route_table'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsRouteTableInputSchema}
+      _outputSchema={AwsRouteTableOutputSchema}
+      _importSchema={AwsRouteTableImportSchema}
       {...props}
     />
   )
@@ -87,10 +87,22 @@ export const useAwsRouteTable = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsRouteTable, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsRouteTableOutputProps>(
+    AwsRouteTable,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRouteTables = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsRouteTable, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsRouteTableOutputProps>(
+    AwsRouteTable,
+    idFilter,
+    baseNode,
+    optional,
+  )

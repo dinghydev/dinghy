@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsServicecatalogPortfolio } from './AwsServicecatalogPortfolio.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsServicecatalogPortfolioInputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string()),
   accept_language: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -20,7 +20,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsServicecatalogPortfolioOutputSchema = z.object({
   arn: z.string().optional(),
   created_time: z.string().optional(),
   description: z.string().optional(),
@@ -29,18 +29,20 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsServicecatalogPortfolioInputProps =
+  & z.input<typeof DataAwsServicecatalogPortfolioInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsServicecatalogPortfolioOutputProps =
+  & z.output<typeof DataAwsServicecatalogPortfolioOutputSchema>
+  & z.output<typeof DataAwsServicecatalogPortfolioInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/servicecatalog_portfolio
 
-export function DataAwsServicecatalogPortfolio(props: Partial<InputProps>) {
+export function DataAwsServicecatalogPortfolio(
+  props: Partial<DataAwsServicecatalogPortfolioInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -50,8 +52,8 @@ export function DataAwsServicecatalogPortfolio(props: Partial<InputProps>) {
       _type='aws_servicecatalog_portfolio'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsServicecatalogPortfolioInputSchema}
+      _outputSchema={DataAwsServicecatalogPortfolioOutputSchema}
       {...props as any}
     />
   )
@@ -62,7 +64,7 @@ export const useDataAwsServicecatalogPortfolio = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsServicecatalogPortfolioOutputProps>(
     DataAwsServicecatalogPortfolio,
     idFilter,
     baseNode,
@@ -74,7 +76,7 @@ export const useDataAwsServicecatalogPortfolios = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsServicecatalogPortfolioOutputProps>(
     DataAwsServicecatalogPortfolio,
     idFilter,
     baseNode,

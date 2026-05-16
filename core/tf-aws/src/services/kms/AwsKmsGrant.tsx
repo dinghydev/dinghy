@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsKmsGrantInputSchema = TfMetaSchema.extend({
   grantee_principal: resolvableValue(z.string()),
   key_id: resolvableValue(z.string()),
   operations: resolvableValue(z.string().array()),
@@ -27,23 +27,23 @@ export const InputSchema = TfMetaSchema.extend({
   retiring_principal: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsKmsGrantOutputSchema = z.object({
   grant_id: z.string().optional(),
   grant_token: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsKmsGrantInputProps =
+  & z.input<typeof AwsKmsGrantInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsKmsGrantOutputProps =
+  & z.output<typeof AwsKmsGrantOutputSchema>
+  & z.output<typeof AwsKmsGrantInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/kms_grant
 
-export function AwsKmsGrant(props: Partial<InputProps>) {
+export function AwsKmsGrant(props: Partial<AwsKmsGrantInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,8 +53,8 @@ export function AwsKmsGrant(props: Partial<InputProps>) {
       _type='aws_kms_grant'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsKmsGrantInputSchema}
+      _outputSchema={AwsKmsGrantOutputSchema}
       {...props}
     />
   )
@@ -64,10 +64,22 @@ export const useAwsKmsGrant = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsKmsGrant, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsKmsGrantOutputProps>(
+    AwsKmsGrant,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsKmsGrants = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsKmsGrant, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsKmsGrantOutputProps>(
+    AwsKmsGrant,
+    idFilter,
+    baseNode,
+    optional,
+  )

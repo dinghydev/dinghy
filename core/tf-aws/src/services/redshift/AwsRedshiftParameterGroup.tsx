@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRedshiftParameterGroupInputSchema = TfMetaSchema.extend({
   family: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
@@ -23,24 +23,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRedshiftParameterGroupOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRedshiftParameterGroupInputProps =
+  & z.input<typeof AwsRedshiftParameterGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRedshiftParameterGroupOutputProps =
+  & z.output<typeof AwsRedshiftParameterGroupOutputSchema>
+  & z.output<typeof AwsRedshiftParameterGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/redshift_parameter_group
 
-export function AwsRedshiftParameterGroup(props: Partial<InputProps>) {
+export function AwsRedshiftParameterGroup(
+  props: Partial<AwsRedshiftParameterGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -50,8 +52,8 @@ export function AwsRedshiftParameterGroup(props: Partial<InputProps>) {
       _type='aws_redshift_parameter_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRedshiftParameterGroupInputSchema}
+      _outputSchema={AwsRedshiftParameterGroupOutputSchema}
       {...props}
     />
   )
@@ -62,7 +64,7 @@ export const useAwsRedshiftParameterGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRedshiftParameterGroupOutputProps>(
     AwsRedshiftParameterGroup,
     idFilter,
     baseNode,
@@ -74,7 +76,7 @@ export const useAwsRedshiftParameterGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRedshiftParameterGroupOutputProps>(
     AwsRedshiftParameterGroup,
     idFilter,
     baseNode,

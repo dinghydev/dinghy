@@ -9,28 +9,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRedshiftResourcePolicyInputSchema = TfMetaSchema.extend({
   policy: resolvableValue(z.string()),
   resource_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRedshiftResourcePolicyOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRedshiftResourcePolicyInputProps =
+  & z.input<typeof AwsRedshiftResourcePolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRedshiftResourcePolicyOutputProps =
+  & z.output<typeof AwsRedshiftResourcePolicyOutputSchema>
+  & z.output<typeof AwsRedshiftResourcePolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/redshift_resource_policy
 
-export function AwsRedshiftResourcePolicy(props: Partial<InputProps>) {
+export function AwsRedshiftResourcePolicy(
+  props: Partial<AwsRedshiftResourcePolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function AwsRedshiftResourcePolicy(props: Partial<InputProps>) {
       _type='aws_redshift_resource_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRedshiftResourcePolicyInputSchema}
+      _outputSchema={AwsRedshiftResourcePolicyOutputSchema}
       {...props}
     />
   )
@@ -52,7 +54,7 @@ export const useAwsRedshiftResourcePolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRedshiftResourcePolicyOutputProps>(
     AwsRedshiftResourcePolicy,
     idFilter,
     baseNode,
@@ -64,7 +66,7 @@ export const useAwsRedshiftResourcePolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRedshiftResourcePolicyOutputProps>(
     AwsRedshiftResourcePolicy,
     idFilter,
     baseNode,

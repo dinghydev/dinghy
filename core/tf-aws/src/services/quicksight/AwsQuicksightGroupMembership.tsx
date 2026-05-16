@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsQuicksightGroupMembershipInputSchema = TfMetaSchema.extend({
   group_name: resolvableValue(z.string()),
   member_name: resolvableValue(z.string()),
   aws_account_id: resolvableValue(z.string().optional()),
@@ -18,22 +18,24 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsQuicksightGroupMembershipOutputSchema = z.object({
   arn: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsQuicksightGroupMembershipInputProps =
+  & z.input<typeof AwsQuicksightGroupMembershipInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsQuicksightGroupMembershipOutputProps =
+  & z.output<typeof AwsQuicksightGroupMembershipOutputSchema>
+  & z.output<typeof AwsQuicksightGroupMembershipInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/quicksight_group_membership
 
-export function AwsQuicksightGroupMembership(props: Partial<InputProps>) {
+export function AwsQuicksightGroupMembership(
+  props: Partial<AwsQuicksightGroupMembershipInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function AwsQuicksightGroupMembership(props: Partial<InputProps>) {
       _type='aws_quicksight_group_membership'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsQuicksightGroupMembershipInputSchema}
+      _outputSchema={AwsQuicksightGroupMembershipOutputSchema}
       {...props}
     />
   )
@@ -55,7 +57,7 @@ export const useAwsQuicksightGroupMembership = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsQuicksightGroupMembershipOutputProps>(
     AwsQuicksightGroupMembership,
     idFilter,
     baseNode,
@@ -67,7 +69,7 @@ export const useAwsQuicksightGroupMemberships = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsQuicksightGroupMembershipOutputProps>(
     AwsQuicksightGroupMembership,
     idFilter,
     baseNode,

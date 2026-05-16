@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCognitoUserInGroupInputSchema = TfMetaSchema.extend({
   group_name: resolvableValue(z.string()),
   user_pool_id: resolvableValue(z.string()),
   username: resolvableValue(z.string()),
@@ -17,20 +17,22 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsCognitoUserInGroupOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCognitoUserInGroupInputProps =
+  & z.input<typeof AwsCognitoUserInGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCognitoUserInGroupOutputProps =
+  & z.output<typeof AwsCognitoUserInGroupOutputSchema>
+  & z.output<typeof AwsCognitoUserInGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cognito_user_in_group
 
-export function AwsCognitoUserInGroup(props: Partial<InputProps>) {
+export function AwsCognitoUserInGroup(
+  props: Partial<AwsCognitoUserInGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function AwsCognitoUserInGroup(props: Partial<InputProps>) {
       _type='aws_cognito_user_in_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCognitoUserInGroupInputSchema}
+      _outputSchema={AwsCognitoUserInGroupOutputSchema}
       {...props}
     />
   )
@@ -52,14 +54,19 @@ export const useAwsCognitoUserInGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsCognitoUserInGroup, idFilter, baseNode, optional)
+  useTypedNode<AwsCognitoUserInGroupOutputProps>(
+    AwsCognitoUserInGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCognitoUserInGroups = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCognitoUserInGroupOutputProps>(
     AwsCognitoUserInGroup,
     idFilter,
     baseNode,

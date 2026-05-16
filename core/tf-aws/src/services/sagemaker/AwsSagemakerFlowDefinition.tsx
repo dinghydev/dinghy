@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSagemakerFlowDefinitionInputSchema = TfMetaSchema.extend({
   flow_definition_name: resolvableValue(z.string()),
   human_loop_config: resolvableValue(z.object({
     human_task_ui_arn: z.string(),
@@ -49,24 +49,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSagemakerFlowDefinitionOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSagemakerFlowDefinitionInputProps =
+  & z.input<typeof AwsSagemakerFlowDefinitionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSagemakerFlowDefinitionOutputProps =
+  & z.output<typeof AwsSagemakerFlowDefinitionOutputSchema>
+  & z.output<typeof AwsSagemakerFlowDefinitionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sagemaker_flow_definition
 
-export function AwsSagemakerFlowDefinition(props: Partial<InputProps>) {
+export function AwsSagemakerFlowDefinition(
+  props: Partial<AwsSagemakerFlowDefinitionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -76,8 +78,8 @@ export function AwsSagemakerFlowDefinition(props: Partial<InputProps>) {
       _type='aws_sagemaker_flow_definition'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSagemakerFlowDefinitionInputSchema}
+      _outputSchema={AwsSagemakerFlowDefinitionOutputSchema}
       {...props}
     />
   )
@@ -88,7 +90,7 @@ export const useAwsSagemakerFlowDefinition = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSagemakerFlowDefinitionOutputProps>(
     AwsSagemakerFlowDefinition,
     idFilter,
     baseNode,
@@ -100,7 +102,7 @@ export const useAwsSagemakerFlowDefinitions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSagemakerFlowDefinitionOutputProps>(
     AwsSagemakerFlowDefinition,
     idFilter,
     baseNode,

@@ -8,28 +8,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsLambdaFunctionsInputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsLambdaFunctionsOutputSchema = z.object({
   function_arns: z.string().array().optional(),
   function_names: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsLambdaFunctionsInputProps =
+  & z.input<typeof DataAwsLambdaFunctionsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsLambdaFunctionsOutputProps =
+  & z.output<typeof DataAwsLambdaFunctionsOutputSchema>
+  & z.output<typeof DataAwsLambdaFunctionsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/lambda_functions
 
-export function DataAwsLambdaFunctions(props: Partial<InputProps>) {
+export function DataAwsLambdaFunctions(
+  props: Partial<DataAwsLambdaFunctionsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -39,8 +41,8 @@ export function DataAwsLambdaFunctions(props: Partial<InputProps>) {
       _type='aws_lambda_functions'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsLambdaFunctionsInputSchema}
+      _outputSchema={DataAwsLambdaFunctionsOutputSchema}
       {...props}
     />
   )
@@ -51,7 +53,7 @@ export const useDataAwsLambdaFunctionss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsLambdaFunctionsOutputProps>(
     DataAwsLambdaFunctions,
     idFilter,
     baseNode,

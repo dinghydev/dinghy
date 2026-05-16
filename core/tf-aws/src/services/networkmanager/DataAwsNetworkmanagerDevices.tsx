@@ -8,29 +8,31 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsNetworkmanagerDevicesInputSchema = TfMetaSchema.extend({
   global_network_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   site_id: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsNetworkmanagerDevicesOutputSchema = z.object({
   ids: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsNetworkmanagerDevicesInputProps =
+  & z.input<typeof DataAwsNetworkmanagerDevicesInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsNetworkmanagerDevicesOutputProps =
+  & z.output<typeof DataAwsNetworkmanagerDevicesOutputSchema>
+  & z.output<typeof DataAwsNetworkmanagerDevicesInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/networkmanager_devices
 
-export function DataAwsNetworkmanagerDevices(props: Partial<InputProps>) {
+export function DataAwsNetworkmanagerDevices(
+  props: Partial<DataAwsNetworkmanagerDevicesInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function DataAwsNetworkmanagerDevices(props: Partial<InputProps>) {
       _type='aws_networkmanager_devices'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsNetworkmanagerDevicesInputSchema}
+      _outputSchema={DataAwsNetworkmanagerDevicesOutputSchema}
       {...props}
     />
   )
@@ -52,7 +54,7 @@ export const useDataAwsNetworkmanagerDevicess = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsNetworkmanagerDevicesOutputProps>(
     DataAwsNetworkmanagerDevices,
     idFilter,
     baseNode,

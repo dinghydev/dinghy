@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsSfnStateMachine } from './AwsSfnStateMachine.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsSfnStateMachineInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsSfnStateMachineOutputSchema = z.object({
   arn: z.string().optional(),
   creation_date: z.string().optional(),
   definition: z.string().optional(),
@@ -25,18 +25,20 @@ export const OutputSchema = z.object({
   status: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsSfnStateMachineInputProps =
+  & z.input<typeof DataAwsSfnStateMachineInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsSfnStateMachineOutputProps =
+  & z.output<typeof DataAwsSfnStateMachineOutputSchema>
+  & z.output<typeof DataAwsSfnStateMachineInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/sfn_state_machine
 
-export function DataAwsSfnStateMachine(props: Partial<InputProps>) {
+export function DataAwsSfnStateMachine(
+  props: Partial<DataAwsSfnStateMachineInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function DataAwsSfnStateMachine(props: Partial<InputProps>) {
       _type='aws_sfn_state_machine'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsSfnStateMachineInputSchema}
+      _outputSchema={DataAwsSfnStateMachineOutputSchema}
       {...props as any}
     />
   )
@@ -58,7 +60,7 @@ export const useDataAwsSfnStateMachine = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsSfnStateMachineOutputProps>(
     DataAwsSfnStateMachine,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useDataAwsSfnStateMachines = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsSfnStateMachineOutputProps>(
     DataAwsSfnStateMachine,
     idFilter,
     baseNode,

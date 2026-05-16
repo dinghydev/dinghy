@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEc2NetworkInsightsAccessScopeInputSchema = TfMetaSchema.extend({
   exclude_paths: resolvableValue(
     z.object({
       destination: z.object({
@@ -88,31 +88,33 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsEc2NetworkInsightsAccessScopeOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsEc2NetworkInsightsAccessScopeImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsEc2NetworkInsightsAccessScopeInputProps =
+  & z.input<typeof AwsEc2NetworkInsightsAccessScopeInputSchema>
+  & z.input<typeof AwsEc2NetworkInsightsAccessScopeImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEc2NetworkInsightsAccessScopeOutputProps =
+  & z.output<typeof AwsEc2NetworkInsightsAccessScopeOutputSchema>
+  & z.output<typeof AwsEc2NetworkInsightsAccessScopeInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ec2_network_insights_access_scope
 
-export function AwsEc2NetworkInsightsAccessScope(props: Partial<InputProps>) {
+export function AwsEc2NetworkInsightsAccessScope(
+  props: Partial<AwsEc2NetworkInsightsAccessScopeInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -122,9 +124,9 @@ export function AwsEc2NetworkInsightsAccessScope(props: Partial<InputProps>) {
       _type='aws_ec2_network_insights_access_scope'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsEc2NetworkInsightsAccessScopeInputSchema}
+      _outputSchema={AwsEc2NetworkInsightsAccessScopeOutputSchema}
+      _importSchema={AwsEc2NetworkInsightsAccessScopeImportSchema}
       {...props}
     />
   )
@@ -135,7 +137,7 @@ export const useAwsEc2NetworkInsightsAccessScope = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsEc2NetworkInsightsAccessScopeOutputProps>(
     AwsEc2NetworkInsightsAccessScope,
     idFilter,
     baseNode,
@@ -147,7 +149,7 @@ export const useAwsEc2NetworkInsightsAccessScopes = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEc2NetworkInsightsAccessScopeOutputProps>(
     AwsEc2NetworkInsightsAccessScope,
     idFilter,
     baseNode,

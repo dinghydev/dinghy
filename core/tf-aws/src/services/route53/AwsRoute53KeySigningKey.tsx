@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRoute53KeySigningKeyInputSchema = TfMetaSchema.extend({
   hosted_zone_id: resolvableValue(z.string()),
   key_management_service_arn: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -23,7 +23,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsRoute53KeySigningKeyOutputSchema = z.object({
   digest_algorithm_mnemonic: z.string().optional(),
   digest_algorithm_type: z.number().optional(),
   digest_value: z.string().optional(),
@@ -37,18 +37,20 @@ export const OutputSchema = z.object({
   signing_algorithm_type: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRoute53KeySigningKeyInputProps =
+  & z.input<typeof AwsRoute53KeySigningKeyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRoute53KeySigningKeyOutputProps =
+  & z.output<typeof AwsRoute53KeySigningKeyOutputSchema>
+  & z.output<typeof AwsRoute53KeySigningKeyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/route53_key_signing_key
 
-export function AwsRoute53KeySigningKey(props: Partial<InputProps>) {
+export function AwsRoute53KeySigningKey(
+  props: Partial<AwsRoute53KeySigningKeyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -58,8 +60,8 @@ export function AwsRoute53KeySigningKey(props: Partial<InputProps>) {
       _type='aws_route53_key_signing_key'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRoute53KeySigningKeyInputSchema}
+      _outputSchema={AwsRoute53KeySigningKeyOutputSchema}
       {...props}
     />
   )
@@ -70,7 +72,7 @@ export const useAwsRoute53KeySigningKey = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRoute53KeySigningKeyOutputProps>(
     AwsRoute53KeySigningKey,
     idFilter,
     baseNode,
@@ -82,7 +84,7 @@ export const useAwsRoute53KeySigningKeys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRoute53KeySigningKeyOutputProps>(
     AwsRoute53KeySigningKey,
     idFilter,
     baseNode,

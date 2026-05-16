@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsS3tablesTableInputSchema = TfMetaSchema.extend({
   format: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   namespace: resolvableValue(z.string()),
@@ -54,7 +54,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsS3tablesTableOutputSchema = z.object({
   arn: z.string().optional(),
   created_at: z.string().optional(),
   created_by: z.string().optional(),
@@ -68,18 +68,18 @@ export const OutputSchema = z.object({
   warehouse_location: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsS3tablesTableInputProps =
+  & z.input<typeof AwsS3tablesTableInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3tablesTableOutputProps =
+  & z.output<typeof AwsS3tablesTableOutputSchema>
+  & z.output<typeof AwsS3tablesTableInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3tables_table
 
-export function AwsS3tablesTable(props: Partial<InputProps>) {
+export function AwsS3tablesTable(props: Partial<AwsS3tablesTableInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -89,8 +89,8 @@ export function AwsS3tablesTable(props: Partial<InputProps>) {
       _type='aws_s3tables_table'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsS3tablesTableInputSchema}
+      _outputSchema={AwsS3tablesTableOutputSchema}
       {...props}
     />
   )
@@ -100,10 +100,22 @@ export const useAwsS3tablesTable = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsS3tablesTable, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsS3tablesTableOutputProps>(
+    AwsS3tablesTable,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsS3tablesTables = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsS3tablesTable, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsS3tablesTableOutputProps>(
+    AwsS3tablesTable,
+    idFilter,
+    baseNode,
+    optional,
+  )

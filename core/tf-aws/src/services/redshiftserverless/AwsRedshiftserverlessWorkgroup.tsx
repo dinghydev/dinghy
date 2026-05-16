@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRedshiftserverlessWorkgroupInputSchema = TfMetaSchema.extend({
   namespace_name: resolvableValue(z.string()),
   workgroup_name: resolvableValue(z.string()),
   base_capacity: resolvableValue(z.number().optional()),
@@ -43,7 +43,7 @@ export const InputSchema = TfMetaSchema.extend({
   track_name: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRedshiftserverlessWorkgroupOutputSchema = z.object({
   arn: z.string().optional(),
   endpoint: z.object({
     address: z.string(),
@@ -64,18 +64,20 @@ export const OutputSchema = z.object({
   workgroup_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRedshiftserverlessWorkgroupInputProps =
+  & z.input<typeof AwsRedshiftserverlessWorkgroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRedshiftserverlessWorkgroupOutputProps =
+  & z.output<typeof AwsRedshiftserverlessWorkgroupOutputSchema>
+  & z.output<typeof AwsRedshiftserverlessWorkgroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/redshiftserverless_workgroup
 
-export function AwsRedshiftserverlessWorkgroup(props: Partial<InputProps>) {
+export function AwsRedshiftserverlessWorkgroup(
+  props: Partial<AwsRedshiftserverlessWorkgroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -85,8 +87,8 @@ export function AwsRedshiftserverlessWorkgroup(props: Partial<InputProps>) {
       _type='aws_redshiftserverless_workgroup'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRedshiftserverlessWorkgroupInputSchema}
+      _outputSchema={AwsRedshiftserverlessWorkgroupOutputSchema}
       {...props}
     />
   )
@@ -97,7 +99,7 @@ export const useAwsRedshiftserverlessWorkgroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRedshiftserverlessWorkgroupOutputProps>(
     AwsRedshiftserverlessWorkgroup,
     idFilter,
     baseNode,
@@ -109,7 +111,7 @@ export const useAwsRedshiftserverlessWorkgroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRedshiftserverlessWorkgroupOutputProps>(
     AwsRedshiftserverlessWorkgroup,
     idFilter,
     baseNode,

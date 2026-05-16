@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRedshiftLoggingInputSchema = TfMetaSchema.extend({
   cluster_identifier: resolvableValue(z.string()),
   bucket_name: resolvableValue(z.string().optional()),
   log_destination_type: resolvableValue(z.string().optional()),
@@ -18,22 +18,24 @@ export const InputSchema = TfMetaSchema.extend({
   s3_key_prefix: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRedshiftLoggingOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRedshiftLoggingInputProps =
+  & z.input<typeof AwsRedshiftLoggingInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRedshiftLoggingOutputProps =
+  & z.output<typeof AwsRedshiftLoggingOutputSchema>
+  & z.output<typeof AwsRedshiftLoggingInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/redshift_logging
 
-export function AwsRedshiftLogging(props: Partial<InputProps>) {
+export function AwsRedshiftLogging(
+  props: Partial<AwsRedshiftLoggingInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function AwsRedshiftLogging(props: Partial<InputProps>) {
       _type='aws_redshift_logging'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRedshiftLoggingInputSchema}
+      _outputSchema={AwsRedshiftLoggingOutputSchema}
       {...props}
     />
   )
@@ -54,11 +56,22 @@ export const useAwsRedshiftLogging = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsRedshiftLogging, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsRedshiftLoggingOutputProps>(
+    AwsRedshiftLogging,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRedshiftLoggings = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsRedshiftLogging, idFilter, baseNode, optional)
+  useTypedNodes<AwsRedshiftLoggingOutputProps>(
+    AwsRedshiftLogging,
+    idFilter,
+    baseNode,
+    optional,
+  )

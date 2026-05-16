@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsDbSnapshot } from './AwsDbSnapshot.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsDbSnapshotInputSchema = TfMetaSchema.extend({
   db_instance_identifier: resolvableValue(z.string().optional()),
   db_snapshot_identifier: resolvableValue(z.string().optional()),
   include_public: resolvableValue(z.boolean().optional()),
@@ -20,7 +20,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsDbSnapshotOutputSchema = z.object({
   allocated_storage: z.number().optional(),
   availability_zone: z.string().optional(),
   db_snapshot_arn: z.string().optional(),
@@ -42,18 +42,18 @@ export const OutputSchema = z.object({
   vpc_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsDbSnapshotInputProps =
+  & z.input<typeof DataAwsDbSnapshotInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsDbSnapshotOutputProps =
+  & z.output<typeof DataAwsDbSnapshotOutputSchema>
+  & z.output<typeof DataAwsDbSnapshotInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/db_snapshot
 
-export function DataAwsDbSnapshot(props: Partial<InputProps>) {
+export function DataAwsDbSnapshot(props: Partial<DataAwsDbSnapshotInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -63,8 +63,8 @@ export function DataAwsDbSnapshot(props: Partial<InputProps>) {
       _type='aws_db_snapshot'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsDbSnapshotInputSchema}
+      _outputSchema={DataAwsDbSnapshotOutputSchema}
       {...props as any}
     />
   )
@@ -74,10 +74,22 @@ export const useDataAwsDbSnapshot = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsDbSnapshot, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsDbSnapshotOutputProps>(
+    DataAwsDbSnapshot,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsDbSnapshots = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsDbSnapshot, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsDbSnapshotOutputProps>(
+    DataAwsDbSnapshot,
+    idFilter,
+    baseNode,
+    optional,
+  )

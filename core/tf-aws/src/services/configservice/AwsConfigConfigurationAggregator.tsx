@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsConfigConfigurationAggregatorInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   account_aggregation_source: resolvableValue(
     z.object({
@@ -30,30 +30,32 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsConfigConfigurationAggregatorOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsConfigConfigurationAggregatorImportSchema = z.object({
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsConfigConfigurationAggregatorInputProps =
+  & z.input<typeof AwsConfigConfigurationAggregatorInputSchema>
+  & z.input<typeof AwsConfigConfigurationAggregatorImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsConfigConfigurationAggregatorOutputProps =
+  & z.output<typeof AwsConfigConfigurationAggregatorOutputSchema>
+  & z.output<typeof AwsConfigConfigurationAggregatorInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/config_configuration_aggregator
 
-export function AwsConfigConfigurationAggregator(props: Partial<InputProps>) {
+export function AwsConfigConfigurationAggregator(
+  props: Partial<AwsConfigConfigurationAggregatorInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -63,9 +65,9 @@ export function AwsConfigConfigurationAggregator(props: Partial<InputProps>) {
       _type='aws_config_configuration_aggregator'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsConfigConfigurationAggregatorInputSchema}
+      _outputSchema={AwsConfigConfigurationAggregatorOutputSchema}
+      _importSchema={AwsConfigConfigurationAggregatorImportSchema}
       {...props}
     />
   )
@@ -76,7 +78,7 @@ export const useAwsConfigConfigurationAggregator = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsConfigConfigurationAggregatorOutputProps>(
     AwsConfigConfigurationAggregator,
     idFilter,
     baseNode,
@@ -88,7 +90,7 @@ export const useAwsConfigConfigurationAggregators = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsConfigConfigurationAggregatorOutputProps>(
     AwsConfigConfigurationAggregator,
     idFilter,
     baseNode,

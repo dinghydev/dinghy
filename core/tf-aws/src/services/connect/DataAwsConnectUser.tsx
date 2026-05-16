@@ -9,14 +9,14 @@ import {
 import z from 'zod'
 import { AwsConnectUser } from './AwsConnectUser.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsConnectUserInputSchema = TfMetaSchema.extend({
   instance_id: resolvableValue(z.string()),
   name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   user_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsConnectUserOutputSchema = z.object({
   arn: z.string().optional(),
   directory_user_id: z.string().optional(),
   hierarchy_group_id: z.string().optional(),
@@ -39,18 +39,20 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsConnectUserInputProps =
+  & z.input<typeof DataAwsConnectUserInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsConnectUserOutputProps =
+  & z.output<typeof DataAwsConnectUserOutputSchema>
+  & z.output<typeof DataAwsConnectUserInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/connect_user
 
-export function DataAwsConnectUser(props: Partial<InputProps>) {
+export function DataAwsConnectUser(
+  props: Partial<DataAwsConnectUserInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -60,8 +62,8 @@ export function DataAwsConnectUser(props: Partial<InputProps>) {
       _type='aws_connect_user'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsConnectUserInputSchema}
+      _outputSchema={DataAwsConnectUserOutputSchema}
       {...props as any}
     />
   )
@@ -71,11 +73,22 @@ export const useDataAwsConnectUser = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsConnectUser, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsConnectUserOutputProps>(
+    DataAwsConnectUser,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsConnectUsers = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsConnectUser, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsConnectUserOutputProps>(
+    DataAwsConnectUser,
+    idFilter,
+    baseNode,
+    optional,
+  )

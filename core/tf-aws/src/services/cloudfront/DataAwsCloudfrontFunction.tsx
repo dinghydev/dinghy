@@ -9,13 +9,13 @@ import {
 import z from 'zod'
 import { AwsCloudfrontFunction } from './AwsCloudfrontFunction.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsCloudfrontFunctionInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   stage: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsCloudfrontFunctionOutputSchema = z.object({
   arn: z.string().optional(),
   code: z.string().optional(),
   comment: z.string().optional(),
@@ -26,18 +26,20 @@ export const OutputSchema = z.object({
   status: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsCloudfrontFunctionInputProps =
+  & z.input<typeof DataAwsCloudfrontFunctionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsCloudfrontFunctionOutputProps =
+  & z.output<typeof DataAwsCloudfrontFunctionOutputSchema>
+  & z.output<typeof DataAwsCloudfrontFunctionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/cloudfront_function
 
-export function DataAwsCloudfrontFunction(props: Partial<InputProps>) {
+export function DataAwsCloudfrontFunction(
+  props: Partial<DataAwsCloudfrontFunctionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +49,8 @@ export function DataAwsCloudfrontFunction(props: Partial<InputProps>) {
       _type='aws_cloudfront_function'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsCloudfrontFunctionInputSchema}
+      _outputSchema={DataAwsCloudfrontFunctionOutputSchema}
       {...props as any}
     />
   )
@@ -59,7 +61,7 @@ export const useDataAwsCloudfrontFunction = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsCloudfrontFunctionOutputProps>(
     DataAwsCloudfrontFunction,
     idFilter,
     baseNode,
@@ -71,7 +73,7 @@ export const useDataAwsCloudfrontFunctions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsCloudfrontFunctionOutputProps>(
     DataAwsCloudfrontFunction,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudwatchEventTargetInputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   rule: resolvableValue(z.string()),
   appsync_target: resolvableValue(
@@ -124,9 +124,9 @@ export const InputSchema = TfMetaSchema.extend({
   target_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsCloudwatchEventTargetOutputSchema = z.object({})
 
-export const ImportSchema = z.object({
+export const AwsCloudwatchEventTargetImportSchema = z.object({
   event_bus_name: resolvableValue(z.string()),
   rule: resolvableValue(z.string()),
   target_id: resolvableValue(z.string()),
@@ -134,19 +134,21 @@ export const ImportSchema = z.object({
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsCloudwatchEventTargetInputProps =
+  & z.input<typeof AwsCloudwatchEventTargetInputSchema>
+  & z.input<typeof AwsCloudwatchEventTargetImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudwatchEventTargetOutputProps =
+  & z.output<typeof AwsCloudwatchEventTargetOutputSchema>
+  & z.output<typeof AwsCloudwatchEventTargetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudwatch_event_target
 
-export function AwsCloudwatchEventTarget(props: Partial<InputProps>) {
+export function AwsCloudwatchEventTarget(
+  props: Partial<AwsCloudwatchEventTargetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -156,9 +158,9 @@ export function AwsCloudwatchEventTarget(props: Partial<InputProps>) {
       _type='aws_cloudwatch_event_target'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsCloudwatchEventTargetInputSchema}
+      _outputSchema={AwsCloudwatchEventTargetOutputSchema}
+      _importSchema={AwsCloudwatchEventTargetImportSchema}
       {...props}
     />
   )
@@ -169,7 +171,7 @@ export const useAwsCloudwatchEventTarget = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudwatchEventTargetOutputProps>(
     AwsCloudwatchEventTarget,
     idFilter,
     baseNode,
@@ -181,7 +183,7 @@ export const useAwsCloudwatchEventTargets = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudwatchEventTargetOutputProps>(
     AwsCloudwatchEventTarget,
     idFilter,
     baseNode,

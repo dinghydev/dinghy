@@ -9,29 +9,31 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSesDomainMailFromInputSchema = TfMetaSchema.extend({
   domain: resolvableValue(z.string()),
   mail_from_domain: resolvableValue(z.string()),
   behavior_on_mx_failure: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSesDomainMailFromOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSesDomainMailFromInputProps =
+  & z.input<typeof AwsSesDomainMailFromInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSesDomainMailFromOutputProps =
+  & z.output<typeof AwsSesDomainMailFromOutputSchema>
+  & z.output<typeof AwsSesDomainMailFromInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ses_domain_mail_from
 
-export function AwsSesDomainMailFrom(props: Partial<InputProps>) {
+export function AwsSesDomainMailFrom(
+  props: Partial<AwsSesDomainMailFromInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -41,8 +43,8 @@ export function AwsSesDomainMailFrom(props: Partial<InputProps>) {
       _type='aws_ses_domain_mail_from'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSesDomainMailFromInputSchema}
+      _outputSchema={AwsSesDomainMailFromOutputSchema}
       {...props}
     />
   )
@@ -53,11 +55,21 @@ export const useAwsSesDomainMailFrom = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSesDomainMailFrom, idFilter, baseNode, optional)
+  useTypedNode<AwsSesDomainMailFromOutputProps>(
+    AwsSesDomainMailFrom,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSesDomainMailFroms = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSesDomainMailFrom, idFilter, baseNode, optional)
+  useTypedNodes<AwsSesDomainMailFromOutputProps>(
+    AwsSesDomainMailFrom,
+    idFilter,
+    baseNode,
+    optional,
+  )

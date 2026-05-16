@@ -9,26 +9,26 @@ import {
 import z from 'zod'
 import { AwsWafIpset } from './AwsWafIpset.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsWafIpsetInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsWafIpsetOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsWafIpsetInputProps =
+  & z.input<typeof DataAwsWafIpsetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsWafIpsetOutputProps =
+  & z.output<typeof DataAwsWafIpsetOutputSchema>
+  & z.output<typeof DataAwsWafIpsetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/waf_ipset
 
-export function DataAwsWafIpset(props: Partial<InputProps>) {
+export function DataAwsWafIpset(props: Partial<DataAwsWafIpsetInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -38,8 +38,8 @@ export function DataAwsWafIpset(props: Partial<InputProps>) {
       _type='aws_waf_ipset'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsWafIpsetInputSchema}
+      _outputSchema={DataAwsWafIpsetOutputSchema}
       {...props as any}
     />
   )
@@ -49,10 +49,22 @@ export const useDataAwsWafIpset = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsWafIpset, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsWafIpsetOutputProps>(
+    DataAwsWafIpset,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsWafIpsets = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsWafIpset, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsWafIpsetOutputProps>(
+    DataAwsWafIpset,
+    idFilter,
+    baseNode,
+    optional,
+  )

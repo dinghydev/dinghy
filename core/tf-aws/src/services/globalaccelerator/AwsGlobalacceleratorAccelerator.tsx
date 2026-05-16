@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsGlobalacceleratorAcceleratorInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   attributes: resolvableValue(
     z.object({
@@ -30,7 +30,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsGlobalacceleratorAcceleratorOutputSchema = z.object({
   arn: z.string().optional(),
   dns_name: z.string().optional(),
   dual_stack_dns_name: z.string().optional(),
@@ -44,23 +44,25 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsGlobalacceleratorAcceleratorImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsGlobalacceleratorAcceleratorInputProps =
+  & z.input<typeof AwsGlobalacceleratorAcceleratorInputSchema>
+  & z.input<typeof AwsGlobalacceleratorAcceleratorImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsGlobalacceleratorAcceleratorOutputProps =
+  & z.output<typeof AwsGlobalacceleratorAcceleratorOutputSchema>
+  & z.output<typeof AwsGlobalacceleratorAcceleratorInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/globalaccelerator_accelerator
 
-export function AwsGlobalacceleratorAccelerator(props: Partial<InputProps>) {
+export function AwsGlobalacceleratorAccelerator(
+  props: Partial<AwsGlobalacceleratorAcceleratorInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -70,9 +72,9 @@ export function AwsGlobalacceleratorAccelerator(props: Partial<InputProps>) {
       _type='aws_globalaccelerator_accelerator'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsGlobalacceleratorAcceleratorInputSchema}
+      _outputSchema={AwsGlobalacceleratorAcceleratorOutputSchema}
+      _importSchema={AwsGlobalacceleratorAcceleratorImportSchema}
       {...props}
     />
   )
@@ -83,7 +85,7 @@ export const useAwsGlobalacceleratorAccelerator = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsGlobalacceleratorAcceleratorOutputProps>(
     AwsGlobalacceleratorAccelerator,
     idFilter,
     baseNode,
@@ -95,7 +97,7 @@ export const useAwsGlobalacceleratorAccelerators = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsGlobalacceleratorAcceleratorOutputProps>(
     AwsGlobalacceleratorAccelerator,
     idFilter,
     baseNode,

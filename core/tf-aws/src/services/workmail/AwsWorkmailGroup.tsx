@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsWorkmailGroupInputSchema = TfMetaSchema.extend({
   email: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   organization_id: resolvableValue(z.string()),
@@ -17,33 +17,33 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsWorkmailGroupOutputSchema = z.object({
   disabled_date: z.string().optional(),
   enabled_date: z.string().optional(),
   group_id: z.string().optional(),
   state: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsWorkmailGroupImportSchema = z.object({
   group_id: resolvableValue(z.string()),
   organization_id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsWorkmailGroupInputProps =
+  & z.input<typeof AwsWorkmailGroupInputSchema>
+  & z.input<typeof AwsWorkmailGroupImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWorkmailGroupOutputProps =
+  & z.output<typeof AwsWorkmailGroupOutputSchema>
+  & z.output<typeof AwsWorkmailGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workmail_group
 
-export function AwsWorkmailGroup(props: Partial<InputProps>) {
+export function AwsWorkmailGroup(props: Partial<AwsWorkmailGroupInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,9 +53,9 @@ export function AwsWorkmailGroup(props: Partial<InputProps>) {
       _type='aws_workmail_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsWorkmailGroupInputSchema}
+      _outputSchema={AwsWorkmailGroupOutputSchema}
+      _importSchema={AwsWorkmailGroupImportSchema}
       {...props}
     />
   )
@@ -65,10 +65,22 @@ export const useAwsWorkmailGroup = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsWorkmailGroup, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsWorkmailGroupOutputProps>(
+    AwsWorkmailGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsWorkmailGroups = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsWorkmailGroup, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsWorkmailGroupOutputProps>(
+    AwsWorkmailGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

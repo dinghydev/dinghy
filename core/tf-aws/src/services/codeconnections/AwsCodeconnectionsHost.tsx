@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCodeconnectionsHostInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   provider_endpoint: resolvableValue(z.string()),
   provider_type: resolvableValue(z.string()),
@@ -32,29 +32,31 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsCodeconnectionsHostOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsCodeconnectionsHostImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsCodeconnectionsHostInputProps =
+  & z.input<typeof AwsCodeconnectionsHostInputSchema>
+  & z.input<typeof AwsCodeconnectionsHostImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCodeconnectionsHostOutputProps =
+  & z.output<typeof AwsCodeconnectionsHostOutputSchema>
+  & z.output<typeof AwsCodeconnectionsHostInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/codeconnections_host
 
-export function AwsCodeconnectionsHost(props: Partial<InputProps>) {
+export function AwsCodeconnectionsHost(
+  props: Partial<AwsCodeconnectionsHostInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -64,9 +66,9 @@ export function AwsCodeconnectionsHost(props: Partial<InputProps>) {
       _type='aws_codeconnections_host'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsCodeconnectionsHostInputSchema}
+      _outputSchema={AwsCodeconnectionsHostOutputSchema}
+      _importSchema={AwsCodeconnectionsHostImportSchema}
       {...props}
     />
   )
@@ -77,7 +79,7 @@ export const useAwsCodeconnectionsHost = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCodeconnectionsHostOutputProps>(
     AwsCodeconnectionsHost,
     idFilter,
     baseNode,
@@ -89,7 +91,7 @@ export const useAwsCodeconnectionsHosts = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCodeconnectionsHostOutputProps>(
     AwsCodeconnectionsHost,
     idFilter,
     baseNode,

@@ -9,31 +9,33 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  account_id: resolvableValue(z.string()),
-})
+export const AwsCloudtrailOrganizationDelegatedAdminAccountInputSchema =
+  TfMetaSchema.extend({
+    account_id: resolvableValue(z.string()),
+  })
 
-export const OutputSchema = z.object({
-  arn: z.string().optional(),
-  email: z.string().optional(),
-  id: z.string().optional(),
-  name: z.string().optional(),
-  service_principal: z.string().optional(),
-})
+export const AwsCloudtrailOrganizationDelegatedAdminAccountOutputSchema = z
+  .object({
+    arn: z.string().optional(),
+    email: z.string().optional(),
+    id: z.string().optional(),
+    name: z.string().optional(),
+    service_principal: z.string().optional(),
+  })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudtrailOrganizationDelegatedAdminAccountInputProps =
+  & z.input<typeof AwsCloudtrailOrganizationDelegatedAdminAccountInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudtrailOrganizationDelegatedAdminAccountOutputProps =
+  & z.output<typeof AwsCloudtrailOrganizationDelegatedAdminAccountOutputSchema>
+  & z.output<typeof AwsCloudtrailOrganizationDelegatedAdminAccountInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudtrail_organization_delegated_admin_account
 
 export function AwsCloudtrailOrganizationDelegatedAdminAccount(
-  props: Partial<InputProps>,
+  props: Partial<AwsCloudtrailOrganizationDelegatedAdminAccountInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -44,8 +46,8 @@ export function AwsCloudtrailOrganizationDelegatedAdminAccount(
       _type='aws_cloudtrail_organization_delegated_admin_account'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudtrailOrganizationDelegatedAdminAccountInputSchema}
+      _outputSchema={AwsCloudtrailOrganizationDelegatedAdminAccountOutputSchema}
       {...props}
     />
   )
@@ -56,7 +58,7 @@ export const useAwsCloudtrailOrganizationDelegatedAdminAccount = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudtrailOrganizationDelegatedAdminAccountOutputProps>(
     AwsCloudtrailOrganizationDelegatedAdminAccount,
     idFilter,
     baseNode,
@@ -68,7 +70,7 @@ export const useAwsCloudtrailOrganizationDelegatedAdminAccounts = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudtrailOrganizationDelegatedAdminAccountOutputProps>(
     AwsCloudtrailOrganizationDelegatedAdminAccount,
     idFilter,
     baseNode,

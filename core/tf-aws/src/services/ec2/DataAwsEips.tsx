@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsEipsInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -24,24 +24,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsEipsOutputSchema = z.object({
   allocation_ids: z.string().array().optional(),
   id: z.string().optional(),
   public_ips: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEipsInputProps =
+  & z.input<typeof DataAwsEipsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEipsOutputProps =
+  & z.output<typeof DataAwsEipsOutputSchema>
+  & z.output<typeof DataAwsEipsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/eips
 
-export function DataAwsEips(props: Partial<InputProps>) {
+export function DataAwsEips(props: Partial<DataAwsEipsInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -51,8 +51,8 @@ export function DataAwsEips(props: Partial<InputProps>) {
       _type='aws_eips'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEipsInputSchema}
+      _outputSchema={DataAwsEipsOutputSchema}
       {...props}
     />
   )
@@ -62,4 +62,10 @@ export const useDataAwsEipss = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsEips, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsEipsOutputProps>(
+    DataAwsEips,
+    idFilter,
+    baseNode,
+    optional,
+  )

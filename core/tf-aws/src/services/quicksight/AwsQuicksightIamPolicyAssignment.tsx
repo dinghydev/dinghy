@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsQuicksightIamPolicyAssignmentInputSchema = TfMetaSchema.extend({
   assignment_name: resolvableValue(z.string()),
   assignment_status: resolvableValue(z.string()),
   aws_account_id: resolvableValue(z.string().optional()),
@@ -24,23 +24,25 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsQuicksightIamPolicyAssignmentOutputSchema = z.object({
   assignment_id: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsQuicksightIamPolicyAssignmentInputProps =
+  & z.input<typeof AwsQuicksightIamPolicyAssignmentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsQuicksightIamPolicyAssignmentOutputProps =
+  & z.output<typeof AwsQuicksightIamPolicyAssignmentOutputSchema>
+  & z.output<typeof AwsQuicksightIamPolicyAssignmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/quicksight_iam_policy_assignment
 
-export function AwsQuicksightIamPolicyAssignment(props: Partial<InputProps>) {
+export function AwsQuicksightIamPolicyAssignment(
+  props: Partial<AwsQuicksightIamPolicyAssignmentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -50,8 +52,8 @@ export function AwsQuicksightIamPolicyAssignment(props: Partial<InputProps>) {
       _type='aws_quicksight_iam_policy_assignment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsQuicksightIamPolicyAssignmentInputSchema}
+      _outputSchema={AwsQuicksightIamPolicyAssignmentOutputSchema}
       {...props}
     />
   )
@@ -62,7 +64,7 @@ export const useAwsQuicksightIamPolicyAssignment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsQuicksightIamPolicyAssignmentOutputProps>(
     AwsQuicksightIamPolicyAssignment,
     idFilter,
     baseNode,
@@ -74,7 +76,7 @@ export const useAwsQuicksightIamPolicyAssignments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsQuicksightIamPolicyAssignmentOutputProps>(
     AwsQuicksightIamPolicyAssignment,
     idFilter,
     baseNode,

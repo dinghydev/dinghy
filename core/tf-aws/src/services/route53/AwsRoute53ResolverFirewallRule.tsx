@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRoute53ResolverFirewallRuleInputSchema = TfMetaSchema.extend({
   action: resolvableValue(z.string()),
   firewall_rule_group_id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -26,23 +26,25 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRoute53ResolverFirewallRuleOutputSchema = z.object({
   firewall_threat_protection_id: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRoute53ResolverFirewallRuleInputProps =
+  & z.input<typeof AwsRoute53ResolverFirewallRuleInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRoute53ResolverFirewallRuleOutputProps =
+  & z.output<typeof AwsRoute53ResolverFirewallRuleOutputSchema>
+  & z.output<typeof AwsRoute53ResolverFirewallRuleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/route53_resolver_firewall_rule
 
-export function AwsRoute53ResolverFirewallRule(props: Partial<InputProps>) {
+export function AwsRoute53ResolverFirewallRule(
+  props: Partial<AwsRoute53ResolverFirewallRuleInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,8 +54,8 @@ export function AwsRoute53ResolverFirewallRule(props: Partial<InputProps>) {
       _type='aws_route53_resolver_firewall_rule'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRoute53ResolverFirewallRuleInputSchema}
+      _outputSchema={AwsRoute53ResolverFirewallRuleOutputSchema}
       {...props}
     />
   )
@@ -64,7 +66,7 @@ export const useAwsRoute53ResolverFirewallRule = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRoute53ResolverFirewallRuleOutputProps>(
     AwsRoute53ResolverFirewallRule,
     idFilter,
     baseNode,
@@ -76,7 +78,7 @@ export const useAwsRoute53ResolverFirewallRules = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRoute53ResolverFirewallRuleOutputProps>(
     AwsRoute53ResolverFirewallRule,
     idFilter,
     baseNode,

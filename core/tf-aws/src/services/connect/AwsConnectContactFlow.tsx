@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsConnectContactFlowInputSchema = TfMetaSchema.extend({
   instance_id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   content: resolvableValue(z.string().optional()),
@@ -21,25 +21,27 @@ export const InputSchema = TfMetaSchema.extend({
   type: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsConnectContactFlowOutputSchema = z.object({
   arn: z.string().optional(),
   contact_flow_id: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsConnectContactFlowInputProps =
+  & z.input<typeof AwsConnectContactFlowInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsConnectContactFlowOutputProps =
+  & z.output<typeof AwsConnectContactFlowOutputSchema>
+  & z.output<typeof AwsConnectContactFlowInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/connect_contact_flow
 
-export function AwsConnectContactFlow(props: Partial<InputProps>) {
+export function AwsConnectContactFlow(
+  props: Partial<AwsConnectContactFlowInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,8 +51,8 @@ export function AwsConnectContactFlow(props: Partial<InputProps>) {
       _type='aws_connect_contact_flow'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsConnectContactFlowInputSchema}
+      _outputSchema={AwsConnectContactFlowOutputSchema}
       {...props}
     />
   )
@@ -61,14 +63,19 @@ export const useAwsConnectContactFlow = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsConnectContactFlow, idFilter, baseNode, optional)
+  useTypedNode<AwsConnectContactFlowOutputProps>(
+    AwsConnectContactFlow,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsConnectContactFlows = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsConnectContactFlowOutputProps>(
     AwsConnectContactFlow,
     idFilter,
     baseNode,

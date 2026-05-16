@@ -9,40 +9,41 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  standards_arn: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsSecurityhubStandardsSubscriptionInputSchema = TfMetaSchema
+  .extend({
+    standards_arn: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsSecurityhubStandardsSubscriptionOutputSchema = z.object({
   arn: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSecurityhubStandardsSubscriptionImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSecurityhubStandardsSubscriptionInputProps =
+  & z.input<typeof AwsSecurityhubStandardsSubscriptionInputSchema>
+  & z.input<typeof AwsSecurityhubStandardsSubscriptionImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSecurityhubStandardsSubscriptionOutputProps =
+  & z.output<typeof AwsSecurityhubStandardsSubscriptionOutputSchema>
+  & z.output<typeof AwsSecurityhubStandardsSubscriptionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_standards_subscription
 
 export function AwsSecurityhubStandardsSubscription(
-  props: Partial<InputProps>,
+  props: Partial<AwsSecurityhubStandardsSubscriptionInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -53,9 +54,9 @@ export function AwsSecurityhubStandardsSubscription(
       _type='aws_securityhub_standards_subscription'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSecurityhubStandardsSubscriptionInputSchema}
+      _outputSchema={AwsSecurityhubStandardsSubscriptionOutputSchema}
+      _importSchema={AwsSecurityhubStandardsSubscriptionImportSchema}
       {...props}
     />
   )
@@ -66,7 +67,7 @@ export const useAwsSecurityhubStandardsSubscription = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSecurityhubStandardsSubscriptionOutputProps>(
     AwsSecurityhubStandardsSubscription,
     idFilter,
     baseNode,
@@ -78,7 +79,7 @@ export const useAwsSecurityhubStandardsSubscriptions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSecurityhubStandardsSubscriptionOutputProps>(
     AwsSecurityhubStandardsSubscription,
     idFilter,
     baseNode,

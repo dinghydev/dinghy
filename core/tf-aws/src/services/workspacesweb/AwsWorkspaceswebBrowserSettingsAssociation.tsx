@@ -9,27 +9,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  browser_settings_arn: resolvableValue(z.string()),
-  portal_arn: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsWorkspaceswebBrowserSettingsAssociationInputSchema =
+  TfMetaSchema.extend({
+    browser_settings_arn: resolvableValue(z.string()),
+    portal_arn: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({})
+export const AwsWorkspaceswebBrowserSettingsAssociationOutputSchema = z.object(
+  {},
+)
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsWorkspaceswebBrowserSettingsAssociationInputProps =
+  & z.input<typeof AwsWorkspaceswebBrowserSettingsAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWorkspaceswebBrowserSettingsAssociationOutputProps =
+  & z.output<typeof AwsWorkspaceswebBrowserSettingsAssociationOutputSchema>
+  & z.output<typeof AwsWorkspaceswebBrowserSettingsAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workspacesweb_browser_settings_association
 
 export function AwsWorkspaceswebBrowserSettingsAssociation(
-  props: Partial<InputProps>,
+  props: Partial<AwsWorkspaceswebBrowserSettingsAssociationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -40,8 +43,8 @@ export function AwsWorkspaceswebBrowserSettingsAssociation(
       _type='aws_workspacesweb_browser_settings_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsWorkspaceswebBrowserSettingsAssociationInputSchema}
+      _outputSchema={AwsWorkspaceswebBrowserSettingsAssociationOutputSchema}
       {...props}
     />
   )
@@ -52,7 +55,7 @@ export const useAwsWorkspaceswebBrowserSettingsAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsWorkspaceswebBrowserSettingsAssociationOutputProps>(
     AwsWorkspaceswebBrowserSettingsAssociation,
     idFilter,
     baseNode,
@@ -64,7 +67,7 @@ export const useAwsWorkspaceswebBrowserSettingsAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsWorkspaceswebBrowserSettingsAssociationOutputProps>(
     AwsWorkspaceswebBrowserSettingsAssociation,
     idFilter,
     baseNode,

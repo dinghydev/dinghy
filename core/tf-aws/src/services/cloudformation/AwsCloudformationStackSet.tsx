@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudformationStackSetInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   administration_role_arn: resolvableValue(z.string().optional()),
   auto_deployment: resolvableValue(
@@ -51,25 +51,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudformationStackSetOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   stack_set_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudformationStackSetInputProps =
+  & z.input<typeof AwsCloudformationStackSetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudformationStackSetOutputProps =
+  & z.output<typeof AwsCloudformationStackSetOutputSchema>
+  & z.output<typeof AwsCloudformationStackSetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudformation_stack_set
 
-export function AwsCloudformationStackSet(props: Partial<InputProps>) {
+export function AwsCloudformationStackSet(
+  props: Partial<AwsCloudformationStackSetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -79,8 +81,8 @@ export function AwsCloudformationStackSet(props: Partial<InputProps>) {
       _type='aws_cloudformation_stack_set'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudformationStackSetInputSchema}
+      _outputSchema={AwsCloudformationStackSetOutputSchema}
       {...props}
     />
   )
@@ -91,7 +93,7 @@ export const useAwsCloudformationStackSet = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudformationStackSetOutputProps>(
     AwsCloudformationStackSet,
     idFilter,
     baseNode,
@@ -103,7 +105,7 @@ export const useAwsCloudformationStackSets = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudformationStackSetOutputProps>(
     AwsCloudformationStackSet,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsControltowerControlInputSchema = TfMetaSchema.extend({
   control_identifier: resolvableValue(z.string()),
   target_identifier: resolvableValue(z.string()),
   parameters: resolvableValue(
@@ -28,23 +28,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsControltowerControlOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsControltowerControlInputProps =
+  & z.input<typeof AwsControltowerControlInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsControltowerControlOutputProps =
+  & z.output<typeof AwsControltowerControlOutputSchema>
+  & z.output<typeof AwsControltowerControlInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/controltower_control
 
-export function AwsControltowerControl(props: Partial<InputProps>) {
+export function AwsControltowerControl(
+  props: Partial<AwsControltowerControlInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -54,8 +56,8 @@ export function AwsControltowerControl(props: Partial<InputProps>) {
       _type='aws_controltower_control'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsControltowerControlInputSchema}
+      _outputSchema={AwsControltowerControlOutputSchema}
       {...props}
     />
   )
@@ -66,7 +68,7 @@ export const useAwsControltowerControl = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsControltowerControlOutputProps>(
     AwsControltowerControl,
     idFilter,
     baseNode,
@@ -78,7 +80,7 @@ export const useAwsControltowerControls = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsControltowerControlOutputProps>(
     AwsControltowerControl,
     idFilter,
     baseNode,

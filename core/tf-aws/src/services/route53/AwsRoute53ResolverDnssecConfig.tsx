@@ -9,30 +9,32 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRoute53ResolverDnssecConfigInputSchema = TfMetaSchema.extend({
   resource_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRoute53ResolverDnssecConfigOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   owner_id: z.string().optional(),
   validation_status: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRoute53ResolverDnssecConfigInputProps =
+  & z.input<typeof AwsRoute53ResolverDnssecConfigInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRoute53ResolverDnssecConfigOutputProps =
+  & z.output<typeof AwsRoute53ResolverDnssecConfigOutputSchema>
+  & z.output<typeof AwsRoute53ResolverDnssecConfigInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/route53_resolver_dnssec_config
 
-export function AwsRoute53ResolverDnssecConfig(props: Partial<InputProps>) {
+export function AwsRoute53ResolverDnssecConfig(
+  props: Partial<AwsRoute53ResolverDnssecConfigInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +44,8 @@ export function AwsRoute53ResolverDnssecConfig(props: Partial<InputProps>) {
       _type='aws_route53_resolver_dnssec_config'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRoute53ResolverDnssecConfigInputSchema}
+      _outputSchema={AwsRoute53ResolverDnssecConfigOutputSchema}
       {...props}
     />
   )
@@ -54,7 +56,7 @@ export const useAwsRoute53ResolverDnssecConfig = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRoute53ResolverDnssecConfigOutputProps>(
     AwsRoute53ResolverDnssecConfig,
     idFilter,
     baseNode,
@@ -66,7 +68,7 @@ export const useAwsRoute53ResolverDnssecConfigs = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRoute53ResolverDnssecConfigOutputProps>(
     AwsRoute53ResolverDnssecConfig,
     idFilter,
     baseNode,

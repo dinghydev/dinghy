@@ -9,30 +9,32 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsIvsStreamKeyInputSchema = TfMetaSchema.extend({
   channel_arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsIvsStreamKeyOutputSchema = z.object({
   arn: z.string().optional(),
   tags: z.record(z.string(), z.string()).optional(),
   value: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsIvsStreamKeyInputProps =
+  & z.input<typeof DataAwsIvsStreamKeyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsIvsStreamKeyOutputProps =
+  & z.output<typeof DataAwsIvsStreamKeyOutputSchema>
+  & z.output<typeof DataAwsIvsStreamKeyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ivs_stream_key
 
-export function DataAwsIvsStreamKey(props: Partial<InputProps>) {
+export function DataAwsIvsStreamKey(
+  props: Partial<DataAwsIvsStreamKeyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +44,8 @@ export function DataAwsIvsStreamKey(props: Partial<InputProps>) {
       _type='aws_ivs_stream_key'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsIvsStreamKeyInputSchema}
+      _outputSchema={DataAwsIvsStreamKeyOutputSchema}
       {...props}
     />
   )
@@ -54,11 +56,21 @@ export const useDataAwsIvsStreamKey = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsIvsStreamKey, idFilter, baseNode, optional)
+  useTypedNode<DataAwsIvsStreamKeyOutputProps>(
+    DataAwsIvsStreamKey,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsIvsStreamKeys = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsIvsStreamKey, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsIvsStreamKeyOutputProps>(
+    DataAwsIvsStreamKey,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCognitoRiskConfigurationInputSchema = TfMetaSchema.extend({
   user_pool_id: resolvableValue(z.string()),
   account_takeover_risk_configuration: resolvableValue(
     z.object({
@@ -67,22 +67,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsCognitoRiskConfigurationOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCognitoRiskConfigurationInputProps =
+  & z.input<typeof AwsCognitoRiskConfigurationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCognitoRiskConfigurationOutputProps =
+  & z.output<typeof AwsCognitoRiskConfigurationOutputSchema>
+  & z.output<typeof AwsCognitoRiskConfigurationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cognito_risk_configuration
 
-export function AwsCognitoRiskConfiguration(props: Partial<InputProps>) {
+export function AwsCognitoRiskConfiguration(
+  props: Partial<AwsCognitoRiskConfigurationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -92,8 +94,8 @@ export function AwsCognitoRiskConfiguration(props: Partial<InputProps>) {
       _type='aws_cognito_risk_configuration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCognitoRiskConfigurationInputSchema}
+      _outputSchema={AwsCognitoRiskConfigurationOutputSchema}
       {...props}
     />
   )
@@ -104,7 +106,7 @@ export const useAwsCognitoRiskConfiguration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCognitoRiskConfigurationOutputProps>(
     AwsCognitoRiskConfiguration,
     idFilter,
     baseNode,
@@ -116,7 +118,7 @@ export const useAwsCognitoRiskConfigurations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCognitoRiskConfigurationOutputProps>(
     AwsCognitoRiskConfiguration,
     idFilter,
     baseNode,

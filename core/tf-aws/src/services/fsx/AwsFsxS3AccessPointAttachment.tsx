@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsFsxS3AccessPointAttachmentInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   type: resolvableValue(z.string()),
   openzfs_configuration: resolvableValue(
@@ -42,23 +42,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsFsxS3AccessPointAttachmentOutputSchema = z.object({
   s3_access_point_alias: z.string().optional(),
   s3_access_point_arn: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsFsxS3AccessPointAttachmentInputProps =
+  & z.input<typeof AwsFsxS3AccessPointAttachmentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsFsxS3AccessPointAttachmentOutputProps =
+  & z.output<typeof AwsFsxS3AccessPointAttachmentOutputSchema>
+  & z.output<typeof AwsFsxS3AccessPointAttachmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/fsx_s3_access_point_attachment
 
-export function AwsFsxS3AccessPointAttachment(props: Partial<InputProps>) {
+export function AwsFsxS3AccessPointAttachment(
+  props: Partial<AwsFsxS3AccessPointAttachmentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -68,8 +70,8 @@ export function AwsFsxS3AccessPointAttachment(props: Partial<InputProps>) {
       _type='aws_fsx_s3_access_point_attachment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsFsxS3AccessPointAttachmentInputSchema}
+      _outputSchema={AwsFsxS3AccessPointAttachmentOutputSchema}
       {...props}
     />
   )
@@ -80,7 +82,7 @@ export const useAwsFsxS3AccessPointAttachment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsFsxS3AccessPointAttachmentOutputProps>(
     AwsFsxS3AccessPointAttachment,
     idFilter,
     baseNode,
@@ -92,7 +94,7 @@ export const useAwsFsxS3AccessPointAttachments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsFsxS3AccessPointAttachmentOutputProps>(
     AwsFsxS3AccessPointAttachment,
     idFilter,
     baseNode,

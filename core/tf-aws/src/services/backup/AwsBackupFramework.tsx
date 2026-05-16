@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsBackupFrameworkInputSchema = TfMetaSchema.extend({
   control: resolvableValue(
     z.object({
       name: z.string(),
@@ -37,7 +37,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsBackupFrameworkOutputSchema = z.object({
   arn: z.string().optional(),
   creation_time: z.string().optional(),
   deployment_status: z.string().optional(),
@@ -46,18 +46,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsBackupFrameworkInputProps =
+  & z.input<typeof AwsBackupFrameworkInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBackupFrameworkOutputProps =
+  & z.output<typeof AwsBackupFrameworkOutputSchema>
+  & z.output<typeof AwsBackupFrameworkInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/backup_framework
 
-export function AwsBackupFramework(props: Partial<InputProps>) {
+export function AwsBackupFramework(
+  props: Partial<AwsBackupFrameworkInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -67,8 +69,8 @@ export function AwsBackupFramework(props: Partial<InputProps>) {
       _type='aws_backup_framework'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsBackupFrameworkInputSchema}
+      _outputSchema={AwsBackupFrameworkOutputSchema}
       {...props}
     />
   )
@@ -78,11 +80,22 @@ export const useAwsBackupFramework = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsBackupFramework, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsBackupFrameworkOutputProps>(
+    AwsBackupFramework,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsBackupFrameworks = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsBackupFramework, idFilter, baseNode, optional)
+  useTypedNodes<AwsBackupFrameworkOutputProps>(
+    AwsBackupFramework,
+    idFilter,
+    baseNode,
+    optional,
+  )

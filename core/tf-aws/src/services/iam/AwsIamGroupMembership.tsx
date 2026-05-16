@@ -9,31 +9,33 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIamGroupMembershipInputSchema = TfMetaSchema.extend({
   group: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   users: resolvableValue(z.string().array()),
   id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsIamGroupMembershipOutputSchema = z.object({
   group: z.string().optional(),
   name: z.string().optional(),
   users: z.set(z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsIamGroupMembershipInputProps =
+  & z.input<typeof AwsIamGroupMembershipInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIamGroupMembershipOutputProps =
+  & z.output<typeof AwsIamGroupMembershipOutputSchema>
+  & z.output<typeof AwsIamGroupMembershipInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iam_group_membership
 
-export function AwsIamGroupMembership(props: Partial<InputProps>) {
+export function AwsIamGroupMembership(
+  props: Partial<AwsIamGroupMembershipInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function AwsIamGroupMembership(props: Partial<InputProps>) {
       _type='aws_iam_group_membership'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsIamGroupMembershipInputSchema}
+      _outputSchema={AwsIamGroupMembershipOutputSchema}
       {...props}
     />
   )
@@ -55,14 +57,19 @@ export const useAwsIamGroupMembership = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsIamGroupMembership, idFilter, baseNode, optional)
+  useTypedNode<AwsIamGroupMembershipOutputProps>(
+    AwsIamGroupMembership,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIamGroupMemberships = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsIamGroupMembershipOutputProps>(
     AwsIamGroupMembership,
     idFilter,
     baseNode,

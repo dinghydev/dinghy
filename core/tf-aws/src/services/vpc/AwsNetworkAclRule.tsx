@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsNetworkAclRuleInputSchema = TfMetaSchema.extend({
   network_acl_id: resolvableValue(z.string()),
   protocol: resolvableValue(z.string()),
   rule_action: resolvableValue(z.string()),
@@ -24,11 +24,11 @@ export const InputSchema = TfMetaSchema.extend({
   to_port: resolvableValue(z.number().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsNetworkAclRuleOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsNetworkAclRuleImportSchema = z.object({
   egress: resolvableValue(z.boolean()),
   network_acl_id: resolvableValue(z.string()),
   protocol: resolvableValue(z.string()),
@@ -37,19 +37,19 @@ export const ImportSchema = z.object({
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsNetworkAclRuleInputProps =
+  & z.input<typeof AwsNetworkAclRuleInputSchema>
+  & z.input<typeof AwsNetworkAclRuleImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNetworkAclRuleOutputProps =
+  & z.output<typeof AwsNetworkAclRuleOutputSchema>
+  & z.output<typeof AwsNetworkAclRuleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/network_acl_rule
 
-export function AwsNetworkAclRule(props: Partial<InputProps>) {
+export function AwsNetworkAclRule(props: Partial<AwsNetworkAclRuleInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -59,9 +59,9 @@ export function AwsNetworkAclRule(props: Partial<InputProps>) {
       _type='aws_network_acl_rule'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsNetworkAclRuleInputSchema}
+      _outputSchema={AwsNetworkAclRuleOutputSchema}
+      _importSchema={AwsNetworkAclRuleImportSchema}
       {...props}
     />
   )
@@ -71,10 +71,22 @@ export const useAwsNetworkAclRule = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsNetworkAclRule, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsNetworkAclRuleOutputProps>(
+    AwsNetworkAclRule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsNetworkAclRules = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsNetworkAclRule, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsNetworkAclRuleOutputProps>(
+    AwsNetworkAclRule,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,28 +9,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSesEmailIdentityInputSchema = TfMetaSchema.extend({
   email: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSesEmailIdentityOutputSchema = z.object({
   arn: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSesEmailIdentityInputProps =
+  & z.input<typeof AwsSesEmailIdentityInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSesEmailIdentityOutputProps =
+  & z.output<typeof AwsSesEmailIdentityOutputSchema>
+  & z.output<typeof AwsSesEmailIdentityInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ses_email_identity
 
-export function AwsSesEmailIdentity(props: Partial<InputProps>) {
+export function AwsSesEmailIdentity(
+  props: Partial<AwsSesEmailIdentityInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function AwsSesEmailIdentity(props: Partial<InputProps>) {
       _type='aws_ses_email_identity'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSesEmailIdentityInputSchema}
+      _outputSchema={AwsSesEmailIdentityOutputSchema}
       {...props}
     />
   )
@@ -52,11 +54,21 @@ export const useAwsSesEmailIdentity = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSesEmailIdentity, idFilter, baseNode, optional)
+  useTypedNode<AwsSesEmailIdentityOutputProps>(
+    AwsSesEmailIdentity,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSesEmailIdentitys = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSesEmailIdentity, idFilter, baseNode, optional)
+  useTypedNodes<AwsSesEmailIdentityOutputProps>(
+    AwsSesEmailIdentity,
+    idFilter,
+    baseNode,
+    optional,
+  )

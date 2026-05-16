@@ -9,14 +9,14 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIamServiceLinkedRoleInputSchema = TfMetaSchema.extend({
   aws_service_name: resolvableValue(z.string()),
   custom_suffix: resolvableValue(z.string().optional()),
   description: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsIamServiceLinkedRoleOutputSchema = z.object({
   arn: z.string().optional(),
   create_date: z.string().optional(),
   id: z.string().optional(),
@@ -26,23 +26,25 @@ export const OutputSchema = z.object({
   unique_id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsIamServiceLinkedRoleImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsIamServiceLinkedRoleInputProps =
+  & z.input<typeof AwsIamServiceLinkedRoleInputSchema>
+  & z.input<typeof AwsIamServiceLinkedRoleImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIamServiceLinkedRoleOutputProps =
+  & z.output<typeof AwsIamServiceLinkedRoleOutputSchema>
+  & z.output<typeof AwsIamServiceLinkedRoleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iam_service_linked_role
 
-export function AwsIamServiceLinkedRole(props: Partial<InputProps>) {
+export function AwsIamServiceLinkedRole(
+  props: Partial<AwsIamServiceLinkedRoleInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,9 +54,9 @@ export function AwsIamServiceLinkedRole(props: Partial<InputProps>) {
       _type='aws_iam_service_linked_role'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsIamServiceLinkedRoleInputSchema}
+      _outputSchema={AwsIamServiceLinkedRoleOutputSchema}
+      _importSchema={AwsIamServiceLinkedRoleImportSchema}
       {...props}
     />
   )
@@ -65,7 +67,7 @@ export const useAwsIamServiceLinkedRole = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsIamServiceLinkedRoleOutputProps>(
     AwsIamServiceLinkedRole,
     idFilter,
     baseNode,
@@ -77,7 +79,7 @@ export const useAwsIamServiceLinkedRoles = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsIamServiceLinkedRoleOutputProps>(
     AwsIamServiceLinkedRole,
     idFilter,
     baseNode,

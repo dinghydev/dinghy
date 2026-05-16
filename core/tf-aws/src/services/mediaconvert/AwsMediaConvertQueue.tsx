@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsMediaConvertQueueInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   concurrent_jobs: resolvableValue(z.number().optional()),
   description: resolvableValue(z.string().optional()),
@@ -26,24 +26,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsMediaConvertQueueOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsMediaConvertQueueInputProps =
+  & z.input<typeof AwsMediaConvertQueueInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsMediaConvertQueueOutputProps =
+  & z.output<typeof AwsMediaConvertQueueOutputSchema>
+  & z.output<typeof AwsMediaConvertQueueInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/media_convert_queue
 
-export function AwsMediaConvertQueue(props: Partial<InputProps>) {
+export function AwsMediaConvertQueue(
+  props: Partial<AwsMediaConvertQueueInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,8 +55,8 @@ export function AwsMediaConvertQueue(props: Partial<InputProps>) {
       _type='aws_media_convert_queue'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsMediaConvertQueueInputSchema}
+      _outputSchema={AwsMediaConvertQueueOutputSchema}
       {...props}
     />
   )
@@ -65,11 +67,21 @@ export const useAwsMediaConvertQueue = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsMediaConvertQueue, idFilter, baseNode, optional)
+  useTypedNode<AwsMediaConvertQueueOutputProps>(
+    AwsMediaConvertQueue,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsMediaConvertQueues = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsMediaConvertQueue, idFilter, baseNode, optional)
+  useTypedNodes<AwsMediaConvertQueueOutputProps>(
+    AwsMediaConvertQueue,
+    idFilter,
+    baseNode,
+    optional,
+  )

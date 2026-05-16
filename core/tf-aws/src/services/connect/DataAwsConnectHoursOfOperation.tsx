@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsConnectHoursOfOperation } from './AwsConnectHoursOfOperation.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsConnectHoursOfOperationInputSchema = TfMetaSchema.extend({
   instance_id: resolvableValue(z.string()),
   hours_of_operation_id: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
@@ -17,7 +17,7 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsConnectHoursOfOperationOutputSchema = z.object({
   arn: z.string().optional(),
   config: z.set(z.object({
     day: z.string(),
@@ -38,18 +38,20 @@ export const OutputSchema = z.object({
   time_zone: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsConnectHoursOfOperationInputProps =
+  & z.input<typeof DataAwsConnectHoursOfOperationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsConnectHoursOfOperationOutputProps =
+  & z.output<typeof DataAwsConnectHoursOfOperationOutputSchema>
+  & z.output<typeof DataAwsConnectHoursOfOperationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/connect_hours_of_operation
 
-export function DataAwsConnectHoursOfOperation(props: Partial<InputProps>) {
+export function DataAwsConnectHoursOfOperation(
+  props: Partial<DataAwsConnectHoursOfOperationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -59,8 +61,8 @@ export function DataAwsConnectHoursOfOperation(props: Partial<InputProps>) {
       _type='aws_connect_hours_of_operation'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsConnectHoursOfOperationInputSchema}
+      _outputSchema={DataAwsConnectHoursOfOperationOutputSchema}
       {...props as any}
     />
   )
@@ -71,7 +73,7 @@ export const useDataAwsConnectHoursOfOperation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsConnectHoursOfOperationOutputProps>(
     DataAwsConnectHoursOfOperation,
     idFilter,
     baseNode,
@@ -83,7 +85,7 @@ export const useDataAwsConnectHoursOfOperations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsConnectHoursOfOperationOutputProps>(
     DataAwsConnectHoursOfOperation,
     idFilter,
     baseNode,

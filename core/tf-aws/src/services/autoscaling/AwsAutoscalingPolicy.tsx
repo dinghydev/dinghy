@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAutoscalingPolicyInputSchema = TfMetaSchema.extend({
   autoscaling_group_name: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   adjustment_type: resolvableValue(z.string().optional()),
@@ -154,30 +154,32 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsAutoscalingPolicyOutputSchema = z.object({
   arn: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsAutoscalingPolicyImportSchema = z.object({
   autoscaling_group_name: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsAutoscalingPolicyInputProps =
+  & z.input<typeof AwsAutoscalingPolicyInputSchema>
+  & z.input<typeof AwsAutoscalingPolicyImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAutoscalingPolicyOutputProps =
+  & z.output<typeof AwsAutoscalingPolicyOutputSchema>
+  & z.output<typeof AwsAutoscalingPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/autoscaling_policy
 
-export function AwsAutoscalingPolicy(props: Partial<InputProps>) {
+export function AwsAutoscalingPolicy(
+  props: Partial<AwsAutoscalingPolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -187,9 +189,9 @@ export function AwsAutoscalingPolicy(props: Partial<InputProps>) {
       _type='aws_autoscaling_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsAutoscalingPolicyInputSchema}
+      _outputSchema={AwsAutoscalingPolicyOutputSchema}
+      _importSchema={AwsAutoscalingPolicyImportSchema}
       {...props}
     />
   )
@@ -200,11 +202,21 @@ export const useAwsAutoscalingPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsAutoscalingPolicy, idFilter, baseNode, optional)
+  useTypedNode<AwsAutoscalingPolicyOutputProps>(
+    AwsAutoscalingPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAutoscalingPolicys = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsAutoscalingPolicy, idFilter, baseNode, optional)
+  useTypedNodes<AwsAutoscalingPolicyOutputProps>(
+    AwsAutoscalingPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

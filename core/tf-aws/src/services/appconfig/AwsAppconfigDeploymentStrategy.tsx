@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAppconfigDeploymentStrategyInputSchema = TfMetaSchema.extend({
   deployment_duration_in_minutes: resolvableValue(z.number()),
   growth_factor: resolvableValue(z.number()),
   name: resolvableValue(z.string()),
@@ -21,24 +21,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAppconfigDeploymentStrategyOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAppconfigDeploymentStrategyInputProps =
+  & z.input<typeof AwsAppconfigDeploymentStrategyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppconfigDeploymentStrategyOutputProps =
+  & z.output<typeof AwsAppconfigDeploymentStrategyOutputSchema>
+  & z.output<typeof AwsAppconfigDeploymentStrategyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appconfig_deployment_strategy
 
-export function AwsAppconfigDeploymentStrategy(props: Partial<InputProps>) {
+export function AwsAppconfigDeploymentStrategy(
+  props: Partial<AwsAppconfigDeploymentStrategyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +50,8 @@ export function AwsAppconfigDeploymentStrategy(props: Partial<InputProps>) {
       _type='aws_appconfig_deployment_strategy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAppconfigDeploymentStrategyInputSchema}
+      _outputSchema={AwsAppconfigDeploymentStrategyOutputSchema}
       {...props}
     />
   )
@@ -60,7 +62,7 @@ export const useAwsAppconfigDeploymentStrategy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAppconfigDeploymentStrategyOutputProps>(
     AwsAppconfigDeploymentStrategy,
     idFilter,
     baseNode,
@@ -72,7 +74,7 @@ export const useAwsAppconfigDeploymentStrategys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAppconfigDeploymentStrategyOutputProps>(
     AwsAppconfigDeploymentStrategy,
     idFilter,
     baseNode,

@@ -9,28 +9,29 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  account_id: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsDetectiveOrganizationAdminAccountInputSchema = TfMetaSchema
+  .extend({
+    account_id: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsDetectiveOrganizationAdminAccountOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDetectiveOrganizationAdminAccountInputProps =
+  & z.input<typeof AwsDetectiveOrganizationAdminAccountInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDetectiveOrganizationAdminAccountOutputProps =
+  & z.output<typeof AwsDetectiveOrganizationAdminAccountOutputSchema>
+  & z.output<typeof AwsDetectiveOrganizationAdminAccountInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/detective_organization_admin_account
 
 export function AwsDetectiveOrganizationAdminAccount(
-  props: Partial<InputProps>,
+  props: Partial<AwsDetectiveOrganizationAdminAccountInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -41,8 +42,8 @@ export function AwsDetectiveOrganizationAdminAccount(
       _type='aws_detective_organization_admin_account'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDetectiveOrganizationAdminAccountInputSchema}
+      _outputSchema={AwsDetectiveOrganizationAdminAccountOutputSchema}
       {...props}
     />
   )
@@ -53,7 +54,7 @@ export const useAwsDetectiveOrganizationAdminAccount = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDetectiveOrganizationAdminAccountOutputProps>(
     AwsDetectiveOrganizationAdminAccount,
     idFilter,
     baseNode,
@@ -65,7 +66,7 @@ export const useAwsDetectiveOrganizationAdminAccounts = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDetectiveOrganizationAdminAccountOutputProps>(
     AwsDetectiveOrganizationAdminAccount,
     idFilter,
     baseNode,

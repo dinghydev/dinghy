@@ -9,13 +9,13 @@ import {
 import z from 'zod'
 import { AwsImagebuilderImage } from './AwsImagebuilderImage.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsImagebuilderImageInputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsImagebuilderImageOutputSchema = z.object({
   build_version_arn: z.string().optional(),
   container_recipe_arn: z.string().optional(),
   date_created: z.string().optional(),
@@ -55,18 +55,20 @@ export const OutputSchema = z.object({
   version: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsImagebuilderImageInputProps =
+  & z.input<typeof DataAwsImagebuilderImageInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsImagebuilderImageOutputProps =
+  & z.output<typeof DataAwsImagebuilderImageOutputSchema>
+  & z.output<typeof DataAwsImagebuilderImageInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/imagebuilder_image
 
-export function DataAwsImagebuilderImage(props: Partial<InputProps>) {
+export function DataAwsImagebuilderImage(
+  props: Partial<DataAwsImagebuilderImageInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -76,8 +78,8 @@ export function DataAwsImagebuilderImage(props: Partial<InputProps>) {
       _type='aws_imagebuilder_image'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsImagebuilderImageInputSchema}
+      _outputSchema={DataAwsImagebuilderImageOutputSchema}
       {...props as any}
     />
   )
@@ -88,7 +90,7 @@ export const useDataAwsImagebuilderImage = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsImagebuilderImageOutputProps>(
     DataAwsImagebuilderImage,
     idFilter,
     baseNode,
@@ -100,7 +102,7 @@ export const useDataAwsImagebuilderImages = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsImagebuilderImageOutputProps>(
     DataAwsImagebuilderImage,
     idFilter,
     baseNode,

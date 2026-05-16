@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCodestarconnectionsConnectionInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   host_arn: resolvableValue(z.string().optional()),
   provider_type: resolvableValue(z.string().optional()),
@@ -17,30 +17,32 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCodestarconnectionsConnectionOutputSchema = z.object({
   arn: z.string().optional(),
   connection_status: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsCodestarconnectionsConnectionImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsCodestarconnectionsConnectionInputProps =
+  & z.input<typeof AwsCodestarconnectionsConnectionInputSchema>
+  & z.input<typeof AwsCodestarconnectionsConnectionImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCodestarconnectionsConnectionOutputProps =
+  & z.output<typeof AwsCodestarconnectionsConnectionOutputSchema>
+  & z.output<typeof AwsCodestarconnectionsConnectionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/codestarconnections_connection
 
-export function AwsCodestarconnectionsConnection(props: Partial<InputProps>) {
+export function AwsCodestarconnectionsConnection(
+  props: Partial<AwsCodestarconnectionsConnectionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -50,9 +52,9 @@ export function AwsCodestarconnectionsConnection(props: Partial<InputProps>) {
       _type='aws_codestarconnections_connection'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsCodestarconnectionsConnectionInputSchema}
+      _outputSchema={AwsCodestarconnectionsConnectionOutputSchema}
+      _importSchema={AwsCodestarconnectionsConnectionImportSchema}
       {...props}
     />
   )
@@ -63,7 +65,7 @@ export const useAwsCodestarconnectionsConnection = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCodestarconnectionsConnectionOutputProps>(
     AwsCodestarconnectionsConnection,
     idFilter,
     baseNode,
@@ -75,7 +77,7 @@ export const useAwsCodestarconnectionsConnections = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCodestarconnectionsConnectionOutputProps>(
     AwsCodestarconnectionsConnection,
     idFilter,
     baseNode,

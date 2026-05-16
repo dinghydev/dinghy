@@ -8,15 +8,16 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  firewall_rule_group_id: resolvableValue(z.string()),
-  action: resolvableValue(z.string().optional()),
-  id: resolvableValue(z.string().optional()),
-  priority: resolvableValue(z.number().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsRoute53ResolverFirewallRulesInputSchema = TfMetaSchema
+  .extend({
+    firewall_rule_group_id: resolvableValue(z.string()),
+    action: resolvableValue(z.string().optional()),
+    id: resolvableValue(z.string().optional()),
+    priority: resolvableValue(z.number().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsRoute53ResolverFirewallRulesOutputSchema = z.object({
   firewall_rules: z.object({
     action: z.string(),
     block_override_dns_type: z.string(),
@@ -38,19 +39,19 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsRoute53ResolverFirewallRulesInputProps =
+  & z.input<typeof DataAwsRoute53ResolverFirewallRulesInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsRoute53ResolverFirewallRulesOutputProps =
+  & z.output<typeof DataAwsRoute53ResolverFirewallRulesOutputSchema>
+  & z.output<typeof DataAwsRoute53ResolverFirewallRulesInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/route53_resolver_firewall_rules
 
 export function DataAwsRoute53ResolverFirewallRules(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsRoute53ResolverFirewallRulesInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -61,8 +62,8 @@ export function DataAwsRoute53ResolverFirewallRules(
       _type='aws_route53_resolver_firewall_rules'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsRoute53ResolverFirewallRulesInputSchema}
+      _outputSchema={DataAwsRoute53ResolverFirewallRulesOutputSchema}
       {...props}
     />
   )
@@ -73,7 +74,7 @@ export const useDataAwsRoute53ResolverFirewallRuless = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsRoute53ResolverFirewallRulesOutputProps>(
     DataAwsRoute53ResolverFirewallRules,
     idFilter,
     baseNode,

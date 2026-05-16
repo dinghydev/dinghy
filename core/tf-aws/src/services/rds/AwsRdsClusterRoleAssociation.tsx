@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRdsClusterRoleAssociationInputSchema = TfMetaSchema.extend({
   db_cluster_identifier: resolvableValue(z.string()),
   role_arn: resolvableValue(z.string()),
   feature_name: resolvableValue(z.string().optional()),
@@ -22,22 +22,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsRdsClusterRoleAssociationOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRdsClusterRoleAssociationInputProps =
+  & z.input<typeof AwsRdsClusterRoleAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRdsClusterRoleAssociationOutputProps =
+  & z.output<typeof AwsRdsClusterRoleAssociationOutputSchema>
+  & z.output<typeof AwsRdsClusterRoleAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/rds_cluster_role_association
 
-export function AwsRdsClusterRoleAssociation(props: Partial<InputProps>) {
+export function AwsRdsClusterRoleAssociation(
+  props: Partial<AwsRdsClusterRoleAssociationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +49,8 @@ export function AwsRdsClusterRoleAssociation(props: Partial<InputProps>) {
       _type='aws_rds_cluster_role_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRdsClusterRoleAssociationInputSchema}
+      _outputSchema={AwsRdsClusterRoleAssociationOutputSchema}
       {...props}
     />
   )
@@ -59,7 +61,7 @@ export const useAwsRdsClusterRoleAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRdsClusterRoleAssociationOutputProps>(
     AwsRdsClusterRoleAssociation,
     idFilter,
     baseNode,
@@ -71,7 +73,7 @@ export const useAwsRdsClusterRoleAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRdsClusterRoleAssociationOutputProps>(
     AwsRdsClusterRoleAssociation,
     idFilter,
     baseNode,

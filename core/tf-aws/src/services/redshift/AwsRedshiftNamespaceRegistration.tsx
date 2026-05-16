@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRedshiftNamespaceRegistrationInputSchema = TfMetaSchema.extend({
   consumer_identifier: resolvableValue(z.string()),
   namespace_type: resolvableValue(z.string()),
   provisioned_cluster_identifier: resolvableValue(z.string().optional()),
@@ -18,9 +18,9 @@ export const InputSchema = TfMetaSchema.extend({
   serverless_workgroup_identifier: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsRedshiftNamespaceRegistrationOutputSchema = z.object({})
 
-export const ImportSchema = z.object({
+export const AwsRedshiftNamespaceRegistrationImportSchema = z.object({
   consumer_identifier: resolvableValue(z.string()),
   namespace_type: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
@@ -30,19 +30,21 @@ export const ImportSchema = z.object({
   serverless_workgroup_identifier: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsRedshiftNamespaceRegistrationInputProps =
+  & z.input<typeof AwsRedshiftNamespaceRegistrationInputSchema>
+  & z.input<typeof AwsRedshiftNamespaceRegistrationImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRedshiftNamespaceRegistrationOutputProps =
+  & z.output<typeof AwsRedshiftNamespaceRegistrationOutputSchema>
+  & z.output<typeof AwsRedshiftNamespaceRegistrationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/redshift_namespace_registration
 
-export function AwsRedshiftNamespaceRegistration(props: Partial<InputProps>) {
+export function AwsRedshiftNamespaceRegistration(
+  props: Partial<AwsRedshiftNamespaceRegistrationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,9 +54,9 @@ export function AwsRedshiftNamespaceRegistration(props: Partial<InputProps>) {
       _type='aws_redshift_namespace_registration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsRedshiftNamespaceRegistrationInputSchema}
+      _outputSchema={AwsRedshiftNamespaceRegistrationOutputSchema}
+      _importSchema={AwsRedshiftNamespaceRegistrationImportSchema}
       {...props}
     />
   )
@@ -65,7 +67,7 @@ export const useAwsRedshiftNamespaceRegistration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRedshiftNamespaceRegistrationOutputProps>(
     AwsRedshiftNamespaceRegistration,
     idFilter,
     baseNode,
@@ -77,7 +79,7 @@ export const useAwsRedshiftNamespaceRegistrations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRedshiftNamespaceRegistrationOutputProps>(
     AwsRedshiftNamespaceRegistration,
     idFilter,
     baseNode,

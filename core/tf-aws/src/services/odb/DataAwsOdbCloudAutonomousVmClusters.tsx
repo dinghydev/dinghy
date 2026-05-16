@@ -8,11 +8,12 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsOdbCloudAutonomousVmClustersInputSchema = TfMetaSchema
+  .extend({
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsOdbCloudAutonomousVmClustersOutputSchema = z.object({
   cloud_autonomous_vm_clusters: z.object({
     arn: z.string(),
     cloud_exadata_infrastructure_id: z.string(),
@@ -25,19 +26,19 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsOdbCloudAutonomousVmClustersInputProps =
+  & z.input<typeof DataAwsOdbCloudAutonomousVmClustersInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsOdbCloudAutonomousVmClustersOutputProps =
+  & z.output<typeof DataAwsOdbCloudAutonomousVmClustersOutputSchema>
+  & z.output<typeof DataAwsOdbCloudAutonomousVmClustersInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/odb_cloud_autonomous_vm_clusters
 
 export function DataAwsOdbCloudAutonomousVmClusters(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsOdbCloudAutonomousVmClustersInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -48,8 +49,8 @@ export function DataAwsOdbCloudAutonomousVmClusters(
       _type='aws_odb_cloud_autonomous_vm_clusters'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsOdbCloudAutonomousVmClustersInputSchema}
+      _outputSchema={DataAwsOdbCloudAutonomousVmClustersOutputSchema}
       {...props}
     />
   )
@@ -60,7 +61,7 @@ export const useDataAwsOdbCloudAutonomousVmClusterss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsOdbCloudAutonomousVmClustersOutputProps>(
     DataAwsOdbCloudAutonomousVmClusters,
     idFilter,
     baseNode,

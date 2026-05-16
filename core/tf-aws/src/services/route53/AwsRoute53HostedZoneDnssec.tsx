@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRoute53HostedZoneDnssecInputSchema = TfMetaSchema.extend({
   hosted_zone_id: resolvableValue(z.string()),
   signing_status: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
@@ -21,22 +21,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsRoute53HostedZoneDnssecOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRoute53HostedZoneDnssecInputProps =
+  & z.input<typeof AwsRoute53HostedZoneDnssecInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRoute53HostedZoneDnssecOutputProps =
+  & z.output<typeof AwsRoute53HostedZoneDnssecOutputSchema>
+  & z.output<typeof AwsRoute53HostedZoneDnssecInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/route53_hosted_zone_dnssec
 
-export function AwsRoute53HostedZoneDnssec(props: Partial<InputProps>) {
+export function AwsRoute53HostedZoneDnssec(
+  props: Partial<AwsRoute53HostedZoneDnssecInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function AwsRoute53HostedZoneDnssec(props: Partial<InputProps>) {
       _type='aws_route53_hosted_zone_dnssec'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRoute53HostedZoneDnssecInputSchema}
+      _outputSchema={AwsRoute53HostedZoneDnssecOutputSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useAwsRoute53HostedZoneDnssec = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRoute53HostedZoneDnssecOutputProps>(
     AwsRoute53HostedZoneDnssec,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useAwsRoute53HostedZoneDnssecs = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRoute53HostedZoneDnssecOutputProps>(
     AwsRoute53HostedZoneDnssec,
     idFilter,
     baseNode,

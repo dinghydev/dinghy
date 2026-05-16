@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAmiLaunchPermissionInputSchema = TfMetaSchema.extend({
   image_id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   group: resolvableValue(z.string().optional()),
@@ -18,22 +18,24 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAmiLaunchPermissionOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAmiLaunchPermissionInputProps =
+  & z.input<typeof AwsAmiLaunchPermissionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAmiLaunchPermissionOutputProps =
+  & z.output<typeof AwsAmiLaunchPermissionOutputSchema>
+  & z.output<typeof AwsAmiLaunchPermissionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ami_launch_permission
 
-export function AwsAmiLaunchPermission(props: Partial<InputProps>) {
+export function AwsAmiLaunchPermission(
+  props: Partial<AwsAmiLaunchPermissionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function AwsAmiLaunchPermission(props: Partial<InputProps>) {
       _type='aws_ami_launch_permission'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAmiLaunchPermissionInputSchema}
+      _outputSchema={AwsAmiLaunchPermissionOutputSchema}
       {...props}
     />
   )
@@ -55,7 +57,7 @@ export const useAwsAmiLaunchPermission = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAmiLaunchPermissionOutputProps>(
     AwsAmiLaunchPermission,
     idFilter,
     baseNode,
@@ -67,7 +69,7 @@ export const useAwsAmiLaunchPermissions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAmiLaunchPermissionOutputProps>(
     AwsAmiLaunchPermission,
     idFilter,
     baseNode,

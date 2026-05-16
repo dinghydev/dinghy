@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSchedulerScheduleGroupInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string().optional()),
   name_prefix: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -22,7 +22,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsSchedulerScheduleGroupOutputSchema = z.object({
   arn: z.string().optional(),
   creation_date: z.string().optional(),
   id: z.string().optional(),
@@ -31,18 +31,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSchedulerScheduleGroupInputProps =
+  & z.input<typeof AwsSchedulerScheduleGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSchedulerScheduleGroupOutputProps =
+  & z.output<typeof AwsSchedulerScheduleGroupOutputSchema>
+  & z.output<typeof AwsSchedulerScheduleGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/scheduler_schedule_group
 
-export function AwsSchedulerScheduleGroup(props: Partial<InputProps>) {
+export function AwsSchedulerScheduleGroup(
+  props: Partial<AwsSchedulerScheduleGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,8 +54,8 @@ export function AwsSchedulerScheduleGroup(props: Partial<InputProps>) {
       _type='aws_scheduler_schedule_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSchedulerScheduleGroupInputSchema}
+      _outputSchema={AwsSchedulerScheduleGroupOutputSchema}
       {...props}
     />
   )
@@ -64,7 +66,7 @@ export const useAwsSchedulerScheduleGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSchedulerScheduleGroupOutputProps>(
     AwsSchedulerScheduleGroup,
     idFilter,
     baseNode,
@@ -76,7 +78,7 @@ export const useAwsSchedulerScheduleGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSchedulerScheduleGroupOutputProps>(
     AwsSchedulerScheduleGroup,
     idFilter,
     baseNode,

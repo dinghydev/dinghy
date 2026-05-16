@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsPrefixListInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -26,24 +26,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsPrefixListOutputSchema = z.object({
   cidr_blocks: z.string().array().optional(),
   id: z.string().optional(),
   name: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsPrefixListInputProps =
+  & z.input<typeof DataAwsPrefixListInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsPrefixListOutputProps =
+  & z.output<typeof DataAwsPrefixListOutputSchema>
+  & z.output<typeof DataAwsPrefixListInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/prefix_list
 
-export function DataAwsPrefixList(props: Partial<InputProps>) {
+export function DataAwsPrefixList(props: Partial<DataAwsPrefixListInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,8 +53,8 @@ export function DataAwsPrefixList(props: Partial<InputProps>) {
       _type='aws_prefix_list'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsPrefixListInputSchema}
+      _outputSchema={DataAwsPrefixListOutputSchema}
       {...props}
     />
   )
@@ -64,10 +64,22 @@ export const useDataAwsPrefixList = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsPrefixList, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsPrefixListOutputProps>(
+    DataAwsPrefixList,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsPrefixLists = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsPrefixList, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsPrefixListOutputProps>(
+    DataAwsPrefixList,
+    idFilter,
+    baseNode,
+    optional,
+  )

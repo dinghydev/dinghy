@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsApigatewayv2ApiMappingInputSchema = TfMetaSchema.extend({
   api_id: resolvableValue(z.string()),
   domain_name: resolvableValue(z.string()),
   stage: resolvableValue(z.string()),
@@ -17,22 +17,24 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsApigatewayv2ApiMappingOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsApigatewayv2ApiMappingInputProps =
+  & z.input<typeof AwsApigatewayv2ApiMappingInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApigatewayv2ApiMappingOutputProps =
+  & z.output<typeof AwsApigatewayv2ApiMappingOutputSchema>
+  & z.output<typeof AwsApigatewayv2ApiMappingInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/apigatewayv2_api_mapping
 
-export function AwsApigatewayv2ApiMapping(props: Partial<InputProps>) {
+export function AwsApigatewayv2ApiMapping(
+  props: Partial<AwsApigatewayv2ApiMappingInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +44,8 @@ export function AwsApigatewayv2ApiMapping(props: Partial<InputProps>) {
       _type='aws_apigatewayv2_api_mapping'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsApigatewayv2ApiMappingInputSchema}
+      _outputSchema={AwsApigatewayv2ApiMappingOutputSchema}
       {...props}
     />
   )
@@ -54,7 +56,7 @@ export const useAwsApigatewayv2ApiMapping = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsApigatewayv2ApiMappingOutputProps>(
     AwsApigatewayv2ApiMapping,
     idFilter,
     baseNode,
@@ -66,7 +68,7 @@ export const useAwsApigatewayv2ApiMappings = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsApigatewayv2ApiMappingOutputProps>(
     AwsApigatewayv2ApiMapping,
     idFilter,
     baseNode,

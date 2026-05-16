@@ -9,13 +9,14 @@ import {
 import z from 'zod'
 import { AwsKendraQuerySuggestionsBlockList } from './AwsKendraQuerySuggestionsBlockList.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  index_id: resolvableValue(z.string()),
-  query_suggestions_block_list_id: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsKendraQuerySuggestionsBlockListInputSchema = TfMetaSchema
+  .extend({
+    index_id: resolvableValue(z.string()),
+    query_suggestions_block_list_id: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsKendraQuerySuggestionsBlockListOutputSchema = z.object({
   arn: z.string().optional(),
   created_at: z.string().optional(),
   description: z.string().optional(),
@@ -34,19 +35,19 @@ export const OutputSchema = z.object({
   updated_at: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsKendraQuerySuggestionsBlockListInputProps =
+  & z.input<typeof DataAwsKendraQuerySuggestionsBlockListInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsKendraQuerySuggestionsBlockListOutputProps =
+  & z.output<typeof DataAwsKendraQuerySuggestionsBlockListOutputSchema>
+  & z.output<typeof DataAwsKendraQuerySuggestionsBlockListInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/kendra_query_suggestions_block_list
 
 export function DataAwsKendraQuerySuggestionsBlockList(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsKendraQuerySuggestionsBlockListInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -57,8 +58,8 @@ export function DataAwsKendraQuerySuggestionsBlockList(
       _type='aws_kendra_query_suggestions_block_list'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsKendraQuerySuggestionsBlockListInputSchema}
+      _outputSchema={DataAwsKendraQuerySuggestionsBlockListOutputSchema}
       {...props as any}
     />
   )
@@ -69,7 +70,7 @@ export const useDataAwsKendraQuerySuggestionsBlockList = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsKendraQuerySuggestionsBlockListOutputProps>(
     DataAwsKendraQuerySuggestionsBlockList,
     idFilter,
     baseNode,
@@ -81,7 +82,7 @@ export const useDataAwsKendraQuerySuggestionsBlockLists = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsKendraQuerySuggestionsBlockListOutputProps>(
     DataAwsKendraQuerySuggestionsBlockList,
     idFilter,
     baseNode,

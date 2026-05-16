@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsNeptuneClusterInstanceInputSchema = TfMetaSchema.extend({
   cluster_identifier: resolvableValue(z.string()),
   instance_class: resolvableValue(z.string()),
   apply_immediately: resolvableValue(z.boolean().optional()),
@@ -38,7 +38,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsNeptuneClusterInstanceOutputSchema = z.object({
   address: z.string().optional(),
   arn: z.string().optional(),
   dbi_resource_id: z.string().optional(),
@@ -51,18 +51,20 @@ export const OutputSchema = z.object({
   writer: z.boolean().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsNeptuneClusterInstanceInputProps =
+  & z.input<typeof AwsNeptuneClusterInstanceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNeptuneClusterInstanceOutputProps =
+  & z.output<typeof AwsNeptuneClusterInstanceOutputSchema>
+  & z.output<typeof AwsNeptuneClusterInstanceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/neptune_cluster_instance
 
-export function AwsNeptuneClusterInstance(props: Partial<InputProps>) {
+export function AwsNeptuneClusterInstance(
+  props: Partial<AwsNeptuneClusterInstanceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -72,8 +74,8 @@ export function AwsNeptuneClusterInstance(props: Partial<InputProps>) {
       _type='aws_neptune_cluster_instance'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsNeptuneClusterInstanceInputSchema}
+      _outputSchema={AwsNeptuneClusterInstanceOutputSchema}
       {...props}
     />
   )
@@ -84,7 +86,7 @@ export const useAwsNeptuneClusterInstance = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsNeptuneClusterInstanceOutputProps>(
     AwsNeptuneClusterInstance,
     idFilter,
     baseNode,
@@ -96,7 +98,7 @@ export const useAwsNeptuneClusterInstances = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsNeptuneClusterInstanceOutputProps>(
     AwsNeptuneClusterInstance,
     idFilter,
     baseNode,

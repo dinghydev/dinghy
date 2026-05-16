@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsDocdbEngineVersionInputSchema = TfMetaSchema.extend({
   engine: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   parameter_group_family: resolvableValue(z.string().optional()),
@@ -18,7 +18,7 @@ export const InputSchema = TfMetaSchema.extend({
   version: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsDocdbEngineVersionOutputSchema = z.object({
   engine_description: z.string().optional(),
   exportable_log_types: z.set(z.string()).optional(),
   supports_log_exports_to_cloudwatch: z.boolean().optional(),
@@ -26,18 +26,20 @@ export const OutputSchema = z.object({
   version_description: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsDocdbEngineVersionInputProps =
+  & z.input<typeof DataAwsDocdbEngineVersionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsDocdbEngineVersionOutputProps =
+  & z.output<typeof DataAwsDocdbEngineVersionOutputSchema>
+  & z.output<typeof DataAwsDocdbEngineVersionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/docdb_engine_version
 
-export function DataAwsDocdbEngineVersion(props: Partial<InputProps>) {
+export function DataAwsDocdbEngineVersion(
+  props: Partial<DataAwsDocdbEngineVersionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +49,8 @@ export function DataAwsDocdbEngineVersion(props: Partial<InputProps>) {
       _type='aws_docdb_engine_version'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsDocdbEngineVersionInputSchema}
+      _outputSchema={DataAwsDocdbEngineVersionOutputSchema}
       {...props}
     />
   )
@@ -59,7 +61,7 @@ export const useDataAwsDocdbEngineVersion = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsDocdbEngineVersionOutputProps>(
     DataAwsDocdbEngineVersion,
     idFilter,
     baseNode,
@@ -71,7 +73,7 @@ export const useDataAwsDocdbEngineVersions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsDocdbEngineVersionOutputProps>(
     DataAwsDocdbEngineVersion,
     idFilter,
     baseNode,

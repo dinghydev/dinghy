@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLakeformationOptInInputSchema = TfMetaSchema.extend({
   principal: resolvableValue(
     z.object({
       data_lake_principal_identifier: z.string(),
@@ -69,7 +69,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsLakeformationOptInOutputSchema = z.object({
   condition: z.object({
     expression: z.string().optional(),
   }).array().optional().optional(),
@@ -77,18 +77,20 @@ export const OutputSchema = z.object({
   last_updated_by: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLakeformationOptInInputProps =
+  & z.input<typeof AwsLakeformationOptInInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLakeformationOptInOutputProps =
+  & z.output<typeof AwsLakeformationOptInOutputSchema>
+  & z.output<typeof AwsLakeformationOptInInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lakeformation_opt_in
 
-export function AwsLakeformationOptIn(props: Partial<InputProps>) {
+export function AwsLakeformationOptIn(
+  props: Partial<AwsLakeformationOptInInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -98,8 +100,8 @@ export function AwsLakeformationOptIn(props: Partial<InputProps>) {
       _type='aws_lakeformation_opt_in'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLakeformationOptInInputSchema}
+      _outputSchema={AwsLakeformationOptInOutputSchema}
       {...props}
     />
   )
@@ -110,14 +112,19 @@ export const useAwsLakeformationOptIn = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsLakeformationOptIn, idFilter, baseNode, optional)
+  useTypedNode<AwsLakeformationOptInOutputProps>(
+    AwsLakeformationOptIn,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLakeformationOptIns = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsLakeformationOptInOutputProps>(
     AwsLakeformationOptIn,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAmplifyBackendEnvironmentInputSchema = TfMetaSchema.extend({
   app_id: resolvableValue(z.string()),
   environment_name: resolvableValue(z.string()),
   deployment_artifacts: resolvableValue(z.string().optional()),
@@ -17,23 +17,25 @@ export const InputSchema = TfMetaSchema.extend({
   stack_name: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAmplifyBackendEnvironmentOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAmplifyBackendEnvironmentInputProps =
+  & z.input<typeof AwsAmplifyBackendEnvironmentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAmplifyBackendEnvironmentOutputProps =
+  & z.output<typeof AwsAmplifyBackendEnvironmentOutputSchema>
+  & z.output<typeof AwsAmplifyBackendEnvironmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/amplify_backend_environment
 
-export function AwsAmplifyBackendEnvironment(props: Partial<InputProps>) {
+export function AwsAmplifyBackendEnvironment(
+  props: Partial<AwsAmplifyBackendEnvironmentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function AwsAmplifyBackendEnvironment(props: Partial<InputProps>) {
       _type='aws_amplify_backend_environment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAmplifyBackendEnvironmentInputSchema}
+      _outputSchema={AwsAmplifyBackendEnvironmentOutputSchema}
       {...props}
     />
   )
@@ -55,7 +57,7 @@ export const useAwsAmplifyBackendEnvironment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAmplifyBackendEnvironmentOutputProps>(
     AwsAmplifyBackendEnvironment,
     idFilter,
     baseNode,
@@ -67,7 +69,7 @@ export const useAwsAmplifyBackendEnvironments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAmplifyBackendEnvironmentOutputProps>(
     AwsAmplifyBackendEnvironment,
     idFilter,
     baseNode,

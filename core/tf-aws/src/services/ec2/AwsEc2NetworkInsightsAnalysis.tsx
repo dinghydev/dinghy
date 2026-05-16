@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEc2NetworkInsightsAnalysisInputSchema = TfMetaSchema.extend({
   network_insights_path_id: resolvableValue(z.string()),
   filter_in_arns: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
@@ -16,7 +16,7 @@ export const InputSchema = TfMetaSchema.extend({
   wait_for_completion: resolvableValue(z.boolean().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsEc2NetworkInsightsAnalysisOutputSchema = z.object({
   alternate_path_hints: z.object({
     component_arn: z.string(),
     component_id: z.string(),
@@ -468,18 +468,20 @@ export const OutputSchema = z.object({
   warning_message: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEc2NetworkInsightsAnalysisInputProps =
+  & z.input<typeof AwsEc2NetworkInsightsAnalysisInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEc2NetworkInsightsAnalysisOutputProps =
+  & z.output<typeof AwsEc2NetworkInsightsAnalysisOutputSchema>
+  & z.output<typeof AwsEc2NetworkInsightsAnalysisInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ec2_network_insights_analysis
 
-export function AwsEc2NetworkInsightsAnalysis(props: Partial<InputProps>) {
+export function AwsEc2NetworkInsightsAnalysis(
+  props: Partial<AwsEc2NetworkInsightsAnalysisInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -489,8 +491,8 @@ export function AwsEc2NetworkInsightsAnalysis(props: Partial<InputProps>) {
       _type='aws_ec2_network_insights_analysis'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEc2NetworkInsightsAnalysisInputSchema}
+      _outputSchema={AwsEc2NetworkInsightsAnalysisOutputSchema}
       {...props}
     />
   )
@@ -501,7 +503,7 @@ export const useAwsEc2NetworkInsightsAnalysiss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEc2NetworkInsightsAnalysisOutputProps>(
     AwsEc2NetworkInsightsAnalysis,
     idFilter,
     baseNode,

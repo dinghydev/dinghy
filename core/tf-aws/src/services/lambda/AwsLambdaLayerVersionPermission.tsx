@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLambdaLayerVersionPermissionInputSchema = TfMetaSchema.extend({
   action: resolvableValue(z.string()),
   layer_name: resolvableValue(z.string()),
   principal: resolvableValue(z.string()),
@@ -20,24 +20,26 @@ export const InputSchema = TfMetaSchema.extend({
   skip_destroy: resolvableValue(z.boolean().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsLambdaLayerVersionPermissionOutputSchema = z.object({
   id: z.string().optional(),
   policy: z.string().optional(),
   revision_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLambdaLayerVersionPermissionInputProps =
+  & z.input<typeof AwsLambdaLayerVersionPermissionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLambdaLayerVersionPermissionOutputProps =
+  & z.output<typeof AwsLambdaLayerVersionPermissionOutputSchema>
+  & z.output<typeof AwsLambdaLayerVersionPermissionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lambda_layer_version_permission
 
-export function AwsLambdaLayerVersionPermission(props: Partial<InputProps>) {
+export function AwsLambdaLayerVersionPermission(
+  props: Partial<AwsLambdaLayerVersionPermissionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +49,8 @@ export function AwsLambdaLayerVersionPermission(props: Partial<InputProps>) {
       _type='aws_lambda_layer_version_permission'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLambdaLayerVersionPermissionInputSchema}
+      _outputSchema={AwsLambdaLayerVersionPermissionOutputSchema}
       {...props}
     />
   )
@@ -59,7 +61,7 @@ export const useAwsLambdaLayerVersionPermission = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsLambdaLayerVersionPermissionOutputProps>(
     AwsLambdaLayerVersionPermission,
     idFilter,
     baseNode,
@@ -71,7 +73,7 @@ export const useAwsLambdaLayerVersionPermissions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsLambdaLayerVersionPermissionOutputProps>(
     AwsLambdaLayerVersionPermission,
     idFilter,
     baseNode,

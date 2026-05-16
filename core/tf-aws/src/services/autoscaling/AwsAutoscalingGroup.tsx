@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAutoscalingGroupInputSchema = TfMetaSchema.extend({
   max_size: resolvableValue(z.number()),
   min_size: resolvableValue(z.number()),
   availability_zone_distribution: resolvableValue(
@@ -215,31 +215,33 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsAutoscalingGroupOutputSchema = z.object({
   arn: z.string().optional(),
   predicted_capacity: z.number().optional(),
   warm_pool_size: z.number().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsAutoscalingGroupImportSchema = z.object({
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsAutoscalingGroupInputProps =
+  & z.input<typeof AwsAutoscalingGroupInputSchema>
+  & z.input<typeof AwsAutoscalingGroupImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAutoscalingGroupOutputProps =
+  & z.output<typeof AwsAutoscalingGroupOutputSchema>
+  & z.output<typeof AwsAutoscalingGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/autoscaling_group
 
-export function AwsAutoscalingGroup(props: Partial<InputProps>) {
+export function AwsAutoscalingGroup(
+  props: Partial<AwsAutoscalingGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -249,9 +251,9 @@ export function AwsAutoscalingGroup(props: Partial<InputProps>) {
       _type='aws_autoscaling_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsAutoscalingGroupInputSchema}
+      _outputSchema={AwsAutoscalingGroupOutputSchema}
+      _importSchema={AwsAutoscalingGroupImportSchema}
       {...props}
     />
   )
@@ -262,11 +264,21 @@ export const useAwsAutoscalingGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsAutoscalingGroup, idFilter, baseNode, optional)
+  useTypedNode<AwsAutoscalingGroupOutputProps>(
+    AwsAutoscalingGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAutoscalingGroups = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsAutoscalingGroup, idFilter, baseNode, optional)
+  useTypedNodes<AwsAutoscalingGroupOutputProps>(
+    AwsAutoscalingGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

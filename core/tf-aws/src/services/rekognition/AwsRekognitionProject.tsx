@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRekognitionProjectInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   auto_update: resolvableValue(z.string().optional()),
   feature: resolvableValue(z.string().optional()),
@@ -23,24 +23,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsRekognitionProjectOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRekognitionProjectInputProps =
+  & z.input<typeof AwsRekognitionProjectInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRekognitionProjectOutputProps =
+  & z.output<typeof AwsRekognitionProjectOutputSchema>
+  & z.output<typeof AwsRekognitionProjectInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/rekognition_project
 
-export function AwsRekognitionProject(props: Partial<InputProps>) {
+export function AwsRekognitionProject(
+  props: Partial<AwsRekognitionProjectInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -50,8 +52,8 @@ export function AwsRekognitionProject(props: Partial<InputProps>) {
       _type='aws_rekognition_project'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRekognitionProjectInputSchema}
+      _outputSchema={AwsRekognitionProjectOutputSchema}
       {...props}
     />
   )
@@ -62,14 +64,19 @@ export const useAwsRekognitionProject = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsRekognitionProject, idFilter, baseNode, optional)
+  useTypedNode<AwsRekognitionProjectOutputProps>(
+    AwsRekognitionProject,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRekognitionProjects = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRekognitionProjectOutputProps>(
     AwsRekognitionProject,
     idFilter,
     baseNode,

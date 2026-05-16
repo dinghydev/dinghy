@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsEbsVolumesInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -24,23 +24,23 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsEbsVolumesOutputSchema = z.object({
   id: z.string().optional(),
   ids: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEbsVolumesInputProps =
+  & z.input<typeof DataAwsEbsVolumesInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEbsVolumesOutputProps =
+  & z.output<typeof DataAwsEbsVolumesOutputSchema>
+  & z.output<typeof DataAwsEbsVolumesInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ebs_volumes
 
-export function DataAwsEbsVolumes(props: Partial<InputProps>) {
+export function DataAwsEbsVolumes(props: Partial<DataAwsEbsVolumesInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -50,8 +50,8 @@ export function DataAwsEbsVolumes(props: Partial<InputProps>) {
       _type='aws_ebs_volumes'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEbsVolumesInputSchema}
+      _outputSchema={DataAwsEbsVolumesOutputSchema}
       {...props}
     />
   )
@@ -61,4 +61,10 @@ export const useDataAwsEbsVolumess = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsEbsVolumes, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsEbsVolumesOutputProps>(
+    DataAwsEbsVolumes,
+    idFilter,
+    baseNode,
+    optional,
+  )

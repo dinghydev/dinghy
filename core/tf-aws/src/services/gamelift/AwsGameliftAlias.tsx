@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsGameliftAliasInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   routing_strategy: resolvableValue(z.object({
     fleet_id: z.string().optional(),
@@ -20,24 +20,24 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsGameliftAliasOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsGameliftAliasInputProps =
+  & z.input<typeof AwsGameliftAliasInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsGameliftAliasOutputProps =
+  & z.output<typeof AwsGameliftAliasOutputSchema>
+  & z.output<typeof AwsGameliftAliasInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/gamelift_alias
 
-export function AwsGameliftAlias(props: Partial<InputProps>) {
+export function AwsGameliftAlias(props: Partial<AwsGameliftAliasInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +47,8 @@ export function AwsGameliftAlias(props: Partial<InputProps>) {
       _type='aws_gamelift_alias'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsGameliftAliasInputSchema}
+      _outputSchema={AwsGameliftAliasOutputSchema}
       {...props}
     />
   )
@@ -58,4 +58,10 @@ export const useAwsGameliftAliass = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsGameliftAlias, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsGameliftAliasOutputProps>(
+    AwsGameliftAlias,
+    idFilter,
+    baseNode,
+    optional,
+  )

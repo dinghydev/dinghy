@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEc2ClientVpnRouteInputSchema = TfMetaSchema.extend({
   client_vpn_endpoint_id: resolvableValue(z.string()),
   destination_cidr_block: resolvableValue(z.string()),
   target_vpc_subnet_id: resolvableValue(z.string()),
@@ -23,24 +23,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsEc2ClientVpnRouteOutputSchema = z.object({
   id: z.string().optional(),
   origin: z.string().optional(),
   type: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEc2ClientVpnRouteInputProps =
+  & z.input<typeof AwsEc2ClientVpnRouteInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEc2ClientVpnRouteOutputProps =
+  & z.output<typeof AwsEc2ClientVpnRouteOutputSchema>
+  & z.output<typeof AwsEc2ClientVpnRouteInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ec2_client_vpn_route
 
-export function AwsEc2ClientVpnRoute(props: Partial<InputProps>) {
+export function AwsEc2ClientVpnRoute(
+  props: Partial<AwsEc2ClientVpnRouteInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -50,8 +52,8 @@ export function AwsEc2ClientVpnRoute(props: Partial<InputProps>) {
       _type='aws_ec2_client_vpn_route'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEc2ClientVpnRouteInputSchema}
+      _outputSchema={AwsEc2ClientVpnRouteOutputSchema}
       {...props}
     />
   )
@@ -62,11 +64,21 @@ export const useAwsEc2ClientVpnRoute = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsEc2ClientVpnRoute, idFilter, baseNode, optional)
+  useTypedNode<AwsEc2ClientVpnRouteOutputProps>(
+    AwsEc2ClientVpnRoute,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEc2ClientVpnRoutes = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsEc2ClientVpnRoute, idFilter, baseNode, optional)
+  useTypedNodes<AwsEc2ClientVpnRouteOutputProps>(
+    AwsEc2ClientVpnRoute,
+    idFilter,
+    baseNode,
+    optional,
+  )

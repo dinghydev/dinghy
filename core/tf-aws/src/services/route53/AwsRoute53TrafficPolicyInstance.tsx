@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRoute53TrafficPolicyInstanceInputSchema = TfMetaSchema.extend({
   hosted_zone_id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   traffic_policy_id: resolvableValue(z.string()),
@@ -17,23 +17,25 @@ export const InputSchema = TfMetaSchema.extend({
   ttl: resolvableValue(z.number()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRoute53TrafficPolicyInstanceOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRoute53TrafficPolicyInstanceInputProps =
+  & z.input<typeof AwsRoute53TrafficPolicyInstanceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRoute53TrafficPolicyInstanceOutputProps =
+  & z.output<typeof AwsRoute53TrafficPolicyInstanceOutputSchema>
+  & z.output<typeof AwsRoute53TrafficPolicyInstanceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/route53_traffic_policy_instance
 
-export function AwsRoute53TrafficPolicyInstance(props: Partial<InputProps>) {
+export function AwsRoute53TrafficPolicyInstance(
+  props: Partial<AwsRoute53TrafficPolicyInstanceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function AwsRoute53TrafficPolicyInstance(props: Partial<InputProps>) {
       _type='aws_route53_traffic_policy_instance'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRoute53TrafficPolicyInstanceInputSchema}
+      _outputSchema={AwsRoute53TrafficPolicyInstanceOutputSchema}
       {...props}
     />
   )
@@ -55,7 +57,7 @@ export const useAwsRoute53TrafficPolicyInstance = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRoute53TrafficPolicyInstanceOutputProps>(
     AwsRoute53TrafficPolicyInstance,
     idFilter,
     baseNode,
@@ -67,7 +69,7 @@ export const useAwsRoute53TrafficPolicyInstances = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRoute53TrafficPolicyInstanceOutputProps>(
     AwsRoute53TrafficPolicyInstance,
     idFilter,
     baseNode,

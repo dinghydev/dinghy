@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsVpcPeeringConnectionsInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -24,23 +24,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsVpcPeeringConnectionsOutputSchema = z.object({
   id: z.string().optional(),
   ids: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsVpcPeeringConnectionsInputProps =
+  & z.input<typeof DataAwsVpcPeeringConnectionsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsVpcPeeringConnectionsOutputProps =
+  & z.output<typeof DataAwsVpcPeeringConnectionsOutputSchema>
+  & z.output<typeof DataAwsVpcPeeringConnectionsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/vpc_peering_connections
 
-export function DataAwsVpcPeeringConnections(props: Partial<InputProps>) {
+export function DataAwsVpcPeeringConnections(
+  props: Partial<DataAwsVpcPeeringConnectionsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -50,8 +52,8 @@ export function DataAwsVpcPeeringConnections(props: Partial<InputProps>) {
       _type='aws_vpc_peering_connections'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsVpcPeeringConnectionsInputSchema}
+      _outputSchema={DataAwsVpcPeeringConnectionsOutputSchema}
       {...props}
     />
   )
@@ -62,7 +64,7 @@ export const useDataAwsVpcPeeringConnectionss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsVpcPeeringConnectionsOutputProps>(
     DataAwsVpcPeeringConnections,
     idFilter,
     baseNode,

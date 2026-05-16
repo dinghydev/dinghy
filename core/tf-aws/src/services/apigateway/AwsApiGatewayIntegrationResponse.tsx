@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsApiGatewayIntegrationResponseInputSchema = TfMetaSchema.extend({
   http_method: resolvableValue(z.string()),
   resource_id: resolvableValue(z.string()),
   rest_api_id: resolvableValue(z.string()),
@@ -26,9 +26,9 @@ export const InputSchema = TfMetaSchema.extend({
   selection_pattern: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsApiGatewayIntegrationResponseOutputSchema = z.object({})
 
-export const ImportSchema = z.object({
+export const AwsApiGatewayIntegrationResponseImportSchema = z.object({
   http_method: resolvableValue(z.string()),
   resource_id: resolvableValue(z.string()),
   rest_api_id: resolvableValue(z.string()),
@@ -37,19 +37,21 @@ export const ImportSchema = z.object({
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsApiGatewayIntegrationResponseInputProps =
+  & z.input<typeof AwsApiGatewayIntegrationResponseInputSchema>
+  & z.input<typeof AwsApiGatewayIntegrationResponseImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApiGatewayIntegrationResponseOutputProps =
+  & z.output<typeof AwsApiGatewayIntegrationResponseOutputSchema>
+  & z.output<typeof AwsApiGatewayIntegrationResponseInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/api_gateway_integration_response
 
-export function AwsApiGatewayIntegrationResponse(props: Partial<InputProps>) {
+export function AwsApiGatewayIntegrationResponse(
+  props: Partial<AwsApiGatewayIntegrationResponseInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -59,9 +61,9 @@ export function AwsApiGatewayIntegrationResponse(props: Partial<InputProps>) {
       _type='aws_api_gateway_integration_response'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsApiGatewayIntegrationResponseInputSchema}
+      _outputSchema={AwsApiGatewayIntegrationResponseOutputSchema}
+      _importSchema={AwsApiGatewayIntegrationResponseImportSchema}
       {...props}
     />
   )
@@ -72,7 +74,7 @@ export const useAwsApiGatewayIntegrationResponse = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsApiGatewayIntegrationResponseOutputProps>(
     AwsApiGatewayIntegrationResponse,
     idFilter,
     baseNode,
@@ -84,7 +86,7 @@ export const useAwsApiGatewayIntegrationResponses = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsApiGatewayIntegrationResponseOutputProps>(
     AwsApiGatewayIntegrationResponse,
     idFilter,
     baseNode,

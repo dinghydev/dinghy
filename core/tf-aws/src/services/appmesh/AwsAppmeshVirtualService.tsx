@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAppmeshVirtualServiceInputSchema = TfMetaSchema.extend({
   mesh_name: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   spec: resolvableValue(z.object({
@@ -27,7 +27,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAppmeshVirtualServiceOutputSchema = z.object({
   arn: z.string().optional(),
   created_date: z.string().optional(),
   id: z.string().optional(),
@@ -36,18 +36,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAppmeshVirtualServiceInputProps =
+  & z.input<typeof AwsAppmeshVirtualServiceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppmeshVirtualServiceOutputProps =
+  & z.output<typeof AwsAppmeshVirtualServiceOutputSchema>
+  & z.output<typeof AwsAppmeshVirtualServiceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appmesh_virtual_service
 
-export function AwsAppmeshVirtualService(props: Partial<InputProps>) {
+export function AwsAppmeshVirtualService(
+  props: Partial<AwsAppmeshVirtualServiceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -57,8 +59,8 @@ export function AwsAppmeshVirtualService(props: Partial<InputProps>) {
       _type='aws_appmesh_virtual_service'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAppmeshVirtualServiceInputSchema}
+      _outputSchema={AwsAppmeshVirtualServiceOutputSchema}
       {...props}
     />
   )
@@ -69,7 +71,7 @@ export const useAwsAppmeshVirtualService = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAppmeshVirtualServiceOutputProps>(
     AwsAppmeshVirtualService,
     idFilter,
     baseNode,
@@ -81,7 +83,7 @@ export const useAwsAppmeshVirtualServices = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAppmeshVirtualServiceOutputProps>(
     AwsAppmeshVirtualService,
     idFilter,
     baseNode,

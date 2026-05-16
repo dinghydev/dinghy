@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEksIdentityProviderConfigInputSchema = TfMetaSchema.extend({
   cluster_name: resolvableValue(z.string()),
   oidc: resolvableValue(z.object({
     client_id: z.string(),
@@ -31,7 +31,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsEksIdentityProviderConfigOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   identity_provider_config_name: z.string().optional(),
@@ -39,26 +39,28 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsEksIdentityProviderConfigImportSchema = z.object({
   cluster_name: resolvableValue(z.string()),
   identity_provider_config_name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsEksIdentityProviderConfigInputProps =
+  & z.input<typeof AwsEksIdentityProviderConfigInputSchema>
+  & z.input<typeof AwsEksIdentityProviderConfigImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEksIdentityProviderConfigOutputProps =
+  & z.output<typeof AwsEksIdentityProviderConfigOutputSchema>
+  & z.output<typeof AwsEksIdentityProviderConfigInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/eks_identity_provider_config
 
-export function AwsEksIdentityProviderConfig(props: Partial<InputProps>) {
+export function AwsEksIdentityProviderConfig(
+  props: Partial<AwsEksIdentityProviderConfigInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -68,9 +70,9 @@ export function AwsEksIdentityProviderConfig(props: Partial<InputProps>) {
       _type='aws_eks_identity_provider_config'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsEksIdentityProviderConfigInputSchema}
+      _outputSchema={AwsEksIdentityProviderConfigOutputSchema}
+      _importSchema={AwsEksIdentityProviderConfigImportSchema}
       {...props}
     />
   )
@@ -81,7 +83,7 @@ export const useAwsEksIdentityProviderConfig = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsEksIdentityProviderConfigOutputProps>(
     AwsEksIdentityProviderConfig,
     idFilter,
     baseNode,
@@ -93,7 +95,7 @@ export const useAwsEksIdentityProviderConfigs = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEksIdentityProviderConfigOutputProps>(
     AwsEksIdentityProviderConfig,
     idFilter,
     baseNode,

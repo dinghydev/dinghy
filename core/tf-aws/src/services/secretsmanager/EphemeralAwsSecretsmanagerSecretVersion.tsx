@@ -9,14 +9,15 @@ import {
 import z from 'zod'
 import { AwsSecretsmanagerSecretVersion } from './AwsSecretsmanagerSecretVersion.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  secret_id: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-  version_id: resolvableValue(z.string().optional()),
-  version_stage: resolvableValue(z.string().optional()),
-})
+export const EphemeralAwsSecretsmanagerSecretVersionInputSchema = TfMetaSchema
+  .extend({
+    secret_id: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+    version_id: resolvableValue(z.string().optional()),
+    version_stage: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const EphemeralAwsSecretsmanagerSecretVersionOutputSchema = z.object({
   arn: z.string().optional(),
   created_date: z.string().optional(),
   secret_binary: z.string().optional(),
@@ -25,19 +26,19 @@ export const OutputSchema = z.object({
   version_stages: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type EphemeralAwsSecretsmanagerSecretVersionInputProps =
+  & z.input<typeof EphemeralAwsSecretsmanagerSecretVersionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type EphemeralAwsSecretsmanagerSecretVersionOutputProps =
+  & z.output<typeof EphemeralAwsSecretsmanagerSecretVersionOutputSchema>
+  & z.output<typeof EphemeralAwsSecretsmanagerSecretVersionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/ephemeral-resources/secretsmanager_secret_version
 
 export function EphemeralAwsSecretsmanagerSecretVersion(
-  props: Partial<InputProps>,
+  props: Partial<EphemeralAwsSecretsmanagerSecretVersionInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -48,8 +49,8 @@ export function EphemeralAwsSecretsmanagerSecretVersion(
       _type='aws_secretsmanager_secret_version'
       _category='ephemeral'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={EphemeralAwsSecretsmanagerSecretVersionInputSchema}
+      _outputSchema={EphemeralAwsSecretsmanagerSecretVersionOutputSchema}
       {...props as any}
     />
   )
@@ -60,7 +61,7 @@ export const useEphemeralAwsSecretsmanagerSecretVersion = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<EphemeralAwsSecretsmanagerSecretVersionOutputProps>(
     EphemeralAwsSecretsmanagerSecretVersion,
     idFilter,
     baseNode,
@@ -72,7 +73,7 @@ export const useEphemeralAwsSecretsmanagerSecretVersions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<EphemeralAwsSecretsmanagerSecretVersionOutputProps>(
     EphemeralAwsSecretsmanagerSecretVersion,
     idFilter,
     baseNode,

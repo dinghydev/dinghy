@@ -9,42 +9,43 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  instance_arn: resolvableValue(z.string()),
-  permission_set_arn: resolvableValue(z.string()),
-  permissions_boundary: resolvableValue(z.object({
-    managed_policy_arn: z.string().optional(),
-    customer_managed_policy_reference: z.object({
-      name: z.string(),
-      path: z.string().optional(),
-    }).optional(),
-  })),
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsSsoadminPermissionsBoundaryAttachmentInputSchema = TfMetaSchema
+  .extend({
+    instance_arn: resolvableValue(z.string()),
+    permission_set_arn: resolvableValue(z.string()),
+    permissions_boundary: resolvableValue(z.object({
+      managed_policy_arn: z.string().optional(),
+      customer_managed_policy_reference: z.object({
+        name: z.string(),
+        path: z.string().optional(),
+      }).optional(),
+    })),
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsSsoadminPermissionsBoundaryAttachmentOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSsoadminPermissionsBoundaryAttachmentInputProps =
+  & z.input<typeof AwsSsoadminPermissionsBoundaryAttachmentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSsoadminPermissionsBoundaryAttachmentOutputProps =
+  & z.output<typeof AwsSsoadminPermissionsBoundaryAttachmentOutputSchema>
+  & z.output<typeof AwsSsoadminPermissionsBoundaryAttachmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssoadmin_permissions_boundary_attachment
 
 export function AwsSsoadminPermissionsBoundaryAttachment(
-  props: Partial<InputProps>,
+  props: Partial<AwsSsoadminPermissionsBoundaryAttachmentInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -55,8 +56,8 @@ export function AwsSsoadminPermissionsBoundaryAttachment(
       _type='aws_ssoadmin_permissions_boundary_attachment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSsoadminPermissionsBoundaryAttachmentInputSchema}
+      _outputSchema={AwsSsoadminPermissionsBoundaryAttachmentOutputSchema}
       {...props}
     />
   )
@@ -67,7 +68,7 @@ export const useAwsSsoadminPermissionsBoundaryAttachment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSsoadminPermissionsBoundaryAttachmentOutputProps>(
     AwsSsoadminPermissionsBoundaryAttachment,
     idFilter,
     baseNode,
@@ -79,7 +80,7 @@ export const useAwsSsoadminPermissionsBoundaryAttachments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSsoadminPermissionsBoundaryAttachmentOutputProps>(
     AwsSsoadminPermissionsBoundaryAttachment,
     idFilter,
     baseNode,

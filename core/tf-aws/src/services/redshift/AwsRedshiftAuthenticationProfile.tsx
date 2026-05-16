@@ -9,28 +9,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRedshiftAuthenticationProfileInputSchema = TfMetaSchema.extend({
   authentication_profile_content: resolvableValue(z.string()),
   authentication_profile_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRedshiftAuthenticationProfileOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRedshiftAuthenticationProfileInputProps =
+  & z.input<typeof AwsRedshiftAuthenticationProfileInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRedshiftAuthenticationProfileOutputProps =
+  & z.output<typeof AwsRedshiftAuthenticationProfileOutputSchema>
+  & z.output<typeof AwsRedshiftAuthenticationProfileInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/redshift_authentication_profile
 
-export function AwsRedshiftAuthenticationProfile(props: Partial<InputProps>) {
+export function AwsRedshiftAuthenticationProfile(
+  props: Partial<AwsRedshiftAuthenticationProfileInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function AwsRedshiftAuthenticationProfile(props: Partial<InputProps>) {
       _type='aws_redshift_authentication_profile'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRedshiftAuthenticationProfileInputSchema}
+      _outputSchema={AwsRedshiftAuthenticationProfileOutputSchema}
       {...props}
     />
   )
@@ -52,7 +54,7 @@ export const useAwsRedshiftAuthenticationProfile = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRedshiftAuthenticationProfileOutputProps>(
     AwsRedshiftAuthenticationProfile,
     idFilter,
     baseNode,
@@ -64,7 +66,7 @@ export const useAwsRedshiftAuthenticationProfiles = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRedshiftAuthenticationProfileOutputProps>(
     AwsRedshiftAuthenticationProfile,
     idFilter,
     baseNode,

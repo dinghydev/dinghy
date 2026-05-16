@@ -9,34 +9,35 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  log_bucket: resolvableValue(z.string()),
-  role_arn_association_id: resolvableValue(z.string()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsShieldDrtAccessLogBucketAssociationInputSchema = TfMetaSchema
+  .extend({
+    log_bucket: resolvableValue(z.string()),
+    role_arn_association_id: resolvableValue(z.string()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsShieldDrtAccessLogBucketAssociationOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsShieldDrtAccessLogBucketAssociationInputProps =
+  & z.input<typeof AwsShieldDrtAccessLogBucketAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsShieldDrtAccessLogBucketAssociationOutputProps =
+  & z.output<typeof AwsShieldDrtAccessLogBucketAssociationOutputSchema>
+  & z.output<typeof AwsShieldDrtAccessLogBucketAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/shield_drt_access_log_bucket_association
 
 export function AwsShieldDrtAccessLogBucketAssociation(
-  props: Partial<InputProps>,
+  props: Partial<AwsShieldDrtAccessLogBucketAssociationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -47,8 +48,8 @@ export function AwsShieldDrtAccessLogBucketAssociation(
       _type='aws_shield_drt_access_log_bucket_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsShieldDrtAccessLogBucketAssociationInputSchema}
+      _outputSchema={AwsShieldDrtAccessLogBucketAssociationOutputSchema}
       {...props}
     />
   )
@@ -59,7 +60,7 @@ export const useAwsShieldDrtAccessLogBucketAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsShieldDrtAccessLogBucketAssociationOutputProps>(
     AwsShieldDrtAccessLogBucketAssociation,
     idFilter,
     baseNode,
@@ -71,7 +72,7 @@ export const useAwsShieldDrtAccessLogBucketAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsShieldDrtAccessLogBucketAssociationOutputProps>(
     AwsShieldDrtAccessLogBucketAssociation,
     idFilter,
     baseNode,

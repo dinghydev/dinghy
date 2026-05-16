@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLocationTrackerInputSchema = TfMetaSchema.extend({
   tracker_name: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
@@ -19,25 +19,27 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsLocationTrackerOutputSchema = z.object({
   create_time: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   tracker_arn: z.string().optional(),
   update_time: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLocationTrackerInputProps =
+  & z.input<typeof AwsLocationTrackerInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLocationTrackerOutputProps =
+  & z.output<typeof AwsLocationTrackerOutputSchema>
+  & z.output<typeof AwsLocationTrackerInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/location_tracker
 
-export function AwsLocationTracker(props: Partial<InputProps>) {
+export function AwsLocationTracker(
+  props: Partial<AwsLocationTrackerInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +49,8 @@ export function AwsLocationTracker(props: Partial<InputProps>) {
       _type='aws_location_tracker'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLocationTrackerInputSchema}
+      _outputSchema={AwsLocationTrackerOutputSchema}
       {...props}
     />
   )
@@ -58,11 +60,22 @@ export const useAwsLocationTracker = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsLocationTracker, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsLocationTrackerOutputProps>(
+    AwsLocationTracker,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLocationTrackers = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsLocationTracker, idFilter, baseNode, optional)
+  useTypedNodes<AwsLocationTrackerOutputProps>(
+    AwsLocationTracker,
+    idFilter,
+    baseNode,
+    optional,
+  )

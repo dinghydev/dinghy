@@ -8,35 +8,36 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  is_enabled: resolvableValue(z.boolean()),
-  name: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsConfigConfigurationRecorderStatusInputSchema = TfMetaSchema
+  .extend({
+    is_enabled: resolvableValue(z.boolean()),
+    name: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({})
+export const AwsConfigConfigurationRecorderStatusOutputSchema = z.object({})
 
-export const ImportSchema = z.object({
+export const AwsConfigConfigurationRecorderStatusImportSchema = z.object({
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsConfigConfigurationRecorderStatusInputProps =
+  & z.input<typeof AwsConfigConfigurationRecorderStatusInputSchema>
+  & z.input<typeof AwsConfigConfigurationRecorderStatusImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsConfigConfigurationRecorderStatusOutputProps =
+  & z.output<typeof AwsConfigConfigurationRecorderStatusOutputSchema>
+  & z.output<typeof AwsConfigConfigurationRecorderStatusInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/config_configuration_recorder_status
 
 export function AwsConfigConfigurationRecorderStatus(
-  props: Partial<InputProps>,
+  props: Partial<AwsConfigConfigurationRecorderStatusInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -47,9 +48,9 @@ export function AwsConfigConfigurationRecorderStatus(
       _type='aws_config_configuration_recorder_status'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsConfigConfigurationRecorderStatusInputSchema}
+      _outputSchema={AwsConfigConfigurationRecorderStatusOutputSchema}
+      _importSchema={AwsConfigConfigurationRecorderStatusImportSchema}
       {...props}
     />
   )
@@ -60,7 +61,7 @@ export const useAwsConfigConfigurationRecorderStatuss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsConfigConfigurationRecorderStatusOutputProps>(
     AwsConfigConfigurationRecorderStatus,
     idFilter,
     baseNode,

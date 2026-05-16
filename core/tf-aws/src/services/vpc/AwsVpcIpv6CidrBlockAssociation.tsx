@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsVpcIpv6CidrBlockAssociationInputSchema = TfMetaSchema.extend({
   vpc_id: resolvableValue(z.string()),
   assign_generated_ipv6_cidr_block: resolvableValue(z.boolean().optional()),
   ipv6_cidr_block: resolvableValue(z.string().optional()),
@@ -25,24 +25,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsVpcIpv6CidrBlockAssociationOutputSchema = z.object({
   id: z.string().optional(),
   ip_source: z.string().optional(),
   ipv6_address_attribute: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVpcIpv6CidrBlockAssociationInputProps =
+  & z.input<typeof AwsVpcIpv6CidrBlockAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVpcIpv6CidrBlockAssociationOutputProps =
+  & z.output<typeof AwsVpcIpv6CidrBlockAssociationOutputSchema>
+  & z.output<typeof AwsVpcIpv6CidrBlockAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpc_ipv6_cidr_block_association
 
-export function AwsVpcIpv6CidrBlockAssociation(props: Partial<InputProps>) {
+export function AwsVpcIpv6CidrBlockAssociation(
+  props: Partial<AwsVpcIpv6CidrBlockAssociationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,8 +54,8 @@ export function AwsVpcIpv6CidrBlockAssociation(props: Partial<InputProps>) {
       _type='aws_vpc_ipv6_cidr_block_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVpcIpv6CidrBlockAssociationInputSchema}
+      _outputSchema={AwsVpcIpv6CidrBlockAssociationOutputSchema}
       {...props}
     />
   )
@@ -64,7 +66,7 @@ export const useAwsVpcIpv6CidrBlockAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsVpcIpv6CidrBlockAssociationOutputProps>(
     AwsVpcIpv6CidrBlockAssociation,
     idFilter,
     baseNode,
@@ -76,7 +78,7 @@ export const useAwsVpcIpv6CidrBlockAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsVpcIpv6CidrBlockAssociationOutputProps>(
     AwsVpcIpv6CidrBlockAssociation,
     idFilter,
     baseNode,

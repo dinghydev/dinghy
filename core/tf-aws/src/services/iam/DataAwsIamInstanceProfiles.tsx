@@ -8,29 +8,31 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsIamInstanceProfilesInputSchema = TfMetaSchema.extend({
   role_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsIamInstanceProfilesOutputSchema = z.object({
   arns: z.set(z.string()).optional(),
   names: z.set(z.string()).optional(),
   paths: z.set(z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsIamInstanceProfilesInputProps =
+  & z.input<typeof DataAwsIamInstanceProfilesInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsIamInstanceProfilesOutputProps =
+  & z.output<typeof DataAwsIamInstanceProfilesOutputSchema>
+  & z.output<typeof DataAwsIamInstanceProfilesInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/iam_instance_profiles
 
-export function DataAwsIamInstanceProfiles(props: Partial<InputProps>) {
+export function DataAwsIamInstanceProfiles(
+  props: Partial<DataAwsIamInstanceProfilesInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function DataAwsIamInstanceProfiles(props: Partial<InputProps>) {
       _type='aws_iam_instance_profiles'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsIamInstanceProfilesInputSchema}
+      _outputSchema={DataAwsIamInstanceProfilesOutputSchema}
       {...props}
     />
   )
@@ -52,7 +54,7 @@ export const useDataAwsIamInstanceProfiless = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsIamInstanceProfilesOutputProps>(
     DataAwsIamInstanceProfiles,
     idFilter,
     baseNode,

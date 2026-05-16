@@ -9,62 +9,66 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  name: resolvableValue(z.string()),
-  configuration: resolvableValue(
-    z.object({
-      custom_data_identifier: z.object({
-        name: z.string(),
-        regex: z.string(),
+export const DataAwsCloudwatchLogDataProtectionPolicyDocumentInputSchema =
+  TfMetaSchema.extend({
+    name: resolvableValue(z.string()),
+    configuration: resolvableValue(
+      z.object({
+        custom_data_identifier: z.object({
+          name: z.string(),
+          regex: z.string(),
+        }).array().optional(),
+      }).optional(),
+    ),
+    description: resolvableValue(z.string().optional()),
+    id: resolvableValue(z.string().optional()),
+    statement: resolvableValue(
+      z.object({
+        data_identifiers: z.string().array(),
+        sid: z.string().optional(),
+        operation: z.object({
+          audit: z.object({
+            findings_destination: z.object({
+              cloudwatch_logs: z.object({
+                log_group: z.string(),
+              }).optional(),
+              firehose: z.object({
+                delivery_stream: z.string(),
+              }).optional(),
+              s3: z.object({
+                bucket: z.string(),
+              }).optional(),
+            }),
+          }).optional(),
+          deidentify: z.object({
+            mask_config: z.object({}),
+          }).optional(),
+        }),
       }).array().optional(),
-    }).optional(),
-  ),
-  description: resolvableValue(z.string().optional()),
-  id: resolvableValue(z.string().optional()),
-  statement: resolvableValue(
-    z.object({
-      data_identifiers: z.string().array(),
-      sid: z.string().optional(),
-      operation: z.object({
-        audit: z.object({
-          findings_destination: z.object({
-            cloudwatch_logs: z.object({
-              log_group: z.string(),
-            }).optional(),
-            firehose: z.object({
-              delivery_stream: z.string(),
-            }).optional(),
-            s3: z.object({
-              bucket: z.string(),
-            }).optional(),
-          }),
-        }).optional(),
-        deidentify: z.object({
-          mask_config: z.object({}),
-        }).optional(),
-      }),
-    }).array().optional(),
-  ),
-  version: resolvableValue(z.string().optional()),
-})
+    ),
+    version: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
-  json: z.string().optional(),
-})
+export const DataAwsCloudwatchLogDataProtectionPolicyDocumentOutputSchema = z
+  .object({
+    json: z.string().optional(),
+  })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsCloudwatchLogDataProtectionPolicyDocumentInputProps =
+  & z.input<typeof DataAwsCloudwatchLogDataProtectionPolicyDocumentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsCloudwatchLogDataProtectionPolicyDocumentOutputProps =
+  & z.output<
+    typeof DataAwsCloudwatchLogDataProtectionPolicyDocumentOutputSchema
+  >
+  & z.output<typeof DataAwsCloudwatchLogDataProtectionPolicyDocumentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/cloudwatch_log_data_protection_policy_document
 
 export function DataAwsCloudwatchLogDataProtectionPolicyDocument(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsCloudwatchLogDataProtectionPolicyDocumentInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -75,8 +79,8 @@ export function DataAwsCloudwatchLogDataProtectionPolicyDocument(
       _type='aws_cloudwatch_log_data_protection_policy_document'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsCloudwatchLogDataProtectionPolicyDocumentInputSchema}
+      _outputSchema={DataAwsCloudwatchLogDataProtectionPolicyDocumentOutputSchema}
       {...props}
     />
   )
@@ -87,7 +91,7 @@ export const useDataAwsCloudwatchLogDataProtectionPolicyDocument = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsCloudwatchLogDataProtectionPolicyDocumentOutputProps>(
     DataAwsCloudwatchLogDataProtectionPolicyDocument,
     idFilter,
     baseNode,
@@ -99,7 +103,7 @@ export const useDataAwsCloudwatchLogDataProtectionPolicyDocuments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsCloudwatchLogDataProtectionPolicyDocumentOutputProps>(
     DataAwsCloudwatchLogDataProtectionPolicyDocument,
     idFilter,
     baseNode,

@@ -8,11 +8,12 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  parent_id: resolvableValue(z.string()),
-})
+export const DataAwsOrganizationsOrganizationalUnitsInputSchema = TfMetaSchema
+  .extend({
+    parent_id: resolvableValue(z.string()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsOrganizationsOrganizationalUnitsOutputSchema = z.object({
   children: z.object({
     arn: z.string(),
     id: z.string(),
@@ -21,19 +22,19 @@ export const OutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsOrganizationsOrganizationalUnitsInputProps =
+  & z.input<typeof DataAwsOrganizationsOrganizationalUnitsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsOrganizationsOrganizationalUnitsOutputProps =
+  & z.output<typeof DataAwsOrganizationsOrganizationalUnitsOutputSchema>
+  & z.output<typeof DataAwsOrganizationsOrganizationalUnitsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/organizations_organizational_units
 
 export function DataAwsOrganizationsOrganizationalUnits(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsOrganizationsOrganizationalUnitsInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -44,8 +45,8 @@ export function DataAwsOrganizationsOrganizationalUnits(
       _type='aws_organizations_organizational_units'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsOrganizationsOrganizationalUnitsInputSchema}
+      _outputSchema={DataAwsOrganizationsOrganizationalUnitsOutputSchema}
       {...props}
     />
   )
@@ -56,7 +57,7 @@ export const useDataAwsOrganizationsOrganizationalUnitss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsOrganizationsOrganizationalUnitsOutputProps>(
     DataAwsOrganizationsOrganizationalUnits,
     idFilter,
     baseNode,

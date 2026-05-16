@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSsmincidentsReplicationSetInputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(
     z.object({
@@ -37,7 +37,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsSsmincidentsReplicationSetOutputSchema = z.object({
   arn: z.string().optional(),
   created_by: z.string().optional(),
   deletion_protected: z.boolean().optional(),
@@ -46,18 +46,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSsmincidentsReplicationSetInputProps =
+  & z.input<typeof AwsSsmincidentsReplicationSetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSsmincidentsReplicationSetOutputProps =
+  & z.output<typeof AwsSsmincidentsReplicationSetOutputSchema>
+  & z.output<typeof AwsSsmincidentsReplicationSetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssmincidents_replication_set
 
-export function AwsSsmincidentsReplicationSet(props: Partial<InputProps>) {
+export function AwsSsmincidentsReplicationSet(
+  props: Partial<AwsSsmincidentsReplicationSetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -67,8 +69,8 @@ export function AwsSsmincidentsReplicationSet(props: Partial<InputProps>) {
       _type='aws_ssmincidents_replication_set'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSsmincidentsReplicationSetInputSchema}
+      _outputSchema={AwsSsmincidentsReplicationSetOutputSchema}
       {...props}
     />
   )
@@ -79,7 +81,7 @@ export const useAwsSsmincidentsReplicationSet = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSsmincidentsReplicationSetOutputProps>(
     AwsSsmincidentsReplicationSet,
     idFilter,
     baseNode,
@@ -91,7 +93,7 @@ export const useAwsSsmincidentsReplicationSets = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSsmincidentsReplicationSetOutputProps>(
     AwsSsmincidentsReplicationSet,
     idFilter,
     baseNode,

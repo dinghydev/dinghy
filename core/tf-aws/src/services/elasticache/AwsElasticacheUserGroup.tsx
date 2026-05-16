@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsElasticacheUserGroupInputSchema = TfMetaSchema.extend({
   engine: resolvableValue(z.string()),
   user_group_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
@@ -17,24 +17,26 @@ export const InputSchema = TfMetaSchema.extend({
   user_ids: resolvableValue(z.string().array().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsElasticacheUserGroupOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsElasticacheUserGroupInputProps =
+  & z.input<typeof AwsElasticacheUserGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsElasticacheUserGroupOutputProps =
+  & z.output<typeof AwsElasticacheUserGroupOutputSchema>
+  & z.output<typeof AwsElasticacheUserGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/elasticache_user_group
 
-export function AwsElasticacheUserGroup(props: Partial<InputProps>) {
+export function AwsElasticacheUserGroup(
+  props: Partial<AwsElasticacheUserGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +46,8 @@ export function AwsElasticacheUserGroup(props: Partial<InputProps>) {
       _type='aws_elasticache_user_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsElasticacheUserGroupInputSchema}
+      _outputSchema={AwsElasticacheUserGroupOutputSchema}
       {...props}
     />
   )
@@ -56,7 +58,7 @@ export const useAwsElasticacheUserGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsElasticacheUserGroupOutputProps>(
     AwsElasticacheUserGroup,
     idFilter,
     baseNode,
@@ -68,7 +70,7 @@ export const useAwsElasticacheUserGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsElasticacheUserGroupOutputProps>(
     AwsElasticacheUserGroup,
     idFilter,
     baseNode,

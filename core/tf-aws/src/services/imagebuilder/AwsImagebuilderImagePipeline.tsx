@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsImagebuilderImagePipelineInputSchema = TfMetaSchema.extend({
   infrastructure_configuration_arn: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   container_recipe_arn: resolvableValue(z.string().optional()),
@@ -62,7 +62,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsImagebuilderImagePipelineOutputSchema = z.object({
   arn: z.string().optional(),
   date_created: z.string().optional(),
   date_last_run: z.string().optional(),
@@ -73,23 +73,25 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsImagebuilderImagePipelineImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsImagebuilderImagePipelineInputProps =
+  & z.input<typeof AwsImagebuilderImagePipelineInputSchema>
+  & z.input<typeof AwsImagebuilderImagePipelineImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsImagebuilderImagePipelineOutputProps =
+  & z.output<typeof AwsImagebuilderImagePipelineOutputSchema>
+  & z.output<typeof AwsImagebuilderImagePipelineInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/imagebuilder_image_pipeline
 
-export function AwsImagebuilderImagePipeline(props: Partial<InputProps>) {
+export function AwsImagebuilderImagePipeline(
+  props: Partial<AwsImagebuilderImagePipelineInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -99,9 +101,9 @@ export function AwsImagebuilderImagePipeline(props: Partial<InputProps>) {
       _type='aws_imagebuilder_image_pipeline'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsImagebuilderImagePipelineInputSchema}
+      _outputSchema={AwsImagebuilderImagePipelineOutputSchema}
+      _importSchema={AwsImagebuilderImagePipelineImportSchema}
       {...props}
     />
   )
@@ -112,7 +114,7 @@ export const useAwsImagebuilderImagePipeline = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsImagebuilderImagePipelineOutputProps>(
     AwsImagebuilderImagePipeline,
     idFilter,
     baseNode,
@@ -124,7 +126,7 @@ export const useAwsImagebuilderImagePipelines = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsImagebuilderImagePipelineOutputProps>(
     AwsImagebuilderImagePipeline,
     idFilter,
     baseNode,

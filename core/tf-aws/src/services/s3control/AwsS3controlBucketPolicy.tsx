@@ -9,28 +9,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsS3controlBucketPolicyInputSchema = TfMetaSchema.extend({
   bucket: resolvableValue(z.string()),
   policy: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsS3controlBucketPolicyOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsS3controlBucketPolicyInputProps =
+  & z.input<typeof AwsS3controlBucketPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3controlBucketPolicyOutputProps =
+  & z.output<typeof AwsS3controlBucketPolicyOutputSchema>
+  & z.output<typeof AwsS3controlBucketPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3control_bucket_policy
 
-export function AwsS3controlBucketPolicy(props: Partial<InputProps>) {
+export function AwsS3controlBucketPolicy(
+  props: Partial<AwsS3controlBucketPolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function AwsS3controlBucketPolicy(props: Partial<InputProps>) {
       _type='aws_s3control_bucket_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsS3controlBucketPolicyInputSchema}
+      _outputSchema={AwsS3controlBucketPolicyOutputSchema}
       {...props}
     />
   )
@@ -52,7 +54,7 @@ export const useAwsS3controlBucketPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsS3controlBucketPolicyOutputProps>(
     AwsS3controlBucketPolicy,
     idFilter,
     baseNode,
@@ -64,7 +66,7 @@ export const useAwsS3controlBucketPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsS3controlBucketPolicyOutputProps>(
     AwsS3controlBucketPolicy,
     idFilter,
     baseNode,

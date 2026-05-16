@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSecuritylakeDataLakeInputSchema = TfMetaSchema.extend({
   meta_store_manager_role_arn: resolvableValue(z.string()),
   configuration: resolvableValue(
     z.object({
@@ -43,30 +43,32 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsSecuritylakeDataLakeOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   s3_bucket_arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSecuritylakeDataLakeImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSecuritylakeDataLakeInputProps =
+  & z.input<typeof AwsSecuritylakeDataLakeInputSchema>
+  & z.input<typeof AwsSecuritylakeDataLakeImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSecuritylakeDataLakeOutputProps =
+  & z.output<typeof AwsSecuritylakeDataLakeOutputSchema>
+  & z.output<typeof AwsSecuritylakeDataLakeInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securitylake_data_lake
 
-export function AwsSecuritylakeDataLake(props: Partial<InputProps>) {
+export function AwsSecuritylakeDataLake(
+  props: Partial<AwsSecuritylakeDataLakeInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -76,9 +78,9 @@ export function AwsSecuritylakeDataLake(props: Partial<InputProps>) {
       _type='aws_securitylake_data_lake'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSecuritylakeDataLakeInputSchema}
+      _outputSchema={AwsSecuritylakeDataLakeOutputSchema}
+      _importSchema={AwsSecuritylakeDataLakeImportSchema}
       {...props}
     />
   )
@@ -89,7 +91,7 @@ export const useAwsSecuritylakeDataLake = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSecuritylakeDataLakeOutputProps>(
     AwsSecuritylakeDataLake,
     idFilter,
     baseNode,
@@ -101,7 +103,7 @@ export const useAwsSecuritylakeDataLakes = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSecuritylakeDataLakeOutputProps>(
     AwsSecuritylakeDataLake,
     idFilter,
     baseNode,

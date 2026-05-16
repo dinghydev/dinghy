@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLightsailInstanceInputSchema = TfMetaSchema.extend({
   availability_zone: resolvableValue(z.string()),
   blueprint_id: resolvableValue(z.string()),
   bundle_id: resolvableValue(z.string()),
@@ -28,7 +28,7 @@ export const InputSchema = TfMetaSchema.extend({
   user_data: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsLightsailInstanceOutputSchema = z.object({
   arn: z.string().optional(),
   cpu_count: z.number().optional(),
   created_at: z.string().optional(),
@@ -42,18 +42,20 @@ export const OutputSchema = z.object({
   username: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLightsailInstanceInputProps =
+  & z.input<typeof AwsLightsailInstanceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLightsailInstanceOutputProps =
+  & z.output<typeof AwsLightsailInstanceOutputSchema>
+  & z.output<typeof AwsLightsailInstanceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lightsail_instance
 
-export function AwsLightsailInstance(props: Partial<InputProps>) {
+export function AwsLightsailInstance(
+  props: Partial<AwsLightsailInstanceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -63,8 +65,8 @@ export function AwsLightsailInstance(props: Partial<InputProps>) {
       _type='aws_lightsail_instance'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLightsailInstanceInputSchema}
+      _outputSchema={AwsLightsailInstanceOutputSchema}
       {...props}
     />
   )
@@ -75,11 +77,21 @@ export const useAwsLightsailInstance = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsLightsailInstance, idFilter, baseNode, optional)
+  useTypedNode<AwsLightsailInstanceOutputProps>(
+    AwsLightsailInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLightsailInstances = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsLightsailInstance, idFilter, baseNode, optional)
+  useTypedNodes<AwsLightsailInstanceOutputProps>(
+    AwsLightsailInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )

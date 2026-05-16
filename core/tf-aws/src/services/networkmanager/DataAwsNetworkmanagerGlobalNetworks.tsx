@@ -8,28 +8,29 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  id: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+export const DataAwsNetworkmanagerGlobalNetworksInputSchema = TfMetaSchema
+  .extend({
+    id: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsNetworkmanagerGlobalNetworksOutputSchema = z.object({
   ids: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsNetworkmanagerGlobalNetworksInputProps =
+  & z.input<typeof DataAwsNetworkmanagerGlobalNetworksInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsNetworkmanagerGlobalNetworksOutputProps =
+  & z.output<typeof DataAwsNetworkmanagerGlobalNetworksOutputSchema>
+  & z.output<typeof DataAwsNetworkmanagerGlobalNetworksInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/networkmanager_global_networks
 
 export function DataAwsNetworkmanagerGlobalNetworks(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsNetworkmanagerGlobalNetworksInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -40,8 +41,8 @@ export function DataAwsNetworkmanagerGlobalNetworks(
       _type='aws_networkmanager_global_networks'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsNetworkmanagerGlobalNetworksInputSchema}
+      _outputSchema={DataAwsNetworkmanagerGlobalNetworksOutputSchema}
       {...props}
     />
   )
@@ -52,7 +53,7 @@ export const useDataAwsNetworkmanagerGlobalNetworkss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsNetworkmanagerGlobalNetworksOutputProps>(
     DataAwsNetworkmanagerGlobalNetworks,
     idFilter,
     baseNode,

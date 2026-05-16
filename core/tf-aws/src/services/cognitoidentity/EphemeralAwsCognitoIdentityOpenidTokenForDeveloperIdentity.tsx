@@ -9,32 +9,44 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  identity_pool_id: resolvableValue(z.string()),
-  logins: resolvableValue(z.record(z.string(), z.string())),
-  identity_id: resolvableValue(z.string().optional()),
-  principal_tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-  region: resolvableValue(z.string().optional()),
-  token_duration: resolvableValue(z.number().optional()),
-})
+export const EphemeralAwsCognitoIdentityOpenidTokenForDeveloperIdentityInputSchema =
+  TfMetaSchema.extend({
+    identity_pool_id: resolvableValue(z.string()),
+    logins: resolvableValue(z.record(z.string(), z.string())),
+    identity_id: resolvableValue(z.string().optional()),
+    principal_tags: resolvableValue(
+      z.record(z.string(), z.string()).optional(),
+    ),
+    region: resolvableValue(z.string().optional()),
+    token_duration: resolvableValue(z.number().optional()),
+  })
 
-export const OutputSchema = z.object({
-  token: z.string().optional(),
-})
+export const EphemeralAwsCognitoIdentityOpenidTokenForDeveloperIdentityOutputSchema =
+  z.object({
+    token: z.string().optional(),
+  })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type EphemeralAwsCognitoIdentityOpenidTokenForDeveloperIdentityInputProps =
+  & z.input<
+    typeof EphemeralAwsCognitoIdentityOpenidTokenForDeveloperIdentityInputSchema
+  >
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type EphemeralAwsCognitoIdentityOpenidTokenForDeveloperIdentityOutputProps =
+  & z.output<
+    typeof EphemeralAwsCognitoIdentityOpenidTokenForDeveloperIdentityOutputSchema
+  >
+  & z.output<
+    typeof EphemeralAwsCognitoIdentityOpenidTokenForDeveloperIdentityInputSchema
+  >
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/ephemeral-resources/cognito_identity_openid_token_for_developer_identity
 
 export function EphemeralAwsCognitoIdentityOpenidTokenForDeveloperIdentity(
-  props: Partial<InputProps>,
+  props: Partial<
+    EphemeralAwsCognitoIdentityOpenidTokenForDeveloperIdentityInputProps
+  >,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -45,8 +57,8 @@ export function EphemeralAwsCognitoIdentityOpenidTokenForDeveloperIdentity(
       _type='aws_cognito_identity_openid_token_for_developer_identity'
       _category='ephemeral'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={EphemeralAwsCognitoIdentityOpenidTokenForDeveloperIdentityInputSchema}
+      _outputSchema={EphemeralAwsCognitoIdentityOpenidTokenForDeveloperIdentityOutputSchema}
       {...props}
     />
   )
@@ -57,7 +69,9 @@ export const useEphemeralAwsCognitoIdentityOpenidTokenForDeveloperIdentity = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<
+    EphemeralAwsCognitoIdentityOpenidTokenForDeveloperIdentityOutputProps
+  >(
     EphemeralAwsCognitoIdentityOpenidTokenForDeveloperIdentity,
     idFilter,
     baseNode,
@@ -69,7 +83,9 @@ export const useEphemeralAwsCognitoIdentityOpenidTokenForDeveloperIdentitys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<
+    EphemeralAwsCognitoIdentityOpenidTokenForDeveloperIdentityOutputProps
+  >(
     EphemeralAwsCognitoIdentityOpenidTokenForDeveloperIdentity,
     idFilter,
     baseNode,

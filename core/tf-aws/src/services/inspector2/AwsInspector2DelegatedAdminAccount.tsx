@@ -9,34 +9,37 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  account_id: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsInspector2DelegatedAdminAccountInputSchema = TfMetaSchema
+  .extend({
+    account_id: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsInspector2DelegatedAdminAccountOutputSchema = z.object({
   relationship_status: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsInspector2DelegatedAdminAccountInputProps =
+  & z.input<typeof AwsInspector2DelegatedAdminAccountInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsInspector2DelegatedAdminAccountOutputProps =
+  & z.output<typeof AwsInspector2DelegatedAdminAccountOutputSchema>
+  & z.output<typeof AwsInspector2DelegatedAdminAccountInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/inspector2_delegated_admin_account
 
-export function AwsInspector2DelegatedAdminAccount(props: Partial<InputProps>) {
+export function AwsInspector2DelegatedAdminAccount(
+  props: Partial<AwsInspector2DelegatedAdminAccountInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +49,8 @@ export function AwsInspector2DelegatedAdminAccount(props: Partial<InputProps>) {
       _type='aws_inspector2_delegated_admin_account'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsInspector2DelegatedAdminAccountInputSchema}
+      _outputSchema={AwsInspector2DelegatedAdminAccountOutputSchema}
       {...props}
     />
   )
@@ -58,7 +61,7 @@ export const useAwsInspector2DelegatedAdminAccount = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsInspector2DelegatedAdminAccountOutputProps>(
     AwsInspector2DelegatedAdminAccount,
     idFilter,
     baseNode,
@@ -70,7 +73,7 @@ export const useAwsInspector2DelegatedAdminAccounts = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsInspector2DelegatedAdminAccountOutputProps>(
     AwsInspector2DelegatedAdminAccount,
     idFilter,
     baseNode,

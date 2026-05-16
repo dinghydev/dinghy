@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsServicecatalogProduct } from './AwsServicecatalogProduct.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsServicecatalogProductInputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string()),
   accept_language: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -20,7 +20,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsServicecatalogProductOutputSchema = z.object({
   arn: z.string().optional(),
   created_time: z.string().optional(),
   description: z.string().optional(),
@@ -36,18 +36,20 @@ export const OutputSchema = z.object({
   type: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsServicecatalogProductInputProps =
+  & z.input<typeof DataAwsServicecatalogProductInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsServicecatalogProductOutputProps =
+  & z.output<typeof DataAwsServicecatalogProductOutputSchema>
+  & z.output<typeof DataAwsServicecatalogProductInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/servicecatalog_product
 
-export function DataAwsServicecatalogProduct(props: Partial<InputProps>) {
+export function DataAwsServicecatalogProduct(
+  props: Partial<DataAwsServicecatalogProductInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -57,8 +59,8 @@ export function DataAwsServicecatalogProduct(props: Partial<InputProps>) {
       _type='aws_servicecatalog_product'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsServicecatalogProductInputSchema}
+      _outputSchema={DataAwsServicecatalogProductOutputSchema}
       {...props as any}
     />
   )
@@ -69,7 +71,7 @@ export const useDataAwsServicecatalogProduct = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsServicecatalogProductOutputProps>(
     DataAwsServicecatalogProduct,
     idFilter,
     baseNode,
@@ -81,7 +83,7 @@ export const useDataAwsServicecatalogProducts = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsServicecatalogProductOutputProps>(
     DataAwsServicecatalogProduct,
     idFilter,
     baseNode,

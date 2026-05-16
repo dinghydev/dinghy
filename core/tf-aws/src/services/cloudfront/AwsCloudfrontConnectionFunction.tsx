@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudfrontConnectionFunctionInputSchema = TfMetaSchema.extend({
   connection_function_code: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   connection_function_config: resolvableValue(
@@ -25,7 +25,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudfrontConnectionFunctionOutputSchema = z.object({
   connection_function_arn: z.string().optional(),
   etag: z.string().optional(),
   id: z.string().optional(),
@@ -34,18 +34,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudfrontConnectionFunctionInputProps =
+  & z.input<typeof AwsCloudfrontConnectionFunctionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudfrontConnectionFunctionOutputProps =
+  & z.output<typeof AwsCloudfrontConnectionFunctionOutputSchema>
+  & z.output<typeof AwsCloudfrontConnectionFunctionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudfront_connection_function
 
-export function AwsCloudfrontConnectionFunction(props: Partial<InputProps>) {
+export function AwsCloudfrontConnectionFunction(
+  props: Partial<AwsCloudfrontConnectionFunctionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,8 +57,8 @@ export function AwsCloudfrontConnectionFunction(props: Partial<InputProps>) {
       _type='aws_cloudfront_connection_function'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudfrontConnectionFunctionInputSchema}
+      _outputSchema={AwsCloudfrontConnectionFunctionOutputSchema}
       {...props}
     />
   )
@@ -67,7 +69,7 @@ export const useAwsCloudfrontConnectionFunction = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudfrontConnectionFunctionOutputProps>(
     AwsCloudfrontConnectionFunction,
     idFilter,
     baseNode,
@@ -79,7 +81,7 @@ export const useAwsCloudfrontConnectionFunctions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudfrontConnectionFunctionOutputProps>(
     AwsCloudfrontConnectionFunction,
     idFilter,
     baseNode,

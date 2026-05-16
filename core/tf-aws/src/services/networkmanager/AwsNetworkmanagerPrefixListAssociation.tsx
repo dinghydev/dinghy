@@ -9,34 +9,35 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  core_network_id: resolvableValue(z.string()),
-  prefix_list_alias: resolvableValue(z.string()),
-  prefix_list_arn: resolvableValue(z.string()),
-})
+export const AwsNetworkmanagerPrefixListAssociationInputSchema = TfMetaSchema
+  .extend({
+    core_network_id: resolvableValue(z.string()),
+    prefix_list_alias: resolvableValue(z.string()),
+    prefix_list_arn: resolvableValue(z.string()),
+  })
 
-export const OutputSchema = z.object({})
+export const AwsNetworkmanagerPrefixListAssociationOutputSchema = z.object({})
 
-export const ImportSchema = z.object({
+export const AwsNetworkmanagerPrefixListAssociationImportSchema = z.object({
   core_network_id: resolvableValue(z.string()),
   prefix_list_arn: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsNetworkmanagerPrefixListAssociationInputProps =
+  & z.input<typeof AwsNetworkmanagerPrefixListAssociationInputSchema>
+  & z.input<typeof AwsNetworkmanagerPrefixListAssociationImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNetworkmanagerPrefixListAssociationOutputProps =
+  & z.output<typeof AwsNetworkmanagerPrefixListAssociationOutputSchema>
+  & z.output<typeof AwsNetworkmanagerPrefixListAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/networkmanager_prefix_list_association
 
 export function AwsNetworkmanagerPrefixListAssociation(
-  props: Partial<InputProps>,
+  props: Partial<AwsNetworkmanagerPrefixListAssociationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -47,9 +48,9 @@ export function AwsNetworkmanagerPrefixListAssociation(
       _type='aws_networkmanager_prefix_list_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsNetworkmanagerPrefixListAssociationInputSchema}
+      _outputSchema={AwsNetworkmanagerPrefixListAssociationOutputSchema}
+      _importSchema={AwsNetworkmanagerPrefixListAssociationImportSchema}
       {...props}
     />
   )
@@ -60,7 +61,7 @@ export const useAwsNetworkmanagerPrefixListAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsNetworkmanagerPrefixListAssociationOutputProps>(
     AwsNetworkmanagerPrefixListAssociation,
     idFilter,
     baseNode,
@@ -72,7 +73,7 @@ export const useAwsNetworkmanagerPrefixListAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsNetworkmanagerPrefixListAssociationOutputProps>(
     AwsNetworkmanagerPrefixListAssociation,
     idFilter,
     baseNode,

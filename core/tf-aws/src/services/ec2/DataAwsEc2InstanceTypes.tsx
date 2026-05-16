@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsEc2InstanceTypesInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -23,23 +23,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsEc2InstanceTypesOutputSchema = z.object({
   id: z.string().optional(),
   instance_types: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEc2InstanceTypesInputProps =
+  & z.input<typeof DataAwsEc2InstanceTypesInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEc2InstanceTypesOutputProps =
+  & z.output<typeof DataAwsEc2InstanceTypesOutputSchema>
+  & z.output<typeof DataAwsEc2InstanceTypesInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ec2_instance_types
 
-export function DataAwsEc2InstanceTypes(props: Partial<InputProps>) {
+export function DataAwsEc2InstanceTypes(
+  props: Partial<DataAwsEc2InstanceTypesInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,8 +51,8 @@ export function DataAwsEc2InstanceTypes(props: Partial<InputProps>) {
       _type='aws_ec2_instance_types'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEc2InstanceTypesInputSchema}
+      _outputSchema={DataAwsEc2InstanceTypesOutputSchema}
       {...props}
     />
   )
@@ -61,7 +63,7 @@ export const useDataAwsEc2InstanceTypess = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsEc2InstanceTypesOutputProps>(
     DataAwsEc2InstanceTypes,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsConnectSecurityProfileInputSchema = TfMetaSchema.extend({
   instance_id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
@@ -18,7 +18,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsConnectSecurityProfileOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   organization_resource_id: z.string().optional(),
@@ -26,18 +26,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsConnectSecurityProfileInputProps =
+  & z.input<typeof AwsConnectSecurityProfileInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsConnectSecurityProfileOutputProps =
+  & z.output<typeof AwsConnectSecurityProfileOutputSchema>
+  & z.output<typeof AwsConnectSecurityProfileInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/connect_security_profile
 
-export function AwsConnectSecurityProfile(props: Partial<InputProps>) {
+export function AwsConnectSecurityProfile(
+  props: Partial<AwsConnectSecurityProfileInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +49,8 @@ export function AwsConnectSecurityProfile(props: Partial<InputProps>) {
       _type='aws_connect_security_profile'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsConnectSecurityProfileInputSchema}
+      _outputSchema={AwsConnectSecurityProfileOutputSchema}
       {...props}
     />
   )
@@ -59,7 +61,7 @@ export const useAwsConnectSecurityProfile = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsConnectSecurityProfileOutputProps>(
     AwsConnectSecurityProfile,
     idFilter,
     baseNode,
@@ -71,7 +73,7 @@ export const useAwsConnectSecurityProfiles = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsConnectSecurityProfileOutputProps>(
     AwsConnectSecurityProfile,
     idFilter,
     baseNode,

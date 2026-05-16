@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsTransferHostKeyInputSchema = TfMetaSchema.extend({
   server_id: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   host_key_body: resolvableValue(z.string().optional()),
@@ -18,25 +18,27 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsTransferHostKeyOutputSchema = z.object({
   arn: z.string().optional(),
   host_key_fingerprint: z.string().optional(),
   host_key_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsTransferHostKeyInputProps =
+  & z.input<typeof AwsTransferHostKeyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsTransferHostKeyOutputProps =
+  & z.output<typeof AwsTransferHostKeyOutputSchema>
+  & z.output<typeof AwsTransferHostKeyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/transfer_host_key
 
-export function AwsTransferHostKey(props: Partial<InputProps>) {
+export function AwsTransferHostKey(
+  props: Partial<AwsTransferHostKeyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function AwsTransferHostKey(props: Partial<InputProps>) {
       _type='aws_transfer_host_key'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsTransferHostKeyInputSchema}
+      _outputSchema={AwsTransferHostKeyOutputSchema}
       {...props}
     />
   )
@@ -57,11 +59,22 @@ export const useAwsTransferHostKey = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsTransferHostKey, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsTransferHostKeyOutputProps>(
+    AwsTransferHostKey,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsTransferHostKeys = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsTransferHostKey, idFilter, baseNode, optional)
+  useTypedNodes<AwsTransferHostKeyOutputProps>(
+    AwsTransferHostKey,
+    idFilter,
+    baseNode,
+    optional,
+  )

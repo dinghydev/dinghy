@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsVpcRouteServerEndpointInputSchema = TfMetaSchema.extend({
   route_server_id: resolvableValue(z.string()),
   subnet_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
@@ -22,7 +22,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsVpcRouteServerEndpointOutputSchema = z.object({
   arn: z.string().optional(),
   eni_address: z.string().optional(),
   eni_id: z.string().optional(),
@@ -31,18 +31,20 @@ export const OutputSchema = z.object({
   vpc_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVpcRouteServerEndpointInputProps =
+  & z.input<typeof AwsVpcRouteServerEndpointInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVpcRouteServerEndpointOutputProps =
+  & z.output<typeof AwsVpcRouteServerEndpointOutputSchema>
+  & z.output<typeof AwsVpcRouteServerEndpointInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpc_route_server_endpoint
 
-export function AwsVpcRouteServerEndpoint(props: Partial<InputProps>) {
+export function AwsVpcRouteServerEndpoint(
+  props: Partial<AwsVpcRouteServerEndpointInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,8 +54,8 @@ export function AwsVpcRouteServerEndpoint(props: Partial<InputProps>) {
       _type='aws_vpc_route_server_endpoint'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVpcRouteServerEndpointInputSchema}
+      _outputSchema={AwsVpcRouteServerEndpointOutputSchema}
       {...props}
     />
   )
@@ -64,7 +66,7 @@ export const useAwsVpcRouteServerEndpoint = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsVpcRouteServerEndpointOutputProps>(
     AwsVpcRouteServerEndpoint,
     idFilter,
     baseNode,
@@ -76,7 +78,7 @@ export const useAwsVpcRouteServerEndpoints = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsVpcRouteServerEndpointOutputProps>(
     AwsVpcRouteServerEndpoint,
     idFilter,
     baseNode,

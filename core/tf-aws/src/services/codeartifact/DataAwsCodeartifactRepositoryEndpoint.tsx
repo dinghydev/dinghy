@@ -9,32 +9,33 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  domain: resolvableValue(z.string()),
-  format: resolvableValue(z.string()),
-  repository: resolvableValue(z.string()),
-  domain_owner: resolvableValue(z.string().optional()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsCodeartifactRepositoryEndpointInputSchema = TfMetaSchema
+  .extend({
+    domain: resolvableValue(z.string()),
+    format: resolvableValue(z.string()),
+    repository: resolvableValue(z.string()),
+    domain_owner: resolvableValue(z.string().optional()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsCodeartifactRepositoryEndpointOutputSchema = z.object({
   repository_endpoint: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsCodeartifactRepositoryEndpointInputProps =
+  & z.input<typeof DataAwsCodeartifactRepositoryEndpointInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsCodeartifactRepositoryEndpointOutputProps =
+  & z.output<typeof DataAwsCodeartifactRepositoryEndpointOutputSchema>
+  & z.output<typeof DataAwsCodeartifactRepositoryEndpointInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/codeartifact_repository_endpoint
 
 export function DataAwsCodeartifactRepositoryEndpoint(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsCodeartifactRepositoryEndpointInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -45,8 +46,8 @@ export function DataAwsCodeartifactRepositoryEndpoint(
       _type='aws_codeartifact_repository_endpoint'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsCodeartifactRepositoryEndpointInputSchema}
+      _outputSchema={DataAwsCodeartifactRepositoryEndpointOutputSchema}
       {...props}
     />
   )
@@ -57,7 +58,7 @@ export const useDataAwsCodeartifactRepositoryEndpoint = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsCodeartifactRepositoryEndpointOutputProps>(
     DataAwsCodeartifactRepositoryEndpoint,
     idFilter,
     baseNode,
@@ -69,7 +70,7 @@ export const useDataAwsCodeartifactRepositoryEndpoints = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsCodeartifactRepositoryEndpointOutputProps>(
     DataAwsCodeartifactRepositoryEndpoint,
     idFilter,
     baseNode,

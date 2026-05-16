@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDocdbelasticClusterInputSchema = TfMetaSchema.extend({
   admin_user_name: resolvableValue(z.string()),
   admin_user_password: resolvableValue(z.string()),
   auth_type: resolvableValue(z.string()),
@@ -34,30 +34,32 @@ export const InputSchema = TfMetaSchema.extend({
   vpc_security_group_ids: resolvableValue(z.string().array().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDocdbelasticClusterOutputSchema = z.object({
   arn: z.string().optional(),
   endpoint: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsDocdbelasticClusterImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsDocdbelasticClusterInputProps =
+  & z.input<typeof AwsDocdbelasticClusterInputSchema>
+  & z.input<typeof AwsDocdbelasticClusterImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDocdbelasticClusterOutputProps =
+  & z.output<typeof AwsDocdbelasticClusterOutputSchema>
+  & z.output<typeof AwsDocdbelasticClusterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/docdbelastic_cluster
 
-export function AwsDocdbelasticCluster(props: Partial<InputProps>) {
+export function AwsDocdbelasticCluster(
+  props: Partial<AwsDocdbelasticClusterInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -67,9 +69,9 @@ export function AwsDocdbelasticCluster(props: Partial<InputProps>) {
       _type='aws_docdbelastic_cluster'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsDocdbelasticClusterInputSchema}
+      _outputSchema={AwsDocdbelasticClusterOutputSchema}
+      _importSchema={AwsDocdbelasticClusterImportSchema}
       {...props}
     />
   )
@@ -80,7 +82,7 @@ export const useAwsDocdbelasticCluster = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDocdbelasticClusterOutputProps>(
     AwsDocdbelasticCluster,
     idFilter,
     baseNode,
@@ -92,7 +94,7 @@ export const useAwsDocdbelasticClusters = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDocdbelasticClusterOutputProps>(
     AwsDocdbelasticCluster,
     idFilter,
     baseNode,

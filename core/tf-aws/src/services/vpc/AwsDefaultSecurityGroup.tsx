@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDefaultSecurityGroupInputSchema = TfMetaSchema.extend({
   egress: resolvableValue(
     z.object({
       cidr_blocks: z.string().array(),
@@ -42,7 +42,7 @@ export const InputSchema = TfMetaSchema.extend({
   vpc_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDefaultSecurityGroupOutputSchema = z.object({
   arn: z.string().optional(),
   description: z.string().optional(),
   id: z.string().optional(),
@@ -52,18 +52,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDefaultSecurityGroupInputProps =
+  & z.input<typeof AwsDefaultSecurityGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDefaultSecurityGroupOutputProps =
+  & z.output<typeof AwsDefaultSecurityGroupOutputSchema>
+  & z.output<typeof AwsDefaultSecurityGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/default_security_group
 
-export function AwsDefaultSecurityGroup(props: Partial<InputProps>) {
+export function AwsDefaultSecurityGroup(
+  props: Partial<AwsDefaultSecurityGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -73,8 +75,8 @@ export function AwsDefaultSecurityGroup(props: Partial<InputProps>) {
       _type='aws_default_security_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDefaultSecurityGroupInputSchema}
+      _outputSchema={AwsDefaultSecurityGroupOutputSchema}
       {...props}
     />
   )
@@ -85,7 +87,7 @@ export const useAwsDefaultSecurityGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDefaultSecurityGroupOutputProps>(
     AwsDefaultSecurityGroup,
     idFilter,
     baseNode,
@@ -97,7 +99,7 @@ export const useAwsDefaultSecurityGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDefaultSecurityGroupOutputProps>(
     AwsDefaultSecurityGroup,
     idFilter,
     baseNode,

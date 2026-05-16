@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsNetworkInterfaceInputSchema = TfMetaSchema.extend({
   subnet_id: resolvableValue(z.string()),
   attachment: resolvableValue(
     z.object({
@@ -49,7 +49,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsNetworkInterfaceOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   mac_address: z.string().optional(),
@@ -59,18 +59,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsNetworkInterfaceInputProps =
+  & z.input<typeof AwsNetworkInterfaceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNetworkInterfaceOutputProps =
+  & z.output<typeof AwsNetworkInterfaceOutputSchema>
+  & z.output<typeof AwsNetworkInterfaceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/network_interface
 
-export function AwsNetworkInterface(props: Partial<InputProps>) {
+export function AwsNetworkInterface(
+  props: Partial<AwsNetworkInterfaceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -80,8 +82,8 @@ export function AwsNetworkInterface(props: Partial<InputProps>) {
       _type='aws_network_interface'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsNetworkInterfaceInputSchema}
+      _outputSchema={AwsNetworkInterfaceOutputSchema}
       {...props}
     />
   )
@@ -92,11 +94,21 @@ export const useAwsNetworkInterface = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsNetworkInterface, idFilter, baseNode, optional)
+  useTypedNode<AwsNetworkInterfaceOutputProps>(
+    AwsNetworkInterface,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsNetworkInterfaces = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsNetworkInterface, idFilter, baseNode, optional)
+  useTypedNodes<AwsNetworkInterfaceOutputProps>(
+    AwsNetworkInterface,
+    idFilter,
+    baseNode,
+    optional,
+  )

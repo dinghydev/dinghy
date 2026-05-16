@@ -9,14 +9,14 @@ import {
 import z from 'zod'
 import { AwsEksAddon } from './AwsEksAddon.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsEksAddonInputSchema = TfMetaSchema.extend({
   addon_name: resolvableValue(z.string()),
   cluster_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsEksAddonOutputSchema = z.object({
   addon_version: z.string().optional(),
   arn: z.string().optional(),
   configuration_values: z.string().optional(),
@@ -30,18 +30,18 @@ export const OutputSchema = z.object({
   service_account_role_arn: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEksAddonInputProps =
+  & z.input<typeof DataAwsEksAddonInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEksAddonOutputProps =
+  & z.output<typeof DataAwsEksAddonOutputSchema>
+  & z.output<typeof DataAwsEksAddonInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/eks_addon
 
-export function DataAwsEksAddon(props: Partial<InputProps>) {
+export function DataAwsEksAddon(props: Partial<DataAwsEksAddonInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -51,8 +51,8 @@ export function DataAwsEksAddon(props: Partial<InputProps>) {
       _type='aws_eks_addon'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEksAddonInputSchema}
+      _outputSchema={DataAwsEksAddonOutputSchema}
       {...props as any}
     />
   )
@@ -62,10 +62,22 @@ export const useDataAwsEksAddon = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsEksAddon, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsEksAddonOutputProps>(
+    DataAwsEksAddon,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsEksAddons = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsEksAddon, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsEksAddonOutputProps>(
+    DataAwsEksAddon,
+    idFilter,
+    baseNode,
+    optional,
+  )

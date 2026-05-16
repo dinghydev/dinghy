@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSsmincidentsResponsePlanInputSchema = TfMetaSchema.extend({
   incident_template: resolvableValue(z.object({
     dedupe_string: z.string().optional(),
     impact: z.number(),
@@ -53,23 +53,25 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSsmincidentsResponsePlanOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSsmincidentsResponsePlanInputProps =
+  & z.input<typeof AwsSsmincidentsResponsePlanInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSsmincidentsResponsePlanOutputProps =
+  & z.output<typeof AwsSsmincidentsResponsePlanOutputSchema>
+  & z.output<typeof AwsSsmincidentsResponsePlanInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssmincidents_response_plan
 
-export function AwsSsmincidentsResponsePlan(props: Partial<InputProps>) {
+export function AwsSsmincidentsResponsePlan(
+  props: Partial<AwsSsmincidentsResponsePlanInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -79,8 +81,8 @@ export function AwsSsmincidentsResponsePlan(props: Partial<InputProps>) {
       _type='aws_ssmincidents_response_plan'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSsmincidentsResponsePlanInputSchema}
+      _outputSchema={AwsSsmincidentsResponsePlanOutputSchema}
       {...props}
     />
   )
@@ -91,7 +93,7 @@ export const useAwsSsmincidentsResponsePlan = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSsmincidentsResponsePlanOutputProps>(
     AwsSsmincidentsResponsePlan,
     idFilter,
     baseNode,
@@ -103,7 +105,7 @@ export const useAwsSsmincidentsResponsePlans = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSsmincidentsResponsePlanOutputProps>(
     AwsSsmincidentsResponsePlan,
     idFilter,
     baseNode,

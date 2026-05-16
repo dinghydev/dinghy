@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIvschatRoomInputSchema = TfMetaSchema.extend({
   logging_configuration_identifiers: resolvableValue(
     z.string().array().optional(),
   ),
@@ -33,29 +33,29 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsIvschatRoomOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsIvschatRoomImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsIvschatRoomInputProps =
+  & z.input<typeof AwsIvschatRoomInputSchema>
+  & z.input<typeof AwsIvschatRoomImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIvschatRoomOutputProps =
+  & z.output<typeof AwsIvschatRoomOutputSchema>
+  & z.output<typeof AwsIvschatRoomInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ivschat_room
 
-export function AwsIvschatRoom(props: Partial<InputProps>) {
+export function AwsIvschatRoom(props: Partial<AwsIvschatRoomInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -65,9 +65,9 @@ export function AwsIvschatRoom(props: Partial<InputProps>) {
       _type='aws_ivschat_room'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsIvschatRoomInputSchema}
+      _outputSchema={AwsIvschatRoomOutputSchema}
+      _importSchema={AwsIvschatRoomImportSchema}
       {...props}
     />
   )
@@ -77,10 +77,22 @@ export const useAwsIvschatRoom = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsIvschatRoom, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsIvschatRoomOutputProps>(
+    AwsIvschatRoom,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIvschatRooms = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsIvschatRoom, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsIvschatRoomOutputProps>(
+    AwsIvschatRoom,
+    idFilter,
+    baseNode,
+    optional,
+  )

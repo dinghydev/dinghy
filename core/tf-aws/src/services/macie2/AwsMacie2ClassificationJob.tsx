@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsMacie2ClassificationJobInputSchema = TfMetaSchema.extend({
   job_type: resolvableValue(z.string()),
   s3_job_definition: resolvableValue(z.object({
     bucket_criteria: z.object({
@@ -113,7 +113,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsMacie2ClassificationJobOutputSchema = z.object({
   created_at: z.string().optional(),
   id: z.string().optional(),
   job_arn: z.string().optional(),
@@ -126,18 +126,20 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsMacie2ClassificationJobInputProps =
+  & z.input<typeof AwsMacie2ClassificationJobInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsMacie2ClassificationJobOutputProps =
+  & z.output<typeof AwsMacie2ClassificationJobOutputSchema>
+  & z.output<typeof AwsMacie2ClassificationJobInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/macie2_classification_job
 
-export function AwsMacie2ClassificationJob(props: Partial<InputProps>) {
+export function AwsMacie2ClassificationJob(
+  props: Partial<AwsMacie2ClassificationJobInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -147,8 +149,8 @@ export function AwsMacie2ClassificationJob(props: Partial<InputProps>) {
       _type='aws_macie2_classification_job'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsMacie2ClassificationJobInputSchema}
+      _outputSchema={AwsMacie2ClassificationJobOutputSchema}
       {...props}
     />
   )
@@ -159,7 +161,7 @@ export const useAwsMacie2ClassificationJob = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsMacie2ClassificationJobOutputProps>(
     AwsMacie2ClassificationJob,
     idFilter,
     baseNode,
@@ -171,7 +173,7 @@ export const useAwsMacie2ClassificationJobs = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsMacie2ClassificationJobOutputProps>(
     AwsMacie2ClassificationJob,
     idFilter,
     baseNode,

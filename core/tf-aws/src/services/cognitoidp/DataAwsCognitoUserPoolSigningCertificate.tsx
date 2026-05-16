@@ -9,29 +9,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  user_pool_id: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsCognitoUserPoolSigningCertificateInputSchema = TfMetaSchema
+  .extend({
+    user_pool_id: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsCognitoUserPoolSigningCertificateOutputSchema = z.object({
   certificate: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsCognitoUserPoolSigningCertificateInputProps =
+  & z.input<typeof DataAwsCognitoUserPoolSigningCertificateInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsCognitoUserPoolSigningCertificateOutputProps =
+  & z.output<typeof DataAwsCognitoUserPoolSigningCertificateOutputSchema>
+  & z.output<typeof DataAwsCognitoUserPoolSigningCertificateInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/cognito_user_pool_signing_certificate
 
 export function DataAwsCognitoUserPoolSigningCertificate(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsCognitoUserPoolSigningCertificateInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -42,8 +43,8 @@ export function DataAwsCognitoUserPoolSigningCertificate(
       _type='aws_cognito_user_pool_signing_certificate'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsCognitoUserPoolSigningCertificateInputSchema}
+      _outputSchema={DataAwsCognitoUserPoolSigningCertificateOutputSchema}
       {...props}
     />
   )
@@ -54,7 +55,7 @@ export const useDataAwsCognitoUserPoolSigningCertificate = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsCognitoUserPoolSigningCertificateOutputProps>(
     DataAwsCognitoUserPoolSigningCertificate,
     idFilter,
     baseNode,
@@ -66,7 +67,7 @@ export const useDataAwsCognitoUserPoolSigningCertificates = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsCognitoUserPoolSigningCertificateOutputProps>(
     DataAwsCognitoUserPoolSigningCertificate,
     idFilter,
     baseNode,

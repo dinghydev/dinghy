@@ -9,38 +9,40 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  agent_id: resolvableValue(z.string()),
-  description: resolvableValue(z.string()),
-  knowledge_base_id: resolvableValue(z.string()),
-  knowledge_base_state: resolvableValue(z.string()),
-  agent_version: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      update: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsBedrockagentAgentKnowledgeBaseAssociationInputSchema =
+  TfMetaSchema.extend({
+    agent_id: resolvableValue(z.string()),
+    description: resolvableValue(z.string()),
+    knowledge_base_id: resolvableValue(z.string()),
+    knowledge_base_state: resolvableValue(z.string()),
+    agent_version: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        update: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
-  id: z.string().optional(),
-})
+export const AwsBedrockagentAgentKnowledgeBaseAssociationOutputSchema = z
+  .object({
+    id: z.string().optional(),
+  })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsBedrockagentAgentKnowledgeBaseAssociationInputProps =
+  & z.input<typeof AwsBedrockagentAgentKnowledgeBaseAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBedrockagentAgentKnowledgeBaseAssociationOutputProps =
+  & z.output<typeof AwsBedrockagentAgentKnowledgeBaseAssociationOutputSchema>
+  & z.output<typeof AwsBedrockagentAgentKnowledgeBaseAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/bedrockagent_agent_knowledge_base_association
 
 export function AwsBedrockagentAgentKnowledgeBaseAssociation(
-  props: Partial<InputProps>,
+  props: Partial<AwsBedrockagentAgentKnowledgeBaseAssociationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -51,8 +53,8 @@ export function AwsBedrockagentAgentKnowledgeBaseAssociation(
       _type='aws_bedrockagent_agent_knowledge_base_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsBedrockagentAgentKnowledgeBaseAssociationInputSchema}
+      _outputSchema={AwsBedrockagentAgentKnowledgeBaseAssociationOutputSchema}
       {...props}
     />
   )
@@ -63,7 +65,7 @@ export const useAwsBedrockagentAgentKnowledgeBaseAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsBedrockagentAgentKnowledgeBaseAssociationOutputProps>(
     AwsBedrockagentAgentKnowledgeBaseAssociation,
     idFilter,
     baseNode,
@@ -75,7 +77,7 @@ export const useAwsBedrockagentAgentKnowledgeBaseAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsBedrockagentAgentKnowledgeBaseAssociationOutputProps>(
     AwsBedrockagentAgentKnowledgeBaseAssociation,
     idFilter,
     baseNode,

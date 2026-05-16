@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudwatchMetricStreamInputSchema = TfMetaSchema.extend({
   firehose_arn: resolvableValue(z.string()),
   output_format: resolvableValue(z.string()),
   role_arn: resolvableValue(z.string()),
@@ -49,7 +49,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudwatchMetricStreamOutputSchema = z.object({
   arn: z.string().optional(),
   creation_date: z.string().optional(),
   last_update_date: z.string().optional(),
@@ -57,18 +57,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudwatchMetricStreamInputProps =
+  & z.input<typeof AwsCloudwatchMetricStreamInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudwatchMetricStreamOutputProps =
+  & z.output<typeof AwsCloudwatchMetricStreamOutputSchema>
+  & z.output<typeof AwsCloudwatchMetricStreamInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudwatch_metric_stream
 
-export function AwsCloudwatchMetricStream(props: Partial<InputProps>) {
+export function AwsCloudwatchMetricStream(
+  props: Partial<AwsCloudwatchMetricStreamInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -78,8 +80,8 @@ export function AwsCloudwatchMetricStream(props: Partial<InputProps>) {
       _type='aws_cloudwatch_metric_stream'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudwatchMetricStreamInputSchema}
+      _outputSchema={AwsCloudwatchMetricStreamOutputSchema}
       {...props}
     />
   )
@@ -90,7 +92,7 @@ export const useAwsCloudwatchMetricStream = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudwatchMetricStreamOutputProps>(
     AwsCloudwatchMetricStream,
     idFilter,
     baseNode,
@@ -102,7 +104,7 @@ export const useAwsCloudwatchMetricStreams = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudwatchMetricStreamOutputProps>(
     AwsCloudwatchMetricStream,
     idFilter,
     baseNode,

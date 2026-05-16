@@ -9,32 +9,33 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  domain: resolvableValue(z.string()),
-  domain_owner: resolvableValue(z.string().optional()),
-  duration_seconds: resolvableValue(z.number().optional()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsCodeartifactAuthorizationTokenInputSchema = TfMetaSchema
+  .extend({
+    domain: resolvableValue(z.string()),
+    domain_owner: resolvableValue(z.string().optional()),
+    duration_seconds: resolvableValue(z.number().optional()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsCodeartifactAuthorizationTokenOutputSchema = z.object({
   authorization_token: z.string().optional(),
   expiration: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsCodeartifactAuthorizationTokenInputProps =
+  & z.input<typeof DataAwsCodeartifactAuthorizationTokenInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsCodeartifactAuthorizationTokenOutputProps =
+  & z.output<typeof DataAwsCodeartifactAuthorizationTokenOutputSchema>
+  & z.output<typeof DataAwsCodeartifactAuthorizationTokenInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/codeartifact_authorization_token
 
 export function DataAwsCodeartifactAuthorizationToken(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsCodeartifactAuthorizationTokenInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -45,8 +46,8 @@ export function DataAwsCodeartifactAuthorizationToken(
       _type='aws_codeartifact_authorization_token'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsCodeartifactAuthorizationTokenInputSchema}
+      _outputSchema={DataAwsCodeartifactAuthorizationTokenOutputSchema}
       {...props}
     />
   )
@@ -57,7 +58,7 @@ export const useDataAwsCodeartifactAuthorizationToken = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsCodeartifactAuthorizationTokenOutputProps>(
     DataAwsCodeartifactAuthorizationToken,
     idFilter,
     baseNode,
@@ -69,7 +70,7 @@ export const useDataAwsCodeartifactAuthorizationTokens = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsCodeartifactAuthorizationTokenOutputProps>(
     DataAwsCodeartifactAuthorizationToken,
     idFilter,
     baseNode,

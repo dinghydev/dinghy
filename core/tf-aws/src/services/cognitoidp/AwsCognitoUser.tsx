@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCognitoUserInputSchema = TfMetaSchema.extend({
   user_pool_id: resolvableValue(z.string()),
   username: resolvableValue(z.string()),
   attributes: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -25,7 +25,7 @@ export const InputSchema = TfMetaSchema.extend({
   validation_data: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCognitoUserOutputSchema = z.object({
   creation_date: z.string().optional(),
   last_modified_date: z.string().optional(),
   mfa_setting_list: z.set(z.string()).optional(),
@@ -34,18 +34,18 @@ export const OutputSchema = z.object({
   sub: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCognitoUserInputProps =
+  & z.input<typeof AwsCognitoUserInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCognitoUserOutputProps =
+  & z.output<typeof AwsCognitoUserOutputSchema>
+  & z.output<typeof AwsCognitoUserInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cognito_user
 
-export function AwsCognitoUser(props: Partial<InputProps>) {
+export function AwsCognitoUser(props: Partial<AwsCognitoUserInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,8 +55,8 @@ export function AwsCognitoUser(props: Partial<InputProps>) {
       _type='aws_cognito_user'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCognitoUserInputSchema}
+      _outputSchema={AwsCognitoUserOutputSchema}
       {...props}
     />
   )
@@ -66,10 +66,22 @@ export const useAwsCognitoUser = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsCognitoUser, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsCognitoUserOutputProps>(
+    AwsCognitoUser,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCognitoUsers = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsCognitoUser, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsCognitoUserOutputProps>(
+    AwsCognitoUser,
+    idFilter,
+    baseNode,
+    optional,
+  )

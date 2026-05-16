@@ -9,32 +9,34 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEmrSecurityConfigurationInputSchema = TfMetaSchema.extend({
   configuration: resolvableValue(z.string()),
   name: resolvableValue(z.string().optional()),
   name_prefix: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsEmrSecurityConfigurationOutputSchema = z.object({
   configuration: z.string().optional(),
   creation_date: z.string().optional(),
   id: z.string().optional(),
   name: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEmrSecurityConfigurationInputProps =
+  & z.input<typeof AwsEmrSecurityConfigurationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEmrSecurityConfigurationOutputProps =
+  & z.output<typeof AwsEmrSecurityConfigurationOutputSchema>
+  & z.output<typeof AwsEmrSecurityConfigurationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/emr_security_configuration
 
-export function AwsEmrSecurityConfiguration(props: Partial<InputProps>) {
+export function AwsEmrSecurityConfiguration(
+  props: Partial<AwsEmrSecurityConfigurationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +46,8 @@ export function AwsEmrSecurityConfiguration(props: Partial<InputProps>) {
       _type='aws_emr_security_configuration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEmrSecurityConfigurationInputSchema}
+      _outputSchema={AwsEmrSecurityConfigurationOutputSchema}
       {...props}
     />
   )
@@ -56,7 +58,7 @@ export const useAwsEmrSecurityConfiguration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsEmrSecurityConfigurationOutputProps>(
     AwsEmrSecurityConfiguration,
     idFilter,
     baseNode,
@@ -68,7 +70,7 @@ export const useAwsEmrSecurityConfigurations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEmrSecurityConfigurationOutputProps>(
     AwsEmrSecurityConfiguration,
     idFilter,
     baseNode,

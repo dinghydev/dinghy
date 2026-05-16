@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsQuicksightDataSetInputSchema = TfMetaSchema.extend({
   data_set_id: resolvableValue(z.string()),
   import_mode: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -183,7 +183,7 @@ export const InputSchema = TfMetaSchema.extend({
   use_as: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsQuicksightDataSetOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   output_columns: z.object({
@@ -194,18 +194,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsQuicksightDataSetInputProps =
+  & z.input<typeof AwsQuicksightDataSetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsQuicksightDataSetOutputProps =
+  & z.output<typeof AwsQuicksightDataSetOutputSchema>
+  & z.output<typeof AwsQuicksightDataSetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/quicksight_data_set
 
-export function AwsQuicksightDataSet(props: Partial<InputProps>) {
+export function AwsQuicksightDataSet(
+  props: Partial<AwsQuicksightDataSetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -215,8 +217,8 @@ export function AwsQuicksightDataSet(props: Partial<InputProps>) {
       _type='aws_quicksight_data_set'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsQuicksightDataSetInputSchema}
+      _outputSchema={AwsQuicksightDataSetOutputSchema}
       {...props}
     />
   )
@@ -227,11 +229,21 @@ export const useAwsQuicksightDataSet = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsQuicksightDataSet, idFilter, baseNode, optional)
+  useTypedNode<AwsQuicksightDataSetOutputProps>(
+    AwsQuicksightDataSet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsQuicksightDataSets = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsQuicksightDataSet, idFilter, baseNode, optional)
+  useTypedNodes<AwsQuicksightDataSetOutputProps>(
+    AwsQuicksightDataSet,
+    idFilter,
+    baseNode,
+    optional,
+  )

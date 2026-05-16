@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsFsxWindowsFileSystem } from './AwsFsxWindowsFileSystem.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsFsxWindowsFileSystemInputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsFsxWindowsFileSystemOutputSchema = z.object({
   active_directory_id: z.string().optional(),
   aliases: z.set(z.string()).optional(),
   arn: z.string().optional(),
@@ -50,18 +50,20 @@ export const OutputSchema = z.object({
   weekly_maintenance_start_time: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsFsxWindowsFileSystemInputProps =
+  & z.input<typeof DataAwsFsxWindowsFileSystemInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsFsxWindowsFileSystemOutputProps =
+  & z.output<typeof DataAwsFsxWindowsFileSystemOutputSchema>
+  & z.output<typeof DataAwsFsxWindowsFileSystemInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/fsx_windows_file_system
 
-export function DataAwsFsxWindowsFileSystem(props: Partial<InputProps>) {
+export function DataAwsFsxWindowsFileSystem(
+  props: Partial<DataAwsFsxWindowsFileSystemInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -71,8 +73,8 @@ export function DataAwsFsxWindowsFileSystem(props: Partial<InputProps>) {
       _type='aws_fsx_windows_file_system'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsFsxWindowsFileSystemInputSchema}
+      _outputSchema={DataAwsFsxWindowsFileSystemOutputSchema}
       {...props as any}
     />
   )
@@ -83,7 +85,7 @@ export const useDataAwsFsxWindowsFileSystem = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsFsxWindowsFileSystemOutputProps>(
     DataAwsFsxWindowsFileSystem,
     idFilter,
     baseNode,
@@ -95,7 +97,7 @@ export const useDataAwsFsxWindowsFileSystems = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsFsxWindowsFileSystemOutputProps>(
     DataAwsFsxWindowsFileSystem,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsMskVpcConnectionInputSchema = TfMetaSchema.extend({
   authentication: resolvableValue(z.string()),
   client_subnets: resolvableValue(z.string().array()),
   security_groups: resolvableValue(z.string().array()),
@@ -20,23 +20,25 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsMskVpcConnectionOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsMskVpcConnectionInputProps =
+  & z.input<typeof AwsMskVpcConnectionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsMskVpcConnectionOutputProps =
+  & z.output<typeof AwsMskVpcConnectionOutputSchema>
+  & z.output<typeof AwsMskVpcConnectionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/msk_vpc_connection
 
-export function AwsMskVpcConnection(props: Partial<InputProps>) {
+export function AwsMskVpcConnection(
+  props: Partial<AwsMskVpcConnectionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function AwsMskVpcConnection(props: Partial<InputProps>) {
       _type='aws_msk_vpc_connection'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsMskVpcConnectionInputSchema}
+      _outputSchema={AwsMskVpcConnectionOutputSchema}
       {...props}
     />
   )
@@ -58,11 +60,21 @@ export const useAwsMskVpcConnection = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsMskVpcConnection, idFilter, baseNode, optional)
+  useTypedNode<AwsMskVpcConnectionOutputProps>(
+    AwsMskVpcConnection,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsMskVpcConnections = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsMskVpcConnection, idFilter, baseNode, optional)
+  useTypedNodes<AwsMskVpcConnectionOutputProps>(
+    AwsMskVpcConnection,
+    idFilter,
+    baseNode,
+    optional,
+  )

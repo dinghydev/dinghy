@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsInternetGatewayInputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
   timeouts: resolvableValue(
@@ -22,32 +22,34 @@ export const InputSchema = TfMetaSchema.extend({
   vpc_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsInternetGatewayOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   owner_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsInternetGatewayImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsInternetGatewayInputProps =
+  & z.input<typeof AwsInternetGatewayInputSchema>
+  & z.input<typeof AwsInternetGatewayImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsInternetGatewayOutputProps =
+  & z.output<typeof AwsInternetGatewayOutputSchema>
+  & z.output<typeof AwsInternetGatewayInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/internet_gateway
 
-export function AwsInternetGateway(props: Partial<InputProps>) {
+export function AwsInternetGateway(
+  props: Partial<AwsInternetGatewayInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -57,9 +59,9 @@ export function AwsInternetGateway(props: Partial<InputProps>) {
       _type='aws_internet_gateway'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsInternetGatewayInputSchema}
+      _outputSchema={AwsInternetGatewayOutputSchema}
+      _importSchema={AwsInternetGatewayImportSchema}
       {...props}
     />
   )
@@ -69,11 +71,22 @@ export const useAwsInternetGateway = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsInternetGateway, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsInternetGatewayOutputProps>(
+    AwsInternetGateway,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsInternetGateways = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsInternetGateway, idFilter, baseNode, optional)
+  useTypedNodes<AwsInternetGatewayOutputProps>(
+    AwsInternetGateway,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,32 +9,32 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAcmpcaPolicyInputSchema = TfMetaSchema.extend({
   policy: resolvableValue(z.string()),
   resource_arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsAcmpcaPolicyOutputSchema = z.object({})
 
-export const ImportSchema = z.object({
+export const AwsAcmpcaPolicyImportSchema = z.object({
   resource_arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsAcmpcaPolicyInputProps =
+  & z.input<typeof AwsAcmpcaPolicyInputSchema>
+  & z.input<typeof AwsAcmpcaPolicyImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAcmpcaPolicyOutputProps =
+  & z.output<typeof AwsAcmpcaPolicyOutputSchema>
+  & z.output<typeof AwsAcmpcaPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/acmpca_policy
 
-export function AwsAcmpcaPolicy(props: Partial<InputProps>) {
+export function AwsAcmpcaPolicy(props: Partial<AwsAcmpcaPolicyInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,9 +44,9 @@ export function AwsAcmpcaPolicy(props: Partial<InputProps>) {
       _type='aws_acmpca_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsAcmpcaPolicyInputSchema}
+      _outputSchema={AwsAcmpcaPolicyOutputSchema}
+      _importSchema={AwsAcmpcaPolicyImportSchema}
       {...props}
     />
   )
@@ -56,10 +56,22 @@ export const useAwsAcmpcaPolicy = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsAcmpcaPolicy, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsAcmpcaPolicyOutputProps>(
+    AwsAcmpcaPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAcmpcaPolicys = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsAcmpcaPolicy, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsAcmpcaPolicyOutputProps>(
+    AwsAcmpcaPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEksClusterInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   role_arn: resolvableValue(z.string()),
   vpc_config: resolvableValue(z.object({
@@ -109,7 +109,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsEksClusterOutputSchema = z.object({
   arn: z.string().optional(),
   certificate_authority: z.object({
     data: z.string(),
@@ -128,25 +128,25 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsEksClusterImportSchema = z.object({
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsEksClusterInputProps =
+  & z.input<typeof AwsEksClusterInputSchema>
+  & z.input<typeof AwsEksClusterImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEksClusterOutputProps =
+  & z.output<typeof AwsEksClusterOutputSchema>
+  & z.output<typeof AwsEksClusterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/eks_cluster
 
-export function AwsEksCluster(props: Partial<InputProps>) {
+export function AwsEksCluster(props: Partial<AwsEksClusterInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -156,9 +156,9 @@ export function AwsEksCluster(props: Partial<InputProps>) {
       _type='aws_eks_cluster'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsEksClusterInputSchema}
+      _outputSchema={AwsEksClusterOutputSchema}
+      _importSchema={AwsEksClusterImportSchema}
       {...props}
     />
   )
@@ -168,10 +168,22 @@ export const useAwsEksCluster = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsEksCluster, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsEksClusterOutputProps>(
+    AwsEksCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEksClusters = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsEksCluster, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsEksClusterOutputProps>(
+    AwsEksCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )

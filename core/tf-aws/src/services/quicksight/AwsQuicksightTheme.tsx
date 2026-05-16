@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsQuicksightThemeInputSchema = TfMetaSchema.extend({
   base_theme_id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   theme_id: resolvableValue(z.string()),
@@ -79,7 +79,7 @@ export const InputSchema = TfMetaSchema.extend({
   version_description: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsQuicksightThemeOutputSchema = z.object({
   arn: z.string().optional(),
   created_time: z.string().optional(),
   id: z.string().optional(),
@@ -89,18 +89,20 @@ export const OutputSchema = z.object({
   version_number: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsQuicksightThemeInputProps =
+  & z.input<typeof AwsQuicksightThemeInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsQuicksightThemeOutputProps =
+  & z.output<typeof AwsQuicksightThemeOutputSchema>
+  & z.output<typeof AwsQuicksightThemeInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/quicksight_theme
 
-export function AwsQuicksightTheme(props: Partial<InputProps>) {
+export function AwsQuicksightTheme(
+  props: Partial<AwsQuicksightThemeInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -110,8 +112,8 @@ export function AwsQuicksightTheme(props: Partial<InputProps>) {
       _type='aws_quicksight_theme'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsQuicksightThemeInputSchema}
+      _outputSchema={AwsQuicksightThemeOutputSchema}
       {...props}
     />
   )
@@ -121,11 +123,22 @@ export const useAwsQuicksightTheme = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsQuicksightTheme, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsQuicksightThemeOutputProps>(
+    AwsQuicksightTheme,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsQuicksightThemes = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsQuicksightTheme, idFilter, baseNode, optional)
+  useTypedNodes<AwsQuicksightThemeOutputProps>(
+    AwsQuicksightTheme,
+    idFilter,
+    baseNode,
+    optional,
+  )

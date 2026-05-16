@@ -9,28 +9,28 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSesDomainDkimInputSchema = TfMetaSchema.extend({
   domain: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSesDomainDkimOutputSchema = z.object({
   dkim_tokens: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSesDomainDkimInputProps =
+  & z.input<typeof AwsSesDomainDkimInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSesDomainDkimOutputProps =
+  & z.output<typeof AwsSesDomainDkimOutputSchema>
+  & z.output<typeof AwsSesDomainDkimInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ses_domain_dkim
 
-export function AwsSesDomainDkim(props: Partial<InputProps>) {
+export function AwsSesDomainDkim(props: Partial<AwsSesDomainDkimInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +40,8 @@ export function AwsSesDomainDkim(props: Partial<InputProps>) {
       _type='aws_ses_domain_dkim'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSesDomainDkimInputSchema}
+      _outputSchema={AwsSesDomainDkimOutputSchema}
       {...props}
     />
   )
@@ -51,10 +51,22 @@ export const useAwsSesDomainDkim = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsSesDomainDkim, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsSesDomainDkimOutputProps>(
+    AwsSesDomainDkim,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSesDomainDkims = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsSesDomainDkim, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsSesDomainDkimOutputProps>(
+    AwsSesDomainDkim,
+    idFilter,
+    baseNode,
+    optional,
+  )

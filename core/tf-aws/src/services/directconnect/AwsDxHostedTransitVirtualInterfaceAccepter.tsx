@@ -9,38 +9,39 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  dx_gateway_id: resolvableValue(z.string()),
-  virtual_interface_id: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsDxHostedTransitVirtualInterfaceAccepterInputSchema =
+  TfMetaSchema.extend({
+    dx_gateway_id: resolvableValue(z.string()),
+    virtual_interface_id: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsDxHostedTransitVirtualInterfaceAccepterOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDxHostedTransitVirtualInterfaceAccepterInputProps =
+  & z.input<typeof AwsDxHostedTransitVirtualInterfaceAccepterInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDxHostedTransitVirtualInterfaceAccepterOutputProps =
+  & z.output<typeof AwsDxHostedTransitVirtualInterfaceAccepterOutputSchema>
+  & z.output<typeof AwsDxHostedTransitVirtualInterfaceAccepterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dx_hosted_transit_virtual_interface_accepter
 
 export function AwsDxHostedTransitVirtualInterfaceAccepter(
-  props: Partial<InputProps>,
+  props: Partial<AwsDxHostedTransitVirtualInterfaceAccepterInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -51,8 +52,8 @@ export function AwsDxHostedTransitVirtualInterfaceAccepter(
       _type='aws_dx_hosted_transit_virtual_interface_accepter'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDxHostedTransitVirtualInterfaceAccepterInputSchema}
+      _outputSchema={AwsDxHostedTransitVirtualInterfaceAccepterOutputSchema}
       {...props}
     />
   )
@@ -63,7 +64,7 @@ export const useAwsDxHostedTransitVirtualInterfaceAccepter = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDxHostedTransitVirtualInterfaceAccepterOutputProps>(
     AwsDxHostedTransitVirtualInterfaceAccepter,
     idFilter,
     baseNode,
@@ -75,7 +76,7 @@ export const useAwsDxHostedTransitVirtualInterfaceAccepters = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDxHostedTransitVirtualInterfaceAccepterOutputProps>(
     AwsDxHostedTransitVirtualInterfaceAccepter,
     idFilter,
     baseNode,

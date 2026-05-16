@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsKmsReplicaExternalKeyInputSchema = TfMetaSchema.extend({
   primary_key_arn: resolvableValue(z.string()),
   bypass_policy_lockout_safety_check: resolvableValue(z.boolean().optional()),
   deletion_window_in_days: resolvableValue(z.number().optional()),
@@ -23,7 +23,7 @@ export const InputSchema = TfMetaSchema.extend({
   valid_to: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsKmsReplicaExternalKeyOutputSchema = z.object({
   arn: z.string().optional(),
   expiration_model: z.string().optional(),
   key_id: z.string().optional(),
@@ -32,18 +32,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsKmsReplicaExternalKeyInputProps =
+  & z.input<typeof AwsKmsReplicaExternalKeyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsKmsReplicaExternalKeyOutputProps =
+  & z.output<typeof AwsKmsReplicaExternalKeyOutputSchema>
+  & z.output<typeof AwsKmsReplicaExternalKeyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/kms_replica_external_key
 
-export function AwsKmsReplicaExternalKey(props: Partial<InputProps>) {
+export function AwsKmsReplicaExternalKey(
+  props: Partial<AwsKmsReplicaExternalKeyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,8 +55,8 @@ export function AwsKmsReplicaExternalKey(props: Partial<InputProps>) {
       _type='aws_kms_replica_external_key'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsKmsReplicaExternalKeyInputSchema}
+      _outputSchema={AwsKmsReplicaExternalKeyOutputSchema}
       {...props}
     />
   )
@@ -65,7 +67,7 @@ export const useAwsKmsReplicaExternalKey = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsKmsReplicaExternalKeyOutputProps>(
     AwsKmsReplicaExternalKey,
     idFilter,
     baseNode,
@@ -77,7 +79,7 @@ export const useAwsKmsReplicaExternalKeys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsKmsReplicaExternalKeyOutputProps>(
     AwsKmsReplicaExternalKey,
     idFilter,
     baseNode,

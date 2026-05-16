@@ -8,28 +8,29 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  include_member_accounts: resolvableValue(z.boolean().optional()),
-})
+export const AwsCostoptimizationhubEnrollmentStatusInputSchema = TfMetaSchema
+  .extend({
+    include_member_accounts: resolvableValue(z.boolean().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsCostoptimizationhubEnrollmentStatusOutputSchema = z.object({
   id: z.string().optional(),
   status: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCostoptimizationhubEnrollmentStatusInputProps =
+  & z.input<typeof AwsCostoptimizationhubEnrollmentStatusInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCostoptimizationhubEnrollmentStatusOutputProps =
+  & z.output<typeof AwsCostoptimizationhubEnrollmentStatusOutputSchema>
+  & z.output<typeof AwsCostoptimizationhubEnrollmentStatusInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/costoptimizationhub_enrollment_status
 
 export function AwsCostoptimizationhubEnrollmentStatus(
-  props: Partial<InputProps>,
+  props: Partial<AwsCostoptimizationhubEnrollmentStatusInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -40,8 +41,8 @@ export function AwsCostoptimizationhubEnrollmentStatus(
       _type='aws_costoptimizationhub_enrollment_status'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCostoptimizationhubEnrollmentStatusInputSchema}
+      _outputSchema={AwsCostoptimizationhubEnrollmentStatusOutputSchema}
       {...props}
     />
   )
@@ -52,7 +53,7 @@ export const useAwsCostoptimizationhubEnrollmentStatuss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCostoptimizationhubEnrollmentStatusOutputProps>(
     AwsCostoptimizationhubEnrollmentStatus,
     idFilter,
     baseNode,

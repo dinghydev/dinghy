@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEc2ClientVpnEndpointInputSchema = TfMetaSchema.extend({
   authentication_options: resolvableValue(
     z.object({
       active_directory_id: z.string().optional(),
@@ -67,7 +67,7 @@ export const InputSchema = TfMetaSchema.extend({
   vpn_port: resolvableValue(z.number().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsEc2ClientVpnEndpointOutputSchema = z.object({
   arn: z.string().optional(),
   dns_name: z.string().optional(),
   id: z.string().optional(),
@@ -75,18 +75,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEc2ClientVpnEndpointInputProps =
+  & z.input<typeof AwsEc2ClientVpnEndpointInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEc2ClientVpnEndpointOutputProps =
+  & z.output<typeof AwsEc2ClientVpnEndpointOutputSchema>
+  & z.output<typeof AwsEc2ClientVpnEndpointInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ec2_client_vpn_endpoint
 
-export function AwsEc2ClientVpnEndpoint(props: Partial<InputProps>) {
+export function AwsEc2ClientVpnEndpoint(
+  props: Partial<AwsEc2ClientVpnEndpointInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -96,8 +98,8 @@ export function AwsEc2ClientVpnEndpoint(props: Partial<InputProps>) {
       _type='aws_ec2_client_vpn_endpoint'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEc2ClientVpnEndpointInputSchema}
+      _outputSchema={AwsEc2ClientVpnEndpointOutputSchema}
       {...props}
     />
   )
@@ -108,7 +110,7 @@ export const useAwsEc2ClientVpnEndpoint = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsEc2ClientVpnEndpointOutputProps>(
     AwsEc2ClientVpnEndpoint,
     idFilter,
     baseNode,
@@ -120,7 +122,7 @@ export const useAwsEc2ClientVpnEndpoints = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEc2ClientVpnEndpointOutputProps>(
     AwsEc2ClientVpnEndpoint,
     idFilter,
     baseNode,

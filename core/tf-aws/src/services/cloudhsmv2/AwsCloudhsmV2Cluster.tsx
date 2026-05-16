@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudhsmV2ClusterInputSchema = TfMetaSchema.extend({
   hsm_type: resolvableValue(z.string()),
   subnet_ids: resolvableValue(z.string().array()),
   id: resolvableValue(z.string().optional()),
@@ -26,7 +26,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudhsmV2ClusterOutputSchema = z.object({
   cluster_certificates: z.object({
     aws_hardware_certificate: z.string(),
     cluster_certificate: z.string(),
@@ -41,18 +41,20 @@ export const OutputSchema = z.object({
   vpc_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudhsmV2ClusterInputProps =
+  & z.input<typeof AwsCloudhsmV2ClusterInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudhsmV2ClusterOutputProps =
+  & z.output<typeof AwsCloudhsmV2ClusterOutputSchema>
+  & z.output<typeof AwsCloudhsmV2ClusterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudhsm_v2_cluster
 
-export function AwsCloudhsmV2Cluster(props: Partial<InputProps>) {
+export function AwsCloudhsmV2Cluster(
+  props: Partial<AwsCloudhsmV2ClusterInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -62,8 +64,8 @@ export function AwsCloudhsmV2Cluster(props: Partial<InputProps>) {
       _type='aws_cloudhsm_v2_cluster'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudhsmV2ClusterInputSchema}
+      _outputSchema={AwsCloudhsmV2ClusterOutputSchema}
       {...props}
     />
   )
@@ -74,11 +76,21 @@ export const useAwsCloudhsmV2Cluster = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsCloudhsmV2Cluster, idFilter, baseNode, optional)
+  useTypedNode<AwsCloudhsmV2ClusterOutputProps>(
+    AwsCloudhsmV2Cluster,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCloudhsmV2Clusters = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsCloudhsmV2Cluster, idFilter, baseNode, optional)
+  useTypedNodes<AwsCloudhsmV2ClusterOutputProps>(
+    AwsCloudhsmV2Cluster,
+    idFilter,
+    baseNode,
+    optional,
+  )

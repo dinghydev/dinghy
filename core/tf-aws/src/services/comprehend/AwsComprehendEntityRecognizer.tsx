@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsComprehendEntityRecognizerInputSchema = TfMetaSchema.extend({
   data_access_role_arn: resolvableValue(z.string()),
   input_data_config: resolvableValue(z.object({
     data_format: z.string().optional(),
@@ -61,28 +61,30 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsComprehendEntityRecognizerOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsComprehendEntityRecognizerImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsComprehendEntityRecognizerInputProps =
+  & z.input<typeof AwsComprehendEntityRecognizerInputSchema>
+  & z.input<typeof AwsComprehendEntityRecognizerImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsComprehendEntityRecognizerOutputProps =
+  & z.output<typeof AwsComprehendEntityRecognizerOutputSchema>
+  & z.output<typeof AwsComprehendEntityRecognizerInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/comprehend_entity_recognizer
 
-export function AwsComprehendEntityRecognizer(props: Partial<InputProps>) {
+export function AwsComprehendEntityRecognizer(
+  props: Partial<AwsComprehendEntityRecognizerInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -92,9 +94,9 @@ export function AwsComprehendEntityRecognizer(props: Partial<InputProps>) {
       _type='aws_comprehend_entity_recognizer'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsComprehendEntityRecognizerInputSchema}
+      _outputSchema={AwsComprehendEntityRecognizerOutputSchema}
+      _importSchema={AwsComprehendEntityRecognizerImportSchema}
       {...props}
     />
   )
@@ -105,7 +107,7 @@ export const useAwsComprehendEntityRecognizer = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsComprehendEntityRecognizerOutputProps>(
     AwsComprehendEntityRecognizer,
     idFilter,
     baseNode,
@@ -117,7 +119,7 @@ export const useAwsComprehendEntityRecognizers = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsComprehendEntityRecognizerOutputProps>(
     AwsComprehendEntityRecognizer,
     idFilter,
     baseNode,

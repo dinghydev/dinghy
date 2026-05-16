@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsNeptuneClusterParameterGroupInputSchema = TfMetaSchema.extend({
   family: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
@@ -25,24 +25,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsNeptuneClusterParameterGroupOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsNeptuneClusterParameterGroupInputProps =
+  & z.input<typeof AwsNeptuneClusterParameterGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNeptuneClusterParameterGroupOutputProps =
+  & z.output<typeof AwsNeptuneClusterParameterGroupOutputSchema>
+  & z.output<typeof AwsNeptuneClusterParameterGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/neptune_cluster_parameter_group
 
-export function AwsNeptuneClusterParameterGroup(props: Partial<InputProps>) {
+export function AwsNeptuneClusterParameterGroup(
+  props: Partial<AwsNeptuneClusterParameterGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,8 +54,8 @@ export function AwsNeptuneClusterParameterGroup(props: Partial<InputProps>) {
       _type='aws_neptune_cluster_parameter_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsNeptuneClusterParameterGroupInputSchema}
+      _outputSchema={AwsNeptuneClusterParameterGroupOutputSchema}
       {...props}
     />
   )
@@ -64,7 +66,7 @@ export const useAwsNeptuneClusterParameterGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsNeptuneClusterParameterGroupOutputProps>(
     AwsNeptuneClusterParameterGroup,
     idFilter,
     baseNode,
@@ -76,7 +78,7 @@ export const useAwsNeptuneClusterParameterGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsNeptuneClusterParameterGroupOutputProps>(
     AwsNeptuneClusterParameterGroup,
     idFilter,
     baseNode,

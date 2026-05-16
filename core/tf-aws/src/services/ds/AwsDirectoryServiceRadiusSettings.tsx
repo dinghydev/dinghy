@@ -8,41 +8,45 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  authentication_protocol: resolvableValue(z.string()),
-  directory_id: resolvableValue(z.string()),
-  display_label: resolvableValue(z.string()),
-  radius_port: resolvableValue(z.number()),
-  radius_retries: resolvableValue(z.number()),
-  radius_servers: resolvableValue(z.string().array()),
-  radius_timeout: resolvableValue(z.number()),
-  shared_secret: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      update: z.string().optional(),
-    }).optional(),
-  ),
-  use_same_username: resolvableValue(z.boolean().optional()),
-})
+export const AwsDirectoryServiceRadiusSettingsInputSchema = TfMetaSchema.extend(
+  {
+    authentication_protocol: resolvableValue(z.string()),
+    directory_id: resolvableValue(z.string()),
+    display_label: resolvableValue(z.string()),
+    radius_port: resolvableValue(z.number()),
+    radius_retries: resolvableValue(z.number()),
+    radius_servers: resolvableValue(z.string().array()),
+    radius_timeout: resolvableValue(z.number()),
+    shared_secret: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        update: z.string().optional(),
+      }).optional(),
+    ),
+    use_same_username: resolvableValue(z.boolean().optional()),
+  },
+)
 
-export const OutputSchema = z.object({
+export const AwsDirectoryServiceRadiusSettingsOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDirectoryServiceRadiusSettingsInputProps =
+  & z.input<typeof AwsDirectoryServiceRadiusSettingsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDirectoryServiceRadiusSettingsOutputProps =
+  & z.output<typeof AwsDirectoryServiceRadiusSettingsOutputSchema>
+  & z.output<typeof AwsDirectoryServiceRadiusSettingsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/directory_service_radius_settings
 
-export function AwsDirectoryServiceRadiusSettings(props: Partial<InputProps>) {
+export function AwsDirectoryServiceRadiusSettings(
+  props: Partial<AwsDirectoryServiceRadiusSettingsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,8 +56,8 @@ export function AwsDirectoryServiceRadiusSettings(props: Partial<InputProps>) {
       _type='aws_directory_service_radius_settings'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDirectoryServiceRadiusSettingsInputSchema}
+      _outputSchema={AwsDirectoryServiceRadiusSettingsOutputSchema}
       {...props}
     />
   )
@@ -64,7 +68,7 @@ export const useAwsDirectoryServiceRadiusSettingss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDirectoryServiceRadiusSettingsOutputProps>(
     AwsDirectoryServiceRadiusSettings,
     idFilter,
     baseNode,

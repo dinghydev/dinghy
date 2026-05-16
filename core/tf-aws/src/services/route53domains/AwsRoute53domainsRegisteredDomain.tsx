@@ -9,102 +9,104 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  domain_name: resolvableValue(z.string()),
-  admin_contact: resolvableValue(
-    z.object({
-      address_line_1: z.string().optional(),
-      address_line_2: z.string().optional(),
-      city: z.string().optional(),
-      contact_type: z.string().optional(),
-      country_code: z.string().optional(),
-      email: z.string().optional(),
-      extra_params: z.record(z.string(), z.string()).optional(),
-      fax: z.string().optional(),
-      first_name: z.string().optional(),
-      last_name: z.string().optional(),
-      organization_name: z.string().optional(),
-      phone_number: z.string().optional(),
-      state: z.string().optional(),
-      zip_code: z.string().optional(),
-    }).optional(),
-  ),
-  admin_privacy: resolvableValue(z.boolean().optional()),
-  auto_renew: resolvableValue(z.boolean().optional()),
-  billing_contact: resolvableValue(
-    z.object({
-      address_line_1: z.string().optional(),
-      address_line_2: z.string().optional(),
-      city: z.string().optional(),
-      contact_type: z.string().optional(),
-      country_code: z.string().optional(),
-      email: z.string().optional(),
-      extra_params: z.record(z.string(), z.string()).optional(),
-      fax: z.string().optional(),
-      first_name: z.string().optional(),
-      last_name: z.string().optional(),
-      organization_name: z.string().optional(),
-      phone_number: z.string().optional(),
-      state: z.string().optional(),
-      zip_code: z.string().optional(),
-    }).optional(),
-  ),
-  billing_privacy: resolvableValue(z.boolean().optional()),
-  name_server: resolvableValue(
-    z.object({
-      glue_ips: z.string().array().optional(),
-      name: z.string(),
-    }).array().optional(),
-  ),
-  registrant_contact: resolvableValue(
-    z.object({
-      address_line_1: z.string().optional(),
-      address_line_2: z.string().optional(),
-      city: z.string().optional(),
-      contact_type: z.string().optional(),
-      country_code: z.string().optional(),
-      email: z.string().optional(),
-      extra_params: z.record(z.string(), z.string()).optional(),
-      fax: z.string().optional(),
-      first_name: z.string().optional(),
-      last_name: z.string().optional(),
-      organization_name: z.string().optional(),
-      phone_number: z.string().optional(),
-      state: z.string().optional(),
-      zip_code: z.string().optional(),
-    }).optional(),
-  ),
-  registrant_privacy: resolvableValue(z.boolean().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-  tech_contact: resolvableValue(
-    z.object({
-      address_line_1: z.string().optional(),
-      address_line_2: z.string().optional(),
-      city: z.string().optional(),
-      contact_type: z.string().optional(),
-      country_code: z.string().optional(),
-      email: z.string().optional(),
-      extra_params: z.record(z.string(), z.string()).optional(),
-      fax: z.string().optional(),
-      first_name: z.string().optional(),
-      last_name: z.string().optional(),
-      organization_name: z.string().optional(),
-      phone_number: z.string().optional(),
-      state: z.string().optional(),
-      zip_code: z.string().optional(),
-    }).optional(),
-  ),
-  tech_privacy: resolvableValue(z.boolean().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      update: z.string().optional(),
-    }).optional(),
-  ),
-  transfer_lock: resolvableValue(z.boolean().optional()),
-})
+export const AwsRoute53domainsRegisteredDomainInputSchema = TfMetaSchema.extend(
+  {
+    domain_name: resolvableValue(z.string()),
+    admin_contact: resolvableValue(
+      z.object({
+        address_line_1: z.string().optional(),
+        address_line_2: z.string().optional(),
+        city: z.string().optional(),
+        contact_type: z.string().optional(),
+        country_code: z.string().optional(),
+        email: z.string().optional(),
+        extra_params: z.record(z.string(), z.string()).optional(),
+        fax: z.string().optional(),
+        first_name: z.string().optional(),
+        last_name: z.string().optional(),
+        organization_name: z.string().optional(),
+        phone_number: z.string().optional(),
+        state: z.string().optional(),
+        zip_code: z.string().optional(),
+      }).optional(),
+    ),
+    admin_privacy: resolvableValue(z.boolean().optional()),
+    auto_renew: resolvableValue(z.boolean().optional()),
+    billing_contact: resolvableValue(
+      z.object({
+        address_line_1: z.string().optional(),
+        address_line_2: z.string().optional(),
+        city: z.string().optional(),
+        contact_type: z.string().optional(),
+        country_code: z.string().optional(),
+        email: z.string().optional(),
+        extra_params: z.record(z.string(), z.string()).optional(),
+        fax: z.string().optional(),
+        first_name: z.string().optional(),
+        last_name: z.string().optional(),
+        organization_name: z.string().optional(),
+        phone_number: z.string().optional(),
+        state: z.string().optional(),
+        zip_code: z.string().optional(),
+      }).optional(),
+    ),
+    billing_privacy: resolvableValue(z.boolean().optional()),
+    name_server: resolvableValue(
+      z.object({
+        glue_ips: z.string().array().optional(),
+        name: z.string(),
+      }).array().optional(),
+    ),
+    registrant_contact: resolvableValue(
+      z.object({
+        address_line_1: z.string().optional(),
+        address_line_2: z.string().optional(),
+        city: z.string().optional(),
+        contact_type: z.string().optional(),
+        country_code: z.string().optional(),
+        email: z.string().optional(),
+        extra_params: z.record(z.string(), z.string()).optional(),
+        fax: z.string().optional(),
+        first_name: z.string().optional(),
+        last_name: z.string().optional(),
+        organization_name: z.string().optional(),
+        phone_number: z.string().optional(),
+        state: z.string().optional(),
+        zip_code: z.string().optional(),
+      }).optional(),
+    ),
+    registrant_privacy: resolvableValue(z.boolean().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+    tech_contact: resolvableValue(
+      z.object({
+        address_line_1: z.string().optional(),
+        address_line_2: z.string().optional(),
+        city: z.string().optional(),
+        contact_type: z.string().optional(),
+        country_code: z.string().optional(),
+        email: z.string().optional(),
+        extra_params: z.record(z.string(), z.string()).optional(),
+        fax: z.string().optional(),
+        first_name: z.string().optional(),
+        last_name: z.string().optional(),
+        organization_name: z.string().optional(),
+        phone_number: z.string().optional(),
+        state: z.string().optional(),
+        zip_code: z.string().optional(),
+      }).optional(),
+    ),
+    tech_privacy: resolvableValue(z.boolean().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        update: z.string().optional(),
+      }).optional(),
+    ),
+    transfer_lock: resolvableValue(z.boolean().optional()),
+  },
+)
 
-export const OutputSchema = z.object({
+export const AwsRoute53domainsRegisteredDomainOutputSchema = z.object({
   abuse_contact_email: z.string().optional(),
   abuse_contact_phone: z.string().optional(),
   creation_date: z.string().optional(),
@@ -119,18 +121,20 @@ export const OutputSchema = z.object({
   whois_server: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRoute53domainsRegisteredDomainInputProps =
+  & z.input<typeof AwsRoute53domainsRegisteredDomainInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRoute53domainsRegisteredDomainOutputProps =
+  & z.output<typeof AwsRoute53domainsRegisteredDomainOutputSchema>
+  & z.output<typeof AwsRoute53domainsRegisteredDomainInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/route53domains_registered_domain
 
-export function AwsRoute53domainsRegisteredDomain(props: Partial<InputProps>) {
+export function AwsRoute53domainsRegisteredDomain(
+  props: Partial<AwsRoute53domainsRegisteredDomainInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -140,8 +144,8 @@ export function AwsRoute53domainsRegisteredDomain(props: Partial<InputProps>) {
       _type='aws_route53domains_registered_domain'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRoute53domainsRegisteredDomainInputSchema}
+      _outputSchema={AwsRoute53domainsRegisteredDomainOutputSchema}
       {...props}
     />
   )
@@ -152,7 +156,7 @@ export const useAwsRoute53domainsRegisteredDomain = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRoute53domainsRegisteredDomainOutputProps>(
     AwsRoute53domainsRegisteredDomain,
     idFilter,
     baseNode,
@@ -164,7 +168,7 @@ export const useAwsRoute53domainsRegisteredDomains = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRoute53domainsRegisteredDomainOutputProps>(
     AwsRoute53domainsRegisteredDomain,
     idFilter,
     baseNode,

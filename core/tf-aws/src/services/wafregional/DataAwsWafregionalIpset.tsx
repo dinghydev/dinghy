@@ -9,27 +9,29 @@ import {
 import z from 'zod'
 import { AwsWafregionalIpset } from './AwsWafregionalIpset.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsWafregionalIpsetInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsWafregionalIpsetOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsWafregionalIpsetInputProps =
+  & z.input<typeof DataAwsWafregionalIpsetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsWafregionalIpsetOutputProps =
+  & z.output<typeof DataAwsWafregionalIpsetOutputSchema>
+  & z.output<typeof DataAwsWafregionalIpsetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/wafregional_ipset
 
-export function DataAwsWafregionalIpset(props: Partial<InputProps>) {
+export function DataAwsWafregionalIpset(
+  props: Partial<DataAwsWafregionalIpsetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -39,8 +41,8 @@ export function DataAwsWafregionalIpset(props: Partial<InputProps>) {
       _type='aws_wafregional_ipset'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsWafregionalIpsetInputSchema}
+      _outputSchema={DataAwsWafregionalIpsetOutputSchema}
       {...props as any}
     />
   )
@@ -51,7 +53,7 @@ export const useDataAwsWafregionalIpset = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsWafregionalIpsetOutputProps>(
     DataAwsWafregionalIpset,
     idFilter,
     baseNode,
@@ -63,7 +65,7 @@ export const useDataAwsWafregionalIpsets = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsWafregionalIpsetOutputProps>(
     DataAwsWafregionalIpset,
     idFilter,
     baseNode,

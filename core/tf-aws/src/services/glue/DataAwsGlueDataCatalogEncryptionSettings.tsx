@@ -8,12 +8,13 @@ import {
 import z from 'zod'
 import { AwsGlueDataCatalogEncryptionSettings } from './AwsGlueDataCatalogEncryptionSettings.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  catalog_id: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsGlueDataCatalogEncryptionSettingsInputSchema = TfMetaSchema
+  .extend({
+    catalog_id: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsGlueDataCatalogEncryptionSettingsOutputSchema = z.object({
   data_catalog_encryption_settings: z.object({
     connection_password_encryption: z.object({
       aws_kms_key_id: z.string(),
@@ -28,19 +29,19 @@ export const OutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsGlueDataCatalogEncryptionSettingsInputProps =
+  & z.input<typeof DataAwsGlueDataCatalogEncryptionSettingsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsGlueDataCatalogEncryptionSettingsOutputProps =
+  & z.output<typeof DataAwsGlueDataCatalogEncryptionSettingsOutputSchema>
+  & z.output<typeof DataAwsGlueDataCatalogEncryptionSettingsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/glue_data_catalog_encryption_settings
 
 export function DataAwsGlueDataCatalogEncryptionSettings(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsGlueDataCatalogEncryptionSettingsInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -51,8 +52,8 @@ export function DataAwsGlueDataCatalogEncryptionSettings(
       _type='aws_glue_data_catalog_encryption_settings'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsGlueDataCatalogEncryptionSettingsInputSchema}
+      _outputSchema={DataAwsGlueDataCatalogEncryptionSettingsOutputSchema}
       {...props as any}
     />
   )
@@ -63,7 +64,7 @@ export const useDataAwsGlueDataCatalogEncryptionSettingss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsGlueDataCatalogEncryptionSettingsOutputProps>(
     DataAwsGlueDataCatalogEncryptionSettings,
     idFilter,
     baseNode,

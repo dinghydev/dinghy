@@ -9,12 +9,13 @@ import {
 import z from 'zod'
 import { AwsAppintegrationsEventIntegration } from './AwsAppintegrationsEventIntegration.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  name: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsAppintegrationsEventIntegrationInputSchema = TfMetaSchema
+  .extend({
+    name: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsAppintegrationsEventIntegrationOutputSchema = z.object({
   arn: z.string().optional(),
   description: z.string().optional(),
   event_filter: z.object({
@@ -25,19 +26,19 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsAppintegrationsEventIntegrationInputProps =
+  & z.input<typeof DataAwsAppintegrationsEventIntegrationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsAppintegrationsEventIntegrationOutputProps =
+  & z.output<typeof DataAwsAppintegrationsEventIntegrationOutputSchema>
+  & z.output<typeof DataAwsAppintegrationsEventIntegrationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/appintegrations_event_integration
 
 export function DataAwsAppintegrationsEventIntegration(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsAppintegrationsEventIntegrationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -48,8 +49,8 @@ export function DataAwsAppintegrationsEventIntegration(
       _type='aws_appintegrations_event_integration'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsAppintegrationsEventIntegrationInputSchema}
+      _outputSchema={DataAwsAppintegrationsEventIntegrationOutputSchema}
       {...props as any}
     />
   )
@@ -60,7 +61,7 @@ export const useDataAwsAppintegrationsEventIntegration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsAppintegrationsEventIntegrationOutputProps>(
     DataAwsAppintegrationsEventIntegration,
     idFilter,
     baseNode,
@@ -72,7 +73,7 @@ export const useDataAwsAppintegrationsEventIntegrations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsAppintegrationsEventIntegrationOutputProps>(
     DataAwsAppintegrationsEventIntegration,
     idFilter,
     baseNode,

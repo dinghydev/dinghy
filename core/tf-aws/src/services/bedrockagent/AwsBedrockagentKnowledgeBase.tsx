@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsBedrockagentKnowledgeBaseInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   role_arn: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
@@ -182,7 +182,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsBedrockagentKnowledgeBaseOutputSchema = z.object({
   arn: z.string().optional(),
   created_at: z.string().optional(),
   failure_reasons: z.string().array().optional(),
@@ -191,18 +191,20 @@ export const OutputSchema = z.object({
   updated_at: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsBedrockagentKnowledgeBaseInputProps =
+  & z.input<typeof AwsBedrockagentKnowledgeBaseInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBedrockagentKnowledgeBaseOutputProps =
+  & z.output<typeof AwsBedrockagentKnowledgeBaseOutputSchema>
+  & z.output<typeof AwsBedrockagentKnowledgeBaseInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/bedrockagent_knowledge_base
 
-export function AwsBedrockagentKnowledgeBase(props: Partial<InputProps>) {
+export function AwsBedrockagentKnowledgeBase(
+  props: Partial<AwsBedrockagentKnowledgeBaseInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -212,8 +214,8 @@ export function AwsBedrockagentKnowledgeBase(props: Partial<InputProps>) {
       _type='aws_bedrockagent_knowledge_base'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsBedrockagentKnowledgeBaseInputSchema}
+      _outputSchema={AwsBedrockagentKnowledgeBaseOutputSchema}
       {...props}
     />
   )
@@ -224,7 +226,7 @@ export const useAwsBedrockagentKnowledgeBase = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsBedrockagentKnowledgeBaseOutputProps>(
     AwsBedrockagentKnowledgeBase,
     idFilter,
     baseNode,
@@ -236,7 +238,7 @@ export const useAwsBedrockagentKnowledgeBases = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsBedrockagentKnowledgeBaseOutputProps>(
     AwsBedrockagentKnowledgeBase,
     idFilter,
     baseNode,

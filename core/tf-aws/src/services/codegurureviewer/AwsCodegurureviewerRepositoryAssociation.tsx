@@ -9,45 +9,46 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  repository: resolvableValue(z.object({
-    bitbucket: z.object({
-      connection_arn: z.string(),
-      name: z.string(),
-      owner: z.string(),
-    }).optional(),
-    codecommit: z.object({
-      name: z.string(),
-    }).optional(),
-    github_enterprise_server: z.object({
-      connection_arn: z.string(),
-      name: z.string(),
-      owner: z.string(),
-    }).optional(),
-    s3_bucket: z.object({
-      bucket_name: z.string(),
-      name: z.string(),
-    }).optional(),
-  })),
-  kms_key_details: resolvableValue(
-    z.object({
-      encryption_option: z.string().optional(),
-      kms_key_id: z.string().optional(),
-    }).optional(),
-  ),
-  region: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-  tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-      update: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsCodegurureviewerRepositoryAssociationInputSchema = TfMetaSchema
+  .extend({
+    repository: resolvableValue(z.object({
+      bitbucket: z.object({
+        connection_arn: z.string(),
+        name: z.string(),
+        owner: z.string(),
+      }).optional(),
+      codecommit: z.object({
+        name: z.string(),
+      }).optional(),
+      github_enterprise_server: z.object({
+        connection_arn: z.string(),
+        name: z.string(),
+        owner: z.string(),
+      }).optional(),
+      s3_bucket: z.object({
+        bucket_name: z.string(),
+        name: z.string(),
+      }).optional(),
+    })),
+    kms_key_details: resolvableValue(
+      z.object({
+        encryption_option: z.string().optional(),
+        kms_key_id: z.string().optional(),
+      }).optional(),
+    ),
+    region: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+    tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+        update: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsCodegurureviewerRepositoryAssociationOutputSchema = z.object({
   arn: z.string().optional(),
   association_id: z.string().optional(),
   connection_arn: z.string().optional(),
@@ -66,24 +67,24 @@ export const OutputSchema = z.object({
   state_reason: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsCodegurureviewerRepositoryAssociationImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsCodegurureviewerRepositoryAssociationInputProps =
+  & z.input<typeof AwsCodegurureviewerRepositoryAssociationInputSchema>
+  & z.input<typeof AwsCodegurureviewerRepositoryAssociationImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCodegurureviewerRepositoryAssociationOutputProps =
+  & z.output<typeof AwsCodegurureviewerRepositoryAssociationOutputSchema>
+  & z.output<typeof AwsCodegurureviewerRepositoryAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/codegurureviewer_repository_association
 
 export function AwsCodegurureviewerRepositoryAssociation(
-  props: Partial<InputProps>,
+  props: Partial<AwsCodegurureviewerRepositoryAssociationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -94,9 +95,9 @@ export function AwsCodegurureviewerRepositoryAssociation(
       _type='aws_codegurureviewer_repository_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsCodegurureviewerRepositoryAssociationInputSchema}
+      _outputSchema={AwsCodegurureviewerRepositoryAssociationOutputSchema}
+      _importSchema={AwsCodegurureviewerRepositoryAssociationImportSchema}
       {...props}
     />
   )
@@ -107,7 +108,7 @@ export const useAwsCodegurureviewerRepositoryAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCodegurureviewerRepositoryAssociationOutputProps>(
     AwsCodegurureviewerRepositoryAssociation,
     idFilter,
     baseNode,
@@ -119,7 +120,7 @@ export const useAwsCodegurureviewerRepositoryAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCodegurureviewerRepositoryAssociationOutputProps>(
     AwsCodegurureviewerRepositoryAssociation,
     idFilter,
     baseNode,

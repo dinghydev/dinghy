@@ -9,33 +9,35 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsInspectorResourceGroupInputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string())),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsInspectorResourceGroupOutputSchema = z.object({
   arn: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsInspectorResourceGroupImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsInspectorResourceGroupInputProps =
+  & z.input<typeof AwsInspectorResourceGroupInputSchema>
+  & z.input<typeof AwsInspectorResourceGroupImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsInspectorResourceGroupOutputProps =
+  & z.output<typeof AwsInspectorResourceGroupOutputSchema>
+  & z.output<typeof AwsInspectorResourceGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/inspector_resource_group
 
-export function AwsInspectorResourceGroup(props: Partial<InputProps>) {
+export function AwsInspectorResourceGroup(
+  props: Partial<AwsInspectorResourceGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,9 +47,9 @@ export function AwsInspectorResourceGroup(props: Partial<InputProps>) {
       _type='aws_inspector_resource_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsInspectorResourceGroupInputSchema}
+      _outputSchema={AwsInspectorResourceGroupOutputSchema}
+      _importSchema={AwsInspectorResourceGroupImportSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useAwsInspectorResourceGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsInspectorResourceGroupOutputProps>(
     AwsInspectorResourceGroup,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useAwsInspectorResourceGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsInspectorResourceGroupOutputProps>(
     AwsInspectorResourceGroup,
     idFilter,
     baseNode,

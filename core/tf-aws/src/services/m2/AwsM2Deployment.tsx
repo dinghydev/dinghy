@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsM2DeploymentInputSchema = TfMetaSchema.extend({
   application_id: resolvableValue(z.string()),
   application_version: resolvableValue(z.number()),
   environment_id: resolvableValue(z.string()),
@@ -25,23 +25,23 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsM2DeploymentOutputSchema = z.object({
   deployment_id: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsM2DeploymentInputProps =
+  & z.input<typeof AwsM2DeploymentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsM2DeploymentOutputProps =
+  & z.output<typeof AwsM2DeploymentOutputSchema>
+  & z.output<typeof AwsM2DeploymentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/m2_deployment
 
-export function AwsM2Deployment(props: Partial<InputProps>) {
+export function AwsM2Deployment(props: Partial<AwsM2DeploymentInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -51,8 +51,8 @@ export function AwsM2Deployment(props: Partial<InputProps>) {
       _type='aws_m2_deployment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsM2DeploymentInputSchema}
+      _outputSchema={AwsM2DeploymentOutputSchema}
       {...props}
     />
   )
@@ -62,10 +62,22 @@ export const useAwsM2Deployment = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsM2Deployment, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsM2DeploymentOutputProps>(
+    AwsM2Deployment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsM2Deployments = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsM2Deployment, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsM2DeploymentOutputProps>(
+    AwsM2Deployment,
+    idFilter,
+    baseNode,
+    optional,
+  )

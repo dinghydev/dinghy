@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsServicecatalogPortfolioShareInputSchema = TfMetaSchema.extend({
   portfolio_id: resolvableValue(z.string()),
   principal_id: resolvableValue(z.string()),
   type: resolvableValue(z.string()),
@@ -29,22 +29,24 @@ export const InputSchema = TfMetaSchema.extend({
   wait_for_acceptance: resolvableValue(z.boolean().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsServicecatalogPortfolioShareOutputSchema = z.object({
   accepted: z.boolean().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsServicecatalogPortfolioShareInputProps =
+  & z.input<typeof AwsServicecatalogPortfolioShareInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsServicecatalogPortfolioShareOutputProps =
+  & z.output<typeof AwsServicecatalogPortfolioShareOutputSchema>
+  & z.output<typeof AwsServicecatalogPortfolioShareInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/servicecatalog_portfolio_share
 
-export function AwsServicecatalogPortfolioShare(props: Partial<InputProps>) {
+export function AwsServicecatalogPortfolioShare(
+  props: Partial<AwsServicecatalogPortfolioShareInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -54,8 +56,8 @@ export function AwsServicecatalogPortfolioShare(props: Partial<InputProps>) {
       _type='aws_servicecatalog_portfolio_share'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsServicecatalogPortfolioShareInputSchema}
+      _outputSchema={AwsServicecatalogPortfolioShareOutputSchema}
       {...props}
     />
   )
@@ -66,7 +68,7 @@ export const useAwsServicecatalogPortfolioShare = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsServicecatalogPortfolioShareOutputProps>(
     AwsServicecatalogPortfolioShare,
     idFilter,
     baseNode,
@@ -78,7 +80,7 @@ export const useAwsServicecatalogPortfolioShares = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsServicecatalogPortfolioShareOutputProps>(
     AwsServicecatalogPortfolioShare,
     idFilter,
     baseNode,

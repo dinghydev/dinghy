@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLbCookieStickinessPolicyInputSchema = TfMetaSchema.extend({
   lb_port: resolvableValue(z.number()),
   load_balancer: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -17,7 +17,7 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsLbCookieStickinessPolicyOutputSchema = z.object({
   cookie_expiration_period: z.number().optional(),
   id: z.string().optional(),
   lb_port: z.number().optional(),
@@ -25,18 +25,20 @@ export const OutputSchema = z.object({
   name: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLbCookieStickinessPolicyInputProps =
+  & z.input<typeof AwsLbCookieStickinessPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLbCookieStickinessPolicyOutputProps =
+  & z.output<typeof AwsLbCookieStickinessPolicyOutputSchema>
+  & z.output<typeof AwsLbCookieStickinessPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lb_cookie_stickiness_policy
 
-export function AwsLbCookieStickinessPolicy(props: Partial<InputProps>) {
+export function AwsLbCookieStickinessPolicy(
+  props: Partial<AwsLbCookieStickinessPolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function AwsLbCookieStickinessPolicy(props: Partial<InputProps>) {
       _type='aws_lb_cookie_stickiness_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLbCookieStickinessPolicyInputSchema}
+      _outputSchema={AwsLbCookieStickinessPolicyOutputSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useAwsLbCookieStickinessPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsLbCookieStickinessPolicyOutputProps>(
     AwsLbCookieStickinessPolicy,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useAwsLbCookieStickinessPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsLbCookieStickinessPolicyOutputProps>(
     AwsLbCookieStickinessPolicy,
     idFilter,
     baseNode,

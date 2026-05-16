@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDxLagInputSchema = TfMetaSchema.extend({
   connections_bandwidth: resolvableValue(z.string()),
   location: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -20,7 +20,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDxLagOutputSchema = z.object({
   arn: z.string().optional(),
   has_logical_redundancy: z.string().optional(),
   id: z.string().optional(),
@@ -29,18 +29,18 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDxLagInputProps =
+  & z.input<typeof AwsDxLagInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDxLagOutputProps =
+  & z.output<typeof AwsDxLagOutputSchema>
+  & z.output<typeof AwsDxLagInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dx_lag
 
-export function AwsDxLag(props: Partial<InputProps>) {
+export function AwsDxLag(props: Partial<AwsDxLagInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -50,8 +50,8 @@ export function AwsDxLag(props: Partial<InputProps>) {
       _type='aws_dx_lag'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDxLagInputSchema}
+      _outputSchema={AwsDxLagOutputSchema}
       {...props}
     />
   )
@@ -61,10 +61,10 @@ export const useAwsDxLag = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsDxLag, idFilter, baseNode, optional)
+) => useTypedNode<AwsDxLagOutputProps>(AwsDxLag, idFilter, baseNode, optional)
 
 export const useAwsDxLags = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsDxLag, idFilter, baseNode, optional)
+) => useTypedNodes<AwsDxLagOutputProps>(AwsDxLag, idFilter, baseNode, optional)

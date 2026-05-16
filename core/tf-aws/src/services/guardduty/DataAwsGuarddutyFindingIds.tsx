@@ -8,29 +8,31 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsGuarddutyFindingIdsInputSchema = TfMetaSchema.extend({
   detector_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsGuarddutyFindingIdsOutputSchema = z.object({
   finding_ids: z.string().array().optional(),
   has_findings: z.boolean().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsGuarddutyFindingIdsInputProps =
+  & z.input<typeof DataAwsGuarddutyFindingIdsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsGuarddutyFindingIdsOutputProps =
+  & z.output<typeof DataAwsGuarddutyFindingIdsOutputSchema>
+  & z.output<typeof DataAwsGuarddutyFindingIdsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/guardduty_finding_ids
 
-export function DataAwsGuarddutyFindingIds(props: Partial<InputProps>) {
+export function DataAwsGuarddutyFindingIds(
+  props: Partial<DataAwsGuarddutyFindingIdsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function DataAwsGuarddutyFindingIds(props: Partial<InputProps>) {
       _type='aws_guardduty_finding_ids'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsGuarddutyFindingIdsInputSchema}
+      _outputSchema={DataAwsGuarddutyFindingIdsOutputSchema}
       {...props}
     />
   )
@@ -52,7 +54,7 @@ export const useDataAwsGuarddutyFindingIdss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsGuarddutyFindingIdsOutputProps>(
     DataAwsGuarddutyFindingIds,
     idFilter,
     baseNode,

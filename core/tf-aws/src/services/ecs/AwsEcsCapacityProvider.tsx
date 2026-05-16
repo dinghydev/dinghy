@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEcsCapacityProviderInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   auto_scaling_group_provider: resolvableValue(
     z.object({
@@ -107,28 +107,30 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsEcsCapacityProviderOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsEcsCapacityProviderImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsEcsCapacityProviderInputProps =
+  & z.input<typeof AwsEcsCapacityProviderInputSchema>
+  & z.input<typeof AwsEcsCapacityProviderImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEcsCapacityProviderOutputProps =
+  & z.output<typeof AwsEcsCapacityProviderOutputSchema>
+  & z.output<typeof AwsEcsCapacityProviderInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ecs_capacity_provider
 
-export function AwsEcsCapacityProvider(props: Partial<InputProps>) {
+export function AwsEcsCapacityProvider(
+  props: Partial<AwsEcsCapacityProviderInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -138,9 +140,9 @@ export function AwsEcsCapacityProvider(props: Partial<InputProps>) {
       _type='aws_ecs_capacity_provider'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsEcsCapacityProviderInputSchema}
+      _outputSchema={AwsEcsCapacityProviderOutputSchema}
+      _importSchema={AwsEcsCapacityProviderImportSchema}
       {...props}
     />
   )
@@ -151,7 +153,7 @@ export const useAwsEcsCapacityProvider = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsEcsCapacityProviderOutputProps>(
     AwsEcsCapacityProvider,
     idFilter,
     baseNode,
@@ -163,7 +165,7 @@ export const useAwsEcsCapacityProviders = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEcsCapacityProviderOutputProps>(
     AwsEcsCapacityProvider,
     idFilter,
     baseNode,

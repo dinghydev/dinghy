@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSagemakerLabelingJobInputSchema = TfMetaSchema.extend({
   label_attribute_name: resolvableValue(z.string()),
   labeling_job_name: resolvableValue(z.string()),
   role_arn: resolvableValue(z.string()),
@@ -86,7 +86,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSagemakerLabelingJobOutputSchema = z.object({
   failure_reason: z.string().optional(),
   job_reference_code: z.string().optional(),
   label_counters: z.object({
@@ -101,18 +101,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSagemakerLabelingJobInputProps =
+  & z.input<typeof AwsSagemakerLabelingJobInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSagemakerLabelingJobOutputProps =
+  & z.output<typeof AwsSagemakerLabelingJobOutputSchema>
+  & z.output<typeof AwsSagemakerLabelingJobInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sagemaker_labeling_job
 
-export function AwsSagemakerLabelingJob(props: Partial<InputProps>) {
+export function AwsSagemakerLabelingJob(
+  props: Partial<AwsSagemakerLabelingJobInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -122,8 +124,8 @@ export function AwsSagemakerLabelingJob(props: Partial<InputProps>) {
       _type='aws_sagemaker_labeling_job'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSagemakerLabelingJobInputSchema}
+      _outputSchema={AwsSagemakerLabelingJobOutputSchema}
       {...props}
     />
   )
@@ -134,7 +136,7 @@ export const useAwsSagemakerLabelingJob = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSagemakerLabelingJobOutputProps>(
     AwsSagemakerLabelingJob,
     idFilter,
     baseNode,
@@ -146,7 +148,7 @@ export const useAwsSagemakerLabelingJobs = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSagemakerLabelingJobOutputProps>(
     AwsSagemakerLabelingJob,
     idFilter,
     baseNode,

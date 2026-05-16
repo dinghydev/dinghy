@@ -9,13 +9,13 @@ import {
 import z from 'zod'
 import { AwsRedshiftCluster } from './AwsRedshiftCluster.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsRedshiftClusterInputSchema = TfMetaSchema.extend({
   cluster_identifier: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsRedshiftClusterOutputSchema = z.object({
   allow_version_upgrade: z.boolean().optional(),
   aqua_configuration_status: z.string().optional(),
   arn: z.string().optional(),
@@ -62,18 +62,20 @@ export const OutputSchema = z.object({
   vpc_security_group_ids: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsRedshiftClusterInputProps =
+  & z.input<typeof DataAwsRedshiftClusterInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsRedshiftClusterOutputProps =
+  & z.output<typeof DataAwsRedshiftClusterOutputSchema>
+  & z.output<typeof DataAwsRedshiftClusterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/redshift_cluster
 
-export function DataAwsRedshiftCluster(props: Partial<InputProps>) {
+export function DataAwsRedshiftCluster(
+  props: Partial<DataAwsRedshiftClusterInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -83,8 +85,8 @@ export function DataAwsRedshiftCluster(props: Partial<InputProps>) {
       _type='aws_redshift_cluster'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsRedshiftClusterInputSchema}
+      _outputSchema={DataAwsRedshiftClusterOutputSchema}
       {...props as any}
     />
   )
@@ -95,7 +97,7 @@ export const useDataAwsRedshiftCluster = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsRedshiftClusterOutputProps>(
     DataAwsRedshiftCluster,
     idFilter,
     baseNode,
@@ -107,7 +109,7 @@ export const useDataAwsRedshiftClusters = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsRedshiftClusterOutputProps>(
     DataAwsRedshiftCluster,
     idFilter,
     baseNode,

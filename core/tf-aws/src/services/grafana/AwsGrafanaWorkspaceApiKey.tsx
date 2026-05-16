@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsGrafanaWorkspaceApiKeyInputSchema = TfMetaSchema.extend({
   key_name: resolvableValue(z.string()),
   key_role: resolvableValue(z.string()),
   seconds_to_live: resolvableValue(z.number()),
@@ -18,22 +18,24 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsGrafanaWorkspaceApiKeyOutputSchema = z.object({
   __key: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsGrafanaWorkspaceApiKeyInputProps =
+  & z.input<typeof AwsGrafanaWorkspaceApiKeyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsGrafanaWorkspaceApiKeyOutputProps =
+  & z.output<typeof AwsGrafanaWorkspaceApiKeyOutputSchema>
+  & z.output<typeof AwsGrafanaWorkspaceApiKeyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/grafana_workspace_api_key
 
-export function AwsGrafanaWorkspaceApiKey(props: Partial<InputProps>) {
+export function AwsGrafanaWorkspaceApiKey(
+  props: Partial<AwsGrafanaWorkspaceApiKeyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function AwsGrafanaWorkspaceApiKey(props: Partial<InputProps>) {
       _type='aws_grafana_workspace_api_key'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsGrafanaWorkspaceApiKeyInputSchema}
+      _outputSchema={AwsGrafanaWorkspaceApiKeyOutputSchema}
       {...props}
     />
   )
@@ -55,7 +57,7 @@ export const useAwsGrafanaWorkspaceApiKey = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsGrafanaWorkspaceApiKeyOutputProps>(
     AwsGrafanaWorkspaceApiKey,
     idFilter,
     baseNode,
@@ -67,7 +69,7 @@ export const useAwsGrafanaWorkspaceApiKeys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsGrafanaWorkspaceApiKeyOutputProps>(
     AwsGrafanaWorkspaceApiKey,
     idFilter,
     baseNode,

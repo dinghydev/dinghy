@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsFsxOpenzfsSnapshot } from './AwsFsxOpenzfsSnapshot.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsFsxOpenzfsSnapshotInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -21,7 +21,7 @@ export const InputSchema = TfMetaSchema.extend({
   snapshot_ids: resolvableValue(z.string().array().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsFsxOpenzfsSnapshotOutputSchema = z.object({
   arn: z.string().optional(),
   creation_time: z.string().optional(),
   id: z.string().optional(),
@@ -31,18 +31,20 @@ export const OutputSchema = z.object({
   volume_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsFsxOpenzfsSnapshotInputProps =
+  & z.input<typeof DataAwsFsxOpenzfsSnapshotInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsFsxOpenzfsSnapshotOutputProps =
+  & z.output<typeof DataAwsFsxOpenzfsSnapshotOutputSchema>
+  & z.output<typeof DataAwsFsxOpenzfsSnapshotInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/fsx_openzfs_snapshot
 
-export function DataAwsFsxOpenzfsSnapshot(props: Partial<InputProps>) {
+export function DataAwsFsxOpenzfsSnapshot(
+  props: Partial<DataAwsFsxOpenzfsSnapshotInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,8 +54,8 @@ export function DataAwsFsxOpenzfsSnapshot(props: Partial<InputProps>) {
       _type='aws_fsx_openzfs_snapshot'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsFsxOpenzfsSnapshotInputSchema}
+      _outputSchema={DataAwsFsxOpenzfsSnapshotOutputSchema}
       {...props as any}
     />
   )
@@ -64,7 +66,7 @@ export const useDataAwsFsxOpenzfsSnapshot = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsFsxOpenzfsSnapshotOutputProps>(
     DataAwsFsxOpenzfsSnapshot,
     idFilter,
     baseNode,
@@ -76,7 +78,7 @@ export const useDataAwsFsxOpenzfsSnapshots = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsFsxOpenzfsSnapshotOutputProps>(
     DataAwsFsxOpenzfsSnapshot,
     idFilter,
     baseNode,

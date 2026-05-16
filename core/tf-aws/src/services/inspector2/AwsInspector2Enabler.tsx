@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsInspector2EnablerInputSchema = TfMetaSchema.extend({
   account_ids: resolvableValue(z.string().array()),
   resource_types: resolvableValue(z.string().array()),
   id: resolvableValue(z.string().optional()),
@@ -23,20 +23,22 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({})
+export const AwsInspector2EnablerOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsInspector2EnablerInputProps =
+  & z.input<typeof AwsInspector2EnablerInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsInspector2EnablerOutputProps =
+  & z.output<typeof AwsInspector2EnablerOutputSchema>
+  & z.output<typeof AwsInspector2EnablerInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/inspector2_enabler
 
-export function AwsInspector2Enabler(props: Partial<InputProps>) {
+export function AwsInspector2Enabler(
+  props: Partial<AwsInspector2EnablerInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function AwsInspector2Enabler(props: Partial<InputProps>) {
       _type='aws_inspector2_enabler'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsInspector2EnablerInputSchema}
+      _outputSchema={AwsInspector2EnablerOutputSchema}
       {...props}
     />
   )
@@ -58,11 +60,21 @@ export const useAwsInspector2Enabler = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsInspector2Enabler, idFilter, baseNode, optional)
+  useTypedNode<AwsInspector2EnablerOutputProps>(
+    AwsInspector2Enabler,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsInspector2Enablers = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsInspector2Enabler, idFilter, baseNode, optional)
+  useTypedNodes<AwsInspector2EnablerOutputProps>(
+    AwsInspector2Enabler,
+    idFilter,
+    baseNode,
+    optional,
+  )

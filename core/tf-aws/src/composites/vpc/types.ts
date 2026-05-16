@@ -5,9 +5,9 @@ import {
   ResolvableNumberSchema,
 } from '@dinghy/base-components'
 import { z } from 'zod'
-import { InputSchema as AwsVpcInputSchema } from '../../services/vpc/AwsVpc.tsx'
-import { InputSchema as AwsSubnetInputSchema } from '../../services/vpc/AwsSubnet.tsx'
-import { InputSchema as RuleInputSchema } from '../../services/vpc/AwsVpcSecurityGroupEgressRule.tsx'
+import { AwsVpcInputSchema } from '../../services/vpc/AwsVpc.tsx'
+import { AwsSubnetInputSchema } from '../../services/vpc/AwsSubnet.tsx'
+import { AwsVpcSecurityGroupEgressRuleInputSchema } from '../../services/vpc/AwsVpcSecurityGroupEgressRule.tsx'
 import { useAwsProvider } from '../../foundation/AwsProvider.tsx'
 
 const SubnetSchema = AwsSubnetInputSchema.extend({
@@ -19,8 +19,9 @@ const SecurityGroupSchema = z.object({
   name: z.string().optional().transform((value: string | undefined) =>
     value as string
   ),
-  ingress: RuleInputSchema.partial().array().optional(),
-  egress: RuleInputSchema.partial().array().optional(),
+  ingress: AwsVpcSecurityGroupEgressRuleInputSchema.partial().array()
+    .optional(),
+  egress: AwsVpcSecurityGroupEgressRuleInputSchema.partial().array().optional(),
 })
 
 const VpcSchema = AwsVpcInputSchema.extend({

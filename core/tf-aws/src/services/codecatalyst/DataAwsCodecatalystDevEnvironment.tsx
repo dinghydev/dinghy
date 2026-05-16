@@ -9,16 +9,18 @@ import {
 import z from 'zod'
 import { AwsCodecatalystDevEnvironment } from './AwsCodecatalystDevEnvironment.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  env_id: resolvableValue(z.string()),
-  project_name: resolvableValue(z.string()),
-  space_name: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+export const DataAwsCodecatalystDevEnvironmentInputSchema = TfMetaSchema.extend(
+  {
+    env_id: resolvableValue(z.string()),
+    project_name: resolvableValue(z.string()),
+    space_name: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  },
+)
 
-export const OutputSchema = z.object({
+export const DataAwsCodecatalystDevEnvironmentOutputSchema = z.object({
   alias: z.string().optional(),
   creator_id: z.string().optional(),
   ides: z.object({
@@ -39,18 +41,20 @@ export const OutputSchema = z.object({
   status_reason: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsCodecatalystDevEnvironmentInputProps =
+  & z.input<typeof DataAwsCodecatalystDevEnvironmentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsCodecatalystDevEnvironmentOutputProps =
+  & z.output<typeof DataAwsCodecatalystDevEnvironmentOutputSchema>
+  & z.output<typeof DataAwsCodecatalystDevEnvironmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/codecatalyst_dev_environment
 
-export function DataAwsCodecatalystDevEnvironment(props: Partial<InputProps>) {
+export function DataAwsCodecatalystDevEnvironment(
+  props: Partial<DataAwsCodecatalystDevEnvironmentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -60,8 +64,8 @@ export function DataAwsCodecatalystDevEnvironment(props: Partial<InputProps>) {
       _type='aws_codecatalyst_dev_environment'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsCodecatalystDevEnvironmentInputSchema}
+      _outputSchema={DataAwsCodecatalystDevEnvironmentOutputSchema}
       {...props as any}
     />
   )
@@ -72,7 +76,7 @@ export const useDataAwsCodecatalystDevEnvironment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsCodecatalystDevEnvironmentOutputProps>(
     DataAwsCodecatalystDevEnvironment,
     idFilter,
     baseNode,
@@ -84,7 +88,7 @@ export const useDataAwsCodecatalystDevEnvironments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsCodecatalystDevEnvironmentOutputProps>(
     DataAwsCodecatalystDevEnvironment,
     idFilter,
     baseNode,

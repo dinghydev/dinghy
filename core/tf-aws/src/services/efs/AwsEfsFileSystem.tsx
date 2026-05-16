@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEfsFileSystemInputSchema = TfMetaSchema.extend({
   availability_zone_name: resolvableValue(z.string().optional()),
   creation_token: resolvableValue(z.string().optional()),
   encrypted: resolvableValue(z.boolean().optional()),
@@ -33,7 +33,7 @@ export const InputSchema = TfMetaSchema.extend({
   throughput_mode: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsEfsFileSystemOutputSchema = z.object({
   arn: z.string().optional(),
   availability_zone_id: z.string().optional(),
   dns_name: z.string().optional(),
@@ -49,18 +49,18 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEfsFileSystemInputProps =
+  & z.input<typeof AwsEfsFileSystemInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEfsFileSystemOutputProps =
+  & z.output<typeof AwsEfsFileSystemOutputSchema>
+  & z.output<typeof AwsEfsFileSystemInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/efs_file_system
 
-export function AwsEfsFileSystem(props: Partial<InputProps>) {
+export function AwsEfsFileSystem(props: Partial<AwsEfsFileSystemInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -70,8 +70,8 @@ export function AwsEfsFileSystem(props: Partial<InputProps>) {
       _type='aws_efs_file_system'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEfsFileSystemInputSchema}
+      _outputSchema={AwsEfsFileSystemOutputSchema}
       {...props}
     />
   )
@@ -81,10 +81,22 @@ export const useAwsEfsFileSystem = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsEfsFileSystem, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsEfsFileSystemOutputProps>(
+    AwsEfsFileSystem,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEfsFileSystems = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsEfsFileSystem, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsEfsFileSystemOutputProps>(
+    AwsEfsFileSystem,
+    idFilter,
+    baseNode,
+    optional,
+  )

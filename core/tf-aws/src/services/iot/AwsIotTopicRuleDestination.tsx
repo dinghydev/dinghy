@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIotTopicRuleDestinationInputSchema = TfMetaSchema.extend({
   vpc_configuration: resolvableValue(z.object({
     role_arn: z.string(),
     security_groups: z.string().array().optional(),
@@ -28,22 +28,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsIotTopicRuleDestinationOutputSchema = z.object({
   arn: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsIotTopicRuleDestinationInputProps =
+  & z.input<typeof AwsIotTopicRuleDestinationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIotTopicRuleDestinationOutputProps =
+  & z.output<typeof AwsIotTopicRuleDestinationOutputSchema>
+  & z.output<typeof AwsIotTopicRuleDestinationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iot_topic_rule_destination
 
-export function AwsIotTopicRuleDestination(props: Partial<InputProps>) {
+export function AwsIotTopicRuleDestination(
+  props: Partial<AwsIotTopicRuleDestinationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,8 +55,8 @@ export function AwsIotTopicRuleDestination(props: Partial<InputProps>) {
       _type='aws_iot_topic_rule_destination'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsIotTopicRuleDestinationInputSchema}
+      _outputSchema={AwsIotTopicRuleDestinationOutputSchema}
       {...props}
     />
   )
@@ -65,7 +67,7 @@ export const useAwsIotTopicRuleDestination = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsIotTopicRuleDestinationOutputProps>(
     AwsIotTopicRuleDestination,
     idFilter,
     baseNode,
@@ -77,7 +79,7 @@ export const useAwsIotTopicRuleDestinations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsIotTopicRuleDestinationOutputProps>(
     AwsIotTopicRuleDestination,
     idFilter,
     baseNode,

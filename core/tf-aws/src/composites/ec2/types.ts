@@ -3,7 +3,7 @@ import {
   ResolvableStringSchema,
 } from '@dinghy/base-components'
 import { z } from 'zod'
-import { InputSchema as AwsInstanceInputSchema } from '../../services/ec2/AwsInstance.tsx'
+import { AwsInstanceInputSchema } from '../../services/ec2/AwsInstance.tsx'
 
 const Ec2ServerSchema = AwsInstanceInputSchema.extend({
   name: ResolvableStringSchema.optional(),

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDatazoneFormTypeInputSchema = TfMetaSchema.extend({
   domain_identifier: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   owning_project_identifier: resolvableValue(z.string()),
@@ -28,7 +28,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDatazoneFormTypeOutputSchema = z.object({
   created_at: z.string().optional(),
   created_by: z.string().optional(),
   imports: z.object({
@@ -40,18 +40,20 @@ export const OutputSchema = z.object({
   revision: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDatazoneFormTypeInputProps =
+  & z.input<typeof AwsDatazoneFormTypeInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDatazoneFormTypeOutputProps =
+  & z.output<typeof AwsDatazoneFormTypeOutputSchema>
+  & z.output<typeof AwsDatazoneFormTypeInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/datazone_form_type
 
-export function AwsDatazoneFormType(props: Partial<InputProps>) {
+export function AwsDatazoneFormType(
+  props: Partial<AwsDatazoneFormTypeInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -61,8 +63,8 @@ export function AwsDatazoneFormType(props: Partial<InputProps>) {
       _type='aws_datazone_form_type'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDatazoneFormTypeInputSchema}
+      _outputSchema={AwsDatazoneFormTypeOutputSchema}
       {...props}
     />
   )
@@ -73,11 +75,21 @@ export const useAwsDatazoneFormType = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsDatazoneFormType, idFilter, baseNode, optional)
+  useTypedNode<AwsDatazoneFormTypeOutputProps>(
+    AwsDatazoneFormType,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDatazoneFormTypes = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsDatazoneFormType, idFilter, baseNode, optional)
+  useTypedNodes<AwsDatazoneFormTypeOutputProps>(
+    AwsDatazoneFormType,
+    idFilter,
+    baseNode,
+    optional,
+  )

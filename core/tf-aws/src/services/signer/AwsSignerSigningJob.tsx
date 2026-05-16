@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSignerSigningJobInputSchema = TfMetaSchema.extend({
   destination: resolvableValue(z.object({
     s3: z.object({
       bucket: z.string(),
@@ -29,7 +29,7 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSignerSigningJobOutputSchema = z.object({
   completed_at: z.string().optional(),
   created_at: z.string().optional(),
   job_id: z.string().optional(),
@@ -55,18 +55,20 @@ export const OutputSchema = z.object({
   status_reason: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSignerSigningJobInputProps =
+  & z.input<typeof AwsSignerSigningJobInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSignerSigningJobOutputProps =
+  & z.output<typeof AwsSignerSigningJobOutputSchema>
+  & z.output<typeof AwsSignerSigningJobInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/signer_signing_job
 
-export function AwsSignerSigningJob(props: Partial<InputProps>) {
+export function AwsSignerSigningJob(
+  props: Partial<AwsSignerSigningJobInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -76,8 +78,8 @@ export function AwsSignerSigningJob(props: Partial<InputProps>) {
       _type='aws_signer_signing_job'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSignerSigningJobInputSchema}
+      _outputSchema={AwsSignerSigningJobOutputSchema}
       {...props}
     />
   )
@@ -88,11 +90,21 @@ export const useAwsSignerSigningJob = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSignerSigningJob, idFilter, baseNode, optional)
+  useTypedNode<AwsSignerSigningJobOutputProps>(
+    AwsSignerSigningJob,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSignerSigningJobs = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSignerSigningJob, idFilter, baseNode, optional)
+  useTypedNodes<AwsSignerSigningJobOutputProps>(
+    AwsSignerSigningJob,
+    idFilter,
+    baseNode,
+    optional,
+  )

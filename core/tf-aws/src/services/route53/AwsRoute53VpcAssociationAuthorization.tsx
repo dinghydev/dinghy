@@ -9,36 +9,37 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  vpc_id: resolvableValue(z.string()),
-  zone_id: resolvableValue(z.string()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-      read: z.string().optional(),
-    }).optional(),
-  ),
-  vpc_region: resolvableValue(z.string().optional()),
-})
+export const AwsRoute53VpcAssociationAuthorizationInputSchema = TfMetaSchema
+  .extend({
+    vpc_id: resolvableValue(z.string()),
+    zone_id: resolvableValue(z.string()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+        read: z.string().optional(),
+      }).optional(),
+    ),
+    vpc_region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsRoute53VpcAssociationAuthorizationOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRoute53VpcAssociationAuthorizationInputProps =
+  & z.input<typeof AwsRoute53VpcAssociationAuthorizationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRoute53VpcAssociationAuthorizationOutputProps =
+  & z.output<typeof AwsRoute53VpcAssociationAuthorizationOutputSchema>
+  & z.output<typeof AwsRoute53VpcAssociationAuthorizationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/route53_vpc_association_authorization
 
 export function AwsRoute53VpcAssociationAuthorization(
-  props: Partial<InputProps>,
+  props: Partial<AwsRoute53VpcAssociationAuthorizationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -49,8 +50,8 @@ export function AwsRoute53VpcAssociationAuthorization(
       _type='aws_route53_vpc_association_authorization'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRoute53VpcAssociationAuthorizationInputSchema}
+      _outputSchema={AwsRoute53VpcAssociationAuthorizationOutputSchema}
       {...props}
     />
   )
@@ -61,7 +62,7 @@ export const useAwsRoute53VpcAssociationAuthorization = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRoute53VpcAssociationAuthorizationOutputProps>(
     AwsRoute53VpcAssociationAuthorization,
     idFilter,
     baseNode,
@@ -73,7 +74,7 @@ export const useAwsRoute53VpcAssociationAuthorizations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRoute53VpcAssociationAuthorizationOutputProps>(
     AwsRoute53VpcAssociationAuthorization,
     idFilter,
     baseNode,

@@ -9,42 +9,43 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  identity_pool_id: resolvableValue(z.string()),
-  roles: resolvableValue(z.record(z.string(), z.string())),
-  region: resolvableValue(z.string().optional()),
-  role_mapping: resolvableValue(
-    z.object({
-      ambiguous_role_resolution: z.string().optional(),
-      identity_provider: z.string(),
-      type: z.string(),
-      mapping_rule: z.object({
-        claim: z.string(),
-        match_type: z.string(),
-        role_arn: z.string(),
-        value: z.string(),
+export const AwsCognitoIdentityPoolRolesAttachmentInputSchema = TfMetaSchema
+  .extend({
+    identity_pool_id: resolvableValue(z.string()),
+    roles: resolvableValue(z.record(z.string(), z.string())),
+    region: resolvableValue(z.string().optional()),
+    role_mapping: resolvableValue(
+      z.object({
+        ambiguous_role_resolution: z.string().optional(),
+        identity_provider: z.string(),
+        type: z.string(),
+        mapping_rule: z.object({
+          claim: z.string(),
+          match_type: z.string(),
+          role_arn: z.string(),
+          value: z.string(),
+        }).array().optional(),
       }).array().optional(),
-    }).array().optional(),
-  ),
-})
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsCognitoIdentityPoolRolesAttachmentOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCognitoIdentityPoolRolesAttachmentInputProps =
+  & z.input<typeof AwsCognitoIdentityPoolRolesAttachmentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCognitoIdentityPoolRolesAttachmentOutputProps =
+  & z.output<typeof AwsCognitoIdentityPoolRolesAttachmentOutputSchema>
+  & z.output<typeof AwsCognitoIdentityPoolRolesAttachmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cognito_identity_pool_roles_attachment
 
 export function AwsCognitoIdentityPoolRolesAttachment(
-  props: Partial<InputProps>,
+  props: Partial<AwsCognitoIdentityPoolRolesAttachmentInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -55,8 +56,8 @@ export function AwsCognitoIdentityPoolRolesAttachment(
       _type='aws_cognito_identity_pool_roles_attachment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCognitoIdentityPoolRolesAttachmentInputSchema}
+      _outputSchema={AwsCognitoIdentityPoolRolesAttachmentOutputSchema}
       {...props}
     />
   )
@@ -67,7 +68,7 @@ export const useAwsCognitoIdentityPoolRolesAttachment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCognitoIdentityPoolRolesAttachmentOutputProps>(
     AwsCognitoIdentityPoolRolesAttachment,
     idFilter,
     baseNode,
@@ -79,7 +80,7 @@ export const useAwsCognitoIdentityPoolRolesAttachments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCognitoIdentityPoolRolesAttachmentOutputProps>(
     AwsCognitoIdentityPoolRolesAttachment,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsMedialiveChannelInputSchema = TfMetaSchema.extend({
   channel_class: resolvableValue(z.string()),
   destinations: resolvableValue(
     z.object({
@@ -893,23 +893,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsMedialiveChannelOutputSchema = z.object({
   arn: z.string().optional(),
   channel_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsMedialiveChannelInputProps =
+  & z.input<typeof AwsMedialiveChannelInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsMedialiveChannelOutputProps =
+  & z.output<typeof AwsMedialiveChannelOutputSchema>
+  & z.output<typeof AwsMedialiveChannelInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/medialive_channel
 
-export function AwsMedialiveChannel(props: Partial<InputProps>) {
+export function AwsMedialiveChannel(
+  props: Partial<AwsMedialiveChannelInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -919,8 +921,8 @@ export function AwsMedialiveChannel(props: Partial<InputProps>) {
       _type='aws_medialive_channel'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsMedialiveChannelInputSchema}
+      _outputSchema={AwsMedialiveChannelOutputSchema}
       {...props}
     />
   )
@@ -931,11 +933,21 @@ export const useAwsMedialiveChannel = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsMedialiveChannel, idFilter, baseNode, optional)
+  useTypedNode<AwsMedialiveChannelOutputProps>(
+    AwsMedialiveChannel,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsMedialiveChannels = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsMedialiveChannel, idFilter, baseNode, optional)
+  useTypedNodes<AwsMedialiveChannelOutputProps>(
+    AwsMedialiveChannel,
+    idFilter,
+    baseNode,
+    optional,
+  )

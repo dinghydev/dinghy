@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const EphemeralAwsKmsSecretsInputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
   secret: resolvableValue(
     z.object({
@@ -22,22 +22,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const EphemeralAwsKmsSecretsOutputSchema = z.object({
   plaintext: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type EphemeralAwsKmsSecretsInputProps =
+  & z.input<typeof EphemeralAwsKmsSecretsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type EphemeralAwsKmsSecretsOutputProps =
+  & z.output<typeof EphemeralAwsKmsSecretsOutputSchema>
+  & z.output<typeof EphemeralAwsKmsSecretsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/ephemeral-resources/kms_secrets
 
-export function EphemeralAwsKmsSecrets(props: Partial<InputProps>) {
+export function EphemeralAwsKmsSecrets(
+  props: Partial<EphemeralAwsKmsSecretsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +49,8 @@ export function EphemeralAwsKmsSecrets(props: Partial<InputProps>) {
       _type='aws_kms_secrets'
       _category='ephemeral'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={EphemeralAwsKmsSecretsInputSchema}
+      _outputSchema={EphemeralAwsKmsSecretsOutputSchema}
       {...props}
     />
   )
@@ -59,7 +61,7 @@ export const useEphemeralAwsKmsSecretss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<EphemeralAwsKmsSecretsOutputProps>(
     EphemeralAwsKmsSecrets,
     idFilter,
     baseNode,

@@ -9,31 +9,35 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  consumer_identifier: resolvableValue(z.string()),
-  data_share_arn: resolvableValue(z.string()),
-  allow_writes: resolvableValue(z.boolean().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsRedshiftDataShareAuthorizationInputSchema = TfMetaSchema.extend(
+  {
+    consumer_identifier: resolvableValue(z.string()),
+    data_share_arn: resolvableValue(z.string()),
+    allow_writes: resolvableValue(z.boolean().optional()),
+    region: resolvableValue(z.string().optional()),
+  },
+)
 
-export const OutputSchema = z.object({
+export const AwsRedshiftDataShareAuthorizationOutputSchema = z.object({
   id: z.string().optional(),
   managed_by: z.string().optional(),
   producer_arn: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRedshiftDataShareAuthorizationInputProps =
+  & z.input<typeof AwsRedshiftDataShareAuthorizationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRedshiftDataShareAuthorizationOutputProps =
+  & z.output<typeof AwsRedshiftDataShareAuthorizationOutputSchema>
+  & z.output<typeof AwsRedshiftDataShareAuthorizationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/redshift_data_share_authorization
 
-export function AwsRedshiftDataShareAuthorization(props: Partial<InputProps>) {
+export function AwsRedshiftDataShareAuthorization(
+  props: Partial<AwsRedshiftDataShareAuthorizationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +47,8 @@ export function AwsRedshiftDataShareAuthorization(props: Partial<InputProps>) {
       _type='aws_redshift_data_share_authorization'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRedshiftDataShareAuthorizationInputSchema}
+      _outputSchema={AwsRedshiftDataShareAuthorizationOutputSchema}
       {...props}
     />
   )
@@ -55,7 +59,7 @@ export const useAwsRedshiftDataShareAuthorization = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRedshiftDataShareAuthorizationOutputProps>(
     AwsRedshiftDataShareAuthorization,
     idFilter,
     baseNode,
@@ -67,7 +71,7 @@ export const useAwsRedshiftDataShareAuthorizations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRedshiftDataShareAuthorizationOutputProps>(
     AwsRedshiftDataShareAuthorization,
     idFilter,
     baseNode,

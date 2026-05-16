@@ -9,28 +9,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsNetworkfirewallResourcePolicyInputSchema = TfMetaSchema.extend({
   policy: resolvableValue(z.string()),
   resource_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsNetworkfirewallResourcePolicyOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsNetworkfirewallResourcePolicyInputProps =
+  & z.input<typeof AwsNetworkfirewallResourcePolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNetworkfirewallResourcePolicyOutputProps =
+  & z.output<typeof AwsNetworkfirewallResourcePolicyOutputSchema>
+  & z.output<typeof AwsNetworkfirewallResourcePolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/networkfirewall_resource_policy
 
-export function AwsNetworkfirewallResourcePolicy(props: Partial<InputProps>) {
+export function AwsNetworkfirewallResourcePolicy(
+  props: Partial<AwsNetworkfirewallResourcePolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function AwsNetworkfirewallResourcePolicy(props: Partial<InputProps>) {
       _type='aws_networkfirewall_resource_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsNetworkfirewallResourcePolicyInputSchema}
+      _outputSchema={AwsNetworkfirewallResourcePolicyOutputSchema}
       {...props}
     />
   )
@@ -52,7 +54,7 @@ export const useAwsNetworkfirewallResourcePolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsNetworkfirewallResourcePolicyOutputProps>(
     AwsNetworkfirewallResourcePolicy,
     idFilter,
     baseNode,
@@ -64,7 +66,7 @@ export const useAwsNetworkfirewallResourcePolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsNetworkfirewallResourcePolicyOutputProps>(
     AwsNetworkfirewallResourcePolicy,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDevicefarmDevicePoolInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   project_arn: resolvableValue(z.string()),
   rule: resolvableValue(
@@ -26,29 +26,31 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDevicefarmDevicePoolOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   type: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsDevicefarmDevicePoolImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsDevicefarmDevicePoolInputProps =
+  & z.input<typeof AwsDevicefarmDevicePoolInputSchema>
+  & z.input<typeof AwsDevicefarmDevicePoolImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDevicefarmDevicePoolOutputProps =
+  & z.output<typeof AwsDevicefarmDevicePoolOutputSchema>
+  & z.output<typeof AwsDevicefarmDevicePoolInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/devicefarm_device_pool
 
-export function AwsDevicefarmDevicePool(props: Partial<InputProps>) {
+export function AwsDevicefarmDevicePool(
+  props: Partial<AwsDevicefarmDevicePoolInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -58,9 +60,9 @@ export function AwsDevicefarmDevicePool(props: Partial<InputProps>) {
       _type='aws_devicefarm_device_pool'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsDevicefarmDevicePoolInputSchema}
+      _outputSchema={AwsDevicefarmDevicePoolOutputSchema}
+      _importSchema={AwsDevicefarmDevicePoolImportSchema}
       {...props}
     />
   )
@@ -71,7 +73,7 @@ export const useAwsDevicefarmDevicePool = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDevicefarmDevicePoolOutputProps>(
     AwsDevicefarmDevicePool,
     idFilter,
     baseNode,
@@ -83,7 +85,7 @@ export const useAwsDevicefarmDevicePools = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDevicefarmDevicePoolOutputProps>(
     AwsDevicefarmDevicePool,
     idFilter,
     baseNode,

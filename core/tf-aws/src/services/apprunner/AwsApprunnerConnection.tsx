@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsApprunnerConnectionInputSchema = TfMetaSchema.extend({
   connection_name: resolvableValue(z.string()),
   provider_type: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
@@ -17,24 +17,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsApprunnerConnectionOutputSchema = z.object({
   arn: z.string().optional(),
   status: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsApprunnerConnectionInputProps =
+  & z.input<typeof AwsApprunnerConnectionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApprunnerConnectionOutputProps =
+  & z.output<typeof AwsApprunnerConnectionOutputSchema>
+  & z.output<typeof AwsApprunnerConnectionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/apprunner_connection
 
-export function AwsApprunnerConnection(props: Partial<InputProps>) {
+export function AwsApprunnerConnection(
+  props: Partial<AwsApprunnerConnectionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +46,8 @@ export function AwsApprunnerConnection(props: Partial<InputProps>) {
       _type='aws_apprunner_connection'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsApprunnerConnectionInputSchema}
+      _outputSchema={AwsApprunnerConnectionOutputSchema}
       {...props}
     />
   )
@@ -56,7 +58,7 @@ export const useAwsApprunnerConnection = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsApprunnerConnectionOutputProps>(
     AwsApprunnerConnection,
     idFilter,
     baseNode,
@@ -68,7 +70,7 @@ export const useAwsApprunnerConnections = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsApprunnerConnectionOutputProps>(
     AwsApprunnerConnection,
     idFilter,
     baseNode,

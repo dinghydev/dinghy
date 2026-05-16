@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsNatGatewayEipAssociationInputSchema = TfMetaSchema.extend({
   allocation_id: resolvableValue(z.string()),
   nat_gateway_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
@@ -21,22 +21,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsNatGatewayEipAssociationOutputSchema = z.object({
   association_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsNatGatewayEipAssociationInputProps =
+  & z.input<typeof AwsNatGatewayEipAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNatGatewayEipAssociationOutputProps =
+  & z.output<typeof AwsNatGatewayEipAssociationOutputSchema>
+  & z.output<typeof AwsNatGatewayEipAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/nat_gateway_eip_association
 
-export function AwsNatGatewayEipAssociation(props: Partial<InputProps>) {
+export function AwsNatGatewayEipAssociation(
+  props: Partial<AwsNatGatewayEipAssociationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function AwsNatGatewayEipAssociation(props: Partial<InputProps>) {
       _type='aws_nat_gateway_eip_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsNatGatewayEipAssociationInputSchema}
+      _outputSchema={AwsNatGatewayEipAssociationOutputSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useAwsNatGatewayEipAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsNatGatewayEipAssociationOutputProps>(
     AwsNatGatewayEipAssociation,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useAwsNatGatewayEipAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsNatGatewayEipAssociationOutputProps>(
     AwsNatGatewayEipAssociation,
     idFilter,
     baseNode,

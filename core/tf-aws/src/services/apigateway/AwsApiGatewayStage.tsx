@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsApiGatewayStageInputSchema = TfMetaSchema.extend({
   deployment_id: resolvableValue(z.string()),
   rest_api_id: resolvableValue(z.string()),
   stage_name: resolvableValue(z.string()),
@@ -38,7 +38,7 @@ export const InputSchema = TfMetaSchema.extend({
   xray_tracing_enabled: resolvableValue(z.boolean().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsApiGatewayStageOutputSchema = z.object({
   arn: z.string().optional(),
   execution_arn: z.string().optional(),
   id: z.string().optional(),
@@ -47,18 +47,20 @@ export const OutputSchema = z.object({
   web_acl_arn: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsApiGatewayStageInputProps =
+  & z.input<typeof AwsApiGatewayStageInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApiGatewayStageOutputProps =
+  & z.output<typeof AwsApiGatewayStageOutputSchema>
+  & z.output<typeof AwsApiGatewayStageInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/api_gateway_stage
 
-export function AwsApiGatewayStage(props: Partial<InputProps>) {
+export function AwsApiGatewayStage(
+  props: Partial<AwsApiGatewayStageInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -68,8 +70,8 @@ export function AwsApiGatewayStage(props: Partial<InputProps>) {
       _type='aws_api_gateway_stage'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsApiGatewayStageInputSchema}
+      _outputSchema={AwsApiGatewayStageOutputSchema}
       {...props}
     />
   )
@@ -79,11 +81,22 @@ export const useAwsApiGatewayStage = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsApiGatewayStage, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsApiGatewayStageOutputProps>(
+    AwsApiGatewayStage,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsApiGatewayStages = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsApiGatewayStage, idFilter, baseNode, optional)
+  useTypedNodes<AwsApiGatewayStageOutputProps>(
+    AwsApiGatewayStage,
+    idFilter,
+    baseNode,
+    optional,
+  )

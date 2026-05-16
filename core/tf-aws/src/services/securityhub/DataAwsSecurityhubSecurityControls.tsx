@@ -8,12 +8,13 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  region: resolvableValue(z.string().optional()),
-  standards_arn: resolvableValue(z.string().optional()),
-})
+export const DataAwsSecurityhubSecurityControlsInputSchema = TfMetaSchema
+  .extend({
+    region: resolvableValue(z.string().optional()),
+    standards_arn: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsSecurityhubSecurityControlsOutputSchema = z.object({
   security_control_definitions: z.object({
     current_region_availability: z.string(),
     customizable_properties: z.string().array(),
@@ -25,18 +26,20 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsSecurityhubSecurityControlsInputProps =
+  & z.input<typeof DataAwsSecurityhubSecurityControlsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsSecurityhubSecurityControlsOutputProps =
+  & z.output<typeof DataAwsSecurityhubSecurityControlsOutputSchema>
+  & z.output<typeof DataAwsSecurityhubSecurityControlsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/securityhub_security_controls
 
-export function DataAwsSecurityhubSecurityControls(props: Partial<InputProps>) {
+export function DataAwsSecurityhubSecurityControls(
+  props: Partial<DataAwsSecurityhubSecurityControlsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +49,8 @@ export function DataAwsSecurityhubSecurityControls(props: Partial<InputProps>) {
       _type='aws_securityhub_security_controls'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsSecurityhubSecurityControlsInputSchema}
+      _outputSchema={DataAwsSecurityhubSecurityControlsOutputSchema}
       {...props}
     />
   )
@@ -58,7 +61,7 @@ export const useDataAwsSecurityhubSecurityControlss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsSecurityhubSecurityControlsOutputProps>(
     DataAwsSecurityhubSecurityControls,
     idFilter,
     baseNode,

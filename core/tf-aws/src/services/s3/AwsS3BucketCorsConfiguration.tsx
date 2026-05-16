@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsS3BucketCorsConfigurationInputSchema = TfMetaSchema.extend({
   bucket: resolvableValue(z.string()),
   cors_rule: resolvableValue(
     z.object({
@@ -25,29 +25,31 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsS3BucketCorsConfigurationOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsS3BucketCorsConfigurationImportSchema = z.object({
   bucket: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsS3BucketCorsConfigurationInputProps =
+  & z.input<typeof AwsS3BucketCorsConfigurationInputSchema>
+  & z.input<typeof AwsS3BucketCorsConfigurationImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3BucketCorsConfigurationOutputProps =
+  & z.output<typeof AwsS3BucketCorsConfigurationOutputSchema>
+  & z.output<typeof AwsS3BucketCorsConfigurationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3_bucket_cors_configuration
 
-export function AwsS3BucketCorsConfiguration(props: Partial<InputProps>) {
+export function AwsS3BucketCorsConfiguration(
+  props: Partial<AwsS3BucketCorsConfigurationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -57,9 +59,9 @@ export function AwsS3BucketCorsConfiguration(props: Partial<InputProps>) {
       _type='aws_s3_bucket_cors_configuration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsS3BucketCorsConfigurationInputSchema}
+      _outputSchema={AwsS3BucketCorsConfigurationOutputSchema}
+      _importSchema={AwsS3BucketCorsConfigurationImportSchema}
       {...props}
     />
   )
@@ -70,7 +72,7 @@ export const useAwsS3BucketCorsConfiguration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsS3BucketCorsConfigurationOutputProps>(
     AwsS3BucketCorsConfiguration,
     idFilter,
     baseNode,
@@ -82,7 +84,7 @@ export const useAwsS3BucketCorsConfigurations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsS3BucketCorsConfigurationOutputProps>(
     AwsS3BucketCorsConfiguration,
     idFilter,
     baseNode,

@@ -9,28 +9,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsStoragegatewayCacheInputSchema = TfMetaSchema.extend({
   disk_id: resolvableValue(z.string()),
   gateway_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsStoragegatewayCacheOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsStoragegatewayCacheInputProps =
+  & z.input<typeof AwsStoragegatewayCacheInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsStoragegatewayCacheOutputProps =
+  & z.output<typeof AwsStoragegatewayCacheOutputSchema>
+  & z.output<typeof AwsStoragegatewayCacheInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/storagegateway_cache
 
-export function AwsStoragegatewayCache(props: Partial<InputProps>) {
+export function AwsStoragegatewayCache(
+  props: Partial<AwsStoragegatewayCacheInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function AwsStoragegatewayCache(props: Partial<InputProps>) {
       _type='aws_storagegateway_cache'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsStoragegatewayCacheInputSchema}
+      _outputSchema={AwsStoragegatewayCacheOutputSchema}
       {...props}
     />
   )
@@ -52,7 +54,7 @@ export const useAwsStoragegatewayCache = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsStoragegatewayCacheOutputProps>(
     AwsStoragegatewayCache,
     idFilter,
     baseNode,
@@ -64,7 +66,7 @@ export const useAwsStoragegatewayCaches = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsStoragegatewayCacheOutputProps>(
     AwsStoragegatewayCache,
     idFilter,
     baseNode,

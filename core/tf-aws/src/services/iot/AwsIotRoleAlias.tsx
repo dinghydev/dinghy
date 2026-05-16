@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIotRoleAliasInputSchema = TfMetaSchema.extend({
   alias: resolvableValue(z.string()),
   role_arn: resolvableValue(z.string()),
   credential_duration: resolvableValue(z.number().optional()),
@@ -17,23 +17,23 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsIotRoleAliasOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsIotRoleAliasInputProps =
+  & z.input<typeof AwsIotRoleAliasInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIotRoleAliasOutputProps =
+  & z.output<typeof AwsIotRoleAliasOutputSchema>
+  & z.output<typeof AwsIotRoleAliasInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iot_role_alias
 
-export function AwsIotRoleAlias(props: Partial<InputProps>) {
+export function AwsIotRoleAlias(props: Partial<AwsIotRoleAliasInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +43,8 @@ export function AwsIotRoleAlias(props: Partial<InputProps>) {
       _type='aws_iot_role_alias'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsIotRoleAliasInputSchema}
+      _outputSchema={AwsIotRoleAliasOutputSchema}
       {...props}
     />
   )
@@ -54,4 +54,10 @@ export const useAwsIotRoleAliass = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsIotRoleAlias, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsIotRoleAliasOutputProps>(
+    AwsIotRoleAlias,
+    idFilter,
+    baseNode,
+    optional,
+  )

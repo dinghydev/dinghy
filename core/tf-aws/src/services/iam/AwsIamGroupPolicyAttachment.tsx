@@ -9,33 +9,35 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIamGroupPolicyAttachmentInputSchema = TfMetaSchema.extend({
   group: resolvableValue(z.string()),
   policy_arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsIamGroupPolicyAttachmentOutputSchema = z.object({})
 
-export const ImportSchema = z.object({
+export const AwsIamGroupPolicyAttachmentImportSchema = z.object({
   group: resolvableValue(z.string()),
   policy_arn: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsIamGroupPolicyAttachmentInputProps =
+  & z.input<typeof AwsIamGroupPolicyAttachmentInputSchema>
+  & z.input<typeof AwsIamGroupPolicyAttachmentImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIamGroupPolicyAttachmentOutputProps =
+  & z.output<typeof AwsIamGroupPolicyAttachmentOutputSchema>
+  & z.output<typeof AwsIamGroupPolicyAttachmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iam_group_policy_attachment
 
-export function AwsIamGroupPolicyAttachment(props: Partial<InputProps>) {
+export function AwsIamGroupPolicyAttachment(
+  props: Partial<AwsIamGroupPolicyAttachmentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,9 +47,9 @@ export function AwsIamGroupPolicyAttachment(props: Partial<InputProps>) {
       _type='aws_iam_group_policy_attachment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsIamGroupPolicyAttachmentInputSchema}
+      _outputSchema={AwsIamGroupPolicyAttachmentOutputSchema}
+      _importSchema={AwsIamGroupPolicyAttachmentImportSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useAwsIamGroupPolicyAttachment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsIamGroupPolicyAttachmentOutputProps>(
     AwsIamGroupPolicyAttachment,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useAwsIamGroupPolicyAttachments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsIamGroupPolicyAttachmentOutputProps>(
     AwsIamGroupPolicyAttachment,
     idFilter,
     baseNode,

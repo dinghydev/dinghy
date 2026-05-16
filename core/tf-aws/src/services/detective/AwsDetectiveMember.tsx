@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDetectiveMemberInputSchema = TfMetaSchema.extend({
   account_id: resolvableValue(z.string()),
   email_address: resolvableValue(z.string()),
   graph_arn: resolvableValue(z.string()),
@@ -18,7 +18,7 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDetectiveMemberOutputSchema = z.object({
   administrator_id: z.string().optional(),
   disabled_reason: z.string().optional(),
   id: z.string().optional(),
@@ -28,18 +28,20 @@ export const OutputSchema = z.object({
   volume_usage_in_bytes: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDetectiveMemberInputProps =
+  & z.input<typeof AwsDetectiveMemberInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDetectiveMemberOutputProps =
+  & z.output<typeof AwsDetectiveMemberOutputSchema>
+  & z.output<typeof AwsDetectiveMemberInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/detective_member
 
-export function AwsDetectiveMember(props: Partial<InputProps>) {
+export function AwsDetectiveMember(
+  props: Partial<AwsDetectiveMemberInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,8 +51,8 @@ export function AwsDetectiveMember(props: Partial<InputProps>) {
       _type='aws_detective_member'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDetectiveMemberInputSchema}
+      _outputSchema={AwsDetectiveMemberOutputSchema}
       {...props}
     />
   )
@@ -60,11 +62,22 @@ export const useAwsDetectiveMember = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsDetectiveMember, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsDetectiveMemberOutputProps>(
+    AwsDetectiveMember,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDetectiveMembers = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsDetectiveMember, idFilter, baseNode, optional)
+  useTypedNodes<AwsDetectiveMemberOutputProps>(
+    AwsDetectiveMember,
+    idFilter,
+    baseNode,
+    optional,
+  )

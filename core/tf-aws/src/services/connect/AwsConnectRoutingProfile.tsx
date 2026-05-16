@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsConnectRoutingProfileInputSchema = TfMetaSchema.extend({
   default_outbound_queue_id: resolvableValue(z.string()),
   description: resolvableValue(z.string()),
   instance_id: resolvableValue(z.string()),
@@ -37,7 +37,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsConnectRoutingProfileOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   queue_configs: z.object({
@@ -52,18 +52,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsConnectRoutingProfileInputProps =
+  & z.input<typeof AwsConnectRoutingProfileInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsConnectRoutingProfileOutputProps =
+  & z.output<typeof AwsConnectRoutingProfileOutputSchema>
+  & z.output<typeof AwsConnectRoutingProfileInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/connect_routing_profile
 
-export function AwsConnectRoutingProfile(props: Partial<InputProps>) {
+export function AwsConnectRoutingProfile(
+  props: Partial<AwsConnectRoutingProfileInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -73,8 +75,8 @@ export function AwsConnectRoutingProfile(props: Partial<InputProps>) {
       _type='aws_connect_routing_profile'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsConnectRoutingProfileInputSchema}
+      _outputSchema={AwsConnectRoutingProfileOutputSchema}
       {...props}
     />
   )
@@ -85,7 +87,7 @@ export const useAwsConnectRoutingProfile = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsConnectRoutingProfileOutputProps>(
     AwsConnectRoutingProfile,
     idFilter,
     baseNode,
@@ -97,7 +99,7 @@ export const useAwsConnectRoutingProfiles = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsConnectRoutingProfileOutputProps>(
     AwsConnectRoutingProfile,
     idFilter,
     baseNode,

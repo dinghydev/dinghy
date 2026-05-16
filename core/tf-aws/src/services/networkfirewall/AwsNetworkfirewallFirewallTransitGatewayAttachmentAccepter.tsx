@@ -9,32 +9,42 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  transit_gateway_attachment_id: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepterInputSchema =
+  TfMetaSchema.extend({
+    transit_gateway_attachment_id: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({})
+export const AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepterOutputSchema =
+  z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepterInputProps =
+  & z.input<
+    typeof AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepterInputSchema
+  >
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepterOutputProps =
+  & z.output<
+    typeof AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepterOutputSchema
+  >
+  & z.output<
+    typeof AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepterInputSchema
+  >
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/networkfirewall_firewall_transit_gateway_attachment_accepter
 
 export function AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepter(
-  props: Partial<InputProps>,
+  props: Partial<
+    AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepterInputProps
+  >,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -45,8 +55,8 @@ export function AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepter(
       _type='aws_networkfirewall_firewall_transit_gateway_attachment_accepter'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepterInputSchema}
+      _outputSchema={AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepterOutputSchema}
       {...props}
     />
   )
@@ -57,7 +67,9 @@ export const useAwsNetworkfirewallFirewallTransitGatewayAttachmentAccepter = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<
+    AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepterOutputProps
+  >(
     AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepter,
     idFilter,
     baseNode,
@@ -69,7 +81,9 @@ export const useAwsNetworkfirewallFirewallTransitGatewayAttachmentAccepters = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<
+    AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepterOutputProps
+  >(
     AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepter,
     idFilter,
     baseNode,

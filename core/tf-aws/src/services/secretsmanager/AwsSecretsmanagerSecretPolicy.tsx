@@ -9,34 +9,36 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSecretsmanagerSecretPolicyInputSchema = TfMetaSchema.extend({
   policy: resolvableValue(z.string()),
   secret_arn: resolvableValue(z.string()),
   block_public_policy: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSecretsmanagerSecretPolicyOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSecretsmanagerSecretPolicyImportSchema = z.object({
   secret_arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSecretsmanagerSecretPolicyInputProps =
+  & z.input<typeof AwsSecretsmanagerSecretPolicyInputSchema>
+  & z.input<typeof AwsSecretsmanagerSecretPolicyImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSecretsmanagerSecretPolicyOutputProps =
+  & z.output<typeof AwsSecretsmanagerSecretPolicyOutputSchema>
+  & z.output<typeof AwsSecretsmanagerSecretPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/secretsmanager_secret_policy
 
-export function AwsSecretsmanagerSecretPolicy(props: Partial<InputProps>) {
+export function AwsSecretsmanagerSecretPolicy(
+  props: Partial<AwsSecretsmanagerSecretPolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,9 +48,9 @@ export function AwsSecretsmanagerSecretPolicy(props: Partial<InputProps>) {
       _type='aws_secretsmanager_secret_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSecretsmanagerSecretPolicyInputSchema}
+      _outputSchema={AwsSecretsmanagerSecretPolicyOutputSchema}
+      _importSchema={AwsSecretsmanagerSecretPolicyImportSchema}
       {...props}
     />
   )
@@ -59,7 +61,7 @@ export const useAwsSecretsmanagerSecretPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSecretsmanagerSecretPolicyOutputProps>(
     AwsSecretsmanagerSecretPolicy,
     idFilter,
     baseNode,
@@ -71,7 +73,7 @@ export const useAwsSecretsmanagerSecretPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSecretsmanagerSecretPolicyOutputProps>(
     AwsSecretsmanagerSecretPolicy,
     idFilter,
     baseNode,

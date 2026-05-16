@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudwatchEventArchiveInputSchema = TfMetaSchema.extend({
   event_source_arn: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
@@ -20,22 +20,24 @@ export const InputSchema = TfMetaSchema.extend({
   retention_days: resolvableValue(z.number().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudwatchEventArchiveOutputSchema = z.object({
   arn: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudwatchEventArchiveInputProps =
+  & z.input<typeof AwsCloudwatchEventArchiveInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudwatchEventArchiveOutputProps =
+  & z.output<typeof AwsCloudwatchEventArchiveOutputSchema>
+  & z.output<typeof AwsCloudwatchEventArchiveInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudwatch_event_archive
 
-export function AwsCloudwatchEventArchive(props: Partial<InputProps>) {
+export function AwsCloudwatchEventArchive(
+  props: Partial<AwsCloudwatchEventArchiveInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,8 +47,8 @@ export function AwsCloudwatchEventArchive(props: Partial<InputProps>) {
       _type='aws_cloudwatch_event_archive'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudwatchEventArchiveInputSchema}
+      _outputSchema={AwsCloudwatchEventArchiveOutputSchema}
       {...props}
     />
   )
@@ -57,7 +59,7 @@ export const useAwsCloudwatchEventArchive = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudwatchEventArchiveOutputProps>(
     AwsCloudwatchEventArchive,
     idFilter,
     baseNode,
@@ -69,7 +71,7 @@ export const useAwsCloudwatchEventArchives = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudwatchEventArchiveOutputProps>(
     AwsCloudwatchEventArchive,
     idFilter,
     baseNode,

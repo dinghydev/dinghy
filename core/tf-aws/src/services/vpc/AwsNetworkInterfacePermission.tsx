@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsNetworkInterfacePermissionInputSchema = TfMetaSchema.extend({
   aws_account_id: resolvableValue(z.string()),
   network_interface_id: resolvableValue(z.string()),
   permission: resolvableValue(z.string()),
@@ -22,22 +22,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsNetworkInterfacePermissionOutputSchema = z.object({
   network_interface_permission_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsNetworkInterfacePermissionInputProps =
+  & z.input<typeof AwsNetworkInterfacePermissionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNetworkInterfacePermissionOutputProps =
+  & z.output<typeof AwsNetworkInterfacePermissionOutputSchema>
+  & z.output<typeof AwsNetworkInterfacePermissionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/network_interface_permission
 
-export function AwsNetworkInterfacePermission(props: Partial<InputProps>) {
+export function AwsNetworkInterfacePermission(
+  props: Partial<AwsNetworkInterfacePermissionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +49,8 @@ export function AwsNetworkInterfacePermission(props: Partial<InputProps>) {
       _type='aws_network_interface_permission'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsNetworkInterfacePermissionInputSchema}
+      _outputSchema={AwsNetworkInterfacePermissionOutputSchema}
       {...props}
     />
   )
@@ -59,7 +61,7 @@ export const useAwsNetworkInterfacePermission = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsNetworkInterfacePermissionOutputProps>(
     AwsNetworkInterfacePermission,
     idFilter,
     baseNode,
@@ -71,7 +73,7 @@ export const useAwsNetworkInterfacePermissions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsNetworkInterfacePermissionOutputProps>(
     AwsNetworkInterfacePermission,
     idFilter,
     baseNode,

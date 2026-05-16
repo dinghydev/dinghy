@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAppsyncResolverInputSchema = TfMetaSchema.extend({
   api_id: resolvableValue(z.string()),
   field: resolvableValue(z.string()),
   type: resolvableValue(z.string()),
@@ -49,22 +49,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsAppsyncResolverOutputSchema = z.object({
   arn: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAppsyncResolverInputProps =
+  & z.input<typeof AwsAppsyncResolverInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppsyncResolverOutputProps =
+  & z.output<typeof AwsAppsyncResolverOutputSchema>
+  & z.output<typeof AwsAppsyncResolverInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appsync_resolver
 
-export function AwsAppsyncResolver(props: Partial<InputProps>) {
+export function AwsAppsyncResolver(
+  props: Partial<AwsAppsyncResolverInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -74,8 +76,8 @@ export function AwsAppsyncResolver(props: Partial<InputProps>) {
       _type='aws_appsync_resolver'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAppsyncResolverInputSchema}
+      _outputSchema={AwsAppsyncResolverOutputSchema}
       {...props}
     />
   )
@@ -85,11 +87,22 @@ export const useAwsAppsyncResolver = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsAppsyncResolver, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsAppsyncResolverOutputProps>(
+    AwsAppsyncResolver,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAppsyncResolvers = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsAppsyncResolver, idFilter, baseNode, optional)
+  useTypedNodes<AwsAppsyncResolverOutputProps>(
+    AwsAppsyncResolver,
+    idFilter,
+    baseNode,
+    optional,
+  )

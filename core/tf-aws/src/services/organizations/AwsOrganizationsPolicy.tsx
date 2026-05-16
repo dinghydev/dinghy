@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsOrganizationsPolicyInputSchema = TfMetaSchema.extend({
   content: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
@@ -18,30 +18,32 @@ export const InputSchema = TfMetaSchema.extend({
   type: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsOrganizationsPolicyOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsOrganizationsPolicyImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsOrganizationsPolicyInputProps =
+  & z.input<typeof AwsOrganizationsPolicyInputSchema>
+  & z.input<typeof AwsOrganizationsPolicyImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsOrganizationsPolicyOutputProps =
+  & z.output<typeof AwsOrganizationsPolicyOutputSchema>
+  & z.output<typeof AwsOrganizationsPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/organizations_policy
 
-export function AwsOrganizationsPolicy(props: Partial<InputProps>) {
+export function AwsOrganizationsPolicy(
+  props: Partial<AwsOrganizationsPolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -51,9 +53,9 @@ export function AwsOrganizationsPolicy(props: Partial<InputProps>) {
       _type='aws_organizations_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsOrganizationsPolicyInputSchema}
+      _outputSchema={AwsOrganizationsPolicyOutputSchema}
+      _importSchema={AwsOrganizationsPolicyImportSchema}
       {...props}
     />
   )
@@ -64,7 +66,7 @@ export const useAwsOrganizationsPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsOrganizationsPolicyOutputProps>(
     AwsOrganizationsPolicy,
     idFilter,
     baseNode,
@@ -76,7 +78,7 @@ export const useAwsOrganizationsPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsOrganizationsPolicyOutputProps>(
     AwsOrganizationsPolicy,
     idFilter,
     baseNode,

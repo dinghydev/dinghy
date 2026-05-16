@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEvidentlyFeatureInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   project: resolvableValue(z.string()),
   variations: resolvableValue(
@@ -40,7 +40,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsEvidentlyFeatureOutputSchema = z.object({
   arn: z.string().optional(),
   created_time: z.string().optional(),
   evaluation_rules: z.set(z.object({
@@ -54,18 +54,20 @@ export const OutputSchema = z.object({
   value_type: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEvidentlyFeatureInputProps =
+  & z.input<typeof AwsEvidentlyFeatureInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEvidentlyFeatureOutputProps =
+  & z.output<typeof AwsEvidentlyFeatureOutputSchema>
+  & z.output<typeof AwsEvidentlyFeatureInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/evidently_feature
 
-export function AwsEvidentlyFeature(props: Partial<InputProps>) {
+export function AwsEvidentlyFeature(
+  props: Partial<AwsEvidentlyFeatureInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -75,8 +77,8 @@ export function AwsEvidentlyFeature(props: Partial<InputProps>) {
       _type='aws_evidently_feature'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEvidentlyFeatureInputSchema}
+      _outputSchema={AwsEvidentlyFeatureOutputSchema}
       {...props}
     />
   )
@@ -87,11 +89,21 @@ export const useAwsEvidentlyFeature = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsEvidentlyFeature, idFilter, baseNode, optional)
+  useTypedNode<AwsEvidentlyFeatureOutputProps>(
+    AwsEvidentlyFeature,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEvidentlyFeatures = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsEvidentlyFeature, idFilter, baseNode, optional)
+  useTypedNodes<AwsEvidentlyFeatureOutputProps>(
+    AwsEvidentlyFeature,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,34 +9,34 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSnsTopicPolicyInputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   policy: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSnsTopicPolicyOutputSchema = z.object({
   owner: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSnsTopicPolicyImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSnsTopicPolicyInputProps =
+  & z.input<typeof AwsSnsTopicPolicyInputSchema>
+  & z.input<typeof AwsSnsTopicPolicyImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSnsTopicPolicyOutputProps =
+  & z.output<typeof AwsSnsTopicPolicyOutputSchema>
+  & z.output<typeof AwsSnsTopicPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sns_topic_policy
 
-export function AwsSnsTopicPolicy(props: Partial<InputProps>) {
+export function AwsSnsTopicPolicy(props: Partial<AwsSnsTopicPolicyInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,9 +46,9 @@ export function AwsSnsTopicPolicy(props: Partial<InputProps>) {
       _type='aws_sns_topic_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSnsTopicPolicyInputSchema}
+      _outputSchema={AwsSnsTopicPolicyOutputSchema}
+      _importSchema={AwsSnsTopicPolicyImportSchema}
       {...props}
     />
   )
@@ -58,10 +58,22 @@ export const useAwsSnsTopicPolicy = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsSnsTopicPolicy, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsSnsTopicPolicyOutputProps>(
+    AwsSnsTopicPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSnsTopicPolicys = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsSnsTopicPolicy, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsSnsTopicPolicyOutputProps>(
+    AwsSnsTopicPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

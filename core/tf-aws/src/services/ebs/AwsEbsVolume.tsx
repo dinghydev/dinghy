@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEbsVolumeInputSchema = TfMetaSchema.extend({
   availability_zone: resolvableValue(z.string()),
   encrypted: resolvableValue(z.boolean().optional()),
   final_snapshot: resolvableValue(z.boolean().optional()),
@@ -33,32 +33,32 @@ export const InputSchema = TfMetaSchema.extend({
   volume_initialization_rate: resolvableValue(z.number().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsEbsVolumeOutputSchema = z.object({
   arn: z.string().optional(),
   create_time: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsEbsVolumeImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsEbsVolumeInputProps =
+  & z.input<typeof AwsEbsVolumeInputSchema>
+  & z.input<typeof AwsEbsVolumeImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEbsVolumeOutputProps =
+  & z.output<typeof AwsEbsVolumeOutputSchema>
+  & z.output<typeof AwsEbsVolumeInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ebs_volume
 
-export function AwsEbsVolume(props: Partial<InputProps>) {
+export function AwsEbsVolume(props: Partial<AwsEbsVolumeInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -68,9 +68,9 @@ export function AwsEbsVolume(props: Partial<InputProps>) {
       _type='aws_ebs_volume'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsEbsVolumeInputSchema}
+      _outputSchema={AwsEbsVolumeOutputSchema}
+      _importSchema={AwsEbsVolumeImportSchema}
       {...props}
     />
   )
@@ -80,10 +80,22 @@ export const useAwsEbsVolume = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsEbsVolume, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsEbsVolumeOutputProps>(
+    AwsEbsVolume,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEbsVolumes = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsEbsVolume, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsEbsVolumeOutputProps>(
+    AwsEbsVolume,
+    idFilter,
+    baseNode,
+    optional,
+  )

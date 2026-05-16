@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIotLoggingOptionsInputSchema = TfMetaSchema.extend({
   default_log_level: resolvableValue(z.string()),
   role_arn: resolvableValue(z.string()),
   disable_all_logs: resolvableValue(z.boolean().optional()),
@@ -16,20 +16,22 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsIotLoggingOptionsOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsIotLoggingOptionsInputProps =
+  & z.input<typeof AwsIotLoggingOptionsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIotLoggingOptionsOutputProps =
+  & z.output<typeof AwsIotLoggingOptionsOutputSchema>
+  & z.output<typeof AwsIotLoggingOptionsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iot_logging_options
 
-export function AwsIotLoggingOptions(props: Partial<InputProps>) {
+export function AwsIotLoggingOptions(
+  props: Partial<AwsIotLoggingOptionsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -39,8 +41,8 @@ export function AwsIotLoggingOptions(props: Partial<InputProps>) {
       _type='aws_iot_logging_options'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsIotLoggingOptionsInputSchema}
+      _outputSchema={AwsIotLoggingOptionsOutputSchema}
       {...props}
     />
   )
@@ -51,4 +53,9 @@ export const useAwsIotLoggingOptions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsIotLoggingOptions, idFilter, baseNode, optional)
+  useTypedNode<AwsIotLoggingOptionsOutputProps>(
+    AwsIotLoggingOptions,
+    idFilter,
+    baseNode,
+    optional,
+  )

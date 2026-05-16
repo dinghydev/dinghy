@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRedshiftSnapshotCopyInputSchema = TfMetaSchema.extend({
   cluster_identifier: resolvableValue(z.string()),
   destination_region: resolvableValue(z.string()),
   manual_snapshot_retention_period: resolvableValue(z.number().optional()),
@@ -18,22 +18,24 @@ export const InputSchema = TfMetaSchema.extend({
   snapshot_copy_grant_name: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRedshiftSnapshotCopyOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRedshiftSnapshotCopyInputProps =
+  & z.input<typeof AwsRedshiftSnapshotCopyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRedshiftSnapshotCopyOutputProps =
+  & z.output<typeof AwsRedshiftSnapshotCopyOutputSchema>
+  & z.output<typeof AwsRedshiftSnapshotCopyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/redshift_snapshot_copy
 
-export function AwsRedshiftSnapshotCopy(props: Partial<InputProps>) {
+export function AwsRedshiftSnapshotCopy(
+  props: Partial<AwsRedshiftSnapshotCopyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function AwsRedshiftSnapshotCopy(props: Partial<InputProps>) {
       _type='aws_redshift_snapshot_copy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRedshiftSnapshotCopyInputSchema}
+      _outputSchema={AwsRedshiftSnapshotCopyOutputSchema}
       {...props}
     />
   )
@@ -55,7 +57,7 @@ export const useAwsRedshiftSnapshotCopy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRedshiftSnapshotCopyOutputProps>(
     AwsRedshiftSnapshotCopy,
     idFilter,
     baseNode,
@@ -67,7 +69,7 @@ export const useAwsRedshiftSnapshotCopys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRedshiftSnapshotCopyOutputProps>(
     AwsRedshiftSnapshotCopy,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsCloudcontrolapiResource } from './AwsCloudcontrolapiResource.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsCloudcontrolapiResourceInputSchema = TfMetaSchema.extend({
   identifier: resolvableValue(z.string()),
   type_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
@@ -18,22 +18,24 @@ export const InputSchema = TfMetaSchema.extend({
   type_version_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsCloudcontrolapiResourceOutputSchema = z.object({
   properties: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsCloudcontrolapiResourceInputProps =
+  & z.input<typeof DataAwsCloudcontrolapiResourceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsCloudcontrolapiResourceOutputProps =
+  & z.output<typeof DataAwsCloudcontrolapiResourceOutputSchema>
+  & z.output<typeof DataAwsCloudcontrolapiResourceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/cloudcontrolapi_resource
 
-export function DataAwsCloudcontrolapiResource(props: Partial<InputProps>) {
+export function DataAwsCloudcontrolapiResource(
+  props: Partial<DataAwsCloudcontrolapiResourceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function DataAwsCloudcontrolapiResource(props: Partial<InputProps>) {
       _type='aws_cloudcontrolapi_resource'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsCloudcontrolapiResourceInputSchema}
+      _outputSchema={DataAwsCloudcontrolapiResourceOutputSchema}
       {...props as any}
     />
   )
@@ -55,7 +57,7 @@ export const useDataAwsCloudcontrolapiResource = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsCloudcontrolapiResourceOutputProps>(
     DataAwsCloudcontrolapiResource,
     idFilter,
     baseNode,
@@ -67,7 +69,7 @@ export const useDataAwsCloudcontrolapiResources = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsCloudcontrolapiResourceOutputProps>(
     DataAwsCloudcontrolapiResource,
     idFilter,
     baseNode,

@@ -8,26 +8,28 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsBackupGlobalSettingsInputSchema = TfMetaSchema.extend({
   global_settings: resolvableValue(z.record(z.string(), z.string())),
 })
 
-export const OutputSchema = z.object({
+export const AwsBackupGlobalSettingsOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsBackupGlobalSettingsInputProps =
+  & z.input<typeof AwsBackupGlobalSettingsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBackupGlobalSettingsOutputProps =
+  & z.output<typeof AwsBackupGlobalSettingsOutputSchema>
+  & z.output<typeof AwsBackupGlobalSettingsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/backup_global_settings
 
-export function AwsBackupGlobalSettings(props: Partial<InputProps>) {
+export function AwsBackupGlobalSettings(
+  props: Partial<AwsBackupGlobalSettingsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -37,8 +39,8 @@ export function AwsBackupGlobalSettings(props: Partial<InputProps>) {
       _type='aws_backup_global_settings'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsBackupGlobalSettingsInputSchema}
+      _outputSchema={AwsBackupGlobalSettingsOutputSchema}
       {...props}
     />
   )
@@ -49,7 +51,7 @@ export const useAwsBackupGlobalSettingss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsBackupGlobalSettingsOutputProps>(
     AwsBackupGlobalSettings,
     idFilter,
     baseNode,

@@ -9,31 +9,32 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  name: resolvableValue(z.string()),
-  allowed_resource_oauth2_return_urls: resolvableValue(
-    z.string().array().optional(),
-  ),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsBedrockagentcoreWorkloadIdentityInputSchema = TfMetaSchema
+  .extend({
+    name: resolvableValue(z.string()),
+    allowed_resource_oauth2_return_urls: resolvableValue(
+      z.string().array().optional(),
+    ),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsBedrockagentcoreWorkloadIdentityOutputSchema = z.object({
   workload_identity_arn: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsBedrockagentcoreWorkloadIdentityInputProps =
+  & z.input<typeof AwsBedrockagentcoreWorkloadIdentityInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBedrockagentcoreWorkloadIdentityOutputProps =
+  & z.output<typeof AwsBedrockagentcoreWorkloadIdentityOutputSchema>
+  & z.output<typeof AwsBedrockagentcoreWorkloadIdentityInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/bedrockagentcore_workload_identity
 
 export function AwsBedrockagentcoreWorkloadIdentity(
-  props: Partial<InputProps>,
+  props: Partial<AwsBedrockagentcoreWorkloadIdentityInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -44,8 +45,8 @@ export function AwsBedrockagentcoreWorkloadIdentity(
       _type='aws_bedrockagentcore_workload_identity'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsBedrockagentcoreWorkloadIdentityInputSchema}
+      _outputSchema={AwsBedrockagentcoreWorkloadIdentityOutputSchema}
       {...props}
     />
   )
@@ -56,7 +57,7 @@ export const useAwsBedrockagentcoreWorkloadIdentity = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsBedrockagentcoreWorkloadIdentityOutputProps>(
     AwsBedrockagentcoreWorkloadIdentity,
     idFilter,
     baseNode,
@@ -68,7 +69,7 @@ export const useAwsBedrockagentcoreWorkloadIdentitys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsBedrockagentcoreWorkloadIdentityOutputProps>(
     AwsBedrockagentcoreWorkloadIdentity,
     idFilter,
     baseNode,

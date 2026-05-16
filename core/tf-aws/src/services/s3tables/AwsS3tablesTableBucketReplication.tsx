@@ -9,40 +9,44 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  role: resolvableValue(z.string()),
-  table_bucket_arn: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-  rule: resolvableValue(
-    z.object({
-      destination: z.object({
-        destination_table_bucket_arn: z.string(),
+export const AwsS3tablesTableBucketReplicationInputSchema = TfMetaSchema.extend(
+  {
+    role: resolvableValue(z.string()),
+    table_bucket_arn: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+    rule: resolvableValue(
+      z.object({
+        destination: z.object({
+          destination_table_bucket_arn: z.string(),
+        }).array().optional(),
       }).array().optional(),
-    }).array().optional(),
-  ),
-})
+    ),
+  },
+)
 
-export const OutputSchema = z.object({
+export const AwsS3tablesTableBucketReplicationOutputSchema = z.object({
   version_token: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsS3tablesTableBucketReplicationImportSchema = z.object({
   table_bucket_arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsS3tablesTableBucketReplicationInputProps =
+  & z.input<typeof AwsS3tablesTableBucketReplicationInputSchema>
+  & z.input<typeof AwsS3tablesTableBucketReplicationImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3tablesTableBucketReplicationOutputProps =
+  & z.output<typeof AwsS3tablesTableBucketReplicationOutputSchema>
+  & z.output<typeof AwsS3tablesTableBucketReplicationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3tables_table_bucket_replication
 
-export function AwsS3tablesTableBucketReplication(props: Partial<InputProps>) {
+export function AwsS3tablesTableBucketReplication(
+  props: Partial<AwsS3tablesTableBucketReplicationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,9 +56,9 @@ export function AwsS3tablesTableBucketReplication(props: Partial<InputProps>) {
       _type='aws_s3tables_table_bucket_replication'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsS3tablesTableBucketReplicationInputSchema}
+      _outputSchema={AwsS3tablesTableBucketReplicationOutputSchema}
+      _importSchema={AwsS3tablesTableBucketReplicationImportSchema}
       {...props}
     />
   )
@@ -65,7 +69,7 @@ export const useAwsS3tablesTableBucketReplication = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsS3tablesTableBucketReplicationOutputProps>(
     AwsS3tablesTableBucketReplication,
     idFilter,
     baseNode,
@@ -77,7 +81,7 @@ export const useAwsS3tablesTableBucketReplications = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsS3tablesTableBucketReplicationOutputProps>(
     AwsS3tablesTableBucketReplication,
     idFilter,
     baseNode,

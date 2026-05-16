@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsVpcEndpointServiceInputSchema = TfMetaSchema.extend({
   acceptance_required: resolvableValue(z.boolean()),
   allowed_principals: resolvableValue(z.string().array().optional()),
   gateway_load_balancer_arns: resolvableValue(z.string().array().optional()),
@@ -28,7 +28,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsVpcEndpointServiceOutputSchema = z.object({
   arn: z.string().optional(),
   availability_zones: z.set(z.string()).optional(),
   base_endpoint_dns_names: z.set(z.string()).optional(),
@@ -46,18 +46,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVpcEndpointServiceInputProps =
+  & z.input<typeof AwsVpcEndpointServiceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVpcEndpointServiceOutputProps =
+  & z.output<typeof AwsVpcEndpointServiceOutputSchema>
+  & z.output<typeof AwsVpcEndpointServiceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpc_endpoint_service
 
-export function AwsVpcEndpointService(props: Partial<InputProps>) {
+export function AwsVpcEndpointService(
+  props: Partial<AwsVpcEndpointServiceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -67,8 +69,8 @@ export function AwsVpcEndpointService(props: Partial<InputProps>) {
       _type='aws_vpc_endpoint_service'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVpcEndpointServiceInputSchema}
+      _outputSchema={AwsVpcEndpointServiceOutputSchema}
       {...props}
     />
   )
@@ -79,14 +81,19 @@ export const useAwsVpcEndpointService = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsVpcEndpointService, idFilter, baseNode, optional)
+  useTypedNode<AwsVpcEndpointServiceOutputProps>(
+    AwsVpcEndpointService,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVpcEndpointServices = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsVpcEndpointServiceOutputProps>(
     AwsVpcEndpointService,
     idFilter,
     baseNode,

@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLightsailInstancePublicPortsInputSchema = TfMetaSchema.extend({
   instance_name: resolvableValue(z.string()),
   port_info: resolvableValue(
     z.object({
@@ -23,22 +23,24 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsLightsailInstancePublicPortsOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLightsailInstancePublicPortsInputProps =
+  & z.input<typeof AwsLightsailInstancePublicPortsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLightsailInstancePublicPortsOutputProps =
+  & z.output<typeof AwsLightsailInstancePublicPortsOutputSchema>
+  & z.output<typeof AwsLightsailInstancePublicPortsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lightsail_instance_public_ports
 
-export function AwsLightsailInstancePublicPorts(props: Partial<InputProps>) {
+export function AwsLightsailInstancePublicPorts(
+  props: Partial<AwsLightsailInstancePublicPortsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +50,8 @@ export function AwsLightsailInstancePublicPorts(props: Partial<InputProps>) {
       _type='aws_lightsail_instance_public_ports'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLightsailInstancePublicPortsInputSchema}
+      _outputSchema={AwsLightsailInstancePublicPortsOutputSchema}
       {...props}
     />
   )
@@ -60,7 +62,7 @@ export const useAwsLightsailInstancePublicPortss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsLightsailInstancePublicPortsOutputProps>(
     AwsLightsailInstancePublicPorts,
     idFilter,
     baseNode,

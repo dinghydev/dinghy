@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIamPolicyInputSchema = TfMetaSchema.extend({
   policy: resolvableValue(z.string()),
   delay_after_policy_creation_in_ms: resolvableValue(z.number().optional()),
   description: resolvableValue(z.string().optional()),
@@ -19,7 +19,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsIamPolicyOutputSchema = z.object({
   arn: z.string().optional(),
   attachment_count: z.number().optional(),
   id: z.string().optional(),
@@ -27,23 +27,23 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsIamPolicyImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsIamPolicyInputProps =
+  & z.input<typeof AwsIamPolicyInputSchema>
+  & z.input<typeof AwsIamPolicyImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIamPolicyOutputProps =
+  & z.output<typeof AwsIamPolicyOutputSchema>
+  & z.output<typeof AwsIamPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iam_policy
 
-export function AwsIamPolicy(props: Partial<InputProps>) {
+export function AwsIamPolicy(props: Partial<AwsIamPolicyInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,9 +53,9 @@ export function AwsIamPolicy(props: Partial<InputProps>) {
       _type='aws_iam_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsIamPolicyInputSchema}
+      _outputSchema={AwsIamPolicyOutputSchema}
+      _importSchema={AwsIamPolicyImportSchema}
       {...props}
     />
   )
@@ -65,10 +65,22 @@ export const useAwsIamPolicy = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsIamPolicy, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsIamPolicyOutputProps>(
+    AwsIamPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIamPolicys = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsIamPolicy, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsIamPolicyOutputProps>(
+    AwsIamPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCeAnomalySubscriptionInputSchema = TfMetaSchema.extend({
   frequency: resolvableValue(z.string()),
   monitor_arn_list: resolvableValue(z.string().array()),
   name: resolvableValue(z.string()),
@@ -93,29 +93,31 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsCeAnomalySubscriptionOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsCeAnomalySubscriptionImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsCeAnomalySubscriptionInputProps =
+  & z.input<typeof AwsCeAnomalySubscriptionInputSchema>
+  & z.input<typeof AwsCeAnomalySubscriptionImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCeAnomalySubscriptionOutputProps =
+  & z.output<typeof AwsCeAnomalySubscriptionOutputSchema>
+  & z.output<typeof AwsCeAnomalySubscriptionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ce_anomaly_subscription
 
-export function AwsCeAnomalySubscription(props: Partial<InputProps>) {
+export function AwsCeAnomalySubscription(
+  props: Partial<AwsCeAnomalySubscriptionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -125,9 +127,9 @@ export function AwsCeAnomalySubscription(props: Partial<InputProps>) {
       _type='aws_ce_anomaly_subscription'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsCeAnomalySubscriptionInputSchema}
+      _outputSchema={AwsCeAnomalySubscriptionOutputSchema}
+      _importSchema={AwsCeAnomalySubscriptionImportSchema}
       {...props}
     />
   )
@@ -138,7 +140,7 @@ export const useAwsCeAnomalySubscription = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCeAnomalySubscriptionOutputProps>(
     AwsCeAnomalySubscription,
     idFilter,
     baseNode,
@@ -150,7 +152,7 @@ export const useAwsCeAnomalySubscriptions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCeAnomalySubscriptionOutputProps>(
     AwsCeAnomalySubscription,
     idFilter,
     baseNode,

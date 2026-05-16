@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsVpcEndpointInputSchema = TfMetaSchema.extend({
   vpc_id: resolvableValue(z.string()),
   auto_accept: resolvableValue(z.boolean().optional()),
   dns_options: resolvableValue(
@@ -49,7 +49,7 @@ export const InputSchema = TfMetaSchema.extend({
   vpc_endpoint_type: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsVpcEndpointOutputSchema = z.object({
   arn: z.string().optional(),
   cidr_blocks: z.string().array().optional(),
   dns_entry: z.object({
@@ -65,25 +65,25 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsVpcEndpointImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsVpcEndpointInputProps =
+  & z.input<typeof AwsVpcEndpointInputSchema>
+  & z.input<typeof AwsVpcEndpointImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVpcEndpointOutputProps =
+  & z.output<typeof AwsVpcEndpointOutputSchema>
+  & z.output<typeof AwsVpcEndpointInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpc_endpoint
 
-export function AwsVpcEndpoint(props: Partial<InputProps>) {
+export function AwsVpcEndpoint(props: Partial<AwsVpcEndpointInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -93,9 +93,9 @@ export function AwsVpcEndpoint(props: Partial<InputProps>) {
       _type='aws_vpc_endpoint'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsVpcEndpointInputSchema}
+      _outputSchema={AwsVpcEndpointOutputSchema}
+      _importSchema={AwsVpcEndpointImportSchema}
       {...props}
     />
   )
@@ -105,10 +105,22 @@ export const useAwsVpcEndpoint = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsVpcEndpoint, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsVpcEndpointOutputProps>(
+    AwsVpcEndpoint,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVpcEndpoints = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsVpcEndpoint, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsVpcEndpointOutputProps>(
+    AwsVpcEndpoint,
+    idFilter,
+    baseNode,
+    optional,
+  )

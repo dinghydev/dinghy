@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsKeyPairInputSchema = TfMetaSchema.extend({
   public_key: resolvableValue(z.string()),
   key_name: resolvableValue(z.string().optional()),
   key_name_prefix: resolvableValue(z.string().optional()),
@@ -17,7 +17,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsKeyPairOutputSchema = z.object({
   arn: z.string().optional(),
   fingerprint: z.string().optional(),
   id: z.string().optional(),
@@ -27,18 +27,18 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsKeyPairInputProps =
+  & z.input<typeof AwsKeyPairInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsKeyPairOutputProps =
+  & z.output<typeof AwsKeyPairOutputSchema>
+  & z.output<typeof AwsKeyPairInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/key_pair
 
-export function AwsKeyPair(props: Partial<InputProps>) {
+export function AwsKeyPair(props: Partial<AwsKeyPairInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +48,8 @@ export function AwsKeyPair(props: Partial<InputProps>) {
       _type='aws_key_pair'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsKeyPairInputSchema}
+      _outputSchema={AwsKeyPairOutputSchema}
       {...props}
     />
   )
@@ -59,10 +59,12 @@ export const useAwsKeyPair = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsKeyPair, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsKeyPairOutputProps>(AwsKeyPair, idFilter, baseNode, optional)
 
 export const useAwsKeyPairs = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsKeyPair, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsKeyPairOutputProps>(AwsKeyPair, idFilter, baseNode, optional)

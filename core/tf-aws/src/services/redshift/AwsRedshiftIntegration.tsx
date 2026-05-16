@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRedshiftIntegrationInputSchema = TfMetaSchema.extend({
   integration_name: resolvableValue(z.string()),
   source_arn: resolvableValue(z.string()),
   target_arn: resolvableValue(z.string()),
@@ -29,28 +29,30 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsRedshiftIntegrationOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsRedshiftIntegrationImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsRedshiftIntegrationInputProps =
+  & z.input<typeof AwsRedshiftIntegrationInputSchema>
+  & z.input<typeof AwsRedshiftIntegrationImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRedshiftIntegrationOutputProps =
+  & z.output<typeof AwsRedshiftIntegrationOutputSchema>
+  & z.output<typeof AwsRedshiftIntegrationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/redshift_integration
 
-export function AwsRedshiftIntegration(props: Partial<InputProps>) {
+export function AwsRedshiftIntegration(
+  props: Partial<AwsRedshiftIntegrationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -60,9 +62,9 @@ export function AwsRedshiftIntegration(props: Partial<InputProps>) {
       _type='aws_redshift_integration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsRedshiftIntegrationInputSchema}
+      _outputSchema={AwsRedshiftIntegrationOutputSchema}
+      _importSchema={AwsRedshiftIntegrationImportSchema}
       {...props}
     />
   )
@@ -73,7 +75,7 @@ export const useAwsRedshiftIntegration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRedshiftIntegrationOutputProps>(
     AwsRedshiftIntegration,
     idFilter,
     baseNode,
@@ -85,7 +87,7 @@ export const useAwsRedshiftIntegrations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRedshiftIntegrationOutputProps>(
     AwsRedshiftIntegration,
     idFilter,
     baseNode,

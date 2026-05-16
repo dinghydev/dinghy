@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEvidentlyProjectInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   data_delivery: resolvableValue(
     z.object({
@@ -34,7 +34,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsEvidentlyProjectOutputSchema = z.object({
   active_experiment_count: z.number().optional(),
   active_launch_count: z.number().optional(),
   arn: z.string().optional(),
@@ -48,18 +48,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEvidentlyProjectInputProps =
+  & z.input<typeof AwsEvidentlyProjectInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEvidentlyProjectOutputProps =
+  & z.output<typeof AwsEvidentlyProjectOutputSchema>
+  & z.output<typeof AwsEvidentlyProjectInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/evidently_project
 
-export function AwsEvidentlyProject(props: Partial<InputProps>) {
+export function AwsEvidentlyProject(
+  props: Partial<AwsEvidentlyProjectInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -69,8 +71,8 @@ export function AwsEvidentlyProject(props: Partial<InputProps>) {
       _type='aws_evidently_project'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEvidentlyProjectInputSchema}
+      _outputSchema={AwsEvidentlyProjectOutputSchema}
       {...props}
     />
   )
@@ -81,11 +83,21 @@ export const useAwsEvidentlyProject = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsEvidentlyProject, idFilter, baseNode, optional)
+  useTypedNode<AwsEvidentlyProjectOutputProps>(
+    AwsEvidentlyProject,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEvidentlyProjects = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsEvidentlyProject, idFilter, baseNode, optional)
+  useTypedNodes<AwsEvidentlyProjectOutputProps>(
+    AwsEvidentlyProject,
+    idFilter,
+    baseNode,
+    optional,
+  )

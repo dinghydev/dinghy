@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsVpcBlockPublicAccessOptionsInputSchema = TfMetaSchema.extend({
   internet_gateway_block_mode: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
@@ -20,24 +20,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsVpcBlockPublicAccessOptionsOutputSchema = z.object({
   aws_account_id: z.string().optional(),
   aws_region: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVpcBlockPublicAccessOptionsInputProps =
+  & z.input<typeof AwsVpcBlockPublicAccessOptionsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVpcBlockPublicAccessOptionsOutputProps =
+  & z.output<typeof AwsVpcBlockPublicAccessOptionsOutputSchema>
+  & z.output<typeof AwsVpcBlockPublicAccessOptionsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpc_block_public_access_options
 
-export function AwsVpcBlockPublicAccessOptions(props: Partial<InputProps>) {
+export function AwsVpcBlockPublicAccessOptions(
+  props: Partial<AwsVpcBlockPublicAccessOptionsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +49,8 @@ export function AwsVpcBlockPublicAccessOptions(props: Partial<InputProps>) {
       _type='aws_vpc_block_public_access_options'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVpcBlockPublicAccessOptionsInputSchema}
+      _outputSchema={AwsVpcBlockPublicAccessOptionsOutputSchema}
       {...props}
     />
   )
@@ -59,7 +61,7 @@ export const useAwsVpcBlockPublicAccessOptions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsVpcBlockPublicAccessOptionsOutputProps>(
     AwsVpcBlockPublicAccessOptions,
     idFilter,
     baseNode,

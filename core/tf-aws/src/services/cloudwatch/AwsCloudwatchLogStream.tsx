@@ -9,29 +9,31 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudwatchLogStreamInputSchema = TfMetaSchema.extend({
   log_group_name: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudwatchLogStreamOutputSchema = z.object({
   arn: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudwatchLogStreamInputProps =
+  & z.input<typeof AwsCloudwatchLogStreamInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudwatchLogStreamOutputProps =
+  & z.output<typeof AwsCloudwatchLogStreamOutputSchema>
+  & z.output<typeof AwsCloudwatchLogStreamInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudwatch_log_stream
 
-export function AwsCloudwatchLogStream(props: Partial<InputProps>) {
+export function AwsCloudwatchLogStream(
+  props: Partial<AwsCloudwatchLogStreamInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -41,8 +43,8 @@ export function AwsCloudwatchLogStream(props: Partial<InputProps>) {
       _type='aws_cloudwatch_log_stream'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudwatchLogStreamInputSchema}
+      _outputSchema={AwsCloudwatchLogStreamOutputSchema}
       {...props}
     />
   )
@@ -53,7 +55,7 @@ export const useAwsCloudwatchLogStream = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudwatchLogStreamOutputProps>(
     AwsCloudwatchLogStream,
     idFilter,
     baseNode,
@@ -65,7 +67,7 @@ export const useAwsCloudwatchLogStreams = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudwatchLogStreamOutputProps>(
     AwsCloudwatchLogStream,
     idFilter,
     baseNode,

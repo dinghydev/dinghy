@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDmsReplicationConfigInputSchema = TfMetaSchema.extend({
   compute_config: resolvableValue(z.object({
     availability_zone: z.string().optional(),
     dns_name_servers: z.string().optional(),
@@ -42,28 +42,30 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDmsReplicationConfigOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsDmsReplicationConfigImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsDmsReplicationConfigInputProps =
+  & z.input<typeof AwsDmsReplicationConfigInputSchema>
+  & z.input<typeof AwsDmsReplicationConfigImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDmsReplicationConfigOutputProps =
+  & z.output<typeof AwsDmsReplicationConfigOutputSchema>
+  & z.output<typeof AwsDmsReplicationConfigInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dms_replication_config
 
-export function AwsDmsReplicationConfig(props: Partial<InputProps>) {
+export function AwsDmsReplicationConfig(
+  props: Partial<AwsDmsReplicationConfigInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -73,9 +75,9 @@ export function AwsDmsReplicationConfig(props: Partial<InputProps>) {
       _type='aws_dms_replication_config'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsDmsReplicationConfigInputSchema}
+      _outputSchema={AwsDmsReplicationConfigOutputSchema}
+      _importSchema={AwsDmsReplicationConfigImportSchema}
       {...props}
     />
   )
@@ -86,7 +88,7 @@ export const useAwsDmsReplicationConfig = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDmsReplicationConfigOutputProps>(
     AwsDmsReplicationConfig,
     idFilter,
     baseNode,
@@ -98,7 +100,7 @@ export const useAwsDmsReplicationConfigs = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDmsReplicationConfigOutputProps>(
     AwsDmsReplicationConfig,
     idFilter,
     baseNode,

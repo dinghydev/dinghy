@@ -8,20 +8,21 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  portfolio_id: resolvableValue(z.string()),
-  accept_language: resolvableValue(z.string().optional()),
-  id: resolvableValue(z.string().optional()),
-  product_id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      read: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const DataAwsServicecatalogPortfolioConstraintsInputSchema = TfMetaSchema
+  .extend({
+    portfolio_id: resolvableValue(z.string()),
+    accept_language: resolvableValue(z.string().optional()),
+    id: resolvableValue(z.string().optional()),
+    product_id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        read: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsServicecatalogPortfolioConstraintsOutputSchema = z.object({
   details: z.object({
     constraint_id: z.string(),
     description: z.string(),
@@ -32,19 +33,19 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsServicecatalogPortfolioConstraintsInputProps =
+  & z.input<typeof DataAwsServicecatalogPortfolioConstraintsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsServicecatalogPortfolioConstraintsOutputProps =
+  & z.output<typeof DataAwsServicecatalogPortfolioConstraintsOutputSchema>
+  & z.output<typeof DataAwsServicecatalogPortfolioConstraintsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/servicecatalog_portfolio_constraints
 
 export function DataAwsServicecatalogPortfolioConstraints(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsServicecatalogPortfolioConstraintsInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -55,8 +56,8 @@ export function DataAwsServicecatalogPortfolioConstraints(
       _type='aws_servicecatalog_portfolio_constraints'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsServicecatalogPortfolioConstraintsInputSchema}
+      _outputSchema={DataAwsServicecatalogPortfolioConstraintsOutputSchema}
       {...props}
     />
   )
@@ -67,7 +68,7 @@ export const useDataAwsServicecatalogPortfolioConstraintss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsServicecatalogPortfolioConstraintsOutputProps>(
     DataAwsServicecatalogPortfolioConstraints,
     idFilter,
     baseNode,

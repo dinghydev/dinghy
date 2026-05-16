@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDxMacsecKeyAssociationInputSchema = TfMetaSchema.extend({
   connection_id: resolvableValue(z.string()),
   cak: resolvableValue(z.string().optional()),
   ckn: resolvableValue(z.string().optional()),
@@ -17,24 +17,26 @@ export const InputSchema = TfMetaSchema.extend({
   secret_arn: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDxMacsecKeyAssociationOutputSchema = z.object({
   id: z.string().optional(),
   start_on: z.string().optional(),
   state: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDxMacsecKeyAssociationInputProps =
+  & z.input<typeof AwsDxMacsecKeyAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDxMacsecKeyAssociationOutputProps =
+  & z.output<typeof AwsDxMacsecKeyAssociationOutputSchema>
+  & z.output<typeof AwsDxMacsecKeyAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dx_macsec_key_association
 
-export function AwsDxMacsecKeyAssociation(props: Partial<InputProps>) {
+export function AwsDxMacsecKeyAssociation(
+  props: Partial<AwsDxMacsecKeyAssociationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +46,8 @@ export function AwsDxMacsecKeyAssociation(props: Partial<InputProps>) {
       _type='aws_dx_macsec_key_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDxMacsecKeyAssociationInputSchema}
+      _outputSchema={AwsDxMacsecKeyAssociationOutputSchema}
       {...props}
     />
   )
@@ -56,7 +58,7 @@ export const useAwsDxMacsecKeyAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDxMacsecKeyAssociationOutputProps>(
     AwsDxMacsecKeyAssociation,
     idFilter,
     baseNode,
@@ -68,7 +70,7 @@ export const useAwsDxMacsecKeyAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDxMacsecKeyAssociationOutputProps>(
     AwsDxMacsecKeyAssociation,
     idFilter,
     baseNode,

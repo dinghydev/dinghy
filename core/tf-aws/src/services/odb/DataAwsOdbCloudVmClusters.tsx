@@ -8,11 +8,11 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsOdbCloudVmClustersInputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsOdbCloudVmClustersOutputSchema = z.object({
   cloud_vm_clusters: z.object({
     arn: z.string(),
     cloud_exadata_infrastructure_id: z.string(),
@@ -25,18 +25,20 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsOdbCloudVmClustersInputProps =
+  & z.input<typeof DataAwsOdbCloudVmClustersInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsOdbCloudVmClustersOutputProps =
+  & z.output<typeof DataAwsOdbCloudVmClustersOutputSchema>
+  & z.output<typeof DataAwsOdbCloudVmClustersInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/odb_cloud_vm_clusters
 
-export function DataAwsOdbCloudVmClusters(props: Partial<InputProps>) {
+export function DataAwsOdbCloudVmClusters(
+  props: Partial<DataAwsOdbCloudVmClustersInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function DataAwsOdbCloudVmClusters(props: Partial<InputProps>) {
       _type='aws_odb_cloud_vm_clusters'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsOdbCloudVmClustersInputSchema}
+      _outputSchema={DataAwsOdbCloudVmClustersOutputSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useDataAwsOdbCloudVmClusterss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsOdbCloudVmClustersOutputProps>(
     DataAwsOdbCloudVmClusters,
     idFilter,
     baseNode,

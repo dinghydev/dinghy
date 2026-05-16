@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRamResourceShareInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   allow_external_principals: resolvableValue(z.boolean().optional()),
   permission_arns: resolvableValue(z.string().array().optional()),
@@ -28,24 +28,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsRamResourceShareOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRamResourceShareInputProps =
+  & z.input<typeof AwsRamResourceShareInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRamResourceShareOutputProps =
+  & z.output<typeof AwsRamResourceShareOutputSchema>
+  & z.output<typeof AwsRamResourceShareInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ram_resource_share
 
-export function AwsRamResourceShare(props: Partial<InputProps>) {
+export function AwsRamResourceShare(
+  props: Partial<AwsRamResourceShareInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,8 +57,8 @@ export function AwsRamResourceShare(props: Partial<InputProps>) {
       _type='aws_ram_resource_share'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRamResourceShareInputSchema}
+      _outputSchema={AwsRamResourceShareOutputSchema}
       {...props}
     />
   )
@@ -67,11 +69,21 @@ export const useAwsRamResourceShare = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsRamResourceShare, idFilter, baseNode, optional)
+  useTypedNode<AwsRamResourceShareOutputProps>(
+    AwsRamResourceShare,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRamResourceShares = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsRamResourceShare, idFilter, baseNode, optional)
+  useTypedNodes<AwsRamResourceShareOutputProps>(
+    AwsRamResourceShare,
+    idFilter,
+    baseNode,
+    optional,
+  )

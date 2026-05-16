@@ -9,15 +9,17 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  content: resolvableValue(z.string()),
-  name: resolvableValue(z.string()),
-  description: resolvableValue(z.string().optional()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsCodecommitApprovalRuleTemplateInputSchema = TfMetaSchema.extend(
+  {
+    content: resolvableValue(z.string()),
+    name: resolvableValue(z.string()),
+    description: resolvableValue(z.string().optional()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  },
+)
 
-export const OutputSchema = z.object({
+export const AwsCodecommitApprovalRuleTemplateOutputSchema = z.object({
   approval_rule_template_id: z.string().optional(),
   creation_date: z.string().optional(),
   last_modified_date: z.string().optional(),
@@ -25,18 +27,20 @@ export const OutputSchema = z.object({
   rule_content_sha256: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCodecommitApprovalRuleTemplateInputProps =
+  & z.input<typeof AwsCodecommitApprovalRuleTemplateInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCodecommitApprovalRuleTemplateOutputProps =
+  & z.output<typeof AwsCodecommitApprovalRuleTemplateOutputSchema>
+  & z.output<typeof AwsCodecommitApprovalRuleTemplateInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/codecommit_approval_rule_template
 
-export function AwsCodecommitApprovalRuleTemplate(props: Partial<InputProps>) {
+export function AwsCodecommitApprovalRuleTemplate(
+  props: Partial<AwsCodecommitApprovalRuleTemplateInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +50,8 @@ export function AwsCodecommitApprovalRuleTemplate(props: Partial<InputProps>) {
       _type='aws_codecommit_approval_rule_template'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCodecommitApprovalRuleTemplateInputSchema}
+      _outputSchema={AwsCodecommitApprovalRuleTemplateOutputSchema}
       {...props}
     />
   )
@@ -58,7 +62,7 @@ export const useAwsCodecommitApprovalRuleTemplate = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCodecommitApprovalRuleTemplateOutputProps>(
     AwsCodecommitApprovalRuleTemplate,
     idFilter,
     baseNode,
@@ -70,7 +74,7 @@ export const useAwsCodecommitApprovalRuleTemplates = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCodecommitApprovalRuleTemplateOutputProps>(
     AwsCodecommitApprovalRuleTemplate,
     idFilter,
     baseNode,

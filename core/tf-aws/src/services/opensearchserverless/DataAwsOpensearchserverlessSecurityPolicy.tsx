@@ -9,14 +9,15 @@ import {
 import z from 'zod'
 import { AwsOpensearchserverlessSecurityPolicy } from './AwsOpensearchserverlessSecurityPolicy.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  name: resolvableValue(z.string()),
-  type: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsOpensearchserverlessSecurityPolicyInputSchema = TfMetaSchema
+  .extend({
+    name: resolvableValue(z.string()),
+    type: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsOpensearchserverlessSecurityPolicyOutputSchema = z.object({
   created_date: z.string().optional(),
   description: z.string().optional(),
   last_modified_date: z.string().optional(),
@@ -24,19 +25,19 @@ export const OutputSchema = z.object({
   policy_version: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsOpensearchserverlessSecurityPolicyInputProps =
+  & z.input<typeof DataAwsOpensearchserverlessSecurityPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsOpensearchserverlessSecurityPolicyOutputProps =
+  & z.output<typeof DataAwsOpensearchserverlessSecurityPolicyOutputSchema>
+  & z.output<typeof DataAwsOpensearchserverlessSecurityPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/opensearchserverless_security_policy
 
 export function DataAwsOpensearchserverlessSecurityPolicy(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsOpensearchserverlessSecurityPolicyInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -47,8 +48,8 @@ export function DataAwsOpensearchserverlessSecurityPolicy(
       _type='aws_opensearchserverless_security_policy'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsOpensearchserverlessSecurityPolicyInputSchema}
+      _outputSchema={DataAwsOpensearchserverlessSecurityPolicyOutputSchema}
       {...props as any}
     />
   )
@@ -59,7 +60,7 @@ export const useDataAwsOpensearchserverlessSecurityPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsOpensearchserverlessSecurityPolicyOutputProps>(
     DataAwsOpensearchserverlessSecurityPolicy,
     idFilter,
     baseNode,
@@ -71,7 +72,7 @@ export const useDataAwsOpensearchserverlessSecurityPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsOpensearchserverlessSecurityPolicyOutputProps>(
     DataAwsOpensearchserverlessSecurityPolicy,
     idFilter,
     baseNode,

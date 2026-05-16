@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLightsailDatabaseInputSchema = TfMetaSchema.extend({
   blueprint_id: resolvableValue(z.string()),
   bundle_id: resolvableValue(z.string()),
   master_database_name: resolvableValue(z.string()),
@@ -28,7 +28,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsLightsailDatabaseOutputSchema = z.object({
   arn: z.string().optional(),
   ca_certificate_identifier: z.string().optional(),
   cpu_count: z.number().optional(),
@@ -45,18 +45,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLightsailDatabaseInputProps =
+  & z.input<typeof AwsLightsailDatabaseInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLightsailDatabaseOutputProps =
+  & z.output<typeof AwsLightsailDatabaseOutputSchema>
+  & z.output<typeof AwsLightsailDatabaseInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lightsail_database
 
-export function AwsLightsailDatabase(props: Partial<InputProps>) {
+export function AwsLightsailDatabase(
+  props: Partial<AwsLightsailDatabaseInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -66,8 +68,8 @@ export function AwsLightsailDatabase(props: Partial<InputProps>) {
       _type='aws_lightsail_database'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLightsailDatabaseInputSchema}
+      _outputSchema={AwsLightsailDatabaseOutputSchema}
       {...props}
     />
   )
@@ -78,11 +80,21 @@ export const useAwsLightsailDatabase = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsLightsailDatabase, idFilter, baseNode, optional)
+  useTypedNode<AwsLightsailDatabaseOutputProps>(
+    AwsLightsailDatabase,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLightsailDatabases = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsLightsailDatabase, idFilter, baseNode, optional)
+  useTypedNodes<AwsLightsailDatabaseOutputProps>(
+    AwsLightsailDatabase,
+    idFilter,
+    baseNode,
+    optional,
+  )

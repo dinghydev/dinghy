@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsWorkspacesDirectoryInputSchema = TfMetaSchema.extend({
   active_directory_config: resolvableValue(
     z.object({
       domain_name: z.string(),
@@ -71,7 +71,7 @@ export const InputSchema = TfMetaSchema.extend({
   workspace_type: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsWorkspacesDirectoryOutputSchema = z.object({
   alias: z.string().optional(),
   customer_user_name: z.string().optional(),
   directory_name: z.string().optional(),
@@ -85,18 +85,20 @@ export const OutputSchema = z.object({
   workspace_security_group_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsWorkspacesDirectoryInputProps =
+  & z.input<typeof AwsWorkspacesDirectoryInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWorkspacesDirectoryOutputProps =
+  & z.output<typeof AwsWorkspacesDirectoryOutputSchema>
+  & z.output<typeof AwsWorkspacesDirectoryInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workspaces_directory
 
-export function AwsWorkspacesDirectory(props: Partial<InputProps>) {
+export function AwsWorkspacesDirectory(
+  props: Partial<AwsWorkspacesDirectoryInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -106,8 +108,8 @@ export function AwsWorkspacesDirectory(props: Partial<InputProps>) {
       _type='aws_workspaces_directory'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsWorkspacesDirectoryInputSchema}
+      _outputSchema={AwsWorkspacesDirectoryOutputSchema}
       {...props}
     />
   )
@@ -118,7 +120,7 @@ export const useAwsWorkspacesDirectory = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsWorkspacesDirectoryOutputProps>(
     AwsWorkspacesDirectory,
     idFilter,
     baseNode,
@@ -130,7 +132,7 @@ export const useAwsWorkspacesDirectorys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsWorkspacesDirectoryOutputProps>(
     AwsWorkspacesDirectory,
     idFilter,
     baseNode,

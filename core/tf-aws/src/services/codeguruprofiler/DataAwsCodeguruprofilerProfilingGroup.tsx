@@ -9,12 +9,13 @@ import {
 import z from 'zod'
 import { AwsCodeguruprofilerProfilingGroup } from './AwsCodeguruprofilerProfilingGroup.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  name: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsCodeguruprofilerProfilingGroupInputSchema = TfMetaSchema
+  .extend({
+    name: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsCodeguruprofilerProfilingGroupOutputSchema = z.object({
   agent_orchestration_config: z.object({
     profiling_enabled: z.boolean(),
   }).array().optional(),
@@ -34,19 +35,19 @@ export const OutputSchema = z.object({
   updated_at: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsCodeguruprofilerProfilingGroupInputProps =
+  & z.input<typeof DataAwsCodeguruprofilerProfilingGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsCodeguruprofilerProfilingGroupOutputProps =
+  & z.output<typeof DataAwsCodeguruprofilerProfilingGroupOutputSchema>
+  & z.output<typeof DataAwsCodeguruprofilerProfilingGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/codeguruprofiler_profiling_group
 
 export function DataAwsCodeguruprofilerProfilingGroup(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsCodeguruprofilerProfilingGroupInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -57,8 +58,8 @@ export function DataAwsCodeguruprofilerProfilingGroup(
       _type='aws_codeguruprofiler_profiling_group'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsCodeguruprofilerProfilingGroupInputSchema}
+      _outputSchema={DataAwsCodeguruprofilerProfilingGroupOutputSchema}
       {...props as any}
     />
   )
@@ -69,7 +70,7 @@ export const useDataAwsCodeguruprofilerProfilingGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsCodeguruprofilerProfilingGroupOutputProps>(
     DataAwsCodeguruprofilerProfilingGroup,
     idFilter,
     baseNode,
@@ -81,7 +82,7 @@ export const useDataAwsCodeguruprofilerProfilingGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsCodeguruprofilerProfilingGroupOutputProps>(
     DataAwsCodeguruprofilerProfilingGroup,
     idFilter,
     baseNode,

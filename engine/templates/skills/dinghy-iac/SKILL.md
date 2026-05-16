@@ -494,7 +494,7 @@ Then add a path entry to `core/tf-aws/deno.jsonc` `exports`:
 **Schema extension pattern** (mirror `composites/lambda/types.ts`):
 
 ```ts
-import { InputSchema as AwsFooInputSchema } from '../../services/foo/AwsFoo.tsx'
+import { AwsFooInputSchema } from '../../services/foo/AwsFoo.tsx'
 
 const FooSchema = AwsFooInputSchema.extend({
   // composite-only ergonomic shortcuts go here

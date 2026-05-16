@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSnsSmsPreferencesInputSchema = TfMetaSchema.extend({
   default_sender_id: resolvableValue(z.string().optional()),
   default_sms_type: resolvableValue(z.string().optional()),
   delivery_status_iam_role_arn: resolvableValue(z.string().optional()),
@@ -19,20 +19,22 @@ export const InputSchema = TfMetaSchema.extend({
   usage_report_s3_bucket: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsSnsSmsPreferencesOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSnsSmsPreferencesInputProps =
+  & z.input<typeof AwsSnsSmsPreferencesInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSnsSmsPreferencesOutputProps =
+  & z.output<typeof AwsSnsSmsPreferencesOutputSchema>
+  & z.output<typeof AwsSnsSmsPreferencesInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sns_sms_preferences
 
-export function AwsSnsSmsPreferences(props: Partial<InputProps>) {
+export function AwsSnsSmsPreferences(
+  props: Partial<AwsSnsSmsPreferencesInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +44,8 @@ export function AwsSnsSmsPreferences(props: Partial<InputProps>) {
       _type='aws_sns_sms_preferences'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSnsSmsPreferencesInputSchema}
+      _outputSchema={AwsSnsSmsPreferencesOutputSchema}
       {...props}
     />
   )
@@ -54,4 +56,9 @@ export const useAwsSnsSmsPreferencess = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSnsSmsPreferences, idFilter, baseNode, optional)
+  useTypedNodes<AwsSnsSmsPreferencesOutputProps>(
+    AwsSnsSmsPreferences,
+    idFilter,
+    baseNode,
+    optional,
+  )

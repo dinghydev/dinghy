@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAmiInputSchema = TfMetaSchema.extend({
   last_launched_time: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   architecture: resolvableValue(z.string().optional()),
@@ -56,7 +56,7 @@ export const InputSchema = TfMetaSchema.extend({
   virtualization_type: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAmiOutputSchema = z.object({
   arn: z.string().optional(),
   hypervisor: z.string().optional(),
   id: z.string().optional(),
@@ -73,18 +73,18 @@ export const OutputSchema = z.object({
   usage_operation: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAmiInputProps =
+  & z.input<typeof AwsAmiInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAmiOutputProps =
+  & z.output<typeof AwsAmiOutputSchema>
+  & z.output<typeof AwsAmiInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ami
 
-export function AwsAmi(props: Partial<InputProps>) {
+export function AwsAmi(props: Partial<AwsAmiInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -94,8 +94,8 @@ export function AwsAmi(props: Partial<InputProps>) {
       _type='aws_ami'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAmiInputSchema}
+      _outputSchema={AwsAmiOutputSchema}
       {...props}
     />
   )
@@ -105,10 +105,10 @@ export const useAwsAmi = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsAmi, idFilter, baseNode, optional)
+) => useTypedNode<AwsAmiOutputProps>(AwsAmi, idFilter, baseNode, optional)
 
 export const useAwsAmis = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsAmi, idFilter, baseNode, optional)
+) => useTypedNodes<AwsAmiOutputProps>(AwsAmi, idFilter, baseNode, optional)

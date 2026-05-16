@@ -9,14 +9,15 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  name: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  network_type: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+export const AwsRoute53recoverycontrolconfigClusterInputSchema = TfMetaSchema
+  .extend({
+    name: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    network_type: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsRoute53recoverycontrolconfigClusterOutputSchema = z.object({
   arn: z.string().optional(),
   cluster_endpoints: z.object({
     endpoint: z.string(),
@@ -26,19 +27,19 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRoute53recoverycontrolconfigClusterInputProps =
+  & z.input<typeof AwsRoute53recoverycontrolconfigClusterInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRoute53recoverycontrolconfigClusterOutputProps =
+  & z.output<typeof AwsRoute53recoverycontrolconfigClusterOutputSchema>
+  & z.output<typeof AwsRoute53recoverycontrolconfigClusterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/route53recoverycontrolconfig_cluster
 
 export function AwsRoute53recoverycontrolconfigCluster(
-  props: Partial<InputProps>,
+  props: Partial<AwsRoute53recoverycontrolconfigClusterInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -49,8 +50,8 @@ export function AwsRoute53recoverycontrolconfigCluster(
       _type='aws_route53recoverycontrolconfig_cluster'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRoute53recoverycontrolconfigClusterInputSchema}
+      _outputSchema={AwsRoute53recoverycontrolconfigClusterOutputSchema}
       {...props}
     />
   )
@@ -61,7 +62,7 @@ export const useAwsRoute53recoverycontrolconfigCluster = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRoute53recoverycontrolconfigClusterOutputProps>(
     AwsRoute53recoverycontrolconfigCluster,
     idFilter,
     baseNode,
@@ -73,7 +74,7 @@ export const useAwsRoute53recoverycontrolconfigClusters = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRoute53recoverycontrolconfigClusterOutputProps>(
     AwsRoute53recoverycontrolconfigCluster,
     idFilter,
     baseNode,

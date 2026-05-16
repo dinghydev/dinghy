@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsEc2SpotPriceInputSchema = TfMetaSchema.extend({
   availability_zone: resolvableValue(z.string().optional()),
   filter: resolvableValue(
     z.object({
@@ -26,24 +26,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsEc2SpotPriceOutputSchema = z.object({
   id: z.string().optional(),
   spot_price: z.string().optional(),
   spot_price_timestamp: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEc2SpotPriceInputProps =
+  & z.input<typeof DataAwsEc2SpotPriceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEc2SpotPriceOutputProps =
+  & z.output<typeof DataAwsEc2SpotPriceOutputSchema>
+  & z.output<typeof DataAwsEc2SpotPriceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ec2_spot_price
 
-export function DataAwsEc2SpotPrice(props: Partial<InputProps>) {
+export function DataAwsEc2SpotPrice(
+  props: Partial<DataAwsEc2SpotPriceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,8 +55,8 @@ export function DataAwsEc2SpotPrice(props: Partial<InputProps>) {
       _type='aws_ec2_spot_price'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEc2SpotPriceInputSchema}
+      _outputSchema={DataAwsEc2SpotPriceOutputSchema}
       {...props}
     />
   )
@@ -65,11 +67,21 @@ export const useDataAwsEc2SpotPrice = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsEc2SpotPrice, idFilter, baseNode, optional)
+  useTypedNode<DataAwsEc2SpotPriceOutputProps>(
+    DataAwsEc2SpotPrice,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsEc2SpotPrices = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsEc2SpotPrice, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsEc2SpotPriceOutputProps>(
+    DataAwsEc2SpotPrice,
+    idFilter,
+    baseNode,
+    optional,
+  )

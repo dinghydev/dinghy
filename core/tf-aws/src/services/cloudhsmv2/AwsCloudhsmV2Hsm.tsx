@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudhsmV2HsmInputSchema = TfMetaSchema.extend({
   cluster_id: resolvableValue(z.string()),
   availability_zone: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
@@ -24,7 +24,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudhsmV2HsmOutputSchema = z.object({
   availability_zone: z.string().optional(),
   cluster_id: z.string().optional(),
   hsm_eni_id: z.string().optional(),
@@ -34,18 +34,18 @@ export const OutputSchema = z.object({
   subnet_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudhsmV2HsmInputProps =
+  & z.input<typeof AwsCloudhsmV2HsmInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudhsmV2HsmOutputProps =
+  & z.output<typeof AwsCloudhsmV2HsmOutputSchema>
+  & z.output<typeof AwsCloudhsmV2HsmInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudhsm_v2_hsm
 
-export function AwsCloudhsmV2Hsm(props: Partial<InputProps>) {
+export function AwsCloudhsmV2Hsm(props: Partial<AwsCloudhsmV2HsmInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,8 +55,8 @@ export function AwsCloudhsmV2Hsm(props: Partial<InputProps>) {
       _type='aws_cloudhsm_v2_hsm'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudhsmV2HsmInputSchema}
+      _outputSchema={AwsCloudhsmV2HsmOutputSchema}
       {...props}
     />
   )
@@ -66,10 +66,22 @@ export const useAwsCloudhsmV2Hsm = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsCloudhsmV2Hsm, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsCloudhsmV2HsmOutputProps>(
+    AwsCloudhsmV2Hsm,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCloudhsmV2Hsms = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsCloudhsmV2Hsm, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsCloudhsmV2HsmOutputProps>(
+    AwsCloudhsmV2Hsm,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRamResourceShareAccepterInputSchema = TfMetaSchema.extend({
   share_arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -21,7 +21,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsRamResourceShareAccepterOutputSchema = z.object({
   invitation_arn: z.string().optional(),
   receiver_account_id: z.string().optional(),
   resources: z.string().array().optional(),
@@ -31,18 +31,20 @@ export const OutputSchema = z.object({
   status: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRamResourceShareAccepterInputProps =
+  & z.input<typeof AwsRamResourceShareAccepterInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRamResourceShareAccepterOutputProps =
+  & z.output<typeof AwsRamResourceShareAccepterOutputSchema>
+  & z.output<typeof AwsRamResourceShareAccepterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ram_resource_share_accepter
 
-export function AwsRamResourceShareAccepter(props: Partial<InputProps>) {
+export function AwsRamResourceShareAccepter(
+  props: Partial<AwsRamResourceShareAccepterInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,8 +54,8 @@ export function AwsRamResourceShareAccepter(props: Partial<InputProps>) {
       _type='aws_ram_resource_share_accepter'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRamResourceShareAccepterInputSchema}
+      _outputSchema={AwsRamResourceShareAccepterOutputSchema}
       {...props}
     />
   )
@@ -64,7 +66,7 @@ export const useAwsRamResourceShareAccepter = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRamResourceShareAccepterOutputProps>(
     AwsRamResourceShareAccepter,
     idFilter,
     baseNode,
@@ -76,7 +78,7 @@ export const useAwsRamResourceShareAccepters = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRamResourceShareAccepterOutputProps>(
     AwsRamResourceShareAccepter,
     idFilter,
     baseNode,

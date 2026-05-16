@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsVpcIpamPoolInputSchema = TfMetaSchema.extend({
   address_family: resolvableValue(z.string()),
   ipam_scope_id: resolvableValue(z.string()),
   allocation_default_netmask_length: resolvableValue(z.number().optional()),
@@ -45,7 +45,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsVpcIpamPoolOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   ipam_scope_type: z.string().optional(),
@@ -54,18 +54,18 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVpcIpamPoolInputProps =
+  & z.input<typeof AwsVpcIpamPoolInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVpcIpamPoolOutputProps =
+  & z.output<typeof AwsVpcIpamPoolOutputSchema>
+  & z.output<typeof AwsVpcIpamPoolInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpc_ipam_pool
 
-export function AwsVpcIpamPool(props: Partial<InputProps>) {
+export function AwsVpcIpamPool(props: Partial<AwsVpcIpamPoolInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -75,8 +75,8 @@ export function AwsVpcIpamPool(props: Partial<InputProps>) {
       _type='aws_vpc_ipam_pool'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVpcIpamPoolInputSchema}
+      _outputSchema={AwsVpcIpamPoolOutputSchema}
       {...props}
     />
   )
@@ -86,10 +86,22 @@ export const useAwsVpcIpamPool = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsVpcIpamPool, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsVpcIpamPoolOutputProps>(
+    AwsVpcIpamPool,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVpcIpamPools = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsVpcIpamPool, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsVpcIpamPoolOutputProps>(
+    AwsVpcIpamPool,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsElastictranscoderPresetInputSchema = TfMetaSchema.extend({
   container: resolvableValue(z.string()),
   audio: resolvableValue(
     z.object({
@@ -81,22 +81,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsElastictranscoderPresetOutputSchema = z.object({
   arn: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsElastictranscoderPresetInputProps =
+  & z.input<typeof AwsElastictranscoderPresetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsElastictranscoderPresetOutputProps =
+  & z.output<typeof AwsElastictranscoderPresetOutputSchema>
+  & z.output<typeof AwsElastictranscoderPresetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/elastictranscoder_preset
 
-export function AwsElastictranscoderPreset(props: Partial<InputProps>) {
+export function AwsElastictranscoderPreset(
+  props: Partial<AwsElastictranscoderPresetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -106,8 +108,8 @@ export function AwsElastictranscoderPreset(props: Partial<InputProps>) {
       _type='aws_elastictranscoder_preset'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsElastictranscoderPresetInputSchema}
+      _outputSchema={AwsElastictranscoderPresetOutputSchema}
       {...props}
     />
   )
@@ -118,7 +120,7 @@ export const useAwsElastictranscoderPreset = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsElastictranscoderPresetOutputProps>(
     AwsElastictranscoderPreset,
     idFilter,
     baseNode,
@@ -130,7 +132,7 @@ export const useAwsElastictranscoderPresets = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsElastictranscoderPresetOutputProps>(
     AwsElastictranscoderPreset,
     idFilter,
     baseNode,

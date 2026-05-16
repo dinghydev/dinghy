@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsConnectInstanceInputSchema = TfMetaSchema.extend({
   identity_management_type: resolvableValue(z.string()),
   inbound_calls_enabled: resolvableValue(z.boolean()),
   outbound_calls_enabled: resolvableValue(z.boolean()),
@@ -30,7 +30,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsConnectInstanceOutputSchema = z.object({
   arn: z.string().optional(),
   created_time: z.string().optional(),
   id: z.string().optional(),
@@ -39,25 +39,27 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsConnectInstanceImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsConnectInstanceInputProps =
+  & z.input<typeof AwsConnectInstanceInputSchema>
+  & z.input<typeof AwsConnectInstanceImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsConnectInstanceOutputProps =
+  & z.output<typeof AwsConnectInstanceOutputSchema>
+  & z.output<typeof AwsConnectInstanceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/connect_instance
 
-export function AwsConnectInstance(props: Partial<InputProps>) {
+export function AwsConnectInstance(
+  props: Partial<AwsConnectInstanceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -67,9 +69,9 @@ export function AwsConnectInstance(props: Partial<InputProps>) {
       _type='aws_connect_instance'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsConnectInstanceInputSchema}
+      _outputSchema={AwsConnectInstanceOutputSchema}
+      _importSchema={AwsConnectInstanceImportSchema}
       {...props}
     />
   )
@@ -79,11 +81,22 @@ export const useAwsConnectInstance = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsConnectInstance, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsConnectInstanceOutputProps>(
+    AwsConnectInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsConnectInstances = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsConnectInstance, idFilter, baseNode, optional)
+  useTypedNodes<AwsConnectInstanceOutputProps>(
+    AwsConnectInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )

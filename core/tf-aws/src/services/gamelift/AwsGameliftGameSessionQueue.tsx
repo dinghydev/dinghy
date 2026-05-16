@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsGameliftGameSessionQueueInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   custom_event_data: resolvableValue(z.string().optional()),
   destinations: resolvableValue(z.string().array().optional()),
@@ -26,23 +26,25 @@ export const InputSchema = TfMetaSchema.extend({
   timeout_in_seconds: resolvableValue(z.number().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsGameliftGameSessionQueueOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsGameliftGameSessionQueueInputProps =
+  & z.input<typeof AwsGameliftGameSessionQueueInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsGameliftGameSessionQueueOutputProps =
+  & z.output<typeof AwsGameliftGameSessionQueueOutputSchema>
+  & z.output<typeof AwsGameliftGameSessionQueueInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/gamelift_game_session_queue
 
-export function AwsGameliftGameSessionQueue(props: Partial<InputProps>) {
+export function AwsGameliftGameSessionQueue(
+  props: Partial<AwsGameliftGameSessionQueueInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,8 +54,8 @@ export function AwsGameliftGameSessionQueue(props: Partial<InputProps>) {
       _type='aws_gamelift_game_session_queue'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsGameliftGameSessionQueueInputSchema}
+      _outputSchema={AwsGameliftGameSessionQueueOutputSchema}
       {...props}
     />
   )
@@ -64,7 +66,7 @@ export const useAwsGameliftGameSessionQueue = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsGameliftGameSessionQueueOutputProps>(
     AwsGameliftGameSessionQueue,
     idFilter,
     baseNode,
@@ -76,7 +78,7 @@ export const useAwsGameliftGameSessionQueues = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsGameliftGameSessionQueueOutputProps>(
     AwsGameliftGameSessionQueue,
     idFilter,
     baseNode,

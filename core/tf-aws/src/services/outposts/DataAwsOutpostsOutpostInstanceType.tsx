@@ -9,29 +9,32 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string()),
-  instance_type: resolvableValue(z.string().optional()),
-  preferred_instance_types: resolvableValue(z.string().array().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsOutpostsOutpostInstanceTypeInputSchema = TfMetaSchema
+  .extend({
+    arn: resolvableValue(z.string()),
+    instance_type: resolvableValue(z.string().optional()),
+    preferred_instance_types: resolvableValue(z.string().array().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsOutpostsOutpostInstanceTypeOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsOutpostsOutpostInstanceTypeInputProps =
+  & z.input<typeof DataAwsOutpostsOutpostInstanceTypeInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsOutpostsOutpostInstanceTypeOutputProps =
+  & z.output<typeof DataAwsOutpostsOutpostInstanceTypeOutputSchema>
+  & z.output<typeof DataAwsOutpostsOutpostInstanceTypeInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/outposts_outpost_instance_type
 
-export function DataAwsOutpostsOutpostInstanceType(props: Partial<InputProps>) {
+export function DataAwsOutpostsOutpostInstanceType(
+  props: Partial<DataAwsOutpostsOutpostInstanceTypeInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -41,8 +44,8 @@ export function DataAwsOutpostsOutpostInstanceType(props: Partial<InputProps>) {
       _type='aws_outposts_outpost_instance_type'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsOutpostsOutpostInstanceTypeInputSchema}
+      _outputSchema={DataAwsOutpostsOutpostInstanceTypeOutputSchema}
       {...props}
     />
   )
@@ -53,7 +56,7 @@ export const useDataAwsOutpostsOutpostInstanceType = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsOutpostsOutpostInstanceTypeOutputProps>(
     DataAwsOutpostsOutpostInstanceType,
     idFilter,
     baseNode,
@@ -65,7 +68,7 @@ export const useDataAwsOutpostsOutpostInstanceTypes = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsOutpostsOutpostInstanceTypeOutputProps>(
     DataAwsOutpostsOutpostInstanceType,
     idFilter,
     baseNode,

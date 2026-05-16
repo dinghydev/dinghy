@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsEc2PublicIpv4PoolsInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -20,22 +20,24 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsEc2PublicIpv4PoolsOutputSchema = z.object({
   pool_ids: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEc2PublicIpv4PoolsInputProps =
+  & z.input<typeof DataAwsEc2PublicIpv4PoolsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEc2PublicIpv4PoolsOutputProps =
+  & z.output<typeof DataAwsEc2PublicIpv4PoolsOutputSchema>
+  & z.output<typeof DataAwsEc2PublicIpv4PoolsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ec2_public_ipv4_pools
 
-export function DataAwsEc2PublicIpv4Pools(props: Partial<InputProps>) {
+export function DataAwsEc2PublicIpv4Pools(
+  props: Partial<DataAwsEc2PublicIpv4PoolsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,8 +47,8 @@ export function DataAwsEc2PublicIpv4Pools(props: Partial<InputProps>) {
       _type='aws_ec2_public_ipv4_pools'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEc2PublicIpv4PoolsInputSchema}
+      _outputSchema={DataAwsEc2PublicIpv4PoolsOutputSchema}
       {...props}
     />
   )
@@ -57,7 +59,7 @@ export const useDataAwsEc2PublicIpv4Poolss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsEc2PublicIpv4PoolsOutputProps>(
     DataAwsEc2PublicIpv4Pools,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsImagebuilderLifecyclePolicyInputSchema = TfMetaSchema.extend({
   execution_role: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   resource_type: resolvableValue(z.string()),
@@ -58,30 +58,32 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsImagebuilderLifecyclePolicyOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   status: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsImagebuilderLifecyclePolicyImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsImagebuilderLifecyclePolicyInputProps =
+  & z.input<typeof AwsImagebuilderLifecyclePolicyInputSchema>
+  & z.input<typeof AwsImagebuilderLifecyclePolicyImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsImagebuilderLifecyclePolicyOutputProps =
+  & z.output<typeof AwsImagebuilderLifecyclePolicyOutputSchema>
+  & z.output<typeof AwsImagebuilderLifecyclePolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/imagebuilder_lifecycle_policy
 
-export function AwsImagebuilderLifecyclePolicy(props: Partial<InputProps>) {
+export function AwsImagebuilderLifecyclePolicy(
+  props: Partial<AwsImagebuilderLifecyclePolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -91,9 +93,9 @@ export function AwsImagebuilderLifecyclePolicy(props: Partial<InputProps>) {
       _type='aws_imagebuilder_lifecycle_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsImagebuilderLifecyclePolicyInputSchema}
+      _outputSchema={AwsImagebuilderLifecyclePolicyOutputSchema}
+      _importSchema={AwsImagebuilderLifecyclePolicyImportSchema}
       {...props}
     />
   )
@@ -104,7 +106,7 @@ export const useAwsImagebuilderLifecyclePolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsImagebuilderLifecyclePolicyOutputProps>(
     AwsImagebuilderLifecyclePolicy,
     idFilter,
     baseNode,
@@ -116,7 +118,7 @@ export const useAwsImagebuilderLifecyclePolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsImagebuilderLifecyclePolicyOutputProps>(
     AwsImagebuilderLifecyclePolicy,
     idFilter,
     baseNode,

@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEc2AllowedImagesSettingsInputSchema = TfMetaSchema.extend({
   state: resolvableValue(z.string()),
   image_criterion: resolvableValue(
     z.object({
@@ -26,20 +26,22 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsEc2AllowedImagesSettingsOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEc2AllowedImagesSettingsInputProps =
+  & z.input<typeof AwsEc2AllowedImagesSettingsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEc2AllowedImagesSettingsOutputProps =
+  & z.output<typeof AwsEc2AllowedImagesSettingsOutputSchema>
+  & z.output<typeof AwsEc2AllowedImagesSettingsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ec2_allowed_images_settings
 
-export function AwsEc2AllowedImagesSettings(props: Partial<InputProps>) {
+export function AwsEc2AllowedImagesSettings(
+  props: Partial<AwsEc2AllowedImagesSettingsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,8 +51,8 @@ export function AwsEc2AllowedImagesSettings(props: Partial<InputProps>) {
       _type='aws_ec2_allowed_images_settings'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEc2AllowedImagesSettingsInputSchema}
+      _outputSchema={AwsEc2AllowedImagesSettingsOutputSchema}
       {...props}
     />
   )
@@ -61,7 +63,7 @@ export const useAwsEc2AllowedImagesSettingss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEc2AllowedImagesSettingsOutputProps>(
     AwsEc2AllowedImagesSettings,
     idFilter,
     baseNode,

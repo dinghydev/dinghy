@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCodebuildFleetInputSchema = TfMetaSchema.extend({
   base_capacity: resolvableValue(z.number()),
   compute_type: resolvableValue(z.string()),
   environment_type: resolvableValue(z.string()),
@@ -49,7 +49,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsCodebuildFleetOutputSchema = z.object({
   arn: z.string().optional(),
   created: z.string().optional(),
   id: z.string().optional(),
@@ -61,23 +61,23 @@ export const OutputSchema = z.object({
   })).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsCodebuildFleetImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsCodebuildFleetInputProps =
+  & z.input<typeof AwsCodebuildFleetInputSchema>
+  & z.input<typeof AwsCodebuildFleetImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCodebuildFleetOutputProps =
+  & z.output<typeof AwsCodebuildFleetOutputSchema>
+  & z.output<typeof AwsCodebuildFleetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/codebuild_fleet
 
-export function AwsCodebuildFleet(props: Partial<InputProps>) {
+export function AwsCodebuildFleet(props: Partial<AwsCodebuildFleetInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -87,9 +87,9 @@ export function AwsCodebuildFleet(props: Partial<InputProps>) {
       _type='aws_codebuild_fleet'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsCodebuildFleetInputSchema}
+      _outputSchema={AwsCodebuildFleetOutputSchema}
+      _importSchema={AwsCodebuildFleetImportSchema}
       {...props}
     />
   )
@@ -99,10 +99,22 @@ export const useAwsCodebuildFleet = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsCodebuildFleet, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsCodebuildFleetOutputProps>(
+    AwsCodebuildFleet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCodebuildFleets = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsCodebuildFleet, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsCodebuildFleetOutputProps>(
+    AwsCodebuildFleet,
+    idFilter,
+    baseNode,
+    optional,
+  )

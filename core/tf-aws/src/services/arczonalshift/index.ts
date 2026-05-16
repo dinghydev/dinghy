@@ -1,10 +1,23 @@
 export {
   AwsArczonalshiftAutoshiftObserverNotificationStatus,
+  AwsArczonalshiftAutoshiftObserverNotificationStatusInputSchema,
+  AwsArczonalshiftAutoshiftObserverNotificationStatusOutputSchema,
   useAwsArczonalshiftAutoshiftObserverNotificationStatuss,
+} from './AwsArczonalshiftAutoshiftObserverNotificationStatus.tsx'
+export type {
+  AwsArczonalshiftAutoshiftObserverNotificationStatusInputProps,
+  AwsArczonalshiftAutoshiftObserverNotificationStatusOutputProps,
 } from './AwsArczonalshiftAutoshiftObserverNotificationStatus.tsx'
 
 export {
   AwsArczonalshiftZonalAutoshiftConfiguration,
+  AwsArczonalshiftZonalAutoshiftConfigurationImportSchema,
+  AwsArczonalshiftZonalAutoshiftConfigurationInputSchema,
+  AwsArczonalshiftZonalAutoshiftConfigurationOutputSchema,
   useAwsArczonalshiftZonalAutoshiftConfiguration,
   useAwsArczonalshiftZonalAutoshiftConfigurations,
+} from './AwsArczonalshiftZonalAutoshiftConfiguration.tsx'
+export type {
+  AwsArczonalshiftZonalAutoshiftConfigurationInputProps,
+  AwsArczonalshiftZonalAutoshiftConfigurationOutputProps,
 } from './AwsArczonalshiftZonalAutoshiftConfiguration.tsx'

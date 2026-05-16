@@ -9,34 +9,37 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  db_instance_class: resolvableValue(z.string()),
-  duration: resolvableValue(z.number()),
-  multi_az: resolvableValue(z.boolean()),
-  offering_type: resolvableValue(z.string()),
-  product_description: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsRdsReservedInstanceOfferingInputSchema = TfMetaSchema
+  .extend({
+    db_instance_class: resolvableValue(z.string()),
+    duration: resolvableValue(z.number()),
+    multi_az: resolvableValue(z.boolean()),
+    offering_type: resolvableValue(z.string()),
+    product_description: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsRdsReservedInstanceOfferingOutputSchema = z.object({
   currency_code: z.string().optional(),
   fixed_price: z.number().optional(),
   id: z.string().optional(),
   offering_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsRdsReservedInstanceOfferingInputProps =
+  & z.input<typeof DataAwsRdsReservedInstanceOfferingInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsRdsReservedInstanceOfferingOutputProps =
+  & z.output<typeof DataAwsRdsReservedInstanceOfferingOutputSchema>
+  & z.output<typeof DataAwsRdsReservedInstanceOfferingInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/rds_reserved_instance_offering
 
-export function DataAwsRdsReservedInstanceOffering(props: Partial<InputProps>) {
+export function DataAwsRdsReservedInstanceOffering(
+  props: Partial<DataAwsRdsReservedInstanceOfferingInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +49,8 @@ export function DataAwsRdsReservedInstanceOffering(props: Partial<InputProps>) {
       _type='aws_rds_reserved_instance_offering'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsRdsReservedInstanceOfferingInputSchema}
+      _outputSchema={DataAwsRdsReservedInstanceOfferingOutputSchema}
       {...props}
     />
   )
@@ -58,7 +61,7 @@ export const useDataAwsRdsReservedInstanceOffering = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsRdsReservedInstanceOfferingOutputProps>(
     DataAwsRdsReservedInstanceOffering,
     idFilter,
     baseNode,
@@ -70,7 +73,7 @@ export const useDataAwsRdsReservedInstanceOfferings = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsRdsReservedInstanceOfferingOutputProps>(
     DataAwsRdsReservedInstanceOffering,
     idFilter,
     baseNode,

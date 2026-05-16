@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsFisExperimentTemplateInputSchema = TfMetaSchema.extend({
   action: resolvableValue(
     z.object({
       action_id: z.string(),
@@ -98,22 +98,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsFisExperimentTemplateOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsFisExperimentTemplateInputProps =
+  & z.input<typeof AwsFisExperimentTemplateInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsFisExperimentTemplateOutputProps =
+  & z.output<typeof AwsFisExperimentTemplateOutputSchema>
+  & z.output<typeof AwsFisExperimentTemplateInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/fis_experiment_template
 
-export function AwsFisExperimentTemplate(props: Partial<InputProps>) {
+export function AwsFisExperimentTemplate(
+  props: Partial<AwsFisExperimentTemplateInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -123,8 +125,8 @@ export function AwsFisExperimentTemplate(props: Partial<InputProps>) {
       _type='aws_fis_experiment_template'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsFisExperimentTemplateInputSchema}
+      _outputSchema={AwsFisExperimentTemplateOutputSchema}
       {...props}
     />
   )
@@ -135,7 +137,7 @@ export const useAwsFisExperimentTemplate = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsFisExperimentTemplateOutputProps>(
     AwsFisExperimentTemplate,
     idFilter,
     baseNode,
@@ -147,7 +149,7 @@ export const useAwsFisExperimentTemplates = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsFisExperimentTemplateOutputProps>(
     AwsFisExperimentTemplate,
     idFilter,
     baseNode,

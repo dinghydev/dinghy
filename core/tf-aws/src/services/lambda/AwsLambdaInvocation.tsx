@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLambdaInvocationInputSchema = TfMetaSchema.extend({
   function_name: resolvableValue(z.string()),
   input: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
@@ -21,22 +21,24 @@ export const InputSchema = TfMetaSchema.extend({
   triggers: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsLambdaInvocationOutputSchema = z.object({
   result: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLambdaInvocationInputProps =
+  & z.input<typeof AwsLambdaInvocationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLambdaInvocationOutputProps =
+  & z.output<typeof AwsLambdaInvocationOutputSchema>
+  & z.output<typeof AwsLambdaInvocationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lambda_invocation
 
-export function AwsLambdaInvocation(props: Partial<InputProps>) {
+export function AwsLambdaInvocation(
+  props: Partial<AwsLambdaInvocationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function AwsLambdaInvocation(props: Partial<InputProps>) {
       _type='aws_lambda_invocation'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLambdaInvocationInputSchema}
+      _outputSchema={AwsLambdaInvocationOutputSchema}
       {...props}
     />
   )
@@ -58,11 +60,21 @@ export const useAwsLambdaInvocation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsLambdaInvocation, idFilter, baseNode, optional)
+  useTypedNode<AwsLambdaInvocationOutputProps>(
+    AwsLambdaInvocation,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLambdaInvocations = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsLambdaInvocation, idFilter, baseNode, optional)
+  useTypedNodes<AwsLambdaInvocationOutputProps>(
+    AwsLambdaInvocation,
+    idFilter,
+    baseNode,
+    optional,
+  )

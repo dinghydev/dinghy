@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsNetworkfirewallFirewallPolicyInputSchema = TfMetaSchema.extend({
   firewall_policy: resolvableValue(z.object({
     enable_tls_session_holding: z.boolean().optional(),
     stateful_default_actions: z.string().array().optional(),
@@ -66,25 +66,27 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsNetworkfirewallFirewallPolicyOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   update_token: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsNetworkfirewallFirewallPolicyInputProps =
+  & z.input<typeof AwsNetworkfirewallFirewallPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNetworkfirewallFirewallPolicyOutputProps =
+  & z.output<typeof AwsNetworkfirewallFirewallPolicyOutputSchema>
+  & z.output<typeof AwsNetworkfirewallFirewallPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/networkfirewall_firewall_policy
 
-export function AwsNetworkfirewallFirewallPolicy(props: Partial<InputProps>) {
+export function AwsNetworkfirewallFirewallPolicy(
+  props: Partial<AwsNetworkfirewallFirewallPolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -94,8 +96,8 @@ export function AwsNetworkfirewallFirewallPolicy(props: Partial<InputProps>) {
       _type='aws_networkfirewall_firewall_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsNetworkfirewallFirewallPolicyInputSchema}
+      _outputSchema={AwsNetworkfirewallFirewallPolicyOutputSchema}
       {...props}
     />
   )
@@ -106,7 +108,7 @@ export const useAwsNetworkfirewallFirewallPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsNetworkfirewallFirewallPolicyOutputProps>(
     AwsNetworkfirewallFirewallPolicy,
     idFilter,
     baseNode,
@@ -118,7 +120,7 @@ export const useAwsNetworkfirewallFirewallPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsNetworkfirewallFirewallPolicyOutputProps>(
     AwsNetworkfirewallFirewallPolicy,
     idFilter,
     baseNode,

@@ -9,31 +9,32 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  name: resolvableValue(z.string()),
-  configuration_definition: resolvableValue(
-    z.object({
-      id: z.string().optional(),
-      local_deployment_administration_role_arn: z.string().optional(),
-      local_deployment_execution_role_name: z.string().optional(),
-      parameters: z.record(z.string(), z.string()),
-      type: z.string(),
-      type_version: z.string().optional(),
-    }).array().optional(),
-  ),
-  description: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-      update: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsSsmquicksetupConfigurationManagerInputSchema = TfMetaSchema
+  .extend({
+    name: resolvableValue(z.string()),
+    configuration_definition: resolvableValue(
+      z.object({
+        id: z.string().optional(),
+        local_deployment_administration_role_arn: z.string().optional(),
+        local_deployment_execution_role_name: z.string().optional(),
+        parameters: z.record(z.string(), z.string()),
+        type: z.string(),
+        type_version: z.string().optional(),
+      }).array().optional(),
+    ),
+    description: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+        update: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsSsmquicksetupConfigurationManagerOutputSchema = z.object({
   manager_arn: z.string().optional(),
   status_summaries: z.object({
     status: z.string(),
@@ -43,19 +44,19 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSsmquicksetupConfigurationManagerInputProps =
+  & z.input<typeof AwsSsmquicksetupConfigurationManagerInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSsmquicksetupConfigurationManagerOutputProps =
+  & z.output<typeof AwsSsmquicksetupConfigurationManagerOutputSchema>
+  & z.output<typeof AwsSsmquicksetupConfigurationManagerInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssmquicksetup_configuration_manager
 
 export function AwsSsmquicksetupConfigurationManager(
-  props: Partial<InputProps>,
+  props: Partial<AwsSsmquicksetupConfigurationManagerInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -66,8 +67,8 @@ export function AwsSsmquicksetupConfigurationManager(
       _type='aws_ssmquicksetup_configuration_manager'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSsmquicksetupConfigurationManagerInputSchema}
+      _outputSchema={AwsSsmquicksetupConfigurationManagerOutputSchema}
       {...props}
     />
   )
@@ -78,7 +79,7 @@ export const useAwsSsmquicksetupConfigurationManager = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSsmquicksetupConfigurationManagerOutputProps>(
     AwsSsmquicksetupConfigurationManager,
     idFilter,
     baseNode,
@@ -90,7 +91,7 @@ export const useAwsSsmquicksetupConfigurationManagers = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSsmquicksetupConfigurationManagerOutputProps>(
     AwsSsmquicksetupConfigurationManager,
     idFilter,
     baseNode,

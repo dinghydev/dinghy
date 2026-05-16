@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsDbClusterSnapshot } from './AwsDbClusterSnapshot.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsDbClusterSnapshotInputSchema = TfMetaSchema.extend({
   db_cluster_identifier: resolvableValue(z.string().optional()),
   db_cluster_snapshot_identifier: resolvableValue(z.string().optional()),
   include_public: resolvableValue(z.boolean().optional()),
@@ -20,7 +20,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsDbClusterSnapshotOutputSchema = z.object({
   allocated_storage: z.number().optional(),
   availability_zones: z.string().array().optional(),
   db_cluster_identifier: z.string().optional(),
@@ -39,18 +39,20 @@ export const OutputSchema = z.object({
   vpc_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsDbClusterSnapshotInputProps =
+  & z.input<typeof DataAwsDbClusterSnapshotInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsDbClusterSnapshotOutputProps =
+  & z.output<typeof DataAwsDbClusterSnapshotOutputSchema>
+  & z.output<typeof DataAwsDbClusterSnapshotInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/db_cluster_snapshot
 
-export function DataAwsDbClusterSnapshot(props: Partial<InputProps>) {
+export function DataAwsDbClusterSnapshot(
+  props: Partial<DataAwsDbClusterSnapshotInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -60,8 +62,8 @@ export function DataAwsDbClusterSnapshot(props: Partial<InputProps>) {
       _type='aws_db_cluster_snapshot'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsDbClusterSnapshotInputSchema}
+      _outputSchema={DataAwsDbClusterSnapshotOutputSchema}
       {...props as any}
     />
   )
@@ -72,7 +74,7 @@ export const useDataAwsDbClusterSnapshot = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsDbClusterSnapshotOutputProps>(
     DataAwsDbClusterSnapshot,
     idFilter,
     baseNode,
@@ -84,7 +86,7 @@ export const useDataAwsDbClusterSnapshots = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsDbClusterSnapshotOutputProps>(
     DataAwsDbClusterSnapshot,
     idFilter,
     baseNode,

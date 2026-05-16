@@ -9,30 +9,32 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloud9EnvironmentMembershipInputSchema = TfMetaSchema.extend({
   environment_id: resolvableValue(z.string()),
   permissions: resolvableValue(z.string()),
   user_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloud9EnvironmentMembershipOutputSchema = z.object({
   id: z.string().optional(),
   user_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloud9EnvironmentMembershipInputProps =
+  & z.input<typeof AwsCloud9EnvironmentMembershipInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloud9EnvironmentMembershipOutputProps =
+  & z.output<typeof AwsCloud9EnvironmentMembershipOutputSchema>
+  & z.output<typeof AwsCloud9EnvironmentMembershipInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloud9_environment_membership
 
-export function AwsCloud9EnvironmentMembership(props: Partial<InputProps>) {
+export function AwsCloud9EnvironmentMembership(
+  props: Partial<AwsCloud9EnvironmentMembershipInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +44,8 @@ export function AwsCloud9EnvironmentMembership(props: Partial<InputProps>) {
       _type='aws_cloud9_environment_membership'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloud9EnvironmentMembershipInputSchema}
+      _outputSchema={AwsCloud9EnvironmentMembershipOutputSchema}
       {...props}
     />
   )
@@ -54,7 +56,7 @@ export const useAwsCloud9EnvironmentMembership = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloud9EnvironmentMembershipOutputProps>(
     AwsCloud9EnvironmentMembership,
     idFilter,
     baseNode,
@@ -66,7 +68,7 @@ export const useAwsCloud9EnvironmentMemberships = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloud9EnvironmentMembershipOutputProps>(
     AwsCloud9EnvironmentMembership,
     idFilter,
     baseNode,

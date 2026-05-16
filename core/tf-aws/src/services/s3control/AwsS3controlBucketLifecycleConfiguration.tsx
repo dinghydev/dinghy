@@ -9,47 +9,48 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  bucket: resolvableValue(z.string()),
-  rule: resolvableValue(
-    z.object({
-      id: z.string(),
-      status: z.string().optional(),
-      abort_incomplete_multipart_upload: z.object({
-        days_after_initiation: z.number(),
-      }).optional(),
-      expiration: z.object({
-        date: z.string().optional(),
-        days: z.number().optional(),
-        expired_object_delete_marker: z.boolean().optional(),
-      }).optional(),
-      filter: z.object({
-        prefix: z.string().optional(),
-        tags: z.record(z.string(), z.string()).optional(),
-      }).optional(),
-    }).array(),
-  ),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsS3controlBucketLifecycleConfigurationInputSchema = TfMetaSchema
+  .extend({
+    bucket: resolvableValue(z.string()),
+    rule: resolvableValue(
+      z.object({
+        id: z.string(),
+        status: z.string().optional(),
+        abort_incomplete_multipart_upload: z.object({
+          days_after_initiation: z.number(),
+        }).optional(),
+        expiration: z.object({
+          date: z.string().optional(),
+          days: z.number().optional(),
+          expired_object_delete_marker: z.boolean().optional(),
+        }).optional(),
+        filter: z.object({
+          prefix: z.string().optional(),
+          tags: z.record(z.string(), z.string()).optional(),
+        }).optional(),
+      }).array(),
+    ),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsS3controlBucketLifecycleConfigurationOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsS3controlBucketLifecycleConfigurationInputProps =
+  & z.input<typeof AwsS3controlBucketLifecycleConfigurationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3controlBucketLifecycleConfigurationOutputProps =
+  & z.output<typeof AwsS3controlBucketLifecycleConfigurationOutputSchema>
+  & z.output<typeof AwsS3controlBucketLifecycleConfigurationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3control_bucket_lifecycle_configuration
 
 export function AwsS3controlBucketLifecycleConfiguration(
-  props: Partial<InputProps>,
+  props: Partial<AwsS3controlBucketLifecycleConfigurationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -60,8 +61,8 @@ export function AwsS3controlBucketLifecycleConfiguration(
       _type='aws_s3control_bucket_lifecycle_configuration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsS3controlBucketLifecycleConfigurationInputSchema}
+      _outputSchema={AwsS3controlBucketLifecycleConfigurationOutputSchema}
       {...props}
     />
   )
@@ -72,7 +73,7 @@ export const useAwsS3controlBucketLifecycleConfiguration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsS3controlBucketLifecycleConfigurationOutputProps>(
     AwsS3controlBucketLifecycleConfiguration,
     idFilter,
     baseNode,
@@ -84,7 +85,7 @@ export const useAwsS3controlBucketLifecycleConfigurations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsS3controlBucketLifecycleConfigurationOutputProps>(
     AwsS3controlBucketLifecycleConfiguration,
     idFilter,
     baseNode,

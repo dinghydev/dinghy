@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsSsmDocument } from './AwsSsmDocument.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsSsmDocumentInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   document_format: resolvableValue(z.string().optional()),
   document_version: resolvableValue(z.string().optional()),
@@ -17,24 +17,26 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsSsmDocumentOutputSchema = z.object({
   arn: z.string().optional(),
   content: z.string().optional(),
   document_type: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsSsmDocumentInputProps =
+  & z.input<typeof DataAwsSsmDocumentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsSsmDocumentOutputProps =
+  & z.output<typeof DataAwsSsmDocumentOutputSchema>
+  & z.output<typeof DataAwsSsmDocumentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ssm_document
 
-export function DataAwsSsmDocument(props: Partial<InputProps>) {
+export function DataAwsSsmDocument(
+  props: Partial<DataAwsSsmDocumentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +46,8 @@ export function DataAwsSsmDocument(props: Partial<InputProps>) {
       _type='aws_ssm_document'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsSsmDocumentInputSchema}
+      _outputSchema={DataAwsSsmDocumentOutputSchema}
       {...props as any}
     />
   )
@@ -55,11 +57,22 @@ export const useDataAwsSsmDocument = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsSsmDocument, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsSsmDocumentOutputProps>(
+    DataAwsSsmDocument,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsSsmDocuments = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsSsmDocument, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsSsmDocumentOutputProps>(
+    DataAwsSsmDocument,
+    idFilter,
+    baseNode,
+    optional,
+  )

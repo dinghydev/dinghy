@@ -12,7 +12,7 @@ import z from 'zod'
 import { EC2_INSTANCE_CONTENTS } from '@dinghy/diagrams/containersAwsGroups'
 import { ANDROID } from '@dinghy/diagrams/entitiesAws17Sdk'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsInstanceInputSchema = TfMetaSchema.extend({
   ami: resolvableValue(z.string().optional()),
   associate_public_ip_address: resolvableValue(z.boolean().optional()),
   availability_zone: resolvableValue(z.string().optional()),
@@ -192,7 +192,7 @@ export const InputSchema = TfMetaSchema.extend({
   vpc_security_group_ids: resolvableValue(z.string().array().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsInstanceOutputSchema = z.object({
   arn: z.string().optional(),
   capacity_reservation_specification: z.object({
     capacity_reservation_preference: z.string().optional(),
@@ -214,25 +214,25 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsInstanceImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsInstanceInputProps =
+  & z.input<typeof AwsInstanceInputSchema>
+  & z.input<typeof AwsInstanceImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsInstanceOutputProps =
+  & z.output<typeof AwsInstanceOutputSchema>
+  & z.output<typeof AwsInstanceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/instance
 
-export function AwsInstance(props: Partial<InputProps>) {
+export function AwsInstance(props: Partial<AwsInstanceInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -242,9 +242,9 @@ export function AwsInstance(props: Partial<InputProps>) {
       _type='aws_instance'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsInstanceInputSchema}
+      _outputSchema={AwsInstanceOutputSchema}
+      _importSchema={AwsInstanceImportSchema}
       {...props}
       _style={extendStyle(props, EC2_INSTANCE_CONTENTS, ANDROID)}
     />
@@ -255,10 +255,22 @@ export const useAwsInstance = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsInstance, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsInstanceOutputProps>(
+    AwsInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsInstances = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsInstance, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsInstanceOutputProps>(
+    AwsInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsQuicksightUserInputSchema = TfMetaSchema.extend({
   email: resolvableValue(z.string()),
   identity_type: resolvableValue(z.string()),
   user_role: resolvableValue(z.string()),
@@ -21,24 +21,24 @@ export const InputSchema = TfMetaSchema.extend({
   user_name: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsQuicksightUserOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   user_invitation_url: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsQuicksightUserInputProps =
+  & z.input<typeof AwsQuicksightUserInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsQuicksightUserOutputProps =
+  & z.output<typeof AwsQuicksightUserOutputSchema>
+  & z.output<typeof AwsQuicksightUserInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/quicksight_user
 
-export function AwsQuicksightUser(props: Partial<InputProps>) {
+export function AwsQuicksightUser(props: Partial<AwsQuicksightUserInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +48,8 @@ export function AwsQuicksightUser(props: Partial<InputProps>) {
       _type='aws_quicksight_user'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsQuicksightUserInputSchema}
+      _outputSchema={AwsQuicksightUserOutputSchema}
       {...props}
     />
   )
@@ -59,10 +59,22 @@ export const useAwsQuicksightUser = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsQuicksightUser, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsQuicksightUserOutputProps>(
+    AwsQuicksightUser,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsQuicksightUsers = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsQuicksightUser, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsQuicksightUserOutputProps>(
+    AwsQuicksightUser,
+    idFilter,
+    baseNode,
+    optional,
+  )

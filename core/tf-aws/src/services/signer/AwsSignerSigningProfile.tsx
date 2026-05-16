@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSignerSigningProfileInputSchema = TfMetaSchema.extend({
   platform_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
@@ -32,7 +32,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSignerSigningProfileOutputSchema = z.object({
   arn: z.string().optional(),
   name: z.string().optional(),
   platform_display_name: z.string().optional(),
@@ -47,18 +47,20 @@ export const OutputSchema = z.object({
   version_arn: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSignerSigningProfileInputProps =
+  & z.input<typeof AwsSignerSigningProfileInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSignerSigningProfileOutputProps =
+  & z.output<typeof AwsSignerSigningProfileOutputSchema>
+  & z.output<typeof AwsSignerSigningProfileInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/signer_signing_profile
 
-export function AwsSignerSigningProfile(props: Partial<InputProps>) {
+export function AwsSignerSigningProfile(
+  props: Partial<AwsSignerSigningProfileInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -68,8 +70,8 @@ export function AwsSignerSigningProfile(props: Partial<InputProps>) {
       _type='aws_signer_signing_profile'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSignerSigningProfileInputSchema}
+      _outputSchema={AwsSignerSigningProfileOutputSchema}
       {...props}
     />
   )
@@ -80,7 +82,7 @@ export const useAwsSignerSigningProfile = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSignerSigningProfileOutputProps>(
     AwsSignerSigningProfile,
     idFilter,
     baseNode,
@@ -92,7 +94,7 @@ export const useAwsSignerSigningProfiles = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSignerSigningProfileOutputProps>(
     AwsSignerSigningProfile,
     idFilter,
     baseNode,

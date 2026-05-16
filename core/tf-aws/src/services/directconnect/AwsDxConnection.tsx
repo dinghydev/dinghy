@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDxConnectionInputSchema = TfMetaSchema.extend({
   bandwidth: resolvableValue(z.string()),
   location: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -21,7 +21,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDxConnectionOutputSchema = z.object({
   arn: z.string().optional(),
   aws_device: z.string().optional(),
   has_logical_redundancy: z.string().optional(),
@@ -35,18 +35,18 @@ export const OutputSchema = z.object({
   vlan_id: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDxConnectionInputProps =
+  & z.input<typeof AwsDxConnectionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDxConnectionOutputProps =
+  & z.output<typeof AwsDxConnectionOutputSchema>
+  & z.output<typeof AwsDxConnectionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dx_connection
 
-export function AwsDxConnection(props: Partial<InputProps>) {
+export function AwsDxConnection(props: Partial<AwsDxConnectionInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -56,8 +56,8 @@ export function AwsDxConnection(props: Partial<InputProps>) {
       _type='aws_dx_connection'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDxConnectionInputSchema}
+      _outputSchema={AwsDxConnectionOutputSchema}
       {...props}
     />
   )
@@ -67,10 +67,22 @@ export const useAwsDxConnection = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsDxConnection, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsDxConnectionOutputProps>(
+    AwsDxConnection,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDxConnections = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsDxConnection, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsDxConnectionOutputProps>(
+    AwsDxConnection,
+    idFilter,
+    baseNode,
+    optional,
+  )

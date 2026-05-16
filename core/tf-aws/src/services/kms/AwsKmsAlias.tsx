@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsKmsAliasInputSchema = TfMetaSchema.extend({
   target_key_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
@@ -16,30 +16,30 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsKmsAliasOutputSchema = z.object({
   arn: z.string().optional(),
   target_key_arn: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsKmsAliasImportSchema = z.object({
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsKmsAliasInputProps =
+  & z.input<typeof AwsKmsAliasInputSchema>
+  & z.input<typeof AwsKmsAliasImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsKmsAliasOutputProps =
+  & z.output<typeof AwsKmsAliasOutputSchema>
+  & z.output<typeof AwsKmsAliasInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/kms_alias
 
-export function AwsKmsAlias(props: Partial<InputProps>) {
+export function AwsKmsAlias(props: Partial<AwsKmsAliasInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,9 +49,9 @@ export function AwsKmsAlias(props: Partial<InputProps>) {
       _type='aws_kms_alias'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsKmsAliasInputSchema}
+      _outputSchema={AwsKmsAliasOutputSchema}
+      _importSchema={AwsKmsAliasImportSchema}
       {...props}
     />
   )
@@ -61,4 +61,10 @@ export const useAwsKmsAliass = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsKmsAlias, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsKmsAliasOutputProps>(
+    AwsKmsAlias,
+    idFilter,
+    baseNode,
+    optional,
+  )

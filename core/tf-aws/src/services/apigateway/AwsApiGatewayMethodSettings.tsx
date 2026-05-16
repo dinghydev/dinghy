@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsApiGatewayMethodSettingsInputSchema = TfMetaSchema.extend({
   method_path: resolvableValue(z.string()),
   rest_api_id: resolvableValue(z.string()),
   settings: resolvableValue(z.object({
@@ -28,20 +28,22 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsApiGatewayMethodSettingsOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsApiGatewayMethodSettingsInputProps =
+  & z.input<typeof AwsApiGatewayMethodSettingsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApiGatewayMethodSettingsOutputProps =
+  & z.output<typeof AwsApiGatewayMethodSettingsOutputSchema>
+  & z.output<typeof AwsApiGatewayMethodSettingsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/api_gateway_method_settings
 
-export function AwsApiGatewayMethodSettings(props: Partial<InputProps>) {
+export function AwsApiGatewayMethodSettings(
+  props: Partial<AwsApiGatewayMethodSettingsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -51,8 +53,8 @@ export function AwsApiGatewayMethodSettings(props: Partial<InputProps>) {
       _type='aws_api_gateway_method_settings'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsApiGatewayMethodSettingsInputSchema}
+      _outputSchema={AwsApiGatewayMethodSettingsOutputSchema}
       {...props}
     />
   )
@@ -63,7 +65,7 @@ export const useAwsApiGatewayMethodSettingss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsApiGatewayMethodSettingsOutputProps>(
     AwsApiGatewayMethodSettings,
     idFilter,
     baseNode,

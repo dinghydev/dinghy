@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsFinspaceKxVolumeInputSchema = TfMetaSchema.extend({
   availability_zones: resolvableValue(z.string().array()),
   az_mode: resolvableValue(z.string()),
   environment_id: resolvableValue(z.string()),
@@ -35,7 +35,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsFinspaceKxVolumeOutputSchema = z.object({
   arn: z.string().optional(),
   attached_clusters: z.object({
     cluster_name: z.string(),
@@ -48,18 +48,20 @@ export const OutputSchema = z.object({
   status_reason: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsFinspaceKxVolumeInputProps =
+  & z.input<typeof AwsFinspaceKxVolumeInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsFinspaceKxVolumeOutputProps =
+  & z.output<typeof AwsFinspaceKxVolumeOutputSchema>
+  & z.output<typeof AwsFinspaceKxVolumeInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/finspace_kx_volume
 
-export function AwsFinspaceKxVolume(props: Partial<InputProps>) {
+export function AwsFinspaceKxVolume(
+  props: Partial<AwsFinspaceKxVolumeInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -69,8 +71,8 @@ export function AwsFinspaceKxVolume(props: Partial<InputProps>) {
       _type='aws_finspace_kx_volume'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsFinspaceKxVolumeInputSchema}
+      _outputSchema={AwsFinspaceKxVolumeOutputSchema}
       {...props}
     />
   )
@@ -81,11 +83,21 @@ export const useAwsFinspaceKxVolume = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsFinspaceKxVolume, idFilter, baseNode, optional)
+  useTypedNode<AwsFinspaceKxVolumeOutputProps>(
+    AwsFinspaceKxVolume,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsFinspaceKxVolumes = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsFinspaceKxVolume, idFilter, baseNode, optional)
+  useTypedNodes<AwsFinspaceKxVolumeOutputProps>(
+    AwsFinspaceKxVolume,
+    idFilter,
+    baseNode,
+    optional,
+  )

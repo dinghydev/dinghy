@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsS3vectorsIndexInputSchema = TfMetaSchema.extend({
   data_type: resolvableValue(z.string()),
   dimension: resolvableValue(z.number()),
   distance_metric: resolvableValue(z.string()),
@@ -30,29 +30,29 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsS3vectorsIndexOutputSchema = z.object({
   creation_time: z.string().optional(),
   index_arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsS3vectorsIndexImportSchema = z.object({
   index_arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsS3vectorsIndexInputProps =
+  & z.input<typeof AwsS3vectorsIndexInputSchema>
+  & z.input<typeof AwsS3vectorsIndexImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3vectorsIndexOutputProps =
+  & z.output<typeof AwsS3vectorsIndexOutputSchema>
+  & z.output<typeof AwsS3vectorsIndexInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3vectors_index
 
-export function AwsS3vectorsIndex(props: Partial<InputProps>) {
+export function AwsS3vectorsIndex(props: Partial<AwsS3vectorsIndexInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -62,9 +62,9 @@ export function AwsS3vectorsIndex(props: Partial<InputProps>) {
       _type='aws_s3vectors_index'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsS3vectorsIndexInputSchema}
+      _outputSchema={AwsS3vectorsIndexOutputSchema}
+      _importSchema={AwsS3vectorsIndexImportSchema}
       {...props}
     />
   )
@@ -74,10 +74,22 @@ export const useAwsS3vectorsIndex = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsS3vectorsIndex, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsS3vectorsIndexOutputProps>(
+    AwsS3vectorsIndex,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsS3vectorsIndexs = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsS3vectorsIndex, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsS3vectorsIndexOutputProps>(
+    AwsS3vectorsIndex,
+    idFilter,
+    baseNode,
+    optional,
+  )

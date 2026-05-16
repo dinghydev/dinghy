@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsMemorydbParameterGroupInputSchema = TfMetaSchema.extend({
   family: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
@@ -24,24 +24,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsMemorydbParameterGroupOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsMemorydbParameterGroupInputProps =
+  & z.input<typeof AwsMemorydbParameterGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsMemorydbParameterGroupOutputProps =
+  & z.output<typeof AwsMemorydbParameterGroupOutputSchema>
+  & z.output<typeof AwsMemorydbParameterGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/memorydb_parameter_group
 
-export function AwsMemorydbParameterGroup(props: Partial<InputProps>) {
+export function AwsMemorydbParameterGroup(
+  props: Partial<AwsMemorydbParameterGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -51,8 +53,8 @@ export function AwsMemorydbParameterGroup(props: Partial<InputProps>) {
       _type='aws_memorydb_parameter_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsMemorydbParameterGroupInputSchema}
+      _outputSchema={AwsMemorydbParameterGroupOutputSchema}
       {...props}
     />
   )
@@ -63,7 +65,7 @@ export const useAwsMemorydbParameterGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsMemorydbParameterGroupOutputProps>(
     AwsMemorydbParameterGroup,
     idFilter,
     baseNode,
@@ -75,7 +77,7 @@ export const useAwsMemorydbParameterGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsMemorydbParameterGroupOutputProps>(
     AwsMemorydbParameterGroup,
     idFilter,
     baseNode,

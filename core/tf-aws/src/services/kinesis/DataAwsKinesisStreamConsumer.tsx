@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsKinesisStreamConsumer } from './AwsKinesisStreamConsumer.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsKinesisStreamConsumerInputSchema = TfMetaSchema.extend({
   stream_arn: resolvableValue(z.string()),
   arn: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
@@ -17,24 +17,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsKinesisStreamConsumerOutputSchema = z.object({
   creation_timestamp: z.string().optional(),
   id: z.string().optional(),
   status: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsKinesisStreamConsumerInputProps =
+  & z.input<typeof DataAwsKinesisStreamConsumerInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsKinesisStreamConsumerOutputProps =
+  & z.output<typeof DataAwsKinesisStreamConsumerOutputSchema>
+  & z.output<typeof DataAwsKinesisStreamConsumerInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/kinesis_stream_consumer
 
-export function DataAwsKinesisStreamConsumer(props: Partial<InputProps>) {
+export function DataAwsKinesisStreamConsumer(
+  props: Partial<DataAwsKinesisStreamConsumerInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +46,8 @@ export function DataAwsKinesisStreamConsumer(props: Partial<InputProps>) {
       _type='aws_kinesis_stream_consumer'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsKinesisStreamConsumerInputSchema}
+      _outputSchema={DataAwsKinesisStreamConsumerOutputSchema}
       {...props as any}
     />
   )
@@ -56,7 +58,7 @@ export const useDataAwsKinesisStreamConsumer = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsKinesisStreamConsumerOutputProps>(
     DataAwsKinesisStreamConsumer,
     idFilter,
     baseNode,
@@ -68,7 +70,7 @@ export const useDataAwsKinesisStreamConsumers = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsKinesisStreamConsumerOutputProps>(
     DataAwsKinesisStreamConsumer,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsBudgetsBudgetActionInputSchema = TfMetaSchema.extend({
   action_threshold: resolvableValue(z.object({
     action_threshold_type: z.string(),
     action_threshold_value: z.number(),
@@ -53,7 +53,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsBudgetsBudgetActionOutputSchema = z.object({
   action_id: z.string().optional(),
   arn: z.string().optional(),
   id: z.string().optional(),
@@ -61,18 +61,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsBudgetsBudgetActionInputProps =
+  & z.input<typeof AwsBudgetsBudgetActionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBudgetsBudgetActionOutputProps =
+  & z.output<typeof AwsBudgetsBudgetActionOutputSchema>
+  & z.output<typeof AwsBudgetsBudgetActionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/budgets_budget_action
 
-export function AwsBudgetsBudgetAction(props: Partial<InputProps>) {
+export function AwsBudgetsBudgetAction(
+  props: Partial<AwsBudgetsBudgetActionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -82,8 +84,8 @@ export function AwsBudgetsBudgetAction(props: Partial<InputProps>) {
       _type='aws_budgets_budget_action'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsBudgetsBudgetActionInputSchema}
+      _outputSchema={AwsBudgetsBudgetActionOutputSchema}
       {...props}
     />
   )
@@ -94,7 +96,7 @@ export const useAwsBudgetsBudgetAction = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsBudgetsBudgetActionOutputProps>(
     AwsBudgetsBudgetAction,
     idFilter,
     baseNode,
@@ -106,7 +108,7 @@ export const useAwsBudgetsBudgetActions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsBudgetsBudgetActionOutputProps>(
     AwsBudgetsBudgetAction,
     idFilter,
     baseNode,

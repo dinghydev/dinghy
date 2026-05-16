@@ -8,7 +8,7 @@ import {
 import z from 'zod'
 import { AwsLakeformationPermissions } from './AwsLakeformationPermissions.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsLakeformationPermissionsInputSchema = TfMetaSchema.extend({
   principal: resolvableValue(z.string()),
   catalog_id: resolvableValue(z.string().optional()),
   catalog_resource: resolvableValue(z.boolean().optional()),
@@ -71,23 +71,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsLakeformationPermissionsOutputSchema = z.object({
   permissions: z.string().array().optional(),
   permissions_with_grant_option: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsLakeformationPermissionsInputProps =
+  & z.input<typeof DataAwsLakeformationPermissionsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsLakeformationPermissionsOutputProps =
+  & z.output<typeof DataAwsLakeformationPermissionsOutputSchema>
+  & z.output<typeof DataAwsLakeformationPermissionsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/lakeformation_permissions
 
-export function DataAwsLakeformationPermissions(props: Partial<InputProps>) {
+export function DataAwsLakeformationPermissions(
+  props: Partial<DataAwsLakeformationPermissionsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -97,8 +99,8 @@ export function DataAwsLakeformationPermissions(props: Partial<InputProps>) {
       _type='aws_lakeformation_permissions'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsLakeformationPermissionsInputSchema}
+      _outputSchema={DataAwsLakeformationPermissionsOutputSchema}
       {...props as any}
     />
   )
@@ -109,7 +111,7 @@ export const useDataAwsLakeformationPermissionss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsLakeformationPermissionsOutputProps>(
     DataAwsLakeformationPermissions,
     idFilter,
     baseNode,

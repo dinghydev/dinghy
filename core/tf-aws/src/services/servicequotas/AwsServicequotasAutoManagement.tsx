@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsServicequotasAutoManagementInputSchema = TfMetaSchema.extend({
   opt_in_level: resolvableValue(z.string()),
   opt_in_type: resolvableValue(z.string()),
   exclusion_list: resolvableValue(
@@ -19,22 +19,24 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsServicequotasAutoManagementOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsServicequotasAutoManagementInputProps =
+  & z.input<typeof AwsServicequotasAutoManagementInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsServicequotasAutoManagementOutputProps =
+  & z.output<typeof AwsServicequotasAutoManagementOutputSchema>
+  & z.output<typeof AwsServicequotasAutoManagementInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/servicequotas_auto_management
 
-export function AwsServicequotasAutoManagement(props: Partial<InputProps>) {
+export function AwsServicequotasAutoManagement(
+  props: Partial<AwsServicequotasAutoManagementInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +46,8 @@ export function AwsServicequotasAutoManagement(props: Partial<InputProps>) {
       _type='aws_servicequotas_auto_management'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsServicequotasAutoManagementInputSchema}
+      _outputSchema={AwsServicequotasAutoManagementOutputSchema}
       {...props}
     />
   )
@@ -56,7 +58,7 @@ export const useAwsServicequotasAutoManagement = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsServicequotasAutoManagementOutputProps>(
     AwsServicequotasAutoManagement,
     idFilter,
     baseNode,
@@ -68,7 +70,7 @@ export const useAwsServicequotasAutoManagements = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsServicequotasAutoManagementOutputProps>(
     AwsServicequotasAutoManagement,
     idFilter,
     baseNode,

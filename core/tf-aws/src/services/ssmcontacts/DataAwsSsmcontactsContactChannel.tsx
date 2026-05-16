@@ -9,13 +9,13 @@ import {
 import z from 'zod'
 import { AwsSsmcontactsContactChannel } from './AwsSsmcontactsContactChannel.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsSsmcontactsContactChannelInputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsSsmcontactsContactChannelOutputSchema = z.object({
   activation_status: z.string().optional(),
   contact_id: z.string().optional(),
   delivery_address: z.object({
@@ -25,18 +25,20 @@ export const OutputSchema = z.object({
   type: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsSsmcontactsContactChannelInputProps =
+  & z.input<typeof DataAwsSsmcontactsContactChannelInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsSsmcontactsContactChannelOutputProps =
+  & z.output<typeof DataAwsSsmcontactsContactChannelOutputSchema>
+  & z.output<typeof DataAwsSsmcontactsContactChannelInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ssmcontacts_contact_channel
 
-export function DataAwsSsmcontactsContactChannel(props: Partial<InputProps>) {
+export function DataAwsSsmcontactsContactChannel(
+  props: Partial<DataAwsSsmcontactsContactChannelInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function DataAwsSsmcontactsContactChannel(props: Partial<InputProps>) {
       _type='aws_ssmcontacts_contact_channel'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsSsmcontactsContactChannelInputSchema}
+      _outputSchema={DataAwsSsmcontactsContactChannelOutputSchema}
       {...props as any}
     />
   )
@@ -58,7 +60,7 @@ export const useDataAwsSsmcontactsContactChannel = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsSsmcontactsContactChannelOutputProps>(
     DataAwsSsmcontactsContactChannel,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useDataAwsSsmcontactsContactChannels = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsSsmcontactsContactChannelOutputProps>(
     DataAwsSsmcontactsContactChannel,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsGlueJobInputSchema = TfMetaSchema.extend({
   command: resolvableValue(z.object({
     name: z.string().optional(),
     python_version: z.string().optional(),
@@ -63,31 +63,31 @@ export const InputSchema = TfMetaSchema.extend({
   worker_type: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsGlueJobOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsGlueJobImportSchema = z.object({
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsGlueJobInputProps =
+  & z.input<typeof AwsGlueJobInputSchema>
+  & z.input<typeof AwsGlueJobImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsGlueJobOutputProps =
+  & z.output<typeof AwsGlueJobOutputSchema>
+  & z.output<typeof AwsGlueJobInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/glue_job
 
-export function AwsGlueJob(props: Partial<InputProps>) {
+export function AwsGlueJob(props: Partial<AwsGlueJobInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -97,9 +97,9 @@ export function AwsGlueJob(props: Partial<InputProps>) {
       _type='aws_glue_job'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsGlueJobInputSchema}
+      _outputSchema={AwsGlueJobOutputSchema}
+      _importSchema={AwsGlueJobImportSchema}
       {...props}
     />
   )
@@ -109,10 +109,12 @@ export const useAwsGlueJob = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsGlueJob, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsGlueJobOutputProps>(AwsGlueJob, idFilter, baseNode, optional)
 
 export const useAwsGlueJobs = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsGlueJob, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsGlueJobOutputProps>(AwsGlueJob, idFilter, baseNode, optional)

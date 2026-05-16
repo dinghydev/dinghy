@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRdsShardGroupInputSchema = TfMetaSchema.extend({
   db_cluster_identifier: resolvableValue(z.string()),
   db_shard_group_identifier: resolvableValue(z.string()),
   max_acu: resolvableValue(z.number()),
@@ -27,25 +27,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsRdsShardGroupOutputSchema = z.object({
   arn: z.string().optional(),
   db_shard_group_resource_id: z.string().optional(),
   endpoint: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRdsShardGroupInputProps =
+  & z.input<typeof AwsRdsShardGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRdsShardGroupOutputProps =
+  & z.output<typeof AwsRdsShardGroupOutputSchema>
+  & z.output<typeof AwsRdsShardGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/rds_shard_group
 
-export function AwsRdsShardGroup(props: Partial<InputProps>) {
+export function AwsRdsShardGroup(props: Partial<AwsRdsShardGroupInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,8 +55,8 @@ export function AwsRdsShardGroup(props: Partial<InputProps>) {
       _type='aws_rds_shard_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRdsShardGroupInputSchema}
+      _outputSchema={AwsRdsShardGroupOutputSchema}
       {...props}
     />
   )
@@ -66,10 +66,22 @@ export const useAwsRdsShardGroup = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsRdsShardGroup, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsRdsShardGroupOutputProps>(
+    AwsRdsShardGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRdsShardGroups = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsRdsShardGroup, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsRdsShardGroupOutputProps>(
+    AwsRdsShardGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCodedeployDeploymentGroupInputSchema = TfMetaSchema.extend({
   app_name: resolvableValue(z.string()),
   deployment_group_name: resolvableValue(z.string()),
   service_role_arn: resolvableValue(z.string()),
@@ -112,7 +112,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsCodedeployDeploymentGroupOutputSchema = z.object({
   arn: z.string().optional(),
   compute_platform: z.string().optional(),
   deployment_group_id: z.string().optional(),
@@ -120,18 +120,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCodedeployDeploymentGroupInputProps =
+  & z.input<typeof AwsCodedeployDeploymentGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCodedeployDeploymentGroupOutputProps =
+  & z.output<typeof AwsCodedeployDeploymentGroupOutputSchema>
+  & z.output<typeof AwsCodedeployDeploymentGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/codedeploy_deployment_group
 
-export function AwsCodedeployDeploymentGroup(props: Partial<InputProps>) {
+export function AwsCodedeployDeploymentGroup(
+  props: Partial<AwsCodedeployDeploymentGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -141,8 +143,8 @@ export function AwsCodedeployDeploymentGroup(props: Partial<InputProps>) {
       _type='aws_codedeploy_deployment_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCodedeployDeploymentGroupInputSchema}
+      _outputSchema={AwsCodedeployDeploymentGroupOutputSchema}
       {...props}
     />
   )
@@ -153,7 +155,7 @@ export const useAwsCodedeployDeploymentGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCodedeployDeploymentGroupOutputProps>(
     AwsCodedeployDeploymentGroup,
     idFilter,
     baseNode,
@@ -165,7 +167,7 @@ export const useAwsCodedeployDeploymentGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCodedeployDeploymentGroupOutputProps>(
     AwsCodedeployDeploymentGroup,
     idFilter,
     baseNode,

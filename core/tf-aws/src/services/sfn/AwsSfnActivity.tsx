@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSfnActivityInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   encryption_configuration: resolvableValue(
     z.object({
@@ -22,7 +22,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSfnActivityOutputSchema = z.object({
   arn: z.string().optional(),
   creation_date: z.string().optional(),
   id: z.string().optional(),
@@ -30,23 +30,23 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSfnActivityImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSfnActivityInputProps =
+  & z.input<typeof AwsSfnActivityInputSchema>
+  & z.input<typeof AwsSfnActivityImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSfnActivityOutputProps =
+  & z.output<typeof AwsSfnActivityOutputSchema>
+  & z.output<typeof AwsSfnActivityInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sfn_activity
 
-export function AwsSfnActivity(props: Partial<InputProps>) {
+export function AwsSfnActivity(props: Partial<AwsSfnActivityInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -56,9 +56,9 @@ export function AwsSfnActivity(props: Partial<InputProps>) {
       _type='aws_sfn_activity'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSfnActivityInputSchema}
+      _outputSchema={AwsSfnActivityOutputSchema}
+      _importSchema={AwsSfnActivityImportSchema}
       {...props}
     />
   )
@@ -68,10 +68,22 @@ export const useAwsSfnActivity = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsSfnActivity, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsSfnActivityOutputProps>(
+    AwsSfnActivity,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSfnActivitys = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsSfnActivity, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsSfnActivityOutputProps>(
+    AwsSfnActivity,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,40 +9,41 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  name: resolvableValue(z.string()),
-  policy: resolvableValue(z.string()),
-  type: resolvableValue(z.string()),
-  description: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsOpensearchserverlessAccessPolicyInputSchema = TfMetaSchema
+  .extend({
+    name: resolvableValue(z.string()),
+    policy: resolvableValue(z.string()),
+    type: resolvableValue(z.string()),
+    description: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsOpensearchserverlessAccessPolicyOutputSchema = z.object({
   id: z.string().optional(),
   policy_version: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsOpensearchserverlessAccessPolicyImportSchema = z.object({
   name: resolvableValue(z.string()),
   type: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsOpensearchserverlessAccessPolicyInputProps =
+  & z.input<typeof AwsOpensearchserverlessAccessPolicyInputSchema>
+  & z.input<typeof AwsOpensearchserverlessAccessPolicyImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsOpensearchserverlessAccessPolicyOutputProps =
+  & z.output<typeof AwsOpensearchserverlessAccessPolicyOutputSchema>
+  & z.output<typeof AwsOpensearchserverlessAccessPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/opensearchserverless_access_policy
 
 export function AwsOpensearchserverlessAccessPolicy(
-  props: Partial<InputProps>,
+  props: Partial<AwsOpensearchserverlessAccessPolicyInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -53,9 +54,9 @@ export function AwsOpensearchserverlessAccessPolicy(
       _type='aws_opensearchserverless_access_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsOpensearchserverlessAccessPolicyInputSchema}
+      _outputSchema={AwsOpensearchserverlessAccessPolicyOutputSchema}
+      _importSchema={AwsOpensearchserverlessAccessPolicyImportSchema}
       {...props}
     />
   )
@@ -66,7 +67,7 @@ export const useAwsOpensearchserverlessAccessPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsOpensearchserverlessAccessPolicyOutputProps>(
     AwsOpensearchserverlessAccessPolicy,
     idFilter,
     baseNode,
@@ -78,7 +79,7 @@ export const useAwsOpensearchserverlessAccessPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsOpensearchserverlessAccessPolicyOutputProps>(
     AwsOpensearchserverlessAccessPolicy,
     idFilter,
     baseNode,

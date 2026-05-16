@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsServicecatalogServiceActionInputSchema = TfMetaSchema.extend({
   definition: resolvableValue(z.object({
     assume_role: z.string().optional(),
     name: z.string(),
@@ -31,22 +31,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsServicecatalogServiceActionOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsServicecatalogServiceActionInputProps =
+  & z.input<typeof AwsServicecatalogServiceActionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsServicecatalogServiceActionOutputProps =
+  & z.output<typeof AwsServicecatalogServiceActionOutputSchema>
+  & z.output<typeof AwsServicecatalogServiceActionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/servicecatalog_service_action
 
-export function AwsServicecatalogServiceAction(props: Partial<InputProps>) {
+export function AwsServicecatalogServiceAction(
+  props: Partial<AwsServicecatalogServiceActionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -56,8 +58,8 @@ export function AwsServicecatalogServiceAction(props: Partial<InputProps>) {
       _type='aws_servicecatalog_service_action'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsServicecatalogServiceActionInputSchema}
+      _outputSchema={AwsServicecatalogServiceActionOutputSchema}
       {...props}
     />
   )
@@ -68,7 +70,7 @@ export const useAwsServicecatalogServiceAction = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsServicecatalogServiceActionOutputProps>(
     AwsServicecatalogServiceAction,
     idFilter,
     baseNode,
@@ -80,7 +82,7 @@ export const useAwsServicecatalogServiceActions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsServicecatalogServiceActionOutputProps>(
     AwsServicecatalogServiceAction,
     idFilter,
     baseNode,

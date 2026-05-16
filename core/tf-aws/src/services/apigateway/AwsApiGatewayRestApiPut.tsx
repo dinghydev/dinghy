@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsApiGatewayRestApiPutInputSchema = TfMetaSchema.extend({
   body: resolvableValue(z.string()),
   rest_api_id: resolvableValue(z.string()),
   fail_on_warnings: resolvableValue(z.boolean().optional()),
@@ -23,20 +23,22 @@ export const InputSchema = TfMetaSchema.extend({
   triggers: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsApiGatewayRestApiPutOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsApiGatewayRestApiPutInputProps =
+  & z.input<typeof AwsApiGatewayRestApiPutInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApiGatewayRestApiPutOutputProps =
+  & z.output<typeof AwsApiGatewayRestApiPutOutputSchema>
+  & z.output<typeof AwsApiGatewayRestApiPutInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/api_gateway_rest_api_put
 
-export function AwsApiGatewayRestApiPut(props: Partial<InputProps>) {
+export function AwsApiGatewayRestApiPut(
+  props: Partial<AwsApiGatewayRestApiPutInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function AwsApiGatewayRestApiPut(props: Partial<InputProps>) {
       _type='aws_api_gateway_rest_api_put'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsApiGatewayRestApiPutInputSchema}
+      _outputSchema={AwsApiGatewayRestApiPutOutputSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useAwsApiGatewayRestApiPut = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsApiGatewayRestApiPutOutputProps>(
     AwsApiGatewayRestApiPut,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useAwsApiGatewayRestApiPuts = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsApiGatewayRestApiPutOutputProps>(
     AwsApiGatewayRestApiPut,
     idFilter,
     baseNode,

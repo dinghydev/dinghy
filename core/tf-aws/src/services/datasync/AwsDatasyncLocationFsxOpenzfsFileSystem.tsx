@@ -9,22 +9,23 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  fsx_filesystem_arn: resolvableValue(z.string()),
-  protocol: resolvableValue(z.object({
-    nfs: z.object({
-      mount_options: z.object({
-        version: z.string().optional(),
+export const AwsDatasyncLocationFsxOpenzfsFileSystemInputSchema = TfMetaSchema
+  .extend({
+    fsx_filesystem_arn: resolvableValue(z.string()),
+    protocol: resolvableValue(z.object({
+      nfs: z.object({
+        mount_options: z.object({
+          version: z.string().optional(),
+        }),
       }),
-    }),
-  })),
-  security_group_arns: resolvableValue(z.string().array()),
-  region: resolvableValue(z.string().optional()),
-  subdirectory: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+    })),
+    security_group_arns: resolvableValue(z.string().array()),
+    region: resolvableValue(z.string().optional()),
+    subdirectory: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsDatasyncLocationFsxOpenzfsFileSystemOutputSchema = z.object({
   arn: z.string().optional(),
   creation_time: z.string().optional(),
   id: z.string().optional(),
@@ -32,19 +33,19 @@ export const OutputSchema = z.object({
   uri: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDatasyncLocationFsxOpenzfsFileSystemInputProps =
+  & z.input<typeof AwsDatasyncLocationFsxOpenzfsFileSystemInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDatasyncLocationFsxOpenzfsFileSystemOutputProps =
+  & z.output<typeof AwsDatasyncLocationFsxOpenzfsFileSystemOutputSchema>
+  & z.output<typeof AwsDatasyncLocationFsxOpenzfsFileSystemInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/datasync_location_fsx_openzfs_file_system
 
 export function AwsDatasyncLocationFsxOpenzfsFileSystem(
-  props: Partial<InputProps>,
+  props: Partial<AwsDatasyncLocationFsxOpenzfsFileSystemInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -55,8 +56,8 @@ export function AwsDatasyncLocationFsxOpenzfsFileSystem(
       _type='aws_datasync_location_fsx_openzfs_file_system'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDatasyncLocationFsxOpenzfsFileSystemInputSchema}
+      _outputSchema={AwsDatasyncLocationFsxOpenzfsFileSystemOutputSchema}
       {...props}
     />
   )
@@ -67,7 +68,7 @@ export const useAwsDatasyncLocationFsxOpenzfsFileSystem = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDatasyncLocationFsxOpenzfsFileSystemOutputProps>(
     AwsDatasyncLocationFsxOpenzfsFileSystem,
     idFilter,
     baseNode,
@@ -79,7 +80,7 @@ export const useAwsDatasyncLocationFsxOpenzfsFileSystems = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDatasyncLocationFsxOpenzfsFileSystemOutputProps>(
     AwsDatasyncLocationFsxOpenzfsFileSystem,
     idFilter,
     baseNode,

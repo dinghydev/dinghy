@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsTransferAccessInputSchema = TfMetaSchema.extend({
   external_id: resolvableValue(z.string()),
   server_id: resolvableValue(z.string()),
   home_directory: resolvableValue(z.string().optional()),
@@ -31,22 +31,22 @@ export const InputSchema = TfMetaSchema.extend({
   role: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsTransferAccessOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsTransferAccessInputProps =
+  & z.input<typeof AwsTransferAccessInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsTransferAccessOutputProps =
+  & z.output<typeof AwsTransferAccessOutputSchema>
+  & z.output<typeof AwsTransferAccessInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/transfer_access
 
-export function AwsTransferAccess(props: Partial<InputProps>) {
+export function AwsTransferAccess(props: Partial<AwsTransferAccessInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -56,8 +56,8 @@ export function AwsTransferAccess(props: Partial<InputProps>) {
       _type='aws_transfer_access'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsTransferAccessInputSchema}
+      _outputSchema={AwsTransferAccessOutputSchema}
       {...props}
     />
   )
@@ -67,4 +67,10 @@ export const useAwsTransferAccesss = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsTransferAccess, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsTransferAccessOutputProps>(
+    AwsTransferAccess,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsGlueDevEndpointInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   role_arn: resolvableValue(z.string()),
   arguments: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -29,7 +29,7 @@ export const InputSchema = TfMetaSchema.extend({
   worker_type: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsGlueDevEndpointOutputSchema = z.object({
   arn: z.string().optional(),
   availability_zone: z.string().optional(),
   failure_reason: z.string().optional(),
@@ -43,18 +43,20 @@ export const OutputSchema = z.object({
   zeppelin_remote_spark_interpreter_port: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsGlueDevEndpointInputProps =
+  & z.input<typeof AwsGlueDevEndpointInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsGlueDevEndpointOutputProps =
+  & z.output<typeof AwsGlueDevEndpointOutputSchema>
+  & z.output<typeof AwsGlueDevEndpointInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/glue_dev_endpoint
 
-export function AwsGlueDevEndpoint(props: Partial<InputProps>) {
+export function AwsGlueDevEndpoint(
+  props: Partial<AwsGlueDevEndpointInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -64,8 +66,8 @@ export function AwsGlueDevEndpoint(props: Partial<InputProps>) {
       _type='aws_glue_dev_endpoint'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsGlueDevEndpointInputSchema}
+      _outputSchema={AwsGlueDevEndpointOutputSchema}
       {...props}
     />
   )
@@ -75,11 +77,22 @@ export const useAwsGlueDevEndpoint = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsGlueDevEndpoint, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsGlueDevEndpointOutputProps>(
+    AwsGlueDevEndpoint,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsGlueDevEndpoints = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsGlueDevEndpoint, idFilter, baseNode, optional)
+  useTypedNodes<AwsGlueDevEndpointOutputProps>(
+    AwsGlueDevEndpoint,
+    idFilter,
+    baseNode,
+    optional,
+  )

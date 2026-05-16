@@ -9,29 +9,31 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudfrontKeyGroupInputSchema = TfMetaSchema.extend({
   items: resolvableValue(z.string().array()),
   name: resolvableValue(z.string()),
   comment: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudfrontKeyGroupOutputSchema = z.object({
   etag: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudfrontKeyGroupInputProps =
+  & z.input<typeof AwsCloudfrontKeyGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudfrontKeyGroupOutputProps =
+  & z.output<typeof AwsCloudfrontKeyGroupOutputSchema>
+  & z.output<typeof AwsCloudfrontKeyGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudfront_key_group
 
-export function AwsCloudfrontKeyGroup(props: Partial<InputProps>) {
+export function AwsCloudfrontKeyGroup(
+  props: Partial<AwsCloudfrontKeyGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -41,8 +43,8 @@ export function AwsCloudfrontKeyGroup(props: Partial<InputProps>) {
       _type='aws_cloudfront_key_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudfrontKeyGroupInputSchema}
+      _outputSchema={AwsCloudfrontKeyGroupOutputSchema}
       {...props}
     />
   )
@@ -53,14 +55,19 @@ export const useAwsCloudfrontKeyGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsCloudfrontKeyGroup, idFilter, baseNode, optional)
+  useTypedNode<AwsCloudfrontKeyGroupOutputProps>(
+    AwsCloudfrontKeyGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCloudfrontKeyGroups = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudfrontKeyGroupOutputProps>(
     AwsCloudfrontKeyGroup,
     idFilter,
     baseNode,

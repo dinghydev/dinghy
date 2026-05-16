@@ -9,29 +9,31 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSecretsmanagerTagInputSchema = TfMetaSchema.extend({
   __key: resolvableValue(z.string()),
   secret_id: resolvableValue(z.string()),
   value: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSecretsmanagerTagOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSecretsmanagerTagInputProps =
+  & z.input<typeof AwsSecretsmanagerTagInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSecretsmanagerTagOutputProps =
+  & z.output<typeof AwsSecretsmanagerTagOutputSchema>
+  & z.output<typeof AwsSecretsmanagerTagInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/secretsmanager_tag
 
-export function AwsSecretsmanagerTag(props: Partial<InputProps>) {
+export function AwsSecretsmanagerTag(
+  props: Partial<AwsSecretsmanagerTagInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -41,8 +43,8 @@ export function AwsSecretsmanagerTag(props: Partial<InputProps>) {
       _type='aws_secretsmanager_tag'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSecretsmanagerTagInputSchema}
+      _outputSchema={AwsSecretsmanagerTagOutputSchema}
       {...props}
     />
   )
@@ -53,11 +55,21 @@ export const useAwsSecretsmanagerTag = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSecretsmanagerTag, idFilter, baseNode, optional)
+  useTypedNode<AwsSecretsmanagerTagOutputProps>(
+    AwsSecretsmanagerTag,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSecretsmanagerTags = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSecretsmanagerTag, idFilter, baseNode, optional)
+  useTypedNodes<AwsSecretsmanagerTagOutputProps>(
+    AwsSecretsmanagerTag,
+    idFilter,
+    baseNode,
+    optional,
+  )

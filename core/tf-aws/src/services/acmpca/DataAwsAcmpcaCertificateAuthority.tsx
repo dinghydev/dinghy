@@ -9,12 +9,14 @@ import {
 import z from 'zod'
 import { AwsAcmpcaCertificateAuthority } from './AwsAcmpcaCertificateAuthority.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsAcmpcaCertificateAuthorityInputSchema = TfMetaSchema.extend(
+  {
+    arn: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  },
+)
 
-export const OutputSchema = z.object({
+export const DataAwsAcmpcaCertificateAuthorityOutputSchema = z.object({
   certificate: z.string().optional(),
   certificate_chain: z.string().optional(),
   certificate_signing_request: z.string().optional(),
@@ -43,18 +45,20 @@ export const OutputSchema = z.object({
   usage_mode: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsAcmpcaCertificateAuthorityInputProps =
+  & z.input<typeof DataAwsAcmpcaCertificateAuthorityInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsAcmpcaCertificateAuthorityOutputProps =
+  & z.output<typeof DataAwsAcmpcaCertificateAuthorityOutputSchema>
+  & z.output<typeof DataAwsAcmpcaCertificateAuthorityInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/acmpca_certificate_authority
 
-export function DataAwsAcmpcaCertificateAuthority(props: Partial<InputProps>) {
+export function DataAwsAcmpcaCertificateAuthority(
+  props: Partial<DataAwsAcmpcaCertificateAuthorityInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -64,8 +68,8 @@ export function DataAwsAcmpcaCertificateAuthority(props: Partial<InputProps>) {
       _type='aws_acmpca_certificate_authority'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsAcmpcaCertificateAuthorityInputSchema}
+      _outputSchema={DataAwsAcmpcaCertificateAuthorityOutputSchema}
       {...props as any}
     />
   )
@@ -76,7 +80,7 @@ export const useDataAwsAcmpcaCertificateAuthority = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsAcmpcaCertificateAuthorityOutputProps>(
     DataAwsAcmpcaCertificateAuthority,
     idFilter,
     baseNode,
@@ -88,7 +92,7 @@ export const useDataAwsAcmpcaCertificateAuthoritys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsAcmpcaCertificateAuthorityOutputProps>(
     DataAwsAcmpcaCertificateAuthority,
     idFilter,
     baseNode,

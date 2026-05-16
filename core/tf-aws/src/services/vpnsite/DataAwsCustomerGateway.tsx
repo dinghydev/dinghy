@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsCustomerGateway } from './AwsCustomerGateway.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsCustomerGatewayInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -25,7 +25,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsCustomerGatewayOutputSchema = z.object({
   arn: z.string().optional(),
   bgp_asn: z.number().optional(),
   bgp_asn_extended: z.number().optional(),
@@ -36,18 +36,20 @@ export const OutputSchema = z.object({
   type: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsCustomerGatewayInputProps =
+  & z.input<typeof DataAwsCustomerGatewayInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsCustomerGatewayOutputProps =
+  & z.output<typeof DataAwsCustomerGatewayOutputSchema>
+  & z.output<typeof DataAwsCustomerGatewayInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/customer_gateway
 
-export function DataAwsCustomerGateway(props: Partial<InputProps>) {
+export function DataAwsCustomerGateway(
+  props: Partial<DataAwsCustomerGatewayInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -57,8 +59,8 @@ export function DataAwsCustomerGateway(props: Partial<InputProps>) {
       _type='aws_customer_gateway'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsCustomerGatewayInputSchema}
+      _outputSchema={DataAwsCustomerGatewayOutputSchema}
       {...props as any}
     />
   )
@@ -69,7 +71,7 @@ export const useDataAwsCustomerGateway = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsCustomerGatewayOutputProps>(
     DataAwsCustomerGateway,
     idFilter,
     baseNode,
@@ -81,7 +83,7 @@ export const useDataAwsCustomerGateways = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsCustomerGatewayOutputProps>(
     DataAwsCustomerGateway,
     idFilter,
     baseNode,

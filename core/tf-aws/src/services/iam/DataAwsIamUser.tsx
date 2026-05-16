@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsIamUser } from './AwsIamUser.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsIamUserInputSchema = TfMetaSchema.extend({
   user_name: resolvableValue(z.string()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsIamUserOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   path: z.string().optional(),
@@ -23,18 +23,18 @@ export const OutputSchema = z.object({
   user_name: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsIamUserInputProps =
+  & z.input<typeof DataAwsIamUserInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsIamUserOutputProps =
+  & z.output<typeof DataAwsIamUserOutputSchema>
+  & z.output<typeof DataAwsIamUserInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/iam_user
 
-export function DataAwsIamUser(props: Partial<InputProps>) {
+export function DataAwsIamUser(props: Partial<DataAwsIamUserInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +44,8 @@ export function DataAwsIamUser(props: Partial<InputProps>) {
       _type='aws_iam_user'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsIamUserInputSchema}
+      _outputSchema={DataAwsIamUserOutputSchema}
       {...props as any}
     />
   )
@@ -55,10 +55,22 @@ export const useDataAwsIamUser = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsIamUser, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsIamUserOutputProps>(
+    DataAwsIamUser,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsIamUsers = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsIamUser, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsIamUserOutputProps>(
+    DataAwsIamUser,
+    idFilter,
+    baseNode,
+    optional,
+  )

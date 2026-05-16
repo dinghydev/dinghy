@@ -9,31 +9,32 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  name: resolvableValue(z.string()),
-  policy: resolvableValue(z.string()),
-  account_id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsS3controlObjectLambdaAccessPointPolicyInputSchema = TfMetaSchema
+  .extend({
+    name: resolvableValue(z.string()),
+    policy: resolvableValue(z.string()),
+    account_id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsS3controlObjectLambdaAccessPointPolicyOutputSchema = z.object({
   has_public_access_policy: z.boolean().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsS3controlObjectLambdaAccessPointPolicyInputProps =
+  & z.input<typeof AwsS3controlObjectLambdaAccessPointPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3controlObjectLambdaAccessPointPolicyOutputProps =
+  & z.output<typeof AwsS3controlObjectLambdaAccessPointPolicyOutputSchema>
+  & z.output<typeof AwsS3controlObjectLambdaAccessPointPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3control_object_lambda_access_point_policy
 
 export function AwsS3controlObjectLambdaAccessPointPolicy(
-  props: Partial<InputProps>,
+  props: Partial<AwsS3controlObjectLambdaAccessPointPolicyInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -44,8 +45,8 @@ export function AwsS3controlObjectLambdaAccessPointPolicy(
       _type='aws_s3control_object_lambda_access_point_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsS3controlObjectLambdaAccessPointPolicyInputSchema}
+      _outputSchema={AwsS3controlObjectLambdaAccessPointPolicyOutputSchema}
       {...props}
     />
   )
@@ -56,7 +57,7 @@ export const useAwsS3controlObjectLambdaAccessPointPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsS3controlObjectLambdaAccessPointPolicyOutputProps>(
     AwsS3controlObjectLambdaAccessPointPolicy,
     idFilter,
     baseNode,
@@ -68,7 +69,7 @@ export const useAwsS3controlObjectLambdaAccessPointPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsS3controlObjectLambdaAccessPointPolicyOutputProps>(
     AwsS3controlObjectLambdaAccessPointPolicy,
     idFilter,
     baseNode,

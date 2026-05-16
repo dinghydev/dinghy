@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsGlueTriggerInputSchema = TfMetaSchema.extend({
   actions: resolvableValue(
     z.object({
       arguments: z.record(z.string(), z.string()).optional(),
@@ -58,25 +58,25 @@ export const InputSchema = TfMetaSchema.extend({
   workflow_name: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsGlueTriggerOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   state: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsGlueTriggerInputProps =
+  & z.input<typeof AwsGlueTriggerInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsGlueTriggerOutputProps =
+  & z.output<typeof AwsGlueTriggerOutputSchema>
+  & z.output<typeof AwsGlueTriggerInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/glue_trigger
 
-export function AwsGlueTrigger(props: Partial<InputProps>) {
+export function AwsGlueTrigger(props: Partial<AwsGlueTriggerInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -86,8 +86,8 @@ export function AwsGlueTrigger(props: Partial<InputProps>) {
       _type='aws_glue_trigger'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsGlueTriggerInputSchema}
+      _outputSchema={AwsGlueTriggerOutputSchema}
       {...props}
     />
   )
@@ -97,10 +97,22 @@ export const useAwsGlueTrigger = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsGlueTrigger, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsGlueTriggerOutputProps>(
+    AwsGlueTrigger,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsGlueTriggers = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsGlueTrigger, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsGlueTriggerOutputProps>(
+    AwsGlueTrigger,
+    idFilter,
+    baseNode,
+    optional,
+  )

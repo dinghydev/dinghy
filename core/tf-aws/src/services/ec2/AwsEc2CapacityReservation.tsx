@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEc2CapacityReservationInputSchema = TfMetaSchema.extend({
   availability_zone: resolvableValue(z.string()),
   instance_count: resolvableValue(z.number()),
   instance_platform: resolvableValue(z.string()),
@@ -33,25 +33,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsEc2CapacityReservationOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   owner_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEc2CapacityReservationInputProps =
+  & z.input<typeof AwsEc2CapacityReservationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEc2CapacityReservationOutputProps =
+  & z.output<typeof AwsEc2CapacityReservationOutputSchema>
+  & z.output<typeof AwsEc2CapacityReservationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ec2_capacity_reservation
 
-export function AwsEc2CapacityReservation(props: Partial<InputProps>) {
+export function AwsEc2CapacityReservation(
+  props: Partial<AwsEc2CapacityReservationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -61,8 +63,8 @@ export function AwsEc2CapacityReservation(props: Partial<InputProps>) {
       _type='aws_ec2_capacity_reservation'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEc2CapacityReservationInputSchema}
+      _outputSchema={AwsEc2CapacityReservationOutputSchema}
       {...props}
     />
   )
@@ -73,7 +75,7 @@ export const useAwsEc2CapacityReservation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsEc2CapacityReservationOutputProps>(
     AwsEc2CapacityReservation,
     idFilter,
     baseNode,
@@ -85,7 +87,7 @@ export const useAwsEc2CapacityReservations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEc2CapacityReservationOutputProps>(
     AwsEc2CapacityReservation,
     idFilter,
     baseNode,

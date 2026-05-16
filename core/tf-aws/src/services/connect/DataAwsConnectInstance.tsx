@@ -9,14 +9,14 @@ import {
 import z from 'zod'
 import { AwsConnectInstance } from './AwsConnectInstance.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsConnectInstanceInputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string().optional()),
   instance_alias: resolvableValue(z.string().optional()),
   instance_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsConnectInstanceOutputSchema = z.object({
   arn: z.string().optional(),
   auto_resolve_best_voices_enabled: z.boolean().optional(),
   contact_flow_logs_enabled: z.boolean().optional(),
@@ -32,18 +32,20 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsConnectInstanceInputProps =
+  & z.input<typeof DataAwsConnectInstanceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsConnectInstanceOutputProps =
+  & z.output<typeof DataAwsConnectInstanceOutputSchema>
+  & z.output<typeof DataAwsConnectInstanceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/connect_instance
 
-export function DataAwsConnectInstance(props: Partial<InputProps>) {
+export function DataAwsConnectInstance(
+  props: Partial<DataAwsConnectInstanceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,8 +55,8 @@ export function DataAwsConnectInstance(props: Partial<InputProps>) {
       _type='aws_connect_instance'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsConnectInstanceInputSchema}
+      _outputSchema={DataAwsConnectInstanceOutputSchema}
       {...props as any}
     />
   )
@@ -65,7 +67,7 @@ export const useDataAwsConnectInstance = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsConnectInstanceOutputProps>(
     DataAwsConnectInstance,
     idFilter,
     baseNode,
@@ -77,7 +79,7 @@ export const useDataAwsConnectInstances = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsConnectInstanceOutputProps>(
     DataAwsConnectInstance,
     idFilter,
     baseNode,

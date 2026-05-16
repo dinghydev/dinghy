@@ -9,32 +9,33 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  distribution_id: resolvableValue(z.string()),
-  monitoring_subscription: resolvableValue(z.object({
-    realtime_metrics_subscription_config: z.object({
-      realtime_metrics_subscription_status: z.string(),
-    }),
-  })),
-})
+export const AwsCloudfrontMonitoringSubscriptionInputSchema = TfMetaSchema
+  .extend({
+    distribution_id: resolvableValue(z.string()),
+    monitoring_subscription: resolvableValue(z.object({
+      realtime_metrics_subscription_config: z.object({
+        realtime_metrics_subscription_status: z.string(),
+      }),
+    })),
+  })
 
-export const OutputSchema = z.object({
+export const AwsCloudfrontMonitoringSubscriptionOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudfrontMonitoringSubscriptionInputProps =
+  & z.input<typeof AwsCloudfrontMonitoringSubscriptionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudfrontMonitoringSubscriptionOutputProps =
+  & z.output<typeof AwsCloudfrontMonitoringSubscriptionOutputSchema>
+  & z.output<typeof AwsCloudfrontMonitoringSubscriptionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudfront_monitoring_subscription
 
 export function AwsCloudfrontMonitoringSubscription(
-  props: Partial<InputProps>,
+  props: Partial<AwsCloudfrontMonitoringSubscriptionInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -45,8 +46,8 @@ export function AwsCloudfrontMonitoringSubscription(
       _type='aws_cloudfront_monitoring_subscription'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudfrontMonitoringSubscriptionInputSchema}
+      _outputSchema={AwsCloudfrontMonitoringSubscriptionOutputSchema}
       {...props}
     />
   )
@@ -57,7 +58,7 @@ export const useAwsCloudfrontMonitoringSubscription = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudfrontMonitoringSubscriptionOutputProps>(
     AwsCloudfrontMonitoringSubscription,
     idFilter,
     baseNode,
@@ -69,7 +70,7 @@ export const useAwsCloudfrontMonitoringSubscriptions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudfrontMonitoringSubscriptionOutputProps>(
     AwsCloudfrontMonitoringSubscription,
     idFilter,
     baseNode,

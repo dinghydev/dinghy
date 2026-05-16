@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsRedshiftSubnetGroup } from './AwsRedshiftSubnetGroup.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsRedshiftSubnetGroupInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsRedshiftSubnetGroupOutputSchema = z.object({
   arn: z.string().optional(),
   description: z.string().optional(),
   id: z.string().optional(),
@@ -22,18 +22,20 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsRedshiftSubnetGroupInputProps =
+  & z.input<typeof DataAwsRedshiftSubnetGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsRedshiftSubnetGroupOutputProps =
+  & z.output<typeof DataAwsRedshiftSubnetGroupOutputSchema>
+  & z.output<typeof DataAwsRedshiftSubnetGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/redshift_subnet_group
 
-export function DataAwsRedshiftSubnetGroup(props: Partial<InputProps>) {
+export function DataAwsRedshiftSubnetGroup(
+  props: Partial<DataAwsRedshiftSubnetGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function DataAwsRedshiftSubnetGroup(props: Partial<InputProps>) {
       _type='aws_redshift_subnet_group'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsRedshiftSubnetGroupInputSchema}
+      _outputSchema={DataAwsRedshiftSubnetGroupOutputSchema}
       {...props as any}
     />
   )
@@ -55,7 +57,7 @@ export const useDataAwsRedshiftSubnetGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsRedshiftSubnetGroupOutputProps>(
     DataAwsRedshiftSubnetGroup,
     idFilter,
     baseNode,
@@ -67,7 +69,7 @@ export const useDataAwsRedshiftSubnetGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsRedshiftSubnetGroupOutputProps>(
     DataAwsRedshiftSubnetGroup,
     idFilter,
     baseNode,

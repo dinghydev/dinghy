@@ -9,27 +9,29 @@ import {
 import z from 'zod'
 import { AwsWafregionalWebAcl } from './AwsWafregionalWebAcl.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsWafregionalWebAclInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsWafregionalWebAclOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsWafregionalWebAclInputProps =
+  & z.input<typeof DataAwsWafregionalWebAclInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsWafregionalWebAclOutputProps =
+  & z.output<typeof DataAwsWafregionalWebAclOutputSchema>
+  & z.output<typeof DataAwsWafregionalWebAclInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/wafregional_web_acl
 
-export function DataAwsWafregionalWebAcl(props: Partial<InputProps>) {
+export function DataAwsWafregionalWebAcl(
+  props: Partial<DataAwsWafregionalWebAclInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -39,8 +41,8 @@ export function DataAwsWafregionalWebAcl(props: Partial<InputProps>) {
       _type='aws_wafregional_web_acl'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsWafregionalWebAclInputSchema}
+      _outputSchema={DataAwsWafregionalWebAclOutputSchema}
       {...props as any}
     />
   )
@@ -51,7 +53,7 @@ export const useDataAwsWafregionalWebAcl = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsWafregionalWebAclOutputProps>(
     DataAwsWafregionalWebAcl,
     idFilter,
     baseNode,
@@ -63,7 +65,7 @@ export const useDataAwsWafregionalWebAcls = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsWafregionalWebAclOutputProps>(
     DataAwsWafregionalWebAcl,
     idFilter,
     baseNode,

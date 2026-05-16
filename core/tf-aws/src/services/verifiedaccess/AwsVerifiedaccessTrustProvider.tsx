@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsVerifiedaccessTrustProviderInputSchema = TfMetaSchema.extend({
   policy_reference_name: resolvableValue(z.string()),
   trust_provider_type: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
@@ -61,22 +61,24 @@ export const InputSchema = TfMetaSchema.extend({
   user_trust_provider_type: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsVerifiedaccessTrustProviderOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVerifiedaccessTrustProviderInputProps =
+  & z.input<typeof AwsVerifiedaccessTrustProviderInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVerifiedaccessTrustProviderOutputProps =
+  & z.output<typeof AwsVerifiedaccessTrustProviderOutputSchema>
+  & z.output<typeof AwsVerifiedaccessTrustProviderInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/verifiedaccess_trust_provider
 
-export function AwsVerifiedaccessTrustProvider(props: Partial<InputProps>) {
+export function AwsVerifiedaccessTrustProvider(
+  props: Partial<AwsVerifiedaccessTrustProviderInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -86,8 +88,8 @@ export function AwsVerifiedaccessTrustProvider(props: Partial<InputProps>) {
       _type='aws_verifiedaccess_trust_provider'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVerifiedaccessTrustProviderInputSchema}
+      _outputSchema={AwsVerifiedaccessTrustProviderOutputSchema}
       {...props}
     />
   )
@@ -98,7 +100,7 @@ export const useAwsVerifiedaccessTrustProvider = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsVerifiedaccessTrustProviderOutputProps>(
     AwsVerifiedaccessTrustProvider,
     idFilter,
     baseNode,
@@ -110,7 +112,7 @@ export const useAwsVerifiedaccessTrustProviders = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsVerifiedaccessTrustProviderOutputProps>(
     AwsVerifiedaccessTrustProvider,
     idFilter,
     baseNode,

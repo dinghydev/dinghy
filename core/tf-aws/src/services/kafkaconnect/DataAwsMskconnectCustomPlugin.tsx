@@ -9,13 +9,13 @@ import {
 import z from 'zod'
 import { AwsMskconnectCustomPlugin } from './AwsMskconnectCustomPlugin.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsMskconnectCustomPluginInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsMskconnectCustomPluginOutputSchema = z.object({
   arn: z.string().optional(),
   description: z.string().optional(),
   latest_revision: z.number().optional(),
@@ -23,18 +23,20 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsMskconnectCustomPluginInputProps =
+  & z.input<typeof DataAwsMskconnectCustomPluginInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsMskconnectCustomPluginOutputProps =
+  & z.output<typeof DataAwsMskconnectCustomPluginOutputSchema>
+  & z.output<typeof DataAwsMskconnectCustomPluginInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/mskconnect_custom_plugin
 
-export function DataAwsMskconnectCustomPlugin(props: Partial<InputProps>) {
+export function DataAwsMskconnectCustomPlugin(
+  props: Partial<DataAwsMskconnectCustomPluginInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +46,8 @@ export function DataAwsMskconnectCustomPlugin(props: Partial<InputProps>) {
       _type='aws_mskconnect_custom_plugin'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsMskconnectCustomPluginInputSchema}
+      _outputSchema={DataAwsMskconnectCustomPluginOutputSchema}
       {...props as any}
     />
   )
@@ -56,7 +58,7 @@ export const useDataAwsMskconnectCustomPlugin = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsMskconnectCustomPluginOutputProps>(
     DataAwsMskconnectCustomPlugin,
     idFilter,
     baseNode,
@@ -68,7 +70,7 @@ export const useDataAwsMskconnectCustomPlugins = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsMskconnectCustomPluginOutputProps>(
     DataAwsMskconnectCustomPlugin,
     idFilter,
     baseNode,

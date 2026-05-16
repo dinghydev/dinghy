@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsS3BucketAclInputSchema = TfMetaSchema.extend({
   bucket: resolvableValue(z.string()),
   access_control_policy: resolvableValue(
     z.object({
@@ -34,29 +34,29 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsS3BucketAclOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsS3BucketAclImportSchema = z.object({
   bucket: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsS3BucketAclInputProps =
+  & z.input<typeof AwsS3BucketAclInputSchema>
+  & z.input<typeof AwsS3BucketAclImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3BucketAclOutputProps =
+  & z.output<typeof AwsS3BucketAclOutputSchema>
+  & z.output<typeof AwsS3BucketAclInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3_bucket_acl
 
-export function AwsS3BucketAcl(props: Partial<InputProps>) {
+export function AwsS3BucketAcl(props: Partial<AwsS3BucketAclInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -66,9 +66,9 @@ export function AwsS3BucketAcl(props: Partial<InputProps>) {
       _type='aws_s3_bucket_acl'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsS3BucketAclInputSchema}
+      _outputSchema={AwsS3BucketAclOutputSchema}
+      _importSchema={AwsS3BucketAclImportSchema}
       {...props}
     />
   )
@@ -78,10 +78,22 @@ export const useAwsS3BucketAcl = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsS3BucketAcl, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsS3BucketAclOutputProps>(
+    AwsS3BucketAcl,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsS3BucketAcls = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsS3BucketAcl, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsS3BucketAclOutputProps>(
+    AwsS3BucketAcl,
+    idFilter,
+    baseNode,
+    optional,
+  )

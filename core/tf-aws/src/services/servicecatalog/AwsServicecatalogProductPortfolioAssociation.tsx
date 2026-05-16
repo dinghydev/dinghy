@@ -9,38 +9,40 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  portfolio_id: resolvableValue(z.string()),
-  product_id: resolvableValue(z.string()),
-  accept_language: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  source_portfolio_id: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-      read: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsServicecatalogProductPortfolioAssociationInputSchema =
+  TfMetaSchema.extend({
+    portfolio_id: resolvableValue(z.string()),
+    product_id: resolvableValue(z.string()),
+    accept_language: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    source_portfolio_id: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+        read: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
-  id: z.string().optional(),
-})
+export const AwsServicecatalogProductPortfolioAssociationOutputSchema = z
+  .object({
+    id: z.string().optional(),
+  })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsServicecatalogProductPortfolioAssociationInputProps =
+  & z.input<typeof AwsServicecatalogProductPortfolioAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsServicecatalogProductPortfolioAssociationOutputProps =
+  & z.output<typeof AwsServicecatalogProductPortfolioAssociationOutputSchema>
+  & z.output<typeof AwsServicecatalogProductPortfolioAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/servicecatalog_product_portfolio_association
 
 export function AwsServicecatalogProductPortfolioAssociation(
-  props: Partial<InputProps>,
+  props: Partial<AwsServicecatalogProductPortfolioAssociationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -51,8 +53,8 @@ export function AwsServicecatalogProductPortfolioAssociation(
       _type='aws_servicecatalog_product_portfolio_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsServicecatalogProductPortfolioAssociationInputSchema}
+      _outputSchema={AwsServicecatalogProductPortfolioAssociationOutputSchema}
       {...props}
     />
   )
@@ -63,7 +65,7 @@ export const useAwsServicecatalogProductPortfolioAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsServicecatalogProductPortfolioAssociationOutputProps>(
     AwsServicecatalogProductPortfolioAssociation,
     idFilter,
     baseNode,
@@ -75,7 +77,7 @@ export const useAwsServicecatalogProductPortfolioAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsServicecatalogProductPortfolioAssociationOutputProps>(
     AwsServicecatalogProductPortfolioAssociation,
     idFilter,
     baseNode,

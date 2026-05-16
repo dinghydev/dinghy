@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLambdaAliasInputSchema = TfMetaSchema.extend({
   function_name: resolvableValue(z.string()),
   function_version: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -22,23 +22,23 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsLambdaAliasOutputSchema = z.object({
   arn: z.string().optional(),
   invoke_arn: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLambdaAliasInputProps =
+  & z.input<typeof AwsLambdaAliasInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLambdaAliasOutputProps =
+  & z.output<typeof AwsLambdaAliasOutputSchema>
+  & z.output<typeof AwsLambdaAliasInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lambda_alias
 
-export function AwsLambdaAlias(props: Partial<InputProps>) {
+export function AwsLambdaAlias(props: Partial<AwsLambdaAliasInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +48,8 @@ export function AwsLambdaAlias(props: Partial<InputProps>) {
       _type='aws_lambda_alias'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLambdaAliasInputSchema}
+      _outputSchema={AwsLambdaAliasOutputSchema}
       {...props}
     />
   )
@@ -59,4 +59,10 @@ export const useAwsLambdaAliass = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsLambdaAlias, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsLambdaAliasOutputProps>(
+    AwsLambdaAlias,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSecuritylakeAwsLogSourceInputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
   source: resolvableValue(
     z.object({
@@ -21,22 +21,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsSecuritylakeAwsLogSourceOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSecuritylakeAwsLogSourceInputProps =
+  & z.input<typeof AwsSecuritylakeAwsLogSourceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSecuritylakeAwsLogSourceOutputProps =
+  & z.output<typeof AwsSecuritylakeAwsLogSourceOutputSchema>
+  & z.output<typeof AwsSecuritylakeAwsLogSourceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securitylake_aws_log_source
 
-export function AwsSecuritylakeAwsLogSource(props: Partial<InputProps>) {
+export function AwsSecuritylakeAwsLogSource(
+  props: Partial<AwsSecuritylakeAwsLogSourceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function AwsSecuritylakeAwsLogSource(props: Partial<InputProps>) {
       _type='aws_securitylake_aws_log_source'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSecuritylakeAwsLogSourceInputSchema}
+      _outputSchema={AwsSecuritylakeAwsLogSourceOutputSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useAwsSecuritylakeAwsLogSource = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSecuritylakeAwsLogSourceOutputProps>(
     AwsSecuritylakeAwsLogSource,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useAwsSecuritylakeAwsLogSources = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSecuritylakeAwsLogSourceOutputProps>(
     AwsSecuritylakeAwsLogSource,
     idFilter,
     baseNode,

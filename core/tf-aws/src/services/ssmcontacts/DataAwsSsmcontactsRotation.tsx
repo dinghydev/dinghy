@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsSsmcontactsRotation } from './AwsSsmcontactsRotation.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsSsmcontactsRotationInputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsSsmcontactsRotationOutputSchema = z.object({
   contact_ids: z.string().array().optional(),
   id: z.string().optional(),
   name: z.string().optional(),
@@ -58,18 +58,20 @@ export const OutputSchema = z.object({
   time_zone_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsSsmcontactsRotationInputProps =
+  & z.input<typeof DataAwsSsmcontactsRotationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsSsmcontactsRotationOutputProps =
+  & z.output<typeof DataAwsSsmcontactsRotationOutputSchema>
+  & z.output<typeof DataAwsSsmcontactsRotationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ssmcontacts_rotation
 
-export function DataAwsSsmcontactsRotation(props: Partial<InputProps>) {
+export function DataAwsSsmcontactsRotation(
+  props: Partial<DataAwsSsmcontactsRotationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -79,8 +81,8 @@ export function DataAwsSsmcontactsRotation(props: Partial<InputProps>) {
       _type='aws_ssmcontacts_rotation'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsSsmcontactsRotationInputSchema}
+      _outputSchema={DataAwsSsmcontactsRotationOutputSchema}
       {...props as any}
     />
   )
@@ -91,7 +93,7 @@ export const useDataAwsSsmcontactsRotation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsSsmcontactsRotationOutputProps>(
     DataAwsSsmcontactsRotation,
     idFilter,
     baseNode,
@@ -103,7 +105,7 @@ export const useDataAwsSsmcontactsRotations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsSsmcontactsRotationOutputProps>(
     DataAwsSsmcontactsRotation,
     idFilter,
     baseNode,

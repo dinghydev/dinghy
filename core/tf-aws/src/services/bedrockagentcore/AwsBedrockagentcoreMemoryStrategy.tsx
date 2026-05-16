@@ -9,52 +9,56 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  memory_id: resolvableValue(z.string()),
-  name: resolvableValue(z.string()),
-  namespaces: resolvableValue(z.string().array()),
-  type: resolvableValue(z.string()),
-  configuration: resolvableValue(
-    z.object({
-      type: z.string(),
-      consolidation: z.object({
-        append_to_prompt: z.string(),
-        model_id: z.string(),
+export const AwsBedrockagentcoreMemoryStrategyInputSchema = TfMetaSchema.extend(
+  {
+    memory_id: resolvableValue(z.string()),
+    name: resolvableValue(z.string()),
+    namespaces: resolvableValue(z.string().array()),
+    type: resolvableValue(z.string()),
+    configuration: resolvableValue(
+      z.object({
+        type: z.string(),
+        consolidation: z.object({
+          append_to_prompt: z.string(),
+          model_id: z.string(),
+        }).array().optional(),
+        extraction: z.object({
+          append_to_prompt: z.string(),
+          model_id: z.string(),
+        }).array().optional(),
       }).array().optional(),
-      extraction: z.object({
-        append_to_prompt: z.string(),
-        model_id: z.string(),
-      }).array().optional(),
-    }).array().optional(),
-  ),
-  description: resolvableValue(z.string().optional()),
-  memory_execution_role_arn: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-      update: z.string().optional(),
-    }).optional(),
-  ),
-})
+    ),
+    description: resolvableValue(z.string().optional()),
+    memory_execution_role_arn: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+        update: z.string().optional(),
+      }).optional(),
+    ),
+  },
+)
 
-export const OutputSchema = z.object({
+export const AwsBedrockagentcoreMemoryStrategyOutputSchema = z.object({
   memory_strategy_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsBedrockagentcoreMemoryStrategyInputProps =
+  & z.input<typeof AwsBedrockagentcoreMemoryStrategyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBedrockagentcoreMemoryStrategyOutputProps =
+  & z.output<typeof AwsBedrockagentcoreMemoryStrategyOutputSchema>
+  & z.output<typeof AwsBedrockagentcoreMemoryStrategyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/bedrockagentcore_memory_strategy
 
-export function AwsBedrockagentcoreMemoryStrategy(props: Partial<InputProps>) {
+export function AwsBedrockagentcoreMemoryStrategy(
+  props: Partial<AwsBedrockagentcoreMemoryStrategyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -64,8 +68,8 @@ export function AwsBedrockagentcoreMemoryStrategy(props: Partial<InputProps>) {
       _type='aws_bedrockagentcore_memory_strategy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsBedrockagentcoreMemoryStrategyInputSchema}
+      _outputSchema={AwsBedrockagentcoreMemoryStrategyOutputSchema}
       {...props}
     />
   )
@@ -76,7 +80,7 @@ export const useAwsBedrockagentcoreMemoryStrategy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsBedrockagentcoreMemoryStrategyOutputProps>(
     AwsBedrockagentcoreMemoryStrategy,
     idFilter,
     baseNode,
@@ -88,7 +92,7 @@ export const useAwsBedrockagentcoreMemoryStrategys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsBedrockagentcoreMemoryStrategyOutputProps>(
     AwsBedrockagentcoreMemoryStrategy,
     idFilter,
     baseNode,

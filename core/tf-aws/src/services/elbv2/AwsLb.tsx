@@ -11,7 +11,7 @@ import {
 import z from 'zod'
 import { APPLICATION_LOAD_BALANCER } from '@dinghy/diagrams/entitiesAwsNetworkContentDelivery'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLbInputSchema = TfMetaSchema.extend({
   access_logs: resolvableValue(
     z.object({
       bucket: z.string(),
@@ -94,7 +94,7 @@ export const InputSchema = TfMetaSchema.extend({
   xff_header_processing_mode: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsLbOutputSchema = z.object({
   arn: z.string().optional(),
   arn_suffix: z.string().optional(),
   dns_name: z.string().optional(),
@@ -103,23 +103,23 @@ export const OutputSchema = z.object({
   zone_id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsLbImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsLbInputProps =
+  & z.input<typeof AwsLbInputSchema>
+  & z.input<typeof AwsLbImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLbOutputProps =
+  & z.output<typeof AwsLbOutputSchema>
+  & z.output<typeof AwsLbInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lb
 
-export function AwsLb(props: Partial<InputProps>) {
+export function AwsLb(props: Partial<AwsLbInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -129,9 +129,9 @@ export function AwsLb(props: Partial<InputProps>) {
       _type='aws_lb'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsLbInputSchema}
+      _outputSchema={AwsLbOutputSchema}
+      _importSchema={AwsLbImportSchema}
       {...props}
       _style={extendStyle(props, APPLICATION_LOAD_BALANCER)}
     />
@@ -142,10 +142,10 @@ export const useAwsLb = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsLb, idFilter, baseNode, optional)
+) => useTypedNode<AwsLbOutputProps>(AwsLb, idFilter, baseNode, optional)
 
 export const useAwsLbs = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsLb, idFilter, baseNode, optional)
+) => useTypedNodes<AwsLbOutputProps>(AwsLb, idFilter, baseNode, optional)

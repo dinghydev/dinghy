@@ -9,33 +9,35 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCodebuildResourcePolicyInputSchema = TfMetaSchema.extend({
   policy: resolvableValue(z.string()),
   resource_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCodebuildResourcePolicyOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsCodebuildResourcePolicyImportSchema = z.object({
   resource_arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsCodebuildResourcePolicyInputProps =
+  & z.input<typeof AwsCodebuildResourcePolicyInputSchema>
+  & z.input<typeof AwsCodebuildResourcePolicyImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCodebuildResourcePolicyOutputProps =
+  & z.output<typeof AwsCodebuildResourcePolicyOutputSchema>
+  & z.output<typeof AwsCodebuildResourcePolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/codebuild_resource_policy
 
-export function AwsCodebuildResourcePolicy(props: Partial<InputProps>) {
+export function AwsCodebuildResourcePolicy(
+  props: Partial<AwsCodebuildResourcePolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,9 +47,9 @@ export function AwsCodebuildResourcePolicy(props: Partial<InputProps>) {
       _type='aws_codebuild_resource_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsCodebuildResourcePolicyInputSchema}
+      _outputSchema={AwsCodebuildResourcePolicyOutputSchema}
+      _importSchema={AwsCodebuildResourcePolicyImportSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useAwsCodebuildResourcePolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCodebuildResourcePolicyOutputProps>(
     AwsCodebuildResourcePolicy,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useAwsCodebuildResourcePolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCodebuildResourcePolicyOutputProps>(
     AwsCodebuildResourcePolicy,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLightsailKeyPairInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string().optional()),
   name_prefix: resolvableValue(z.string().optional()),
   pgp_key: resolvableValue(z.string().optional()),
@@ -18,7 +18,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsLightsailKeyPairOutputSchema = z.object({
   arn: z.string().optional(),
   encrypted_fingerprint: z.string().optional(),
   encrypted_private_key: z.string().optional(),
@@ -29,18 +29,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLightsailKeyPairInputProps =
+  & z.input<typeof AwsLightsailKeyPairInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLightsailKeyPairOutputProps =
+  & z.output<typeof AwsLightsailKeyPairOutputSchema>
+  & z.output<typeof AwsLightsailKeyPairInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lightsail_key_pair
 
-export function AwsLightsailKeyPair(props: Partial<InputProps>) {
+export function AwsLightsailKeyPair(
+  props: Partial<AwsLightsailKeyPairInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -50,8 +52,8 @@ export function AwsLightsailKeyPair(props: Partial<InputProps>) {
       _type='aws_lightsail_key_pair'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLightsailKeyPairInputSchema}
+      _outputSchema={AwsLightsailKeyPairOutputSchema}
       {...props}
     />
   )
@@ -62,11 +64,21 @@ export const useAwsLightsailKeyPair = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsLightsailKeyPair, idFilter, baseNode, optional)
+  useTypedNode<AwsLightsailKeyPairOutputProps>(
+    AwsLightsailKeyPair,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLightsailKeyPairs = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsLightsailKeyPair, idFilter, baseNode, optional)
+  useTypedNodes<AwsLightsailKeyPairOutputProps>(
+    AwsLightsailKeyPair,
+    idFilter,
+    baseNode,
+    optional,
+  )

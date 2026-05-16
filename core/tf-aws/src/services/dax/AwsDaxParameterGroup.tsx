@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDaxParameterGroupInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   parameters: resolvableValue(
@@ -21,22 +21,24 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDaxParameterGroupOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDaxParameterGroupInputProps =
+  & z.input<typeof AwsDaxParameterGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDaxParameterGroupOutputProps =
+  & z.output<typeof AwsDaxParameterGroupOutputSchema>
+  & z.output<typeof AwsDaxParameterGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dax_parameter_group
 
-export function AwsDaxParameterGroup(props: Partial<InputProps>) {
+export function AwsDaxParameterGroup(
+  props: Partial<AwsDaxParameterGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function AwsDaxParameterGroup(props: Partial<InputProps>) {
       _type='aws_dax_parameter_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDaxParameterGroupInputSchema}
+      _outputSchema={AwsDaxParameterGroupOutputSchema}
       {...props}
     />
   )
@@ -58,11 +60,21 @@ export const useAwsDaxParameterGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsDaxParameterGroup, idFilter, baseNode, optional)
+  useTypedNode<AwsDaxParameterGroupOutputProps>(
+    AwsDaxParameterGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDaxParameterGroups = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsDaxParameterGroup, idFilter, baseNode, optional)
+  useTypedNodes<AwsDaxParameterGroupOutputProps>(
+    AwsDaxParameterGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

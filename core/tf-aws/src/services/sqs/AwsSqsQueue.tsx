@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSqsQueueInputSchema = TfMetaSchema.extend({
   content_based_deduplication: resolvableValue(z.boolean().optional()),
   deduplication_scope: resolvableValue(z.string().optional()),
   delay_seconds: resolvableValue(z.number().optional()),
@@ -38,30 +38,30 @@ export const InputSchema = TfMetaSchema.extend({
   visibility_timeout_seconds: resolvableValue(z.number().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSqsQueueOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   url: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSqsQueueImportSchema = z.object({
   url: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSqsQueueInputProps =
+  & z.input<typeof AwsSqsQueueInputSchema>
+  & z.input<typeof AwsSqsQueueImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSqsQueueOutputProps =
+  & z.output<typeof AwsSqsQueueOutputSchema>
+  & z.output<typeof AwsSqsQueueInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sqs_queue
 
-export function AwsSqsQueue(props: Partial<InputProps>) {
+export function AwsSqsQueue(props: Partial<AwsSqsQueueInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -71,9 +71,9 @@ export function AwsSqsQueue(props: Partial<InputProps>) {
       _type='aws_sqs_queue'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSqsQueueInputSchema}
+      _outputSchema={AwsSqsQueueOutputSchema}
+      _importSchema={AwsSqsQueueImportSchema}
       {...props}
     />
   )
@@ -83,10 +83,22 @@ export const useAwsSqsQueue = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsSqsQueue, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsSqsQueueOutputProps>(
+    AwsSqsQueue,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSqsQueues = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsSqsQueue, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsSqsQueueOutputProps>(
+    AwsSqsQueue,
+    idFilter,
+    baseNode,
+    optional,
+  )

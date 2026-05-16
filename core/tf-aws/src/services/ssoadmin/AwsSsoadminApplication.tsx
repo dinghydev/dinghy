@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSsoadminApplicationInputSchema = TfMetaSchema.extend({
   application_provider_arn: resolvableValue(z.string()),
   instance_arn: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -29,7 +29,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSsoadminApplicationOutputSchema = z.object({
   application_account: z.string().optional(),
   application_arn: z.string().optional(),
   arn: z.string().optional(),
@@ -37,24 +37,26 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSsoadminApplicationImportSchema = z.object({
   arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSsoadminApplicationInputProps =
+  & z.input<typeof AwsSsoadminApplicationInputSchema>
+  & z.input<typeof AwsSsoadminApplicationImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSsoadminApplicationOutputProps =
+  & z.output<typeof AwsSsoadminApplicationOutputSchema>
+  & z.output<typeof AwsSsoadminApplicationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssoadmin_application
 
-export function AwsSsoadminApplication(props: Partial<InputProps>) {
+export function AwsSsoadminApplication(
+  props: Partial<AwsSsoadminApplicationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -64,9 +66,9 @@ export function AwsSsoadminApplication(props: Partial<InputProps>) {
       _type='aws_ssoadmin_application'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSsoadminApplicationInputSchema}
+      _outputSchema={AwsSsoadminApplicationOutputSchema}
+      _importSchema={AwsSsoadminApplicationImportSchema}
       {...props}
     />
   )
@@ -77,7 +79,7 @@ export const useAwsSsoadminApplication = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSsoadminApplicationOutputProps>(
     AwsSsoadminApplication,
     idFilter,
     baseNode,
@@ -89,7 +91,7 @@ export const useAwsSsoadminApplications = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSsoadminApplicationOutputProps>(
     AwsSsoadminApplication,
     idFilter,
     baseNode,

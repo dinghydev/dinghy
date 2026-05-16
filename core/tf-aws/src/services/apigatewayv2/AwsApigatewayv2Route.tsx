@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsApigatewayv2RouteInputSchema = TfMetaSchema.extend({
   api_id: resolvableValue(z.string()),
   route_key: resolvableValue(z.string()),
   api_key_required: resolvableValue(z.boolean().optional()),
@@ -30,30 +30,32 @@ export const InputSchema = TfMetaSchema.extend({
   target: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsApigatewayv2RouteOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsApigatewayv2RouteImportSchema = z.object({
   api_id: resolvableValue(z.string()),
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsApigatewayv2RouteInputProps =
+  & z.input<typeof AwsApigatewayv2RouteInputSchema>
+  & z.input<typeof AwsApigatewayv2RouteImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApigatewayv2RouteOutputProps =
+  & z.output<typeof AwsApigatewayv2RouteOutputSchema>
+  & z.output<typeof AwsApigatewayv2RouteInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/apigatewayv2_route
 
-export function AwsApigatewayv2Route(props: Partial<InputProps>) {
+export function AwsApigatewayv2Route(
+  props: Partial<AwsApigatewayv2RouteInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -63,9 +65,9 @@ export function AwsApigatewayv2Route(props: Partial<InputProps>) {
       _type='aws_apigatewayv2_route'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsApigatewayv2RouteInputSchema}
+      _outputSchema={AwsApigatewayv2RouteOutputSchema}
+      _importSchema={AwsApigatewayv2RouteImportSchema}
       {...props}
     />
   )
@@ -76,11 +78,21 @@ export const useAwsApigatewayv2Route = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsApigatewayv2Route, idFilter, baseNode, optional)
+  useTypedNode<AwsApigatewayv2RouteOutputProps>(
+    AwsApigatewayv2Route,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsApigatewayv2Routes = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsApigatewayv2Route, idFilter, baseNode, optional)
+  useTypedNodes<AwsApigatewayv2RouteOutputProps>(
+    AwsApigatewayv2Route,
+    idFilter,
+    baseNode,
+    optional,
+  )

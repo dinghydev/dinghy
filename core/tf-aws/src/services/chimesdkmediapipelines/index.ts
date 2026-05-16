@@ -1,5 +1,12 @@
 export {
   AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration,
+  AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationImportSchema,
+  AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationInputSchema,
+  AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationOutputSchema,
   useAwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration,
   useAwsChimesdkmediapipelinesMediaInsightsPipelineConfigurations,
+} from './AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration.tsx'
+export type {
+  AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationInputProps,
+  AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationOutputProps,
 } from './AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration.tsx'

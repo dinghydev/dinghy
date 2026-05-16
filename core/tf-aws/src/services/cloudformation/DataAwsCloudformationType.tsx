@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsCloudformationType } from './AwsCloudformationType.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsCloudformationTypeInputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -18,7 +18,7 @@ export const InputSchema = TfMetaSchema.extend({
   version_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsCloudformationTypeOutputSchema = z.object({
   default_version_id: z.string().optional(),
   deprecated_status: z.string().optional(),
   description: z.string().optional(),
@@ -36,18 +36,20 @@ export const OutputSchema = z.object({
   visibility: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsCloudformationTypeInputProps =
+  & z.input<typeof DataAwsCloudformationTypeInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsCloudformationTypeOutputProps =
+  & z.output<typeof DataAwsCloudformationTypeOutputSchema>
+  & z.output<typeof DataAwsCloudformationTypeInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/cloudformation_type
 
-export function DataAwsCloudformationType(props: Partial<InputProps>) {
+export function DataAwsCloudformationType(
+  props: Partial<DataAwsCloudformationTypeInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -57,8 +59,8 @@ export function DataAwsCloudformationType(props: Partial<InputProps>) {
       _type='aws_cloudformation_type'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsCloudformationTypeInputSchema}
+      _outputSchema={DataAwsCloudformationTypeOutputSchema}
       {...props as any}
     />
   )
@@ -69,7 +71,7 @@ export const useDataAwsCloudformationType = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsCloudformationTypeOutputProps>(
     DataAwsCloudformationType,
     idFilter,
     baseNode,
@@ -81,7 +83,7 @@ export const useDataAwsCloudformationTypes = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsCloudformationTypeOutputProps>(
     DataAwsCloudformationType,
     idFilter,
     baseNode,

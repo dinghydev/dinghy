@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsMskTopicInputSchema = TfMetaSchema.extend({
   cluster_arn: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   partition_count: resolvableValue(z.number()),
@@ -25,31 +25,31 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsMskTopicOutputSchema = z.object({
   arn: z.string().optional(),
   configs_actual: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsMskTopicImportSchema = z.object({
   cluster_arn: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsMskTopicInputProps =
+  & z.input<typeof AwsMskTopicInputSchema>
+  & z.input<typeof AwsMskTopicImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsMskTopicOutputProps =
+  & z.output<typeof AwsMskTopicOutputSchema>
+  & z.output<typeof AwsMskTopicInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/msk_topic
 
-export function AwsMskTopic(props: Partial<InputProps>) {
+export function AwsMskTopic(props: Partial<AwsMskTopicInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -59,9 +59,9 @@ export function AwsMskTopic(props: Partial<InputProps>) {
       _type='aws_msk_topic'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsMskTopicInputSchema}
+      _outputSchema={AwsMskTopicOutputSchema}
+      _importSchema={AwsMskTopicImportSchema}
       {...props}
     />
   )
@@ -71,10 +71,22 @@ export const useAwsMskTopic = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsMskTopic, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsMskTopicOutputProps>(
+    AwsMskTopic,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsMskTopics = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsMskTopic, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsMskTopicOutputProps>(
+    AwsMskTopic,
+    idFilter,
+    baseNode,
+    optional,
+  )

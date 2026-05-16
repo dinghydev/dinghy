@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSagemakerDeviceFleetInputSchema = TfMetaSchema.extend({
   device_fleet_name: resolvableValue(z.string()),
   output_config: resolvableValue(z.object({
     kms_key_id: z.string().optional(),
@@ -22,25 +22,27 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSagemakerDeviceFleetOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   iot_role_alias: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSagemakerDeviceFleetInputProps =
+  & z.input<typeof AwsSagemakerDeviceFleetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSagemakerDeviceFleetOutputProps =
+  & z.output<typeof AwsSagemakerDeviceFleetOutputSchema>
+  & z.output<typeof AwsSagemakerDeviceFleetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sagemaker_device_fleet
 
-export function AwsSagemakerDeviceFleet(props: Partial<InputProps>) {
+export function AwsSagemakerDeviceFleet(
+  props: Partial<AwsSagemakerDeviceFleetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -50,8 +52,8 @@ export function AwsSagemakerDeviceFleet(props: Partial<InputProps>) {
       _type='aws_sagemaker_device_fleet'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSagemakerDeviceFleetInputSchema}
+      _outputSchema={AwsSagemakerDeviceFleetOutputSchema}
       {...props}
     />
   )
@@ -62,7 +64,7 @@ export const useAwsSagemakerDeviceFleet = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSagemakerDeviceFleetOutputProps>(
     AwsSagemakerDeviceFleet,
     idFilter,
     baseNode,
@@ -74,7 +76,7 @@ export const useAwsSagemakerDeviceFleets = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSagemakerDeviceFleetOutputProps>(
     AwsSagemakerDeviceFleet,
     idFilter,
     baseNode,

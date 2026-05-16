@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsWorkmailOrganizationInputSchema = TfMetaSchema.extend({
   organization_alias: resolvableValue(z.string()),
   delete_directory: resolvableValue(z.boolean().optional()),
   delete_identity_center_application: resolvableValue(z.boolean().optional()),
@@ -26,7 +26,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsWorkmailOrganizationOutputSchema = z.object({
   arn: z.string().optional(),
   completed_date: z.string().optional(),
   default_mail_domain: z.string().optional(),
@@ -37,25 +37,27 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsWorkmailOrganizationImportSchema = z.object({
   organization_id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsWorkmailOrganizationInputProps =
+  & z.input<typeof AwsWorkmailOrganizationInputSchema>
+  & z.input<typeof AwsWorkmailOrganizationImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWorkmailOrganizationOutputProps =
+  & z.output<typeof AwsWorkmailOrganizationOutputSchema>
+  & z.output<typeof AwsWorkmailOrganizationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workmail_organization
 
-export function AwsWorkmailOrganization(props: Partial<InputProps>) {
+export function AwsWorkmailOrganization(
+  props: Partial<AwsWorkmailOrganizationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -65,9 +67,9 @@ export function AwsWorkmailOrganization(props: Partial<InputProps>) {
       _type='aws_workmail_organization'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsWorkmailOrganizationInputSchema}
+      _outputSchema={AwsWorkmailOrganizationOutputSchema}
+      _importSchema={AwsWorkmailOrganizationImportSchema}
       {...props}
     />
   )
@@ -78,7 +80,7 @@ export const useAwsWorkmailOrganization = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsWorkmailOrganizationOutputProps>(
     AwsWorkmailOrganization,
     idFilter,
     baseNode,
@@ -90,7 +92,7 @@ export const useAwsWorkmailOrganizations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsWorkmailOrganizationOutputProps>(
     AwsWorkmailOrganization,
     idFilter,
     baseNode,

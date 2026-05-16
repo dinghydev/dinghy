@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSagemakerDomainInputSchema = TfMetaSchema.extend({
   auth_mode: resolvableValue(z.string()),
   default_user_settings: resolvableValue(z.object({
     auto_mount_home_efs: z.string().optional(),
@@ -308,7 +308,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSagemakerDomainOutputSchema = z.object({
   arn: z.string().optional(),
   home_efs_file_system_id: z.string().optional(),
   id: z.string().optional(),
@@ -319,18 +319,20 @@ export const OutputSchema = z.object({
   url: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSagemakerDomainInputProps =
+  & z.input<typeof AwsSagemakerDomainInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSagemakerDomainOutputProps =
+  & z.output<typeof AwsSagemakerDomainOutputSchema>
+  & z.output<typeof AwsSagemakerDomainInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sagemaker_domain
 
-export function AwsSagemakerDomain(props: Partial<InputProps>) {
+export function AwsSagemakerDomain(
+  props: Partial<AwsSagemakerDomainInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -340,8 +342,8 @@ export function AwsSagemakerDomain(props: Partial<InputProps>) {
       _type='aws_sagemaker_domain'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSagemakerDomainInputSchema}
+      _outputSchema={AwsSagemakerDomainOutputSchema}
       {...props}
     />
   )
@@ -351,11 +353,22 @@ export const useAwsSagemakerDomain = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsSagemakerDomain, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsSagemakerDomainOutputProps>(
+    AwsSagemakerDomain,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSagemakerDomains = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSagemakerDomain, idFilter, baseNode, optional)
+  useTypedNodes<AwsSagemakerDomainOutputProps>(
+    AwsSagemakerDomain,
+    idFilter,
+    baseNode,
+    optional,
+  )

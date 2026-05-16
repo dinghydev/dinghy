@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsNetworkmonitorProbeInputSchema = TfMetaSchema.extend({
   destination: resolvableValue(z.string()),
   monitor_name: resolvableValue(z.string()),
   protocol: resolvableValue(z.string()),
@@ -20,7 +20,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsNetworkmonitorProbeOutputSchema = z.object({
   address_family: z.string().optional(),
   arn: z.string().optional(),
   id: z.string().optional(),
@@ -29,18 +29,20 @@ export const OutputSchema = z.object({
   vpc_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsNetworkmonitorProbeInputProps =
+  & z.input<typeof AwsNetworkmonitorProbeInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNetworkmonitorProbeOutputProps =
+  & z.output<typeof AwsNetworkmonitorProbeOutputSchema>
+  & z.output<typeof AwsNetworkmonitorProbeInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/networkmonitor_probe
 
-export function AwsNetworkmonitorProbe(props: Partial<InputProps>) {
+export function AwsNetworkmonitorProbe(
+  props: Partial<AwsNetworkmonitorProbeInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -50,8 +52,8 @@ export function AwsNetworkmonitorProbe(props: Partial<InputProps>) {
       _type='aws_networkmonitor_probe'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsNetworkmonitorProbeInputSchema}
+      _outputSchema={AwsNetworkmonitorProbeOutputSchema}
       {...props}
     />
   )
@@ -62,7 +64,7 @@ export const useAwsNetworkmonitorProbe = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsNetworkmonitorProbeOutputProps>(
     AwsNetworkmonitorProbe,
     idFilter,
     baseNode,
@@ -74,7 +76,7 @@ export const useAwsNetworkmonitorProbes = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsNetworkmonitorProbeOutputProps>(
     AwsNetworkmonitorProbe,
     idFilter,
     baseNode,

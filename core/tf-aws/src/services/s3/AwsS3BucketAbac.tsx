@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsS3BucketAbacInputSchema = TfMetaSchema.extend({
   bucket: resolvableValue(z.string()),
   abac_status: resolvableValue(
     z.object({
@@ -20,20 +20,20 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsS3BucketAbacOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsS3BucketAbacInputProps =
+  & z.input<typeof AwsS3BucketAbacInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3BucketAbacOutputProps =
+  & z.output<typeof AwsS3BucketAbacOutputSchema>
+  & z.output<typeof AwsS3BucketAbacInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3_bucket_abac
 
-export function AwsS3BucketAbac(props: Partial<InputProps>) {
+export function AwsS3BucketAbac(props: Partial<AwsS3BucketAbacInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +43,8 @@ export function AwsS3BucketAbac(props: Partial<InputProps>) {
       _type='aws_s3_bucket_abac'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsS3BucketAbacInputSchema}
+      _outputSchema={AwsS3BucketAbacOutputSchema}
       {...props}
     />
   )
@@ -54,10 +54,22 @@ export const useAwsS3BucketAbac = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsS3BucketAbac, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsS3BucketAbacOutputProps>(
+    AwsS3BucketAbac,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsS3BucketAbacs = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsS3BucketAbac, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsS3BucketAbacOutputProps>(
+    AwsS3BucketAbac,
+    idFilter,
+    baseNode,
+    optional,
+  )

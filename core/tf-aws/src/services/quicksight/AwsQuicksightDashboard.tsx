@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsQuicksightDashboardInputSchema = TfMetaSchema.extend({
   dashboard_id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   version_description: resolvableValue(z.string()),
@@ -29679,7 +29679,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsQuicksightDashboardOutputSchema = z.object({
   arn: z.string().optional(),
   created_time: z.string().optional(),
   id: z.string().optional(),
@@ -29691,18 +29691,20 @@ export const OutputSchema = z.object({
   version_number: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsQuicksightDashboardInputProps =
+  & z.input<typeof AwsQuicksightDashboardInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsQuicksightDashboardOutputProps =
+  & z.output<typeof AwsQuicksightDashboardOutputSchema>
+  & z.output<typeof AwsQuicksightDashboardInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/quicksight_dashboard
 
-export function AwsQuicksightDashboard(props: Partial<InputProps>) {
+export function AwsQuicksightDashboard(
+  props: Partial<AwsQuicksightDashboardInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -29712,8 +29714,8 @@ export function AwsQuicksightDashboard(props: Partial<InputProps>) {
       _type='aws_quicksight_dashboard'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsQuicksightDashboardInputSchema}
+      _outputSchema={AwsQuicksightDashboardOutputSchema}
       {...props}
     />
   )
@@ -29724,7 +29726,7 @@ export const useAwsQuicksightDashboard = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsQuicksightDashboardOutputProps>(
     AwsQuicksightDashboard,
     idFilter,
     baseNode,
@@ -29736,7 +29738,7 @@ export const useAwsQuicksightDashboards = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsQuicksightDashboardOutputProps>(
     AwsQuicksightDashboard,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSagemakerHubInputSchema = TfMetaSchema.extend({
   hub_description: resolvableValue(z.string()),
   hub_name: resolvableValue(z.string()),
   hub_display_name: resolvableValue(z.string().optional()),
@@ -23,24 +23,24 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSagemakerHubOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSagemakerHubInputProps =
+  & z.input<typeof AwsSagemakerHubInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSagemakerHubOutputProps =
+  & z.output<typeof AwsSagemakerHubOutputSchema>
+  & z.output<typeof AwsSagemakerHubInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sagemaker_hub
 
-export function AwsSagemakerHub(props: Partial<InputProps>) {
+export function AwsSagemakerHub(props: Partial<AwsSagemakerHubInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -50,8 +50,8 @@ export function AwsSagemakerHub(props: Partial<InputProps>) {
       _type='aws_sagemaker_hub'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSagemakerHubInputSchema}
+      _outputSchema={AwsSagemakerHubOutputSchema}
       {...props}
     />
   )
@@ -61,10 +61,22 @@ export const useAwsSagemakerHub = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsSagemakerHub, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsSagemakerHubOutputProps>(
+    AwsSagemakerHub,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSagemakerHubs = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsSagemakerHub, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsSagemakerHubOutputProps>(
+    AwsSagemakerHub,
+    idFilter,
+    baseNode,
+    optional,
+  )

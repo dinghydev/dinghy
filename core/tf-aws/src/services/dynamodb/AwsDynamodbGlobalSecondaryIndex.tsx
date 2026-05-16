@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDynamodbGlobalSecondaryIndexInputSchema = TfMetaSchema.extend({
   index_name: resolvableValue(z.string()),
   table_name: resolvableValue(z.string()),
   key_schema: resolvableValue(
@@ -53,30 +53,32 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDynamodbGlobalSecondaryIndexOutputSchema = z.object({
   arn: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsDynamodbGlobalSecondaryIndexImportSchema = z.object({
   index_name: resolvableValue(z.string()),
   table_name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsDynamodbGlobalSecondaryIndexInputProps =
+  & z.input<typeof AwsDynamodbGlobalSecondaryIndexInputSchema>
+  & z.input<typeof AwsDynamodbGlobalSecondaryIndexImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDynamodbGlobalSecondaryIndexOutputProps =
+  & z.output<typeof AwsDynamodbGlobalSecondaryIndexOutputSchema>
+  & z.output<typeof AwsDynamodbGlobalSecondaryIndexInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dynamodb_global_secondary_index
 
-export function AwsDynamodbGlobalSecondaryIndex(props: Partial<InputProps>) {
+export function AwsDynamodbGlobalSecondaryIndex(
+  props: Partial<AwsDynamodbGlobalSecondaryIndexInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -86,9 +88,9 @@ export function AwsDynamodbGlobalSecondaryIndex(props: Partial<InputProps>) {
       _type='aws_dynamodb_global_secondary_index'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsDynamodbGlobalSecondaryIndexInputSchema}
+      _outputSchema={AwsDynamodbGlobalSecondaryIndexOutputSchema}
+      _importSchema={AwsDynamodbGlobalSecondaryIndexImportSchema}
       {...props}
     />
   )
@@ -99,7 +101,7 @@ export const useAwsDynamodbGlobalSecondaryIndex = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDynamodbGlobalSecondaryIndexOutputProps>(
     AwsDynamodbGlobalSecondaryIndex,
     idFilter,
     baseNode,
@@ -111,7 +113,7 @@ export const useAwsDynamodbGlobalSecondaryIndexs = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDynamodbGlobalSecondaryIndexOutputProps>(
     AwsDynamodbGlobalSecondaryIndex,
     idFilter,
     baseNode,

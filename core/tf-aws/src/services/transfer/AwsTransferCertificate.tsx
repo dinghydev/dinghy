@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsTransferCertificateInputSchema = TfMetaSchema.extend({
   certificate: resolvableValue(z.string()),
   usage: resolvableValue(z.string()),
   certificate_chain: resolvableValue(z.string().optional()),
@@ -21,25 +21,27 @@ export const InputSchema = TfMetaSchema.extend({
   tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsTransferCertificateOutputSchema = z.object({
   active_date: z.string().optional(),
   arn: z.string().optional(),
   certificate_id: z.string().optional(),
   inactive_date: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsTransferCertificateInputProps =
+  & z.input<typeof AwsTransferCertificateInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsTransferCertificateOutputProps =
+  & z.output<typeof AwsTransferCertificateOutputSchema>
+  & z.output<typeof AwsTransferCertificateInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/transfer_certificate
 
-export function AwsTransferCertificate(props: Partial<InputProps>) {
+export function AwsTransferCertificate(
+  props: Partial<AwsTransferCertificateInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,8 +51,8 @@ export function AwsTransferCertificate(props: Partial<InputProps>) {
       _type='aws_transfer_certificate'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsTransferCertificateInputSchema}
+      _outputSchema={AwsTransferCertificateOutputSchema}
       {...props}
     />
   )
@@ -61,7 +63,7 @@ export const useAwsTransferCertificate = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsTransferCertificateOutputProps>(
     AwsTransferCertificate,
     idFilter,
     baseNode,
@@ -73,7 +75,7 @@ export const useAwsTransferCertificates = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsTransferCertificateOutputProps>(
     AwsTransferCertificate,
     idFilter,
     baseNode,

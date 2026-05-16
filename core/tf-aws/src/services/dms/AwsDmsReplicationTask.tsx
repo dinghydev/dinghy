@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDmsReplicationTaskInputSchema = TfMetaSchema.extend({
   migration_type: resolvableValue(z.string()),
   replication_instance_arn: resolvableValue(z.string()),
   replication_task_id: resolvableValue(z.string()),
@@ -26,24 +26,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDmsReplicationTaskOutputSchema = z.object({
   replication_task_arn: z.string().optional(),
   status: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDmsReplicationTaskInputProps =
+  & z.input<typeof AwsDmsReplicationTaskInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDmsReplicationTaskOutputProps =
+  & z.output<typeof AwsDmsReplicationTaskOutputSchema>
+  & z.output<typeof AwsDmsReplicationTaskInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dms_replication_task
 
-export function AwsDmsReplicationTask(props: Partial<InputProps>) {
+export function AwsDmsReplicationTask(
+  props: Partial<AwsDmsReplicationTaskInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,8 +55,8 @@ export function AwsDmsReplicationTask(props: Partial<InputProps>) {
       _type='aws_dms_replication_task'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDmsReplicationTaskInputSchema}
+      _outputSchema={AwsDmsReplicationTaskOutputSchema}
       {...props}
     />
   )
@@ -65,14 +67,19 @@ export const useAwsDmsReplicationTask = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsDmsReplicationTask, idFilter, baseNode, optional)
+  useTypedNode<AwsDmsReplicationTaskOutputProps>(
+    AwsDmsReplicationTask,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDmsReplicationTasks = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDmsReplicationTaskOutputProps>(
     AwsDmsReplicationTask,
     idFilter,
     baseNode,

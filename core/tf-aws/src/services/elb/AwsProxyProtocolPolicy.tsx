@@ -9,29 +9,31 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsProxyProtocolPolicyInputSchema = TfMetaSchema.extend({
   instance_ports: resolvableValue(z.string().array()),
   load_balancer: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsProxyProtocolPolicyOutputSchema = z.object({
   id: z.string().optional(),
   load_balancer: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsProxyProtocolPolicyInputProps =
+  & z.input<typeof AwsProxyProtocolPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsProxyProtocolPolicyOutputProps =
+  & z.output<typeof AwsProxyProtocolPolicyOutputSchema>
+  & z.output<typeof AwsProxyProtocolPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/proxy_protocol_policy
 
-export function AwsProxyProtocolPolicy(props: Partial<InputProps>) {
+export function AwsProxyProtocolPolicy(
+  props: Partial<AwsProxyProtocolPolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -41,8 +43,8 @@ export function AwsProxyProtocolPolicy(props: Partial<InputProps>) {
       _type='aws_proxy_protocol_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsProxyProtocolPolicyInputSchema}
+      _outputSchema={AwsProxyProtocolPolicyOutputSchema}
       {...props}
     />
   )
@@ -53,7 +55,7 @@ export const useAwsProxyProtocolPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsProxyProtocolPolicyOutputProps>(
     AwsProxyProtocolPolicy,
     idFilter,
     baseNode,
@@ -65,7 +67,7 @@ export const useAwsProxyProtocolPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsProxyProtocolPolicyOutputProps>(
     AwsProxyProtocolPolicy,
     idFilter,
     baseNode,

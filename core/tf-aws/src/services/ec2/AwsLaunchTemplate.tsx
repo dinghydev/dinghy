@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLaunchTemplateInputSchema = TfMetaSchema.extend({
   block_device_mappings: resolvableValue(
     z.object({
       device_name: z.string().optional(),
@@ -256,32 +256,32 @@ export const InputSchema = TfMetaSchema.extend({
   vpc_security_group_ids: resolvableValue(z.string().array().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsLaunchTemplateOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   latest_version: z.number().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsLaunchTemplateImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsLaunchTemplateInputProps =
+  & z.input<typeof AwsLaunchTemplateInputSchema>
+  & z.input<typeof AwsLaunchTemplateImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLaunchTemplateOutputProps =
+  & z.output<typeof AwsLaunchTemplateOutputSchema>
+  & z.output<typeof AwsLaunchTemplateInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/launch_template
 
-export function AwsLaunchTemplate(props: Partial<InputProps>) {
+export function AwsLaunchTemplate(props: Partial<AwsLaunchTemplateInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -291,9 +291,9 @@ export function AwsLaunchTemplate(props: Partial<InputProps>) {
       _type='aws_launch_template'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsLaunchTemplateInputSchema}
+      _outputSchema={AwsLaunchTemplateOutputSchema}
+      _importSchema={AwsLaunchTemplateImportSchema}
       {...props}
     />
   )
@@ -303,10 +303,22 @@ export const useAwsLaunchTemplate = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsLaunchTemplate, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsLaunchTemplateOutputProps>(
+    AwsLaunchTemplate,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLaunchTemplates = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsLaunchTemplate, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsLaunchTemplateOutputProps>(
+    AwsLaunchTemplate,
+    idFilter,
+    baseNode,
+    optional,
+  )

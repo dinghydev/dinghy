@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDynamodbContributorInsightsInputSchema = TfMetaSchema.extend({
   table_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   index_name: resolvableValue(z.string().optional()),
@@ -22,20 +22,22 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({})
+export const AwsDynamodbContributorInsightsOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDynamodbContributorInsightsInputProps =
+  & z.input<typeof AwsDynamodbContributorInsightsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDynamodbContributorInsightsOutputProps =
+  & z.output<typeof AwsDynamodbContributorInsightsOutputSchema>
+  & z.output<typeof AwsDynamodbContributorInsightsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dynamodb_contributor_insights
 
-export function AwsDynamodbContributorInsights(props: Partial<InputProps>) {
+export function AwsDynamodbContributorInsights(
+  props: Partial<AwsDynamodbContributorInsightsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,8 +47,8 @@ export function AwsDynamodbContributorInsights(props: Partial<InputProps>) {
       _type='aws_dynamodb_contributor_insights'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDynamodbContributorInsightsInputSchema}
+      _outputSchema={AwsDynamodbContributorInsightsOutputSchema}
       {...props}
     />
   )
@@ -57,7 +59,7 @@ export const useAwsDynamodbContributorInsightss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDynamodbContributorInsightsOutputProps>(
     AwsDynamodbContributorInsights,
     idFilter,
     baseNode,

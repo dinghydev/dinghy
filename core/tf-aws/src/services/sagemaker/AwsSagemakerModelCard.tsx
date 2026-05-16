@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSagemakerModelCardInputSchema = TfMetaSchema.extend({
   content: resolvableValue(z.string()),
   model_card_name: resolvableValue(z.string()),
   model_card_status: resolvableValue(z.string()),
@@ -27,23 +27,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsSagemakerModelCardOutputSchema = z.object({
   model_card_arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSagemakerModelCardInputProps =
+  & z.input<typeof AwsSagemakerModelCardInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSagemakerModelCardOutputProps =
+  & z.output<typeof AwsSagemakerModelCardOutputSchema>
+  & z.output<typeof AwsSagemakerModelCardInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sagemaker_model_card
 
-export function AwsSagemakerModelCard(props: Partial<InputProps>) {
+export function AwsSagemakerModelCard(
+  props: Partial<AwsSagemakerModelCardInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,8 +55,8 @@ export function AwsSagemakerModelCard(props: Partial<InputProps>) {
       _type='aws_sagemaker_model_card'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSagemakerModelCardInputSchema}
+      _outputSchema={AwsSagemakerModelCardOutputSchema}
       {...props}
     />
   )
@@ -65,14 +67,19 @@ export const useAwsSagemakerModelCard = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSagemakerModelCard, idFilter, baseNode, optional)
+  useTypedNode<AwsSagemakerModelCardOutputProps>(
+    AwsSagemakerModelCard,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSagemakerModelCards = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSagemakerModelCardOutputProps>(
     AwsSagemakerModelCard,
     idFilter,
     baseNode,

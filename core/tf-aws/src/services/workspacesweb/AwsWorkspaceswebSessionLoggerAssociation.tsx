@@ -9,27 +9,28 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  portal_arn: resolvableValue(z.string()),
-  session_logger_arn: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsWorkspaceswebSessionLoggerAssociationInputSchema = TfMetaSchema
+  .extend({
+    portal_arn: resolvableValue(z.string()),
+    session_logger_arn: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({})
+export const AwsWorkspaceswebSessionLoggerAssociationOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsWorkspaceswebSessionLoggerAssociationInputProps =
+  & z.input<typeof AwsWorkspaceswebSessionLoggerAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWorkspaceswebSessionLoggerAssociationOutputProps =
+  & z.output<typeof AwsWorkspaceswebSessionLoggerAssociationOutputSchema>
+  & z.output<typeof AwsWorkspaceswebSessionLoggerAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workspacesweb_session_logger_association
 
 export function AwsWorkspaceswebSessionLoggerAssociation(
-  props: Partial<InputProps>,
+  props: Partial<AwsWorkspaceswebSessionLoggerAssociationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -40,8 +41,8 @@ export function AwsWorkspaceswebSessionLoggerAssociation(
       _type='aws_workspacesweb_session_logger_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsWorkspaceswebSessionLoggerAssociationInputSchema}
+      _outputSchema={AwsWorkspaceswebSessionLoggerAssociationOutputSchema}
       {...props}
     />
   )
@@ -52,7 +53,7 @@ export const useAwsWorkspaceswebSessionLoggerAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsWorkspaceswebSessionLoggerAssociationOutputProps>(
     AwsWorkspaceswebSessionLoggerAssociation,
     idFilter,
     baseNode,
@@ -64,7 +65,7 @@ export const useAwsWorkspaceswebSessionLoggerAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsWorkspaceswebSessionLoggerAssociationOutputProps>(
     AwsWorkspaceswebSessionLoggerAssociation,
     idFilter,
     baseNode,

@@ -8,25 +8,27 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIamAccountAliasInputSchema = TfMetaSchema.extend({
   account_alias: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsIamAccountAliasOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsIamAccountAliasInputProps =
+  & z.input<typeof AwsIamAccountAliasInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIamAccountAliasOutputProps =
+  & z.output<typeof AwsIamAccountAliasOutputSchema>
+  & z.output<typeof AwsIamAccountAliasInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iam_account_alias
 
-export function AwsIamAccountAlias(props: Partial<InputProps>) {
+export function AwsIamAccountAlias(
+  props: Partial<AwsIamAccountAliasInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -36,8 +38,8 @@ export function AwsIamAccountAlias(props: Partial<InputProps>) {
       _type='aws_iam_account_alias'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsIamAccountAliasInputSchema}
+      _outputSchema={AwsIamAccountAliasOutputSchema}
       {...props}
     />
   )
@@ -48,4 +50,9 @@ export const useAwsIamAccountAliass = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsIamAccountAlias, idFilter, baseNode, optional)
+  useTypedNodes<AwsIamAccountAliasOutputProps>(
+    AwsIamAccountAlias,
+    idFilter,
+    baseNode,
+    optional,
+  )

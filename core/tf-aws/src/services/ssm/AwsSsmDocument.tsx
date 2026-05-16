@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSsmDocumentInputSchema = TfMetaSchema.extend({
   content: resolvableValue(z.string()),
   document_type: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -28,7 +28,7 @@ export const InputSchema = TfMetaSchema.extend({
   version_name: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSsmDocumentOutputSchema = z.object({
   arn: z.string().optional(),
   created_date: z.string().optional(),
   default_version: z.string().optional(),
@@ -51,25 +51,25 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSsmDocumentImportSchema = z.object({
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSsmDocumentInputProps =
+  & z.input<typeof AwsSsmDocumentInputSchema>
+  & z.input<typeof AwsSsmDocumentImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSsmDocumentOutputProps =
+  & z.output<typeof AwsSsmDocumentOutputSchema>
+  & z.output<typeof AwsSsmDocumentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssm_document
 
-export function AwsSsmDocument(props: Partial<InputProps>) {
+export function AwsSsmDocument(props: Partial<AwsSsmDocumentInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -79,9 +79,9 @@ export function AwsSsmDocument(props: Partial<InputProps>) {
       _type='aws_ssm_document'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSsmDocumentInputSchema}
+      _outputSchema={AwsSsmDocumentOutputSchema}
+      _importSchema={AwsSsmDocumentImportSchema}
       {...props}
     />
   )
@@ -91,10 +91,22 @@ export const useAwsSsmDocument = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsSsmDocument, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsSsmDocumentOutputProps>(
+    AwsSsmDocument,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSsmDocuments = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsSsmDocument, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsSsmDocumentOutputProps>(
+    AwsSsmDocument,
+    idFilter,
+    baseNode,
+    optional,
+  )

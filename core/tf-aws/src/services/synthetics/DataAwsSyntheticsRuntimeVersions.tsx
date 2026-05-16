@@ -8,11 +8,11 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsSyntheticsRuntimeVersionsInputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsSyntheticsRuntimeVersionsOutputSchema = z.object({
   id: z.string().optional(),
   runtime_versions: z.object({
     deprecation_date: z.string(),
@@ -22,18 +22,20 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsSyntheticsRuntimeVersionsInputProps =
+  & z.input<typeof DataAwsSyntheticsRuntimeVersionsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsSyntheticsRuntimeVersionsOutputProps =
+  & z.output<typeof DataAwsSyntheticsRuntimeVersionsOutputSchema>
+  & z.output<typeof DataAwsSyntheticsRuntimeVersionsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/synthetics_runtime_versions
 
-export function DataAwsSyntheticsRuntimeVersions(props: Partial<InputProps>) {
+export function DataAwsSyntheticsRuntimeVersions(
+  props: Partial<DataAwsSyntheticsRuntimeVersionsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function DataAwsSyntheticsRuntimeVersions(props: Partial<InputProps>) {
       _type='aws_synthetics_runtime_versions'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsSyntheticsRuntimeVersionsInputSchema}
+      _outputSchema={DataAwsSyntheticsRuntimeVersionsOutputSchema}
       {...props}
     />
   )
@@ -55,7 +57,7 @@ export const useDataAwsSyntheticsRuntimeVersionss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsSyntheticsRuntimeVersionsOutputProps>(
     DataAwsSyntheticsRuntimeVersions,
     idFilter,
     baseNode,

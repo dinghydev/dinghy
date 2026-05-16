@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSsoadminTrustedTokenIssuerInputSchema = TfMetaSchema.extend({
   instance_arn: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   trusted_token_issuer_type: resolvableValue(z.string()),
@@ -28,30 +28,32 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsSsoadminTrustedTokenIssuerOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSsoadminTrustedTokenIssuerImportSchema = z.object({
   arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSsoadminTrustedTokenIssuerInputProps =
+  & z.input<typeof AwsSsoadminTrustedTokenIssuerInputSchema>
+  & z.input<typeof AwsSsoadminTrustedTokenIssuerImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSsoadminTrustedTokenIssuerOutputProps =
+  & z.output<typeof AwsSsoadminTrustedTokenIssuerOutputSchema>
+  & z.output<typeof AwsSsoadminTrustedTokenIssuerInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssoadmin_trusted_token_issuer
 
-export function AwsSsoadminTrustedTokenIssuer(props: Partial<InputProps>) {
+export function AwsSsoadminTrustedTokenIssuer(
+  props: Partial<AwsSsoadminTrustedTokenIssuerInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -61,9 +63,9 @@ export function AwsSsoadminTrustedTokenIssuer(props: Partial<InputProps>) {
       _type='aws_ssoadmin_trusted_token_issuer'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSsoadminTrustedTokenIssuerInputSchema}
+      _outputSchema={AwsSsoadminTrustedTokenIssuerOutputSchema}
+      _importSchema={AwsSsoadminTrustedTokenIssuerImportSchema}
       {...props}
     />
   )
@@ -74,7 +76,7 @@ export const useAwsSsoadminTrustedTokenIssuer = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSsoadminTrustedTokenIssuerOutputProps>(
     AwsSsoadminTrustedTokenIssuer,
     idFilter,
     baseNode,
@@ -86,7 +88,7 @@ export const useAwsSsoadminTrustedTokenIssuers = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSsoadminTrustedTokenIssuerOutputProps>(
     AwsSsoadminTrustedTokenIssuer,
     idFilter,
     baseNode,

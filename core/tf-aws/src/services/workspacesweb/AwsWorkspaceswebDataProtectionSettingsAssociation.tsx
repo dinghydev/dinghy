@@ -9,27 +9,33 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  data_protection_settings_arn: resolvableValue(z.string()),
-  portal_arn: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsWorkspaceswebDataProtectionSettingsAssociationInputSchema =
+  TfMetaSchema.extend({
+    data_protection_settings_arn: resolvableValue(z.string()),
+    portal_arn: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({})
+export const AwsWorkspaceswebDataProtectionSettingsAssociationOutputSchema = z
+  .object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsWorkspaceswebDataProtectionSettingsAssociationInputProps =
+  & z.input<typeof AwsWorkspaceswebDataProtectionSettingsAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWorkspaceswebDataProtectionSettingsAssociationOutputProps =
+  & z.output<
+    typeof AwsWorkspaceswebDataProtectionSettingsAssociationOutputSchema
+  >
+  & z.output<
+    typeof AwsWorkspaceswebDataProtectionSettingsAssociationInputSchema
+  >
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workspacesweb_data_protection_settings_association
 
 export function AwsWorkspaceswebDataProtectionSettingsAssociation(
-  props: Partial<InputProps>,
+  props: Partial<AwsWorkspaceswebDataProtectionSettingsAssociationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -40,8 +46,8 @@ export function AwsWorkspaceswebDataProtectionSettingsAssociation(
       _type='aws_workspacesweb_data_protection_settings_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsWorkspaceswebDataProtectionSettingsAssociationInputSchema}
+      _outputSchema={AwsWorkspaceswebDataProtectionSettingsAssociationOutputSchema}
       {...props}
     />
   )
@@ -52,7 +58,7 @@ export const useAwsWorkspaceswebDataProtectionSettingsAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsWorkspaceswebDataProtectionSettingsAssociationOutputProps>(
     AwsWorkspaceswebDataProtectionSettingsAssociation,
     idFilter,
     baseNode,
@@ -64,7 +70,7 @@ export const useAwsWorkspaceswebDataProtectionSettingsAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsWorkspaceswebDataProtectionSettingsAssociationOutputProps>(
     AwsWorkspaceswebDataProtectionSettingsAssociation,
     idFilter,
     baseNode,

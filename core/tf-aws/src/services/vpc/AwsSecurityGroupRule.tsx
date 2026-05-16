@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSecurityGroupRuleInputSchema = TfMetaSchema.extend({
   from_port: resolvableValue(z.number()),
   protocol: resolvableValue(z.string()),
   security_group_id: resolvableValue(z.string()),
@@ -29,23 +29,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsSecurityGroupRuleOutputSchema = z.object({
   id: z.string().optional(),
   security_group_rule_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSecurityGroupRuleInputProps =
+  & z.input<typeof AwsSecurityGroupRuleInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSecurityGroupRuleOutputProps =
+  & z.output<typeof AwsSecurityGroupRuleOutputSchema>
+  & z.output<typeof AwsSecurityGroupRuleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/security_group_rule
 
-export function AwsSecurityGroupRule(props: Partial<InputProps>) {
+export function AwsSecurityGroupRule(
+  props: Partial<AwsSecurityGroupRuleInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,8 +57,8 @@ export function AwsSecurityGroupRule(props: Partial<InputProps>) {
       _type='aws_security_group_rule'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSecurityGroupRuleInputSchema}
+      _outputSchema={AwsSecurityGroupRuleOutputSchema}
       {...props}
     />
   )
@@ -67,11 +69,21 @@ export const useAwsSecurityGroupRule = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSecurityGroupRule, idFilter, baseNode, optional)
+  useTypedNode<AwsSecurityGroupRuleOutputProps>(
+    AwsSecurityGroupRule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSecurityGroupRules = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSecurityGroupRule, idFilter, baseNode, optional)
+  useTypedNodes<AwsSecurityGroupRuleOutputProps>(
+    AwsSecurityGroupRule,
+    idFilter,
+    baseNode,
+    optional,
+  )

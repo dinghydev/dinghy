@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsTransferServerInputSchema = TfMetaSchema.extend({
   certificate: resolvableValue(z.string().optional()),
   directory_id: resolvableValue(z.string().optional()),
   domain: resolvableValue(z.string().optional()),
@@ -65,7 +65,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsTransferServerOutputSchema = z.object({
   arn: z.string().optional(),
   endpoint: z.string().optional(),
   host_key_fingerprint: z.string().optional(),
@@ -73,18 +73,18 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsTransferServerInputProps =
+  & z.input<typeof AwsTransferServerInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsTransferServerOutputProps =
+  & z.output<typeof AwsTransferServerOutputSchema>
+  & z.output<typeof AwsTransferServerInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/transfer_server
 
-export function AwsTransferServer(props: Partial<InputProps>) {
+export function AwsTransferServer(props: Partial<AwsTransferServerInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -94,8 +94,8 @@ export function AwsTransferServer(props: Partial<InputProps>) {
       _type='aws_transfer_server'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsTransferServerInputSchema}
+      _outputSchema={AwsTransferServerOutputSchema}
       {...props}
     />
   )
@@ -105,10 +105,22 @@ export const useAwsTransferServer = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsTransferServer, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsTransferServerOutputProps>(
+    AwsTransferServer,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsTransferServers = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsTransferServer, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsTransferServerOutputProps>(
+    AwsTransferServer,
+    idFilter,
+    baseNode,
+    optional,
+  )

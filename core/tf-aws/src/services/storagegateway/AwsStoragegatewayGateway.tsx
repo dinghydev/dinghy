@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsStoragegatewayGatewayInputSchema = TfMetaSchema.extend({
   gateway_name: resolvableValue(z.string()),
   gateway_timezone: resolvableValue(z.string()),
   activation_key: resolvableValue(z.string().optional()),
@@ -56,7 +56,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsStoragegatewayGatewayOutputSchema = z.object({
   arn: z.string().optional(),
   ec2_instance_id: z.string().optional(),
   endpoint_type: z.string().optional(),
@@ -69,18 +69,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsStoragegatewayGatewayInputProps =
+  & z.input<typeof AwsStoragegatewayGatewayInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsStoragegatewayGatewayOutputProps =
+  & z.output<typeof AwsStoragegatewayGatewayOutputSchema>
+  & z.output<typeof AwsStoragegatewayGatewayInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/storagegateway_gateway
 
-export function AwsStoragegatewayGateway(props: Partial<InputProps>) {
+export function AwsStoragegatewayGateway(
+  props: Partial<AwsStoragegatewayGatewayInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -90,8 +92,8 @@ export function AwsStoragegatewayGateway(props: Partial<InputProps>) {
       _type='aws_storagegateway_gateway'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsStoragegatewayGatewayInputSchema}
+      _outputSchema={AwsStoragegatewayGatewayOutputSchema}
       {...props}
     />
   )
@@ -102,7 +104,7 @@ export const useAwsStoragegatewayGateway = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsStoragegatewayGatewayOutputProps>(
     AwsStoragegatewayGateway,
     idFilter,
     baseNode,
@@ -114,7 +116,7 @@ export const useAwsStoragegatewayGateways = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsStoragegatewayGatewayOutputProps>(
     AwsStoragegatewayGateway,
     idFilter,
     baseNode,

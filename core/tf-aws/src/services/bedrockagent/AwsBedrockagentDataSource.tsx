@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsBedrockagentDataSourceInputSchema = TfMetaSchema.extend({
   knowledge_base_id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   data_deletion_policy: resolvableValue(z.string().optional()),
@@ -168,23 +168,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsBedrockagentDataSourceOutputSchema = z.object({
   data_source_id: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsBedrockagentDataSourceInputProps =
+  & z.input<typeof AwsBedrockagentDataSourceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBedrockagentDataSourceOutputProps =
+  & z.output<typeof AwsBedrockagentDataSourceOutputSchema>
+  & z.output<typeof AwsBedrockagentDataSourceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/bedrockagent_data_source
 
-export function AwsBedrockagentDataSource(props: Partial<InputProps>) {
+export function AwsBedrockagentDataSource(
+  props: Partial<AwsBedrockagentDataSourceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -194,8 +196,8 @@ export function AwsBedrockagentDataSource(props: Partial<InputProps>) {
       _type='aws_bedrockagent_data_source'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsBedrockagentDataSourceInputSchema}
+      _outputSchema={AwsBedrockagentDataSourceOutputSchema}
       {...props}
     />
   )
@@ -206,7 +208,7 @@ export const useAwsBedrockagentDataSource = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsBedrockagentDataSourceOutputProps>(
     AwsBedrockagentDataSource,
     idFilter,
     baseNode,
@@ -218,7 +220,7 @@ export const useAwsBedrockagentDataSources = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsBedrockagentDataSourceOutputProps>(
     AwsBedrockagentDataSource,
     idFilter,
     baseNode,

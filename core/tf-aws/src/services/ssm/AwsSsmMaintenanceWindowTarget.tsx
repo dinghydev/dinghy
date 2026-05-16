@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSsmMaintenanceWindowTargetInputSchema = TfMetaSchema.extend({
   resource_type: resolvableValue(z.string()),
   targets: resolvableValue(
     z.object({
@@ -24,30 +24,32 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSsmMaintenanceWindowTargetOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSsmMaintenanceWindowTargetImportSchema = z.object({
   id: resolvableValue(z.string()),
   window_id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSsmMaintenanceWindowTargetInputProps =
+  & z.input<typeof AwsSsmMaintenanceWindowTargetInputSchema>
+  & z.input<typeof AwsSsmMaintenanceWindowTargetImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSsmMaintenanceWindowTargetOutputProps =
+  & z.output<typeof AwsSsmMaintenanceWindowTargetOutputSchema>
+  & z.output<typeof AwsSsmMaintenanceWindowTargetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssm_maintenance_window_target
 
-export function AwsSsmMaintenanceWindowTarget(props: Partial<InputProps>) {
+export function AwsSsmMaintenanceWindowTarget(
+  props: Partial<AwsSsmMaintenanceWindowTargetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -57,9 +59,9 @@ export function AwsSsmMaintenanceWindowTarget(props: Partial<InputProps>) {
       _type='aws_ssm_maintenance_window_target'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSsmMaintenanceWindowTargetInputSchema}
+      _outputSchema={AwsSsmMaintenanceWindowTargetOutputSchema}
+      _importSchema={AwsSsmMaintenanceWindowTargetImportSchema}
       {...props}
     />
   )
@@ -70,7 +72,7 @@ export const useAwsSsmMaintenanceWindowTarget = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSsmMaintenanceWindowTargetOutputProps>(
     AwsSsmMaintenanceWindowTarget,
     idFilter,
     baseNode,
@@ -82,7 +84,7 @@ export const useAwsSsmMaintenanceWindowTargets = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSsmMaintenanceWindowTargetOutputProps>(
     AwsSsmMaintenanceWindowTarget,
     idFilter,
     baseNode,

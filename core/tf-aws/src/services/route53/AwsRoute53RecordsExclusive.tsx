@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRoute53RecordsExclusiveInputSchema = TfMetaSchema.extend({
   zone_id: resolvableValue(z.string()),
   resource_record_set: resolvableValue(
     z.object({
@@ -59,20 +59,22 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({})
+export const AwsRoute53RecordsExclusiveOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRoute53RecordsExclusiveInputProps =
+  & z.input<typeof AwsRoute53RecordsExclusiveInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRoute53RecordsExclusiveOutputProps =
+  & z.output<typeof AwsRoute53RecordsExclusiveOutputSchema>
+  & z.output<typeof AwsRoute53RecordsExclusiveInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/route53_records_exclusive
 
-export function AwsRoute53RecordsExclusive(props: Partial<InputProps>) {
+export function AwsRoute53RecordsExclusive(
+  props: Partial<AwsRoute53RecordsExclusiveInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -82,8 +84,8 @@ export function AwsRoute53RecordsExclusive(props: Partial<InputProps>) {
       _type='aws_route53_records_exclusive'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRoute53RecordsExclusiveInputSchema}
+      _outputSchema={AwsRoute53RecordsExclusiveOutputSchema}
       {...props}
     />
   )
@@ -94,7 +96,7 @@ export const useAwsRoute53RecordsExclusive = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRoute53RecordsExclusiveOutputProps>(
     AwsRoute53RecordsExclusive,
     idFilter,
     baseNode,
@@ -106,7 +108,7 @@ export const useAwsRoute53RecordsExclusives = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRoute53RecordsExclusiveOutputProps>(
     AwsRoute53RecordsExclusive,
     idFilter,
     baseNode,

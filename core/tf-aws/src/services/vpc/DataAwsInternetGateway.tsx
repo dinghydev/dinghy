@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsInternetGateway } from './AwsInternetGateway.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsInternetGatewayInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -27,7 +27,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsInternetGatewayOutputSchema = z.object({
   arn: z.string().optional(),
   attachments: z.object({
     state: z.string(),
@@ -36,18 +36,20 @@ export const OutputSchema = z.object({
   owner_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsInternetGatewayInputProps =
+  & z.input<typeof DataAwsInternetGatewayInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsInternetGatewayOutputProps =
+  & z.output<typeof DataAwsInternetGatewayOutputSchema>
+  & z.output<typeof DataAwsInternetGatewayInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/internet_gateway
 
-export function DataAwsInternetGateway(props: Partial<InputProps>) {
+export function DataAwsInternetGateway(
+  props: Partial<DataAwsInternetGatewayInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -57,8 +59,8 @@ export function DataAwsInternetGateway(props: Partial<InputProps>) {
       _type='aws_internet_gateway'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsInternetGatewayInputSchema}
+      _outputSchema={DataAwsInternetGatewayOutputSchema}
       {...props as any}
     />
   )
@@ -69,7 +71,7 @@ export const useDataAwsInternetGateway = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsInternetGatewayOutputProps>(
     DataAwsInternetGateway,
     idFilter,
     baseNode,
@@ -81,7 +83,7 @@ export const useDataAwsInternetGateways = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsInternetGatewayOutputProps>(
     DataAwsInternetGateway,
     idFilter,
     baseNode,

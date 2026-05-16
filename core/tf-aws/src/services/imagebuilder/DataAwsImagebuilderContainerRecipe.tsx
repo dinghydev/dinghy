@@ -9,13 +9,14 @@ import {
 import z from 'zod'
 import { AwsImagebuilderContainerRecipe } from './AwsImagebuilderContainerRecipe.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsImagebuilderContainerRecipeInputSchema = TfMetaSchema
+  .extend({
+    arn: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsImagebuilderContainerRecipeOutputSchema = z.object({
   component: z.object({
     component_arn: z.string(),
     parameter: z.set(z.object({
@@ -60,18 +61,20 @@ export const OutputSchema = z.object({
   working_directory: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsImagebuilderContainerRecipeInputProps =
+  & z.input<typeof DataAwsImagebuilderContainerRecipeInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsImagebuilderContainerRecipeOutputProps =
+  & z.output<typeof DataAwsImagebuilderContainerRecipeOutputSchema>
+  & z.output<typeof DataAwsImagebuilderContainerRecipeInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/imagebuilder_container_recipe
 
-export function DataAwsImagebuilderContainerRecipe(props: Partial<InputProps>) {
+export function DataAwsImagebuilderContainerRecipe(
+  props: Partial<DataAwsImagebuilderContainerRecipeInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -81,8 +84,8 @@ export function DataAwsImagebuilderContainerRecipe(props: Partial<InputProps>) {
       _type='aws_imagebuilder_container_recipe'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsImagebuilderContainerRecipeInputSchema}
+      _outputSchema={DataAwsImagebuilderContainerRecipeOutputSchema}
       {...props as any}
     />
   )
@@ -93,7 +96,7 @@ export const useDataAwsImagebuilderContainerRecipe = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsImagebuilderContainerRecipeOutputProps>(
     DataAwsImagebuilderContainerRecipe,
     idFilter,
     baseNode,
@@ -105,7 +108,7 @@ export const useDataAwsImagebuilderContainerRecipes = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsImagebuilderContainerRecipeOutputProps>(
     DataAwsImagebuilderContainerRecipe,
     idFilter,
     baseNode,

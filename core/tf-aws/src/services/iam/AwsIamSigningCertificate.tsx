@@ -9,29 +9,31 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIamSigningCertificateInputSchema = TfMetaSchema.extend({
   certificate_body: resolvableValue(z.string()),
   user_name: resolvableValue(z.string()),
   status: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsIamSigningCertificateOutputSchema = z.object({
   certificate_id: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsIamSigningCertificateInputProps =
+  & z.input<typeof AwsIamSigningCertificateInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIamSigningCertificateOutputProps =
+  & z.output<typeof AwsIamSigningCertificateOutputSchema>
+  & z.output<typeof AwsIamSigningCertificateInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iam_signing_certificate
 
-export function AwsIamSigningCertificate(props: Partial<InputProps>) {
+export function AwsIamSigningCertificate(
+  props: Partial<AwsIamSigningCertificateInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -41,8 +43,8 @@ export function AwsIamSigningCertificate(props: Partial<InputProps>) {
       _type='aws_iam_signing_certificate'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsIamSigningCertificateInputSchema}
+      _outputSchema={AwsIamSigningCertificateOutputSchema}
       {...props}
     />
   )
@@ -53,7 +55,7 @@ export const useAwsIamSigningCertificate = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsIamSigningCertificateOutputProps>(
     AwsIamSigningCertificate,
     idFilter,
     baseNode,
@@ -65,7 +67,7 @@ export const useAwsIamSigningCertificates = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsIamSigningCertificateOutputProps>(
     AwsIamSigningCertificate,
     idFilter,
     baseNode,

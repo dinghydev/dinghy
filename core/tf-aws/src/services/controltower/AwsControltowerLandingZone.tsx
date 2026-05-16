@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsControltowerLandingZoneInputSchema = TfMetaSchema.extend({
   manifest_json: resolvableValue(z.string()),
   version: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
@@ -24,7 +24,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsControltowerLandingZoneOutputSchema = z.object({
   arn: z.string().optional(),
   drift_status: z.object({
     status: z.string(),
@@ -34,18 +34,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsControltowerLandingZoneInputProps =
+  & z.input<typeof AwsControltowerLandingZoneInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsControltowerLandingZoneOutputProps =
+  & z.output<typeof AwsControltowerLandingZoneOutputSchema>
+  & z.output<typeof AwsControltowerLandingZoneInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/controltower_landing_zone
 
-export function AwsControltowerLandingZone(props: Partial<InputProps>) {
+export function AwsControltowerLandingZone(
+  props: Partial<AwsControltowerLandingZoneInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,8 +57,8 @@ export function AwsControltowerLandingZone(props: Partial<InputProps>) {
       _type='aws_controltower_landing_zone'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsControltowerLandingZoneInputSchema}
+      _outputSchema={AwsControltowerLandingZoneOutputSchema}
       {...props}
     />
   )
@@ -67,7 +69,7 @@ export const useAwsControltowerLandingZone = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsControltowerLandingZoneOutputProps>(
     AwsControltowerLandingZone,
     idFilter,
     baseNode,
@@ -79,7 +81,7 @@ export const useAwsControltowerLandingZones = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsControltowerLandingZoneOutputProps>(
     AwsControltowerLandingZone,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsQuicksightNamespaceInputSchema = TfMetaSchema.extend({
   namespace: resolvableValue(z.string()),
   aws_account_id: resolvableValue(z.string().optional()),
   identity_store: resolvableValue(z.string().optional()),
@@ -23,7 +23,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsQuicksightNamespaceOutputSchema = z.object({
   arn: z.string().optional(),
   capacity_region: z.string().optional(),
   creation_status: z.string().optional(),
@@ -31,18 +31,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsQuicksightNamespaceInputProps =
+  & z.input<typeof AwsQuicksightNamespaceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsQuicksightNamespaceOutputProps =
+  & z.output<typeof AwsQuicksightNamespaceOutputSchema>
+  & z.output<typeof AwsQuicksightNamespaceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/quicksight_namespace
 
-export function AwsQuicksightNamespace(props: Partial<InputProps>) {
+export function AwsQuicksightNamespace(
+  props: Partial<AwsQuicksightNamespaceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,8 +54,8 @@ export function AwsQuicksightNamespace(props: Partial<InputProps>) {
       _type='aws_quicksight_namespace'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsQuicksightNamespaceInputSchema}
+      _outputSchema={AwsQuicksightNamespaceOutputSchema}
       {...props}
     />
   )
@@ -64,7 +66,7 @@ export const useAwsQuicksightNamespace = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsQuicksightNamespaceOutputProps>(
     AwsQuicksightNamespace,
     idFilter,
     baseNode,
@@ -76,7 +78,7 @@ export const useAwsQuicksightNamespaces = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsQuicksightNamespaceOutputProps>(
     AwsQuicksightNamespace,
     idFilter,
     baseNode,

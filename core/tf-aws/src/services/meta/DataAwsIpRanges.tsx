@@ -8,32 +8,32 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsIpRangesInputSchema = TfMetaSchema.extend({
   services: resolvableValue(z.string().array()),
   id: resolvableValue(z.string().optional()),
   regions: resolvableValue(z.string().array().optional()),
   url: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsIpRangesOutputSchema = z.object({
   cidr_blocks: z.string().array().optional(),
   create_date: z.string().optional(),
   ipv6_cidr_blocks: z.string().array().optional(),
   sync_token: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsIpRangesInputProps =
+  & z.input<typeof DataAwsIpRangesInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsIpRangesOutputProps =
+  & z.output<typeof DataAwsIpRangesOutputSchema>
+  & z.output<typeof DataAwsIpRangesInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ip_ranges
 
-export function DataAwsIpRanges(props: Partial<InputProps>) {
+export function DataAwsIpRanges(props: Partial<DataAwsIpRangesInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +43,8 @@ export function DataAwsIpRanges(props: Partial<InputProps>) {
       _type='aws_ip_ranges'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsIpRangesInputSchema}
+      _outputSchema={DataAwsIpRangesOutputSchema}
       {...props}
     />
   )
@@ -54,4 +54,10 @@ export const useDataAwsIpRangess = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsIpRanges, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsIpRangesOutputProps>(
+    DataAwsIpRanges,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -8,28 +8,28 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsLbsInputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsLbsOutputSchema = z.object({
   arns: z.set(z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsLbsInputProps =
+  & z.input<typeof DataAwsLbsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsLbsOutputProps =
+  & z.output<typeof DataAwsLbsOutputSchema>
+  & z.output<typeof DataAwsLbsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/lbs
 
-export function DataAwsLbs(props: Partial<InputProps>) {
+export function DataAwsLbs(props: Partial<DataAwsLbsInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -39,8 +39,8 @@ export function DataAwsLbs(props: Partial<InputProps>) {
       _type='aws_lbs'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsLbsInputSchema}
+      _outputSchema={DataAwsLbsOutputSchema}
       {...props}
     />
   )
@@ -50,4 +50,5 @@ export const useDataAwsLbss = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsLbs, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsLbsOutputProps>(DataAwsLbs, idFilter, baseNode, optional)

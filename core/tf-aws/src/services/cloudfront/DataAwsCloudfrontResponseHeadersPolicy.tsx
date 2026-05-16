@@ -9,12 +9,13 @@ import {
 import z from 'zod'
 import { AwsCloudfrontResponseHeadersPolicy } from './AwsCloudfrontResponseHeadersPolicy.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  id: resolvableValue(z.string().optional()),
-  name: resolvableValue(z.string().optional()),
-})
+export const DataAwsCloudfrontResponseHeadersPolicyInputSchema = TfMetaSchema
+  .extend({
+    id: resolvableValue(z.string().optional()),
+    name: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsCloudfrontResponseHeadersPolicyOutputSchema = z.object({
   arn: z.string().optional(),
   comment: z.string().optional(),
   cors_config: z.object({
@@ -82,19 +83,19 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsCloudfrontResponseHeadersPolicyInputProps =
+  & z.input<typeof DataAwsCloudfrontResponseHeadersPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsCloudfrontResponseHeadersPolicyOutputProps =
+  & z.output<typeof DataAwsCloudfrontResponseHeadersPolicyOutputSchema>
+  & z.output<typeof DataAwsCloudfrontResponseHeadersPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/cloudfront_response_headers_policy
 
 export function DataAwsCloudfrontResponseHeadersPolicy(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsCloudfrontResponseHeadersPolicyInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -105,8 +106,8 @@ export function DataAwsCloudfrontResponseHeadersPolicy(
       _type='aws_cloudfront_response_headers_policy'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsCloudfrontResponseHeadersPolicyInputSchema}
+      _outputSchema={DataAwsCloudfrontResponseHeadersPolicyOutputSchema}
       {...props as any}
     />
   )
@@ -117,7 +118,7 @@ export const useDataAwsCloudfrontResponseHeadersPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsCloudfrontResponseHeadersPolicyOutputProps>(
     DataAwsCloudfrontResponseHeadersPolicy,
     idFilter,
     baseNode,
@@ -129,7 +130,7 @@ export const useDataAwsCloudfrontResponseHeadersPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsCloudfrontResponseHeadersPolicyOutputProps>(
     DataAwsCloudfrontResponseHeadersPolicy,
     idFilter,
     baseNode,

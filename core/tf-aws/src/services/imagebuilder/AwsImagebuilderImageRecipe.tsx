@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsImagebuilderImageRecipeInputSchema = TfMetaSchema.extend({
   component: resolvableValue(
     z.object({
       component_arn: z.string(),
@@ -52,7 +52,7 @@ export const InputSchema = TfMetaSchema.extend({
   working_directory: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsImagebuilderImageRecipeOutputSchema = z.object({
   arn: z.string().optional(),
   date_created: z.string().optional(),
   id: z.string().optional(),
@@ -61,23 +61,25 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsImagebuilderImageRecipeImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsImagebuilderImageRecipeInputProps =
+  & z.input<typeof AwsImagebuilderImageRecipeInputSchema>
+  & z.input<typeof AwsImagebuilderImageRecipeImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsImagebuilderImageRecipeOutputProps =
+  & z.output<typeof AwsImagebuilderImageRecipeOutputSchema>
+  & z.output<typeof AwsImagebuilderImageRecipeInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/imagebuilder_image_recipe
 
-export function AwsImagebuilderImageRecipe(props: Partial<InputProps>) {
+export function AwsImagebuilderImageRecipe(
+  props: Partial<AwsImagebuilderImageRecipeInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -87,9 +89,9 @@ export function AwsImagebuilderImageRecipe(props: Partial<InputProps>) {
       _type='aws_imagebuilder_image_recipe'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsImagebuilderImageRecipeInputSchema}
+      _outputSchema={AwsImagebuilderImageRecipeOutputSchema}
+      _importSchema={AwsImagebuilderImageRecipeImportSchema}
       {...props}
     />
   )
@@ -100,7 +102,7 @@ export const useAwsImagebuilderImageRecipe = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsImagebuilderImageRecipeOutputProps>(
     AwsImagebuilderImageRecipe,
     idFilter,
     baseNode,
@@ -112,7 +114,7 @@ export const useAwsImagebuilderImageRecipes = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsImagebuilderImageRecipeOutputProps>(
     AwsImagebuilderImageRecipe,
     idFilter,
     baseNode,

@@ -9,14 +9,14 @@ import {
 import z from 'zod'
 import { AwsLexIntent } from './AwsLexIntent.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsLexIntentInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   version: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsLexIntentOutputSchema = z.object({
   arn: z.string().optional(),
   checksum: z.string().optional(),
   created_date: z.string().optional(),
@@ -27,18 +27,18 @@ export const OutputSchema = z.object({
   version: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsLexIntentInputProps =
+  & z.input<typeof DataAwsLexIntentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsLexIntentOutputProps =
+  & z.output<typeof DataAwsLexIntentOutputSchema>
+  & z.output<typeof DataAwsLexIntentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/lex_intent
 
-export function DataAwsLexIntent(props: Partial<InputProps>) {
+export function DataAwsLexIntent(props: Partial<DataAwsLexIntentInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +48,8 @@ export function DataAwsLexIntent(props: Partial<InputProps>) {
       _type='aws_lex_intent'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsLexIntentInputSchema}
+      _outputSchema={DataAwsLexIntentOutputSchema}
       {...props as any}
     />
   )
@@ -59,10 +59,22 @@ export const useDataAwsLexIntent = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsLexIntent, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsLexIntentOutputProps>(
+    DataAwsLexIntent,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsLexIntents = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsLexIntent, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsLexIntentOutputProps>(
+    DataAwsLexIntent,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsBedrockFoundationModelsInputSchema = TfMetaSchema.extend({
   by_customization_type: resolvableValue(z.string().optional()),
   by_inference_type: resolvableValue(z.string().optional()),
   by_output_modality: resolvableValue(z.string().optional()),
@@ -16,7 +16,7 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsBedrockFoundationModelsOutputSchema = z.object({
   id: z.string().optional(),
   model_summaries: z.object({
     customizations_supported: z.set(z.string()),
@@ -31,18 +31,20 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsBedrockFoundationModelsInputProps =
+  & z.input<typeof DataAwsBedrockFoundationModelsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsBedrockFoundationModelsOutputProps =
+  & z.output<typeof DataAwsBedrockFoundationModelsOutputSchema>
+  & z.output<typeof DataAwsBedrockFoundationModelsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/bedrock_foundation_models
 
-export function DataAwsBedrockFoundationModels(props: Partial<InputProps>) {
+export function DataAwsBedrockFoundationModels(
+  props: Partial<DataAwsBedrockFoundationModelsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,8 +54,8 @@ export function DataAwsBedrockFoundationModels(props: Partial<InputProps>) {
       _type='aws_bedrock_foundation_models'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsBedrockFoundationModelsInputSchema}
+      _outputSchema={DataAwsBedrockFoundationModelsOutputSchema}
       {...props}
     />
   )
@@ -64,7 +66,7 @@ export const useDataAwsBedrockFoundationModelss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsBedrockFoundationModelsOutputProps>(
     DataAwsBedrockFoundationModels,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCodecatalystSourceRepositoryInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   project_name: resolvableValue(z.string()),
   space_name: resolvableValue(z.string()),
@@ -24,22 +24,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsCodecatalystSourceRepositoryOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCodecatalystSourceRepositoryInputProps =
+  & z.input<typeof AwsCodecatalystSourceRepositoryInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCodecatalystSourceRepositoryOutputProps =
+  & z.output<typeof AwsCodecatalystSourceRepositoryOutputSchema>
+  & z.output<typeof AwsCodecatalystSourceRepositoryInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/codecatalyst_source_repository
 
-export function AwsCodecatalystSourceRepository(props: Partial<InputProps>) {
+export function AwsCodecatalystSourceRepository(
+  props: Partial<AwsCodecatalystSourceRepositoryInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,8 +51,8 @@ export function AwsCodecatalystSourceRepository(props: Partial<InputProps>) {
       _type='aws_codecatalyst_source_repository'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCodecatalystSourceRepositoryInputSchema}
+      _outputSchema={AwsCodecatalystSourceRepositoryOutputSchema}
       {...props}
     />
   )
@@ -61,7 +63,7 @@ export const useAwsCodecatalystSourceRepository = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCodecatalystSourceRepositoryOutputProps>(
     AwsCodecatalystSourceRepository,
     idFilter,
     baseNode,
@@ -73,7 +75,7 @@ export const useAwsCodecatalystSourceRepositorys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCodecatalystSourceRepositoryOutputProps>(
     AwsCodecatalystSourceRepository,
     idFilter,
     baseNode,

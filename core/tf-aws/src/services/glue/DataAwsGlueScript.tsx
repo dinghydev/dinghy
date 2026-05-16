@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsGlueScriptInputSchema = TfMetaSchema.extend({
   dag_edge: resolvableValue(
     z.object({
       source: z.string(),
@@ -33,24 +33,24 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsGlueScriptOutputSchema = z.object({
   id: z.string().optional(),
   python_script: z.string().optional(),
   scala_code: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsGlueScriptInputProps =
+  & z.input<typeof DataAwsGlueScriptInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsGlueScriptOutputProps =
+  & z.output<typeof DataAwsGlueScriptOutputSchema>
+  & z.output<typeof DataAwsGlueScriptInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/glue_script
 
-export function DataAwsGlueScript(props: Partial<InputProps>) {
+export function DataAwsGlueScript(props: Partial<DataAwsGlueScriptInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -60,8 +60,8 @@ export function DataAwsGlueScript(props: Partial<InputProps>) {
       _type='aws_glue_script'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsGlueScriptInputSchema}
+      _outputSchema={DataAwsGlueScriptOutputSchema}
       {...props}
     />
   )
@@ -71,10 +71,22 @@ export const useDataAwsGlueScript = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsGlueScript, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsGlueScriptOutputProps>(
+    DataAwsGlueScript,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsGlueScripts = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsGlueScript, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsGlueScriptOutputProps>(
+    DataAwsGlueScript,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsArcregionswitchPlan } from './AwsArcregionswitchPlan.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsArcregionswitchPlanInputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsArcregionswitchPlanOutputSchema = z.object({
   description: z.string().optional(),
   execution_role: z.string().optional(),
   name: z.string().optional(),
@@ -28,18 +28,20 @@ export const OutputSchema = z.object({
   version: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsArcregionswitchPlanInputProps =
+  & z.input<typeof DataAwsArcregionswitchPlanInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsArcregionswitchPlanOutputProps =
+  & z.output<typeof DataAwsArcregionswitchPlanOutputSchema>
+  & z.output<typeof DataAwsArcregionswitchPlanInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/arcregionswitch_plan
 
-export function DataAwsArcregionswitchPlan(props: Partial<InputProps>) {
+export function DataAwsArcregionswitchPlan(
+  props: Partial<DataAwsArcregionswitchPlanInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,8 +51,8 @@ export function DataAwsArcregionswitchPlan(props: Partial<InputProps>) {
       _type='aws_arcregionswitch_plan'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsArcregionswitchPlanInputSchema}
+      _outputSchema={DataAwsArcregionswitchPlanOutputSchema}
       {...props as any}
     />
   )
@@ -61,7 +63,7 @@ export const useDataAwsArcregionswitchPlan = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsArcregionswitchPlanOutputProps>(
     DataAwsArcregionswitchPlan,
     idFilter,
     baseNode,
@@ -73,7 +75,7 @@ export const useDataAwsArcregionswitchPlans = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsArcregionswitchPlanOutputProps>(
     DataAwsArcregionswitchPlan,
     idFilter,
     baseNode,

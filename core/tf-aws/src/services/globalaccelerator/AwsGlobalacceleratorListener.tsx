@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsGlobalacceleratorListenerInputSchema = TfMetaSchema.extend({
   accelerator_arn: resolvableValue(z.string()),
   port_range: resolvableValue(
     z.object({
@@ -28,28 +28,30 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsGlobalacceleratorListenerOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsGlobalacceleratorListenerImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsGlobalacceleratorListenerInputProps =
+  & z.input<typeof AwsGlobalacceleratorListenerInputSchema>
+  & z.input<typeof AwsGlobalacceleratorListenerImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsGlobalacceleratorListenerOutputProps =
+  & z.output<typeof AwsGlobalacceleratorListenerOutputSchema>
+  & z.output<typeof AwsGlobalacceleratorListenerInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/globalaccelerator_listener
 
-export function AwsGlobalacceleratorListener(props: Partial<InputProps>) {
+export function AwsGlobalacceleratorListener(
+  props: Partial<AwsGlobalacceleratorListenerInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -59,9 +61,9 @@ export function AwsGlobalacceleratorListener(props: Partial<InputProps>) {
       _type='aws_globalaccelerator_listener'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsGlobalacceleratorListenerInputSchema}
+      _outputSchema={AwsGlobalacceleratorListenerOutputSchema}
+      _importSchema={AwsGlobalacceleratorListenerImportSchema}
       {...props}
     />
   )
@@ -72,7 +74,7 @@ export const useAwsGlobalacceleratorListener = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsGlobalacceleratorListenerOutputProps>(
     AwsGlobalacceleratorListener,
     idFilter,
     baseNode,
@@ -84,7 +86,7 @@ export const useAwsGlobalacceleratorListeners = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsGlobalacceleratorListenerOutputProps>(
     AwsGlobalacceleratorListener,
     idFilter,
     baseNode,

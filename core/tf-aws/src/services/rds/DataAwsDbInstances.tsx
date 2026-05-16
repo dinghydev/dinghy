@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsDbInstancesInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -20,23 +20,25 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsDbInstancesOutputSchema = z.object({
   instance_arns: z.string().array().optional(),
   instance_identifiers: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsDbInstancesInputProps =
+  & z.input<typeof DataAwsDbInstancesInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsDbInstancesOutputProps =
+  & z.output<typeof DataAwsDbInstancesOutputSchema>
+  & z.output<typeof DataAwsDbInstancesInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/db_instances
 
-export function DataAwsDbInstances(props: Partial<InputProps>) {
+export function DataAwsDbInstances(
+  props: Partial<DataAwsDbInstancesInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function DataAwsDbInstances(props: Partial<InputProps>) {
       _type='aws_db_instances'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsDbInstancesInputSchema}
+      _outputSchema={DataAwsDbInstancesOutputSchema}
       {...props}
     />
   )
@@ -58,4 +60,9 @@ export const useDataAwsDbInstancess = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsDbInstances, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsDbInstancesOutputProps>(
+    DataAwsDbInstances,
+    idFilter,
+    baseNode,
+    optional,
+  )

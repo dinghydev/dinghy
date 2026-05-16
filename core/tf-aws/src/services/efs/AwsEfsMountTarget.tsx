@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEfsMountTargetInputSchema = TfMetaSchema.extend({
   file_system_id: resolvableValue(z.string()),
   subnet_id: resolvableValue(z.string()),
   ip_address: resolvableValue(z.string().optional()),
@@ -25,7 +25,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsEfsMountTargetOutputSchema = z.object({
   availability_zone_id: z.string().optional(),
   availability_zone_name: z.string().optional(),
   dns_name: z.string().optional(),
@@ -36,18 +36,18 @@ export const OutputSchema = z.object({
   owner_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEfsMountTargetInputProps =
+  & z.input<typeof AwsEfsMountTargetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEfsMountTargetOutputProps =
+  & z.output<typeof AwsEfsMountTargetOutputSchema>
+  & z.output<typeof AwsEfsMountTargetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/efs_mount_target
 
-export function AwsEfsMountTarget(props: Partial<InputProps>) {
+export function AwsEfsMountTarget(props: Partial<AwsEfsMountTargetInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -57,8 +57,8 @@ export function AwsEfsMountTarget(props: Partial<InputProps>) {
       _type='aws_efs_mount_target'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEfsMountTargetInputSchema}
+      _outputSchema={AwsEfsMountTargetOutputSchema}
       {...props}
     />
   )
@@ -68,10 +68,22 @@ export const useAwsEfsMountTarget = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsEfsMountTarget, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsEfsMountTargetOutputProps>(
+    AwsEfsMountTarget,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEfsMountTargets = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsEfsMountTarget, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsEfsMountTargetOutputProps>(
+    AwsEfsMountTarget,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,42 +9,45 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  instance_arn: resolvableValue(z.string()),
-  managed_policy_arns: resolvableValue(z.string().array()),
-  permission_set_arn: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      update: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsSsoadminManagedPolicyAttachmentsExclusiveInputSchema =
+  TfMetaSchema.extend({
+    instance_arn: resolvableValue(z.string()),
+    managed_policy_arns: resolvableValue(z.string().array()),
+    permission_set_arn: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        update: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({})
+export const AwsSsoadminManagedPolicyAttachmentsExclusiveOutputSchema = z
+  .object({})
 
-export const ImportSchema = z.object({
-  instance_arn: resolvableValue(z.string()),
-  permission_set_arn: resolvableValue(z.string()),
-  account_id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsSsoadminManagedPolicyAttachmentsExclusiveImportSchema = z
+  .object({
+    instance_arn: resolvableValue(z.string()),
+    permission_set_arn: resolvableValue(z.string()),
+    account_id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSsoadminManagedPolicyAttachmentsExclusiveInputProps =
+  & z.input<typeof AwsSsoadminManagedPolicyAttachmentsExclusiveInputSchema>
+  & z.input<typeof AwsSsoadminManagedPolicyAttachmentsExclusiveImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSsoadminManagedPolicyAttachmentsExclusiveOutputProps =
+  & z.output<typeof AwsSsoadminManagedPolicyAttachmentsExclusiveOutputSchema>
+  & z.output<typeof AwsSsoadminManagedPolicyAttachmentsExclusiveInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssoadmin_managed_policy_attachments_exclusive
 
 export function AwsSsoadminManagedPolicyAttachmentsExclusive(
-  props: Partial<InputProps>,
+  props: Partial<AwsSsoadminManagedPolicyAttachmentsExclusiveInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -55,9 +58,9 @@ export function AwsSsoadminManagedPolicyAttachmentsExclusive(
       _type='aws_ssoadmin_managed_policy_attachments_exclusive'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSsoadminManagedPolicyAttachmentsExclusiveInputSchema}
+      _outputSchema={AwsSsoadminManagedPolicyAttachmentsExclusiveOutputSchema}
+      _importSchema={AwsSsoadminManagedPolicyAttachmentsExclusiveImportSchema}
       {...props}
     />
   )
@@ -68,7 +71,7 @@ export const useAwsSsoadminManagedPolicyAttachmentsExclusive = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSsoadminManagedPolicyAttachmentsExclusiveOutputProps>(
     AwsSsoadminManagedPolicyAttachmentsExclusive,
     idFilter,
     baseNode,
@@ -80,7 +83,7 @@ export const useAwsSsoadminManagedPolicyAttachmentsExclusives = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSsoadminManagedPolicyAttachmentsExclusiveOutputProps>(
     AwsSsoadminManagedPolicyAttachmentsExclusive,
     idFilter,
     baseNode,

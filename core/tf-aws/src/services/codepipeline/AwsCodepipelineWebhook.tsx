@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCodepipelineWebhookInputSchema = TfMetaSchema.extend({
   authentication: resolvableValue(z.string()),
   filter: resolvableValue(
     z.object({
@@ -30,30 +30,32 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCodepipelineWebhookOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   url: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsCodepipelineWebhookImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsCodepipelineWebhookInputProps =
+  & z.input<typeof AwsCodepipelineWebhookInputSchema>
+  & z.input<typeof AwsCodepipelineWebhookImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCodepipelineWebhookOutputProps =
+  & z.output<typeof AwsCodepipelineWebhookOutputSchema>
+  & z.output<typeof AwsCodepipelineWebhookInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/codepipeline_webhook
 
-export function AwsCodepipelineWebhook(props: Partial<InputProps>) {
+export function AwsCodepipelineWebhook(
+  props: Partial<AwsCodepipelineWebhookInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -63,9 +65,9 @@ export function AwsCodepipelineWebhook(props: Partial<InputProps>) {
       _type='aws_codepipeline_webhook'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsCodepipelineWebhookInputSchema}
+      _outputSchema={AwsCodepipelineWebhookOutputSchema}
+      _importSchema={AwsCodepipelineWebhookImportSchema}
       {...props}
     />
   )
@@ -76,7 +78,7 @@ export const useAwsCodepipelineWebhook = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCodepipelineWebhookOutputProps>(
     AwsCodepipelineWebhook,
     idFilter,
     baseNode,
@@ -88,7 +90,7 @@ export const useAwsCodepipelineWebhooks = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCodepipelineWebhookOutputProps>(
     AwsCodepipelineWebhook,
     idFilter,
     baseNode,

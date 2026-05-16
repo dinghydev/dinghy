@@ -9,29 +9,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  principal_arn: resolvableValue(z.string()),
-  vpc_endpoint_service_id: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsVpcEndpointServiceAllowedPrincipalInputSchema = TfMetaSchema
+  .extend({
+    principal_arn: resolvableValue(z.string()),
+    vpc_endpoint_service_id: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsVpcEndpointServiceAllowedPrincipalOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVpcEndpointServiceAllowedPrincipalInputProps =
+  & z.input<typeof AwsVpcEndpointServiceAllowedPrincipalInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVpcEndpointServiceAllowedPrincipalOutputProps =
+  & z.output<typeof AwsVpcEndpointServiceAllowedPrincipalOutputSchema>
+  & z.output<typeof AwsVpcEndpointServiceAllowedPrincipalInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpc_endpoint_service_allowed_principal
 
 export function AwsVpcEndpointServiceAllowedPrincipal(
-  props: Partial<InputProps>,
+  props: Partial<AwsVpcEndpointServiceAllowedPrincipalInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -42,8 +43,8 @@ export function AwsVpcEndpointServiceAllowedPrincipal(
       _type='aws_vpc_endpoint_service_allowed_principal'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVpcEndpointServiceAllowedPrincipalInputSchema}
+      _outputSchema={AwsVpcEndpointServiceAllowedPrincipalOutputSchema}
       {...props}
     />
   )
@@ -54,7 +55,7 @@ export const useAwsVpcEndpointServiceAllowedPrincipal = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsVpcEndpointServiceAllowedPrincipalOutputProps>(
     AwsVpcEndpointServiceAllowedPrincipal,
     idFilter,
     baseNode,
@@ -66,7 +67,7 @@ export const useAwsVpcEndpointServiceAllowedPrincipals = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsVpcEndpointServiceAllowedPrincipalOutputProps>(
     AwsVpcEndpointServiceAllowedPrincipal,
     idFilter,
     baseNode,

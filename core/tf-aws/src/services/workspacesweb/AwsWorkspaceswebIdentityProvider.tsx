@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsWorkspaceswebIdentityProviderInputSchema = TfMetaSchema.extend({
   identity_provider_details: resolvableValue(z.record(z.string(), z.string())),
   identity_provider_name: resolvableValue(z.string()),
   identity_provider_type: resolvableValue(z.string()),
@@ -18,23 +18,25 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsWorkspaceswebIdentityProviderOutputSchema = z.object({
   identity_provider_arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsWorkspaceswebIdentityProviderInputProps =
+  & z.input<typeof AwsWorkspaceswebIdentityProviderInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWorkspaceswebIdentityProviderOutputProps =
+  & z.output<typeof AwsWorkspaceswebIdentityProviderOutputSchema>
+  & z.output<typeof AwsWorkspaceswebIdentityProviderInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workspacesweb_identity_provider
 
-export function AwsWorkspaceswebIdentityProvider(props: Partial<InputProps>) {
+export function AwsWorkspaceswebIdentityProvider(
+  props: Partial<AwsWorkspaceswebIdentityProviderInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +46,8 @@ export function AwsWorkspaceswebIdentityProvider(props: Partial<InputProps>) {
       _type='aws_workspacesweb_identity_provider'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsWorkspaceswebIdentityProviderInputSchema}
+      _outputSchema={AwsWorkspaceswebIdentityProviderOutputSchema}
       {...props}
     />
   )
@@ -56,7 +58,7 @@ export const useAwsWorkspaceswebIdentityProvider = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsWorkspaceswebIdentityProviderOutputProps>(
     AwsWorkspaceswebIdentityProvider,
     idFilter,
     baseNode,
@@ -68,7 +70,7 @@ export const useAwsWorkspaceswebIdentityProviders = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsWorkspaceswebIdentityProviderOutputProps>(
     AwsWorkspaceswebIdentityProvider,
     idFilter,
     baseNode,

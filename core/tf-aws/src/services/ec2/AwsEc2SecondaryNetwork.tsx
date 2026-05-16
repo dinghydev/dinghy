@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEc2SecondaryNetworkInputSchema = TfMetaSchema.extend({
   ipv4_cidr_block: resolvableValue(z.string()),
   network_type: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
@@ -23,7 +23,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsEc2SecondaryNetworkOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   ipv4_cidr_block_associations: z.object({
@@ -37,25 +37,27 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsEc2SecondaryNetworkImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsEc2SecondaryNetworkInputProps =
+  & z.input<typeof AwsEc2SecondaryNetworkInputSchema>
+  & z.input<typeof AwsEc2SecondaryNetworkImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEc2SecondaryNetworkOutputProps =
+  & z.output<typeof AwsEc2SecondaryNetworkOutputSchema>
+  & z.output<typeof AwsEc2SecondaryNetworkInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ec2_secondary_network
 
-export function AwsEc2SecondaryNetwork(props: Partial<InputProps>) {
+export function AwsEc2SecondaryNetwork(
+  props: Partial<AwsEc2SecondaryNetworkInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -65,9 +67,9 @@ export function AwsEc2SecondaryNetwork(props: Partial<InputProps>) {
       _type='aws_ec2_secondary_network'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsEc2SecondaryNetworkInputSchema}
+      _outputSchema={AwsEc2SecondaryNetworkOutputSchema}
+      _importSchema={AwsEc2SecondaryNetworkImportSchema}
       {...props}
     />
   )
@@ -78,7 +80,7 @@ export const useAwsEc2SecondaryNetwork = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsEc2SecondaryNetworkOutputProps>(
     AwsEc2SecondaryNetwork,
     idFilter,
     baseNode,
@@ -90,7 +92,7 @@ export const useAwsEc2SecondaryNetworks = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEc2SecondaryNetworkOutputProps>(
     AwsEc2SecondaryNetwork,
     idFilter,
     baseNode,

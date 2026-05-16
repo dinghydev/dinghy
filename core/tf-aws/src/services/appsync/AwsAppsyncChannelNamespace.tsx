@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAppsyncChannelNamespaceInputSchema = TfMetaSchema.extend({
   api_id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   code_handlers: resolvableValue(z.string().optional()),
@@ -49,23 +49,25 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAppsyncChannelNamespaceOutputSchema = z.object({
   channel_namespace_arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAppsyncChannelNamespaceInputProps =
+  & z.input<typeof AwsAppsyncChannelNamespaceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppsyncChannelNamespaceOutputProps =
+  & z.output<typeof AwsAppsyncChannelNamespaceOutputSchema>
+  & z.output<typeof AwsAppsyncChannelNamespaceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appsync_channel_namespace
 
-export function AwsAppsyncChannelNamespace(props: Partial<InputProps>) {
+export function AwsAppsyncChannelNamespace(
+  props: Partial<AwsAppsyncChannelNamespaceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -75,8 +77,8 @@ export function AwsAppsyncChannelNamespace(props: Partial<InputProps>) {
       _type='aws_appsync_channel_namespace'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAppsyncChannelNamespaceInputSchema}
+      _outputSchema={AwsAppsyncChannelNamespaceOutputSchema}
       {...props}
     />
   )
@@ -87,7 +89,7 @@ export const useAwsAppsyncChannelNamespace = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAppsyncChannelNamespaceOutputProps>(
     AwsAppsyncChannelNamespace,
     idFilter,
     baseNode,
@@ -99,7 +101,7 @@ export const useAwsAppsyncChannelNamespaces = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAppsyncChannelNamespaceOutputProps>(
     AwsAppsyncChannelNamespace,
     idFilter,
     baseNode,

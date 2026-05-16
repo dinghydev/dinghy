@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDirectoryServiceDirectoryInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   password: resolvableValue(z.string()),
   alias: resolvableValue(z.string().optional()),
@@ -49,7 +49,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDirectoryServiceDirectoryOutputSchema = z.object({
   access_url: z.string().optional(),
   dns_ip_addresses: z.set(z.string()).optional(),
   id: z.string().optional(),
@@ -57,18 +57,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDirectoryServiceDirectoryInputProps =
+  & z.input<typeof AwsDirectoryServiceDirectoryInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDirectoryServiceDirectoryOutputProps =
+  & z.output<typeof AwsDirectoryServiceDirectoryOutputSchema>
+  & z.output<typeof AwsDirectoryServiceDirectoryInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/directory_service_directory
 
-export function AwsDirectoryServiceDirectory(props: Partial<InputProps>) {
+export function AwsDirectoryServiceDirectory(
+  props: Partial<AwsDirectoryServiceDirectoryInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -78,8 +80,8 @@ export function AwsDirectoryServiceDirectory(props: Partial<InputProps>) {
       _type='aws_directory_service_directory'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDirectoryServiceDirectoryInputSchema}
+      _outputSchema={AwsDirectoryServiceDirectoryOutputSchema}
       {...props}
     />
   )
@@ -90,7 +92,7 @@ export const useAwsDirectoryServiceDirectory = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDirectoryServiceDirectoryOutputProps>(
     AwsDirectoryServiceDirectory,
     idFilter,
     baseNode,
@@ -102,7 +104,7 @@ export const useAwsDirectoryServiceDirectorys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDirectoryServiceDirectoryOutputProps>(
     AwsDirectoryServiceDirectory,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRoute53RecordInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   type: resolvableValue(z.string()),
   zone_id: resolvableValue(z.string()),
@@ -75,12 +75,12 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsRoute53RecordOutputSchema = z.object({
   fqdn: z.string().optional(),
   name: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsRoute53RecordImportSchema = z.object({
   name: resolvableValue(z.string()),
   type: resolvableValue(z.string()),
   zone_id: resolvableValue(z.string()),
@@ -88,19 +88,19 @@ export const ImportSchema = z.object({
   set_identifier: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsRoute53RecordInputProps =
+  & z.input<typeof AwsRoute53RecordInputSchema>
+  & z.input<typeof AwsRoute53RecordImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRoute53RecordOutputProps =
+  & z.output<typeof AwsRoute53RecordOutputSchema>
+  & z.output<typeof AwsRoute53RecordInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/route53_record
 
-export function AwsRoute53Record(props: Partial<InputProps>) {
+export function AwsRoute53Record(props: Partial<AwsRoute53RecordInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -110,9 +110,9 @@ export function AwsRoute53Record(props: Partial<InputProps>) {
       _type='aws_route53_record'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsRoute53RecordInputSchema}
+      _outputSchema={AwsRoute53RecordOutputSchema}
+      _importSchema={AwsRoute53RecordImportSchema}
       {...props}
     />
   )
@@ -122,10 +122,22 @@ export const useAwsRoute53Record = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsRoute53Record, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsRoute53RecordOutputProps>(
+    AwsRoute53Record,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRoute53Records = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsRoute53Record, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsRoute53RecordOutputProps>(
+    AwsRoute53Record,
+    idFilter,
+    baseNode,
+    optional,
+  )

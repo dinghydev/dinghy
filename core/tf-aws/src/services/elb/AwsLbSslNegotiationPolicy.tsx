@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLbSslNegotiationPolicyInputSchema = TfMetaSchema.extend({
   lb_port: resolvableValue(z.number()),
   load_balancer: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -23,7 +23,7 @@ export const InputSchema = TfMetaSchema.extend({
   triggers: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsLbSslNegotiationPolicyOutputSchema = z.object({
   attribute: z.object({
     name: z.string(),
     value: z.string(),
@@ -34,18 +34,20 @@ export const OutputSchema = z.object({
   name: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLbSslNegotiationPolicyInputProps =
+  & z.input<typeof AwsLbSslNegotiationPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLbSslNegotiationPolicyOutputProps =
+  & z.output<typeof AwsLbSslNegotiationPolicyOutputSchema>
+  & z.output<typeof AwsLbSslNegotiationPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lb_ssl_negotiation_policy
 
-export function AwsLbSslNegotiationPolicy(props: Partial<InputProps>) {
+export function AwsLbSslNegotiationPolicy(
+  props: Partial<AwsLbSslNegotiationPolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,8 +57,8 @@ export function AwsLbSslNegotiationPolicy(props: Partial<InputProps>) {
       _type='aws_lb_ssl_negotiation_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLbSslNegotiationPolicyInputSchema}
+      _outputSchema={AwsLbSslNegotiationPolicyOutputSchema}
       {...props}
     />
   )
@@ -67,7 +69,7 @@ export const useAwsLbSslNegotiationPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsLbSslNegotiationPolicyOutputProps>(
     AwsLbSslNegotiationPolicy,
     idFilter,
     baseNode,
@@ -79,7 +81,7 @@ export const useAwsLbSslNegotiationPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsLbSslNegotiationPolicyOutputProps>(
     AwsLbSslNegotiationPolicy,
     idFilter,
     baseNode,

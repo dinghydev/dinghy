@@ -9,47 +9,48 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  name: resolvableValue(z.string()),
-  configuration: resolvableValue(
-    z.object({
-      body: z.string(),
-    }).array().optional(),
-  ),
-  region: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-      update: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsObservabilityadminTelemetryPipelineInputSchema = TfMetaSchema
+  .extend({
+    name: resolvableValue(z.string()),
+    configuration: resolvableValue(
+      z.object({
+        body: z.string(),
+      }).array().optional(),
+    ),
+    region: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+        update: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsObservabilityadminTelemetryPipelineOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsObservabilityadminTelemetryPipelineImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsObservabilityadminTelemetryPipelineInputProps =
+  & z.input<typeof AwsObservabilityadminTelemetryPipelineInputSchema>
+  & z.input<typeof AwsObservabilityadminTelemetryPipelineImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsObservabilityadminTelemetryPipelineOutputProps =
+  & z.output<typeof AwsObservabilityadminTelemetryPipelineOutputSchema>
+  & z.output<typeof AwsObservabilityadminTelemetryPipelineInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/observabilityadmin_telemetry_pipeline
 
 export function AwsObservabilityadminTelemetryPipeline(
-  props: Partial<InputProps>,
+  props: Partial<AwsObservabilityadminTelemetryPipelineInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -60,9 +61,9 @@ export function AwsObservabilityadminTelemetryPipeline(
       _type='aws_observabilityadmin_telemetry_pipeline'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsObservabilityadminTelemetryPipelineInputSchema}
+      _outputSchema={AwsObservabilityadminTelemetryPipelineOutputSchema}
+      _importSchema={AwsObservabilityadminTelemetryPipelineImportSchema}
       {...props}
     />
   )
@@ -73,7 +74,7 @@ export const useAwsObservabilityadminTelemetryPipeline = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsObservabilityadminTelemetryPipelineOutputProps>(
     AwsObservabilityadminTelemetryPipeline,
     idFilter,
     baseNode,
@@ -85,7 +86,7 @@ export const useAwsObservabilityadminTelemetryPipelines = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsObservabilityadminTelemetryPipelineOutputProps>(
     AwsObservabilityadminTelemetryPipeline,
     idFilter,
     baseNode,

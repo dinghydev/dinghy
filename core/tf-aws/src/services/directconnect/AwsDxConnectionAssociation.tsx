@@ -9,27 +9,29 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDxConnectionAssociationInputSchema = TfMetaSchema.extend({
   connection_id: resolvableValue(z.string()),
   lag_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsDxConnectionAssociationOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDxConnectionAssociationInputProps =
+  & z.input<typeof AwsDxConnectionAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDxConnectionAssociationOutputProps =
+  & z.output<typeof AwsDxConnectionAssociationOutputSchema>
+  & z.output<typeof AwsDxConnectionAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dx_connection_association
 
-export function AwsDxConnectionAssociation(props: Partial<InputProps>) {
+export function AwsDxConnectionAssociation(
+  props: Partial<AwsDxConnectionAssociationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -39,8 +41,8 @@ export function AwsDxConnectionAssociation(props: Partial<InputProps>) {
       _type='aws_dx_connection_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDxConnectionAssociationInputSchema}
+      _outputSchema={AwsDxConnectionAssociationOutputSchema}
       {...props}
     />
   )
@@ -51,7 +53,7 @@ export const useAwsDxConnectionAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDxConnectionAssociationOutputProps>(
     AwsDxConnectionAssociation,
     idFilter,
     baseNode,
@@ -63,7 +65,7 @@ export const useAwsDxConnectionAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDxConnectionAssociationOutputProps>(
     AwsDxConnectionAssociation,
     idFilter,
     baseNode,

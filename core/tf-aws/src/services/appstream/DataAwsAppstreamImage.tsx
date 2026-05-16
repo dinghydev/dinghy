@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsAppstreamImageInputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string().optional()),
   most_recent: resolvableValue(z.boolean().optional()),
   name: resolvableValue(z.string().optional()),
@@ -18,7 +18,7 @@ export const InputSchema = TfMetaSchema.extend({
   type: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsAppstreamImageOutputSchema = z.object({
   applications: z.object({
     app_block_arn: z.string(),
     arn: z.string(),
@@ -60,18 +60,20 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsAppstreamImageInputProps =
+  & z.input<typeof DataAwsAppstreamImageInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsAppstreamImageOutputProps =
+  & z.output<typeof DataAwsAppstreamImageOutputSchema>
+  & z.output<typeof DataAwsAppstreamImageInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/appstream_image
 
-export function DataAwsAppstreamImage(props: Partial<InputProps>) {
+export function DataAwsAppstreamImage(
+  props: Partial<DataAwsAppstreamImageInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -81,8 +83,8 @@ export function DataAwsAppstreamImage(props: Partial<InputProps>) {
       _type='aws_appstream_image'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsAppstreamImageInputSchema}
+      _outputSchema={DataAwsAppstreamImageOutputSchema}
       {...props}
     />
   )
@@ -93,14 +95,19 @@ export const useDataAwsAppstreamImage = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsAppstreamImage, idFilter, baseNode, optional)
+  useTypedNode<DataAwsAppstreamImageOutputProps>(
+    DataAwsAppstreamImage,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsAppstreamImages = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsAppstreamImageOutputProps>(
     DataAwsAppstreamImage,
     idFilter,
     baseNode,

@@ -8,29 +8,29 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsIamRolesInputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string().optional()),
   name_regex: resolvableValue(z.string().optional()),
   path_prefix: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsIamRolesOutputSchema = z.object({
   arns: z.set(z.string()).optional(),
   names: z.set(z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsIamRolesInputProps =
+  & z.input<typeof DataAwsIamRolesInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsIamRolesOutputProps =
+  & z.output<typeof DataAwsIamRolesOutputSchema>
+  & z.output<typeof DataAwsIamRolesInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/iam_roles
 
-export function DataAwsIamRoles(props: Partial<InputProps>) {
+export function DataAwsIamRoles(props: Partial<DataAwsIamRolesInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +40,8 @@ export function DataAwsIamRoles(props: Partial<InputProps>) {
       _type='aws_iam_roles'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsIamRolesInputSchema}
+      _outputSchema={DataAwsIamRolesOutputSchema}
       {...props}
     />
   )
@@ -51,4 +51,10 @@ export const useDataAwsIamRoless = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsIamRoles, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsIamRolesOutputProps>(
+    DataAwsIamRoles,
+    idFilter,
+    baseNode,
+    optional,
+  )

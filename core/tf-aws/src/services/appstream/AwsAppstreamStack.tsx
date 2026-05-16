@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAppstreamStackInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   access_endpoints: resolvableValue(
     z.object({
@@ -51,24 +51,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsAppstreamStackOutputSchema = z.object({
   arn: z.string().optional(),
   created_time: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAppstreamStackInputProps =
+  & z.input<typeof AwsAppstreamStackInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppstreamStackOutputProps =
+  & z.output<typeof AwsAppstreamStackOutputSchema>
+  & z.output<typeof AwsAppstreamStackInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appstream_stack
 
-export function AwsAppstreamStack(props: Partial<InputProps>) {
+export function AwsAppstreamStack(props: Partial<AwsAppstreamStackInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -78,8 +78,8 @@ export function AwsAppstreamStack(props: Partial<InputProps>) {
       _type='aws_appstream_stack'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAppstreamStackInputSchema}
+      _outputSchema={AwsAppstreamStackOutputSchema}
       {...props}
     />
   )
@@ -89,10 +89,22 @@ export const useAwsAppstreamStack = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsAppstreamStack, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsAppstreamStackOutputProps>(
+    AwsAppstreamStack,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAppstreamStacks = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsAppstreamStack, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsAppstreamStackOutputProps>(
+    AwsAppstreamStack,
+    idFilter,
+    baseNode,
+    optional,
+  )

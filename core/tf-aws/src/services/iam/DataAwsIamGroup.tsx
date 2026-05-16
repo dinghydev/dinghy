@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsIamGroup } from './AwsIamGroup.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsIamGroupInputSchema = TfMetaSchema.extend({
   group_name: resolvableValue(z.string()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsIamGroupOutputSchema = z.object({
   arn: z.string().optional(),
   group_id: z.string().optional(),
   id: z.string().optional(),
@@ -26,18 +26,18 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsIamGroupInputProps =
+  & z.input<typeof DataAwsIamGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsIamGroupOutputProps =
+  & z.output<typeof DataAwsIamGroupOutputSchema>
+  & z.output<typeof DataAwsIamGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/iam_group
 
-export function DataAwsIamGroup(props: Partial<InputProps>) {
+export function DataAwsIamGroup(props: Partial<DataAwsIamGroupInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +47,8 @@ export function DataAwsIamGroup(props: Partial<InputProps>) {
       _type='aws_iam_group'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsIamGroupInputSchema}
+      _outputSchema={DataAwsIamGroupOutputSchema}
       {...props as any}
     />
   )
@@ -58,10 +58,22 @@ export const useDataAwsIamGroup = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsIamGroup, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsIamGroupOutputProps>(
+    DataAwsIamGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsIamGroups = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsIamGroup, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsIamGroupOutputProps>(
+    DataAwsIamGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

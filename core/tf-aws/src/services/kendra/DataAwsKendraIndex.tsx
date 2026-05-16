@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsKendraIndex } from './AwsKendraIndex.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsKendraIndexInputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsKendraIndexOutputSchema = z.object({
   arn: z.string().optional(),
   capacity_units: z.object({
     query_capacity_units: z.number(),
@@ -80,18 +80,20 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsKendraIndexInputProps =
+  & z.input<typeof DataAwsKendraIndexInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsKendraIndexOutputProps =
+  & z.output<typeof DataAwsKendraIndexOutputSchema>
+  & z.output<typeof DataAwsKendraIndexInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/kendra_index
 
-export function DataAwsKendraIndex(props: Partial<InputProps>) {
+export function DataAwsKendraIndex(
+  props: Partial<DataAwsKendraIndexInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -101,8 +103,8 @@ export function DataAwsKendraIndex(props: Partial<InputProps>) {
       _type='aws_kendra_index'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsKendraIndexInputSchema}
+      _outputSchema={DataAwsKendraIndexOutputSchema}
       {...props as any}
     />
   )
@@ -112,11 +114,22 @@ export const useDataAwsKendraIndex = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsKendraIndex, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsKendraIndexOutputProps>(
+    DataAwsKendraIndex,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsKendraIndexs = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsKendraIndex, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsKendraIndexOutputProps>(
+    DataAwsKendraIndex,
+    idFilter,
+    baseNode,
+    optional,
+  )

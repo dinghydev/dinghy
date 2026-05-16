@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSagemakerEndpointInputSchema = TfMetaSchema.extend({
   endpoint_config_name: resolvableValue(z.string()),
   deployment_config: resolvableValue(
     z.object({
@@ -54,24 +54,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSagemakerEndpointOutputSchema = z.object({
   arn: z.string().optional(),
   name: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSagemakerEndpointInputProps =
+  & z.input<typeof AwsSagemakerEndpointInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSagemakerEndpointOutputProps =
+  & z.output<typeof AwsSagemakerEndpointOutputSchema>
+  & z.output<typeof AwsSagemakerEndpointInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sagemaker_endpoint
 
-export function AwsSagemakerEndpoint(props: Partial<InputProps>) {
+export function AwsSagemakerEndpoint(
+  props: Partial<AwsSagemakerEndpointInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -81,8 +83,8 @@ export function AwsSagemakerEndpoint(props: Partial<InputProps>) {
       _type='aws_sagemaker_endpoint'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSagemakerEndpointInputSchema}
+      _outputSchema={AwsSagemakerEndpointOutputSchema}
       {...props}
     />
   )
@@ -93,11 +95,21 @@ export const useAwsSagemakerEndpoint = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSagemakerEndpoint, idFilter, baseNode, optional)
+  useTypedNode<AwsSagemakerEndpointOutputProps>(
+    AwsSagemakerEndpoint,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSagemakerEndpoints = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSagemakerEndpoint, idFilter, baseNode, optional)
+  useTypedNodes<AwsSagemakerEndpointOutputProps>(
+    AwsSagemakerEndpoint,
+    idFilter,
+    baseNode,
+    optional,
+  )

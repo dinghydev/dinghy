@@ -1,6 +1,6 @@
 import { dockerBuildImage, getRenderOptions } from '@dinghy/base-components'
 import { z } from 'zod'
-import { InputSchema as AwsBedrockagentcoreAgentRuntimeInputSchema } from '../../services/bedrockagentcore/AwsBedrockagentcoreAgentRuntime.tsx'
+import { AwsBedrockagentcoreAgentRuntimeInputSchema } from '../../services/bedrockagentcore/AwsBedrockagentcoreAgentRuntime.tsx'
 
 const BedrockAgentSchema = AwsBedrockagentcoreAgentRuntimeInputSchema.extend({
   // Ergonomic shortcut: YAML can say `container_uri: <ecr-image>` instead of

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIamOpenidConnectProviderInputSchema = TfMetaSchema.extend({
   client_id_list: resolvableValue(z.string().array()),
   url: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
@@ -17,28 +17,30 @@ export const InputSchema = TfMetaSchema.extend({
   thumbprint_list: resolvableValue(z.string().array().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsIamOpenidConnectProviderOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsIamOpenidConnectProviderImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsIamOpenidConnectProviderInputProps =
+  & z.input<typeof AwsIamOpenidConnectProviderInputSchema>
+  & z.input<typeof AwsIamOpenidConnectProviderImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIamOpenidConnectProviderOutputProps =
+  & z.output<typeof AwsIamOpenidConnectProviderOutputSchema>
+  & z.output<typeof AwsIamOpenidConnectProviderInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iam_openid_connect_provider
 
-export function AwsIamOpenidConnectProvider(props: Partial<InputProps>) {
+export function AwsIamOpenidConnectProvider(
+  props: Partial<AwsIamOpenidConnectProviderInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,9 +50,9 @@ export function AwsIamOpenidConnectProvider(props: Partial<InputProps>) {
       _type='aws_iam_openid_connect_provider'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsIamOpenidConnectProviderInputSchema}
+      _outputSchema={AwsIamOpenidConnectProviderOutputSchema}
+      _importSchema={AwsIamOpenidConnectProviderImportSchema}
       {...props}
     />
   )
@@ -61,7 +63,7 @@ export const useAwsIamOpenidConnectProvider = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsIamOpenidConnectProviderOutputProps>(
     AwsIamOpenidConnectProvider,
     idFilter,
     baseNode,
@@ -73,7 +75,7 @@ export const useAwsIamOpenidConnectProviders = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsIamOpenidConnectProviderOutputProps>(
     AwsIamOpenidConnectProvider,
     idFilter,
     baseNode,

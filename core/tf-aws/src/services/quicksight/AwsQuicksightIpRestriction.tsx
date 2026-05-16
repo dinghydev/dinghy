@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsQuicksightIpRestrictionInputSchema = TfMetaSchema.extend({
   enabled: resolvableValue(z.boolean()),
   aws_account_id: resolvableValue(z.string().optional()),
   ip_restriction_rule_map: resolvableValue(
@@ -24,20 +24,22 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({})
+export const AwsQuicksightIpRestrictionOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsQuicksightIpRestrictionInputProps =
+  & z.input<typeof AwsQuicksightIpRestrictionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsQuicksightIpRestrictionOutputProps =
+  & z.output<typeof AwsQuicksightIpRestrictionOutputSchema>
+  & z.output<typeof AwsQuicksightIpRestrictionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/quicksight_ip_restriction
 
-export function AwsQuicksightIpRestriction(props: Partial<InputProps>) {
+export function AwsQuicksightIpRestriction(
+  props: Partial<AwsQuicksightIpRestrictionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +49,8 @@ export function AwsQuicksightIpRestriction(props: Partial<InputProps>) {
       _type='aws_quicksight_ip_restriction'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsQuicksightIpRestrictionInputSchema}
+      _outputSchema={AwsQuicksightIpRestrictionOutputSchema}
       {...props}
     />
   )
@@ -59,7 +61,7 @@ export const useAwsQuicksightIpRestriction = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsQuicksightIpRestrictionOutputProps>(
     AwsQuicksightIpRestriction,
     idFilter,
     baseNode,
@@ -71,7 +73,7 @@ export const useAwsQuicksightIpRestrictions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsQuicksightIpRestrictionOutputProps>(
     AwsQuicksightIpRestriction,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsElasticacheReservedCacheNodeInputSchema = TfMetaSchema.extend({
   reserved_cache_nodes_offering_id: resolvableValue(z.string()),
   cache_node_count: resolvableValue(z.number().optional()),
   id: resolvableValue(z.string().optional()),
@@ -24,7 +24,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsElasticacheReservedCacheNodeOutputSchema = z.object({
   arn: z.string().optional(),
   cache_node_type: z.string().optional(),
   duration: z.string().optional(),
@@ -41,18 +41,20 @@ export const OutputSchema = z.object({
   usage_price: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsElasticacheReservedCacheNodeInputProps =
+  & z.input<typeof AwsElasticacheReservedCacheNodeInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsElasticacheReservedCacheNodeOutputProps =
+  & z.output<typeof AwsElasticacheReservedCacheNodeOutputSchema>
+  & z.output<typeof AwsElasticacheReservedCacheNodeInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/elasticache_reserved_cache_node
 
-export function AwsElasticacheReservedCacheNode(props: Partial<InputProps>) {
+export function AwsElasticacheReservedCacheNode(
+  props: Partial<AwsElasticacheReservedCacheNodeInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -62,8 +64,8 @@ export function AwsElasticacheReservedCacheNode(props: Partial<InputProps>) {
       _type='aws_elasticache_reserved_cache_node'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsElasticacheReservedCacheNodeInputSchema}
+      _outputSchema={AwsElasticacheReservedCacheNodeOutputSchema}
       {...props}
     />
   )
@@ -74,7 +76,7 @@ export const useAwsElasticacheReservedCacheNode = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsElasticacheReservedCacheNodeOutputProps>(
     AwsElasticacheReservedCacheNode,
     idFilter,
     baseNode,
@@ -86,7 +88,7 @@ export const useAwsElasticacheReservedCacheNodes = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsElasticacheReservedCacheNodeOutputProps>(
     AwsElasticacheReservedCacheNode,
     idFilter,
     baseNode,

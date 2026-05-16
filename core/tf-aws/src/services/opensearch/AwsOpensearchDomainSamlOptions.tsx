@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsOpensearchDomainSamlOptionsInputSchema = TfMetaSchema.extend({
   domain_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   saml_options: resolvableValue(
@@ -33,22 +33,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsOpensearchDomainSamlOptionsOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsOpensearchDomainSamlOptionsInputProps =
+  & z.input<typeof AwsOpensearchDomainSamlOptionsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsOpensearchDomainSamlOptionsOutputProps =
+  & z.output<typeof AwsOpensearchDomainSamlOptionsOutputSchema>
+  & z.output<typeof AwsOpensearchDomainSamlOptionsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/opensearch_domain_saml_options
 
-export function AwsOpensearchDomainSamlOptions(props: Partial<InputProps>) {
+export function AwsOpensearchDomainSamlOptions(
+  props: Partial<AwsOpensearchDomainSamlOptionsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -58,8 +60,8 @@ export function AwsOpensearchDomainSamlOptions(props: Partial<InputProps>) {
       _type='aws_opensearch_domain_saml_options'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsOpensearchDomainSamlOptionsInputSchema}
+      _outputSchema={AwsOpensearchDomainSamlOptionsOutputSchema}
       {...props}
     />
   )
@@ -70,7 +72,7 @@ export const useAwsOpensearchDomainSamlOptions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsOpensearchDomainSamlOptionsOutputProps>(
     AwsOpensearchDomainSamlOptions,
     idFilter,
     baseNode,

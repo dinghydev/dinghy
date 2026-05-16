@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsVpcsInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -24,23 +24,23 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsVpcsOutputSchema = z.object({
   id: z.string().optional(),
   ids: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsVpcsInputProps =
+  & z.input<typeof DataAwsVpcsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsVpcsOutputProps =
+  & z.output<typeof DataAwsVpcsOutputSchema>
+  & z.output<typeof DataAwsVpcsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/vpcs
 
-export function DataAwsVpcs(props: Partial<InputProps>) {
+export function DataAwsVpcs(props: Partial<DataAwsVpcsInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -50,8 +50,8 @@ export function DataAwsVpcs(props: Partial<InputProps>) {
       _type='aws_vpcs'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsVpcsInputSchema}
+      _outputSchema={DataAwsVpcsOutputSchema}
       {...props}
     />
   )
@@ -61,4 +61,10 @@ export const useDataAwsVpcss = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsVpcs, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsVpcsOutputProps>(
+    DataAwsVpcs,
+    idFilter,
+    baseNode,
+    optional,
+  )

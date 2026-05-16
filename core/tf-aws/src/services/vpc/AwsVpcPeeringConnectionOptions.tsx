@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsVpcPeeringConnectionOptionsInputSchema = TfMetaSchema.extend({
   vpc_peering_connection_id: resolvableValue(z.string()),
   accepter: resolvableValue(
     z.object({
@@ -23,22 +23,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsVpcPeeringConnectionOptionsOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVpcPeeringConnectionOptionsInputProps =
+  & z.input<typeof AwsVpcPeeringConnectionOptionsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVpcPeeringConnectionOptionsOutputProps =
+  & z.output<typeof AwsVpcPeeringConnectionOptionsOutputSchema>
+  & z.output<typeof AwsVpcPeeringConnectionOptionsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpc_peering_connection_options
 
-export function AwsVpcPeeringConnectionOptions(props: Partial<InputProps>) {
+export function AwsVpcPeeringConnectionOptions(
+  props: Partial<AwsVpcPeeringConnectionOptionsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +50,8 @@ export function AwsVpcPeeringConnectionOptions(props: Partial<InputProps>) {
       _type='aws_vpc_peering_connection_options'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVpcPeeringConnectionOptionsInputSchema}
+      _outputSchema={AwsVpcPeeringConnectionOptionsOutputSchema}
       {...props}
     />
   )
@@ -60,7 +62,7 @@ export const useAwsVpcPeeringConnectionOptions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsVpcPeeringConnectionOptionsOutputProps>(
     AwsVpcPeeringConnectionOptions,
     idFilter,
     baseNode,

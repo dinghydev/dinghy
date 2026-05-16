@@ -1,34 +1,70 @@
 export {
   AwsServicecatalogappregistryApplication,
+  AwsServicecatalogappregistryApplicationInputSchema,
+  AwsServicecatalogappregistryApplicationOutputSchema,
   useAwsServicecatalogappregistryApplication,
   useAwsServicecatalogappregistryApplications,
+} from './AwsServicecatalogappregistryApplication.tsx'
+export type {
+  AwsServicecatalogappregistryApplicationInputProps,
+  AwsServicecatalogappregistryApplicationOutputProps,
 } from './AwsServicecatalogappregistryApplication.tsx'
 
 export {
   DataAwsServicecatalogappregistryApplication,
+  DataAwsServicecatalogappregistryApplicationInputSchema,
+  DataAwsServicecatalogappregistryApplicationOutputSchema,
   useDataAwsServicecatalogappregistryApplication,
   useDataAwsServicecatalogappregistryApplications,
+} from './DataAwsServicecatalogappregistryApplication.tsx'
+export type {
+  DataAwsServicecatalogappregistryApplicationInputProps,
+  DataAwsServicecatalogappregistryApplicationOutputProps,
 } from './DataAwsServicecatalogappregistryApplication.tsx'
 
 export {
   AwsServicecatalogappregistryAttributeGroup,
+  AwsServicecatalogappregistryAttributeGroupInputSchema,
+  AwsServicecatalogappregistryAttributeGroupOutputSchema,
   useAwsServicecatalogappregistryAttributeGroup,
   useAwsServicecatalogappregistryAttributeGroups,
+} from './AwsServicecatalogappregistryAttributeGroup.tsx'
+export type {
+  AwsServicecatalogappregistryAttributeGroupInputProps,
+  AwsServicecatalogappregistryAttributeGroupOutputProps,
 } from './AwsServicecatalogappregistryAttributeGroup.tsx'
 
 export {
   DataAwsServicecatalogappregistryAttributeGroup,
+  DataAwsServicecatalogappregistryAttributeGroupInputSchema,
+  DataAwsServicecatalogappregistryAttributeGroupOutputSchema,
   useDataAwsServicecatalogappregistryAttributeGroup,
   useDataAwsServicecatalogappregistryAttributeGroups,
+} from './DataAwsServicecatalogappregistryAttributeGroup.tsx'
+export type {
+  DataAwsServicecatalogappregistryAttributeGroupInputProps,
+  DataAwsServicecatalogappregistryAttributeGroupOutputProps,
 } from './DataAwsServicecatalogappregistryAttributeGroup.tsx'
 
 export {
   AwsServicecatalogappregistryAttributeGroupAssociation,
+  AwsServicecatalogappregistryAttributeGroupAssociationInputSchema,
+  AwsServicecatalogappregistryAttributeGroupAssociationOutputSchema,
   useAwsServicecatalogappregistryAttributeGroupAssociation,
   useAwsServicecatalogappregistryAttributeGroupAssociations,
+} from './AwsServicecatalogappregistryAttributeGroupAssociation.tsx'
+export type {
+  AwsServicecatalogappregistryAttributeGroupAssociationInputProps,
+  AwsServicecatalogappregistryAttributeGroupAssociationOutputProps,
 } from './AwsServicecatalogappregistryAttributeGroupAssociation.tsx'
 
 export {
   DataAwsServicecatalogappregistryAttributeGroupAssociations,
+  DataAwsServicecatalogappregistryAttributeGroupAssociationsInputSchema,
+  DataAwsServicecatalogappregistryAttributeGroupAssociationsOutputSchema,
   useDataAwsServicecatalogappregistryAttributeGroupAssociationss,
+} from './DataAwsServicecatalogappregistryAttributeGroupAssociations.tsx'
+export type {
+  DataAwsServicecatalogappregistryAttributeGroupAssociationsInputProps,
+  DataAwsServicecatalogappregistryAttributeGroupAssociationsOutputProps,
 } from './DataAwsServicecatalogappregistryAttributeGroupAssociations.tsx'

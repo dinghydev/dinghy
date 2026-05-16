@@ -9,42 +9,45 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  policy_id: resolvableValue(z.string()),
-  target_id: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      update: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsSecurityhubConfigurationPolicyAssociationInputSchema =
+  TfMetaSchema.extend({
+    policy_id: resolvableValue(z.string()),
+    target_id: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        update: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
-  id: z.string().optional(),
-})
+export const AwsSecurityhubConfigurationPolicyAssociationOutputSchema = z
+  .object({
+    id: z.string().optional(),
+  })
 
-export const ImportSchema = z.object({
-  target_id: resolvableValue(z.string()),
-  account_id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsSecurityhubConfigurationPolicyAssociationImportSchema = z
+  .object({
+    target_id: resolvableValue(z.string()),
+    account_id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSecurityhubConfigurationPolicyAssociationInputProps =
+  & z.input<typeof AwsSecurityhubConfigurationPolicyAssociationInputSchema>
+  & z.input<typeof AwsSecurityhubConfigurationPolicyAssociationImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSecurityhubConfigurationPolicyAssociationOutputProps =
+  & z.output<typeof AwsSecurityhubConfigurationPolicyAssociationOutputSchema>
+  & z.output<typeof AwsSecurityhubConfigurationPolicyAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_configuration_policy_association
 
 export function AwsSecurityhubConfigurationPolicyAssociation(
-  props: Partial<InputProps>,
+  props: Partial<AwsSecurityhubConfigurationPolicyAssociationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -55,9 +58,9 @@ export function AwsSecurityhubConfigurationPolicyAssociation(
       _type='aws_securityhub_configuration_policy_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSecurityhubConfigurationPolicyAssociationInputSchema}
+      _outputSchema={AwsSecurityhubConfigurationPolicyAssociationOutputSchema}
+      _importSchema={AwsSecurityhubConfigurationPolicyAssociationImportSchema}
       {...props}
     />
   )
@@ -68,7 +71,7 @@ export const useAwsSecurityhubConfigurationPolicyAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSecurityhubConfigurationPolicyAssociationOutputProps>(
     AwsSecurityhubConfigurationPolicyAssociation,
     idFilter,
     baseNode,
@@ -80,7 +83,7 @@ export const useAwsSecurityhubConfigurationPolicyAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSecurityhubConfigurationPolicyAssociationOutputProps>(
     AwsSecurityhubConfigurationPolicyAssociation,
     idFilter,
     baseNode,

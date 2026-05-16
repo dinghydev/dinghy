@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsWafv2IpSetInputSchema = TfMetaSchema.extend({
   ip_address_version: resolvableValue(z.string()),
   scope: resolvableValue(z.string()),
   addresses: resolvableValue(z.string().array().optional()),
@@ -20,25 +20,25 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsWafv2IpSetOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   lock_token: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsWafv2IpSetInputProps =
+  & z.input<typeof AwsWafv2IpSetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWafv2IpSetOutputProps =
+  & z.output<typeof AwsWafv2IpSetOutputSchema>
+  & z.output<typeof AwsWafv2IpSetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/wafv2_ip_set
 
-export function AwsWafv2IpSet(props: Partial<InputProps>) {
+export function AwsWafv2IpSet(props: Partial<AwsWafv2IpSetInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +48,8 @@ export function AwsWafv2IpSet(props: Partial<InputProps>) {
       _type='aws_wafv2_ip_set'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsWafv2IpSetInputSchema}
+      _outputSchema={AwsWafv2IpSetOutputSchema}
       {...props}
     />
   )
@@ -59,10 +59,22 @@ export const useAwsWafv2IpSet = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsWafv2IpSet, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsWafv2IpSetOutputProps>(
+    AwsWafv2IpSet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsWafv2IpSets = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsWafv2IpSet, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsWafv2IpSetOutputProps>(
+    AwsWafv2IpSet,
+    idFilter,
+    baseNode,
+    optional,
+  )

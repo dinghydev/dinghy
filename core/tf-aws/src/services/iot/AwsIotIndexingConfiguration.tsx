@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIotIndexingConfigurationInputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   thing_group_indexing_configuration: resolvableValue(
@@ -46,20 +46,22 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({})
+export const AwsIotIndexingConfigurationOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsIotIndexingConfigurationInputProps =
+  & z.input<typeof AwsIotIndexingConfigurationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIotIndexingConfigurationOutputProps =
+  & z.output<typeof AwsIotIndexingConfigurationOutputSchema>
+  & z.output<typeof AwsIotIndexingConfigurationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iot_indexing_configuration
 
-export function AwsIotIndexingConfiguration(props: Partial<InputProps>) {
+export function AwsIotIndexingConfiguration(
+  props: Partial<AwsIotIndexingConfigurationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -69,8 +71,8 @@ export function AwsIotIndexingConfiguration(props: Partial<InputProps>) {
       _type='aws_iot_indexing_configuration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsIotIndexingConfigurationInputSchema}
+      _outputSchema={AwsIotIndexingConfigurationOutputSchema}
       {...props}
     />
   )
@@ -81,7 +83,7 @@ export const useAwsIotIndexingConfiguration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsIotIndexingConfigurationOutputProps>(
     AwsIotIndexingConfiguration,
     idFilter,
     baseNode,
@@ -93,7 +95,7 @@ export const useAwsIotIndexingConfigurations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsIotIndexingConfigurationOutputProps>(
     AwsIotIndexingConfiguration,
     idFilter,
     baseNode,

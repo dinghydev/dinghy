@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsLaunchTemplate } from './AwsLaunchTemplate.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsLaunchTemplateInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -27,7 +27,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsLaunchTemplateOutputSchema = z.object({
   arn: z.string().optional(),
   block_device_mappings: z.object({
     device_name: z.string(),
@@ -227,18 +227,20 @@ export const OutputSchema = z.object({
   vpc_security_group_ids: z.set(z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsLaunchTemplateInputProps =
+  & z.input<typeof DataAwsLaunchTemplateInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsLaunchTemplateOutputProps =
+  & z.output<typeof DataAwsLaunchTemplateOutputSchema>
+  & z.output<typeof DataAwsLaunchTemplateInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/launch_template
 
-export function DataAwsLaunchTemplate(props: Partial<InputProps>) {
+export function DataAwsLaunchTemplate(
+  props: Partial<DataAwsLaunchTemplateInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -248,8 +250,8 @@ export function DataAwsLaunchTemplate(props: Partial<InputProps>) {
       _type='aws_launch_template'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsLaunchTemplateInputSchema}
+      _outputSchema={DataAwsLaunchTemplateOutputSchema}
       {...props as any}
     />
   )
@@ -260,14 +262,19 @@ export const useDataAwsLaunchTemplate = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsLaunchTemplate, idFilter, baseNode, optional)
+  useTypedNode<DataAwsLaunchTemplateOutputProps>(
+    DataAwsLaunchTemplate,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsLaunchTemplates = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsLaunchTemplateOutputProps>(
     DataAwsLaunchTemplate,
     idFilter,
     baseNode,

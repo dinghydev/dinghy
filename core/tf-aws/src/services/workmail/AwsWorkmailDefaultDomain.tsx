@@ -9,33 +9,35 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsWorkmailDefaultDomainInputSchema = TfMetaSchema.extend({
   domain_name: resolvableValue(z.string()),
   organization_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsWorkmailDefaultDomainOutputSchema = z.object({})
 
-export const ImportSchema = z.object({
+export const AwsWorkmailDefaultDomainImportSchema = z.object({
   organization_id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsWorkmailDefaultDomainInputProps =
+  & z.input<typeof AwsWorkmailDefaultDomainInputSchema>
+  & z.input<typeof AwsWorkmailDefaultDomainImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWorkmailDefaultDomainOutputProps =
+  & z.output<typeof AwsWorkmailDefaultDomainOutputSchema>
+  & z.output<typeof AwsWorkmailDefaultDomainInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workmail_default_domain
 
-export function AwsWorkmailDefaultDomain(props: Partial<InputProps>) {
+export function AwsWorkmailDefaultDomain(
+  props: Partial<AwsWorkmailDefaultDomainInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,9 +47,9 @@ export function AwsWorkmailDefaultDomain(props: Partial<InputProps>) {
       _type='aws_workmail_default_domain'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsWorkmailDefaultDomainInputSchema}
+      _outputSchema={AwsWorkmailDefaultDomainOutputSchema}
+      _importSchema={AwsWorkmailDefaultDomainImportSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useAwsWorkmailDefaultDomain = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsWorkmailDefaultDomainOutputProps>(
     AwsWorkmailDefaultDomain,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useAwsWorkmailDefaultDomains = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsWorkmailDefaultDomainOutputProps>(
     AwsWorkmailDefaultDomain,
     idFilter,
     baseNode,

@@ -7,24 +7,26 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({})
+export const DataAwsUxcServicesInputSchema = TfMetaSchema.extend({})
 
-export const OutputSchema = z.object({
+export const DataAwsUxcServicesOutputSchema = z.object({
   services: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsUxcServicesInputProps =
+  & z.input<typeof DataAwsUxcServicesInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsUxcServicesOutputProps =
+  & z.output<typeof DataAwsUxcServicesOutputSchema>
+  & z.output<typeof DataAwsUxcServicesInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/uxc_services
 
-export function DataAwsUxcServices(props: Partial<InputProps>) {
+export function DataAwsUxcServices(
+  props: Partial<DataAwsUxcServicesInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -34,8 +36,8 @@ export function DataAwsUxcServices(props: Partial<InputProps>) {
       _type='aws_uxc_services'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsUxcServicesInputSchema}
+      _outputSchema={DataAwsUxcServicesOutputSchema}
       {...props}
     />
   )
@@ -46,4 +48,9 @@ export const useDataAwsUxcServicess = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsUxcServices, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsUxcServicesOutputProps>(
+    DataAwsUxcServices,
+    idFilter,
+    baseNode,
+    optional,
+  )

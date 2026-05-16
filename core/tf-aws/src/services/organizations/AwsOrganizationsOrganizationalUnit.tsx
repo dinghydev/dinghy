@@ -9,13 +9,14 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  name: resolvableValue(z.string()),
-  parent_id: resolvableValue(z.string()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+export const AwsOrganizationsOrganizationalUnitInputSchema = TfMetaSchema
+  .extend({
+    name: resolvableValue(z.string()),
+    parent_id: resolvableValue(z.string()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsOrganizationsOrganizationalUnitOutputSchema = z.object({
   accounts: z.object({
     arn: z.string(),
     email: z.string(),
@@ -28,24 +29,26 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsOrganizationsOrganizationalUnitImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsOrganizationsOrganizationalUnitInputProps =
+  & z.input<typeof AwsOrganizationsOrganizationalUnitInputSchema>
+  & z.input<typeof AwsOrganizationsOrganizationalUnitImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsOrganizationsOrganizationalUnitOutputProps =
+  & z.output<typeof AwsOrganizationsOrganizationalUnitOutputSchema>
+  & z.output<typeof AwsOrganizationsOrganizationalUnitInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/organizations_organizational_unit
 
-export function AwsOrganizationsOrganizationalUnit(props: Partial<InputProps>) {
+export function AwsOrganizationsOrganizationalUnit(
+  props: Partial<AwsOrganizationsOrganizationalUnitInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,9 +58,9 @@ export function AwsOrganizationsOrganizationalUnit(props: Partial<InputProps>) {
       _type='aws_organizations_organizational_unit'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsOrganizationsOrganizationalUnitInputSchema}
+      _outputSchema={AwsOrganizationsOrganizationalUnitOutputSchema}
+      _importSchema={AwsOrganizationsOrganizationalUnitImportSchema}
       {...props}
     />
   )
@@ -68,7 +71,7 @@ export const useAwsOrganizationsOrganizationalUnit = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsOrganizationsOrganizationalUnitOutputProps>(
     AwsOrganizationsOrganizationalUnit,
     idFilter,
     baseNode,
@@ -80,7 +83,7 @@ export const useAwsOrganizationsOrganizationalUnits = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsOrganizationsOrganizationalUnitOutputProps>(
     AwsOrganizationsOrganizationalUnit,
     idFilter,
     baseNode,

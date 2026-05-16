@@ -8,13 +8,13 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsMskBrokerNodesInputSchema = TfMetaSchema.extend({
   cluster_arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsMskBrokerNodesOutputSchema = z.object({
   node_info_list: z.object({
     attached_eni_id: z.string(),
     broker_id: z.number(),
@@ -25,18 +25,20 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsMskBrokerNodesInputProps =
+  & z.input<typeof DataAwsMskBrokerNodesInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsMskBrokerNodesOutputProps =
+  & z.output<typeof DataAwsMskBrokerNodesOutputSchema>
+  & z.output<typeof DataAwsMskBrokerNodesInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/msk_broker_nodes
 
-export function DataAwsMskBrokerNodes(props: Partial<InputProps>) {
+export function DataAwsMskBrokerNodes(
+  props: Partial<DataAwsMskBrokerNodesInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function DataAwsMskBrokerNodes(props: Partial<InputProps>) {
       _type='aws_msk_broker_nodes'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsMskBrokerNodesInputSchema}
+      _outputSchema={DataAwsMskBrokerNodesOutputSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useDataAwsMskBrokerNodess = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsMskBrokerNodesOutputProps>(
     DataAwsMskBrokerNodes,
     idFilter,
     baseNode,

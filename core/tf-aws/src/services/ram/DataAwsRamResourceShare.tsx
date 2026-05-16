@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsRamResourceShare } from './AwsRamResourceShare.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsRamResourceShareInputSchema = TfMetaSchema.extend({
   resource_owner: resolvableValue(z.string()),
   filter: resolvableValue(
     z.object({
@@ -22,7 +22,7 @@ export const InputSchema = TfMetaSchema.extend({
   resource_share_status: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsRamResourceShareOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   owning_account_id: z.string().optional(),
@@ -31,18 +31,20 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsRamResourceShareInputProps =
+  & z.input<typeof DataAwsRamResourceShareInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsRamResourceShareOutputProps =
+  & z.output<typeof DataAwsRamResourceShareOutputSchema>
+  & z.output<typeof DataAwsRamResourceShareInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ram_resource_share
 
-export function DataAwsRamResourceShare(props: Partial<InputProps>) {
+export function DataAwsRamResourceShare(
+  props: Partial<DataAwsRamResourceShareInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,8 +54,8 @@ export function DataAwsRamResourceShare(props: Partial<InputProps>) {
       _type='aws_ram_resource_share'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsRamResourceShareInputSchema}
+      _outputSchema={DataAwsRamResourceShareOutputSchema}
       {...props as any}
     />
   )
@@ -64,7 +66,7 @@ export const useDataAwsRamResourceShare = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsRamResourceShareOutputProps>(
     DataAwsRamResourceShare,
     idFilter,
     baseNode,
@@ -76,7 +78,7 @@ export const useDataAwsRamResourceShares = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsRamResourceShareOutputProps>(
     DataAwsRamResourceShare,
     idFilter,
     baseNode,

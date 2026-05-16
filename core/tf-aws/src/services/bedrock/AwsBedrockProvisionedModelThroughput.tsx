@@ -9,44 +9,45 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  model_arn: resolvableValue(z.string()),
-  model_units: resolvableValue(z.number()),
-  provisioned_model_name: resolvableValue(z.string()),
-  commitment_duration: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsBedrockProvisionedModelThroughputInputSchema = TfMetaSchema
+  .extend({
+    model_arn: resolvableValue(z.string()),
+    model_units: resolvableValue(z.number()),
+    provisioned_model_name: resolvableValue(z.string()),
+    commitment_duration: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsBedrockProvisionedModelThroughputOutputSchema = z.object({
   id: z.string().optional(),
   provisioned_model_arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsBedrockProvisionedModelThroughputImportSchema = z.object({
   provisioned_model_arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsBedrockProvisionedModelThroughputInputProps =
+  & z.input<typeof AwsBedrockProvisionedModelThroughputInputSchema>
+  & z.input<typeof AwsBedrockProvisionedModelThroughputImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBedrockProvisionedModelThroughputOutputProps =
+  & z.output<typeof AwsBedrockProvisionedModelThroughputOutputSchema>
+  & z.output<typeof AwsBedrockProvisionedModelThroughputInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/bedrock_provisioned_model_throughput
 
 export function AwsBedrockProvisionedModelThroughput(
-  props: Partial<InputProps>,
+  props: Partial<AwsBedrockProvisionedModelThroughputInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -57,9 +58,9 @@ export function AwsBedrockProvisionedModelThroughput(
       _type='aws_bedrock_provisioned_model_throughput'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsBedrockProvisionedModelThroughputInputSchema}
+      _outputSchema={AwsBedrockProvisionedModelThroughputOutputSchema}
+      _importSchema={AwsBedrockProvisionedModelThroughputImportSchema}
       {...props}
     />
   )
@@ -70,7 +71,7 @@ export const useAwsBedrockProvisionedModelThroughput = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsBedrockProvisionedModelThroughputOutputProps>(
     AwsBedrockProvisionedModelThroughput,
     idFilter,
     baseNode,
@@ -82,7 +83,7 @@ export const useAwsBedrockProvisionedModelThroughputs = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsBedrockProvisionedModelThroughputOutputProps>(
     AwsBedrockProvisionedModelThroughput,
     idFilter,
     baseNode,

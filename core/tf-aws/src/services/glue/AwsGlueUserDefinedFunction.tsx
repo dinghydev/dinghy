@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsGlueUserDefinedFunctionInputSchema = TfMetaSchema.extend({
   class_name: resolvableValue(z.string()),
   database_name: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -26,23 +26,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsGlueUserDefinedFunctionOutputSchema = z.object({
   arn: z.string().optional(),
   create_time: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsGlueUserDefinedFunctionInputProps =
+  & z.input<typeof AwsGlueUserDefinedFunctionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsGlueUserDefinedFunctionOutputProps =
+  & z.output<typeof AwsGlueUserDefinedFunctionOutputSchema>
+  & z.output<typeof AwsGlueUserDefinedFunctionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/glue_user_defined_function
 
-export function AwsGlueUserDefinedFunction(props: Partial<InputProps>) {
+export function AwsGlueUserDefinedFunction(
+  props: Partial<AwsGlueUserDefinedFunctionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,8 +54,8 @@ export function AwsGlueUserDefinedFunction(props: Partial<InputProps>) {
       _type='aws_glue_user_defined_function'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsGlueUserDefinedFunctionInputSchema}
+      _outputSchema={AwsGlueUserDefinedFunctionOutputSchema}
       {...props}
     />
   )
@@ -64,7 +66,7 @@ export const useAwsGlueUserDefinedFunction = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsGlueUserDefinedFunctionOutputProps>(
     AwsGlueUserDefinedFunction,
     idFilter,
     baseNode,
@@ -76,7 +78,7 @@ export const useAwsGlueUserDefinedFunctions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsGlueUserDefinedFunctionOutputProps>(
     AwsGlueUserDefinedFunction,
     idFilter,
     baseNode,

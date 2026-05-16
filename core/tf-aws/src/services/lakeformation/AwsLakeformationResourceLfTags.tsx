@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLakeformationResourceLfTagsInputSchema = TfMetaSchema.extend({
   lf_tag: resolvableValue(
     z.object({
       catalog_id: z.string().optional(),
@@ -51,20 +51,22 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({})
+export const AwsLakeformationResourceLfTagsOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLakeformationResourceLfTagsInputProps =
+  & z.input<typeof AwsLakeformationResourceLfTagsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLakeformationResourceLfTagsOutputProps =
+  & z.output<typeof AwsLakeformationResourceLfTagsOutputSchema>
+  & z.output<typeof AwsLakeformationResourceLfTagsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lakeformation_resource_lf_tags
 
-export function AwsLakeformationResourceLfTags(props: Partial<InputProps>) {
+export function AwsLakeformationResourceLfTags(
+  props: Partial<AwsLakeformationResourceLfTagsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -74,8 +76,8 @@ export function AwsLakeformationResourceLfTags(props: Partial<InputProps>) {
       _type='aws_lakeformation_resource_lf_tags'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLakeformationResourceLfTagsInputSchema}
+      _outputSchema={AwsLakeformationResourceLfTagsOutputSchema}
       {...props}
     />
   )
@@ -86,7 +88,7 @@ export const useAwsLakeformationResourceLfTagss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsLakeformationResourceLfTagsOutputProps>(
     AwsLakeformationResourceLfTags,
     idFilter,
     baseNode,

@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRedshiftClusterIamRolesInputSchema = TfMetaSchema.extend({
   cluster_identifier: resolvableValue(z.string()),
   default_iam_role_arn: resolvableValue(z.string().optional()),
   iam_role_arns: resolvableValue(z.string().array().optional()),
@@ -22,22 +22,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsRedshiftClusterIamRolesOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRedshiftClusterIamRolesInputProps =
+  & z.input<typeof AwsRedshiftClusterIamRolesInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRedshiftClusterIamRolesOutputProps =
+  & z.output<typeof AwsRedshiftClusterIamRolesOutputSchema>
+  & z.output<typeof AwsRedshiftClusterIamRolesInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/redshift_cluster_iam_roles
 
-export function AwsRedshiftClusterIamRoles(props: Partial<InputProps>) {
+export function AwsRedshiftClusterIamRoles(
+  props: Partial<AwsRedshiftClusterIamRolesInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +49,8 @@ export function AwsRedshiftClusterIamRoles(props: Partial<InputProps>) {
       _type='aws_redshift_cluster_iam_roles'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRedshiftClusterIamRolesInputSchema}
+      _outputSchema={AwsRedshiftClusterIamRolesOutputSchema}
       {...props}
     />
   )
@@ -59,7 +61,7 @@ export const useAwsRedshiftClusterIamRoless = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRedshiftClusterIamRolesOutputProps>(
     AwsRedshiftClusterIamRoles,
     idFilter,
     baseNode,

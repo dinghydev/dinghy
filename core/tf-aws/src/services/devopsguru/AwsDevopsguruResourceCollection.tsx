@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDevopsguruResourceCollectionInputSchema = TfMetaSchema.extend({
   type: resolvableValue(z.string()),
   cloudformation: resolvableValue(
     z.object({
@@ -25,22 +25,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDevopsguruResourceCollectionOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDevopsguruResourceCollectionInputProps =
+  & z.input<typeof AwsDevopsguruResourceCollectionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDevopsguruResourceCollectionOutputProps =
+  & z.output<typeof AwsDevopsguruResourceCollectionOutputSchema>
+  & z.output<typeof AwsDevopsguruResourceCollectionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/devopsguru_resource_collection
 
-export function AwsDevopsguruResourceCollection(props: Partial<InputProps>) {
+export function AwsDevopsguruResourceCollection(
+  props: Partial<AwsDevopsguruResourceCollectionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -50,8 +52,8 @@ export function AwsDevopsguruResourceCollection(props: Partial<InputProps>) {
       _type='aws_devopsguru_resource_collection'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDevopsguruResourceCollectionInputSchema}
+      _outputSchema={AwsDevopsguruResourceCollectionOutputSchema}
       {...props}
     />
   )
@@ -62,7 +64,7 @@ export const useAwsDevopsguruResourceCollection = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDevopsguruResourceCollectionOutputProps>(
     AwsDevopsguruResourceCollection,
     idFilter,
     baseNode,
@@ -74,7 +76,7 @@ export const useAwsDevopsguruResourceCollections = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDevopsguruResourceCollectionOutputProps>(
     AwsDevopsguruResourceCollection,
     idFilter,
     baseNode,

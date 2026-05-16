@@ -9,13 +9,13 @@ import {
 import z from 'zod'
 import { AwsSesv2ConfigurationSet } from './AwsSesv2ConfigurationSet.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsSesv2ConfigurationSetInputSchema = TfMetaSchema.extend({
   configuration_set_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsSesv2ConfigurationSetOutputSchema = z.object({
   arn: z.string().optional(),
   delivery_options: z.object({
     max_delivery_seconds: z.number(),
@@ -47,18 +47,20 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsSesv2ConfigurationSetInputProps =
+  & z.input<typeof DataAwsSesv2ConfigurationSetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsSesv2ConfigurationSetOutputProps =
+  & z.output<typeof DataAwsSesv2ConfigurationSetOutputSchema>
+  & z.output<typeof DataAwsSesv2ConfigurationSetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/sesv2_configuration_set
 
-export function DataAwsSesv2ConfigurationSet(props: Partial<InputProps>) {
+export function DataAwsSesv2ConfigurationSet(
+  props: Partial<DataAwsSesv2ConfigurationSetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -68,8 +70,8 @@ export function DataAwsSesv2ConfigurationSet(props: Partial<InputProps>) {
       _type='aws_sesv2_configuration_set'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsSesv2ConfigurationSetInputSchema}
+      _outputSchema={DataAwsSesv2ConfigurationSetOutputSchema}
       {...props as any}
     />
   )
@@ -80,7 +82,7 @@ export const useDataAwsSesv2ConfigurationSet = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsSesv2ConfigurationSetOutputProps>(
     DataAwsSesv2ConfigurationSet,
     idFilter,
     baseNode,
@@ -92,7 +94,7 @@ export const useDataAwsSesv2ConfigurationSets = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsSesv2ConfigurationSetOutputProps>(
     DataAwsSesv2ConfigurationSet,
     idFilter,
     baseNode,

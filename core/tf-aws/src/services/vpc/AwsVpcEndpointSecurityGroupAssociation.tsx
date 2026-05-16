@@ -9,30 +9,31 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  security_group_id: resolvableValue(z.string()),
-  vpc_endpoint_id: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-  replace_default_association: resolvableValue(z.boolean().optional()),
-})
+export const AwsVpcEndpointSecurityGroupAssociationInputSchema = TfMetaSchema
+  .extend({
+    security_group_id: resolvableValue(z.string()),
+    vpc_endpoint_id: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+    replace_default_association: resolvableValue(z.boolean().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsVpcEndpointSecurityGroupAssociationOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVpcEndpointSecurityGroupAssociationInputProps =
+  & z.input<typeof AwsVpcEndpointSecurityGroupAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVpcEndpointSecurityGroupAssociationOutputProps =
+  & z.output<typeof AwsVpcEndpointSecurityGroupAssociationOutputSchema>
+  & z.output<typeof AwsVpcEndpointSecurityGroupAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpc_endpoint_security_group_association
 
 export function AwsVpcEndpointSecurityGroupAssociation(
-  props: Partial<InputProps>,
+  props: Partial<AwsVpcEndpointSecurityGroupAssociationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -43,8 +44,8 @@ export function AwsVpcEndpointSecurityGroupAssociation(
       _type='aws_vpc_endpoint_security_group_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVpcEndpointSecurityGroupAssociationInputSchema}
+      _outputSchema={AwsVpcEndpointSecurityGroupAssociationOutputSchema}
       {...props}
     />
   )
@@ -55,7 +56,7 @@ export const useAwsVpcEndpointSecurityGroupAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsVpcEndpointSecurityGroupAssociationOutputProps>(
     AwsVpcEndpointSecurityGroupAssociation,
     idFilter,
     baseNode,
@@ -67,7 +68,7 @@ export const useAwsVpcEndpointSecurityGroupAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsVpcEndpointSecurityGroupAssociationOutputProps>(
     AwsVpcEndpointSecurityGroupAssociation,
     idFilter,
     baseNode,

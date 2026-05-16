@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsOdbCloudVmCluster } from './AwsOdbCloudVmCluster.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsOdbCloudVmClusterInputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsOdbCloudVmClusterOutputSchema = z.object({
   arn: z.string().optional(),
   cloud_exadata_infrastructure_arn: z.string().optional(),
   cloud_exadata_infrastructure_id: z.string().optional(),
@@ -72,18 +72,20 @@ export const OutputSchema = z.object({
   vip_ids: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsOdbCloudVmClusterInputProps =
+  & z.input<typeof DataAwsOdbCloudVmClusterInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsOdbCloudVmClusterOutputProps =
+  & z.output<typeof DataAwsOdbCloudVmClusterOutputSchema>
+  & z.output<typeof DataAwsOdbCloudVmClusterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/odb_cloud_vm_cluster
 
-export function DataAwsOdbCloudVmCluster(props: Partial<InputProps>) {
+export function DataAwsOdbCloudVmCluster(
+  props: Partial<DataAwsOdbCloudVmClusterInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -93,8 +95,8 @@ export function DataAwsOdbCloudVmCluster(props: Partial<InputProps>) {
       _type='aws_odb_cloud_vm_cluster'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsOdbCloudVmClusterInputSchema}
+      _outputSchema={DataAwsOdbCloudVmClusterOutputSchema}
       {...props as any}
     />
   )
@@ -105,7 +107,7 @@ export const useDataAwsOdbCloudVmCluster = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsOdbCloudVmClusterOutputProps>(
     DataAwsOdbCloudVmCluster,
     idFilter,
     baseNode,
@@ -117,7 +119,7 @@ export const useDataAwsOdbCloudVmClusters = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsOdbCloudVmClusterOutputProps>(
     DataAwsOdbCloudVmCluster,
     idFilter,
     baseNode,

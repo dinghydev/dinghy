@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAppautoscalingPolicyInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   resource_id: resolvableValue(z.string()),
   scalable_dimension: resolvableValue(z.string()),
@@ -155,14 +155,14 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsAppautoscalingPolicyOutputSchema = z.object({
   alarm_arns: z.string().array().optional(),
   arn: z.string().optional(),
   name: z.string().optional(),
   policy_type: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsAppautoscalingPolicyImportSchema = z.object({
   name: resolvableValue(z.string()),
   resource_id: resolvableValue(z.string()),
   scalable_dimension: resolvableValue(z.string()),
@@ -171,19 +171,21 @@ export const ImportSchema = z.object({
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsAppautoscalingPolicyInputProps =
+  & z.input<typeof AwsAppautoscalingPolicyInputSchema>
+  & z.input<typeof AwsAppautoscalingPolicyImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppautoscalingPolicyOutputProps =
+  & z.output<typeof AwsAppautoscalingPolicyOutputSchema>
+  & z.output<typeof AwsAppautoscalingPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appautoscaling_policy
 
-export function AwsAppautoscalingPolicy(props: Partial<InputProps>) {
+export function AwsAppautoscalingPolicy(
+  props: Partial<AwsAppautoscalingPolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -193,9 +195,9 @@ export function AwsAppautoscalingPolicy(props: Partial<InputProps>) {
       _type='aws_appautoscaling_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsAppautoscalingPolicyInputSchema}
+      _outputSchema={AwsAppautoscalingPolicyOutputSchema}
+      _importSchema={AwsAppautoscalingPolicyImportSchema}
       {...props}
     />
   )
@@ -206,7 +208,7 @@ export const useAwsAppautoscalingPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAppautoscalingPolicyOutputProps>(
     AwsAppautoscalingPolicy,
     idFilter,
     baseNode,
@@ -218,7 +220,7 @@ export const useAwsAppautoscalingPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAppautoscalingPolicyOutputProps>(
     AwsAppautoscalingPolicy,
     idFilter,
     baseNode,

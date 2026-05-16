@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAutoscalingNotificationInputSchema = TfMetaSchema.extend({
   group_names: resolvableValue(z.string().array()),
   notifications: resolvableValue(z.string().array()),
   topic_arn: resolvableValue(z.string()),
@@ -17,20 +17,22 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsAutoscalingNotificationOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAutoscalingNotificationInputProps =
+  & z.input<typeof AwsAutoscalingNotificationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAutoscalingNotificationOutputProps =
+  & z.output<typeof AwsAutoscalingNotificationOutputSchema>
+  & z.output<typeof AwsAutoscalingNotificationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/autoscaling_notification
 
-export function AwsAutoscalingNotification(props: Partial<InputProps>) {
+export function AwsAutoscalingNotification(
+  props: Partial<AwsAutoscalingNotificationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function AwsAutoscalingNotification(props: Partial<InputProps>) {
       _type='aws_autoscaling_notification'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAutoscalingNotificationInputSchema}
+      _outputSchema={AwsAutoscalingNotificationOutputSchema}
       {...props}
     />
   )
@@ -52,7 +54,7 @@ export const useAwsAutoscalingNotification = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAutoscalingNotificationOutputProps>(
     AwsAutoscalingNotification,
     idFilter,
     baseNode,
@@ -64,7 +66,7 @@ export const useAwsAutoscalingNotifications = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAutoscalingNotificationOutputProps>(
     AwsAutoscalingNotification,
     idFilter,
     baseNode,

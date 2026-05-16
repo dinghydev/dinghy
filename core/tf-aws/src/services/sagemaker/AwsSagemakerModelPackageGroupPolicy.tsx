@@ -9,29 +9,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  model_package_group_name: resolvableValue(z.string()),
-  resource_policy: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsSagemakerModelPackageGroupPolicyInputSchema = TfMetaSchema
+  .extend({
+    model_package_group_name: resolvableValue(z.string()),
+    resource_policy: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsSagemakerModelPackageGroupPolicyOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSagemakerModelPackageGroupPolicyInputProps =
+  & z.input<typeof AwsSagemakerModelPackageGroupPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSagemakerModelPackageGroupPolicyOutputProps =
+  & z.output<typeof AwsSagemakerModelPackageGroupPolicyOutputSchema>
+  & z.output<typeof AwsSagemakerModelPackageGroupPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sagemaker_model_package_group_policy
 
 export function AwsSagemakerModelPackageGroupPolicy(
-  props: Partial<InputProps>,
+  props: Partial<AwsSagemakerModelPackageGroupPolicyInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -42,8 +43,8 @@ export function AwsSagemakerModelPackageGroupPolicy(
       _type='aws_sagemaker_model_package_group_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSagemakerModelPackageGroupPolicyInputSchema}
+      _outputSchema={AwsSagemakerModelPackageGroupPolicyOutputSchema}
       {...props}
     />
   )
@@ -54,7 +55,7 @@ export const useAwsSagemakerModelPackageGroupPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSagemakerModelPackageGroupPolicyOutputProps>(
     AwsSagemakerModelPackageGroupPolicy,
     idFilter,
     baseNode,
@@ -66,7 +67,7 @@ export const useAwsSagemakerModelPackageGroupPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSagemakerModelPackageGroupPolicyOutputProps>(
     AwsSagemakerModelPackageGroupPolicy,
     idFilter,
     baseNode,

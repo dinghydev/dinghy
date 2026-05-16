@@ -9,31 +9,33 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsMediaStoreContainerInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsMediaStoreContainerOutputSchema = z.object({
   arn: z.string().optional(),
   endpoint: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsMediaStoreContainerInputProps =
+  & z.input<typeof AwsMediaStoreContainerInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsMediaStoreContainerOutputProps =
+  & z.output<typeof AwsMediaStoreContainerOutputSchema>
+  & z.output<typeof AwsMediaStoreContainerInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/media_store_container
 
-export function AwsMediaStoreContainer(props: Partial<InputProps>) {
+export function AwsMediaStoreContainer(
+  props: Partial<AwsMediaStoreContainerInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function AwsMediaStoreContainer(props: Partial<InputProps>) {
       _type='aws_media_store_container'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsMediaStoreContainerInputSchema}
+      _outputSchema={AwsMediaStoreContainerOutputSchema}
       {...props}
     />
   )
@@ -55,7 +57,7 @@ export const useAwsMediaStoreContainer = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsMediaStoreContainerOutputProps>(
     AwsMediaStoreContainer,
     idFilter,
     baseNode,
@@ -67,7 +69,7 @@ export const useAwsMediaStoreContainers = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsMediaStoreContainerOutputProps>(
     AwsMediaStoreContainer,
     idFilter,
     baseNode,

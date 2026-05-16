@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsWorkspacesWorkspaceInputSchema = TfMetaSchema.extend({
   bundle_id: resolvableValue(z.string()),
   directory_id: resolvableValue(z.string()),
   user_name: resolvableValue(z.string()),
@@ -36,7 +36,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsWorkspacesWorkspaceOutputSchema = z.object({
   computer_name: z.string().optional(),
   id: z.string().optional(),
   ip_address: z.string().optional(),
@@ -44,18 +44,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsWorkspacesWorkspaceInputProps =
+  & z.input<typeof AwsWorkspacesWorkspaceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWorkspacesWorkspaceOutputProps =
+  & z.output<typeof AwsWorkspacesWorkspaceOutputSchema>
+  & z.output<typeof AwsWorkspacesWorkspaceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workspaces_workspace
 
-export function AwsWorkspacesWorkspace(props: Partial<InputProps>) {
+export function AwsWorkspacesWorkspace(
+  props: Partial<AwsWorkspacesWorkspaceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -65,8 +67,8 @@ export function AwsWorkspacesWorkspace(props: Partial<InputProps>) {
       _type='aws_workspaces_workspace'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsWorkspacesWorkspaceInputSchema}
+      _outputSchema={AwsWorkspacesWorkspaceOutputSchema}
       {...props}
     />
   )
@@ -77,7 +79,7 @@ export const useAwsWorkspacesWorkspace = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsWorkspacesWorkspaceOutputProps>(
     AwsWorkspacesWorkspace,
     idFilter,
     baseNode,
@@ -89,7 +91,7 @@ export const useAwsWorkspacesWorkspaces = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsWorkspacesWorkspaceOutputProps>(
     AwsWorkspacesWorkspace,
     idFilter,
     baseNode,

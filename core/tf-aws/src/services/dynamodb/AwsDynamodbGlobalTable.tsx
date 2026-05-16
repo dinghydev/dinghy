@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDynamodbGlobalTableInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   replica: resolvableValue(
     z.object({
@@ -26,23 +26,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDynamodbGlobalTableOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDynamodbGlobalTableInputProps =
+  & z.input<typeof AwsDynamodbGlobalTableInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDynamodbGlobalTableOutputProps =
+  & z.output<typeof AwsDynamodbGlobalTableOutputSchema>
+  & z.output<typeof AwsDynamodbGlobalTableInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dynamodb_global_table
 
-export function AwsDynamodbGlobalTable(props: Partial<InputProps>) {
+export function AwsDynamodbGlobalTable(
+  props: Partial<AwsDynamodbGlobalTableInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,8 +54,8 @@ export function AwsDynamodbGlobalTable(props: Partial<InputProps>) {
       _type='aws_dynamodb_global_table'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDynamodbGlobalTableInputSchema}
+      _outputSchema={AwsDynamodbGlobalTableOutputSchema}
       {...props}
     />
   )
@@ -64,7 +66,7 @@ export const useAwsDynamodbGlobalTable = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDynamodbGlobalTableOutputProps>(
     AwsDynamodbGlobalTable,
     idFilter,
     baseNode,
@@ -76,7 +78,7 @@ export const useAwsDynamodbGlobalTables = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDynamodbGlobalTableOutputProps>(
     AwsDynamodbGlobalTable,
     idFilter,
     baseNode,

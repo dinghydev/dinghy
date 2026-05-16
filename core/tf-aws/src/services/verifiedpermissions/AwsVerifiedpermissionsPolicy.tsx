@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsVerifiedpermissionsPolicyInputSchema = TfMetaSchema.extend({
   policy_store_id: resolvableValue(z.string()),
   definition: resolvableValue(
     z.object({
@@ -33,24 +33,26 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsVerifiedpermissionsPolicyOutputSchema = z.object({
   created_date: z.string().optional(),
   id: z.string().optional(),
   policy_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVerifiedpermissionsPolicyInputProps =
+  & z.input<typeof AwsVerifiedpermissionsPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVerifiedpermissionsPolicyOutputProps =
+  & z.output<typeof AwsVerifiedpermissionsPolicyOutputSchema>
+  & z.output<typeof AwsVerifiedpermissionsPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/verifiedpermissions_policy
 
-export function AwsVerifiedpermissionsPolicy(props: Partial<InputProps>) {
+export function AwsVerifiedpermissionsPolicy(
+  props: Partial<AwsVerifiedpermissionsPolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -60,8 +62,8 @@ export function AwsVerifiedpermissionsPolicy(props: Partial<InputProps>) {
       _type='aws_verifiedpermissions_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVerifiedpermissionsPolicyInputSchema}
+      _outputSchema={AwsVerifiedpermissionsPolicyOutputSchema}
       {...props}
     />
   )
@@ -72,7 +74,7 @@ export const useAwsVerifiedpermissionsPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsVerifiedpermissionsPolicyOutputProps>(
     AwsVerifiedpermissionsPolicy,
     idFilter,
     baseNode,
@@ -84,7 +86,7 @@ export const useAwsVerifiedpermissionsPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsVerifiedpermissionsPolicyOutputProps>(
     AwsVerifiedpermissionsPolicy,
     idFilter,
     baseNode,

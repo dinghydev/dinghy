@@ -9,28 +9,29 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  cluster_identifier: resolvableValue(z.string()),
-  schedule_identifier: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsRedshiftSnapshotScheduleAssociationInputSchema = TfMetaSchema
+  .extend({
+    cluster_identifier: resolvableValue(z.string()),
+    schedule_identifier: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({})
+export const AwsRedshiftSnapshotScheduleAssociationOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRedshiftSnapshotScheduleAssociationInputProps =
+  & z.input<typeof AwsRedshiftSnapshotScheduleAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRedshiftSnapshotScheduleAssociationOutputProps =
+  & z.output<typeof AwsRedshiftSnapshotScheduleAssociationOutputSchema>
+  & z.output<typeof AwsRedshiftSnapshotScheduleAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/redshift_snapshot_schedule_association
 
 export function AwsRedshiftSnapshotScheduleAssociation(
-  props: Partial<InputProps>,
+  props: Partial<AwsRedshiftSnapshotScheduleAssociationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -41,8 +42,8 @@ export function AwsRedshiftSnapshotScheduleAssociation(
       _type='aws_redshift_snapshot_schedule_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRedshiftSnapshotScheduleAssociationInputSchema}
+      _outputSchema={AwsRedshiftSnapshotScheduleAssociationOutputSchema}
       {...props}
     />
   )
@@ -53,7 +54,7 @@ export const useAwsRedshiftSnapshotScheduleAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRedshiftSnapshotScheduleAssociationOutputProps>(
     AwsRedshiftSnapshotScheduleAssociation,
     idFilter,
     baseNode,
@@ -65,7 +66,7 @@ export const useAwsRedshiftSnapshotScheduleAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRedshiftSnapshotScheduleAssociationOutputProps>(
     AwsRedshiftSnapshotScheduleAssociation,
     idFilter,
     baseNode,

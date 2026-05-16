@@ -8,32 +8,33 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  enabled: resolvableValue(z.boolean()),
-  timeouts: resolvableValue(
-    z.object({
-      read: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsServicecatalogOrganizationsAccessInputSchema = TfMetaSchema
+  .extend({
+    enabled: resolvableValue(z.boolean()),
+    timeouts: resolvableValue(
+      z.object({
+        read: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsServicecatalogOrganizationsAccessOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsServicecatalogOrganizationsAccessInputProps =
+  & z.input<typeof AwsServicecatalogOrganizationsAccessInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsServicecatalogOrganizationsAccessOutputProps =
+  & z.output<typeof AwsServicecatalogOrganizationsAccessOutputSchema>
+  & z.output<typeof AwsServicecatalogOrganizationsAccessInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/servicecatalog_organizations_access
 
 export function AwsServicecatalogOrganizationsAccess(
-  props: Partial<InputProps>,
+  props: Partial<AwsServicecatalogOrganizationsAccessInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -44,8 +45,8 @@ export function AwsServicecatalogOrganizationsAccess(
       _type='aws_servicecatalog_organizations_access'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsServicecatalogOrganizationsAccessInputSchema}
+      _outputSchema={AwsServicecatalogOrganizationsAccessOutputSchema}
       {...props}
     />
   )
@@ -56,7 +57,7 @@ export const useAwsServicecatalogOrganizationsAccesss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsServicecatalogOrganizationsAccessOutputProps>(
     AwsServicecatalogOrganizationsAccess,
     idFilter,
     baseNode,

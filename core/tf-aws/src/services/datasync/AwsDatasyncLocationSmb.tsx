@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDatasyncLocationSmbInputSchema = TfMetaSchema.extend({
   agent_arns: resolvableValue(z.string().array()),
   password: resolvableValue(z.string()),
   server_hostname: resolvableValue(z.string()),
@@ -26,29 +26,31 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDatasyncLocationSmbOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   uri: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsDatasyncLocationSmbImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsDatasyncLocationSmbInputProps =
+  & z.input<typeof AwsDatasyncLocationSmbInputSchema>
+  & z.input<typeof AwsDatasyncLocationSmbImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDatasyncLocationSmbOutputProps =
+  & z.output<typeof AwsDatasyncLocationSmbOutputSchema>
+  & z.output<typeof AwsDatasyncLocationSmbInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/datasync_location_smb
 
-export function AwsDatasyncLocationSmb(props: Partial<InputProps>) {
+export function AwsDatasyncLocationSmb(
+  props: Partial<AwsDatasyncLocationSmbInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -58,9 +60,9 @@ export function AwsDatasyncLocationSmb(props: Partial<InputProps>) {
       _type='aws_datasync_location_smb'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsDatasyncLocationSmbInputSchema}
+      _outputSchema={AwsDatasyncLocationSmbOutputSchema}
+      _importSchema={AwsDatasyncLocationSmbImportSchema}
       {...props}
     />
   )
@@ -71,7 +73,7 @@ export const useAwsDatasyncLocationSmb = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDatasyncLocationSmbOutputProps>(
     AwsDatasyncLocationSmb,
     idFilter,
     baseNode,
@@ -83,7 +85,7 @@ export const useAwsDatasyncLocationSmbs = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDatasyncLocationSmbOutputProps>(
     AwsDatasyncLocationSmb,
     idFilter,
     baseNode,

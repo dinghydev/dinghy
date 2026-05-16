@@ -9,28 +9,32 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  access_policy: resolvableValue(z.string()),
-  destination_name: resolvableValue(z.string()),
-  force_update: resolvableValue(z.boolean().optional()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsCloudwatchLogDestinationPolicyInputSchema = TfMetaSchema.extend(
+  {
+    access_policy: resolvableValue(z.string()),
+    destination_name: resolvableValue(z.string()),
+    force_update: resolvableValue(z.boolean().optional()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  },
+)
 
-export const OutputSchema = z.object({})
+export const AwsCloudwatchLogDestinationPolicyOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudwatchLogDestinationPolicyInputProps =
+  & z.input<typeof AwsCloudwatchLogDestinationPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudwatchLogDestinationPolicyOutputProps =
+  & z.output<typeof AwsCloudwatchLogDestinationPolicyOutputSchema>
+  & z.output<typeof AwsCloudwatchLogDestinationPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudwatch_log_destination_policy
 
-export function AwsCloudwatchLogDestinationPolicy(props: Partial<InputProps>) {
+export function AwsCloudwatchLogDestinationPolicy(
+  props: Partial<AwsCloudwatchLogDestinationPolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +44,8 @@ export function AwsCloudwatchLogDestinationPolicy(props: Partial<InputProps>) {
       _type='aws_cloudwatch_log_destination_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudwatchLogDestinationPolicyInputSchema}
+      _outputSchema={AwsCloudwatchLogDestinationPolicyOutputSchema}
       {...props}
     />
   )
@@ -52,7 +56,7 @@ export const useAwsCloudwatchLogDestinationPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudwatchLogDestinationPolicyOutputProps>(
     AwsCloudwatchLogDestinationPolicy,
     idFilter,
     baseNode,
@@ -64,7 +68,7 @@ export const useAwsCloudwatchLogDestinationPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudwatchLogDestinationPolicyOutputProps>(
     AwsCloudwatchLogDestinationPolicy,
     idFilter,
     baseNode,

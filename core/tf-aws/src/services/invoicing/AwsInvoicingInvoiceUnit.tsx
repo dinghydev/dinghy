@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsInvoicingInvoiceUnitInputSchema = TfMetaSchema.extend({
   invoice_receiver: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
@@ -30,29 +30,31 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsInvoicingInvoiceUnitOutputSchema = z.object({
   arn: z.string().optional(),
   last_modified: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsInvoicingInvoiceUnitImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsInvoicingInvoiceUnitInputProps =
+  & z.input<typeof AwsInvoicingInvoiceUnitInputSchema>
+  & z.input<typeof AwsInvoicingInvoiceUnitImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsInvoicingInvoiceUnitOutputProps =
+  & z.output<typeof AwsInvoicingInvoiceUnitOutputSchema>
+  & z.output<typeof AwsInvoicingInvoiceUnitInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/invoicing_invoice_unit
 
-export function AwsInvoicingInvoiceUnit(props: Partial<InputProps>) {
+export function AwsInvoicingInvoiceUnit(
+  props: Partial<AwsInvoicingInvoiceUnitInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -62,9 +64,9 @@ export function AwsInvoicingInvoiceUnit(props: Partial<InputProps>) {
       _type='aws_invoicing_invoice_unit'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsInvoicingInvoiceUnitInputSchema}
+      _outputSchema={AwsInvoicingInvoiceUnitOutputSchema}
+      _importSchema={AwsInvoicingInvoiceUnitImportSchema}
       {...props}
     />
   )
@@ -75,7 +77,7 @@ export const useAwsInvoicingInvoiceUnit = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsInvoicingInvoiceUnitOutputProps>(
     AwsInvoicingInvoiceUnit,
     idFilter,
     baseNode,
@@ -87,7 +89,7 @@ export const useAwsInvoicingInvoiceUnits = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsInvoicingInvoiceUnitOutputProps>(
     AwsInvoicingInvoiceUnit,
     idFilter,
     baseNode,

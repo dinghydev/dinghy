@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsSavingsplansOfferingsInputSchema = TfMetaSchema.extend({
   currencies: resolvableValue(z.string().array().optional()),
   descriptions: resolvableValue(z.string().array().optional()),
   durations: resolvableValue(z.number().array().optional()),
@@ -27,7 +27,7 @@ export const InputSchema = TfMetaSchema.extend({
   usage_types: resolvableValue(z.string().array().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsSavingsplansOfferingsOutputSchema = z.object({
   offerings: z.object({
     currency: z.string(),
     description: z.string(),
@@ -46,18 +46,20 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsSavingsplansOfferingsInputProps =
+  & z.input<typeof DataAwsSavingsplansOfferingsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsSavingsplansOfferingsOutputProps =
+  & z.output<typeof DataAwsSavingsplansOfferingsOutputSchema>
+  & z.output<typeof DataAwsSavingsplansOfferingsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/savingsplans_offerings
 
-export function DataAwsSavingsplansOfferings(props: Partial<InputProps>) {
+export function DataAwsSavingsplansOfferings(
+  props: Partial<DataAwsSavingsplansOfferingsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -67,8 +69,8 @@ export function DataAwsSavingsplansOfferings(props: Partial<InputProps>) {
       _type='aws_savingsplans_offerings'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsSavingsplansOfferingsInputSchema}
+      _outputSchema={DataAwsSavingsplansOfferingsOutputSchema}
       {...props}
     />
   )
@@ -79,7 +81,7 @@ export const useDataAwsSavingsplansOfferingss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsSavingsplansOfferingsOutputProps>(
     DataAwsSavingsplansOfferings,
     idFilter,
     baseNode,

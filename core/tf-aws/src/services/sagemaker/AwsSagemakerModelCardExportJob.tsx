@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSagemakerModelCardExportJobInputSchema = TfMetaSchema.extend({
   model_card_export_job_name: resolvableValue(z.string()),
   model_card_name: resolvableValue(z.string()),
   model_card_version: resolvableValue(z.number().optional()),
@@ -26,25 +26,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsSagemakerModelCardExportJobOutputSchema = z.object({
   export_artifacts: z.object({
     s3_export_artifacts: z.string(),
   }).array().optional(),
   model_card_export_job_arn: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSagemakerModelCardExportJobInputProps =
+  & z.input<typeof AwsSagemakerModelCardExportJobInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSagemakerModelCardExportJobOutputProps =
+  & z.output<typeof AwsSagemakerModelCardExportJobOutputSchema>
+  & z.output<typeof AwsSagemakerModelCardExportJobInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sagemaker_model_card_export_job
 
-export function AwsSagemakerModelCardExportJob(props: Partial<InputProps>) {
+export function AwsSagemakerModelCardExportJob(
+  props: Partial<AwsSagemakerModelCardExportJobInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -54,8 +56,8 @@ export function AwsSagemakerModelCardExportJob(props: Partial<InputProps>) {
       _type='aws_sagemaker_model_card_export_job'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSagemakerModelCardExportJobInputSchema}
+      _outputSchema={AwsSagemakerModelCardExportJobOutputSchema}
       {...props}
     />
   )
@@ -66,7 +68,7 @@ export const useAwsSagemakerModelCardExportJob = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSagemakerModelCardExportJobOutputProps>(
     AwsSagemakerModelCardExportJob,
     idFilter,
     baseNode,
@@ -78,7 +80,7 @@ export const useAwsSagemakerModelCardExportJobs = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSagemakerModelCardExportJobOutputProps>(
     AwsSagemakerModelCardExportJob,
     idFilter,
     baseNode,

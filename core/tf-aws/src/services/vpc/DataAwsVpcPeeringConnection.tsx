@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsVpcPeeringConnection } from './AwsVpcPeeringConnection.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsVpcPeeringConnectionInputSchema = TfMetaSchema.extend({
   cidr_block: resolvableValue(z.string().optional()),
   filter: resolvableValue(
     z.object({
@@ -32,7 +32,7 @@ export const InputSchema = TfMetaSchema.extend({
   vpc_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsVpcPeeringConnectionOutputSchema = z.object({
   accepter: z.record(z.string(), z.boolean()).optional(),
   cidr_block_set: z.object({
     cidr_block: z.string(),
@@ -52,18 +52,20 @@ export const OutputSchema = z.object({
   requester_region: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsVpcPeeringConnectionInputProps =
+  & z.input<typeof DataAwsVpcPeeringConnectionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsVpcPeeringConnectionOutputProps =
+  & z.output<typeof DataAwsVpcPeeringConnectionOutputSchema>
+  & z.output<typeof DataAwsVpcPeeringConnectionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/vpc_peering_connection
 
-export function DataAwsVpcPeeringConnection(props: Partial<InputProps>) {
+export function DataAwsVpcPeeringConnection(
+  props: Partial<DataAwsVpcPeeringConnectionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -73,8 +75,8 @@ export function DataAwsVpcPeeringConnection(props: Partial<InputProps>) {
       _type='aws_vpc_peering_connection'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsVpcPeeringConnectionInputSchema}
+      _outputSchema={DataAwsVpcPeeringConnectionOutputSchema}
       {...props as any}
     />
   )
@@ -85,7 +87,7 @@ export const useDataAwsVpcPeeringConnection = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsVpcPeeringConnectionOutputProps>(
     DataAwsVpcPeeringConnection,
     idFilter,
     baseNode,
@@ -97,7 +99,7 @@ export const useDataAwsVpcPeeringConnections = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsVpcPeeringConnectionOutputProps>(
     DataAwsVpcPeeringConnection,
     idFilter,
     baseNode,

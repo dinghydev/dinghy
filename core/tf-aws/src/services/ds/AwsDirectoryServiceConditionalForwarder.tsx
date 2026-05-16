@@ -9,29 +9,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  directory_id: resolvableValue(z.string()),
-  dns_ips: resolvableValue(z.string().array()),
-  remote_domain_name: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsDirectoryServiceConditionalForwarderInputSchema = TfMetaSchema
+  .extend({
+    directory_id: resolvableValue(z.string()),
+    dns_ips: resolvableValue(z.string().array()),
+    remote_domain_name: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({})
+export const AwsDirectoryServiceConditionalForwarderOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDirectoryServiceConditionalForwarderInputProps =
+  & z.input<typeof AwsDirectoryServiceConditionalForwarderInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDirectoryServiceConditionalForwarderOutputProps =
+  & z.output<typeof AwsDirectoryServiceConditionalForwarderOutputSchema>
+  & z.output<typeof AwsDirectoryServiceConditionalForwarderInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/directory_service_conditional_forwarder
 
 export function AwsDirectoryServiceConditionalForwarder(
-  props: Partial<InputProps>,
+  props: Partial<AwsDirectoryServiceConditionalForwarderInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -42,8 +43,8 @@ export function AwsDirectoryServiceConditionalForwarder(
       _type='aws_directory_service_conditional_forwarder'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDirectoryServiceConditionalForwarderInputSchema}
+      _outputSchema={AwsDirectoryServiceConditionalForwarderOutputSchema}
       {...props}
     />
   )
@@ -54,7 +55,7 @@ export const useAwsDirectoryServiceConditionalForwarder = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDirectoryServiceConditionalForwarderOutputProps>(
     AwsDirectoryServiceConditionalForwarder,
     idFilter,
     baseNode,
@@ -66,7 +67,7 @@ export const useAwsDirectoryServiceConditionalForwarders = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDirectoryServiceConditionalForwarderOutputProps>(
     AwsDirectoryServiceConditionalForwarder,
     idFilter,
     baseNode,

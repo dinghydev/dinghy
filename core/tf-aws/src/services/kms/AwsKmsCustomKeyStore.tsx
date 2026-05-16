@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsKmsCustomKeyStoreInputSchema = TfMetaSchema.extend({
   custom_key_store_name: resolvableValue(z.string()),
   cloud_hsm_cluster_id: resolvableValue(z.string().optional()),
   custom_key_store_type: resolvableValue(z.string().optional()),
@@ -35,22 +35,24 @@ export const InputSchema = TfMetaSchema.extend({
   xks_proxy_vpc_endpoint_service_name: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsKmsCustomKeyStoreOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsKmsCustomKeyStoreInputProps =
+  & z.input<typeof AwsKmsCustomKeyStoreInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsKmsCustomKeyStoreOutputProps =
+  & z.output<typeof AwsKmsCustomKeyStoreOutputSchema>
+  & z.output<typeof AwsKmsCustomKeyStoreInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/kms_custom_key_store
 
-export function AwsKmsCustomKeyStore(props: Partial<InputProps>) {
+export function AwsKmsCustomKeyStore(
+  props: Partial<AwsKmsCustomKeyStoreInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -60,8 +62,8 @@ export function AwsKmsCustomKeyStore(props: Partial<InputProps>) {
       _type='aws_kms_custom_key_store'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsKmsCustomKeyStoreInputSchema}
+      _outputSchema={AwsKmsCustomKeyStoreOutputSchema}
       {...props}
     />
   )
@@ -72,11 +74,21 @@ export const useAwsKmsCustomKeyStore = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsKmsCustomKeyStore, idFilter, baseNode, optional)
+  useTypedNode<AwsKmsCustomKeyStoreOutputProps>(
+    AwsKmsCustomKeyStore,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsKmsCustomKeyStores = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsKmsCustomKeyStore, idFilter, baseNode, optional)
+  useTypedNodes<AwsKmsCustomKeyStoreOutputProps>(
+    AwsKmsCustomKeyStore,
+    idFilter,
+    baseNode,
+    optional,
+  )

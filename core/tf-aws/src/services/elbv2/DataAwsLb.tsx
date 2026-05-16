@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsLb } from './AwsLb.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsLbInputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
@@ -22,7 +22,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsLbOutputSchema = z.object({
   access_logs: z.object({
     bucket: z.string(),
     enabled: z.boolean(),
@@ -77,18 +77,18 @@ export const OutputSchema = z.object({
   zone_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsLbInputProps =
+  & z.input<typeof DataAwsLbInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsLbOutputProps =
+  & z.output<typeof DataAwsLbOutputSchema>
+  & z.output<typeof DataAwsLbInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/lb
 
-export function DataAwsLb(props: Partial<InputProps>) {
+export function DataAwsLb(props: Partial<DataAwsLbInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -98,8 +98,8 @@ export function DataAwsLb(props: Partial<InputProps>) {
       _type='aws_lb'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsLbInputSchema}
+      _outputSchema={DataAwsLbOutputSchema}
       {...props as any}
     />
   )
@@ -109,10 +109,11 @@ export const useDataAwsLb = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsLb, idFilter, baseNode, optional)
+) => useTypedNode<DataAwsLbOutputProps>(DataAwsLb, idFilter, baseNode, optional)
 
 export const useDataAwsLbs = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsLb, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsLbOutputProps>(DataAwsLb, idFilter, baseNode, optional)

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDynamodbTableItemInputSchema = TfMetaSchema.extend({
   hash_key: resolvableValue(z.string()),
   item: resolvableValue(z.string()),
   table_name: resolvableValue(z.string()),
@@ -18,20 +18,22 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsDynamodbTableItemOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDynamodbTableItemInputProps =
+  & z.input<typeof AwsDynamodbTableItemInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDynamodbTableItemOutputProps =
+  & z.output<typeof AwsDynamodbTableItemOutputSchema>
+  & z.output<typeof AwsDynamodbTableItemInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dynamodb_table_item
 
-export function AwsDynamodbTableItem(props: Partial<InputProps>) {
+export function AwsDynamodbTableItem(
+  props: Partial<AwsDynamodbTableItemInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -41,8 +43,8 @@ export function AwsDynamodbTableItem(props: Partial<InputProps>) {
       _type='aws_dynamodb_table_item'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDynamodbTableItemInputSchema}
+      _outputSchema={AwsDynamodbTableItemOutputSchema}
       {...props}
     />
   )
@@ -53,11 +55,21 @@ export const useAwsDynamodbTableItem = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsDynamodbTableItem, idFilter, baseNode, optional)
+  useTypedNode<AwsDynamodbTableItemOutputProps>(
+    AwsDynamodbTableItem,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDynamodbTableItems = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsDynamodbTableItem, idFilter, baseNode, optional)
+  useTypedNodes<AwsDynamodbTableItemOutputProps>(
+    AwsDynamodbTableItem,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsKeyspacesTableInputSchema = TfMetaSchema.extend({
   keyspace_name: resolvableValue(z.string()),
   schema_definition: resolvableValue(z.object({
     clustering_key: z.object({
@@ -74,23 +74,23 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsKeyspacesTableOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsKeyspacesTableInputProps =
+  & z.input<typeof AwsKeyspacesTableInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsKeyspacesTableOutputProps =
+  & z.output<typeof AwsKeyspacesTableOutputSchema>
+  & z.output<typeof AwsKeyspacesTableInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/keyspaces_table
 
-export function AwsKeyspacesTable(props: Partial<InputProps>) {
+export function AwsKeyspacesTable(props: Partial<AwsKeyspacesTableInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -100,8 +100,8 @@ export function AwsKeyspacesTable(props: Partial<InputProps>) {
       _type='aws_keyspaces_table'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsKeyspacesTableInputSchema}
+      _outputSchema={AwsKeyspacesTableOutputSchema}
       {...props}
     />
   )
@@ -111,10 +111,22 @@ export const useAwsKeyspacesTable = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsKeyspacesTable, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsKeyspacesTableOutputProps>(
+    AwsKeyspacesTable,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsKeyspacesTables = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsKeyspacesTable, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsKeyspacesTableOutputProps>(
+    AwsKeyspacesTable,
+    idFilter,
+    baseNode,
+    optional,
+  )

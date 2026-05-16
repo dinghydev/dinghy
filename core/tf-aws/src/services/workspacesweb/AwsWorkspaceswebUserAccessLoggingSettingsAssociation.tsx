@@ -9,27 +9,37 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  portal_arn: resolvableValue(z.string()),
-  user_access_logging_settings_arn: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsWorkspaceswebUserAccessLoggingSettingsAssociationInputSchema =
+  TfMetaSchema.extend({
+    portal_arn: resolvableValue(z.string()),
+    user_access_logging_settings_arn: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({})
+export const AwsWorkspaceswebUserAccessLoggingSettingsAssociationOutputSchema =
+  z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsWorkspaceswebUserAccessLoggingSettingsAssociationInputProps =
+  & z.input<
+    typeof AwsWorkspaceswebUserAccessLoggingSettingsAssociationInputSchema
+  >
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWorkspaceswebUserAccessLoggingSettingsAssociationOutputProps =
+  & z.output<
+    typeof AwsWorkspaceswebUserAccessLoggingSettingsAssociationOutputSchema
+  >
+  & z.output<
+    typeof AwsWorkspaceswebUserAccessLoggingSettingsAssociationInputSchema
+  >
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workspacesweb_user_access_logging_settings_association
 
 export function AwsWorkspaceswebUserAccessLoggingSettingsAssociation(
-  props: Partial<InputProps>,
+  props: Partial<
+    AwsWorkspaceswebUserAccessLoggingSettingsAssociationInputProps
+  >,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -40,8 +50,8 @@ export function AwsWorkspaceswebUserAccessLoggingSettingsAssociation(
       _type='aws_workspacesweb_user_access_logging_settings_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsWorkspaceswebUserAccessLoggingSettingsAssociationInputSchema}
+      _outputSchema={AwsWorkspaceswebUserAccessLoggingSettingsAssociationOutputSchema}
       {...props}
     />
   )
@@ -52,7 +62,7 @@ export const useAwsWorkspaceswebUserAccessLoggingSettingsAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsWorkspaceswebUserAccessLoggingSettingsAssociationOutputProps>(
     AwsWorkspaceswebUserAccessLoggingSettingsAssociation,
     idFilter,
     baseNode,
@@ -64,7 +74,9 @@ export const useAwsWorkspaceswebUserAccessLoggingSettingsAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<
+    AwsWorkspaceswebUserAccessLoggingSettingsAssociationOutputProps
+  >(
     AwsWorkspaceswebUserAccessLoggingSettingsAssociation,
     idFilter,
     baseNode,

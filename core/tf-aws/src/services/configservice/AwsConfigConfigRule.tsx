@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsConfigConfigRuleInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   source: resolvableValue(z.object({
     owner: z.string(),
@@ -46,31 +46,33 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsConfigConfigRuleOutputSchema = z.object({
   arn: z.string().optional(),
   rule_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsConfigConfigRuleImportSchema = z.object({
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsConfigConfigRuleInputProps =
+  & z.input<typeof AwsConfigConfigRuleInputSchema>
+  & z.input<typeof AwsConfigConfigRuleImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsConfigConfigRuleOutputProps =
+  & z.output<typeof AwsConfigConfigRuleOutputSchema>
+  & z.output<typeof AwsConfigConfigRuleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/config_config_rule
 
-export function AwsConfigConfigRule(props: Partial<InputProps>) {
+export function AwsConfigConfigRule(
+  props: Partial<AwsConfigConfigRuleInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -80,9 +82,9 @@ export function AwsConfigConfigRule(props: Partial<InputProps>) {
       _type='aws_config_config_rule'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsConfigConfigRuleInputSchema}
+      _outputSchema={AwsConfigConfigRuleOutputSchema}
+      _importSchema={AwsConfigConfigRuleImportSchema}
       {...props}
     />
   )
@@ -93,11 +95,21 @@ export const useAwsConfigConfigRule = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsConfigConfigRule, idFilter, baseNode, optional)
+  useTypedNode<AwsConfigConfigRuleOutputProps>(
+    AwsConfigConfigRule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsConfigConfigRules = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsConfigConfigRule, idFilter, baseNode, optional)
+  useTypedNodes<AwsConfigConfigRuleOutputProps>(
+    AwsConfigConfigRule,
+    idFilter,
+    baseNode,
+    optional,
+  )

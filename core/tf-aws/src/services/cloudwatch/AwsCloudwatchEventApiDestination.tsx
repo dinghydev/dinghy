@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudwatchEventApiDestinationInputSchema = TfMetaSchema.extend({
   connection_arn: resolvableValue(z.string()),
   http_method: resolvableValue(z.string()),
   invocation_endpoint: resolvableValue(z.string()),
@@ -20,22 +20,24 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudwatchEventApiDestinationOutputSchema = z.object({
   arn: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudwatchEventApiDestinationInputProps =
+  & z.input<typeof AwsCloudwatchEventApiDestinationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudwatchEventApiDestinationOutputProps =
+  & z.output<typeof AwsCloudwatchEventApiDestinationOutputSchema>
+  & z.output<typeof AwsCloudwatchEventApiDestinationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudwatch_event_api_destination
 
-export function AwsCloudwatchEventApiDestination(props: Partial<InputProps>) {
+export function AwsCloudwatchEventApiDestination(
+  props: Partial<AwsCloudwatchEventApiDestinationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,8 +47,8 @@ export function AwsCloudwatchEventApiDestination(props: Partial<InputProps>) {
       _type='aws_cloudwatch_event_api_destination'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudwatchEventApiDestinationInputSchema}
+      _outputSchema={AwsCloudwatchEventApiDestinationOutputSchema}
       {...props}
     />
   )
@@ -57,7 +59,7 @@ export const useAwsCloudwatchEventApiDestination = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudwatchEventApiDestinationOutputProps>(
     AwsCloudwatchEventApiDestination,
     idFilter,
     baseNode,
@@ -69,7 +71,7 @@ export const useAwsCloudwatchEventApiDestinations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudwatchEventApiDestinationOutputProps>(
     AwsCloudwatchEventApiDestination,
     idFilter,
     baseNode,

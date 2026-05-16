@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLexv2modelsBotInputSchema = TfMetaSchema.extend({
   idle_session_ttl_in_seconds: resolvableValue(z.number()),
   name: resolvableValue(z.string()),
   role_arn: resolvableValue(z.string()),
@@ -43,24 +43,24 @@ export const InputSchema = TfMetaSchema.extend({
   type: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsLexv2modelsBotOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLexv2modelsBotInputProps =
+  & z.input<typeof AwsLexv2modelsBotInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLexv2modelsBotOutputProps =
+  & z.output<typeof AwsLexv2modelsBotOutputSchema>
+  & z.output<typeof AwsLexv2modelsBotInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lexv2models_bot
 
-export function AwsLexv2modelsBot(props: Partial<InputProps>) {
+export function AwsLexv2modelsBot(props: Partial<AwsLexv2modelsBotInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -70,8 +70,8 @@ export function AwsLexv2modelsBot(props: Partial<InputProps>) {
       _type='aws_lexv2models_bot'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLexv2modelsBotInputSchema}
+      _outputSchema={AwsLexv2modelsBotOutputSchema}
       {...props}
     />
   )
@@ -81,10 +81,22 @@ export const useAwsLexv2modelsBot = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsLexv2modelsBot, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsLexv2modelsBotOutputProps>(
+    AwsLexv2modelsBot,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLexv2modelsBots = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsLexv2modelsBot, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsLexv2modelsBotOutputProps>(
+    AwsLexv2modelsBot,
+    idFilter,
+    baseNode,
+    optional,
+  )

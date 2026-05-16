@@ -9,164 +9,165 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  comment: resolvableValue(z.string()),
-  enabled: resolvableValue(z.boolean()),
-  cache_behavior: resolvableValue(
-    z.object({
-      cache_policy_id: z.string().optional(),
-      compress: z.boolean().optional(),
-      field_level_encryption_id: z.string().optional(),
-      origin_request_policy_id: z.string().optional(),
-      path_pattern: z.string(),
-      realtime_log_config_arn: z.string().optional(),
-      response_headers_policy_id: z.string().optional(),
-      target_origin_id: z.string(),
-      viewer_protocol_policy: z.string(),
-      allowed_methods: z.object({
-        cached_methods: z.string().array(),
-        items: z.string().array(),
+export const AwsCloudfrontMultitenantDistributionInputSchema = TfMetaSchema
+  .extend({
+    comment: resolvableValue(z.string()),
+    enabled: resolvableValue(z.boolean()),
+    cache_behavior: resolvableValue(
+      z.object({
+        cache_policy_id: z.string().optional(),
+        compress: z.boolean().optional(),
+        field_level_encryption_id: z.string().optional(),
+        origin_request_policy_id: z.string().optional(),
+        path_pattern: z.string(),
+        realtime_log_config_arn: z.string().optional(),
+        response_headers_policy_id: z.string().optional(),
+        target_origin_id: z.string(),
+        viewer_protocol_policy: z.string(),
+        allowed_methods: z.object({
+          cached_methods: z.string().array(),
+          items: z.string().array(),
+        }).array().optional(),
+        function_association: z.object({
+          event_type: z.string(),
+          function_arn: z.string(),
+        }).array().optional(),
+        lambda_function_association: z.object({
+          event_type: z.string(),
+          include_body: z.boolean().optional(),
+          lambda_function_arn: z.string(),
+        }).array().optional(),
+        trusted_key_groups: z.object({
+          enabled: z.boolean().optional(),
+          items: z.string().array().optional(),
+        }).array().optional(),
       }).array().optional(),
-      function_association: z.object({
-        event_type: z.string(),
-        function_arn: z.string(),
+    ),
+    custom_error_response: resolvableValue(
+      z.object({
+        error_caching_min_ttl: z.number().optional(),
+        error_code: z.number(),
+        response_code: z.string().optional(),
+        response_page_path: z.string().optional(),
       }).array().optional(),
-      lambda_function_association: z.object({
-        event_type: z.string(),
-        include_body: z.boolean().optional(),
-        lambda_function_arn: z.string(),
+    ),
+    default_cache_behavior: resolvableValue(
+      z.object({
+        cache_policy_id: z.string().optional(),
+        compress: z.boolean().optional(),
+        field_level_encryption_id: z.string().optional(),
+        origin_request_policy_id: z.string().optional(),
+        realtime_log_config_arn: z.string().optional(),
+        response_headers_policy_id: z.string().optional(),
+        target_origin_id: z.string(),
+        viewer_protocol_policy: z.string(),
+        allowed_methods: z.object({
+          cached_methods: z.string().array(),
+          items: z.string().array(),
+        }).array().optional(),
+        function_association: z.object({
+          event_type: z.string(),
+          function_arn: z.string(),
+        }).array().optional(),
+        lambda_function_association: z.object({
+          event_type: z.string(),
+          include_body: z.boolean().optional(),
+          lambda_function_arn: z.string(),
+        }).array().optional(),
+        trusted_key_groups: z.object({
+          enabled: z.boolean().optional(),
+          items: z.string().array().optional(),
+        }).array().optional(),
       }).array().optional(),
-      trusted_key_groups: z.object({
-        enabled: z.boolean().optional(),
-        items: z.string().array().optional(),
+    ),
+    default_root_object: resolvableValue(z.string().optional()),
+    http_version: resolvableValue(z.string().optional()),
+    origin: resolvableValue(
+      z.object({
+        connection_attempts: z.number().optional(),
+        connection_timeout: z.number().optional(),
+        domain_name: z.string(),
+        id: z.string(),
+        origin_access_control_id: z.string().optional(),
+        origin_path: z.string().optional(),
+        response_completion_timeout: z.number().optional(),
+        custom_header: z.object({
+          header_name: z.string(),
+          header_value: z.string(),
+        }).array().optional(),
+        custom_origin_config: z.object({
+          http_port: z.number(),
+          https_port: z.number(),
+          ip_address_type: z.string().optional(),
+          origin_keepalive_timeout: z.number().optional(),
+          origin_protocol_policy: z.string(),
+          origin_read_timeout: z.number().optional(),
+          origin_ssl_protocols: z.string().array(),
+        }).array().optional(),
+        origin_shield: z.object({
+          enabled: z.boolean(),
+          origin_shield_region: z.string().optional(),
+        }).array().optional(),
+        vpc_origin_config: z.object({
+          origin_keepalive_timeout: z.number().optional(),
+          origin_read_timeout: z.number().optional(),
+          vpc_origin_id: z.string(),
+        }).array().optional(),
       }).array().optional(),
-    }).array().optional(),
-  ),
-  custom_error_response: resolvableValue(
-    z.object({
-      error_caching_min_ttl: z.number().optional(),
-      error_code: z.number(),
-      response_code: z.string().optional(),
-      response_page_path: z.string().optional(),
-    }).array().optional(),
-  ),
-  default_cache_behavior: resolvableValue(
-    z.object({
-      cache_policy_id: z.string().optional(),
-      compress: z.boolean().optional(),
-      field_level_encryption_id: z.string().optional(),
-      origin_request_policy_id: z.string().optional(),
-      realtime_log_config_arn: z.string().optional(),
-      response_headers_policy_id: z.string().optional(),
-      target_origin_id: z.string(),
-      viewer_protocol_policy: z.string(),
-      allowed_methods: z.object({
-        cached_methods: z.string().array(),
-        items: z.string().array(),
+    ),
+    origin_group: resolvableValue(
+      z.object({
+        id: z.string(),
+        failover_criteria: z.object({
+          status_codes: z.number().array(),
+        }).array().optional(),
+        member: z.object({
+          origin_id: z.string(),
+        }).array().optional(),
       }).array().optional(),
-      function_association: z.object({
-        event_type: z.string(),
-        function_arn: z.string(),
+    ),
+    restrictions: resolvableValue(
+      z.object({
+        geo_restriction: z.object({
+          items: z.string().array().optional(),
+          restriction_type: z.string(),
+        }).array().optional(),
       }).array().optional(),
-      lambda_function_association: z.object({
-        event_type: z.string(),
-        include_body: z.boolean().optional(),
-        lambda_function_arn: z.string(),
-      }).array().optional(),
-      trusted_key_groups: z.object({
-        enabled: z.boolean().optional(),
-        items: z.string().array().optional(),
-      }).array().optional(),
-    }).array().optional(),
-  ),
-  default_root_object: resolvableValue(z.string().optional()),
-  http_version: resolvableValue(z.string().optional()),
-  origin: resolvableValue(
-    z.object({
-      connection_attempts: z.number().optional(),
-      connection_timeout: z.number().optional(),
-      domain_name: z.string(),
-      id: z.string(),
-      origin_access_control_id: z.string().optional(),
-      origin_path: z.string().optional(),
-      response_completion_timeout: z.number().optional(),
-      custom_header: z.object({
-        header_name: z.string(),
-        header_value: z.string(),
-      }).array().optional(),
-      custom_origin_config: z.object({
-        http_port: z.number(),
-        https_port: z.number(),
-        ip_address_type: z.string().optional(),
-        origin_keepalive_timeout: z.number().optional(),
-        origin_protocol_policy: z.string(),
-        origin_read_timeout: z.number().optional(),
-        origin_ssl_protocols: z.string().array(),
-      }).array().optional(),
-      origin_shield: z.object({
-        enabled: z.boolean(),
-        origin_shield_region: z.string().optional(),
-      }).array().optional(),
-      vpc_origin_config: z.object({
-        origin_keepalive_timeout: z.number().optional(),
-        origin_read_timeout: z.number().optional(),
-        vpc_origin_id: z.string(),
-      }).array().optional(),
-    }).array().optional(),
-  ),
-  origin_group: resolvableValue(
-    z.object({
-      id: z.string(),
-      failover_criteria: z.object({
-        status_codes: z.number().array(),
-      }).array().optional(),
-      member: z.object({
-        origin_id: z.string(),
-      }).array().optional(),
-    }).array().optional(),
-  ),
-  restrictions: resolvableValue(
-    z.object({
-      geo_restriction: z.object({
-        items: z.string().array().optional(),
-        restriction_type: z.string(),
-      }).array().optional(),
-    }).array().optional(),
-  ),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-  tenant_config: resolvableValue(
-    z.object({
-      parameter_definition: z.object({
-        name: z.string(),
-        definition: z.object({
-          string_schema: z.object({
-            comment: z.string().optional(),
-            default_value: z.string().optional(),
-            required: z.boolean(),
+    ),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+    tenant_config: resolvableValue(
+      z.object({
+        parameter_definition: z.object({
+          name: z.string(),
+          definition: z.object({
+            string_schema: z.object({
+              comment: z.string().optional(),
+              default_value: z.string().optional(),
+              required: z.boolean(),
+            }).array().optional(),
           }).array().optional(),
         }).array().optional(),
       }).array().optional(),
-    }).array().optional(),
-  ),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-      update: z.string().optional(),
-    }).optional(),
-  ),
-  viewer_certificate: resolvableValue(
-    z.object({
-      acm_certificate_arn: z.string().optional(),
-      cloudfront_default_certificate: z.boolean().optional(),
-      minimum_protocol_version: z.string().optional(),
-      ssl_support_method: z.string().optional(),
-    }).array().optional(),
-  ),
-  web_acl_id: resolvableValue(z.string().optional()),
-})
+    ),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+        update: z.string().optional(),
+      }).optional(),
+    ),
+    viewer_certificate: resolvableValue(
+      z.object({
+        acm_certificate_arn: z.string().optional(),
+        cloudfront_default_certificate: z.boolean().optional(),
+        minimum_protocol_version: z.string().optional(),
+        ssl_support_method: z.string().optional(),
+      }).array().optional(),
+    ),
+    web_acl_id: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsCloudfrontMultitenantDistributionOutputSchema = z.object({
   active_trusted_key_groups: z.object({
     enabled: z.boolean().optional(),
     items: z.object({
@@ -186,19 +187,19 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudfrontMultitenantDistributionInputProps =
+  & z.input<typeof AwsCloudfrontMultitenantDistributionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudfrontMultitenantDistributionOutputProps =
+  & z.output<typeof AwsCloudfrontMultitenantDistributionOutputSchema>
+  & z.output<typeof AwsCloudfrontMultitenantDistributionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudfront_multitenant_distribution
 
 export function AwsCloudfrontMultitenantDistribution(
-  props: Partial<InputProps>,
+  props: Partial<AwsCloudfrontMultitenantDistributionInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -209,8 +210,8 @@ export function AwsCloudfrontMultitenantDistribution(
       _type='aws_cloudfront_multitenant_distribution'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudfrontMultitenantDistributionInputSchema}
+      _outputSchema={AwsCloudfrontMultitenantDistributionOutputSchema}
       {...props}
     />
   )
@@ -221,7 +222,7 @@ export const useAwsCloudfrontMultitenantDistribution = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudfrontMultitenantDistributionOutputProps>(
     AwsCloudfrontMultitenantDistribution,
     idFilter,
     baseNode,
@@ -233,7 +234,7 @@ export const useAwsCloudfrontMultitenantDistributions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudfrontMultitenantDistributionOutputProps>(
     AwsCloudfrontMultitenantDistribution,
     idFilter,
     baseNode,

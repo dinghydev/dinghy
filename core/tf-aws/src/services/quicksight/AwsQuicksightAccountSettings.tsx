@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsQuicksightAccountSettingsInputSchema = TfMetaSchema.extend({
   aws_account_id: resolvableValue(z.string().optional()),
   default_namespace: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -21,20 +21,22 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({})
+export const AwsQuicksightAccountSettingsOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsQuicksightAccountSettingsInputProps =
+  & z.input<typeof AwsQuicksightAccountSettingsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsQuicksightAccountSettingsOutputProps =
+  & z.output<typeof AwsQuicksightAccountSettingsOutputSchema>
+  & z.output<typeof AwsQuicksightAccountSettingsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/quicksight_account_settings
 
-export function AwsQuicksightAccountSettings(props: Partial<InputProps>) {
+export function AwsQuicksightAccountSettings(
+  props: Partial<AwsQuicksightAccountSettingsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +46,8 @@ export function AwsQuicksightAccountSettings(props: Partial<InputProps>) {
       _type='aws_quicksight_account_settings'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsQuicksightAccountSettingsInputSchema}
+      _outputSchema={AwsQuicksightAccountSettingsOutputSchema}
       {...props}
     />
   )
@@ -56,7 +58,7 @@ export const useAwsQuicksightAccountSettingss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsQuicksightAccountSettingsOutputProps>(
     AwsQuicksightAccountSettings,
     idFilter,
     baseNode,

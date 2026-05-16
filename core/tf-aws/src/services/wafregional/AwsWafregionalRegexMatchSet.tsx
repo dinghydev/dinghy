@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsWafregionalRegexMatchSetInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   regex_match_tuple: resolvableValue(
     z.object({
@@ -24,22 +24,24 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsWafregionalRegexMatchSetOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsWafregionalRegexMatchSetInputProps =
+  & z.input<typeof AwsWafregionalRegexMatchSetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWafregionalRegexMatchSetOutputProps =
+  & z.output<typeof AwsWafregionalRegexMatchSetOutputSchema>
+  & z.output<typeof AwsWafregionalRegexMatchSetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/wafregional_regex_match_set
 
-export function AwsWafregionalRegexMatchSet(props: Partial<InputProps>) {
+export function AwsWafregionalRegexMatchSet(
+  props: Partial<AwsWafregionalRegexMatchSetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,8 +51,8 @@ export function AwsWafregionalRegexMatchSet(props: Partial<InputProps>) {
       _type='aws_wafregional_regex_match_set'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsWafregionalRegexMatchSetInputSchema}
+      _outputSchema={AwsWafregionalRegexMatchSetOutputSchema}
       {...props}
     />
   )
@@ -61,7 +63,7 @@ export const useAwsWafregionalRegexMatchSet = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsWafregionalRegexMatchSetOutputProps>(
     AwsWafregionalRegexMatchSet,
     idFilter,
     baseNode,
@@ -73,7 +75,7 @@ export const useAwsWafregionalRegexMatchSets = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsWafregionalRegexMatchSetOutputProps>(
     AwsWafregionalRegexMatchSet,
     idFilter,
     baseNode,

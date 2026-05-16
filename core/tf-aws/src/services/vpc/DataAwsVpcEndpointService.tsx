@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsVpcEndpointService } from './AwsVpcEndpointService.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsVpcEndpointServiceInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -29,7 +29,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsVpcEndpointServiceOutputSchema = z.object({
   acceptance_required: z.boolean().optional(),
   arn: z.string().optional(),
   availability_zones: z.set(z.string()).optional(),
@@ -46,18 +46,20 @@ export const OutputSchema = z.object({
   vpc_endpoint_policy_supported: z.boolean().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsVpcEndpointServiceInputProps =
+  & z.input<typeof DataAwsVpcEndpointServiceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsVpcEndpointServiceOutputProps =
+  & z.output<typeof DataAwsVpcEndpointServiceOutputSchema>
+  & z.output<typeof DataAwsVpcEndpointServiceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/vpc_endpoint_service
 
-export function DataAwsVpcEndpointService(props: Partial<InputProps>) {
+export function DataAwsVpcEndpointService(
+  props: Partial<DataAwsVpcEndpointServiceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -67,8 +69,8 @@ export function DataAwsVpcEndpointService(props: Partial<InputProps>) {
       _type='aws_vpc_endpoint_service'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsVpcEndpointServiceInputSchema}
+      _outputSchema={DataAwsVpcEndpointServiceOutputSchema}
       {...props as any}
     />
   )
@@ -79,7 +81,7 @@ export const useDataAwsVpcEndpointService = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsVpcEndpointServiceOutputProps>(
     DataAwsVpcEndpointService,
     idFilter,
     baseNode,
@@ -91,7 +93,7 @@ export const useDataAwsVpcEndpointServices = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsVpcEndpointServiceOutputProps>(
     DataAwsVpcEndpointService,
     idFilter,
     baseNode,

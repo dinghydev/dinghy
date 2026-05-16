@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsFlowLogInputSchema = TfMetaSchema.extend({
   deliver_cross_account_role: resolvableValue(z.string().optional()),
   destination_options: resolvableValue(
     z.object({
@@ -34,24 +34,24 @@ export const InputSchema = TfMetaSchema.extend({
   vpc_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsFlowLogOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsFlowLogInputProps =
+  & z.input<typeof AwsFlowLogInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsFlowLogOutputProps =
+  & z.output<typeof AwsFlowLogOutputSchema>
+  & z.output<typeof AwsFlowLogInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/flow_log
 
-export function AwsFlowLog(props: Partial<InputProps>) {
+export function AwsFlowLog(props: Partial<AwsFlowLogInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -61,8 +61,8 @@ export function AwsFlowLog(props: Partial<InputProps>) {
       _type='aws_flow_log'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsFlowLogInputSchema}
+      _outputSchema={AwsFlowLogOutputSchema}
       {...props}
     />
   )
@@ -72,10 +72,12 @@ export const useAwsFlowLog = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsFlowLog, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsFlowLogOutputProps>(AwsFlowLog, idFilter, baseNode, optional)
 
 export const useAwsFlowLogs = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsFlowLog, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsFlowLogOutputProps>(AwsFlowLog, idFilter, baseNode, optional)

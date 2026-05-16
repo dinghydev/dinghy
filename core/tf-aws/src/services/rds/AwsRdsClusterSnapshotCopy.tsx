@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRdsClusterSnapshotCopyInputSchema = TfMetaSchema.extend({
   source_db_cluster_snapshot_identifier: resolvableValue(z.string()),
   target_db_cluster_snapshot_identifier: resolvableValue(z.string()),
   copy_tags: resolvableValue(z.boolean().optional()),
@@ -26,7 +26,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsRdsClusterSnapshotCopyOutputSchema = z.object({
   allocated_storage: z.number().optional(),
   db_cluster_snapshot_arn: z.string().optional(),
   engine: z.string().optional(),
@@ -43,18 +43,20 @@ export const OutputSchema = z.object({
   vpc_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRdsClusterSnapshotCopyInputProps =
+  & z.input<typeof AwsRdsClusterSnapshotCopyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRdsClusterSnapshotCopyOutputProps =
+  & z.output<typeof AwsRdsClusterSnapshotCopyOutputSchema>
+  & z.output<typeof AwsRdsClusterSnapshotCopyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/rds_cluster_snapshot_copy
 
-export function AwsRdsClusterSnapshotCopy(props: Partial<InputProps>) {
+export function AwsRdsClusterSnapshotCopy(
+  props: Partial<AwsRdsClusterSnapshotCopyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -64,8 +66,8 @@ export function AwsRdsClusterSnapshotCopy(props: Partial<InputProps>) {
       _type='aws_rds_cluster_snapshot_copy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRdsClusterSnapshotCopyInputSchema}
+      _outputSchema={AwsRdsClusterSnapshotCopyOutputSchema}
       {...props}
     />
   )
@@ -76,7 +78,7 @@ export const useAwsRdsClusterSnapshotCopy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRdsClusterSnapshotCopyOutputProps>(
     AwsRdsClusterSnapshotCopy,
     idFilter,
     baseNode,
@@ -88,7 +90,7 @@ export const useAwsRdsClusterSnapshotCopys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRdsClusterSnapshotCopyOutputProps>(
     AwsRdsClusterSnapshotCopy,
     idFilter,
     baseNode,

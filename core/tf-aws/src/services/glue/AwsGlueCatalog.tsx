@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsGlueCatalogInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   allow_full_table_external_data_access: resolvableValue(z.string().optional()),
   catalog_properties: resolvableValue(
@@ -77,7 +77,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsGlueCatalogOutputSchema = z.object({
   arn: z.string().optional(),
   catalog_id: z.string().optional(),
   create_time: z.string().optional(),
@@ -85,25 +85,25 @@ export const OutputSchema = z.object({
   update_time: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsGlueCatalogImportSchema = z.object({
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsGlueCatalogInputProps =
+  & z.input<typeof AwsGlueCatalogInputSchema>
+  & z.input<typeof AwsGlueCatalogImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsGlueCatalogOutputProps =
+  & z.output<typeof AwsGlueCatalogOutputSchema>
+  & z.output<typeof AwsGlueCatalogInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/glue_catalog
 
-export function AwsGlueCatalog(props: Partial<InputProps>) {
+export function AwsGlueCatalog(props: Partial<AwsGlueCatalogInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -113,9 +113,9 @@ export function AwsGlueCatalog(props: Partial<InputProps>) {
       _type='aws_glue_catalog'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsGlueCatalogInputSchema}
+      _outputSchema={AwsGlueCatalogOutputSchema}
+      _importSchema={AwsGlueCatalogImportSchema}
       {...props}
     />
   )
@@ -125,10 +125,22 @@ export const useAwsGlueCatalog = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsGlueCatalog, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsGlueCatalogOutputProps>(
+    AwsGlueCatalog,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsGlueCatalogs = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsGlueCatalog, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsGlueCatalogOutputProps>(
+    AwsGlueCatalog,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,28 +9,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsStoragegatewayWorkingStorageInputSchema = TfMetaSchema.extend({
   disk_id: resolvableValue(z.string()),
   gateway_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsStoragegatewayWorkingStorageOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsStoragegatewayWorkingStorageInputProps =
+  & z.input<typeof AwsStoragegatewayWorkingStorageInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsStoragegatewayWorkingStorageOutputProps =
+  & z.output<typeof AwsStoragegatewayWorkingStorageOutputSchema>
+  & z.output<typeof AwsStoragegatewayWorkingStorageInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/storagegateway_working_storage
 
-export function AwsStoragegatewayWorkingStorage(props: Partial<InputProps>) {
+export function AwsStoragegatewayWorkingStorage(
+  props: Partial<AwsStoragegatewayWorkingStorageInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function AwsStoragegatewayWorkingStorage(props: Partial<InputProps>) {
       _type='aws_storagegateway_working_storage'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsStoragegatewayWorkingStorageInputSchema}
+      _outputSchema={AwsStoragegatewayWorkingStorageOutputSchema}
       {...props}
     />
   )
@@ -52,7 +54,7 @@ export const useAwsStoragegatewayWorkingStorage = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsStoragegatewayWorkingStorageOutputProps>(
     AwsStoragegatewayWorkingStorage,
     idFilter,
     baseNode,
@@ -64,7 +66,7 @@ export const useAwsStoragegatewayWorkingStorages = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsStoragegatewayWorkingStorageOutputProps>(
     AwsStoragegatewayWorkingStorage,
     idFilter,
     baseNode,

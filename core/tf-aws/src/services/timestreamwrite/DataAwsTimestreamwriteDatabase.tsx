@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsTimestreamwriteDatabase } from './AwsTimestreamwriteDatabase.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsTimestreamwriteDatabaseInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsTimestreamwriteDatabaseOutputSchema = z.object({
   arn: z.string().optional(),
   created_time: z.string().optional(),
   kms_key_id: z.string().optional(),
@@ -22,18 +22,20 @@ export const OutputSchema = z.object({
   table_count: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsTimestreamwriteDatabaseInputProps =
+  & z.input<typeof DataAwsTimestreamwriteDatabaseInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsTimestreamwriteDatabaseOutputProps =
+  & z.output<typeof DataAwsTimestreamwriteDatabaseOutputSchema>
+  & z.output<typeof DataAwsTimestreamwriteDatabaseInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/timestreamwrite_database
 
-export function DataAwsTimestreamwriteDatabase(props: Partial<InputProps>) {
+export function DataAwsTimestreamwriteDatabase(
+  props: Partial<DataAwsTimestreamwriteDatabaseInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function DataAwsTimestreamwriteDatabase(props: Partial<InputProps>) {
       _type='aws_timestreamwrite_database'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsTimestreamwriteDatabaseInputSchema}
+      _outputSchema={DataAwsTimestreamwriteDatabaseOutputSchema}
       {...props as any}
     />
   )
@@ -55,7 +57,7 @@ export const useDataAwsTimestreamwriteDatabase = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsTimestreamwriteDatabaseOutputProps>(
     DataAwsTimestreamwriteDatabase,
     idFilter,
     baseNode,
@@ -67,7 +69,7 @@ export const useDataAwsTimestreamwriteDatabases = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsTimestreamwriteDatabaseOutputProps>(
     DataAwsTimestreamwriteDatabase,
     idFilter,
     baseNode,

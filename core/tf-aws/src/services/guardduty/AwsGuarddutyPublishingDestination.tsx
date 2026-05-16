@@ -9,34 +9,38 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  destination_arn: resolvableValue(z.string()),
-  detector_id: resolvableValue(z.string()),
-  kms_key_arn: resolvableValue(z.string()),
-  destination_type: resolvableValue(z.string().optional()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+export const AwsGuarddutyPublishingDestinationInputSchema = TfMetaSchema.extend(
+  {
+    destination_arn: resolvableValue(z.string()),
+    detector_id: resolvableValue(z.string()),
+    kms_key_arn: resolvableValue(z.string()),
+    destination_type: resolvableValue(z.string().optional()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  },
+)
 
-export const OutputSchema = z.object({
+export const AwsGuarddutyPublishingDestinationOutputSchema = z.object({
   arn: z.string().optional(),
   destination_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsGuarddutyPublishingDestinationInputProps =
+  & z.input<typeof AwsGuarddutyPublishingDestinationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsGuarddutyPublishingDestinationOutputProps =
+  & z.output<typeof AwsGuarddutyPublishingDestinationOutputSchema>
+  & z.output<typeof AwsGuarddutyPublishingDestinationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/guardduty_publishing_destination
 
-export function AwsGuarddutyPublishingDestination(props: Partial<InputProps>) {
+export function AwsGuarddutyPublishingDestination(
+  props: Partial<AwsGuarddutyPublishingDestinationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +50,8 @@ export function AwsGuarddutyPublishingDestination(props: Partial<InputProps>) {
       _type='aws_guardduty_publishing_destination'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsGuarddutyPublishingDestinationInputSchema}
+      _outputSchema={AwsGuarddutyPublishingDestinationOutputSchema}
       {...props}
     />
   )
@@ -58,7 +62,7 @@ export const useAwsGuarddutyPublishingDestination = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsGuarddutyPublishingDestinationOutputProps>(
     AwsGuarddutyPublishingDestination,
     idFilter,
     baseNode,
@@ -70,7 +74,7 @@ export const useAwsGuarddutyPublishingDestinations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsGuarddutyPublishingDestinationOutputProps>(
     AwsGuarddutyPublishingDestination,
     idFilter,
     baseNode,

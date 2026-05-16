@@ -8,30 +8,32 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsAccountRegionsInputSchema = TfMetaSchema.extend({
   account_id: resolvableValue(z.string().optional()),
   region_opt_status_contains: resolvableValue(z.string().array().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsAccountRegionsOutputSchema = z.object({
   regions: z.object({
     region_name: z.string(),
     region_opt_status: z.string(),
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsAccountRegionsInputProps =
+  & z.input<typeof DataAwsAccountRegionsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsAccountRegionsOutputProps =
+  & z.output<typeof DataAwsAccountRegionsOutputSchema>
+  & z.output<typeof DataAwsAccountRegionsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/account_regions
 
-export function DataAwsAccountRegions(props: Partial<InputProps>) {
+export function DataAwsAccountRegions(
+  props: Partial<DataAwsAccountRegionsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -41,8 +43,8 @@ export function DataAwsAccountRegions(props: Partial<InputProps>) {
       _type='aws_account_regions'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsAccountRegionsInputSchema}
+      _outputSchema={DataAwsAccountRegionsOutputSchema}
       {...props}
     />
   )
@@ -53,7 +55,7 @@ export const useDataAwsAccountRegionss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsAccountRegionsOutputProps>(
     DataAwsAccountRegions,
     idFilter,
     baseNode,

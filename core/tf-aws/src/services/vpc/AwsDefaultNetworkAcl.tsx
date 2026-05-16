@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDefaultNetworkAclInputSchema = TfMetaSchema.extend({
   default_network_acl_id: resolvableValue(z.string()),
   egress: resolvableValue(
     z.object({
@@ -42,7 +42,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDefaultNetworkAclOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   owner_id: z.string().optional(),
@@ -50,18 +50,20 @@ export const OutputSchema = z.object({
   vpc_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDefaultNetworkAclInputProps =
+  & z.input<typeof AwsDefaultNetworkAclInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDefaultNetworkAclOutputProps =
+  & z.output<typeof AwsDefaultNetworkAclOutputSchema>
+  & z.output<typeof AwsDefaultNetworkAclInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/default_network_acl
 
-export function AwsDefaultNetworkAcl(props: Partial<InputProps>) {
+export function AwsDefaultNetworkAcl(
+  props: Partial<AwsDefaultNetworkAclInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -71,8 +73,8 @@ export function AwsDefaultNetworkAcl(props: Partial<InputProps>) {
       _type='aws_default_network_acl'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDefaultNetworkAclInputSchema}
+      _outputSchema={AwsDefaultNetworkAclOutputSchema}
       {...props}
     />
   )
@@ -83,11 +85,21 @@ export const useAwsDefaultNetworkAcl = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsDefaultNetworkAcl, idFilter, baseNode, optional)
+  useTypedNode<AwsDefaultNetworkAclOutputProps>(
+    AwsDefaultNetworkAcl,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDefaultNetworkAcls = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsDefaultNetworkAcl, idFilter, baseNode, optional)
+  useTypedNodes<AwsDefaultNetworkAclOutputProps>(
+    AwsDefaultNetworkAcl,
+    idFilter,
+    baseNode,
+    optional,
+  )

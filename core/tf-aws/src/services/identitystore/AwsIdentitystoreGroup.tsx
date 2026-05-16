@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIdentitystoreGroupInputSchema = TfMetaSchema.extend({
   display_name: resolvableValue(z.string()),
   identity_store_id: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
@@ -17,7 +17,7 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsIdentitystoreGroupOutputSchema = z.object({
   arn: z.string().optional(),
   external_ids: z.object({
     id: z.string(),
@@ -26,18 +26,20 @@ export const OutputSchema = z.object({
   group_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsIdentitystoreGroupInputProps =
+  & z.input<typeof AwsIdentitystoreGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIdentitystoreGroupOutputProps =
+  & z.output<typeof AwsIdentitystoreGroupOutputSchema>
+  & z.output<typeof AwsIdentitystoreGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/identitystore_group
 
-export function AwsIdentitystoreGroup(props: Partial<InputProps>) {
+export function AwsIdentitystoreGroup(
+  props: Partial<AwsIdentitystoreGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +49,8 @@ export function AwsIdentitystoreGroup(props: Partial<InputProps>) {
       _type='aws_identitystore_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsIdentitystoreGroupInputSchema}
+      _outputSchema={AwsIdentitystoreGroupOutputSchema}
       {...props}
     />
   )
@@ -59,14 +61,19 @@ export const useAwsIdentitystoreGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsIdentitystoreGroup, idFilter, baseNode, optional)
+  useTypedNode<AwsIdentitystoreGroupOutputProps>(
+    AwsIdentitystoreGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIdentitystoreGroups = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsIdentitystoreGroupOutputProps>(
     AwsIdentitystoreGroup,
     idFilter,
     baseNode,

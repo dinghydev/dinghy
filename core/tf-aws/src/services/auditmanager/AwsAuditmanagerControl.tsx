@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAuditmanagerControlInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   action_plan_instructions: resolvableValue(z.string().optional()),
   action_plan_title: resolvableValue(z.string().optional()),
@@ -34,32 +34,34 @@ export const InputSchema = TfMetaSchema.extend({
   testing_information: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAuditmanagerControlOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   type: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsAuditmanagerControlImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsAuditmanagerControlInputProps =
+  & z.input<typeof AwsAuditmanagerControlInputSchema>
+  & z.input<typeof AwsAuditmanagerControlImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAuditmanagerControlOutputProps =
+  & z.output<typeof AwsAuditmanagerControlOutputSchema>
+  & z.output<typeof AwsAuditmanagerControlInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/auditmanager_control
 
-export function AwsAuditmanagerControl(props: Partial<InputProps>) {
+export function AwsAuditmanagerControl(
+  props: Partial<AwsAuditmanagerControlInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -69,9 +71,9 @@ export function AwsAuditmanagerControl(props: Partial<InputProps>) {
       _type='aws_auditmanager_control'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsAuditmanagerControlInputSchema}
+      _outputSchema={AwsAuditmanagerControlOutputSchema}
+      _importSchema={AwsAuditmanagerControlImportSchema}
       {...props}
     />
   )
@@ -82,7 +84,7 @@ export const useAwsAuditmanagerControl = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAuditmanagerControlOutputProps>(
     AwsAuditmanagerControl,
     idFilter,
     baseNode,
@@ -94,7 +96,7 @@ export const useAwsAuditmanagerControls = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAuditmanagerControlOutputProps>(
     AwsAuditmanagerControl,
     idFilter,
     baseNode,

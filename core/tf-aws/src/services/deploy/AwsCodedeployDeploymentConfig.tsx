@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCodedeployDeploymentConfigInputSchema = TfMetaSchema.extend({
   deployment_config_name: resolvableValue(z.string()),
   compute_platform: resolvableValue(z.string().optional()),
   minimum_healthy_hosts: resolvableValue(
@@ -44,24 +44,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsCodedeployDeploymentConfigOutputSchema = z.object({
   arn: z.string().optional(),
   deployment_config_id: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCodedeployDeploymentConfigInputProps =
+  & z.input<typeof AwsCodedeployDeploymentConfigInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCodedeployDeploymentConfigOutputProps =
+  & z.output<typeof AwsCodedeployDeploymentConfigOutputSchema>
+  & z.output<typeof AwsCodedeployDeploymentConfigInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/codedeploy_deployment_config
 
-export function AwsCodedeployDeploymentConfig(props: Partial<InputProps>) {
+export function AwsCodedeployDeploymentConfig(
+  props: Partial<AwsCodedeployDeploymentConfigInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -71,8 +73,8 @@ export function AwsCodedeployDeploymentConfig(props: Partial<InputProps>) {
       _type='aws_codedeploy_deployment_config'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCodedeployDeploymentConfigInputSchema}
+      _outputSchema={AwsCodedeployDeploymentConfigOutputSchema}
       {...props}
     />
   )
@@ -83,7 +85,7 @@ export const useAwsCodedeployDeploymentConfig = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCodedeployDeploymentConfigOutputProps>(
     AwsCodedeployDeploymentConfig,
     idFilter,
     baseNode,
@@ -95,7 +97,7 @@ export const useAwsCodedeployDeploymentConfigs = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCodedeployDeploymentConfigOutputProps>(
     AwsCodedeployDeploymentConfig,
     idFilter,
     baseNode,

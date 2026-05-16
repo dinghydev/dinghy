@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAmplifyAppInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   access_token: resolvableValue(z.string().optional()),
   auto_branch_creation_config: resolvableValue(
@@ -65,7 +65,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAmplifyAppOutputSchema = z.object({
   arn: z.string().optional(),
   default_domain: z.string().optional(),
   id: z.string().optional(),
@@ -78,18 +78,18 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAmplifyAppInputProps =
+  & z.input<typeof AwsAmplifyAppInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAmplifyAppOutputProps =
+  & z.output<typeof AwsAmplifyAppOutputSchema>
+  & z.output<typeof AwsAmplifyAppInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/amplify_app
 
-export function AwsAmplifyApp(props: Partial<InputProps>) {
+export function AwsAmplifyApp(props: Partial<AwsAmplifyAppInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -99,8 +99,8 @@ export function AwsAmplifyApp(props: Partial<InputProps>) {
       _type='aws_amplify_app'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAmplifyAppInputSchema}
+      _outputSchema={AwsAmplifyAppOutputSchema}
       {...props}
     />
   )
@@ -110,10 +110,22 @@ export const useAwsAmplifyApp = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsAmplifyApp, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsAmplifyAppOutputProps>(
+    AwsAmplifyApp,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAmplifyApps = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsAmplifyApp, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsAmplifyAppOutputProps>(
+    AwsAmplifyApp,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLakeformationPermissionsInputSchema = TfMetaSchema.extend({
   permissions: resolvableValue(z.string().array()),
   principal: resolvableValue(z.string()),
   catalog_id: resolvableValue(z.string().optional()),
@@ -73,20 +73,22 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({})
+export const AwsLakeformationPermissionsOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLakeformationPermissionsInputProps =
+  & z.input<typeof AwsLakeformationPermissionsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLakeformationPermissionsOutputProps =
+  & z.output<typeof AwsLakeformationPermissionsOutputSchema>
+  & z.output<typeof AwsLakeformationPermissionsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lakeformation_permissions
 
-export function AwsLakeformationPermissions(props: Partial<InputProps>) {
+export function AwsLakeformationPermissions(
+  props: Partial<AwsLakeformationPermissionsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -96,8 +98,8 @@ export function AwsLakeformationPermissions(props: Partial<InputProps>) {
       _type='aws_lakeformation_permissions'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLakeformationPermissionsInputSchema}
+      _outputSchema={AwsLakeformationPermissionsOutputSchema}
       {...props}
     />
   )
@@ -108,7 +110,7 @@ export const useAwsLakeformationPermissionss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsLakeformationPermissionsOutputProps>(
     AwsLakeformationPermissions,
     idFilter,
     baseNode,

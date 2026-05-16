@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCodestarconnectionsHostInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   provider_endpoint: resolvableValue(z.string()),
   provider_type: resolvableValue(z.string()),
@@ -31,29 +31,31 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsCodestarconnectionsHostOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   status: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsCodestarconnectionsHostImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsCodestarconnectionsHostInputProps =
+  & z.input<typeof AwsCodestarconnectionsHostInputSchema>
+  & z.input<typeof AwsCodestarconnectionsHostImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCodestarconnectionsHostOutputProps =
+  & z.output<typeof AwsCodestarconnectionsHostOutputSchema>
+  & z.output<typeof AwsCodestarconnectionsHostInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/codestarconnections_host
 
-export function AwsCodestarconnectionsHost(props: Partial<InputProps>) {
+export function AwsCodestarconnectionsHost(
+  props: Partial<AwsCodestarconnectionsHostInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -63,9 +65,9 @@ export function AwsCodestarconnectionsHost(props: Partial<InputProps>) {
       _type='aws_codestarconnections_host'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsCodestarconnectionsHostInputSchema}
+      _outputSchema={AwsCodestarconnectionsHostOutputSchema}
+      _importSchema={AwsCodestarconnectionsHostImportSchema}
       {...props}
     />
   )
@@ -76,7 +78,7 @@ export const useAwsCodestarconnectionsHost = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCodestarconnectionsHostOutputProps>(
     AwsCodestarconnectionsHost,
     idFilter,
     baseNode,
@@ -88,7 +90,7 @@ export const useAwsCodestarconnectionsHosts = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCodestarconnectionsHostOutputProps>(
     AwsCodestarconnectionsHost,
     idFilter,
     baseNode,

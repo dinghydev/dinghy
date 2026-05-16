@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsEc2NetworkInsightsPath } from './AwsEc2NetworkInsightsPath.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsEc2NetworkInsightsPathInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -21,7 +21,7 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsEc2NetworkInsightsPathOutputSchema = z.object({
   arn: z.string().optional(),
   destination: z.string().optional(),
   destination_arn: z.string().optional(),
@@ -58,18 +58,20 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEc2NetworkInsightsPathInputProps =
+  & z.input<typeof DataAwsEc2NetworkInsightsPathInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEc2NetworkInsightsPathOutputProps =
+  & z.output<typeof DataAwsEc2NetworkInsightsPathOutputSchema>
+  & z.output<typeof DataAwsEc2NetworkInsightsPathInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ec2_network_insights_path
 
-export function DataAwsEc2NetworkInsightsPath(props: Partial<InputProps>) {
+export function DataAwsEc2NetworkInsightsPath(
+  props: Partial<DataAwsEc2NetworkInsightsPathInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -79,8 +81,8 @@ export function DataAwsEc2NetworkInsightsPath(props: Partial<InputProps>) {
       _type='aws_ec2_network_insights_path'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEc2NetworkInsightsPathInputSchema}
+      _outputSchema={DataAwsEc2NetworkInsightsPathOutputSchema}
       {...props as any}
     />
   )
@@ -91,7 +93,7 @@ export const useDataAwsEc2NetworkInsightsPath = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsEc2NetworkInsightsPathOutputProps>(
     DataAwsEc2NetworkInsightsPath,
     idFilter,
     baseNode,
@@ -103,7 +105,7 @@ export const useDataAwsEc2NetworkInsightsPaths = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsEc2NetworkInsightsPathOutputProps>(
     DataAwsEc2NetworkInsightsPath,
     idFilter,
     baseNode,

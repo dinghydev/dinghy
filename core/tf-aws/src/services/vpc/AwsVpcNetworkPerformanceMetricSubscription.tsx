@@ -9,32 +9,33 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  destination: resolvableValue(z.string()),
-  source: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  metric: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  statistic: resolvableValue(z.string().optional()),
-})
+export const AwsVpcNetworkPerformanceMetricSubscriptionInputSchema =
+  TfMetaSchema.extend({
+    destination: resolvableValue(z.string()),
+    source: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    metric: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    statistic: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsVpcNetworkPerformanceMetricSubscriptionOutputSchema = z.object({
   period: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVpcNetworkPerformanceMetricSubscriptionInputProps =
+  & z.input<typeof AwsVpcNetworkPerformanceMetricSubscriptionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVpcNetworkPerformanceMetricSubscriptionOutputProps =
+  & z.output<typeof AwsVpcNetworkPerformanceMetricSubscriptionOutputSchema>
+  & z.output<typeof AwsVpcNetworkPerformanceMetricSubscriptionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpc_network_performance_metric_subscription
 
 export function AwsVpcNetworkPerformanceMetricSubscription(
-  props: Partial<InputProps>,
+  props: Partial<AwsVpcNetworkPerformanceMetricSubscriptionInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -45,8 +46,8 @@ export function AwsVpcNetworkPerformanceMetricSubscription(
       _type='aws_vpc_network_performance_metric_subscription'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVpcNetworkPerformanceMetricSubscriptionInputSchema}
+      _outputSchema={AwsVpcNetworkPerformanceMetricSubscriptionOutputSchema}
       {...props}
     />
   )
@@ -57,7 +58,7 @@ export const useAwsVpcNetworkPerformanceMetricSubscription = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsVpcNetworkPerformanceMetricSubscriptionOutputProps>(
     AwsVpcNetworkPerformanceMetricSubscription,
     idFilter,
     baseNode,
@@ -69,7 +70,7 @@ export const useAwsVpcNetworkPerformanceMetricSubscriptions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsVpcNetworkPerformanceMetricSubscriptionOutputProps>(
     AwsVpcNetworkPerformanceMetricSubscription,
     idFilter,
     baseNode,

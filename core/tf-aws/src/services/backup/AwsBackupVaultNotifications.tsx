@@ -8,30 +8,32 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsBackupVaultNotificationsInputSchema = TfMetaSchema.extend({
   backup_vault_events: resolvableValue(z.string().array()),
   backup_vault_name: resolvableValue(z.string()),
   sns_topic_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsBackupVaultNotificationsOutputSchema = z.object({
   backup_vault_arn: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsBackupVaultNotificationsInputProps =
+  & z.input<typeof AwsBackupVaultNotificationsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBackupVaultNotificationsOutputProps =
+  & z.output<typeof AwsBackupVaultNotificationsOutputSchema>
+  & z.output<typeof AwsBackupVaultNotificationsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/backup_vault_notifications
 
-export function AwsBackupVaultNotifications(props: Partial<InputProps>) {
+export function AwsBackupVaultNotifications(
+  props: Partial<AwsBackupVaultNotificationsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -41,8 +43,8 @@ export function AwsBackupVaultNotifications(props: Partial<InputProps>) {
       _type='aws_backup_vault_notifications'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsBackupVaultNotificationsInputSchema}
+      _outputSchema={AwsBackupVaultNotificationsOutputSchema}
       {...props}
     />
   )
@@ -53,7 +55,7 @@ export const useAwsBackupVaultNotificationss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsBackupVaultNotificationsOutputProps>(
     AwsBackupVaultNotifications,
     idFilter,
     baseNode,

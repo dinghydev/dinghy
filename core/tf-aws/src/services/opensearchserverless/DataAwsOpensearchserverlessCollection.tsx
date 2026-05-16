@@ -9,13 +9,14 @@ import {
 import z from 'zod'
 import { AwsOpensearchserverlessCollection } from './AwsOpensearchserverlessCollection.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  id: resolvableValue(z.string().optional()),
-  name: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsOpensearchserverlessCollectionInputSchema = TfMetaSchema
+  .extend({
+    id: resolvableValue(z.string().optional()),
+    name: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsOpensearchserverlessCollectionOutputSchema = z.object({
   arn: z.string().optional(),
   collection_endpoint: z.string().optional(),
   created_date: z.string().optional(),
@@ -30,19 +31,19 @@ export const OutputSchema = z.object({
   type: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsOpensearchserverlessCollectionInputProps =
+  & z.input<typeof DataAwsOpensearchserverlessCollectionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsOpensearchserverlessCollectionOutputProps =
+  & z.output<typeof DataAwsOpensearchserverlessCollectionOutputSchema>
+  & z.output<typeof DataAwsOpensearchserverlessCollectionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/opensearchserverless_collection
 
 export function DataAwsOpensearchserverlessCollection(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsOpensearchserverlessCollectionInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -53,8 +54,8 @@ export function DataAwsOpensearchserverlessCollection(
       _type='aws_opensearchserverless_collection'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsOpensearchserverlessCollectionInputSchema}
+      _outputSchema={DataAwsOpensearchserverlessCollectionOutputSchema}
       {...props as any}
     />
   )
@@ -65,7 +66,7 @@ export const useDataAwsOpensearchserverlessCollection = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsOpensearchserverlessCollectionOutputProps>(
     DataAwsOpensearchserverlessCollection,
     idFilter,
     baseNode,
@@ -77,7 +78,7 @@ export const useDataAwsOpensearchserverlessCollections = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsOpensearchserverlessCollectionOutputProps>(
     DataAwsOpensearchserverlessCollection,
     idFilter,
     baseNode,

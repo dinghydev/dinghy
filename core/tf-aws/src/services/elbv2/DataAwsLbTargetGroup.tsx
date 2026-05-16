@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsLbTargetGroup } from './AwsLbTargetGroup.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsLbTargetGroupInputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   load_balancing_anomaly_mitigation: resolvableValue(z.string().optional()),
@@ -23,7 +23,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsLbTargetGroupOutputSchema = z.object({
   arn_suffix: z.string().optional(),
   connection_termination: z.boolean().optional(),
   deregistration_delay: z.string().optional(),
@@ -59,18 +59,20 @@ export const OutputSchema = z.object({
   vpc_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsLbTargetGroupInputProps =
+  & z.input<typeof DataAwsLbTargetGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsLbTargetGroupOutputProps =
+  & z.output<typeof DataAwsLbTargetGroupOutputSchema>
+  & z.output<typeof DataAwsLbTargetGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/lb_target_group
 
-export function DataAwsLbTargetGroup(props: Partial<InputProps>) {
+export function DataAwsLbTargetGroup(
+  props: Partial<DataAwsLbTargetGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -80,8 +82,8 @@ export function DataAwsLbTargetGroup(props: Partial<InputProps>) {
       _type='aws_lb_target_group'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsLbTargetGroupInputSchema}
+      _outputSchema={DataAwsLbTargetGroupOutputSchema}
       {...props as any}
     />
   )
@@ -92,11 +94,21 @@ export const useDataAwsLbTargetGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsLbTargetGroup, idFilter, baseNode, optional)
+  useTypedNode<DataAwsLbTargetGroupOutputProps>(
+    DataAwsLbTargetGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsLbTargetGroups = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsLbTargetGroup, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsLbTargetGroupOutputProps>(
+    DataAwsLbTargetGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

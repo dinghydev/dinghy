@@ -9,40 +9,42 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  resource_id: resolvableValue(z.string()),
-  tag_option_id: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-      read: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsServicecatalogTagOptionResourceAssociationInputSchema =
+  TfMetaSchema.extend({
+    resource_id: resolvableValue(z.string()),
+    tag_option_id: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+        read: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
-  id: z.string().optional(),
-  resource_arn: z.string().optional(),
-  resource_created_time: z.string().optional(),
-  resource_description: z.string().optional(),
-  resource_name: z.string().optional(),
-})
+export const AwsServicecatalogTagOptionResourceAssociationOutputSchema = z
+  .object({
+    id: z.string().optional(),
+    resource_arn: z.string().optional(),
+    resource_created_time: z.string().optional(),
+    resource_description: z.string().optional(),
+    resource_name: z.string().optional(),
+  })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsServicecatalogTagOptionResourceAssociationInputProps =
+  & z.input<typeof AwsServicecatalogTagOptionResourceAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsServicecatalogTagOptionResourceAssociationOutputProps =
+  & z.output<typeof AwsServicecatalogTagOptionResourceAssociationOutputSchema>
+  & z.output<typeof AwsServicecatalogTagOptionResourceAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/servicecatalog_tag_option_resource_association
 
 export function AwsServicecatalogTagOptionResourceAssociation(
-  props: Partial<InputProps>,
+  props: Partial<AwsServicecatalogTagOptionResourceAssociationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -53,8 +55,8 @@ export function AwsServicecatalogTagOptionResourceAssociation(
       _type='aws_servicecatalog_tag_option_resource_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsServicecatalogTagOptionResourceAssociationInputSchema}
+      _outputSchema={AwsServicecatalogTagOptionResourceAssociationOutputSchema}
       {...props}
     />
   )
@@ -65,7 +67,7 @@ export const useAwsServicecatalogTagOptionResourceAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsServicecatalogTagOptionResourceAssociationOutputProps>(
     AwsServicecatalogTagOptionResourceAssociation,
     idFilter,
     baseNode,
@@ -77,7 +79,7 @@ export const useAwsServicecatalogTagOptionResourceAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsServicecatalogTagOptionResourceAssociationOutputProps>(
     AwsServicecatalogTagOptionResourceAssociation,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAppconfigDeploymentInputSchema = TfMetaSchema.extend({
   application_id: resolvableValue(z.string()),
   configuration_profile_id: resolvableValue(z.string()),
   configuration_version: resolvableValue(z.string()),
@@ -21,7 +21,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAppconfigDeploymentOutputSchema = z.object({
   arn: z.string().optional(),
   deployment_number: z.number().optional(),
   id: z.string().optional(),
@@ -30,18 +30,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAppconfigDeploymentInputProps =
+  & z.input<typeof AwsAppconfigDeploymentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppconfigDeploymentOutputProps =
+  & z.output<typeof AwsAppconfigDeploymentOutputSchema>
+  & z.output<typeof AwsAppconfigDeploymentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appconfig_deployment
 
-export function AwsAppconfigDeployment(props: Partial<InputProps>) {
+export function AwsAppconfigDeployment(
+  props: Partial<AwsAppconfigDeploymentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -51,8 +53,8 @@ export function AwsAppconfigDeployment(props: Partial<InputProps>) {
       _type='aws_appconfig_deployment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAppconfigDeploymentInputSchema}
+      _outputSchema={AwsAppconfigDeploymentOutputSchema}
       {...props}
     />
   )
@@ -63,7 +65,7 @@ export const useAwsAppconfigDeployment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAppconfigDeploymentOutputProps>(
     AwsAppconfigDeployment,
     idFilter,
     baseNode,
@@ -75,7 +77,7 @@ export const useAwsAppconfigDeployments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAppconfigDeploymentOutputProps>(
     AwsAppconfigDeployment,
     idFilter,
     baseNode,

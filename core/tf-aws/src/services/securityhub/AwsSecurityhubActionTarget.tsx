@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSecurityhubActionTargetInputSchema = TfMetaSchema.extend({
   description: resolvableValue(z.string()),
   identifier: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -17,27 +17,29 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSecurityhubActionTargetOutputSchema = z.object({
   arn: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSecurityhubActionTargetImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSecurityhubActionTargetInputProps =
+  & z.input<typeof AwsSecurityhubActionTargetInputSchema>
+  & z.input<typeof AwsSecurityhubActionTargetImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSecurityhubActionTargetOutputProps =
+  & z.output<typeof AwsSecurityhubActionTargetOutputSchema>
+  & z.output<typeof AwsSecurityhubActionTargetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_action_target
 
-export function AwsSecurityhubActionTarget(props: Partial<InputProps>) {
+export function AwsSecurityhubActionTarget(
+  props: Partial<AwsSecurityhubActionTargetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,9 +49,9 @@ export function AwsSecurityhubActionTarget(props: Partial<InputProps>) {
       _type='aws_securityhub_action_target'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSecurityhubActionTargetInputSchema}
+      _outputSchema={AwsSecurityhubActionTargetOutputSchema}
+      _importSchema={AwsSecurityhubActionTargetImportSchema}
       {...props}
     />
   )
@@ -60,7 +62,7 @@ export const useAwsSecurityhubActionTarget = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSecurityhubActionTargetOutputProps>(
     AwsSecurityhubActionTarget,
     idFilter,
     baseNode,
@@ -72,7 +74,7 @@ export const useAwsSecurityhubActionTargets = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSecurityhubActionTargetOutputProps>(
     AwsSecurityhubActionTarget,
     idFilter,
     baseNode,

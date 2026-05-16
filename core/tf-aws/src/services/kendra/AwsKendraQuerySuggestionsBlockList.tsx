@@ -9,46 +9,49 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  index_id: resolvableValue(z.string()),
-  name: resolvableValue(z.string()),
-  role_arn: resolvableValue(z.string()),
-  source_s3_path: resolvableValue(z.object({
-    bucket: z.string(),
-    key: z.string(),
-  })),
-  description: resolvableValue(z.string().optional()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-      update: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsKendraQuerySuggestionsBlockListInputSchema = TfMetaSchema
+  .extend({
+    index_id: resolvableValue(z.string()),
+    name: resolvableValue(z.string()),
+    role_arn: resolvableValue(z.string()),
+    source_s3_path: resolvableValue(z.object({
+      bucket: z.string(),
+      key: z.string(),
+    })),
+    description: resolvableValue(z.string().optional()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+        update: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsKendraQuerySuggestionsBlockListOutputSchema = z.object({
   arn: z.string().optional(),
   query_suggestions_block_list_id: z.string().optional(),
   status: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsKendraQuerySuggestionsBlockListInputProps =
+  & z.input<typeof AwsKendraQuerySuggestionsBlockListInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsKendraQuerySuggestionsBlockListOutputProps =
+  & z.output<typeof AwsKendraQuerySuggestionsBlockListOutputSchema>
+  & z.output<typeof AwsKendraQuerySuggestionsBlockListInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/kendra_query_suggestions_block_list
 
-export function AwsKendraQuerySuggestionsBlockList(props: Partial<InputProps>) {
+export function AwsKendraQuerySuggestionsBlockList(
+  props: Partial<AwsKendraQuerySuggestionsBlockListInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -58,8 +61,8 @@ export function AwsKendraQuerySuggestionsBlockList(props: Partial<InputProps>) {
       _type='aws_kendra_query_suggestions_block_list'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsKendraQuerySuggestionsBlockListInputSchema}
+      _outputSchema={AwsKendraQuerySuggestionsBlockListOutputSchema}
       {...props}
     />
   )
@@ -70,7 +73,7 @@ export const useAwsKendraQuerySuggestionsBlockList = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsKendraQuerySuggestionsBlockListOutputProps>(
     AwsKendraQuerySuggestionsBlockList,
     idFilter,
     baseNode,
@@ -82,7 +85,7 @@ export const useAwsKendraQuerySuggestionsBlockLists = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsKendraQuerySuggestionsBlockListOutputProps>(
     AwsKendraQuerySuggestionsBlockList,
     idFilter,
     baseNode,

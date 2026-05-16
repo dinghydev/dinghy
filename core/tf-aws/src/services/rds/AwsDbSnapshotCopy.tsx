@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDbSnapshotCopyInputSchema = TfMetaSchema.extend({
   source_db_snapshot_identifier: resolvableValue(z.string()),
   target_db_snapshot_identifier: resolvableValue(z.string()),
   copy_tags: resolvableValue(z.boolean().optional()),
@@ -27,7 +27,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDbSnapshotCopyOutputSchema = z.object({
   allocated_storage: z.number().optional(),
   availability_zone: z.string().optional(),
   db_snapshot_arn: z.string().optional(),
@@ -49,18 +49,18 @@ export const OutputSchema = z.object({
   vpc_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDbSnapshotCopyInputProps =
+  & z.input<typeof AwsDbSnapshotCopyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDbSnapshotCopyOutputProps =
+  & z.output<typeof AwsDbSnapshotCopyOutputSchema>
+  & z.output<typeof AwsDbSnapshotCopyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/db_snapshot_copy
 
-export function AwsDbSnapshotCopy(props: Partial<InputProps>) {
+export function AwsDbSnapshotCopy(props: Partial<AwsDbSnapshotCopyInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -70,8 +70,8 @@ export function AwsDbSnapshotCopy(props: Partial<InputProps>) {
       _type='aws_db_snapshot_copy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDbSnapshotCopyInputSchema}
+      _outputSchema={AwsDbSnapshotCopyOutputSchema}
       {...props}
     />
   )
@@ -81,10 +81,22 @@ export const useAwsDbSnapshotCopy = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsDbSnapshotCopy, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsDbSnapshotCopyOutputProps>(
+    AwsDbSnapshotCopy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDbSnapshotCopys = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsDbSnapshotCopy, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsDbSnapshotCopyOutputProps>(
+    AwsDbSnapshotCopy,
+    idFilter,
+    baseNode,
+    optional,
+  )

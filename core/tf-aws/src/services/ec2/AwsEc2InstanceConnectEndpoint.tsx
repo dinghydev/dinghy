@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEc2InstanceConnectEndpointInputSchema = TfMetaSchema.extend({
   subnet_id: resolvableValue(z.string()),
   ip_address_type: resolvableValue(z.string().optional()),
   preserve_client_ip: resolvableValue(z.boolean().optional()),
@@ -24,7 +24,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsEc2InstanceConnectEndpointOutputSchema = z.object({
   arn: z.string().optional(),
   availability_zone: z.string().optional(),
   dns_name: z.string().optional(),
@@ -36,18 +36,20 @@ export const OutputSchema = z.object({
   vpc_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEc2InstanceConnectEndpointInputProps =
+  & z.input<typeof AwsEc2InstanceConnectEndpointInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEc2InstanceConnectEndpointOutputProps =
+  & z.output<typeof AwsEc2InstanceConnectEndpointOutputSchema>
+  & z.output<typeof AwsEc2InstanceConnectEndpointInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ec2_instance_connect_endpoint
 
-export function AwsEc2InstanceConnectEndpoint(props: Partial<InputProps>) {
+export function AwsEc2InstanceConnectEndpoint(
+  props: Partial<AwsEc2InstanceConnectEndpointInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -57,8 +59,8 @@ export function AwsEc2InstanceConnectEndpoint(props: Partial<InputProps>) {
       _type='aws_ec2_instance_connect_endpoint'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEc2InstanceConnectEndpointInputSchema}
+      _outputSchema={AwsEc2InstanceConnectEndpointOutputSchema}
       {...props}
     />
   )
@@ -69,7 +71,7 @@ export const useAwsEc2InstanceConnectEndpoint = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsEc2InstanceConnectEndpointOutputProps>(
     AwsEc2InstanceConnectEndpoint,
     idFilter,
     baseNode,
@@ -81,7 +83,7 @@ export const useAwsEc2InstanceConnectEndpoints = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEc2InstanceConnectEndpointOutputProps>(
     AwsEc2InstanceConnectEndpoint,
     idFilter,
     baseNode,

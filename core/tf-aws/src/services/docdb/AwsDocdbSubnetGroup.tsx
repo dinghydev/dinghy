@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDocdbSubnetGroupInputSchema = TfMetaSchema.extend({
   subnet_ids: resolvableValue(z.string().array()),
   description: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
@@ -18,25 +18,27 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDocdbSubnetGroupOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   supported_network_types: z.set(z.string()).optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDocdbSubnetGroupInputProps =
+  & z.input<typeof AwsDocdbSubnetGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDocdbSubnetGroupOutputProps =
+  & z.output<typeof AwsDocdbSubnetGroupOutputSchema>
+  & z.output<typeof AwsDocdbSubnetGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/docdb_subnet_group
 
-export function AwsDocdbSubnetGroup(props: Partial<InputProps>) {
+export function AwsDocdbSubnetGroup(
+  props: Partial<AwsDocdbSubnetGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function AwsDocdbSubnetGroup(props: Partial<InputProps>) {
       _type='aws_docdb_subnet_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDocdbSubnetGroupInputSchema}
+      _outputSchema={AwsDocdbSubnetGroupOutputSchema}
       {...props}
     />
   )
@@ -58,11 +60,21 @@ export const useAwsDocdbSubnetGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsDocdbSubnetGroup, idFilter, baseNode, optional)
+  useTypedNode<AwsDocdbSubnetGroupOutputProps>(
+    AwsDocdbSubnetGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDocdbSubnetGroups = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsDocdbSubnetGroup, idFilter, baseNode, optional)
+  useTypedNodes<AwsDocdbSubnetGroupOutputProps>(
+    AwsDocdbSubnetGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

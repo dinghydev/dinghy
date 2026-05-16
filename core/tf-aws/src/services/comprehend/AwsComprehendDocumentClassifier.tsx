@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsComprehendDocumentClassifierInputSchema = TfMetaSchema.extend({
   data_access_role_arn: resolvableValue(z.string()),
   input_data_config: resolvableValue(z.object({
     data_format: z.string().optional(),
@@ -57,28 +57,30 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsComprehendDocumentClassifierOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsComprehendDocumentClassifierImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsComprehendDocumentClassifierInputProps =
+  & z.input<typeof AwsComprehendDocumentClassifierInputSchema>
+  & z.input<typeof AwsComprehendDocumentClassifierImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsComprehendDocumentClassifierOutputProps =
+  & z.output<typeof AwsComprehendDocumentClassifierOutputSchema>
+  & z.output<typeof AwsComprehendDocumentClassifierInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/comprehend_document_classifier
 
-export function AwsComprehendDocumentClassifier(props: Partial<InputProps>) {
+export function AwsComprehendDocumentClassifier(
+  props: Partial<AwsComprehendDocumentClassifierInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -88,9 +90,9 @@ export function AwsComprehendDocumentClassifier(props: Partial<InputProps>) {
       _type='aws_comprehend_document_classifier'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsComprehendDocumentClassifierInputSchema}
+      _outputSchema={AwsComprehendDocumentClassifierOutputSchema}
+      _importSchema={AwsComprehendDocumentClassifierImportSchema}
       {...props}
     />
   )
@@ -101,7 +103,7 @@ export const useAwsComprehendDocumentClassifier = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsComprehendDocumentClassifierOutputProps>(
     AwsComprehendDocumentClassifier,
     idFilter,
     baseNode,
@@ -113,7 +115,7 @@ export const useAwsComprehendDocumentClassifiers = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsComprehendDocumentClassifierOutputProps>(
     AwsComprehendDocumentClassifier,
     idFilter,
     baseNode,

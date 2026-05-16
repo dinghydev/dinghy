@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsVpcRouteServerPeerInputSchema = TfMetaSchema.extend({
   peer_address: resolvableValue(z.string()),
   route_server_endpoint_id: resolvableValue(z.string()),
   bgp_options: resolvableValue(
@@ -28,7 +28,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsVpcRouteServerPeerOutputSchema = z.object({
   arn: z.string().optional(),
   endpoint_eni_address: z.string().optional(),
   endpoint_eni_id: z.string().optional(),
@@ -39,18 +39,20 @@ export const OutputSchema = z.object({
   vpc_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVpcRouteServerPeerInputProps =
+  & z.input<typeof AwsVpcRouteServerPeerInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVpcRouteServerPeerOutputProps =
+  & z.output<typeof AwsVpcRouteServerPeerOutputSchema>
+  & z.output<typeof AwsVpcRouteServerPeerInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpc_route_server_peer
 
-export function AwsVpcRouteServerPeer(props: Partial<InputProps>) {
+export function AwsVpcRouteServerPeer(
+  props: Partial<AwsVpcRouteServerPeerInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -60,8 +62,8 @@ export function AwsVpcRouteServerPeer(props: Partial<InputProps>) {
       _type='aws_vpc_route_server_peer'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVpcRouteServerPeerInputSchema}
+      _outputSchema={AwsVpcRouteServerPeerOutputSchema}
       {...props}
     />
   )
@@ -72,14 +74,19 @@ export const useAwsVpcRouteServerPeer = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsVpcRouteServerPeer, idFilter, baseNode, optional)
+  useTypedNode<AwsVpcRouteServerPeerOutputProps>(
+    AwsVpcRouteServerPeer,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsVpcRouteServerPeers = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsVpcRouteServerPeerOutputProps>(
     AwsVpcRouteServerPeer,
     idFilter,
     baseNode,

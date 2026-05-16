@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLexBotAliasInputSchema = TfMetaSchema.extend({
   bot_name: resolvableValue(z.string()),
   bot_version: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -36,25 +36,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsLexBotAliasOutputSchema = z.object({
   arn: z.string().optional(),
   checksum: z.string().optional(),
   created_date: z.string().optional(),
   last_updated_date: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLexBotAliasInputProps =
+  & z.input<typeof AwsLexBotAliasInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLexBotAliasOutputProps =
+  & z.output<typeof AwsLexBotAliasOutputSchema>
+  & z.output<typeof AwsLexBotAliasInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lex_bot_alias
 
-export function AwsLexBotAlias(props: Partial<InputProps>) {
+export function AwsLexBotAlias(props: Partial<AwsLexBotAliasInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -64,8 +64,8 @@ export function AwsLexBotAlias(props: Partial<InputProps>) {
       _type='aws_lex_bot_alias'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLexBotAliasInputSchema}
+      _outputSchema={AwsLexBotAliasOutputSchema}
       {...props}
     />
   )
@@ -75,4 +75,10 @@ export const useAwsLexBotAliass = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsLexBotAlias, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsLexBotAliasOutputProps>(
+    AwsLexBotAlias,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAppmeshVirtualNodeInputSchema = TfMetaSchema.extend({
   mesh_name: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   spec: resolvableValue(z.object({
@@ -228,7 +228,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAppmeshVirtualNodeOutputSchema = z.object({
   arn: z.string().optional(),
   created_date: z.string().optional(),
   id: z.string().optional(),
@@ -237,18 +237,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAppmeshVirtualNodeInputProps =
+  & z.input<typeof AwsAppmeshVirtualNodeInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppmeshVirtualNodeOutputProps =
+  & z.output<typeof AwsAppmeshVirtualNodeOutputSchema>
+  & z.output<typeof AwsAppmeshVirtualNodeInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appmesh_virtual_node
 
-export function AwsAppmeshVirtualNode(props: Partial<InputProps>) {
+export function AwsAppmeshVirtualNode(
+  props: Partial<AwsAppmeshVirtualNodeInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -258,8 +260,8 @@ export function AwsAppmeshVirtualNode(props: Partial<InputProps>) {
       _type='aws_appmesh_virtual_node'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAppmeshVirtualNodeInputSchema}
+      _outputSchema={AwsAppmeshVirtualNodeOutputSchema}
       {...props}
     />
   )
@@ -270,14 +272,19 @@ export const useAwsAppmeshVirtualNode = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsAppmeshVirtualNode, idFilter, baseNode, optional)
+  useTypedNode<AwsAppmeshVirtualNodeOutputProps>(
+    AwsAppmeshVirtualNode,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAppmeshVirtualNodes = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAppmeshVirtualNodeOutputProps>(
     AwsAppmeshVirtualNode,
     idFilter,
     baseNode,

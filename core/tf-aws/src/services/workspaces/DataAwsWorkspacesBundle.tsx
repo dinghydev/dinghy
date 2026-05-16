@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsWorkspacesBundleInputSchema = TfMetaSchema.extend({
   bundle_id: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
@@ -17,7 +17,7 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsWorkspacesBundleOutputSchema = z.object({
   bundle_id: z.string().optional(),
   compute_type: z.object({
     name: z.string(),
@@ -33,18 +33,20 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsWorkspacesBundleInputProps =
+  & z.input<typeof DataAwsWorkspacesBundleInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsWorkspacesBundleOutputProps =
+  & z.output<typeof DataAwsWorkspacesBundleOutputSchema>
+  & z.output<typeof DataAwsWorkspacesBundleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/workspaces_bundle
 
-export function DataAwsWorkspacesBundle(props: Partial<InputProps>) {
+export function DataAwsWorkspacesBundle(
+  props: Partial<DataAwsWorkspacesBundleInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -54,8 +56,8 @@ export function DataAwsWorkspacesBundle(props: Partial<InputProps>) {
       _type='aws_workspaces_bundle'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsWorkspacesBundleInputSchema}
+      _outputSchema={DataAwsWorkspacesBundleOutputSchema}
       {...props}
     />
   )
@@ -66,7 +68,7 @@ export const useDataAwsWorkspacesBundle = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsWorkspacesBundleOutputProps>(
     DataAwsWorkspacesBundle,
     idFilter,
     baseNode,
@@ -78,7 +80,7 @@ export const useDataAwsWorkspacesBundles = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsWorkspacesBundleOutputProps>(
     DataAwsWorkspacesBundle,
     idFilter,
     baseNode,

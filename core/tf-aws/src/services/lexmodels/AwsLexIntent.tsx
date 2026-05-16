@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLexIntentInputSchema = TfMetaSchema.extend({
   fulfillment_activity: resolvableValue(z.object({
     type: z.string(),
     code_hook: z.object({
@@ -112,7 +112,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsLexIntentOutputSchema = z.object({
   arn: z.string().optional(),
   checksum: z.string().optional(),
   created_date: z.string().optional(),
@@ -120,18 +120,18 @@ export const OutputSchema = z.object({
   version: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLexIntentInputProps =
+  & z.input<typeof AwsLexIntentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLexIntentOutputProps =
+  & z.output<typeof AwsLexIntentOutputSchema>
+  & z.output<typeof AwsLexIntentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lex_intent
 
-export function AwsLexIntent(props: Partial<InputProps>) {
+export function AwsLexIntent(props: Partial<AwsLexIntentInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -141,8 +141,8 @@ export function AwsLexIntent(props: Partial<InputProps>) {
       _type='aws_lex_intent'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLexIntentInputSchema}
+      _outputSchema={AwsLexIntentOutputSchema}
       {...props}
     />
   )
@@ -152,10 +152,22 @@ export const useAwsLexIntent = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsLexIntent, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsLexIntentOutputProps>(
+    AwsLexIntent,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLexIntents = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsLexIntent, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsLexIntentOutputProps>(
+    AwsLexIntent,
+    idFilter,
+    baseNode,
+    optional,
+  )

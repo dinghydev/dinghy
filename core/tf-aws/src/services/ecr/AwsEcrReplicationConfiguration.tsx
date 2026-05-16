@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEcrReplicationConfigurationInputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   replication_configuration: resolvableValue(
@@ -28,22 +28,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsEcrReplicationConfigurationOutputSchema = z.object({
   registry_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEcrReplicationConfigurationInputProps =
+  & z.input<typeof AwsEcrReplicationConfigurationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEcrReplicationConfigurationOutputProps =
+  & z.output<typeof AwsEcrReplicationConfigurationOutputSchema>
+  & z.output<typeof AwsEcrReplicationConfigurationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ecr_replication_configuration
 
-export function AwsEcrReplicationConfiguration(props: Partial<InputProps>) {
+export function AwsEcrReplicationConfiguration(
+  props: Partial<AwsEcrReplicationConfigurationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,8 +55,8 @@ export function AwsEcrReplicationConfiguration(props: Partial<InputProps>) {
       _type='aws_ecr_replication_configuration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEcrReplicationConfigurationInputSchema}
+      _outputSchema={AwsEcrReplicationConfigurationOutputSchema}
       {...props}
     />
   )
@@ -65,7 +67,7 @@ export const useAwsEcrReplicationConfiguration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsEcrReplicationConfigurationOutputProps>(
     AwsEcrReplicationConfiguration,
     idFilter,
     baseNode,
@@ -77,7 +79,7 @@ export const useAwsEcrReplicationConfigurations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEcrReplicationConfigurationOutputProps>(
     AwsEcrReplicationConfiguration,
     idFilter,
     baseNode,

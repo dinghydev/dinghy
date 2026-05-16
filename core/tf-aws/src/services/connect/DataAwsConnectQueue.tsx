@@ -9,14 +9,14 @@ import {
 import z from 'zod'
 import { AwsConnectQueue } from './AwsConnectQueue.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsConnectQueueInputSchema = TfMetaSchema.extend({
   instance_id: resolvableValue(z.string()),
   name: resolvableValue(z.string().optional()),
   queue_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsConnectQueueOutputSchema = z.object({
   arn: z.string().optional(),
   description: z.string().optional(),
   hours_of_operation_id: z.string().optional(),
@@ -32,18 +32,20 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsConnectQueueInputProps =
+  & z.input<typeof DataAwsConnectQueueInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsConnectQueueOutputProps =
+  & z.output<typeof DataAwsConnectQueueOutputSchema>
+  & z.output<typeof DataAwsConnectQueueInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/connect_queue
 
-export function DataAwsConnectQueue(props: Partial<InputProps>) {
+export function DataAwsConnectQueue(
+  props: Partial<DataAwsConnectQueueInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,8 +55,8 @@ export function DataAwsConnectQueue(props: Partial<InputProps>) {
       _type='aws_connect_queue'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsConnectQueueInputSchema}
+      _outputSchema={DataAwsConnectQueueOutputSchema}
       {...props as any}
     />
   )
@@ -65,11 +67,21 @@ export const useDataAwsConnectQueue = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsConnectQueue, idFilter, baseNode, optional)
+  useTypedNode<DataAwsConnectQueueOutputProps>(
+    DataAwsConnectQueue,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsConnectQueues = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsConnectQueue, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsConnectQueueOutputProps>(
+    DataAwsConnectQueue,
+    idFilter,
+    baseNode,
+    optional,
+  )

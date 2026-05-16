@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsS3AccessPointInputSchema = TfMetaSchema.extend({
   bucket: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
@@ -32,7 +32,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsS3AccessPointOutputSchema = z.object({
   alias: z.string().optional(),
   arn: z.string().optional(),
   domain_name: z.string().optional(),
@@ -43,18 +43,18 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsS3AccessPointInputProps =
+  & z.input<typeof AwsS3AccessPointInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3AccessPointOutputProps =
+  & z.output<typeof AwsS3AccessPointOutputSchema>
+  & z.output<typeof AwsS3AccessPointInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3_access_point
 
-export function AwsS3AccessPoint(props: Partial<InputProps>) {
+export function AwsS3AccessPoint(props: Partial<AwsS3AccessPointInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -64,8 +64,8 @@ export function AwsS3AccessPoint(props: Partial<InputProps>) {
       _type='aws_s3_access_point'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsS3AccessPointInputSchema}
+      _outputSchema={AwsS3AccessPointOutputSchema}
       {...props}
     />
   )
@@ -75,10 +75,22 @@ export const useAwsS3AccessPoint = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsS3AccessPoint, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsS3AccessPointOutputProps>(
+    AwsS3AccessPoint,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsS3AccessPoints = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsS3AccessPoint, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsS3AccessPointOutputProps>(
+    AwsS3AccessPoint,
+    idFilter,
+    baseNode,
+    optional,
+  )

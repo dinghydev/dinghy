@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDefaultRouteTableInputSchema = TfMetaSchema.extend({
   default_route_table_id: resolvableValue(z.string()),
   propagating_vgws: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
@@ -38,7 +38,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDefaultRouteTableOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   owner_id: z.string().optional(),
@@ -46,18 +46,20 @@ export const OutputSchema = z.object({
   vpc_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDefaultRouteTableInputProps =
+  & z.input<typeof AwsDefaultRouteTableInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDefaultRouteTableOutputProps =
+  & z.output<typeof AwsDefaultRouteTableOutputSchema>
+  & z.output<typeof AwsDefaultRouteTableInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/default_route_table
 
-export function AwsDefaultRouteTable(props: Partial<InputProps>) {
+export function AwsDefaultRouteTable(
+  props: Partial<AwsDefaultRouteTableInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -67,8 +69,8 @@ export function AwsDefaultRouteTable(props: Partial<InputProps>) {
       _type='aws_default_route_table'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDefaultRouteTableInputSchema}
+      _outputSchema={AwsDefaultRouteTableOutputSchema}
       {...props}
     />
   )
@@ -79,11 +81,21 @@ export const useAwsDefaultRouteTable = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsDefaultRouteTable, idFilter, baseNode, optional)
+  useTypedNode<AwsDefaultRouteTableOutputProps>(
+    AwsDefaultRouteTable,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDefaultRouteTables = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsDefaultRouteTable, idFilter, baseNode, optional)
+  useTypedNodes<AwsDefaultRouteTableOutputProps>(
+    AwsDefaultRouteTable,
+    idFilter,
+    baseNode,
+    optional,
+  )

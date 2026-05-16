@@ -9,40 +9,41 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  name: resolvableValue(z.string()),
-  policy: resolvableValue(z.string()),
-  type: resolvableValue(z.string()),
-  description: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsOpensearchserverlessLifecyclePolicyInputSchema = TfMetaSchema
+  .extend({
+    name: resolvableValue(z.string()),
+    policy: resolvableValue(z.string()),
+    type: resolvableValue(z.string()),
+    description: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsOpensearchserverlessLifecyclePolicyOutputSchema = z.object({
   id: z.string().optional(),
   policy_version: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsOpensearchserverlessLifecyclePolicyImportSchema = z.object({
   name: resolvableValue(z.string()),
   type: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsOpensearchserverlessLifecyclePolicyInputProps =
+  & z.input<typeof AwsOpensearchserverlessLifecyclePolicyInputSchema>
+  & z.input<typeof AwsOpensearchserverlessLifecyclePolicyImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsOpensearchserverlessLifecyclePolicyOutputProps =
+  & z.output<typeof AwsOpensearchserverlessLifecyclePolicyOutputSchema>
+  & z.output<typeof AwsOpensearchserverlessLifecyclePolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/opensearchserverless_lifecycle_policy
 
 export function AwsOpensearchserverlessLifecyclePolicy(
-  props: Partial<InputProps>,
+  props: Partial<AwsOpensearchserverlessLifecyclePolicyInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -53,9 +54,9 @@ export function AwsOpensearchserverlessLifecyclePolicy(
       _type='aws_opensearchserverless_lifecycle_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsOpensearchserverlessLifecyclePolicyInputSchema}
+      _outputSchema={AwsOpensearchserverlessLifecyclePolicyOutputSchema}
+      _importSchema={AwsOpensearchserverlessLifecyclePolicyImportSchema}
       {...props}
     />
   )
@@ -66,7 +67,7 @@ export const useAwsOpensearchserverlessLifecyclePolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsOpensearchserverlessLifecyclePolicyOutputProps>(
     AwsOpensearchserverlessLifecyclePolicy,
     idFilter,
     baseNode,
@@ -78,7 +79,7 @@ export const useAwsOpensearchserverlessLifecyclePolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsOpensearchserverlessLifecyclePolicyOutputProps>(
     AwsOpensearchserverlessLifecyclePolicy,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsBackupRestoreTestingPlanInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   schedule_expression: resolvableValue(z.string()),
   recovery_point_selection: resolvableValue(
@@ -27,23 +27,25 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsBackupRestoreTestingPlanOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsBackupRestoreTestingPlanInputProps =
+  & z.input<typeof AwsBackupRestoreTestingPlanInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBackupRestoreTestingPlanOutputProps =
+  & z.output<typeof AwsBackupRestoreTestingPlanOutputSchema>
+  & z.output<typeof AwsBackupRestoreTestingPlanInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/backup_restore_testing_plan
 
-export function AwsBackupRestoreTestingPlan(props: Partial<InputProps>) {
+export function AwsBackupRestoreTestingPlan(
+  props: Partial<AwsBackupRestoreTestingPlanInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,8 +55,8 @@ export function AwsBackupRestoreTestingPlan(props: Partial<InputProps>) {
       _type='aws_backup_restore_testing_plan'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsBackupRestoreTestingPlanInputSchema}
+      _outputSchema={AwsBackupRestoreTestingPlanOutputSchema}
       {...props}
     />
   )
@@ -65,7 +67,7 @@ export const useAwsBackupRestoreTestingPlan = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsBackupRestoreTestingPlanOutputProps>(
     AwsBackupRestoreTestingPlan,
     idFilter,
     baseNode,
@@ -77,7 +79,7 @@ export const useAwsBackupRestoreTestingPlans = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsBackupRestoreTestingPlanOutputProps>(
     AwsBackupRestoreTestingPlan,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIvsRecordingConfigurationInputSchema = TfMetaSchema.extend({
   destination_configuration: resolvableValue(z.object({
     s3: z.object({
       bucket_name: z.string(),
@@ -34,29 +34,31 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsIvsRecordingConfigurationOutputSchema = z.object({
   arn: z.string().optional(),
   state: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsIvsRecordingConfigurationImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsIvsRecordingConfigurationInputProps =
+  & z.input<typeof AwsIvsRecordingConfigurationInputSchema>
+  & z.input<typeof AwsIvsRecordingConfigurationImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIvsRecordingConfigurationOutputProps =
+  & z.output<typeof AwsIvsRecordingConfigurationOutputSchema>
+  & z.output<typeof AwsIvsRecordingConfigurationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ivs_recording_configuration
 
-export function AwsIvsRecordingConfiguration(props: Partial<InputProps>) {
+export function AwsIvsRecordingConfiguration(
+  props: Partial<AwsIvsRecordingConfigurationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -66,9 +68,9 @@ export function AwsIvsRecordingConfiguration(props: Partial<InputProps>) {
       _type='aws_ivs_recording_configuration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsIvsRecordingConfigurationInputSchema}
+      _outputSchema={AwsIvsRecordingConfigurationOutputSchema}
+      _importSchema={AwsIvsRecordingConfigurationImportSchema}
       {...props}
     />
   )
@@ -79,7 +81,7 @@ export const useAwsIvsRecordingConfiguration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsIvsRecordingConfigurationOutputProps>(
     AwsIvsRecordingConfiguration,
     idFilter,
     baseNode,
@@ -91,7 +93,7 @@ export const useAwsIvsRecordingConfigurations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsIvsRecordingConfigurationOutputProps>(
     AwsIvsRecordingConfiguration,
     idFilter,
     baseNode,

@@ -8,34 +8,36 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  credentials: resolvableValue(
-    z.object({
-      password: z.string(),
-      username: z.string(),
-    }).array(),
-  ),
-  voice_connector_id: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsChimeVoiceConnectorTerminationCredentialsInputSchema =
+  TfMetaSchema.extend({
+    credentials: resolvableValue(
+      z.object({
+        password: z.string(),
+        username: z.string(),
+      }).array(),
+    ),
+    voice_connector_id: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
-  id: z.string().optional(),
-})
+export const AwsChimeVoiceConnectorTerminationCredentialsOutputSchema = z
+  .object({
+    id: z.string().optional(),
+  })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsChimeVoiceConnectorTerminationCredentialsInputProps =
+  & z.input<typeof AwsChimeVoiceConnectorTerminationCredentialsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsChimeVoiceConnectorTerminationCredentialsOutputProps =
+  & z.output<typeof AwsChimeVoiceConnectorTerminationCredentialsOutputSchema>
+  & z.output<typeof AwsChimeVoiceConnectorTerminationCredentialsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/chime_voice_connector_termination_credentials
 
 export function AwsChimeVoiceConnectorTerminationCredentials(
-  props: Partial<InputProps>,
+  props: Partial<AwsChimeVoiceConnectorTerminationCredentialsInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -46,8 +48,8 @@ export function AwsChimeVoiceConnectorTerminationCredentials(
       _type='aws_chime_voice_connector_termination_credentials'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsChimeVoiceConnectorTerminationCredentialsInputSchema}
+      _outputSchema={AwsChimeVoiceConnectorTerminationCredentialsOutputSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useAwsChimeVoiceConnectorTerminationCredentialss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsChimeVoiceConnectorTerminationCredentialsOutputProps>(
     AwsChimeVoiceConnectorTerminationCredentials,
     idFilter,
     baseNode,

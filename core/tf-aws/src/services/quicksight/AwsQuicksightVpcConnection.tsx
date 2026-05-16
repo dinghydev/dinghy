@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsQuicksightVpcConnectionInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   role_arn: resolvableValue(z.string()),
   security_group_ids: resolvableValue(z.string().array()),
@@ -28,25 +28,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsQuicksightVpcConnectionOutputSchema = z.object({
   arn: z.string().optional(),
   availability_status: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsQuicksightVpcConnectionInputProps =
+  & z.input<typeof AwsQuicksightVpcConnectionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsQuicksightVpcConnectionOutputProps =
+  & z.output<typeof AwsQuicksightVpcConnectionOutputSchema>
+  & z.output<typeof AwsQuicksightVpcConnectionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/quicksight_vpc_connection
 
-export function AwsQuicksightVpcConnection(props: Partial<InputProps>) {
+export function AwsQuicksightVpcConnection(
+  props: Partial<AwsQuicksightVpcConnectionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -56,8 +58,8 @@ export function AwsQuicksightVpcConnection(props: Partial<InputProps>) {
       _type='aws_quicksight_vpc_connection'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsQuicksightVpcConnectionInputSchema}
+      _outputSchema={AwsQuicksightVpcConnectionOutputSchema}
       {...props}
     />
   )
@@ -68,7 +70,7 @@ export const useAwsQuicksightVpcConnection = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsQuicksightVpcConnectionOutputProps>(
     AwsQuicksightVpcConnection,
     idFilter,
     baseNode,
@@ -80,7 +82,7 @@ export const useAwsQuicksightVpcConnections = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsQuicksightVpcConnectionOutputProps>(
     AwsQuicksightVpcConnection,
     idFilter,
     baseNode,

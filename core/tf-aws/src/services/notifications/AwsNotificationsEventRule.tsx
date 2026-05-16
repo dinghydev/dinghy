@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsNotificationsEventRuleInputSchema = TfMetaSchema.extend({
   event_type: resolvableValue(z.string()),
   notification_configuration_arn: resolvableValue(z.string()),
   regions: resolvableValue(z.string().array()),
@@ -17,22 +17,24 @@ export const InputSchema = TfMetaSchema.extend({
   event_pattern: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsNotificationsEventRuleOutputSchema = z.object({
   arn: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsNotificationsEventRuleInputProps =
+  & z.input<typeof AwsNotificationsEventRuleInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNotificationsEventRuleOutputProps =
+  & z.output<typeof AwsNotificationsEventRuleOutputSchema>
+  & z.output<typeof AwsNotificationsEventRuleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/notifications_event_rule
 
-export function AwsNotificationsEventRule(props: Partial<InputProps>) {
+export function AwsNotificationsEventRule(
+  props: Partial<AwsNotificationsEventRuleInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +44,8 @@ export function AwsNotificationsEventRule(props: Partial<InputProps>) {
       _type='aws_notifications_event_rule'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsNotificationsEventRuleInputSchema}
+      _outputSchema={AwsNotificationsEventRuleOutputSchema}
       {...props}
     />
   )
@@ -54,7 +56,7 @@ export const useAwsNotificationsEventRule = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsNotificationsEventRuleOutputProps>(
     AwsNotificationsEventRule,
     idFilter,
     baseNode,
@@ -66,7 +68,7 @@ export const useAwsNotificationsEventRules = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsNotificationsEventRuleOutputProps>(
     AwsNotificationsEventRule,
     idFilter,
     baseNode,

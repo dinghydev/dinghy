@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRekognitionStreamProcessorInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   role_arn: resolvableValue(z.string()),
   data_sharing_preference: resolvableValue(
@@ -78,24 +78,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsRekognitionStreamProcessorOutputSchema = z.object({
   arn: z.string().optional(),
   stream_processor_arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRekognitionStreamProcessorInputProps =
+  & z.input<typeof AwsRekognitionStreamProcessorInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRekognitionStreamProcessorOutputProps =
+  & z.output<typeof AwsRekognitionStreamProcessorOutputSchema>
+  & z.output<typeof AwsRekognitionStreamProcessorInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/rekognition_stream_processor
 
-export function AwsRekognitionStreamProcessor(props: Partial<InputProps>) {
+export function AwsRekognitionStreamProcessor(
+  props: Partial<AwsRekognitionStreamProcessorInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -105,8 +107,8 @@ export function AwsRekognitionStreamProcessor(props: Partial<InputProps>) {
       _type='aws_rekognition_stream_processor'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRekognitionStreamProcessorInputSchema}
+      _outputSchema={AwsRekognitionStreamProcessorOutputSchema}
       {...props}
     />
   )
@@ -117,7 +119,7 @@ export const useAwsRekognitionStreamProcessor = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRekognitionStreamProcessorOutputProps>(
     AwsRekognitionStreamProcessor,
     idFilter,
     baseNode,
@@ -129,7 +131,7 @@ export const useAwsRekognitionStreamProcessors = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRekognitionStreamProcessorOutputProps>(
     AwsRekognitionStreamProcessor,
     idFilter,
     baseNode,

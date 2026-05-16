@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsImagebuilderComponentInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   platform: resolvableValue(z.string()),
   version: resolvableValue(z.string()),
@@ -24,7 +24,7 @@ export const InputSchema = TfMetaSchema.extend({
   uri: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsImagebuilderComponentOutputSchema = z.object({
   arn: z.string().optional(),
   date_created: z.string().optional(),
   encrypted: z.boolean().optional(),
@@ -34,18 +34,20 @@ export const OutputSchema = z.object({
   type: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsImagebuilderComponentInputProps =
+  & z.input<typeof AwsImagebuilderComponentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsImagebuilderComponentOutputProps =
+  & z.output<typeof AwsImagebuilderComponentOutputSchema>
+  & z.output<typeof AwsImagebuilderComponentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/imagebuilder_component
 
-export function AwsImagebuilderComponent(props: Partial<InputProps>) {
+export function AwsImagebuilderComponent(
+  props: Partial<AwsImagebuilderComponentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,8 +57,8 @@ export function AwsImagebuilderComponent(props: Partial<InputProps>) {
       _type='aws_imagebuilder_component'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsImagebuilderComponentInputSchema}
+      _outputSchema={AwsImagebuilderComponentOutputSchema}
       {...props}
     />
   )
@@ -67,7 +69,7 @@ export const useAwsImagebuilderComponent = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsImagebuilderComponentOutputProps>(
     AwsImagebuilderComponent,
     idFilter,
     baseNode,
@@ -79,7 +81,7 @@ export const useAwsImagebuilderComponents = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsImagebuilderComponentOutputProps>(
     AwsImagebuilderComponent,
     idFilter,
     baseNode,

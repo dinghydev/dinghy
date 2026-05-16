@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRdsReservedInstanceInputSchema = TfMetaSchema.extend({
   offering_id: resolvableValue(z.string()),
   instance_count: resolvableValue(z.number().optional()),
   region: resolvableValue(z.string().optional()),
@@ -24,7 +24,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsRdsReservedInstanceOutputSchema = z.object({
   arn: z.string().optional(),
   currency_code: z.string().optional(),
   db_instance_class: z.string().optional(),
@@ -45,18 +45,20 @@ export const OutputSchema = z.object({
   usage_price: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRdsReservedInstanceInputProps =
+  & z.input<typeof AwsRdsReservedInstanceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRdsReservedInstanceOutputProps =
+  & z.output<typeof AwsRdsReservedInstanceOutputSchema>
+  & z.output<typeof AwsRdsReservedInstanceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/rds_reserved_instance
 
-export function AwsRdsReservedInstance(props: Partial<InputProps>) {
+export function AwsRdsReservedInstance(
+  props: Partial<AwsRdsReservedInstanceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -66,8 +68,8 @@ export function AwsRdsReservedInstance(props: Partial<InputProps>) {
       _type='aws_rds_reserved_instance'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRdsReservedInstanceInputSchema}
+      _outputSchema={AwsRdsReservedInstanceOutputSchema}
       {...props}
     />
   )
@@ -78,7 +80,7 @@ export const useAwsRdsReservedInstance = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRdsReservedInstanceOutputProps>(
     AwsRdsReservedInstance,
     idFilter,
     baseNode,
@@ -90,7 +92,7 @@ export const useAwsRdsReservedInstances = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRdsReservedInstanceOutputProps>(
     AwsRdsReservedInstance,
     idFilter,
     baseNode,

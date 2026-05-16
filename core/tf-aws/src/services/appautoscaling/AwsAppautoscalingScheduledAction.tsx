@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAppautoscalingScheduledActionInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   resource_id: resolvableValue(z.string()),
   scalable_dimension: resolvableValue(z.string()),
@@ -26,22 +26,24 @@ export const InputSchema = TfMetaSchema.extend({
   timezone: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAppautoscalingScheduledActionOutputSchema = z.object({
   arn: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAppautoscalingScheduledActionInputProps =
+  & z.input<typeof AwsAppautoscalingScheduledActionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppautoscalingScheduledActionOutputProps =
+  & z.output<typeof AwsAppautoscalingScheduledActionOutputSchema>
+  & z.output<typeof AwsAppautoscalingScheduledActionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appautoscaling_scheduled_action
 
-export function AwsAppautoscalingScheduledAction(props: Partial<InputProps>) {
+export function AwsAppautoscalingScheduledAction(
+  props: Partial<AwsAppautoscalingScheduledActionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -51,8 +53,8 @@ export function AwsAppautoscalingScheduledAction(props: Partial<InputProps>) {
       _type='aws_appautoscaling_scheduled_action'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAppautoscalingScheduledActionInputSchema}
+      _outputSchema={AwsAppautoscalingScheduledActionOutputSchema}
       {...props}
     />
   )
@@ -63,7 +65,7 @@ export const useAwsAppautoscalingScheduledAction = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAppautoscalingScheduledActionOutputProps>(
     AwsAppautoscalingScheduledAction,
     idFilter,
     baseNode,
@@ -75,7 +77,7 @@ export const useAwsAppautoscalingScheduledActions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAppautoscalingScheduledActionOutputProps>(
     AwsAppautoscalingScheduledAction,
     idFilter,
     baseNode,

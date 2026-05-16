@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsApiGatewayGatewayResponseInputSchema = TfMetaSchema.extend({
   response_type: resolvableValue(z.string()),
   rest_api_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
@@ -23,20 +23,22 @@ export const InputSchema = TfMetaSchema.extend({
   status_code: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsApiGatewayGatewayResponseOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsApiGatewayGatewayResponseInputProps =
+  & z.input<typeof AwsApiGatewayGatewayResponseInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApiGatewayGatewayResponseOutputProps =
+  & z.output<typeof AwsApiGatewayGatewayResponseOutputSchema>
+  & z.output<typeof AwsApiGatewayGatewayResponseInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/api_gateway_gateway_response
 
-export function AwsApiGatewayGatewayResponse(props: Partial<InputProps>) {
+export function AwsApiGatewayGatewayResponse(
+  props: Partial<AwsApiGatewayGatewayResponseInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function AwsApiGatewayGatewayResponse(props: Partial<InputProps>) {
       _type='aws_api_gateway_gateway_response'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsApiGatewayGatewayResponseInputSchema}
+      _outputSchema={AwsApiGatewayGatewayResponseOutputSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useAwsApiGatewayGatewayResponse = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsApiGatewayGatewayResponseOutputProps>(
     AwsApiGatewayGatewayResponse,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useAwsApiGatewayGatewayResponses = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsApiGatewayGatewayResponseOutputProps>(
     AwsApiGatewayGatewayResponse,
     idFilter,
     baseNode,

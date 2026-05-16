@@ -9,26 +9,36 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  channel_arn: resolvableValue(z.string()),
-  managed_notification_arn: resolvableValue(z.string()),
-})
+export const AwsNotificationsManagedNotificationAdditionalChannelAssociationInputSchema =
+  TfMetaSchema.extend({
+    channel_arn: resolvableValue(z.string()),
+    managed_notification_arn: resolvableValue(z.string()),
+  })
 
-export const OutputSchema = z.object({})
+export const AwsNotificationsManagedNotificationAdditionalChannelAssociationOutputSchema =
+  z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsNotificationsManagedNotificationAdditionalChannelAssociationInputProps =
+  & z.input<
+    typeof AwsNotificationsManagedNotificationAdditionalChannelAssociationInputSchema
+  >
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNotificationsManagedNotificationAdditionalChannelAssociationOutputProps =
+  & z.output<
+    typeof AwsNotificationsManagedNotificationAdditionalChannelAssociationOutputSchema
+  >
+  & z.output<
+    typeof AwsNotificationsManagedNotificationAdditionalChannelAssociationInputSchema
+  >
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/notifications_managed_notification_additional_channel_association
 
 export function AwsNotificationsManagedNotificationAdditionalChannelAssociation(
-  props: Partial<InputProps>,
+  props: Partial<
+    AwsNotificationsManagedNotificationAdditionalChannelAssociationInputProps
+  >,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -39,8 +49,8 @@ export function AwsNotificationsManagedNotificationAdditionalChannelAssociation(
       _type='aws_notifications_managed_notification_additional_channel_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsNotificationsManagedNotificationAdditionalChannelAssociationInputSchema}
+      _outputSchema={AwsNotificationsManagedNotificationAdditionalChannelAssociationOutputSchema}
       {...props}
     />
   )
@@ -48,7 +58,9 @@ export function AwsNotificationsManagedNotificationAdditionalChannelAssociation(
 
 export const useAwsNotificationsManagedNotificationAdditionalChannelAssociation =
   (idFilter?: string, baseNode?: any, optional?: boolean) =>
-    useTypedNode<OutputProps>(
+    useTypedNode<
+      AwsNotificationsManagedNotificationAdditionalChannelAssociationOutputProps
+    >(
       AwsNotificationsManagedNotificationAdditionalChannelAssociation,
       idFilter,
       baseNode,
@@ -57,7 +69,9 @@ export const useAwsNotificationsManagedNotificationAdditionalChannelAssociation 
 
 export const useAwsNotificationsManagedNotificationAdditionalChannelAssociations =
   (idFilter?: string, baseNode?: any, optional?: boolean) =>
-    useTypedNodes<OutputProps>(
+    useTypedNodes<
+      AwsNotificationsManagedNotificationAdditionalChannelAssociationOutputProps
+    >(
       AwsNotificationsManagedNotificationAdditionalChannelAssociation,
       idFilter,
       baseNode,

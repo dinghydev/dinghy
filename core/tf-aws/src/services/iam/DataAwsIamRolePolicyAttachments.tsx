@@ -8,30 +8,32 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsIamRolePolicyAttachmentsInputSchema = TfMetaSchema.extend({
   role_name: resolvableValue(z.string()),
   path_prefix: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsIamRolePolicyAttachmentsOutputSchema = z.object({
   attached_policies: z.object({
     policy_arn: z.string(),
     policy_name: z.string(),
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsIamRolePolicyAttachmentsInputProps =
+  & z.input<typeof DataAwsIamRolePolicyAttachmentsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsIamRolePolicyAttachmentsOutputProps =
+  & z.output<typeof DataAwsIamRolePolicyAttachmentsOutputSchema>
+  & z.output<typeof DataAwsIamRolePolicyAttachmentsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/iam_role_policy_attachments
 
-export function DataAwsIamRolePolicyAttachments(props: Partial<InputProps>) {
+export function DataAwsIamRolePolicyAttachments(
+  props: Partial<DataAwsIamRolePolicyAttachmentsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -41,8 +43,8 @@ export function DataAwsIamRolePolicyAttachments(props: Partial<InputProps>) {
       _type='aws_iam_role_policy_attachments'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsIamRolePolicyAttachmentsInputSchema}
+      _outputSchema={DataAwsIamRolePolicyAttachmentsOutputSchema}
       {...props}
     />
   )
@@ -53,7 +55,7 @@ export const useDataAwsIamRolePolicyAttachmentss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsIamRolePolicyAttachmentsOutputProps>(
     DataAwsIamRolePolicyAttachments,
     idFilter,
     baseNode,

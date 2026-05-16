@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsBedrockGuardrailInputSchema = TfMetaSchema.extend({
   blocked_input_messaging: resolvableValue(z.string()),
   blocked_outputs_messaging: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -110,7 +110,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsBedrockGuardrailOutputSchema = z.object({
   created_at: z.string().optional(),
   guardrail_arn: z.string().optional(),
   guardrail_id: z.string().optional(),
@@ -119,18 +119,20 @@ export const OutputSchema = z.object({
   version: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsBedrockGuardrailInputProps =
+  & z.input<typeof AwsBedrockGuardrailInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBedrockGuardrailOutputProps =
+  & z.output<typeof AwsBedrockGuardrailOutputSchema>
+  & z.output<typeof AwsBedrockGuardrailInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/bedrock_guardrail
 
-export function AwsBedrockGuardrail(props: Partial<InputProps>) {
+export function AwsBedrockGuardrail(
+  props: Partial<AwsBedrockGuardrailInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -140,8 +142,8 @@ export function AwsBedrockGuardrail(props: Partial<InputProps>) {
       _type='aws_bedrock_guardrail'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsBedrockGuardrailInputSchema}
+      _outputSchema={AwsBedrockGuardrailOutputSchema}
       {...props}
     />
   )
@@ -152,11 +154,21 @@ export const useAwsBedrockGuardrail = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsBedrockGuardrail, idFilter, baseNode, optional)
+  useTypedNode<AwsBedrockGuardrailOutputProps>(
+    AwsBedrockGuardrail,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsBedrockGuardrails = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsBedrockGuardrail, idFilter, baseNode, optional)
+  useTypedNodes<AwsBedrockGuardrailOutputProps>(
+    AwsBedrockGuardrail,
+    idFilter,
+    baseNode,
+    optional,
+  )

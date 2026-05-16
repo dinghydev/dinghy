@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDataexchangeDataSetInputSchema = TfMetaSchema.extend({
   asset_type: resolvableValue(z.string()),
   description: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -17,24 +17,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDataexchangeDataSetOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDataexchangeDataSetInputProps =
+  & z.input<typeof AwsDataexchangeDataSetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDataexchangeDataSetOutputProps =
+  & z.output<typeof AwsDataexchangeDataSetOutputSchema>
+  & z.output<typeof AwsDataexchangeDataSetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dataexchange_data_set
 
-export function AwsDataexchangeDataSet(props: Partial<InputProps>) {
+export function AwsDataexchangeDataSet(
+  props: Partial<AwsDataexchangeDataSetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +46,8 @@ export function AwsDataexchangeDataSet(props: Partial<InputProps>) {
       _type='aws_dataexchange_data_set'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDataexchangeDataSetInputSchema}
+      _outputSchema={AwsDataexchangeDataSetOutputSchema}
       {...props}
     />
   )
@@ -56,7 +58,7 @@ export const useAwsDataexchangeDataSet = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDataexchangeDataSetOutputProps>(
     AwsDataexchangeDataSet,
     idFilter,
     baseNode,
@@ -68,7 +70,7 @@ export const useAwsDataexchangeDataSets = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDataexchangeDataSetOutputProps>(
     AwsDataexchangeDataSet,
     idFilter,
     baseNode,

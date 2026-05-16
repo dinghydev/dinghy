@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsGlueSchemaInputSchema = TfMetaSchema.extend({
   compatibility: resolvableValue(z.string()),
   data_format: resolvableValue(z.string()),
   schema_definition: resolvableValue(z.string()),
@@ -20,7 +20,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsGlueSchemaOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   latest_schema_version: z.number().optional(),
@@ -30,23 +30,23 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsGlueSchemaImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsGlueSchemaInputProps =
+  & z.input<typeof AwsGlueSchemaInputSchema>
+  & z.input<typeof AwsGlueSchemaImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsGlueSchemaOutputProps =
+  & z.output<typeof AwsGlueSchemaOutputSchema>
+  & z.output<typeof AwsGlueSchemaInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/glue_schema
 
-export function AwsGlueSchema(props: Partial<InputProps>) {
+export function AwsGlueSchema(props: Partial<AwsGlueSchemaInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -56,9 +56,9 @@ export function AwsGlueSchema(props: Partial<InputProps>) {
       _type='aws_glue_schema'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsGlueSchemaInputSchema}
+      _outputSchema={AwsGlueSchemaOutputSchema}
+      _importSchema={AwsGlueSchemaImportSchema}
       {...props}
     />
   )
@@ -68,10 +68,22 @@ export const useAwsGlueSchema = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsGlueSchema, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsGlueSchemaOutputProps>(
+    AwsGlueSchema,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsGlueSchemas = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsGlueSchema, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsGlueSchemaOutputProps>(
+    AwsGlueSchema,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsPinpointEventStreamInputSchema = TfMetaSchema.extend({
   application_id: resolvableValue(z.string()),
   destination_stream_arn: resolvableValue(z.string()),
   role_arn: resolvableValue(z.string()),
@@ -17,20 +17,22 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsPinpointEventStreamOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsPinpointEventStreamInputProps =
+  & z.input<typeof AwsPinpointEventStreamInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsPinpointEventStreamOutputProps =
+  & z.output<typeof AwsPinpointEventStreamOutputSchema>
+  & z.output<typeof AwsPinpointEventStreamInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/pinpoint_event_stream
 
-export function AwsPinpointEventStream(props: Partial<InputProps>) {
+export function AwsPinpointEventStream(
+  props: Partial<AwsPinpointEventStreamInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function AwsPinpointEventStream(props: Partial<InputProps>) {
       _type='aws_pinpoint_event_stream'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsPinpointEventStreamInputSchema}
+      _outputSchema={AwsPinpointEventStreamOutputSchema}
       {...props}
     />
   )
@@ -52,7 +54,7 @@ export const useAwsPinpointEventStream = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsPinpointEventStreamOutputProps>(
     AwsPinpointEventStream,
     idFilter,
     baseNode,
@@ -64,7 +66,7 @@ export const useAwsPinpointEventStreams = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsPinpointEventStreamOutputProps>(
     AwsPinpointEventStream,
     idFilter,
     baseNode,

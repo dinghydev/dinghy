@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsS3BucketNotificationInputSchema = TfMetaSchema.extend({
   bucket: resolvableValue(z.string()),
   eventbridge: resolvableValue(z.boolean().optional()),
   id: resolvableValue(z.string().optional()),
@@ -43,27 +43,29 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({})
+export const AwsS3BucketNotificationOutputSchema = z.object({})
 
-export const ImportSchema = z.object({
+export const AwsS3BucketNotificationImportSchema = z.object({
   bucket: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsS3BucketNotificationInputProps =
+  & z.input<typeof AwsS3BucketNotificationInputSchema>
+  & z.input<typeof AwsS3BucketNotificationImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3BucketNotificationOutputProps =
+  & z.output<typeof AwsS3BucketNotificationOutputSchema>
+  & z.output<typeof AwsS3BucketNotificationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3_bucket_notification
 
-export function AwsS3BucketNotification(props: Partial<InputProps>) {
+export function AwsS3BucketNotification(
+  props: Partial<AwsS3BucketNotificationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -73,9 +75,9 @@ export function AwsS3BucketNotification(props: Partial<InputProps>) {
       _type='aws_s3_bucket_notification'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsS3BucketNotificationInputSchema}
+      _outputSchema={AwsS3BucketNotificationOutputSchema}
+      _importSchema={AwsS3BucketNotificationImportSchema}
       {...props}
     />
   )
@@ -86,7 +88,7 @@ export const useAwsS3BucketNotification = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsS3BucketNotificationOutputProps>(
     AwsS3BucketNotification,
     idFilter,
     baseNode,
@@ -98,7 +100,7 @@ export const useAwsS3BucketNotifications = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsS3BucketNotificationOutputProps>(
     AwsS3BucketNotification,
     idFilter,
     baseNode,

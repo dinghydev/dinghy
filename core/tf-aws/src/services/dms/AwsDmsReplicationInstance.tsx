@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDmsReplicationInstanceInputSchema = TfMetaSchema.extend({
   replication_instance_class: resolvableValue(z.string()),
   replication_instance_id: resolvableValue(z.string()),
   allocated_storage: resolvableValue(z.number().optional()),
@@ -45,25 +45,27 @@ export const InputSchema = TfMetaSchema.extend({
   vpc_security_group_ids: resolvableValue(z.string().array().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDmsReplicationInstanceOutputSchema = z.object({
   replication_instance_arn: z.string().optional(),
   replication_instance_private_ips: z.string().array().optional(),
   replication_instance_public_ips: z.string().array().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDmsReplicationInstanceInputProps =
+  & z.input<typeof AwsDmsReplicationInstanceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDmsReplicationInstanceOutputProps =
+  & z.output<typeof AwsDmsReplicationInstanceOutputSchema>
+  & z.output<typeof AwsDmsReplicationInstanceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dms_replication_instance
 
-export function AwsDmsReplicationInstance(props: Partial<InputProps>) {
+export function AwsDmsReplicationInstance(
+  props: Partial<AwsDmsReplicationInstanceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -73,8 +75,8 @@ export function AwsDmsReplicationInstance(props: Partial<InputProps>) {
       _type='aws_dms_replication_instance'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDmsReplicationInstanceInputSchema}
+      _outputSchema={AwsDmsReplicationInstanceOutputSchema}
       {...props}
     />
   )
@@ -85,7 +87,7 @@ export const useAwsDmsReplicationInstance = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDmsReplicationInstanceOutputProps>(
     AwsDmsReplicationInstance,
     idFilter,
     baseNode,
@@ -97,7 +99,7 @@ export const useAwsDmsReplicationInstances = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDmsReplicationInstanceOutputProps>(
     AwsDmsReplicationInstance,
     idFilter,
     baseNode,

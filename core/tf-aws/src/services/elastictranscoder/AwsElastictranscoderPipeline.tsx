@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsElastictranscoderPipelineInputSchema = TfMetaSchema.extend({
   input_bucket: resolvableValue(z.string()),
   role: resolvableValue(z.string()),
   aws_kms_key_arn: resolvableValue(z.string().optional()),
@@ -52,23 +52,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsElastictranscoderPipelineOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsElastictranscoderPipelineInputProps =
+  & z.input<typeof AwsElastictranscoderPipelineInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsElastictranscoderPipelineOutputProps =
+  & z.output<typeof AwsElastictranscoderPipelineOutputSchema>
+  & z.output<typeof AwsElastictranscoderPipelineInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/elastictranscoder_pipeline
 
-export function AwsElastictranscoderPipeline(props: Partial<InputProps>) {
+export function AwsElastictranscoderPipeline(
+  props: Partial<AwsElastictranscoderPipelineInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -78,8 +80,8 @@ export function AwsElastictranscoderPipeline(props: Partial<InputProps>) {
       _type='aws_elastictranscoder_pipeline'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsElastictranscoderPipelineInputSchema}
+      _outputSchema={AwsElastictranscoderPipelineOutputSchema}
       {...props}
     />
   )
@@ -90,7 +92,7 @@ export const useAwsElastictranscoderPipeline = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsElastictranscoderPipelineOutputProps>(
     AwsElastictranscoderPipeline,
     idFilter,
     baseNode,
@@ -102,7 +104,7 @@ export const useAwsElastictranscoderPipelines = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsElastictranscoderPipelineOutputProps>(
     AwsElastictranscoderPipeline,
     idFilter,
     baseNode,

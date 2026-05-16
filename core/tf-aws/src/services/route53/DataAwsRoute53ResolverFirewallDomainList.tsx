@@ -9,13 +9,14 @@ import {
 import z from 'zod'
 import { AwsRoute53ResolverFirewallDomainList } from './AwsRoute53ResolverFirewallDomainList.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  firewall_domain_list_id: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsRoute53ResolverFirewallDomainListInputSchema = TfMetaSchema
+  .extend({
+    firewall_domain_list_id: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsRoute53ResolverFirewallDomainListOutputSchema = z.object({
   arn: z.string().optional(),
   creation_time: z.string().optional(),
   creator_request_id: z.string().optional(),
@@ -27,19 +28,19 @@ export const OutputSchema = z.object({
   status_message: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsRoute53ResolverFirewallDomainListInputProps =
+  & z.input<typeof DataAwsRoute53ResolverFirewallDomainListInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsRoute53ResolverFirewallDomainListOutputProps =
+  & z.output<typeof DataAwsRoute53ResolverFirewallDomainListOutputSchema>
+  & z.output<typeof DataAwsRoute53ResolverFirewallDomainListInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/route53_resolver_firewall_domain_list
 
 export function DataAwsRoute53ResolverFirewallDomainList(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsRoute53ResolverFirewallDomainListInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -50,8 +51,8 @@ export function DataAwsRoute53ResolverFirewallDomainList(
       _type='aws_route53_resolver_firewall_domain_list'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsRoute53ResolverFirewallDomainListInputSchema}
+      _outputSchema={DataAwsRoute53ResolverFirewallDomainListOutputSchema}
       {...props as any}
     />
   )
@@ -62,7 +63,7 @@ export const useDataAwsRoute53ResolverFirewallDomainList = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsRoute53ResolverFirewallDomainListOutputProps>(
     DataAwsRoute53ResolverFirewallDomainList,
     idFilter,
     baseNode,
@@ -74,7 +75,7 @@ export const useDataAwsRoute53ResolverFirewallDomainLists = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsRoute53ResolverFirewallDomainListOutputProps>(
     DataAwsRoute53ResolverFirewallDomainList,
     idFilter,
     baseNode,

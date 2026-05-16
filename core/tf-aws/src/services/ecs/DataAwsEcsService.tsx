@@ -9,14 +9,14 @@ import {
 import z from 'zod'
 import { AwsEcsService } from './AwsEcsService.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsEcsServiceInputSchema = TfMetaSchema.extend({
   cluster_arn: resolvableValue(z.string()),
   service_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsEcsServiceOutputSchema = z.object({
   arn: z.string().optional(),
   availability_zone_rebalancing: z.string().optional(),
   capacity_provider_strategy: z.set(z.object({
@@ -132,18 +132,18 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEcsServiceInputProps =
+  & z.input<typeof DataAwsEcsServiceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEcsServiceOutputProps =
+  & z.output<typeof DataAwsEcsServiceOutputSchema>
+  & z.output<typeof DataAwsEcsServiceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ecs_service
 
-export function DataAwsEcsService(props: Partial<InputProps>) {
+export function DataAwsEcsService(props: Partial<DataAwsEcsServiceInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -153,8 +153,8 @@ export function DataAwsEcsService(props: Partial<InputProps>) {
       _type='aws_ecs_service'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEcsServiceInputSchema}
+      _outputSchema={DataAwsEcsServiceOutputSchema}
       {...props as any}
     />
   )
@@ -164,10 +164,22 @@ export const useDataAwsEcsService = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsEcsService, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsEcsServiceOutputProps>(
+    DataAwsEcsService,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsEcsServices = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsEcsService, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsEcsServiceOutputProps>(
+    DataAwsEcsService,
+    idFilter,
+    baseNode,
+    optional,
+  )

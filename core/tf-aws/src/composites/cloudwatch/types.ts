@@ -1,7 +1,7 @@
 import { getRenderOptions } from '@dinghy/base-components'
 import { z } from 'zod'
-import { InputSchema as AwsCloudwatchLogGroupInputSchema } from '../../services/cloudwatch/AwsCloudwatchLogGroup.tsx'
-import { InputSchema as AwsCloudwatchLogSubscriptionFilterInputSchema } from '../../services/cloudwatch/AwsCloudwatchLogSubscriptionFilter.tsx'
+import { AwsCloudwatchLogGroupInputSchema } from '../../services/cloudwatch/AwsCloudwatchLogGroup.tsx'
+import { AwsCloudwatchLogSubscriptionFilterInputSchema } from '../../services/cloudwatch/AwsCloudwatchLogSubscriptionFilter.tsx'
 
 // Shared shape for a CloudWatch log group + its subscription filters. Used
 // directly by the top-level `logGroups:` YAML map (via parseLogGroups) and

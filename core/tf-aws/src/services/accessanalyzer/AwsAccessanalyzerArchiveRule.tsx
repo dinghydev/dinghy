@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAccessanalyzerArchiveRuleInputSchema = TfMetaSchema.extend({
   analyzer_name: resolvableValue(z.string()),
   filter: resolvableValue(
     z.object({
@@ -24,22 +24,24 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAccessanalyzerArchiveRuleOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAccessanalyzerArchiveRuleInputProps =
+  & z.input<typeof AwsAccessanalyzerArchiveRuleInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAccessanalyzerArchiveRuleOutputProps =
+  & z.output<typeof AwsAccessanalyzerArchiveRuleOutputSchema>
+  & z.output<typeof AwsAccessanalyzerArchiveRuleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/accessanalyzer_archive_rule
 
-export function AwsAccessanalyzerArchiveRule(props: Partial<InputProps>) {
+export function AwsAccessanalyzerArchiveRule(
+  props: Partial<AwsAccessanalyzerArchiveRuleInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,8 +51,8 @@ export function AwsAccessanalyzerArchiveRule(props: Partial<InputProps>) {
       _type='aws_accessanalyzer_archive_rule'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAccessanalyzerArchiveRuleInputSchema}
+      _outputSchema={AwsAccessanalyzerArchiveRuleOutputSchema}
       {...props}
     />
   )
@@ -61,7 +63,7 @@ export const useAwsAccessanalyzerArchiveRule = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAccessanalyzerArchiveRuleOutputProps>(
     AwsAccessanalyzerArchiveRule,
     idFilter,
     baseNode,
@@ -73,7 +75,7 @@ export const useAwsAccessanalyzerArchiveRules = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAccessanalyzerArchiveRuleOutputProps>(
     AwsAccessanalyzerArchiveRule,
     idFilter,
     baseNode,

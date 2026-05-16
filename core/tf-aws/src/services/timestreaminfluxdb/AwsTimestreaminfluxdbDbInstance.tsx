@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsTimestreaminfluxdbDbInstanceInputSchema = TfMetaSchema.extend({
   allocated_storage: resolvableValue(z.number()),
   bucket: resolvableValue(z.string()),
   db_instance_type: resolvableValue(z.string()),
@@ -44,7 +44,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsTimestreaminfluxdbDbInstanceOutputSchema = z.object({
   arn: z.string().optional(),
   availability_zone: z.string().optional(),
   endpoint: z.string().optional(),
@@ -54,25 +54,27 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsTimestreaminfluxdbDbInstanceImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsTimestreaminfluxdbDbInstanceInputProps =
+  & z.input<typeof AwsTimestreaminfluxdbDbInstanceInputSchema>
+  & z.input<typeof AwsTimestreaminfluxdbDbInstanceImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsTimestreaminfluxdbDbInstanceOutputProps =
+  & z.output<typeof AwsTimestreaminfluxdbDbInstanceOutputSchema>
+  & z.output<typeof AwsTimestreaminfluxdbDbInstanceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/timestreaminfluxdb_db_instance
 
-export function AwsTimestreaminfluxdbDbInstance(props: Partial<InputProps>) {
+export function AwsTimestreaminfluxdbDbInstance(
+  props: Partial<AwsTimestreaminfluxdbDbInstanceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -82,9 +84,9 @@ export function AwsTimestreaminfluxdbDbInstance(props: Partial<InputProps>) {
       _type='aws_timestreaminfluxdb_db_instance'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsTimestreaminfluxdbDbInstanceInputSchema}
+      _outputSchema={AwsTimestreaminfluxdbDbInstanceOutputSchema}
+      _importSchema={AwsTimestreaminfluxdbDbInstanceImportSchema}
       {...props}
     />
   )
@@ -95,7 +97,7 @@ export const useAwsTimestreaminfluxdbDbInstance = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsTimestreaminfluxdbDbInstanceOutputProps>(
     AwsTimestreaminfluxdbDbInstance,
     idFilter,
     baseNode,
@@ -107,7 +109,7 @@ export const useAwsTimestreaminfluxdbDbInstances = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsTimestreaminfluxdbDbInstanceOutputProps>(
     AwsTimestreaminfluxdbDbInstance,
     idFilter,
     baseNode,

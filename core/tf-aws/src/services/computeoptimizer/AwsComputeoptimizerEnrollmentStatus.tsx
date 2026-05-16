@@ -8,36 +8,37 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  status: resolvableValue(z.string()),
-  include_member_accounts: resolvableValue(z.boolean().optional()),
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      update: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsComputeoptimizerEnrollmentStatusInputSchema = TfMetaSchema
+  .extend({
+    status: resolvableValue(z.string()),
+    include_member_accounts: resolvableValue(z.boolean().optional()),
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        update: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsComputeoptimizerEnrollmentStatusOutputSchema = z.object({
   id: z.string().optional(),
   number_of_member_accounts_opted_in: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsComputeoptimizerEnrollmentStatusInputProps =
+  & z.input<typeof AwsComputeoptimizerEnrollmentStatusInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsComputeoptimizerEnrollmentStatusOutputProps =
+  & z.output<typeof AwsComputeoptimizerEnrollmentStatusOutputSchema>
+  & z.output<typeof AwsComputeoptimizerEnrollmentStatusInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/computeoptimizer_enrollment_status
 
 export function AwsComputeoptimizerEnrollmentStatus(
-  props: Partial<InputProps>,
+  props: Partial<AwsComputeoptimizerEnrollmentStatusInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -48,8 +49,8 @@ export function AwsComputeoptimizerEnrollmentStatus(
       _type='aws_computeoptimizer_enrollment_status'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsComputeoptimizerEnrollmentStatusInputSchema}
+      _outputSchema={AwsComputeoptimizerEnrollmentStatusOutputSchema}
       {...props}
     />
   )
@@ -60,7 +61,7 @@ export const useAwsComputeoptimizerEnrollmentStatuss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsComputeoptimizerEnrollmentStatusOutputProps>(
     AwsComputeoptimizerEnrollmentStatus,
     idFilter,
     baseNode,

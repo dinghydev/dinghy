@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLambdaLayerVersionInputSchema = TfMetaSchema.extend({
   layer_name: resolvableValue(z.string()),
   compatible_architectures: resolvableValue(z.string().array().optional()),
   compatible_runtimes: resolvableValue(z.string().array().optional()),
@@ -25,7 +25,7 @@ export const InputSchema = TfMetaSchema.extend({
   source_code_hash: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsLambdaLayerVersionOutputSchema = z.object({
   arn: z.string().optional(),
   code_sha256: z.string().optional(),
   created_date: z.string().optional(),
@@ -36,26 +36,28 @@ export const OutputSchema = z.object({
   version: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsLambdaLayerVersionImportSchema = z.object({
   layer_name: resolvableValue(z.string()),
   version: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsLambdaLayerVersionInputProps =
+  & z.input<typeof AwsLambdaLayerVersionInputSchema>
+  & z.input<typeof AwsLambdaLayerVersionImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLambdaLayerVersionOutputProps =
+  & z.output<typeof AwsLambdaLayerVersionOutputSchema>
+  & z.output<typeof AwsLambdaLayerVersionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lambda_layer_version
 
-export function AwsLambdaLayerVersion(props: Partial<InputProps>) {
+export function AwsLambdaLayerVersion(
+  props: Partial<AwsLambdaLayerVersionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -65,9 +67,9 @@ export function AwsLambdaLayerVersion(props: Partial<InputProps>) {
       _type='aws_lambda_layer_version'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsLambdaLayerVersionInputSchema}
+      _outputSchema={AwsLambdaLayerVersionOutputSchema}
+      _importSchema={AwsLambdaLayerVersionImportSchema}
       {...props}
     />
   )
@@ -78,14 +80,19 @@ export const useAwsLambdaLayerVersion = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsLambdaLayerVersion, idFilter, baseNode, optional)
+  useTypedNode<AwsLambdaLayerVersionOutputProps>(
+    AwsLambdaLayerVersion,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLambdaLayerVersions = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsLambdaLayerVersionOutputProps>(
     AwsLambdaLayerVersion,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsKeyspacesKeyspaceInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   replication_specification: resolvableValue(
@@ -27,24 +27,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsKeyspacesKeyspaceOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsKeyspacesKeyspaceInputProps =
+  & z.input<typeof AwsKeyspacesKeyspaceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsKeyspacesKeyspaceOutputProps =
+  & z.output<typeof AwsKeyspacesKeyspaceOutputSchema>
+  & z.output<typeof AwsKeyspacesKeyspaceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/keyspaces_keyspace
 
-export function AwsKeyspacesKeyspace(props: Partial<InputProps>) {
+export function AwsKeyspacesKeyspace(
+  props: Partial<AwsKeyspacesKeyspaceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -54,8 +56,8 @@ export function AwsKeyspacesKeyspace(props: Partial<InputProps>) {
       _type='aws_keyspaces_keyspace'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsKeyspacesKeyspaceInputSchema}
+      _outputSchema={AwsKeyspacesKeyspaceOutputSchema}
       {...props}
     />
   )
@@ -66,11 +68,21 @@ export const useAwsKeyspacesKeyspace = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsKeyspacesKeyspace, idFilter, baseNode, optional)
+  useTypedNode<AwsKeyspacesKeyspaceOutputProps>(
+    AwsKeyspacesKeyspace,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsKeyspacesKeyspaces = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsKeyspacesKeyspace, idFilter, baseNode, optional)
+  useTypedNodes<AwsKeyspacesKeyspaceOutputProps>(
+    AwsKeyspacesKeyspace,
+    idFilter,
+    baseNode,
+    optional,
+  )

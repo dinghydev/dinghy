@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEcsTaskDefinitionInputSchema = TfMetaSchema.extend({
   container_definitions: resolvableValue(z.string()),
   family: resolvableValue(z.string()),
   cpu: resolvableValue(z.string().optional()),
@@ -90,33 +90,35 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsEcsTaskDefinitionOutputSchema = z.object({
   arn: z.string().optional(),
   arn_without_revision: z.string().optional(),
   revision: z.number().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsEcsTaskDefinitionImportSchema = z.object({
   family: resolvableValue(z.string()),
   revision: resolvableValue(z.number()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsEcsTaskDefinitionInputProps =
+  & z.input<typeof AwsEcsTaskDefinitionInputSchema>
+  & z.input<typeof AwsEcsTaskDefinitionImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEcsTaskDefinitionOutputProps =
+  & z.output<typeof AwsEcsTaskDefinitionOutputSchema>
+  & z.output<typeof AwsEcsTaskDefinitionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ecs_task_definition
 
-export function AwsEcsTaskDefinition(props: Partial<InputProps>) {
+export function AwsEcsTaskDefinition(
+  props: Partial<AwsEcsTaskDefinitionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -126,9 +128,9 @@ export function AwsEcsTaskDefinition(props: Partial<InputProps>) {
       _type='aws_ecs_task_definition'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsEcsTaskDefinitionInputSchema}
+      _outputSchema={AwsEcsTaskDefinitionOutputSchema}
+      _importSchema={AwsEcsTaskDefinitionImportSchema}
       {...props}
     />
   )
@@ -139,11 +141,21 @@ export const useAwsEcsTaskDefinition = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsEcsTaskDefinition, idFilter, baseNode, optional)
+  useTypedNode<AwsEcsTaskDefinitionOutputProps>(
+    AwsEcsTaskDefinition,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEcsTaskDefinitions = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsEcsTaskDefinition, idFilter, baseNode, optional)
+  useTypedNodes<AwsEcsTaskDefinitionOutputProps>(
+    AwsEcsTaskDefinition,
+    idFilter,
+    baseNode,
+    optional,
+  )

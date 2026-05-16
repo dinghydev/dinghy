@@ -9,27 +9,29 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  attachment_id: resolvableValue(z.string()),
-  core_network_id: resolvableValue(z.string()),
-  routing_policy_label: resolvableValue(z.string()),
-})
+export const AwsNetworkmanagerAttachmentRoutingPolicyLabelInputSchema =
+  TfMetaSchema.extend({
+    attachment_id: resolvableValue(z.string()),
+    core_network_id: resolvableValue(z.string()),
+    routing_policy_label: resolvableValue(z.string()),
+  })
 
-export const OutputSchema = z.object({})
+export const AwsNetworkmanagerAttachmentRoutingPolicyLabelOutputSchema = z
+  .object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsNetworkmanagerAttachmentRoutingPolicyLabelInputProps =
+  & z.input<typeof AwsNetworkmanagerAttachmentRoutingPolicyLabelInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNetworkmanagerAttachmentRoutingPolicyLabelOutputProps =
+  & z.output<typeof AwsNetworkmanagerAttachmentRoutingPolicyLabelOutputSchema>
+  & z.output<typeof AwsNetworkmanagerAttachmentRoutingPolicyLabelInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/networkmanager_attachment_routing_policy_label
 
 export function AwsNetworkmanagerAttachmentRoutingPolicyLabel(
-  props: Partial<InputProps>,
+  props: Partial<AwsNetworkmanagerAttachmentRoutingPolicyLabelInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -40,8 +42,8 @@ export function AwsNetworkmanagerAttachmentRoutingPolicyLabel(
       _type='aws_networkmanager_attachment_routing_policy_label'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsNetworkmanagerAttachmentRoutingPolicyLabelInputSchema}
+      _outputSchema={AwsNetworkmanagerAttachmentRoutingPolicyLabelOutputSchema}
       {...props}
     />
   )
@@ -52,7 +54,7 @@ export const useAwsNetworkmanagerAttachmentRoutingPolicyLabel = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsNetworkmanagerAttachmentRoutingPolicyLabelOutputProps>(
     AwsNetworkmanagerAttachmentRoutingPolicyLabel,
     idFilter,
     baseNode,
@@ -64,7 +66,7 @@ export const useAwsNetworkmanagerAttachmentRoutingPolicyLabels = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsNetworkmanagerAttachmentRoutingPolicyLabelOutputProps>(
     AwsNetworkmanagerAttachmentRoutingPolicyLabel,
     idFilter,
     baseNode,

@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsIamRole } from './AwsIamRole.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsIamRoleInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsIamRoleOutputSchema = z.object({
   arn: z.string().optional(),
   assume_role_policy: z.string().optional(),
   create_date: z.string().optional(),
@@ -30,18 +30,18 @@ export const OutputSchema = z.object({
   unique_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsIamRoleInputProps =
+  & z.input<typeof DataAwsIamRoleInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsIamRoleOutputProps =
+  & z.output<typeof DataAwsIamRoleOutputSchema>
+  & z.output<typeof DataAwsIamRoleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/iam_role
 
-export function DataAwsIamRole(props: Partial<InputProps>) {
+export function DataAwsIamRole(props: Partial<DataAwsIamRoleInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -51,8 +51,8 @@ export function DataAwsIamRole(props: Partial<InputProps>) {
       _type='aws_iam_role'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsIamRoleInputSchema}
+      _outputSchema={DataAwsIamRoleOutputSchema}
       {...props as any}
     />
   )
@@ -62,10 +62,22 @@ export const useDataAwsIamRole = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsIamRole, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsIamRoleOutputProps>(
+    DataAwsIamRole,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsIamRoles = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsIamRole, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsIamRoleOutputProps>(
+    DataAwsIamRole,
+    idFilter,
+    baseNode,
+    optional,
+  )

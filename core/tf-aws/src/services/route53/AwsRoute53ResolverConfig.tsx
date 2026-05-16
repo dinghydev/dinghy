@@ -9,29 +9,31 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRoute53ResolverConfigInputSchema = TfMetaSchema.extend({
   autodefined_reverse_flag: resolvableValue(z.string()),
   resource_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRoute53ResolverConfigOutputSchema = z.object({
   id: z.string().optional(),
   owner_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRoute53ResolverConfigInputProps =
+  & z.input<typeof AwsRoute53ResolverConfigInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRoute53ResolverConfigOutputProps =
+  & z.output<typeof AwsRoute53ResolverConfigOutputSchema>
+  & z.output<typeof AwsRoute53ResolverConfigInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/route53_resolver_config
 
-export function AwsRoute53ResolverConfig(props: Partial<InputProps>) {
+export function AwsRoute53ResolverConfig(
+  props: Partial<AwsRoute53ResolverConfigInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -41,8 +43,8 @@ export function AwsRoute53ResolverConfig(props: Partial<InputProps>) {
       _type='aws_route53_resolver_config'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRoute53ResolverConfigInputSchema}
+      _outputSchema={AwsRoute53ResolverConfigOutputSchema}
       {...props}
     />
   )
@@ -53,7 +55,7 @@ export const useAwsRoute53ResolverConfig = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRoute53ResolverConfigOutputProps>(
     AwsRoute53ResolverConfig,
     idFilter,
     baseNode,
@@ -65,7 +67,7 @@ export const useAwsRoute53ResolverConfigs = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRoute53ResolverConfigOutputProps>(
     AwsRoute53ResolverConfig,
     idFilter,
     baseNode,

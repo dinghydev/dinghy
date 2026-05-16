@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDirectoryServiceRegionInputSchema = TfMetaSchema.extend({
   directory_id: resolvableValue(z.string()),
   region_name: resolvableValue(z.string()),
   vpc_settings: resolvableValue(z.object({
@@ -29,22 +29,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDirectoryServiceRegionOutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDirectoryServiceRegionInputProps =
+  & z.input<typeof AwsDirectoryServiceRegionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDirectoryServiceRegionOutputProps =
+  & z.output<typeof AwsDirectoryServiceRegionOutputSchema>
+  & z.output<typeof AwsDirectoryServiceRegionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/directory_service_region
 
-export function AwsDirectoryServiceRegion(props: Partial<InputProps>) {
+export function AwsDirectoryServiceRegion(
+  props: Partial<AwsDirectoryServiceRegionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -54,8 +56,8 @@ export function AwsDirectoryServiceRegion(props: Partial<InputProps>) {
       _type='aws_directory_service_region'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDirectoryServiceRegionInputSchema}
+      _outputSchema={AwsDirectoryServiceRegionOutputSchema}
       {...props}
     />
   )
@@ -66,7 +68,7 @@ export const useAwsDirectoryServiceRegion = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDirectoryServiceRegionOutputProps>(
     AwsDirectoryServiceRegion,
     idFilter,
     baseNode,
@@ -78,7 +80,7 @@ export const useAwsDirectoryServiceRegions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDirectoryServiceRegionOutputProps>(
     AwsDirectoryServiceRegion,
     idFilter,
     baseNode,

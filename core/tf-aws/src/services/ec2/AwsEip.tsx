@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEipInputSchema = TfMetaSchema.extend({
   address: resolvableValue(z.string().optional()),
   associate_with_private_ip: resolvableValue(z.string().optional()),
   customer_owned_ipv4_pool: resolvableValue(z.string().optional()),
@@ -30,7 +30,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsEipOutputSchema = z.object({
   allocation_id: z.string().optional(),
   arn: z.string().optional(),
   association_id: z.string().optional(),
@@ -45,25 +45,25 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsEipImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsEipInputProps =
+  & z.input<typeof AwsEipInputSchema>
+  & z.input<typeof AwsEipImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEipOutputProps =
+  & z.output<typeof AwsEipOutputSchema>
+  & z.output<typeof AwsEipInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/eip
 
-export function AwsEip(props: Partial<InputProps>) {
+export function AwsEip(props: Partial<AwsEipInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -73,9 +73,9 @@ export function AwsEip(props: Partial<InputProps>) {
       _type='aws_eip'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsEipInputSchema}
+      _outputSchema={AwsEipOutputSchema}
+      _importSchema={AwsEipImportSchema}
       {...props}
     />
   )
@@ -85,10 +85,10 @@ export const useAwsEip = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsEip, idFilter, baseNode, optional)
+) => useTypedNode<AwsEipOutputProps>(AwsEip, idFilter, baseNode, optional)
 
 export const useAwsEips = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsEip, idFilter, baseNode, optional)
+) => useTypedNodes<AwsEipOutputProps>(AwsEip, idFilter, baseNode, optional)

@@ -9,28 +9,30 @@ import {
 import z from 'zod'
 import { AwsSesActiveReceiptRuleSet } from './AwsSesActiveReceiptRuleSet.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsSesActiveReceiptRuleSetInputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsSesActiveReceiptRuleSetOutputSchema = z.object({
   arn: z.string().optional(),
   rule_set_name: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsSesActiveReceiptRuleSetInputProps =
+  & z.input<typeof DataAwsSesActiveReceiptRuleSetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsSesActiveReceiptRuleSetOutputProps =
+  & z.output<typeof DataAwsSesActiveReceiptRuleSetOutputSchema>
+  & z.output<typeof DataAwsSesActiveReceiptRuleSetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ses_active_receipt_rule_set
 
-export function DataAwsSesActiveReceiptRuleSet(props: Partial<InputProps>) {
+export function DataAwsSesActiveReceiptRuleSet(
+  props: Partial<DataAwsSesActiveReceiptRuleSetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function DataAwsSesActiveReceiptRuleSet(props: Partial<InputProps>) {
       _type='aws_ses_active_receipt_rule_set'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsSesActiveReceiptRuleSetInputSchema}
+      _outputSchema={DataAwsSesActiveReceiptRuleSetOutputSchema}
       {...props as any}
     />
   )
@@ -52,7 +54,7 @@ export const useDataAwsSesActiveReceiptRuleSet = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsSesActiveReceiptRuleSetOutputProps>(
     DataAwsSesActiveReceiptRuleSet,
     idFilter,
     baseNode,
@@ -64,7 +66,7 @@ export const useDataAwsSesActiveReceiptRuleSets = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsSesActiveReceiptRuleSetOutputProps>(
     DataAwsSesActiveReceiptRuleSet,
     idFilter,
     baseNode,

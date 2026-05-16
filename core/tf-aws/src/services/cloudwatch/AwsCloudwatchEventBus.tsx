@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudwatchEventBusInputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   dead_letter_config: resolvableValue(
@@ -29,24 +29,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudwatchEventBusOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudwatchEventBusInputProps =
+  & z.input<typeof AwsCloudwatchEventBusInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudwatchEventBusOutputProps =
+  & z.output<typeof AwsCloudwatchEventBusOutputSchema>
+  & z.output<typeof AwsCloudwatchEventBusInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudwatch_event_bus
 
-export function AwsCloudwatchEventBus(props: Partial<InputProps>) {
+export function AwsCloudwatchEventBus(
+  props: Partial<AwsCloudwatchEventBusInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -56,8 +58,8 @@ export function AwsCloudwatchEventBus(props: Partial<InputProps>) {
       _type='aws_cloudwatch_event_bus'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudwatchEventBusInputSchema}
+      _outputSchema={AwsCloudwatchEventBusOutputSchema}
       {...props}
     />
   )
@@ -68,7 +70,7 @@ export const useAwsCloudwatchEventBuss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudwatchEventBusOutputProps>(
     AwsCloudwatchEventBus,
     idFilter,
     baseNode,

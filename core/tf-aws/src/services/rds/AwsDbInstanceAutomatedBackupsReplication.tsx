@@ -9,37 +9,38 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  source_db_instance_arn: resolvableValue(z.string()),
-  kms_key_id: resolvableValue(z.string().optional()),
-  pre_signed_url: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  retention_period: resolvableValue(z.number().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsDbInstanceAutomatedBackupsReplicationInputSchema = TfMetaSchema
+  .extend({
+    source_db_instance_arn: resolvableValue(z.string()),
+    kms_key_id: resolvableValue(z.string().optional()),
+    pre_signed_url: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    retention_period: resolvableValue(z.number().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsDbInstanceAutomatedBackupsReplicationOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDbInstanceAutomatedBackupsReplicationInputProps =
+  & z.input<typeof AwsDbInstanceAutomatedBackupsReplicationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDbInstanceAutomatedBackupsReplicationOutputProps =
+  & z.output<typeof AwsDbInstanceAutomatedBackupsReplicationOutputSchema>
+  & z.output<typeof AwsDbInstanceAutomatedBackupsReplicationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/db_instance_automated_backups_replication
 
 export function AwsDbInstanceAutomatedBackupsReplication(
-  props: Partial<InputProps>,
+  props: Partial<AwsDbInstanceAutomatedBackupsReplicationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -50,8 +51,8 @@ export function AwsDbInstanceAutomatedBackupsReplication(
       _type='aws_db_instance_automated_backups_replication'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDbInstanceAutomatedBackupsReplicationInputSchema}
+      _outputSchema={AwsDbInstanceAutomatedBackupsReplicationOutputSchema}
       {...props}
     />
   )
@@ -62,7 +63,7 @@ export const useAwsDbInstanceAutomatedBackupsReplication = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDbInstanceAutomatedBackupsReplicationOutputProps>(
     AwsDbInstanceAutomatedBackupsReplication,
     idFilter,
     baseNode,
@@ -74,7 +75,7 @@ export const useAwsDbInstanceAutomatedBackupsReplications = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDbInstanceAutomatedBackupsReplicationOutputProps>(
     AwsDbInstanceAutomatedBackupsReplication,
     idFilter,
     baseNode,

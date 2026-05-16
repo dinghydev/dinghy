@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsGlueMlTransformInputSchema = TfMetaSchema.extend({
   input_record_tables: resolvableValue(
     z.object({
       catalog_id: z.string().optional(),
@@ -40,7 +40,7 @@ export const InputSchema = TfMetaSchema.extend({
   worker_type: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsGlueMlTransformOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   label_count: z.number().optional(),
@@ -51,18 +51,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsGlueMlTransformInputProps =
+  & z.input<typeof AwsGlueMlTransformInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsGlueMlTransformOutputProps =
+  & z.output<typeof AwsGlueMlTransformOutputSchema>
+  & z.output<typeof AwsGlueMlTransformInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/glue_ml_transform
 
-export function AwsGlueMlTransform(props: Partial<InputProps>) {
+export function AwsGlueMlTransform(
+  props: Partial<AwsGlueMlTransformInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -72,8 +74,8 @@ export function AwsGlueMlTransform(props: Partial<InputProps>) {
       _type='aws_glue_ml_transform'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsGlueMlTransformInputSchema}
+      _outputSchema={AwsGlueMlTransformOutputSchema}
       {...props}
     />
   )
@@ -83,11 +85,22 @@ export const useAwsGlueMlTransform = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsGlueMlTransform, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsGlueMlTransformOutputProps>(
+    AwsGlueMlTransform,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsGlueMlTransforms = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsGlueMlTransform, idFilter, baseNode, optional)
+  useTypedNodes<AwsGlueMlTransformOutputProps>(
+    AwsGlueMlTransform,
+    idFilter,
+    baseNode,
+    optional,
+  )

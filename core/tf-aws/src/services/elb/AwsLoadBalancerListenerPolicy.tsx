@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLoadBalancerListenerPolicyInputSchema = TfMetaSchema.extend({
   load_balancer_name: resolvableValue(z.string()),
   load_balancer_port: resolvableValue(z.number()),
   policy_names: resolvableValue(z.string().array().optional()),
@@ -17,24 +17,26 @@ export const InputSchema = TfMetaSchema.extend({
   triggers: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsLoadBalancerListenerPolicyOutputSchema = z.object({
   id: z.string().optional(),
   load_balancer_name: z.string().optional(),
   load_balancer_port: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLoadBalancerListenerPolicyInputProps =
+  & z.input<typeof AwsLoadBalancerListenerPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLoadBalancerListenerPolicyOutputProps =
+  & z.output<typeof AwsLoadBalancerListenerPolicyOutputSchema>
+  & z.output<typeof AwsLoadBalancerListenerPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/load_balancer_listener_policy
 
-export function AwsLoadBalancerListenerPolicy(props: Partial<InputProps>) {
+export function AwsLoadBalancerListenerPolicy(
+  props: Partial<AwsLoadBalancerListenerPolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +46,8 @@ export function AwsLoadBalancerListenerPolicy(props: Partial<InputProps>) {
       _type='aws_load_balancer_listener_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLoadBalancerListenerPolicyInputSchema}
+      _outputSchema={AwsLoadBalancerListenerPolicyOutputSchema}
       {...props}
     />
   )
@@ -56,7 +58,7 @@ export const useAwsLoadBalancerListenerPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsLoadBalancerListenerPolicyOutputProps>(
     AwsLoadBalancerListenerPolicy,
     idFilter,
     baseNode,
@@ -68,7 +70,7 @@ export const useAwsLoadBalancerListenerPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsLoadBalancerListenerPolicyOutputProps>(
     AwsLoadBalancerListenerPolicy,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsNatGateway } from './AwsNatGateway.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsNatGatewayInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -29,7 +29,7 @@ export const InputSchema = TfMetaSchema.extend({
   vpc_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsNatGatewayOutputSchema = z.object({
   allocation_id: z.string().optional(),
   association_id: z.string().optional(),
   auto_provision_zones: z.string().optional(),
@@ -59,18 +59,18 @@ export const OutputSchema = z.object({
   secondary_private_ip_addresses: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsNatGatewayInputProps =
+  & z.input<typeof DataAwsNatGatewayInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsNatGatewayOutputProps =
+  & z.output<typeof DataAwsNatGatewayOutputSchema>
+  & z.output<typeof DataAwsNatGatewayInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/nat_gateway
 
-export function DataAwsNatGateway(props: Partial<InputProps>) {
+export function DataAwsNatGateway(props: Partial<DataAwsNatGatewayInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -80,8 +80,8 @@ export function DataAwsNatGateway(props: Partial<InputProps>) {
       _type='aws_nat_gateway'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsNatGatewayInputSchema}
+      _outputSchema={DataAwsNatGatewayOutputSchema}
       {...props as any}
     />
   )
@@ -91,10 +91,22 @@ export const useDataAwsNatGateway = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsNatGateway, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsNatGatewayOutputProps>(
+    DataAwsNatGateway,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsNatGateways = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsNatGateway, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsNatGatewayOutputProps>(
+    DataAwsNatGateway,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRedshiftIdcApplicationInputSchema = TfMetaSchema.extend({
   iam_role_arn: resolvableValue(z.string()),
   idc_display_name: resolvableValue(z.string()),
   idc_instance_arn: resolvableValue(z.string()),
@@ -45,24 +45,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRedshiftIdcApplicationOutputSchema = z.object({
   idc_managed_application_arn: z.string().optional(),
   redshift_idc_application_arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRedshiftIdcApplicationInputProps =
+  & z.input<typeof AwsRedshiftIdcApplicationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRedshiftIdcApplicationOutputProps =
+  & z.output<typeof AwsRedshiftIdcApplicationOutputSchema>
+  & z.output<typeof AwsRedshiftIdcApplicationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/redshift_idc_application
 
-export function AwsRedshiftIdcApplication(props: Partial<InputProps>) {
+export function AwsRedshiftIdcApplication(
+  props: Partial<AwsRedshiftIdcApplicationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -72,8 +74,8 @@ export function AwsRedshiftIdcApplication(props: Partial<InputProps>) {
       _type='aws_redshift_idc_application'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRedshiftIdcApplicationInputSchema}
+      _outputSchema={AwsRedshiftIdcApplicationOutputSchema}
       {...props}
     />
   )
@@ -84,7 +86,7 @@ export const useAwsRedshiftIdcApplication = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRedshiftIdcApplicationOutputProps>(
     AwsRedshiftIdcApplication,
     idFilter,
     baseNode,
@@ -96,7 +98,7 @@ export const useAwsRedshiftIdcApplications = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRedshiftIdcApplicationOutputProps>(
     AwsRedshiftIdcApplication,
     idFilter,
     baseNode,

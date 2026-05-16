@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsS3controlAccessGrantInputSchema = TfMetaSchema.extend({
   access_grants_location_id: resolvableValue(z.string()),
   permission: resolvableValue(z.string()),
   access_grants_location_configuration: resolvableValue(
@@ -29,7 +29,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsS3controlAccessGrantOutputSchema = z.object({
   access_grant_arn: z.string().optional(),
   access_grant_id: z.string().optional(),
   grant_scope: z.string().optional(),
@@ -37,18 +37,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsS3controlAccessGrantInputProps =
+  & z.input<typeof AwsS3controlAccessGrantInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3controlAccessGrantOutputProps =
+  & z.output<typeof AwsS3controlAccessGrantOutputSchema>
+  & z.output<typeof AwsS3controlAccessGrantInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3control_access_grant
 
-export function AwsS3controlAccessGrant(props: Partial<InputProps>) {
+export function AwsS3controlAccessGrant(
+  props: Partial<AwsS3controlAccessGrantInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -58,8 +60,8 @@ export function AwsS3controlAccessGrant(props: Partial<InputProps>) {
       _type='aws_s3control_access_grant'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsS3controlAccessGrantInputSchema}
+      _outputSchema={AwsS3controlAccessGrantOutputSchema}
       {...props}
     />
   )
@@ -70,7 +72,7 @@ export const useAwsS3controlAccessGrant = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsS3controlAccessGrantOutputProps>(
     AwsS3controlAccessGrant,
     idFilter,
     baseNode,
@@ -82,7 +84,7 @@ export const useAwsS3controlAccessGrants = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsS3controlAccessGrantOutputProps>(
     AwsS3controlAccessGrant,
     idFilter,
     baseNode,

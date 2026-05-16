@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAcmCertificateValidationInputSchema = TfMetaSchema.extend({
   certificate_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
@@ -20,27 +20,29 @@ export const InputSchema = TfMetaSchema.extend({
   validation_record_fqdns: resolvableValue(z.string().array().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAcmCertificateValidationOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsAcmCertificateValidationImportSchema = z.object({
   certificate_arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsAcmCertificateValidationInputProps =
+  & z.input<typeof AwsAcmCertificateValidationInputSchema>
+  & z.input<typeof AwsAcmCertificateValidationImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAcmCertificateValidationOutputProps =
+  & z.output<typeof AwsAcmCertificateValidationOutputSchema>
+  & z.output<typeof AwsAcmCertificateValidationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/acm_certificate_validation
 
-export function AwsAcmCertificateValidation(props: Partial<InputProps>) {
+export function AwsAcmCertificateValidation(
+  props: Partial<AwsAcmCertificateValidationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -50,9 +52,9 @@ export function AwsAcmCertificateValidation(props: Partial<InputProps>) {
       _type='aws_acm_certificate_validation'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsAcmCertificateValidationInputSchema}
+      _outputSchema={AwsAcmCertificateValidationOutputSchema}
+      _importSchema={AwsAcmCertificateValidationImportSchema}
       {...props}
     />
   )
@@ -63,7 +65,7 @@ export const useAwsAcmCertificateValidation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAcmCertificateValidationOutputProps>(
     AwsAcmCertificateValidation,
     idFilter,
     baseNode,
@@ -75,7 +77,7 @@ export const useAwsAcmCertificateValidations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAcmCertificateValidationOutputProps>(
     AwsAcmCertificateValidation,
     idFilter,
     baseNode,

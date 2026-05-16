@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsOdbNetworkInputSchema = TfMetaSchema.extend({
   availability_zone_id: resolvableValue(z.string()),
   backup_subnet_cidr: resolvableValue(z.string()),
   client_subnet_cidr: resolvableValue(z.string()),
@@ -39,7 +39,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsOdbNetworkOutputSchema = z.object({
   arn: z.string().optional(),
   created_at: z.string().optional(),
   id: z.string().optional(),
@@ -99,18 +99,18 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsOdbNetworkInputProps =
+  & z.input<typeof AwsOdbNetworkInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsOdbNetworkOutputProps =
+  & z.output<typeof AwsOdbNetworkOutputSchema>
+  & z.output<typeof AwsOdbNetworkInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/odb_network
 
-export function AwsOdbNetwork(props: Partial<InputProps>) {
+export function AwsOdbNetwork(props: Partial<AwsOdbNetworkInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -120,8 +120,8 @@ export function AwsOdbNetwork(props: Partial<InputProps>) {
       _type='aws_odb_network'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsOdbNetworkInputSchema}
+      _outputSchema={AwsOdbNetworkOutputSchema}
       {...props}
     />
   )
@@ -131,10 +131,22 @@ export const useAwsOdbNetwork = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsOdbNetwork, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsOdbNetworkOutputProps>(
+    AwsOdbNetwork,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsOdbNetworks = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsOdbNetwork, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsOdbNetworkOutputProps>(
+    AwsOdbNetwork,
+    idFilter,
+    baseNode,
+    optional,
+  )

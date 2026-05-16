@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSsmcontactsContactInputSchema = TfMetaSchema.extend({
   alias: resolvableValue(z.string()),
   type: resolvableValue(z.string()),
   display_name: resolvableValue(z.string().optional()),
@@ -19,27 +19,29 @@ export const InputSchema = TfMetaSchema.extend({
   tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSsmcontactsContactOutputSchema = z.object({
   arn: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSsmcontactsContactImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSsmcontactsContactInputProps =
+  & z.input<typeof AwsSsmcontactsContactInputSchema>
+  & z.input<typeof AwsSsmcontactsContactImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSsmcontactsContactOutputProps =
+  & z.output<typeof AwsSsmcontactsContactOutputSchema>
+  & z.output<typeof AwsSsmcontactsContactInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssmcontacts_contact
 
-export function AwsSsmcontactsContact(props: Partial<InputProps>) {
+export function AwsSsmcontactsContact(
+  props: Partial<AwsSsmcontactsContactInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,9 +51,9 @@ export function AwsSsmcontactsContact(props: Partial<InputProps>) {
       _type='aws_ssmcontacts_contact'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSsmcontactsContactInputSchema}
+      _outputSchema={AwsSsmcontactsContactOutputSchema}
+      _importSchema={AwsSsmcontactsContactImportSchema}
       {...props}
     />
   )
@@ -62,14 +64,19 @@ export const useAwsSsmcontactsContact = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSsmcontactsContact, idFilter, baseNode, optional)
+  useTypedNode<AwsSsmcontactsContactOutputProps>(
+    AwsSsmcontactsContact,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSsmcontactsContacts = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSsmcontactsContactOutputProps>(
     AwsSsmcontactsContact,
     idFilter,
     baseNode,

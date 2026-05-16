@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDataexchangeRevisionAssetsInputSchema = TfMetaSchema.extend({
   data_set_id: resolvableValue(z.string()),
   asset: resolvableValue(
     z.object({
@@ -52,7 +52,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDataexchangeRevisionAssetsOutputSchema = z.object({
   arn: z.string().optional(),
   created_at: z.string().optional(),
   id: z.string().optional(),
@@ -60,18 +60,20 @@ export const OutputSchema = z.object({
   updated_at: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDataexchangeRevisionAssetsInputProps =
+  & z.input<typeof AwsDataexchangeRevisionAssetsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDataexchangeRevisionAssetsOutputProps =
+  & z.output<typeof AwsDataexchangeRevisionAssetsOutputSchema>
+  & z.output<typeof AwsDataexchangeRevisionAssetsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dataexchange_revision_assets
 
-export function AwsDataexchangeRevisionAssets(props: Partial<InputProps>) {
+export function AwsDataexchangeRevisionAssets(
+  props: Partial<AwsDataexchangeRevisionAssetsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -81,8 +83,8 @@ export function AwsDataexchangeRevisionAssets(props: Partial<InputProps>) {
       _type='aws_dataexchange_revision_assets'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDataexchangeRevisionAssetsInputSchema}
+      _outputSchema={AwsDataexchangeRevisionAssetsOutputSchema}
       {...props}
     />
   )
@@ -93,7 +95,7 @@ export const useAwsDataexchangeRevisionAssetss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDataexchangeRevisionAssetsOutputProps>(
     AwsDataexchangeRevisionAssets,
     idFilter,
     baseNode,

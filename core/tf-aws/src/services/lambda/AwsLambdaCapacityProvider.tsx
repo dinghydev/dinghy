@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLambdaCapacityProviderInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   capacity_provider_scaling_config: resolvableValue(
     z.object({
@@ -51,30 +51,32 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsLambdaCapacityProviderOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsLambdaCapacityProviderImportSchema = z.object({
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsLambdaCapacityProviderInputProps =
+  & z.input<typeof AwsLambdaCapacityProviderInputSchema>
+  & z.input<typeof AwsLambdaCapacityProviderImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLambdaCapacityProviderOutputProps =
+  & z.output<typeof AwsLambdaCapacityProviderOutputSchema>
+  & z.output<typeof AwsLambdaCapacityProviderInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lambda_capacity_provider
 
-export function AwsLambdaCapacityProvider(props: Partial<InputProps>) {
+export function AwsLambdaCapacityProvider(
+  props: Partial<AwsLambdaCapacityProviderInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -84,9 +86,9 @@ export function AwsLambdaCapacityProvider(props: Partial<InputProps>) {
       _type='aws_lambda_capacity_provider'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsLambdaCapacityProviderInputSchema}
+      _outputSchema={AwsLambdaCapacityProviderOutputSchema}
+      _importSchema={AwsLambdaCapacityProviderImportSchema}
       {...props}
     />
   )
@@ -97,7 +99,7 @@ export const useAwsLambdaCapacityProvider = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsLambdaCapacityProviderOutputProps>(
     AwsLambdaCapacityProvider,
     idFilter,
     baseNode,
@@ -109,7 +111,7 @@ export const useAwsLambdaCapacityProviders = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsLambdaCapacityProviderOutputProps>(
     AwsLambdaCapacityProvider,
     idFilter,
     baseNode,

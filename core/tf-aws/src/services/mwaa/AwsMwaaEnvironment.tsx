@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsMwaaEnvironmentInputSchema = TfMetaSchema.extend({
   dag_s3_path: resolvableValue(z.string()),
   execution_role_arn: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -80,7 +80,7 @@ export const InputSchema = TfMetaSchema.extend({
   worker_replacement_strategy: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsMwaaEnvironmentOutputSchema = z.object({
   arn: z.string().optional(),
   created_at: z.string().optional(),
   database_vpc_endpoint_service: z.string().optional(),
@@ -99,18 +99,20 @@ export const OutputSchema = z.object({
   webserver_vpc_endpoint_service: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsMwaaEnvironmentInputProps =
+  & z.input<typeof AwsMwaaEnvironmentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsMwaaEnvironmentOutputProps =
+  & z.output<typeof AwsMwaaEnvironmentOutputSchema>
+  & z.output<typeof AwsMwaaEnvironmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/mwaa_environment
 
-export function AwsMwaaEnvironment(props: Partial<InputProps>) {
+export function AwsMwaaEnvironment(
+  props: Partial<AwsMwaaEnvironmentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -120,8 +122,8 @@ export function AwsMwaaEnvironment(props: Partial<InputProps>) {
       _type='aws_mwaa_environment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsMwaaEnvironmentInputSchema}
+      _outputSchema={AwsMwaaEnvironmentOutputSchema}
       {...props}
     />
   )
@@ -131,11 +133,22 @@ export const useAwsMwaaEnvironment = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsMwaaEnvironment, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsMwaaEnvironmentOutputProps>(
+    AwsMwaaEnvironment,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsMwaaEnvironments = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsMwaaEnvironment, idFilter, baseNode, optional)
+  useTypedNodes<AwsMwaaEnvironmentOutputProps>(
+    AwsMwaaEnvironment,
+    idFilter,
+    baseNode,
+    optional,
+  )

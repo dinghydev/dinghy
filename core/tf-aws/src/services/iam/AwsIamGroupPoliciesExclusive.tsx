@@ -9,25 +9,27 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIamGroupPoliciesExclusiveInputSchema = TfMetaSchema.extend({
   group_name: resolvableValue(z.string()),
   policy_names: resolvableValue(z.string().array()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsIamGroupPoliciesExclusiveOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsIamGroupPoliciesExclusiveInputProps =
+  & z.input<typeof AwsIamGroupPoliciesExclusiveInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIamGroupPoliciesExclusiveOutputProps =
+  & z.output<typeof AwsIamGroupPoliciesExclusiveOutputSchema>
+  & z.output<typeof AwsIamGroupPoliciesExclusiveInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iam_group_policies_exclusive
 
-export function AwsIamGroupPoliciesExclusive(props: Partial<InputProps>) {
+export function AwsIamGroupPoliciesExclusive(
+  props: Partial<AwsIamGroupPoliciesExclusiveInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -37,8 +39,8 @@ export function AwsIamGroupPoliciesExclusive(props: Partial<InputProps>) {
       _type='aws_iam_group_policies_exclusive'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsIamGroupPoliciesExclusiveInputSchema}
+      _outputSchema={AwsIamGroupPoliciesExclusiveOutputSchema}
       {...props}
     />
   )
@@ -49,7 +51,7 @@ export const useAwsIamGroupPoliciesExclusive = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsIamGroupPoliciesExclusiveOutputProps>(
     AwsIamGroupPoliciesExclusive,
     idFilter,
     baseNode,
@@ -61,7 +63,7 @@ export const useAwsIamGroupPoliciesExclusives = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsIamGroupPoliciesExclusiveOutputProps>(
     AwsIamGroupPoliciesExclusive,
     idFilter,
     baseNode,

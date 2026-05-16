@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsImagebuilderImageRecipesInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -20,23 +20,25 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsImagebuilderImageRecipesOutputSchema = z.object({
   arns: z.set(z.string()).optional(),
   names: z.set(z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsImagebuilderImageRecipesInputProps =
+  & z.input<typeof DataAwsImagebuilderImageRecipesInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsImagebuilderImageRecipesOutputProps =
+  & z.output<typeof DataAwsImagebuilderImageRecipesOutputSchema>
+  & z.output<typeof DataAwsImagebuilderImageRecipesInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/imagebuilder_image_recipes
 
-export function DataAwsImagebuilderImageRecipes(props: Partial<InputProps>) {
+export function DataAwsImagebuilderImageRecipes(
+  props: Partial<DataAwsImagebuilderImageRecipesInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function DataAwsImagebuilderImageRecipes(props: Partial<InputProps>) {
       _type='aws_imagebuilder_image_recipes'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsImagebuilderImageRecipesInputSchema}
+      _outputSchema={DataAwsImagebuilderImageRecipesOutputSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useDataAwsImagebuilderImageRecipess = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsImagebuilderImageRecipesOutputProps>(
     DataAwsImagebuilderImageRecipes,
     idFilter,
     baseNode,

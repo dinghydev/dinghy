@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsFsxDataRepositoryAssociationInputSchema = TfMetaSchema.extend({
   data_repository_path: resolvableValue(z.string()),
   file_system_id: resolvableValue(z.string()),
   file_system_path: resolvableValue(z.string()),
@@ -37,25 +37,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsFsxDataRepositoryAssociationOutputSchema = z.object({
   arn: z.string().optional(),
   association_id: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsFsxDataRepositoryAssociationInputProps =
+  & z.input<typeof AwsFsxDataRepositoryAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsFsxDataRepositoryAssociationOutputProps =
+  & z.output<typeof AwsFsxDataRepositoryAssociationOutputSchema>
+  & z.output<typeof AwsFsxDataRepositoryAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/fsx_data_repository_association
 
-export function AwsFsxDataRepositoryAssociation(props: Partial<InputProps>) {
+export function AwsFsxDataRepositoryAssociation(
+  props: Partial<AwsFsxDataRepositoryAssociationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -65,8 +67,8 @@ export function AwsFsxDataRepositoryAssociation(props: Partial<InputProps>) {
       _type='aws_fsx_data_repository_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsFsxDataRepositoryAssociationInputSchema}
+      _outputSchema={AwsFsxDataRepositoryAssociationOutputSchema}
       {...props}
     />
   )
@@ -77,7 +79,7 @@ export const useAwsFsxDataRepositoryAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsFsxDataRepositoryAssociationOutputProps>(
     AwsFsxDataRepositoryAssociation,
     idFilter,
     baseNode,
@@ -89,7 +91,7 @@ export const useAwsFsxDataRepositoryAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsFsxDataRepositoryAssociationOutputProps>(
     AwsFsxDataRepositoryAssociation,
     idFilter,
     baseNode,

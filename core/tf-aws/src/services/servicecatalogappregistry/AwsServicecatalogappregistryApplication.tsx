@@ -9,33 +9,34 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  name: resolvableValue(z.string()),
-  description: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+export const AwsServicecatalogappregistryApplicationInputSchema = TfMetaSchema
+  .extend({
+    name: resolvableValue(z.string()),
+    description: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsServicecatalogappregistryApplicationOutputSchema = z.object({
   application_tag: z.record(z.string(), z.string()).optional(),
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsServicecatalogappregistryApplicationInputProps =
+  & z.input<typeof AwsServicecatalogappregistryApplicationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsServicecatalogappregistryApplicationOutputProps =
+  & z.output<typeof AwsServicecatalogappregistryApplicationOutputSchema>
+  & z.output<typeof AwsServicecatalogappregistryApplicationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/servicecatalogappregistry_application
 
 export function AwsServicecatalogappregistryApplication(
-  props: Partial<InputProps>,
+  props: Partial<AwsServicecatalogappregistryApplicationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -46,8 +47,8 @@ export function AwsServicecatalogappregistryApplication(
       _type='aws_servicecatalogappregistry_application'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsServicecatalogappregistryApplicationInputSchema}
+      _outputSchema={AwsServicecatalogappregistryApplicationOutputSchema}
       {...props}
     />
   )
@@ -58,7 +59,7 @@ export const useAwsServicecatalogappregistryApplication = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsServicecatalogappregistryApplicationOutputProps>(
     AwsServicecatalogappregistryApplication,
     idFilter,
     baseNode,
@@ -70,7 +71,7 @@ export const useAwsServicecatalogappregistryApplications = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsServicecatalogappregistryApplicationOutputProps>(
     AwsServicecatalogappregistryApplication,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsBackupReportPlanInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   report_delivery_channel: resolvableValue(z.object({
     formats: z.string().array().optional(),
@@ -29,7 +29,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsBackupReportPlanOutputSchema = z.object({
   arn: z.string().optional(),
   creation_time: z.string().optional(),
   deployment_status: z.string().optional(),
@@ -37,18 +37,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsBackupReportPlanInputProps =
+  & z.input<typeof AwsBackupReportPlanInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBackupReportPlanOutputProps =
+  & z.output<typeof AwsBackupReportPlanOutputSchema>
+  & z.output<typeof AwsBackupReportPlanInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/backup_report_plan
 
-export function AwsBackupReportPlan(props: Partial<InputProps>) {
+export function AwsBackupReportPlan(
+  props: Partial<AwsBackupReportPlanInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -58,8 +60,8 @@ export function AwsBackupReportPlan(props: Partial<InputProps>) {
       _type='aws_backup_report_plan'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsBackupReportPlanInputSchema}
+      _outputSchema={AwsBackupReportPlanOutputSchema}
       {...props}
     />
   )
@@ -70,11 +72,21 @@ export const useAwsBackupReportPlan = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsBackupReportPlan, idFilter, baseNode, optional)
+  useTypedNode<AwsBackupReportPlanOutputProps>(
+    AwsBackupReportPlan,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsBackupReportPlans = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsBackupReportPlan, idFilter, baseNode, optional)
+  useTypedNodes<AwsBackupReportPlanOutputProps>(
+    AwsBackupReportPlan,
+    idFilter,
+    baseNode,
+    optional,
+  )

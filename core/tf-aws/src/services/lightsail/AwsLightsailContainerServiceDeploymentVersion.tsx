@@ -9,59 +9,61 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  container: resolvableValue(
-    z.object({
-      command: z.string().array().optional(),
-      container_name: z.string(),
-      environment: z.record(z.string(), z.string()).optional(),
-      image: z.string(),
-      ports: z.record(z.string(), z.string()).optional(),
-    }).array(),
-  ),
-  service_name: resolvableValue(z.string()),
-  public_endpoint: resolvableValue(
-    z.object({
-      container_name: z.string(),
-      container_port: z.number(),
-      health_check: z.object({
-        healthy_threshold: z.number().optional(),
-        interval_seconds: z.number().optional(),
-        path: z.string().optional(),
-        success_codes: z.string().optional(),
-        timeout_seconds: z.number().optional(),
-        unhealthy_threshold: z.number().optional(),
-      }),
-    }).optional(),
-  ),
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsLightsailContainerServiceDeploymentVersionInputSchema =
+  TfMetaSchema.extend({
+    container: resolvableValue(
+      z.object({
+        command: z.string().array().optional(),
+        container_name: z.string(),
+        environment: z.record(z.string(), z.string()).optional(),
+        image: z.string(),
+        ports: z.record(z.string(), z.string()).optional(),
+      }).array(),
+    ),
+    service_name: resolvableValue(z.string()),
+    public_endpoint: resolvableValue(
+      z.object({
+        container_name: z.string(),
+        container_port: z.number(),
+        health_check: z.object({
+          healthy_threshold: z.number().optional(),
+          interval_seconds: z.number().optional(),
+          path: z.string().optional(),
+          success_codes: z.string().optional(),
+          timeout_seconds: z.number().optional(),
+          unhealthy_threshold: z.number().optional(),
+        }),
+      }).optional(),
+    ),
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
-  created_at: z.string().optional(),
-  id: z.string().optional(),
-  state: z.string().optional(),
-  version: z.number().optional(),
-})
+export const AwsLightsailContainerServiceDeploymentVersionOutputSchema = z
+  .object({
+    created_at: z.string().optional(),
+    id: z.string().optional(),
+    state: z.string().optional(),
+    version: z.number().optional(),
+  })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLightsailContainerServiceDeploymentVersionInputProps =
+  & z.input<typeof AwsLightsailContainerServiceDeploymentVersionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLightsailContainerServiceDeploymentVersionOutputProps =
+  & z.output<typeof AwsLightsailContainerServiceDeploymentVersionOutputSchema>
+  & z.output<typeof AwsLightsailContainerServiceDeploymentVersionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lightsail_container_service_deployment_version
 
 export function AwsLightsailContainerServiceDeploymentVersion(
-  props: Partial<InputProps>,
+  props: Partial<AwsLightsailContainerServiceDeploymentVersionInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -72,8 +74,8 @@ export function AwsLightsailContainerServiceDeploymentVersion(
       _type='aws_lightsail_container_service_deployment_version'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLightsailContainerServiceDeploymentVersionInputSchema}
+      _outputSchema={AwsLightsailContainerServiceDeploymentVersionOutputSchema}
       {...props}
     />
   )
@@ -84,7 +86,7 @@ export const useAwsLightsailContainerServiceDeploymentVersion = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsLightsailContainerServiceDeploymentVersionOutputProps>(
     AwsLightsailContainerServiceDeploymentVersion,
     idFilter,
     baseNode,
@@ -96,7 +98,7 @@ export const useAwsLightsailContainerServiceDeploymentVersions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsLightsailContainerServiceDeploymentVersionOutputProps>(
     AwsLightsailContainerServiceDeploymentVersion,
     idFilter,
     baseNode,

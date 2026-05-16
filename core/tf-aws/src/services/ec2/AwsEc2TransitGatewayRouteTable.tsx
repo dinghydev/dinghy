@@ -9,13 +9,13 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEc2TransitGatewayRouteTableInputSchema = TfMetaSchema.extend({
   transit_gateway_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsEc2TransitGatewayRouteTableOutputSchema = z.object({
   arn: z.string().optional(),
   default_association_route_table: z.boolean().optional(),
   default_propagation_route_table: z.boolean().optional(),
@@ -23,18 +23,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEc2TransitGatewayRouteTableInputProps =
+  & z.input<typeof AwsEc2TransitGatewayRouteTableInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEc2TransitGatewayRouteTableOutputProps =
+  & z.output<typeof AwsEc2TransitGatewayRouteTableOutputSchema>
+  & z.output<typeof AwsEc2TransitGatewayRouteTableInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ec2_transit_gateway_route_table
 
-export function AwsEc2TransitGatewayRouteTable(props: Partial<InputProps>) {
+export function AwsEc2TransitGatewayRouteTable(
+  props: Partial<AwsEc2TransitGatewayRouteTableInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +46,8 @@ export function AwsEc2TransitGatewayRouteTable(props: Partial<InputProps>) {
       _type='aws_ec2_transit_gateway_route_table'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEc2TransitGatewayRouteTableInputSchema}
+      _outputSchema={AwsEc2TransitGatewayRouteTableOutputSchema}
       {...props}
     />
   )
@@ -56,7 +58,7 @@ export const useAwsEc2TransitGatewayRouteTable = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsEc2TransitGatewayRouteTableOutputProps>(
     AwsEc2TransitGatewayRouteTable,
     idFilter,
     baseNode,
@@ -68,7 +70,7 @@ export const useAwsEc2TransitGatewayRouteTables = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEc2TransitGatewayRouteTableOutputProps>(
     AwsEc2TransitGatewayRouteTable,
     idFilter,
     baseNode,

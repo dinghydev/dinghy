@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsPipesPipeInputSchema = TfMetaSchema.extend({
   role_arn: resolvableValue(z.string()),
   source: resolvableValue(z.string()),
   target: resolvableValue(z.string()),
@@ -282,24 +282,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsPipesPipeOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsPipesPipeInputProps =
+  & z.input<typeof AwsPipesPipeInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsPipesPipeOutputProps =
+  & z.output<typeof AwsPipesPipeOutputSchema>
+  & z.output<typeof AwsPipesPipeInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/pipes_pipe
 
-export function AwsPipesPipe(props: Partial<InputProps>) {
+export function AwsPipesPipe(props: Partial<AwsPipesPipeInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -309,8 +309,8 @@ export function AwsPipesPipe(props: Partial<InputProps>) {
       _type='aws_pipes_pipe'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsPipesPipeInputSchema}
+      _outputSchema={AwsPipesPipeOutputSchema}
       {...props}
     />
   )
@@ -320,10 +320,22 @@ export const useAwsPipesPipe = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsPipesPipe, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsPipesPipeOutputProps>(
+    AwsPipesPipe,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsPipesPipes = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsPipesPipe, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsPipesPipeOutputProps>(
+    AwsPipesPipe,
+    idFilter,
+    baseNode,
+    optional,
+  )

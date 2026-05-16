@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAthenaCapacityReservationInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   target_dpus: resolvableValue(z.number()),
   region: resolvableValue(z.string().optional()),
@@ -23,25 +23,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsAthenaCapacityReservationOutputSchema = z.object({
   allocated_dpus: z.number().optional(),
   arn: z.string().optional(),
   status: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAthenaCapacityReservationInputProps =
+  & z.input<typeof AwsAthenaCapacityReservationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAthenaCapacityReservationOutputProps =
+  & z.output<typeof AwsAthenaCapacityReservationOutputSchema>
+  & z.output<typeof AwsAthenaCapacityReservationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/athena_capacity_reservation
 
-export function AwsAthenaCapacityReservation(props: Partial<InputProps>) {
+export function AwsAthenaCapacityReservation(
+  props: Partial<AwsAthenaCapacityReservationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -51,8 +53,8 @@ export function AwsAthenaCapacityReservation(props: Partial<InputProps>) {
       _type='aws_athena_capacity_reservation'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAthenaCapacityReservationInputSchema}
+      _outputSchema={AwsAthenaCapacityReservationOutputSchema}
       {...props}
     />
   )
@@ -63,7 +65,7 @@ export const useAwsAthenaCapacityReservation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAthenaCapacityReservationOutputProps>(
     AwsAthenaCapacityReservation,
     idFilter,
     baseNode,
@@ -75,7 +77,7 @@ export const useAwsAthenaCapacityReservations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAthenaCapacityReservationOutputProps>(
     AwsAthenaCapacityReservation,
     idFilter,
     baseNode,

@@ -9,11 +9,12 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  delegated_admin_account_id: resolvableValue(z.string()),
-})
+export const AwsVpcIpamOrganizationAdminAccountInputSchema = TfMetaSchema
+  .extend({
+    delegated_admin_account_id: resolvableValue(z.string()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsVpcIpamOrganizationAdminAccountOutputSchema = z.object({
   arn: z.string().optional(),
   email: z.string().optional(),
   id: z.string().optional(),
@@ -21,18 +22,20 @@ export const OutputSchema = z.object({
   service_principal: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVpcIpamOrganizationAdminAccountInputProps =
+  & z.input<typeof AwsVpcIpamOrganizationAdminAccountInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVpcIpamOrganizationAdminAccountOutputProps =
+  & z.output<typeof AwsVpcIpamOrganizationAdminAccountOutputSchema>
+  & z.output<typeof AwsVpcIpamOrganizationAdminAccountInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpc_ipam_organization_admin_account
 
-export function AwsVpcIpamOrganizationAdminAccount(props: Partial<InputProps>) {
+export function AwsVpcIpamOrganizationAdminAccount(
+  props: Partial<AwsVpcIpamOrganizationAdminAccountInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +45,8 @@ export function AwsVpcIpamOrganizationAdminAccount(props: Partial<InputProps>) {
       _type='aws_vpc_ipam_organization_admin_account'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVpcIpamOrganizationAdminAccountInputSchema}
+      _outputSchema={AwsVpcIpamOrganizationAdminAccountOutputSchema}
       {...props}
     />
   )
@@ -54,7 +57,7 @@ export const useAwsVpcIpamOrganizationAdminAccount = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsVpcIpamOrganizationAdminAccountOutputProps>(
     AwsVpcIpamOrganizationAdminAccount,
     idFilter,
     baseNode,
@@ -66,7 +69,7 @@ export const useAwsVpcIpamOrganizationAdminAccounts = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsVpcIpamOrganizationAdminAccountOutputProps>(
     AwsVpcIpamOrganizationAdminAccount,
     idFilter,
     baseNode,

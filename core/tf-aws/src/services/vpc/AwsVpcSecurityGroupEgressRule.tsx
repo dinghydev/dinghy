@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsVpcSecurityGroupEgressRuleInputSchema = TfMetaSchema.extend({
   ip_protocol: resolvableValue(z.string()),
   security_group_id: resolvableValue(z.string()),
   cidr_ipv4: resolvableValue(z.string().optional()),
@@ -23,32 +23,34 @@ export const InputSchema = TfMetaSchema.extend({
   to_port: resolvableValue(z.number().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsVpcSecurityGroupEgressRuleOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   security_group_rule_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsVpcSecurityGroupEgressRuleImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsVpcSecurityGroupEgressRuleInputProps =
+  & z.input<typeof AwsVpcSecurityGroupEgressRuleInputSchema>
+  & z.input<typeof AwsVpcSecurityGroupEgressRuleImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVpcSecurityGroupEgressRuleOutputProps =
+  & z.output<typeof AwsVpcSecurityGroupEgressRuleOutputSchema>
+  & z.output<typeof AwsVpcSecurityGroupEgressRuleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpc_security_group_egress_rule
 
-export function AwsVpcSecurityGroupEgressRule(props: Partial<InputProps>) {
+export function AwsVpcSecurityGroupEgressRule(
+  props: Partial<AwsVpcSecurityGroupEgressRuleInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -58,9 +60,9 @@ export function AwsVpcSecurityGroupEgressRule(props: Partial<InputProps>) {
       _type='aws_vpc_security_group_egress_rule'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsVpcSecurityGroupEgressRuleInputSchema}
+      _outputSchema={AwsVpcSecurityGroupEgressRuleOutputSchema}
+      _importSchema={AwsVpcSecurityGroupEgressRuleImportSchema}
       {...props}
     />
   )
@@ -71,7 +73,7 @@ export const useAwsVpcSecurityGroupEgressRule = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsVpcSecurityGroupEgressRuleOutputProps>(
     AwsVpcSecurityGroupEgressRule,
     idFilter,
     baseNode,
@@ -83,7 +85,7 @@ export const useAwsVpcSecurityGroupEgressRules = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsVpcSecurityGroupEgressRuleOutputProps>(
     AwsVpcSecurityGroupEgressRule,
     idFilter,
     baseNode,

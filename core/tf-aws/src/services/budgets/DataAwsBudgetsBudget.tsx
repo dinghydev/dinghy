@@ -9,14 +9,14 @@ import {
 import z from 'zod'
 import { AwsBudgetsBudget } from './AwsBudgetsBudget.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsBudgetsBudgetInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   name_prefix: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsBudgetsBudgetOutputSchema = z.object({
   arn: z.string().optional(),
   auto_adjust_data: z.object({
     auto_adjust_type: z.string(),
@@ -75,18 +75,20 @@ export const OutputSchema = z.object({
   time_unit: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsBudgetsBudgetInputProps =
+  & z.input<typeof DataAwsBudgetsBudgetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsBudgetsBudgetOutputProps =
+  & z.output<typeof DataAwsBudgetsBudgetOutputSchema>
+  & z.output<typeof DataAwsBudgetsBudgetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/budgets_budget
 
-export function DataAwsBudgetsBudget(props: Partial<InputProps>) {
+export function DataAwsBudgetsBudget(
+  props: Partial<DataAwsBudgetsBudgetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -96,8 +98,8 @@ export function DataAwsBudgetsBudget(props: Partial<InputProps>) {
       _type='aws_budgets_budget'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsBudgetsBudgetInputSchema}
+      _outputSchema={DataAwsBudgetsBudgetOutputSchema}
       {...props as any}
     />
   )
@@ -108,11 +110,21 @@ export const useDataAwsBudgetsBudget = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsBudgetsBudget, idFilter, baseNode, optional)
+  useTypedNode<DataAwsBudgetsBudgetOutputProps>(
+    DataAwsBudgetsBudget,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsBudgetsBudgets = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsBudgetsBudget, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsBudgetsBudgetOutputProps>(
+    DataAwsBudgetsBudget,
+    idFilter,
+    baseNode,
+    optional,
+  )

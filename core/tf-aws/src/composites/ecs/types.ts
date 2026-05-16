@@ -1,11 +1,11 @@
 import { deepMerge, getRenderOptions } from '@dinghy/base-components'
 import { z } from 'zod'
 import { LogGroupSchema } from '../cloudwatch/types.ts'
-import { InputSchema as AwsEcsClusterInputSchema } from '../../services/ecs/AwsEcsCluster.tsx'
-import { InputSchema as AwsEcsServiceInputSchema } from '../../services/ecs/AwsEcsService.tsx'
-import { InputSchema as AwsEcsTaskDefinitionInputSchema } from '../../services/ecs/AwsEcsTaskDefinition.tsx'
-import { InputSchema as AwsLbInputSchema } from '../../services/elbv2/AwsLb.tsx'
-import { InputSchema as AwsLbTargetGroupInputSchema } from '../../services/elbv2/AwsLbTargetGroup.tsx'
+import { AwsEcsClusterInputSchema } from '../../services/ecs/AwsEcsCluster.tsx'
+import { AwsEcsServiceInputSchema } from '../../services/ecs/AwsEcsService.tsx'
+import { AwsEcsTaskDefinitionInputSchema } from '../../services/ecs/AwsEcsTaskDefinition.tsx'
+import { AwsLbInputSchema } from '../../services/elbv2/AwsLb.tsx'
+import { AwsLbTargetGroupInputSchema } from '../../services/elbv2/AwsLbTargetGroup.tsx'
 
 // ---------------------------------------------------------------------------
 // CloudWatch log-group config. The shared `LogGroupSchema` (group fields +

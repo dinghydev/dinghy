@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsTranscribeLanguageModelInputSchema = TfMetaSchema.extend({
   base_model_name: resolvableValue(z.string()),
   input_data_config: resolvableValue(z.object({
     data_access_role_arn: z.string(),
@@ -28,23 +28,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsTranscribeLanguageModelOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsTranscribeLanguageModelInputProps =
+  & z.input<typeof AwsTranscribeLanguageModelInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsTranscribeLanguageModelOutputProps =
+  & z.output<typeof AwsTranscribeLanguageModelOutputSchema>
+  & z.output<typeof AwsTranscribeLanguageModelInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/transcribe_language_model
 
-export function AwsTranscribeLanguageModel(props: Partial<InputProps>) {
+export function AwsTranscribeLanguageModel(
+  props: Partial<AwsTranscribeLanguageModelInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -54,8 +56,8 @@ export function AwsTranscribeLanguageModel(props: Partial<InputProps>) {
       _type='aws_transcribe_language_model'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsTranscribeLanguageModelInputSchema}
+      _outputSchema={AwsTranscribeLanguageModelOutputSchema}
       {...props}
     />
   )
@@ -66,7 +68,7 @@ export const useAwsTranscribeLanguageModel = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsTranscribeLanguageModelOutputProps>(
     AwsTranscribeLanguageModel,
     idFilter,
     baseNode,
@@ -78,7 +80,7 @@ export const useAwsTranscribeLanguageModels = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsTranscribeLanguageModelOutputProps>(
     AwsTranscribeLanguageModel,
     idFilter,
     baseNode,

@@ -9,26 +9,28 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsApprunnerHostedZoneIdInputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsApprunnerHostedZoneIdOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsApprunnerHostedZoneIdInputProps =
+  & z.input<typeof DataAwsApprunnerHostedZoneIdInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsApprunnerHostedZoneIdOutputProps =
+  & z.output<typeof DataAwsApprunnerHostedZoneIdOutputSchema>
+  & z.output<typeof DataAwsApprunnerHostedZoneIdInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/apprunner_hosted_zone_id
 
-export function DataAwsApprunnerHostedZoneId(props: Partial<InputProps>) {
+export function DataAwsApprunnerHostedZoneId(
+  props: Partial<DataAwsApprunnerHostedZoneIdInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -38,8 +40,8 @@ export function DataAwsApprunnerHostedZoneId(props: Partial<InputProps>) {
       _type='aws_apprunner_hosted_zone_id'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsApprunnerHostedZoneIdInputSchema}
+      _outputSchema={DataAwsApprunnerHostedZoneIdOutputSchema}
       {...props}
     />
   )
@@ -50,7 +52,7 @@ export const useDataAwsApprunnerHostedZoneId = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsApprunnerHostedZoneIdOutputProps>(
     DataAwsApprunnerHostedZoneId,
     idFilter,
     baseNode,
@@ -62,7 +64,7 @@ export const useDataAwsApprunnerHostedZoneIds = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsApprunnerHostedZoneIdOutputProps>(
     DataAwsApprunnerHostedZoneId,
     idFilter,
     baseNode,

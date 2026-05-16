@@ -9,32 +9,33 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  rule_definition: resolvableValue(z.string()),
-  rule_name: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-  rule_state: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+export const AwsCloudwatchContributorInsightRuleInputSchema = TfMetaSchema
+  .extend({
+    rule_definition: resolvableValue(z.string()),
+    rule_name: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+    rule_state: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsCloudwatchContributorInsightRuleOutputSchema = z.object({
   resource_arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudwatchContributorInsightRuleInputProps =
+  & z.input<typeof AwsCloudwatchContributorInsightRuleInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudwatchContributorInsightRuleOutputProps =
+  & z.output<typeof AwsCloudwatchContributorInsightRuleOutputSchema>
+  & z.output<typeof AwsCloudwatchContributorInsightRuleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudwatch_contributor_insight_rule
 
 export function AwsCloudwatchContributorInsightRule(
-  props: Partial<InputProps>,
+  props: Partial<AwsCloudwatchContributorInsightRuleInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -45,8 +46,8 @@ export function AwsCloudwatchContributorInsightRule(
       _type='aws_cloudwatch_contributor_insight_rule'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudwatchContributorInsightRuleInputSchema}
+      _outputSchema={AwsCloudwatchContributorInsightRuleOutputSchema}
       {...props}
     />
   )
@@ -57,7 +58,7 @@ export const useAwsCloudwatchContributorInsightRule = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudwatchContributorInsightRuleOutputProps>(
     AwsCloudwatchContributorInsightRule,
     idFilter,
     baseNode,
@@ -69,7 +70,7 @@ export const useAwsCloudwatchContributorInsightRules = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudwatchContributorInsightRuleOutputProps>(
     AwsCloudwatchContributorInsightRule,
     idFilter,
     baseNode,

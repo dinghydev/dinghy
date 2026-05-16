@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEfsReplicationConfigurationInputSchema = TfMetaSchema.extend({
   destination: resolvableValue(z.object({
     availability_zone_name: z.string().optional(),
     file_system_id: z.string().optional(),
@@ -28,25 +28,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsEfsReplicationConfigurationOutputSchema = z.object({
   creation_time: z.string().optional(),
   original_source_file_system_arn: z.string().optional(),
   source_file_system_arn: z.string().optional(),
   source_file_system_region: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEfsReplicationConfigurationInputProps =
+  & z.input<typeof AwsEfsReplicationConfigurationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEfsReplicationConfigurationOutputProps =
+  & z.output<typeof AwsEfsReplicationConfigurationOutputSchema>
+  & z.output<typeof AwsEfsReplicationConfigurationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/efs_replication_configuration
 
-export function AwsEfsReplicationConfiguration(props: Partial<InputProps>) {
+export function AwsEfsReplicationConfiguration(
+  props: Partial<AwsEfsReplicationConfigurationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -56,8 +58,8 @@ export function AwsEfsReplicationConfiguration(props: Partial<InputProps>) {
       _type='aws_efs_replication_configuration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEfsReplicationConfigurationInputSchema}
+      _outputSchema={AwsEfsReplicationConfigurationOutputSchema}
       {...props}
     />
   )
@@ -68,7 +70,7 @@ export const useAwsEfsReplicationConfiguration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsEfsReplicationConfigurationOutputProps>(
     AwsEfsReplicationConfiguration,
     idFilter,
     baseNode,
@@ -80,7 +82,7 @@ export const useAwsEfsReplicationConfigurations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEfsReplicationConfigurationOutputProps>(
     AwsEfsReplicationConfiguration,
     idFilter,
     baseNode,

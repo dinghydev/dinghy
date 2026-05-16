@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsApigatewayv2ModelInputSchema = TfMetaSchema.extend({
   api_id: resolvableValue(z.string()),
   content_type: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -18,22 +18,24 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsApigatewayv2ModelOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsApigatewayv2ModelInputProps =
+  & z.input<typeof AwsApigatewayv2ModelInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApigatewayv2ModelOutputProps =
+  & z.output<typeof AwsApigatewayv2ModelOutputSchema>
+  & z.output<typeof AwsApigatewayv2ModelInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/apigatewayv2_model
 
-export function AwsApigatewayv2Model(props: Partial<InputProps>) {
+export function AwsApigatewayv2Model(
+  props: Partial<AwsApigatewayv2ModelInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function AwsApigatewayv2Model(props: Partial<InputProps>) {
       _type='aws_apigatewayv2_model'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsApigatewayv2ModelInputSchema}
+      _outputSchema={AwsApigatewayv2ModelOutputSchema}
       {...props}
     />
   )
@@ -55,11 +57,21 @@ export const useAwsApigatewayv2Model = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsApigatewayv2Model, idFilter, baseNode, optional)
+  useTypedNode<AwsApigatewayv2ModelOutputProps>(
+    AwsApigatewayv2Model,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsApigatewayv2Models = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsApigatewayv2Model, idFilter, baseNode, optional)
+  useTypedNodes<AwsApigatewayv2ModelOutputProps>(
+    AwsApigatewayv2Model,
+    idFilter,
+    baseNode,
+    optional,
+  )

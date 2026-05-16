@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsPinpointApnsSandboxChannelInputSchema = TfMetaSchema.extend({
   application_id: resolvableValue(z.string()),
   bundle_id: resolvableValue(z.string().optional()),
   certificate: resolvableValue(z.string().optional()),
@@ -23,20 +23,22 @@ export const InputSchema = TfMetaSchema.extend({
   token_key_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsPinpointApnsSandboxChannelOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsPinpointApnsSandboxChannelInputProps =
+  & z.input<typeof AwsPinpointApnsSandboxChannelInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsPinpointApnsSandboxChannelOutputProps =
+  & z.output<typeof AwsPinpointApnsSandboxChannelOutputSchema>
+  & z.output<typeof AwsPinpointApnsSandboxChannelInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/pinpoint_apns_sandbox_channel
 
-export function AwsPinpointApnsSandboxChannel(props: Partial<InputProps>) {
+export function AwsPinpointApnsSandboxChannel(
+  props: Partial<AwsPinpointApnsSandboxChannelInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function AwsPinpointApnsSandboxChannel(props: Partial<InputProps>) {
       _type='aws_pinpoint_apns_sandbox_channel'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsPinpointApnsSandboxChannelInputSchema}
+      _outputSchema={AwsPinpointApnsSandboxChannelOutputSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useAwsPinpointApnsSandboxChannel = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsPinpointApnsSandboxChannelOutputProps>(
     AwsPinpointApnsSandboxChannel,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useAwsPinpointApnsSandboxChannels = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsPinpointApnsSandboxChannelOutputProps>(
     AwsPinpointApnsSandboxChannel,
     idFilter,
     baseNode,

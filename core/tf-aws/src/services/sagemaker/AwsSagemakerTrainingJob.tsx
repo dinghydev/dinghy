@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSagemakerTrainingJobInputSchema = TfMetaSchema.extend({
   role_arn: resolvableValue(z.string()),
   training_job_name: resolvableValue(z.string()),
   algorithm_specification: resolvableValue(
@@ -234,30 +234,32 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsSagemakerTrainingJobOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSagemakerTrainingJobImportSchema = z.object({
   training_job_name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSagemakerTrainingJobInputProps =
+  & z.input<typeof AwsSagemakerTrainingJobInputSchema>
+  & z.input<typeof AwsSagemakerTrainingJobImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSagemakerTrainingJobOutputProps =
+  & z.output<typeof AwsSagemakerTrainingJobOutputSchema>
+  & z.output<typeof AwsSagemakerTrainingJobInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sagemaker_training_job
 
-export function AwsSagemakerTrainingJob(props: Partial<InputProps>) {
+export function AwsSagemakerTrainingJob(
+  props: Partial<AwsSagemakerTrainingJobInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -267,9 +269,9 @@ export function AwsSagemakerTrainingJob(props: Partial<InputProps>) {
       _type='aws_sagemaker_training_job'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSagemakerTrainingJobInputSchema}
+      _outputSchema={AwsSagemakerTrainingJobOutputSchema}
+      _importSchema={AwsSagemakerTrainingJobImportSchema}
       {...props}
     />
   )
@@ -280,7 +282,7 @@ export const useAwsSagemakerTrainingJob = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSagemakerTrainingJobOutputProps>(
     AwsSagemakerTrainingJob,
     idFilter,
     baseNode,
@@ -292,7 +294,7 @@ export const useAwsSagemakerTrainingJobs = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSagemakerTrainingJobOutputProps>(
     AwsSagemakerTrainingJob,
     idFilter,
     baseNode,

@@ -9,33 +9,34 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  connection_events: resolvableValue(z.string().array()),
-  connection_notification_arn: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-  vpc_endpoint_id: resolvableValue(z.string().optional()),
-  vpc_endpoint_service_id: resolvableValue(z.string().optional()),
-})
+export const AwsVpcEndpointConnectionNotificationInputSchema = TfMetaSchema
+  .extend({
+    connection_events: resolvableValue(z.string().array()),
+    connection_notification_arn: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+    vpc_endpoint_id: resolvableValue(z.string().optional()),
+    vpc_endpoint_service_id: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsVpcEndpointConnectionNotificationOutputSchema = z.object({
   id: z.string().optional(),
   notification_type: z.string().optional(),
   state: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVpcEndpointConnectionNotificationInputProps =
+  & z.input<typeof AwsVpcEndpointConnectionNotificationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVpcEndpointConnectionNotificationOutputProps =
+  & z.output<typeof AwsVpcEndpointConnectionNotificationOutputSchema>
+  & z.output<typeof AwsVpcEndpointConnectionNotificationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpc_endpoint_connection_notification
 
 export function AwsVpcEndpointConnectionNotification(
-  props: Partial<InputProps>,
+  props: Partial<AwsVpcEndpointConnectionNotificationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -46,8 +47,8 @@ export function AwsVpcEndpointConnectionNotification(
       _type='aws_vpc_endpoint_connection_notification'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVpcEndpointConnectionNotificationInputSchema}
+      _outputSchema={AwsVpcEndpointConnectionNotificationOutputSchema}
       {...props}
     />
   )
@@ -58,7 +59,7 @@ export const useAwsVpcEndpointConnectionNotification = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsVpcEndpointConnectionNotificationOutputProps>(
     AwsVpcEndpointConnectionNotification,
     idFilter,
     baseNode,
@@ -70,7 +71,7 @@ export const useAwsVpcEndpointConnectionNotifications = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsVpcEndpointConnectionNotificationOutputProps>(
     AwsVpcEndpointConnectionNotification,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDocdbEventSubscriptionInputSchema = TfMetaSchema.extend({
   sns_topic_arn: resolvableValue(z.string()),
   enabled: resolvableValue(z.boolean().optional()),
   event_categories: resolvableValue(z.string().array().optional()),
@@ -28,25 +28,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDocdbEventSubscriptionOutputSchema = z.object({
   arn: z.string().optional(),
   customer_aws_id: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDocdbEventSubscriptionInputProps =
+  & z.input<typeof AwsDocdbEventSubscriptionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDocdbEventSubscriptionOutputProps =
+  & z.output<typeof AwsDocdbEventSubscriptionOutputSchema>
+  & z.output<typeof AwsDocdbEventSubscriptionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/docdb_event_subscription
 
-export function AwsDocdbEventSubscription(props: Partial<InputProps>) {
+export function AwsDocdbEventSubscription(
+  props: Partial<AwsDocdbEventSubscriptionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -56,8 +58,8 @@ export function AwsDocdbEventSubscription(props: Partial<InputProps>) {
       _type='aws_docdb_event_subscription'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDocdbEventSubscriptionInputSchema}
+      _outputSchema={AwsDocdbEventSubscriptionOutputSchema}
       {...props}
     />
   )
@@ -68,7 +70,7 @@ export const useAwsDocdbEventSubscription = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDocdbEventSubscriptionOutputProps>(
     AwsDocdbEventSubscription,
     idFilter,
     baseNode,
@@ -80,7 +82,7 @@ export const useAwsDocdbEventSubscriptions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDocdbEventSubscriptionOutputProps>(
     AwsDocdbEventSubscription,
     idFilter,
     baseNode,

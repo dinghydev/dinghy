@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsBedrockagentFlowInputSchema = TfMetaSchema.extend({
   execution_role_arn: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   customer_encryption_key_arn: resolvableValue(z.string().optional()),
@@ -191,7 +191,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsBedrockagentFlowOutputSchema = z.object({
   arn: z.string().optional(),
   created_at: z.string().optional(),
   id: z.string().optional(),
@@ -201,18 +201,20 @@ export const OutputSchema = z.object({
   version: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsBedrockagentFlowInputProps =
+  & z.input<typeof AwsBedrockagentFlowInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBedrockagentFlowOutputProps =
+  & z.output<typeof AwsBedrockagentFlowOutputSchema>
+  & z.output<typeof AwsBedrockagentFlowInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/bedrockagent_flow
 
-export function AwsBedrockagentFlow(props: Partial<InputProps>) {
+export function AwsBedrockagentFlow(
+  props: Partial<AwsBedrockagentFlowInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -222,8 +224,8 @@ export function AwsBedrockagentFlow(props: Partial<InputProps>) {
       _type='aws_bedrockagent_flow'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsBedrockagentFlowInputSchema}
+      _outputSchema={AwsBedrockagentFlowOutputSchema}
       {...props}
     />
   )
@@ -234,11 +236,21 @@ export const useAwsBedrockagentFlow = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsBedrockagentFlow, idFilter, baseNode, optional)
+  useTypedNode<AwsBedrockagentFlowOutputProps>(
+    AwsBedrockagentFlow,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsBedrockagentFlows = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsBedrockagentFlow, idFilter, baseNode, optional)
+  useTypedNodes<AwsBedrockagentFlowOutputProps>(
+    AwsBedrockagentFlow,
+    idFilter,
+    baseNode,
+    optional,
+  )

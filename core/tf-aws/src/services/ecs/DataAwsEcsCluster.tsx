@@ -9,13 +9,13 @@ import {
 import z from 'zod'
 import { AwsEcsCluster } from './AwsEcsCluster.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsEcsClusterInputSchema = TfMetaSchema.extend({
   cluster_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsEcsClusterOutputSchema = z.object({
   arn: z.string().optional(),
   pending_tasks_count: z.number().optional(),
   registered_container_instances_count: z.number().optional(),
@@ -31,18 +31,18 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEcsClusterInputProps =
+  & z.input<typeof DataAwsEcsClusterInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEcsClusterOutputProps =
+  & z.output<typeof DataAwsEcsClusterOutputSchema>
+  & z.output<typeof DataAwsEcsClusterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ecs_cluster
 
-export function DataAwsEcsCluster(props: Partial<InputProps>) {
+export function DataAwsEcsCluster(props: Partial<DataAwsEcsClusterInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,8 +52,8 @@ export function DataAwsEcsCluster(props: Partial<InputProps>) {
       _type='aws_ecs_cluster'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEcsClusterInputSchema}
+      _outputSchema={DataAwsEcsClusterOutputSchema}
       {...props as any}
     />
   )
@@ -63,10 +63,22 @@ export const useDataAwsEcsCluster = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsEcsCluster, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsEcsClusterOutputProps>(
+    DataAwsEcsCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsEcsClusters = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsEcsCluster, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsEcsClusterOutputProps>(
+    DataAwsEcsCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )

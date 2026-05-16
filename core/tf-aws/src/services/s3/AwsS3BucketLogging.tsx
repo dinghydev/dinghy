@@ -11,7 +11,7 @@ import {
 import z from 'zod'
 import { CLOUD_LOGGING } from '@dinghy/diagrams/entitiesGcpIconsManagementTools'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsS3BucketLoggingInputSchema = TfMetaSchema.extend({
   bucket: resolvableValue(z.string()),
   target_bucket: resolvableValue(z.string()),
   target_prefix: resolvableValue(z.string()),
@@ -39,29 +39,31 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsS3BucketLoggingOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsS3BucketLoggingImportSchema = z.object({
   bucket: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsS3BucketLoggingInputProps =
+  & z.input<typeof AwsS3BucketLoggingInputSchema>
+  & z.input<typeof AwsS3BucketLoggingImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3BucketLoggingOutputProps =
+  & z.output<typeof AwsS3BucketLoggingOutputSchema>
+  & z.output<typeof AwsS3BucketLoggingInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3_bucket_logging
 
-export function AwsS3BucketLogging(props: Partial<InputProps>) {
+export function AwsS3BucketLogging(
+  props: Partial<AwsS3BucketLoggingInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -71,9 +73,9 @@ export function AwsS3BucketLogging(props: Partial<InputProps>) {
       _type='aws_s3_bucket_logging'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsS3BucketLoggingInputSchema}
+      _outputSchema={AwsS3BucketLoggingOutputSchema}
+      _importSchema={AwsS3BucketLoggingImportSchema}
       {...props}
       _style={extendStyle(props, CLOUD_LOGGING)}
     />
@@ -84,11 +86,22 @@ export const useAwsS3BucketLogging = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsS3BucketLogging, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsS3BucketLoggingOutputProps>(
+    AwsS3BucketLogging,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsS3BucketLoggings = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsS3BucketLogging, idFilter, baseNode, optional)
+  useTypedNodes<AwsS3BucketLoggingOutputProps>(
+    AwsS3BucketLogging,
+    idFilter,
+    baseNode,
+    optional,
+  )

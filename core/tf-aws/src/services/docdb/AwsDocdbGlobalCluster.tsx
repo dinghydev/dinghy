@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDocdbGlobalClusterInputSchema = TfMetaSchema.extend({
   global_cluster_identifier: resolvableValue(z.string()),
   database_name: resolvableValue(z.string().optional()),
   deletion_protection: resolvableValue(z.boolean().optional()),
@@ -27,7 +27,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDocdbGlobalClusterOutputSchema = z.object({
   arn: z.string().optional(),
   global_cluster_members: z.set(z.object({
     db_cluster_arn: z.string(),
@@ -38,18 +38,20 @@ export const OutputSchema = z.object({
   status: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDocdbGlobalClusterInputProps =
+  & z.input<typeof AwsDocdbGlobalClusterInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDocdbGlobalClusterOutputProps =
+  & z.output<typeof AwsDocdbGlobalClusterOutputSchema>
+  & z.output<typeof AwsDocdbGlobalClusterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/docdb_global_cluster
 
-export function AwsDocdbGlobalCluster(props: Partial<InputProps>) {
+export function AwsDocdbGlobalCluster(
+  props: Partial<AwsDocdbGlobalClusterInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -59,8 +61,8 @@ export function AwsDocdbGlobalCluster(props: Partial<InputProps>) {
       _type='aws_docdb_global_cluster'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDocdbGlobalClusterInputSchema}
+      _outputSchema={AwsDocdbGlobalClusterOutputSchema}
       {...props}
     />
   )
@@ -71,14 +73,19 @@ export const useAwsDocdbGlobalCluster = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsDocdbGlobalCluster, idFilter, baseNode, optional)
+  useTypedNode<AwsDocdbGlobalClusterOutputProps>(
+    AwsDocdbGlobalCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDocdbGlobalClusters = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDocdbGlobalClusterOutputProps>(
     AwsDocdbGlobalCluster,
     idFilter,
     baseNode,

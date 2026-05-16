@@ -8,26 +8,28 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsVpcEndpointPrivateDnsInputSchema = TfMetaSchema.extend({
   private_dns_enabled: resolvableValue(z.boolean()),
   vpc_endpoint_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsVpcEndpointPrivateDnsOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVpcEndpointPrivateDnsInputProps =
+  & z.input<typeof AwsVpcEndpointPrivateDnsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVpcEndpointPrivateDnsOutputProps =
+  & z.output<typeof AwsVpcEndpointPrivateDnsOutputSchema>
+  & z.output<typeof AwsVpcEndpointPrivateDnsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpc_endpoint_private_dns
 
-export function AwsVpcEndpointPrivateDns(props: Partial<InputProps>) {
+export function AwsVpcEndpointPrivateDns(
+  props: Partial<AwsVpcEndpointPrivateDnsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -37,8 +39,8 @@ export function AwsVpcEndpointPrivateDns(props: Partial<InputProps>) {
       _type='aws_vpc_endpoint_private_dns'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVpcEndpointPrivateDnsInputSchema}
+      _outputSchema={AwsVpcEndpointPrivateDnsOutputSchema}
       {...props}
     />
   )
@@ -49,7 +51,7 @@ export const useAwsVpcEndpointPrivateDnss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsVpcEndpointPrivateDnsOutputProps>(
     AwsVpcEndpointPrivateDns,
     idFilter,
     baseNode,

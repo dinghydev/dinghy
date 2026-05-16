@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSsmcontactsPlanInputSchema = TfMetaSchema.extend({
   contact_id: resolvableValue(z.string()),
   stage: resolvableValue(
     z.object({
@@ -30,20 +30,22 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsSsmcontactsPlanOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSsmcontactsPlanInputProps =
+  & z.input<typeof AwsSsmcontactsPlanInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSsmcontactsPlanOutputProps =
+  & z.output<typeof AwsSsmcontactsPlanOutputSchema>
+  & z.output<typeof AwsSsmcontactsPlanInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssmcontacts_plan
 
-export function AwsSsmcontactsPlan(props: Partial<InputProps>) {
+export function AwsSsmcontactsPlan(
+  props: Partial<AwsSsmcontactsPlanInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,8 +55,8 @@ export function AwsSsmcontactsPlan(props: Partial<InputProps>) {
       _type='aws_ssmcontacts_plan'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSsmcontactsPlanInputSchema}
+      _outputSchema={AwsSsmcontactsPlanOutputSchema}
       {...props}
     />
   )
@@ -64,11 +66,22 @@ export const useAwsSsmcontactsPlan = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsSsmcontactsPlan, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsSsmcontactsPlanOutputProps>(
+    AwsSsmcontactsPlan,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSsmcontactsPlans = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSsmcontactsPlan, idFilter, baseNode, optional)
+  useTypedNodes<AwsSsmcontactsPlanOutputProps>(
+    AwsSsmcontactsPlan,
+    idFilter,
+    baseNode,
+    optional,
+  )

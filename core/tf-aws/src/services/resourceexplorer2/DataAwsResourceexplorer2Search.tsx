@@ -9,13 +9,13 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsResourceexplorer2SearchInputSchema = TfMetaSchema.extend({
   query_string: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   view_arn: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsResourceexplorer2SearchOutputSchema = z.object({
   id: z.string().optional(),
   resource_count: z.object({
     complete: z.boolean(),
@@ -36,18 +36,20 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsResourceexplorer2SearchInputProps =
+  & z.input<typeof DataAwsResourceexplorer2SearchInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsResourceexplorer2SearchOutputProps =
+  & z.output<typeof DataAwsResourceexplorer2SearchOutputSchema>
+  & z.output<typeof DataAwsResourceexplorer2SearchInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/resourceexplorer2_search
 
-export function DataAwsResourceexplorer2Search(props: Partial<InputProps>) {
+export function DataAwsResourceexplorer2Search(
+  props: Partial<DataAwsResourceexplorer2SearchInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -57,8 +59,8 @@ export function DataAwsResourceexplorer2Search(props: Partial<InputProps>) {
       _type='aws_resourceexplorer2_search'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsResourceexplorer2SearchInputSchema}
+      _outputSchema={DataAwsResourceexplorer2SearchOutputSchema}
       {...props}
     />
   )
@@ -69,7 +71,7 @@ export const useDataAwsResourceexplorer2Search = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsResourceexplorer2SearchOutputProps>(
     DataAwsResourceexplorer2Search,
     idFilter,
     baseNode,
@@ -81,7 +83,7 @@ export const useDataAwsResourceexplorer2Searchs = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsResourceexplorer2SearchOutputProps>(
     DataAwsResourceexplorer2Search,
     idFilter,
     baseNode,

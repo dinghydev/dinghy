@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsApprunnerDeploymentInputSchema = TfMetaSchema.extend({
   service_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
@@ -19,24 +19,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsApprunnerDeploymentOutputSchema = z.object({
   id: z.string().optional(),
   operation_id: z.string().optional(),
   status: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsApprunnerDeploymentInputProps =
+  & z.input<typeof AwsApprunnerDeploymentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApprunnerDeploymentOutputProps =
+  & z.output<typeof AwsApprunnerDeploymentOutputSchema>
+  & z.output<typeof AwsApprunnerDeploymentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/apprunner_deployment
 
-export function AwsApprunnerDeployment(props: Partial<InputProps>) {
+export function AwsApprunnerDeployment(
+  props: Partial<AwsApprunnerDeploymentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function AwsApprunnerDeployment(props: Partial<InputProps>) {
       _type='aws_apprunner_deployment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsApprunnerDeploymentInputSchema}
+      _outputSchema={AwsApprunnerDeploymentOutputSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useAwsApprunnerDeployment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsApprunnerDeploymentOutputProps>(
     AwsApprunnerDeployment,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useAwsApprunnerDeployments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsApprunnerDeploymentOutputProps>(
     AwsApprunnerDeployment,
     idFilter,
     baseNode,

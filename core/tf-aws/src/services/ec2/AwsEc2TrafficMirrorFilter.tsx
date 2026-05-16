@@ -9,31 +9,33 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEc2TrafficMirrorFilterInputSchema = TfMetaSchema.extend({
   description: resolvableValue(z.string().optional()),
   network_services: resolvableValue(z.string().array().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsEc2TrafficMirrorFilterOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEc2TrafficMirrorFilterInputProps =
+  & z.input<typeof AwsEc2TrafficMirrorFilterInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEc2TrafficMirrorFilterOutputProps =
+  & z.output<typeof AwsEc2TrafficMirrorFilterOutputSchema>
+  & z.output<typeof AwsEc2TrafficMirrorFilterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ec2_traffic_mirror_filter
 
-export function AwsEc2TrafficMirrorFilter(props: Partial<InputProps>) {
+export function AwsEc2TrafficMirrorFilter(
+  props: Partial<AwsEc2TrafficMirrorFilterInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function AwsEc2TrafficMirrorFilter(props: Partial<InputProps>) {
       _type='aws_ec2_traffic_mirror_filter'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEc2TrafficMirrorFilterInputSchema}
+      _outputSchema={AwsEc2TrafficMirrorFilterOutputSchema}
       {...props}
     />
   )
@@ -55,7 +57,7 @@ export const useAwsEc2TrafficMirrorFilter = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsEc2TrafficMirrorFilterOutputProps>(
     AwsEc2TrafficMirrorFilter,
     idFilter,
     baseNode,
@@ -67,7 +69,7 @@ export const useAwsEc2TrafficMirrorFilters = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEc2TrafficMirrorFilterOutputProps>(
     AwsEc2TrafficMirrorFilter,
     idFilter,
     baseNode,

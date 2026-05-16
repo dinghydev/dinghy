@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRolesanywhereProfileInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   accept_role_session_name: resolvableValue(z.boolean().optional()),
   duration_seconds: resolvableValue(z.number().optional()),
@@ -21,24 +21,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRolesanywhereProfileOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRolesanywhereProfileInputProps =
+  & z.input<typeof AwsRolesanywhereProfileInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRolesanywhereProfileOutputProps =
+  & z.output<typeof AwsRolesanywhereProfileOutputSchema>
+  & z.output<typeof AwsRolesanywhereProfileInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/rolesanywhere_profile
 
-export function AwsRolesanywhereProfile(props: Partial<InputProps>) {
+export function AwsRolesanywhereProfile(
+  props: Partial<AwsRolesanywhereProfileInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +50,8 @@ export function AwsRolesanywhereProfile(props: Partial<InputProps>) {
       _type='aws_rolesanywhere_profile'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRolesanywhereProfileInputSchema}
+      _outputSchema={AwsRolesanywhereProfileOutputSchema}
       {...props}
     />
   )
@@ -60,7 +62,7 @@ export const useAwsRolesanywhereProfile = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRolesanywhereProfileOutputProps>(
     AwsRolesanywhereProfile,
     idFilter,
     baseNode,
@@ -72,7 +74,7 @@ export const useAwsRolesanywhereProfiles = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRolesanywhereProfileOutputProps>(
     AwsRolesanywhereProfile,
     idFilter,
     baseNode,

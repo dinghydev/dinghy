@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDatasyncLocationObjectStorageInputSchema = TfMetaSchema.extend({
   bucket_name: resolvableValue(z.string()),
   server_hostname: resolvableValue(z.string()),
   access_key: resolvableValue(z.string().optional()),
@@ -24,29 +24,31 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDatasyncLocationObjectStorageOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   uri: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsDatasyncLocationObjectStorageImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsDatasyncLocationObjectStorageInputProps =
+  & z.input<typeof AwsDatasyncLocationObjectStorageInputSchema>
+  & z.input<typeof AwsDatasyncLocationObjectStorageImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDatasyncLocationObjectStorageOutputProps =
+  & z.output<typeof AwsDatasyncLocationObjectStorageOutputSchema>
+  & z.output<typeof AwsDatasyncLocationObjectStorageInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/datasync_location_object_storage
 
-export function AwsDatasyncLocationObjectStorage(props: Partial<InputProps>) {
+export function AwsDatasyncLocationObjectStorage(
+  props: Partial<AwsDatasyncLocationObjectStorageInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -56,9 +58,9 @@ export function AwsDatasyncLocationObjectStorage(props: Partial<InputProps>) {
       _type='aws_datasync_location_object_storage'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsDatasyncLocationObjectStorageInputSchema}
+      _outputSchema={AwsDatasyncLocationObjectStorageOutputSchema}
+      _importSchema={AwsDatasyncLocationObjectStorageImportSchema}
       {...props}
     />
   )
@@ -69,7 +71,7 @@ export const useAwsDatasyncLocationObjectStorage = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDatasyncLocationObjectStorageOutputProps>(
     AwsDatasyncLocationObjectStorage,
     idFilter,
     baseNode,
@@ -81,7 +83,7 @@ export const useAwsDatasyncLocationObjectStorages = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDatasyncLocationObjectStorageOutputProps>(
     AwsDatasyncLocationObjectStorage,
     idFilter,
     baseNode,

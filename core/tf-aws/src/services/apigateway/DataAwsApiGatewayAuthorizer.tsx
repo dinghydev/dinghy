@@ -9,14 +9,14 @@ import {
 import z from 'zod'
 import { AwsApiGatewayAuthorizer } from './AwsApiGatewayAuthorizer.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsApiGatewayAuthorizerInputSchema = TfMetaSchema.extend({
   authorizer_id: resolvableValue(z.string()),
   rest_api_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsApiGatewayAuthorizerOutputSchema = z.object({
   arn: z.string().optional(),
   authorizer_credentials: z.string().optional(),
   authorizer_result_ttl_in_seconds: z.number().optional(),
@@ -28,18 +28,20 @@ export const OutputSchema = z.object({
   type: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsApiGatewayAuthorizerInputProps =
+  & z.input<typeof DataAwsApiGatewayAuthorizerInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsApiGatewayAuthorizerOutputProps =
+  & z.output<typeof DataAwsApiGatewayAuthorizerOutputSchema>
+  & z.output<typeof DataAwsApiGatewayAuthorizerInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/api_gateway_authorizer
 
-export function DataAwsApiGatewayAuthorizer(props: Partial<InputProps>) {
+export function DataAwsApiGatewayAuthorizer(
+  props: Partial<DataAwsApiGatewayAuthorizerInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,8 +51,8 @@ export function DataAwsApiGatewayAuthorizer(props: Partial<InputProps>) {
       _type='aws_api_gateway_authorizer'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsApiGatewayAuthorizerInputSchema}
+      _outputSchema={DataAwsApiGatewayAuthorizerOutputSchema}
       {...props as any}
     />
   )
@@ -61,7 +63,7 @@ export const useDataAwsApiGatewayAuthorizer = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsApiGatewayAuthorizerOutputProps>(
     DataAwsApiGatewayAuthorizer,
     idFilter,
     baseNode,
@@ -73,7 +75,7 @@ export const useDataAwsApiGatewayAuthorizers = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsApiGatewayAuthorizerOutputProps>(
     DataAwsApiGatewayAuthorizer,
     idFilter,
     baseNode,

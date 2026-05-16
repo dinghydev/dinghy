@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRouteTableAssociationInputSchema = TfMetaSchema.extend({
   route_table_id: resolvableValue(z.string()),
   gateway_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -23,29 +23,31 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsRouteTableAssociationOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsRouteTableAssociationImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsRouteTableAssociationInputProps =
+  & z.input<typeof AwsRouteTableAssociationInputSchema>
+  & z.input<typeof AwsRouteTableAssociationImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRouteTableAssociationOutputProps =
+  & z.output<typeof AwsRouteTableAssociationOutputSchema>
+  & z.output<typeof AwsRouteTableAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/route_table_association
 
-export function AwsRouteTableAssociation(props: Partial<InputProps>) {
+export function AwsRouteTableAssociation(
+  props: Partial<AwsRouteTableAssociationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,9 +57,9 @@ export function AwsRouteTableAssociation(props: Partial<InputProps>) {
       _type='aws_route_table_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsRouteTableAssociationInputSchema}
+      _outputSchema={AwsRouteTableAssociationOutputSchema}
+      _importSchema={AwsRouteTableAssociationImportSchema}
       {...props}
     />
   )
@@ -68,7 +70,7 @@ export const useAwsRouteTableAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRouteTableAssociationOutputProps>(
     AwsRouteTableAssociation,
     idFilter,
     baseNode,
@@ -80,7 +82,7 @@ export const useAwsRouteTableAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRouteTableAssociationOutputProps>(
     AwsRouteTableAssociation,
     idFilter,
     baseNode,

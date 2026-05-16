@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSpotFleetRequestInputSchema = TfMetaSchema.extend({
   iam_fleet_role: resolvableValue(z.string()),
   target_capacity: resolvableValue(z.number()),
   allocation_strategy: resolvableValue(z.string().optional()),
@@ -164,25 +164,27 @@ export const InputSchema = TfMetaSchema.extend({
   wait_for_fulfillment: resolvableValue(z.boolean().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSpotFleetRequestOutputSchema = z.object({
   client_token: z.string().optional(),
   id: z.string().optional(),
   spot_request_state: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSpotFleetRequestInputProps =
+  & z.input<typeof AwsSpotFleetRequestInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSpotFleetRequestOutputProps =
+  & z.output<typeof AwsSpotFleetRequestOutputSchema>
+  & z.output<typeof AwsSpotFleetRequestInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/spot_fleet_request
 
-export function AwsSpotFleetRequest(props: Partial<InputProps>) {
+export function AwsSpotFleetRequest(
+  props: Partial<AwsSpotFleetRequestInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -192,8 +194,8 @@ export function AwsSpotFleetRequest(props: Partial<InputProps>) {
       _type='aws_spot_fleet_request'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSpotFleetRequestInputSchema}
+      _outputSchema={AwsSpotFleetRequestOutputSchema}
       {...props}
     />
   )
@@ -204,11 +206,21 @@ export const useAwsSpotFleetRequest = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSpotFleetRequest, idFilter, baseNode, optional)
+  useTypedNode<AwsSpotFleetRequestOutputProps>(
+    AwsSpotFleetRequest,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSpotFleetRequests = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSpotFleetRequest, idFilter, baseNode, optional)
+  useTypedNodes<AwsSpotFleetRequestOutputProps>(
+    AwsSpotFleetRequest,
+    idFilter,
+    baseNode,
+    optional,
+  )

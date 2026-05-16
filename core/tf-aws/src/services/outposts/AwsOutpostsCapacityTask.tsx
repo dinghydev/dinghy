@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsOutpostsCapacityTaskInputSchema = TfMetaSchema.extend({
   outpost_identifier: resolvableValue(z.string()),
   asset_id: resolvableValue(z.string().optional()),
   instance_pool: resolvableValue(
@@ -34,7 +34,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsOutpostsCapacityTaskOutputSchema = z.object({
   capacity_task_id: z.string().optional(),
   completion_date: z.string().optional(),
   creation_date: z.string().optional(),
@@ -42,26 +42,28 @@ export const OutputSchema = z.object({
   status: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsOutpostsCapacityTaskImportSchema = z.object({
   capacity_task_id: resolvableValue(z.string()),
   outpost_identifier: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsOutpostsCapacityTaskInputProps =
+  & z.input<typeof AwsOutpostsCapacityTaskInputSchema>
+  & z.input<typeof AwsOutpostsCapacityTaskImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsOutpostsCapacityTaskOutputProps =
+  & z.output<typeof AwsOutpostsCapacityTaskOutputSchema>
+  & z.output<typeof AwsOutpostsCapacityTaskInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/outposts_capacity_task
 
-export function AwsOutpostsCapacityTask(props: Partial<InputProps>) {
+export function AwsOutpostsCapacityTask(
+  props: Partial<AwsOutpostsCapacityTaskInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -71,9 +73,9 @@ export function AwsOutpostsCapacityTask(props: Partial<InputProps>) {
       _type='aws_outposts_capacity_task'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsOutpostsCapacityTaskInputSchema}
+      _outputSchema={AwsOutpostsCapacityTaskOutputSchema}
+      _importSchema={AwsOutpostsCapacityTaskImportSchema}
       {...props}
     />
   )
@@ -84,7 +86,7 @@ export const useAwsOutpostsCapacityTask = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsOutpostsCapacityTaskOutputProps>(
     AwsOutpostsCapacityTask,
     idFilter,
     baseNode,
@@ -96,7 +98,7 @@ export const useAwsOutpostsCapacityTasks = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsOutpostsCapacityTaskOutputProps>(
     AwsOutpostsCapacityTask,
     idFilter,
     baseNode,

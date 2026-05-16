@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsS3ObjectCopyInputSchema = TfMetaSchema.extend({
   __key: resolvableValue(z.string()),
   bucket: resolvableValue(z.string()),
   source: resolvableValue(z.string()),
@@ -68,7 +68,7 @@ export const InputSchema = TfMetaSchema.extend({
   website_redirect: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsS3ObjectCopyOutputSchema = z.object({
   arn: z.string().optional(),
   checksum_crc32: z.string().optional(),
   checksum_crc32c: z.string().optional(),
@@ -84,18 +84,18 @@ export const OutputSchema = z.object({
   version_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsS3ObjectCopyInputProps =
+  & z.input<typeof AwsS3ObjectCopyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3ObjectCopyOutputProps =
+  & z.output<typeof AwsS3ObjectCopyOutputSchema>
+  & z.output<typeof AwsS3ObjectCopyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3_object_copy
 
-export function AwsS3ObjectCopy(props: Partial<InputProps>) {
+export function AwsS3ObjectCopy(props: Partial<AwsS3ObjectCopyInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -105,8 +105,8 @@ export function AwsS3ObjectCopy(props: Partial<InputProps>) {
       _type='aws_s3_object_copy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsS3ObjectCopyInputSchema}
+      _outputSchema={AwsS3ObjectCopyOutputSchema}
       {...props}
     />
   )
@@ -116,10 +116,22 @@ export const useAwsS3ObjectCopy = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsS3ObjectCopy, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsS3ObjectCopyOutputProps>(
+    AwsS3ObjectCopy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsS3ObjectCopys = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsS3ObjectCopy, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsS3ObjectCopyOutputProps>(
+    AwsS3ObjectCopy,
+    idFilter,
+    baseNode,
+    optional,
+  )

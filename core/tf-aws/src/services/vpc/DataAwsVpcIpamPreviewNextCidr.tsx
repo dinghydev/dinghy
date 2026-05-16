@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsVpcIpamPreviewNextCidr } from './AwsVpcIpamPreviewNextCidr.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsVpcIpamPreviewNextCidrInputSchema = TfMetaSchema.extend({
   ipam_pool_id: resolvableValue(z.string()),
   disallowed_cidrs: resolvableValue(z.string().array().optional()),
   netmask_length: resolvableValue(z.number().optional()),
@@ -21,23 +21,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsVpcIpamPreviewNextCidrOutputSchema = z.object({
   cidr: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsVpcIpamPreviewNextCidrInputProps =
+  & z.input<typeof DataAwsVpcIpamPreviewNextCidrInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsVpcIpamPreviewNextCidrOutputProps =
+  & z.output<typeof DataAwsVpcIpamPreviewNextCidrOutputSchema>
+  & z.output<typeof DataAwsVpcIpamPreviewNextCidrInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/vpc_ipam_preview_next_cidr
 
-export function DataAwsVpcIpamPreviewNextCidr(props: Partial<InputProps>) {
+export function DataAwsVpcIpamPreviewNextCidr(
+  props: Partial<DataAwsVpcIpamPreviewNextCidrInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +49,8 @@ export function DataAwsVpcIpamPreviewNextCidr(props: Partial<InputProps>) {
       _type='aws_vpc_ipam_preview_next_cidr'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsVpcIpamPreviewNextCidrInputSchema}
+      _outputSchema={DataAwsVpcIpamPreviewNextCidrOutputSchema}
       {...props as any}
     />
   )
@@ -59,7 +61,7 @@ export const useDataAwsVpcIpamPreviewNextCidr = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsVpcIpamPreviewNextCidrOutputProps>(
     DataAwsVpcIpamPreviewNextCidr,
     idFilter,
     baseNode,
@@ -71,7 +73,7 @@ export const useDataAwsVpcIpamPreviewNextCidrs = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsVpcIpamPreviewNextCidrOutputProps>(
     DataAwsVpcIpamPreviewNextCidr,
     idFilter,
     baseNode,

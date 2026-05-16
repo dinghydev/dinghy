@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSagemakerImageVersionInputSchema = TfMetaSchema.extend({
   base_image: resolvableValue(z.string()),
   image_name: resolvableValue(z.string()),
   aliases: resolvableValue(z.string().array().optional()),
@@ -24,25 +24,27 @@ export const InputSchema = TfMetaSchema.extend({
   vendor_guidance: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSagemakerImageVersionOutputSchema = z.object({
   arn: z.string().optional(),
   container_image: z.string().optional(),
   image_arn: z.string().optional(),
   version: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSagemakerImageVersionInputProps =
+  & z.input<typeof AwsSagemakerImageVersionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSagemakerImageVersionOutputProps =
+  & z.output<typeof AwsSagemakerImageVersionOutputSchema>
+  & z.output<typeof AwsSagemakerImageVersionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sagemaker_image_version
 
-export function AwsSagemakerImageVersion(props: Partial<InputProps>) {
+export function AwsSagemakerImageVersion(
+  props: Partial<AwsSagemakerImageVersionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,8 +54,8 @@ export function AwsSagemakerImageVersion(props: Partial<InputProps>) {
       _type='aws_sagemaker_image_version'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSagemakerImageVersionInputSchema}
+      _outputSchema={AwsSagemakerImageVersionOutputSchema}
       {...props}
     />
   )
@@ -64,7 +66,7 @@ export const useAwsSagemakerImageVersion = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSagemakerImageVersionOutputProps>(
     AwsSagemakerImageVersion,
     idFilter,
     baseNode,
@@ -76,7 +78,7 @@ export const useAwsSagemakerImageVersions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSagemakerImageVersionOutputProps>(
     AwsSagemakerImageVersion,
     idFilter,
     baseNode,

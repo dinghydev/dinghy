@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsKmsKeyInputSchema = TfMetaSchema.extend({
   bypass_policy_lockout_safety_check: resolvableValue(z.boolean().optional()),
   custom_key_store_id: resolvableValue(z.string().optional()),
   customer_master_key_spec: resolvableValue(z.string().optional()),
@@ -32,31 +32,31 @@ export const InputSchema = TfMetaSchema.extend({
   xks_key_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsKmsKeyOutputSchema = z.object({
   arn: z.string().optional(),
   key_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsKmsKeyImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsKmsKeyInputProps =
+  & z.input<typeof AwsKmsKeyInputSchema>
+  & z.input<typeof AwsKmsKeyImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsKmsKeyOutputProps =
+  & z.output<typeof AwsKmsKeyOutputSchema>
+  & z.output<typeof AwsKmsKeyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/kms_key
 
-export function AwsKmsKey(props: Partial<InputProps>) {
+export function AwsKmsKey(props: Partial<AwsKmsKeyInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -66,9 +66,9 @@ export function AwsKmsKey(props: Partial<InputProps>) {
       _type='aws_kms_key'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsKmsKeyInputSchema}
+      _outputSchema={AwsKmsKeyOutputSchema}
+      _importSchema={AwsKmsKeyImportSchema}
       {...props}
     />
   )
@@ -78,10 +78,11 @@ export const useAwsKmsKey = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsKmsKey, idFilter, baseNode, optional)
+) => useTypedNode<AwsKmsKeyOutputProps>(AwsKmsKey, idFilter, baseNode, optional)
 
 export const useAwsKmsKeys = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsKmsKey, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsKmsKeyOutputProps>(AwsKmsKey, idFilter, baseNode, optional)

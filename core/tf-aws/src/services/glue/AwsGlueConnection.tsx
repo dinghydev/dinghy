@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsGlueConnectionInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   athena_properties: resolvableValue(
     z.record(z.string(), z.string()).optional(),
@@ -64,24 +64,24 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsGlueConnectionOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsGlueConnectionInputProps =
+  & z.input<typeof AwsGlueConnectionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsGlueConnectionOutputProps =
+  & z.output<typeof AwsGlueConnectionOutputSchema>
+  & z.output<typeof AwsGlueConnectionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/glue_connection
 
-export function AwsGlueConnection(props: Partial<InputProps>) {
+export function AwsGlueConnection(props: Partial<AwsGlueConnectionInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -91,8 +91,8 @@ export function AwsGlueConnection(props: Partial<InputProps>) {
       _type='aws_glue_connection'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsGlueConnectionInputSchema}
+      _outputSchema={AwsGlueConnectionOutputSchema}
       {...props}
     />
   )
@@ -102,10 +102,22 @@ export const useAwsGlueConnection = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsGlueConnection, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsGlueConnectionOutputProps>(
+    AwsGlueConnection,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsGlueConnections = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsGlueConnection, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsGlueConnectionOutputProps>(
+    AwsGlueConnection,
+    idFilter,
+    baseNode,
+    optional,
+  )

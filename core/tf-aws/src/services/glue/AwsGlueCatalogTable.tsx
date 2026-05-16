@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsGlueCatalogTableInputSchema = TfMetaSchema.extend({
   database_name: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   catalog_id: resolvableValue(z.string().optional()),
@@ -152,23 +152,25 @@ export const InputSchema = TfMetaSchema.extend({
   view_original_text: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsGlueCatalogTableOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsGlueCatalogTableInputProps =
+  & z.input<typeof AwsGlueCatalogTableInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsGlueCatalogTableOutputProps =
+  & z.output<typeof AwsGlueCatalogTableOutputSchema>
+  & z.output<typeof AwsGlueCatalogTableInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/glue_catalog_table
 
-export function AwsGlueCatalogTable(props: Partial<InputProps>) {
+export function AwsGlueCatalogTable(
+  props: Partial<AwsGlueCatalogTableInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -178,8 +180,8 @@ export function AwsGlueCatalogTable(props: Partial<InputProps>) {
       _type='aws_glue_catalog_table'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsGlueCatalogTableInputSchema}
+      _outputSchema={AwsGlueCatalogTableOutputSchema}
       {...props}
     />
   )
@@ -190,11 +192,21 @@ export const useAwsGlueCatalogTable = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsGlueCatalogTable, idFilter, baseNode, optional)
+  useTypedNode<AwsGlueCatalogTableOutputProps>(
+    AwsGlueCatalogTable,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsGlueCatalogTables = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsGlueCatalogTable, idFilter, baseNode, optional)
+  useTypedNodes<AwsGlueCatalogTableOutputProps>(
+    AwsGlueCatalogTable,
+    idFilter,
+    baseNode,
+    optional,
+  )

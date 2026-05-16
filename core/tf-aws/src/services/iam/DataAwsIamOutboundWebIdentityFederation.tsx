@@ -8,25 +8,26 @@ import {
 import z from 'zod'
 import { AwsIamOutboundWebIdentityFederation } from './AwsIamOutboundWebIdentityFederation.tsx'
 
-export const InputSchema = TfMetaSchema.extend({})
+export const DataAwsIamOutboundWebIdentityFederationInputSchema = TfMetaSchema
+  .extend({})
 
-export const OutputSchema = z.object({
+export const DataAwsIamOutboundWebIdentityFederationOutputSchema = z.object({
   issuer_identifier: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsIamOutboundWebIdentityFederationInputProps =
+  & z.input<typeof DataAwsIamOutboundWebIdentityFederationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsIamOutboundWebIdentityFederationOutputProps =
+  & z.output<typeof DataAwsIamOutboundWebIdentityFederationOutputSchema>
+  & z.output<typeof DataAwsIamOutboundWebIdentityFederationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/iam_outbound_web_identity_federation
 
 export function DataAwsIamOutboundWebIdentityFederation(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsIamOutboundWebIdentityFederationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -37,8 +38,8 @@ export function DataAwsIamOutboundWebIdentityFederation(
       _type='aws_iam_outbound_web_identity_federation'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsIamOutboundWebIdentityFederationInputSchema}
+      _outputSchema={DataAwsIamOutboundWebIdentityFederationOutputSchema}
       {...props as any}
     />
   )
@@ -49,7 +50,7 @@ export const useDataAwsIamOutboundWebIdentityFederation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsIamOutboundWebIdentityFederationOutputProps>(
     DataAwsIamOutboundWebIdentityFederation,
     idFilter,
     baseNode,
@@ -61,7 +62,7 @@ export const useDataAwsIamOutboundWebIdentityFederations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsIamOutboundWebIdentityFederationOutputProps>(
     DataAwsIamOutboundWebIdentityFederation,
     idFilter,
     baseNode,

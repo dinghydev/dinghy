@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSavingsplansSavingsPlanInputSchema = TfMetaSchema.extend({
   commitment: resolvableValue(z.string()),
   savings_plan_offering_id: resolvableValue(z.string()),
   purchase_time: resolvableValue(z.string().optional()),
@@ -22,7 +22,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsSavingsplansSavingsPlanOutputSchema = z.object({
   currency: z.string().optional(),
   description: z.string().optional(),
   ec2_instance_family: z.string().optional(),
@@ -43,18 +43,20 @@ export const OutputSchema = z.object({
   upfront_payment_amount: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSavingsplansSavingsPlanInputProps =
+  & z.input<typeof AwsSavingsplansSavingsPlanInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSavingsplansSavingsPlanOutputProps =
+  & z.output<typeof AwsSavingsplansSavingsPlanOutputSchema>
+  & z.output<typeof AwsSavingsplansSavingsPlanInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/savingsplans_savings_plan
 
-export function AwsSavingsplansSavingsPlan(props: Partial<InputProps>) {
+export function AwsSavingsplansSavingsPlan(
+  props: Partial<AwsSavingsplansSavingsPlanInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -64,8 +66,8 @@ export function AwsSavingsplansSavingsPlan(props: Partial<InputProps>) {
       _type='aws_savingsplans_savings_plan'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSavingsplansSavingsPlanInputSchema}
+      _outputSchema={AwsSavingsplansSavingsPlanOutputSchema}
       {...props}
     />
   )
@@ -76,7 +78,7 @@ export const useAwsSavingsplansSavingsPlan = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSavingsplansSavingsPlanOutputProps>(
     AwsSavingsplansSavingsPlan,
     idFilter,
     baseNode,
@@ -88,7 +90,7 @@ export const useAwsSavingsplansSavingsPlans = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSavingsplansSavingsPlanOutputProps>(
     AwsSavingsplansSavingsPlan,
     idFilter,
     baseNode,

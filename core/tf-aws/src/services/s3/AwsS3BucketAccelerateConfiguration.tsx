@@ -9,29 +9,32 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  bucket: resolvableValue(z.string()),
-  status: resolvableValue(z.string()),
-  expected_bucket_owner: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsS3BucketAccelerateConfigurationInputSchema = TfMetaSchema
+  .extend({
+    bucket: resolvableValue(z.string()),
+    status: resolvableValue(z.string()),
+    expected_bucket_owner: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsS3BucketAccelerateConfigurationOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsS3BucketAccelerateConfigurationInputProps =
+  & z.input<typeof AwsS3BucketAccelerateConfigurationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3BucketAccelerateConfigurationOutputProps =
+  & z.output<typeof AwsS3BucketAccelerateConfigurationOutputSchema>
+  & z.output<typeof AwsS3BucketAccelerateConfigurationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3_bucket_accelerate_configuration
 
-export function AwsS3BucketAccelerateConfiguration(props: Partial<InputProps>) {
+export function AwsS3BucketAccelerateConfiguration(
+  props: Partial<AwsS3BucketAccelerateConfigurationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -41,8 +44,8 @@ export function AwsS3BucketAccelerateConfiguration(props: Partial<InputProps>) {
       _type='aws_s3_bucket_accelerate_configuration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsS3BucketAccelerateConfigurationInputSchema}
+      _outputSchema={AwsS3BucketAccelerateConfigurationOutputSchema}
       {...props}
     />
   )
@@ -53,7 +56,7 @@ export const useAwsS3BucketAccelerateConfiguration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsS3BucketAccelerateConfigurationOutputProps>(
     AwsS3BucketAccelerateConfiguration,
     idFilter,
     baseNode,
@@ -65,7 +68,7 @@ export const useAwsS3BucketAccelerateConfigurations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsS3BucketAccelerateConfigurationOutputProps>(
     AwsS3BucketAccelerateConfiguration,
     idFilter,
     baseNode,

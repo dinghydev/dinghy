@@ -9,33 +9,34 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  block_public_security_group_rules: resolvableValue(z.boolean()),
-  id: resolvableValue(z.string().optional()),
-  permitted_public_security_group_rule_range: resolvableValue(
-    z.object({
-      max_range: z.number(),
-      min_range: z.number(),
-    }).array().optional(),
-  ),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsEmrBlockPublicAccessConfigurationInputSchema = TfMetaSchema
+  .extend({
+    block_public_security_group_rules: resolvableValue(z.boolean()),
+    id: resolvableValue(z.string().optional()),
+    permitted_public_security_group_rule_range: resolvableValue(
+      z.object({
+        max_range: z.number(),
+        min_range: z.number(),
+      }).array().optional(),
+    ),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({})
+export const AwsEmrBlockPublicAccessConfigurationOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEmrBlockPublicAccessConfigurationInputProps =
+  & z.input<typeof AwsEmrBlockPublicAccessConfigurationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEmrBlockPublicAccessConfigurationOutputProps =
+  & z.output<typeof AwsEmrBlockPublicAccessConfigurationOutputSchema>
+  & z.output<typeof AwsEmrBlockPublicAccessConfigurationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/emr_block_public_access_configuration
 
 export function AwsEmrBlockPublicAccessConfiguration(
-  props: Partial<InputProps>,
+  props: Partial<AwsEmrBlockPublicAccessConfigurationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -46,8 +47,8 @@ export function AwsEmrBlockPublicAccessConfiguration(
       _type='aws_emr_block_public_access_configuration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEmrBlockPublicAccessConfigurationInputSchema}
+      _outputSchema={AwsEmrBlockPublicAccessConfigurationOutputSchema}
       {...props}
     />
   )
@@ -58,7 +59,7 @@ export const useAwsEmrBlockPublicAccessConfiguration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsEmrBlockPublicAccessConfigurationOutputProps>(
     AwsEmrBlockPublicAccessConfiguration,
     idFilter,
     baseNode,
@@ -70,7 +71,7 @@ export const useAwsEmrBlockPublicAccessConfigurations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEmrBlockPublicAccessConfigurationOutputProps>(
     AwsEmrBlockPublicAccessConfiguration,
     idFilter,
     baseNode,

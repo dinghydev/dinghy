@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRoute53ZoneAssociationInputSchema = TfMetaSchema.extend({
   vpc_id: resolvableValue(z.string()),
   zone_id: resolvableValue(z.string()),
   timeouts: resolvableValue(
@@ -21,23 +21,25 @@ export const InputSchema = TfMetaSchema.extend({
   vpc_region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRoute53ZoneAssociationOutputSchema = z.object({
   id: z.string().optional(),
   owning_account: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRoute53ZoneAssociationInputProps =
+  & z.input<typeof AwsRoute53ZoneAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRoute53ZoneAssociationOutputProps =
+  & z.output<typeof AwsRoute53ZoneAssociationOutputSchema>
+  & z.output<typeof AwsRoute53ZoneAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/route53_zone_association
 
-export function AwsRoute53ZoneAssociation(props: Partial<InputProps>) {
+export function AwsRoute53ZoneAssociation(
+  props: Partial<AwsRoute53ZoneAssociationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +49,8 @@ export function AwsRoute53ZoneAssociation(props: Partial<InputProps>) {
       _type='aws_route53_zone_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRoute53ZoneAssociationInputSchema}
+      _outputSchema={AwsRoute53ZoneAssociationOutputSchema}
       {...props}
     />
   )
@@ -59,7 +61,7 @@ export const useAwsRoute53ZoneAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRoute53ZoneAssociationOutputProps>(
     AwsRoute53ZoneAssociation,
     idFilter,
     baseNode,
@@ -71,7 +73,7 @@ export const useAwsRoute53ZoneAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRoute53ZoneAssociationOutputProps>(
     AwsRoute53ZoneAssociation,
     idFilter,
     baseNode,

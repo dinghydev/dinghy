@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsBillingViewInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   data_filter_expression: resolvableValue(
     z.object({
@@ -39,7 +39,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsBillingViewOutputSchema = z.object({
   arn: z.string().optional(),
   billing_view_type: z.string().optional(),
   created_at: z.string().optional(),
@@ -52,18 +52,18 @@ export const OutputSchema = z.object({
   view_definition_last_updated_at: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsBillingViewInputProps =
+  & z.input<typeof AwsBillingViewInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBillingViewOutputProps =
+  & z.output<typeof AwsBillingViewOutputSchema>
+  & z.output<typeof AwsBillingViewInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/billing_view
 
-export function AwsBillingView(props: Partial<InputProps>) {
+export function AwsBillingView(props: Partial<AwsBillingViewInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -73,8 +73,8 @@ export function AwsBillingView(props: Partial<InputProps>) {
       _type='aws_billing_view'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsBillingViewInputSchema}
+      _outputSchema={AwsBillingViewOutputSchema}
       {...props}
     />
   )
@@ -84,10 +84,22 @@ export const useAwsBillingView = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsBillingView, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsBillingViewOutputProps>(
+    AwsBillingView,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsBillingViews = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsBillingView, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsBillingViewOutputProps>(
+    AwsBillingView,
+    idFilter,
+    baseNode,
+    optional,
+  )

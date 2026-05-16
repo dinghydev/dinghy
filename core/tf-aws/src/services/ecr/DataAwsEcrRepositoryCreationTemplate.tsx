@@ -9,13 +9,14 @@ import {
 import z from 'zod'
 import { AwsEcrRepositoryCreationTemplate } from './AwsEcrRepositoryCreationTemplate.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  prefix: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsEcrRepositoryCreationTemplateInputSchema = TfMetaSchema
+  .extend({
+    prefix: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsEcrRepositoryCreationTemplateOutputSchema = z.object({
   applied_for: z.set(z.string()).optional(),
   custom_role_arn: z.string().optional(),
   description: z.string().optional(),
@@ -34,19 +35,19 @@ export const OutputSchema = z.object({
   resource_tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEcrRepositoryCreationTemplateInputProps =
+  & z.input<typeof DataAwsEcrRepositoryCreationTemplateInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEcrRepositoryCreationTemplateOutputProps =
+  & z.output<typeof DataAwsEcrRepositoryCreationTemplateOutputSchema>
+  & z.output<typeof DataAwsEcrRepositoryCreationTemplateInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ecr_repository_creation_template
 
 export function DataAwsEcrRepositoryCreationTemplate(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsEcrRepositoryCreationTemplateInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -57,8 +58,8 @@ export function DataAwsEcrRepositoryCreationTemplate(
       _type='aws_ecr_repository_creation_template'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEcrRepositoryCreationTemplateInputSchema}
+      _outputSchema={DataAwsEcrRepositoryCreationTemplateOutputSchema}
       {...props as any}
     />
   )
@@ -69,7 +70,7 @@ export const useDataAwsEcrRepositoryCreationTemplate = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsEcrRepositoryCreationTemplateOutputProps>(
     DataAwsEcrRepositoryCreationTemplate,
     idFilter,
     baseNode,
@@ -81,7 +82,7 @@ export const useDataAwsEcrRepositoryCreationTemplates = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsEcrRepositoryCreationTemplateOutputProps>(
     DataAwsEcrRepositoryCreationTemplate,
     idFilter,
     baseNode,

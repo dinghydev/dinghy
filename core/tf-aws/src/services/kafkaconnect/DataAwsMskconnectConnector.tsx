@@ -9,31 +9,33 @@ import {
 import z from 'zod'
 import { AwsMskconnectConnector } from './AwsMskconnectConnector.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsMskconnectConnectorInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsMskconnectConnectorOutputSchema = z.object({
   arn: z.string().optional(),
   description: z.string().optional(),
   tags: z.record(z.string(), z.string()).optional(),
   version: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsMskconnectConnectorInputProps =
+  & z.input<typeof DataAwsMskconnectConnectorInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsMskconnectConnectorOutputProps =
+  & z.output<typeof DataAwsMskconnectConnectorOutputSchema>
+  & z.output<typeof DataAwsMskconnectConnectorInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/mskconnect_connector
 
-export function DataAwsMskconnectConnector(props: Partial<InputProps>) {
+export function DataAwsMskconnectConnector(
+  props: Partial<DataAwsMskconnectConnectorInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function DataAwsMskconnectConnector(props: Partial<InputProps>) {
       _type='aws_mskconnect_connector'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsMskconnectConnectorInputSchema}
+      _outputSchema={DataAwsMskconnectConnectorOutputSchema}
       {...props as any}
     />
   )
@@ -55,7 +57,7 @@ export const useDataAwsMskconnectConnector = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsMskconnectConnectorOutputProps>(
     DataAwsMskconnectConnector,
     idFilter,
     baseNode,
@@ -67,7 +69,7 @@ export const useDataAwsMskconnectConnectors = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsMskconnectConnectorOutputProps>(
     DataAwsMskconnectConnector,
     idFilter,
     baseNode,

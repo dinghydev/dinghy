@@ -9,12 +9,13 @@ import {
 import z from 'zod'
 import { AwsGlobalacceleratorAccelerator } from './AwsGlobalacceleratorAccelerator.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  arn: resolvableValue(z.string().optional()),
-  name: resolvableValue(z.string().optional()),
-})
+export const DataAwsGlobalacceleratorAcceleratorInputSchema = TfMetaSchema
+  .extend({
+    arn: resolvableValue(z.string().optional()),
+    name: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsGlobalacceleratorAcceleratorOutputSchema = z.object({
   attributes: z.object({
     flow_logs_enabled: z.boolean(),
     flow_logs_s3_bucket: z.string(),
@@ -33,19 +34,19 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsGlobalacceleratorAcceleratorInputProps =
+  & z.input<typeof DataAwsGlobalacceleratorAcceleratorInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsGlobalacceleratorAcceleratorOutputProps =
+  & z.output<typeof DataAwsGlobalacceleratorAcceleratorOutputSchema>
+  & z.output<typeof DataAwsGlobalacceleratorAcceleratorInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/globalaccelerator_accelerator
 
 export function DataAwsGlobalacceleratorAccelerator(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsGlobalacceleratorAcceleratorInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -56,8 +57,8 @@ export function DataAwsGlobalacceleratorAccelerator(
       _type='aws_globalaccelerator_accelerator'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsGlobalacceleratorAcceleratorInputSchema}
+      _outputSchema={DataAwsGlobalacceleratorAcceleratorOutputSchema}
       {...props as any}
     />
   )
@@ -68,7 +69,7 @@ export const useDataAwsGlobalacceleratorAccelerator = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsGlobalacceleratorAcceleratorOutputProps>(
     DataAwsGlobalacceleratorAccelerator,
     idFilter,
     baseNode,
@@ -80,7 +81,7 @@ export const useDataAwsGlobalacceleratorAccelerators = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsGlobalacceleratorAcceleratorOutputProps>(
     DataAwsGlobalacceleratorAccelerator,
     idFilter,
     baseNode,

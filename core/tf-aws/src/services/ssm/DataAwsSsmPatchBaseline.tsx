@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsSsmPatchBaseline } from './AwsSsmPatchBaseline.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsSsmPatchBaselineInputSchema = TfMetaSchema.extend({
   owner: resolvableValue(z.string()),
   default_baseline: resolvableValue(z.boolean().optional()),
   name_prefix: resolvableValue(z.string().optional()),
@@ -17,7 +17,7 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsSsmPatchBaselineOutputSchema = z.object({
   approval_rule: z.object({
     approve_after_days: z.number(),
     approve_until_date: z.string(),
@@ -49,18 +49,20 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsSsmPatchBaselineInputProps =
+  & z.input<typeof DataAwsSsmPatchBaselineInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsSsmPatchBaselineOutputProps =
+  & z.output<typeof DataAwsSsmPatchBaselineOutputSchema>
+  & z.output<typeof DataAwsSsmPatchBaselineInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ssm_patch_baseline
 
-export function DataAwsSsmPatchBaseline(props: Partial<InputProps>) {
+export function DataAwsSsmPatchBaseline(
+  props: Partial<DataAwsSsmPatchBaselineInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -70,8 +72,8 @@ export function DataAwsSsmPatchBaseline(props: Partial<InputProps>) {
       _type='aws_ssm_patch_baseline'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsSsmPatchBaselineInputSchema}
+      _outputSchema={DataAwsSsmPatchBaselineOutputSchema}
       {...props as any}
     />
   )
@@ -82,7 +84,7 @@ export const useDataAwsSsmPatchBaseline = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsSsmPatchBaselineOutputProps>(
     DataAwsSsmPatchBaseline,
     idFilter,
     baseNode,
@@ -94,7 +96,7 @@ export const useDataAwsSsmPatchBaselines = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsSsmPatchBaselineOutputProps>(
     DataAwsSsmPatchBaseline,
     idFilter,
     baseNode,

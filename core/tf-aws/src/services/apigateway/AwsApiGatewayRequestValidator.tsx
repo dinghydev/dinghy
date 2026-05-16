@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsApiGatewayRequestValidatorInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   rest_api_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
@@ -17,22 +17,24 @@ export const InputSchema = TfMetaSchema.extend({
   validate_request_parameters: resolvableValue(z.boolean().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsApiGatewayRequestValidatorOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsApiGatewayRequestValidatorInputProps =
+  & z.input<typeof AwsApiGatewayRequestValidatorInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApiGatewayRequestValidatorOutputProps =
+  & z.output<typeof AwsApiGatewayRequestValidatorOutputSchema>
+  & z.output<typeof AwsApiGatewayRequestValidatorInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/api_gateway_request_validator
 
-export function AwsApiGatewayRequestValidator(props: Partial<InputProps>) {
+export function AwsApiGatewayRequestValidator(
+  props: Partial<AwsApiGatewayRequestValidatorInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +44,8 @@ export function AwsApiGatewayRequestValidator(props: Partial<InputProps>) {
       _type='aws_api_gateway_request_validator'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsApiGatewayRequestValidatorInputSchema}
+      _outputSchema={AwsApiGatewayRequestValidatorOutputSchema}
       {...props}
     />
   )
@@ -54,7 +56,7 @@ export const useAwsApiGatewayRequestValidator = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsApiGatewayRequestValidatorOutputProps>(
     AwsApiGatewayRequestValidator,
     idFilter,
     baseNode,
@@ -66,7 +68,7 @@ export const useAwsApiGatewayRequestValidators = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsApiGatewayRequestValidatorOutputProps>(
     AwsApiGatewayRequestValidator,
     idFilter,
     baseNode,

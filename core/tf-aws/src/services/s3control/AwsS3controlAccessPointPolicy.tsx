@@ -9,29 +9,31 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsS3controlAccessPointPolicyInputSchema = TfMetaSchema.extend({
   access_point_arn: resolvableValue(z.string()),
   policy: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsS3controlAccessPointPolicyOutputSchema = z.object({
   has_public_access_policy: z.boolean().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsS3controlAccessPointPolicyInputProps =
+  & z.input<typeof AwsS3controlAccessPointPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3controlAccessPointPolicyOutputProps =
+  & z.output<typeof AwsS3controlAccessPointPolicyOutputSchema>
+  & z.output<typeof AwsS3controlAccessPointPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3control_access_point_policy
 
-export function AwsS3controlAccessPointPolicy(props: Partial<InputProps>) {
+export function AwsS3controlAccessPointPolicy(
+  props: Partial<AwsS3controlAccessPointPolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -41,8 +43,8 @@ export function AwsS3controlAccessPointPolicy(props: Partial<InputProps>) {
       _type='aws_s3control_access_point_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsS3controlAccessPointPolicyInputSchema}
+      _outputSchema={AwsS3controlAccessPointPolicyOutputSchema}
       {...props}
     />
   )
@@ -53,7 +55,7 @@ export const useAwsS3controlAccessPointPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsS3controlAccessPointPolicyOutputProps>(
     AwsS3controlAccessPointPolicy,
     idFilter,
     baseNode,
@@ -65,7 +67,7 @@ export const useAwsS3controlAccessPointPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsS3controlAccessPointPolicyOutputProps>(
     AwsS3controlAccessPointPolicy,
     idFilter,
     baseNode,

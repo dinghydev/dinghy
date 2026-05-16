@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsS3filesMountTarget } from './AwsS3filesMountTarget.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsS3filesMountTargetInputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsS3filesMountTargetOutputSchema = z.object({
   availability_zone_id: z.string().optional(),
   file_system_id: z.string().optional(),
   ipv4_address: z.string().optional(),
@@ -28,18 +28,20 @@ export const OutputSchema = z.object({
   vpc_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsS3filesMountTargetInputProps =
+  & z.input<typeof DataAwsS3filesMountTargetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsS3filesMountTargetOutputProps =
+  & z.output<typeof DataAwsS3filesMountTargetOutputSchema>
+  & z.output<typeof DataAwsS3filesMountTargetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/s3files_mount_target
 
-export function DataAwsS3filesMountTarget(props: Partial<InputProps>) {
+export function DataAwsS3filesMountTarget(
+  props: Partial<DataAwsS3filesMountTargetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,8 +51,8 @@ export function DataAwsS3filesMountTarget(props: Partial<InputProps>) {
       _type='aws_s3files_mount_target'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsS3filesMountTargetInputSchema}
+      _outputSchema={DataAwsS3filesMountTargetOutputSchema}
       {...props as any}
     />
   )
@@ -61,7 +63,7 @@ export const useDataAwsS3filesMountTarget = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsS3filesMountTargetOutputProps>(
     DataAwsS3filesMountTarget,
     idFilter,
     baseNode,
@@ -73,7 +75,7 @@ export const useDataAwsS3filesMountTargets = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsS3filesMountTargetOutputProps>(
     DataAwsS3filesMountTarget,
     idFilter,
     baseNode,

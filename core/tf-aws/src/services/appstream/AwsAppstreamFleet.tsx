@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAppstreamFleetInputSchema = TfMetaSchema.extend({
   compute_capacity: resolvableValue(z.object({
     available: z.number().optional(),
     desired_instances: z.number().optional(),
@@ -48,7 +48,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsAppstreamFleetOutputSchema = z.object({
   arn: z.string().optional(),
   compute_capacity: z.object({
     available: z.number().optional(),
@@ -62,18 +62,18 @@ export const OutputSchema = z.object({
   state: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAppstreamFleetInputProps =
+  & z.input<typeof AwsAppstreamFleetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppstreamFleetOutputProps =
+  & z.output<typeof AwsAppstreamFleetOutputSchema>
+  & z.output<typeof AwsAppstreamFleetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appstream_fleet
 
-export function AwsAppstreamFleet(props: Partial<InputProps>) {
+export function AwsAppstreamFleet(props: Partial<AwsAppstreamFleetInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -83,8 +83,8 @@ export function AwsAppstreamFleet(props: Partial<InputProps>) {
       _type='aws_appstream_fleet'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAppstreamFleetInputSchema}
+      _outputSchema={AwsAppstreamFleetOutputSchema}
       {...props}
     />
   )
@@ -94,10 +94,22 @@ export const useAwsAppstreamFleet = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsAppstreamFleet, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsAppstreamFleetOutputProps>(
+    AwsAppstreamFleet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAppstreamFleets = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsAppstreamFleet, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsAppstreamFleetOutputProps>(
+    AwsAppstreamFleet,
+    idFilter,
+    baseNode,
+    optional,
+  )

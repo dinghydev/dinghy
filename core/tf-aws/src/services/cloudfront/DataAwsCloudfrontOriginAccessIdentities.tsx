@@ -8,30 +8,31 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  comments: resolvableValue(z.string().array().optional()),
-  id: resolvableValue(z.string().optional()),
-})
+export const DataAwsCloudfrontOriginAccessIdentitiesInputSchema = TfMetaSchema
+  .extend({
+    comments: resolvableValue(z.string().array().optional()),
+    id: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsCloudfrontOriginAccessIdentitiesOutputSchema = z.object({
   iam_arns: z.set(z.string()).optional(),
   ids: z.set(z.string()).optional(),
   s3_canonical_user_ids: z.set(z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsCloudfrontOriginAccessIdentitiesInputProps =
+  & z.input<typeof DataAwsCloudfrontOriginAccessIdentitiesInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsCloudfrontOriginAccessIdentitiesOutputProps =
+  & z.output<typeof DataAwsCloudfrontOriginAccessIdentitiesOutputSchema>
+  & z.output<typeof DataAwsCloudfrontOriginAccessIdentitiesInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/cloudfront_origin_access_identities
 
 export function DataAwsCloudfrontOriginAccessIdentities(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsCloudfrontOriginAccessIdentitiesInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -42,8 +43,8 @@ export function DataAwsCloudfrontOriginAccessIdentities(
       _type='aws_cloudfront_origin_access_identities'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsCloudfrontOriginAccessIdentitiesInputSchema}
+      _outputSchema={DataAwsCloudfrontOriginAccessIdentitiesOutputSchema}
       {...props}
     />
   )
@@ -54,7 +55,7 @@ export const useDataAwsCloudfrontOriginAccessIdentitiess = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsCloudfrontOriginAccessIdentitiesOutputProps>(
     DataAwsCloudfrontOriginAccessIdentities,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsLambdaLayerVersion } from './AwsLambdaLayerVersion.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsLambdaLayerVersionInputSchema = TfMetaSchema.extend({
   compatible_architecture: resolvableValue(z.string().optional()),
   compatible_runtime: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
@@ -19,7 +19,7 @@ export const InputSchema = TfMetaSchema.extend({
   version: resolvableValue(z.number().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsLambdaLayerVersionOutputSchema = z.object({
   arn: z.string().optional(),
   code_sha256: z.string().optional(),
   compatible_architectures: z.set(z.string()).optional(),
@@ -34,18 +34,20 @@ export const OutputSchema = z.object({
   source_code_size: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsLambdaLayerVersionInputProps =
+  & z.input<typeof DataAwsLambdaLayerVersionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsLambdaLayerVersionOutputProps =
+  & z.output<typeof DataAwsLambdaLayerVersionOutputSchema>
+  & z.output<typeof DataAwsLambdaLayerVersionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/lambda_layer_version
 
-export function DataAwsLambdaLayerVersion(props: Partial<InputProps>) {
+export function DataAwsLambdaLayerVersion(
+  props: Partial<DataAwsLambdaLayerVersionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,8 +57,8 @@ export function DataAwsLambdaLayerVersion(props: Partial<InputProps>) {
       _type='aws_lambda_layer_version'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsLambdaLayerVersionInputSchema}
+      _outputSchema={DataAwsLambdaLayerVersionOutputSchema}
       {...props as any}
     />
   )
@@ -67,7 +69,7 @@ export const useDataAwsLambdaLayerVersion = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsLambdaLayerVersionOutputProps>(
     DataAwsLambdaLayerVersion,
     idFilter,
     baseNode,
@@ -79,7 +81,7 @@ export const useDataAwsLambdaLayerVersions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsLambdaLayerVersionOutputProps>(
     DataAwsLambdaLayerVersion,
     idFilter,
     baseNode,

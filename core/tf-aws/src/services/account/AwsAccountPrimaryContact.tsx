@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAccountPrimaryContactInputSchema = TfMetaSchema.extend({
   address_line_1: resolvableValue(z.string()),
   city: resolvableValue(z.string()),
   country_code: resolvableValue(z.string()),
@@ -26,20 +26,22 @@ export const InputSchema = TfMetaSchema.extend({
   website_url: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsAccountPrimaryContactOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAccountPrimaryContactInputProps =
+  & z.input<typeof AwsAccountPrimaryContactInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAccountPrimaryContactOutputProps =
+  & z.output<typeof AwsAccountPrimaryContactOutputSchema>
+  & z.output<typeof AwsAccountPrimaryContactInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/account_primary_contact
 
-export function AwsAccountPrimaryContact(props: Partial<InputProps>) {
+export function AwsAccountPrimaryContact(
+  props: Partial<AwsAccountPrimaryContactInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,8 +51,8 @@ export function AwsAccountPrimaryContact(props: Partial<InputProps>) {
       _type='aws_account_primary_contact'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAccountPrimaryContactInputSchema}
+      _outputSchema={AwsAccountPrimaryContactOutputSchema}
       {...props}
     />
   )
@@ -61,7 +63,7 @@ export const useAwsAccountPrimaryContact = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAccountPrimaryContactOutputProps>(
     AwsAccountPrimaryContact,
     idFilter,
     baseNode,
@@ -73,7 +75,7 @@ export const useAwsAccountPrimaryContacts = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAccountPrimaryContactOutputProps>(
     AwsAccountPrimaryContact,
     idFilter,
     baseNode,

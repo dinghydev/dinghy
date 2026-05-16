@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsOdbNetworkPeeringConnectionInputSchema = TfMetaSchema.extend({
   display_name: resolvableValue(z.string()),
   peer_network_id: resolvableValue(z.string()),
   odb_network_arn: resolvableValue(z.string().optional()),
@@ -25,7 +25,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsOdbNetworkPeeringConnectionOutputSchema = z.object({
   arn: z.string().optional(),
   created_at: z.string().optional(),
   id: z.string().optional(),
@@ -38,18 +38,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsOdbNetworkPeeringConnectionInputProps =
+  & z.input<typeof AwsOdbNetworkPeeringConnectionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsOdbNetworkPeeringConnectionOutputProps =
+  & z.output<typeof AwsOdbNetworkPeeringConnectionOutputSchema>
+  & z.output<typeof AwsOdbNetworkPeeringConnectionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/odb_network_peering_connection
 
-export function AwsOdbNetworkPeeringConnection(props: Partial<InputProps>) {
+export function AwsOdbNetworkPeeringConnection(
+  props: Partial<AwsOdbNetworkPeeringConnectionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -59,8 +61,8 @@ export function AwsOdbNetworkPeeringConnection(props: Partial<InputProps>) {
       _type='aws_odb_network_peering_connection'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsOdbNetworkPeeringConnectionInputSchema}
+      _outputSchema={AwsOdbNetworkPeeringConnectionOutputSchema}
       {...props}
     />
   )
@@ -71,7 +73,7 @@ export const useAwsOdbNetworkPeeringConnection = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsOdbNetworkPeeringConnectionOutputProps>(
     AwsOdbNetworkPeeringConnection,
     idFilter,
     baseNode,
@@ -83,7 +85,7 @@ export const useAwsOdbNetworkPeeringConnections = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsOdbNetworkPeeringConnectionOutputProps>(
     AwsOdbNetworkPeeringConnection,
     idFilter,
     baseNode,

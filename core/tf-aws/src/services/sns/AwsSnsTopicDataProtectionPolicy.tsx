@@ -9,32 +9,34 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSnsTopicDataProtectionPolicyInputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string()),
   policy: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsSnsTopicDataProtectionPolicyOutputSchema = z.object({})
 
-export const ImportSchema = z.object({
+export const AwsSnsTopicDataProtectionPolicyImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSnsTopicDataProtectionPolicyInputProps =
+  & z.input<typeof AwsSnsTopicDataProtectionPolicyInputSchema>
+  & z.input<typeof AwsSnsTopicDataProtectionPolicyImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSnsTopicDataProtectionPolicyOutputProps =
+  & z.output<typeof AwsSnsTopicDataProtectionPolicyOutputSchema>
+  & z.output<typeof AwsSnsTopicDataProtectionPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sns_topic_data_protection_policy
 
-export function AwsSnsTopicDataProtectionPolicy(props: Partial<InputProps>) {
+export function AwsSnsTopicDataProtectionPolicy(
+  props: Partial<AwsSnsTopicDataProtectionPolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,9 +46,9 @@ export function AwsSnsTopicDataProtectionPolicy(props: Partial<InputProps>) {
       _type='aws_sns_topic_data_protection_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSnsTopicDataProtectionPolicyInputSchema}
+      _outputSchema={AwsSnsTopicDataProtectionPolicyOutputSchema}
+      _importSchema={AwsSnsTopicDataProtectionPolicyImportSchema}
       {...props}
     />
   )
@@ -57,7 +59,7 @@ export const useAwsSnsTopicDataProtectionPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSnsTopicDataProtectionPolicyOutputProps>(
     AwsSnsTopicDataProtectionPolicy,
     idFilter,
     baseNode,
@@ -69,7 +71,7 @@ export const useAwsSnsTopicDataProtectionPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSnsTopicDataProtectionPolicyOutputProps>(
     AwsSnsTopicDataProtectionPolicy,
     idFilter,
     baseNode,

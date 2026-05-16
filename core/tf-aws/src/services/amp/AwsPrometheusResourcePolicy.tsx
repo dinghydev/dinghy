@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsPrometheusResourcePolicyInputSchema = TfMetaSchema.extend({
   policy_document: resolvableValue(z.string()),
   workspace_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
@@ -22,22 +22,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsPrometheusResourcePolicyOutputSchema = z.object({
   revision_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsPrometheusResourcePolicyInputProps =
+  & z.input<typeof AwsPrometheusResourcePolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsPrometheusResourcePolicyOutputProps =
+  & z.output<typeof AwsPrometheusResourcePolicyOutputSchema>
+  & z.output<typeof AwsPrometheusResourcePolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/prometheus_resource_policy
 
-export function AwsPrometheusResourcePolicy(props: Partial<InputProps>) {
+export function AwsPrometheusResourcePolicy(
+  props: Partial<AwsPrometheusResourcePolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +49,8 @@ export function AwsPrometheusResourcePolicy(props: Partial<InputProps>) {
       _type='aws_prometheus_resource_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsPrometheusResourcePolicyInputSchema}
+      _outputSchema={AwsPrometheusResourcePolicyOutputSchema}
       {...props}
     />
   )
@@ -59,7 +61,7 @@ export const useAwsPrometheusResourcePolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsPrometheusResourcePolicyOutputProps>(
     AwsPrometheusResourcePolicy,
     idFilter,
     baseNode,
@@ -71,7 +73,7 @@ export const useAwsPrometheusResourcePolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsPrometheusResourcePolicyOutputProps>(
     AwsPrometheusResourcePolicy,
     idFilter,
     baseNode,

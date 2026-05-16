@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSagemakerMlflowAppInputSchema = TfMetaSchema.extend({
   artifact_store_uri: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   role_arn: resolvableValue(z.string()),
@@ -28,28 +28,30 @@ export const InputSchema = TfMetaSchema.extend({
   weekly_maintenance_window_start: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSagemakerMlflowAppOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSagemakerMlflowAppImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSagemakerMlflowAppInputProps =
+  & z.input<typeof AwsSagemakerMlflowAppInputSchema>
+  & z.input<typeof AwsSagemakerMlflowAppImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSagemakerMlflowAppOutputProps =
+  & z.output<typeof AwsSagemakerMlflowAppOutputSchema>
+  & z.output<typeof AwsSagemakerMlflowAppInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sagemaker_mlflow_app
 
-export function AwsSagemakerMlflowApp(props: Partial<InputProps>) {
+export function AwsSagemakerMlflowApp(
+  props: Partial<AwsSagemakerMlflowAppInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -59,9 +61,9 @@ export function AwsSagemakerMlflowApp(props: Partial<InputProps>) {
       _type='aws_sagemaker_mlflow_app'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSagemakerMlflowAppInputSchema}
+      _outputSchema={AwsSagemakerMlflowAppOutputSchema}
+      _importSchema={AwsSagemakerMlflowAppImportSchema}
       {...props}
     />
   )
@@ -72,14 +74,19 @@ export const useAwsSagemakerMlflowApp = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSagemakerMlflowApp, idFilter, baseNode, optional)
+  useTypedNode<AwsSagemakerMlflowAppOutputProps>(
+    AwsSagemakerMlflowApp,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSagemakerMlflowApps = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSagemakerMlflowAppOutputProps>(
     AwsSagemakerMlflowApp,
     idFilter,
     baseNode,

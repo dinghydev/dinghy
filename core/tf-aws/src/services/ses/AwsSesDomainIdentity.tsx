@@ -9,29 +9,31 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSesDomainIdentityInputSchema = TfMetaSchema.extend({
   domain: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSesDomainIdentityOutputSchema = z.object({
   arn: z.string().optional(),
   verification_token: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSesDomainIdentityInputProps =
+  & z.input<typeof AwsSesDomainIdentityInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSesDomainIdentityOutputProps =
+  & z.output<typeof AwsSesDomainIdentityOutputSchema>
+  & z.output<typeof AwsSesDomainIdentityInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ses_domain_identity
 
-export function AwsSesDomainIdentity(props: Partial<InputProps>) {
+export function AwsSesDomainIdentity(
+  props: Partial<AwsSesDomainIdentityInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -41,8 +43,8 @@ export function AwsSesDomainIdentity(props: Partial<InputProps>) {
       _type='aws_ses_domain_identity'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSesDomainIdentityInputSchema}
+      _outputSchema={AwsSesDomainIdentityOutputSchema}
       {...props}
     />
   )
@@ -53,11 +55,21 @@ export const useAwsSesDomainIdentity = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSesDomainIdentity, idFilter, baseNode, optional)
+  useTypedNode<AwsSesDomainIdentityOutputProps>(
+    AwsSesDomainIdentity,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSesDomainIdentitys = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSesDomainIdentity, idFilter, baseNode, optional)
+  useTypedNodes<AwsSesDomainIdentityOutputProps>(
+    AwsSesDomainIdentity,
+    idFilter,
+    baseNode,
+    optional,
+  )

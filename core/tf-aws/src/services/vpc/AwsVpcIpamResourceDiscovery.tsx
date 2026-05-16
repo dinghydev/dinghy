@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsVpcIpamResourceDiscoveryInputSchema = TfMetaSchema.extend({
   operating_regions: resolvableValue(
     z.object({
       region_name: z.string(),
@@ -32,7 +32,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsVpcIpamResourceDiscoveryOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   ipam_resource_discovery_region: z.string().optional(),
@@ -41,18 +41,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVpcIpamResourceDiscoveryInputProps =
+  & z.input<typeof AwsVpcIpamResourceDiscoveryInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVpcIpamResourceDiscoveryOutputProps =
+  & z.output<typeof AwsVpcIpamResourceDiscoveryOutputSchema>
+  & z.output<typeof AwsVpcIpamResourceDiscoveryInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpc_ipam_resource_discovery
 
-export function AwsVpcIpamResourceDiscovery(props: Partial<InputProps>) {
+export function AwsVpcIpamResourceDiscovery(
+  props: Partial<AwsVpcIpamResourceDiscoveryInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -62,8 +64,8 @@ export function AwsVpcIpamResourceDiscovery(props: Partial<InputProps>) {
       _type='aws_vpc_ipam_resource_discovery'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVpcIpamResourceDiscoveryInputSchema}
+      _outputSchema={AwsVpcIpamResourceDiscoveryOutputSchema}
       {...props}
     />
   )
@@ -74,7 +76,7 @@ export const useAwsVpcIpamResourceDiscovery = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsVpcIpamResourceDiscoveryOutputProps>(
     AwsVpcIpamResourceDiscovery,
     idFilter,
     baseNode,
@@ -86,7 +88,7 @@ export const useAwsVpcIpamResourceDiscoverys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsVpcIpamResourceDiscoveryOutputProps>(
     AwsVpcIpamResourceDiscovery,
     idFilter,
     baseNode,

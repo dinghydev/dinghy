@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRumMetricsDestinationInputSchema = TfMetaSchema.extend({
   app_monitor_name: resolvableValue(z.string()),
   destination: resolvableValue(z.string()),
   destination_arn: resolvableValue(z.string().optional()),
@@ -17,22 +17,24 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRumMetricsDestinationOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRumMetricsDestinationInputProps =
+  & z.input<typeof AwsRumMetricsDestinationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRumMetricsDestinationOutputProps =
+  & z.output<typeof AwsRumMetricsDestinationOutputSchema>
+  & z.output<typeof AwsRumMetricsDestinationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/rum_metrics_destination
 
-export function AwsRumMetricsDestination(props: Partial<InputProps>) {
+export function AwsRumMetricsDestination(
+  props: Partial<AwsRumMetricsDestinationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +44,8 @@ export function AwsRumMetricsDestination(props: Partial<InputProps>) {
       _type='aws_rum_metrics_destination'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRumMetricsDestinationInputSchema}
+      _outputSchema={AwsRumMetricsDestinationOutputSchema}
       {...props}
     />
   )
@@ -54,7 +56,7 @@ export const useAwsRumMetricsDestination = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRumMetricsDestinationOutputProps>(
     AwsRumMetricsDestination,
     idFilter,
     baseNode,
@@ -66,7 +68,7 @@ export const useAwsRumMetricsDestinations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRumMetricsDestinationOutputProps>(
     AwsRumMetricsDestination,
     idFilter,
     baseNode,

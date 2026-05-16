@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDmsCertificateInputSchema = TfMetaSchema.extend({
   certificate_id: resolvableValue(z.string()),
   certificate_pem: resolvableValue(z.string().optional()),
   certificate_wallet: resolvableValue(z.string().optional()),
@@ -18,23 +18,23 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDmsCertificateOutputSchema = z.object({
   certificate_arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDmsCertificateInputProps =
+  & z.input<typeof AwsDmsCertificateInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDmsCertificateOutputProps =
+  & z.output<typeof AwsDmsCertificateOutputSchema>
+  & z.output<typeof AwsDmsCertificateInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dms_certificate
 
-export function AwsDmsCertificate(props: Partial<InputProps>) {
+export function AwsDmsCertificate(props: Partial<AwsDmsCertificateInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +44,8 @@ export function AwsDmsCertificate(props: Partial<InputProps>) {
       _type='aws_dms_certificate'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDmsCertificateInputSchema}
+      _outputSchema={AwsDmsCertificateOutputSchema}
       {...props}
     />
   )
@@ -55,10 +55,22 @@ export const useAwsDmsCertificate = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsDmsCertificate, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsDmsCertificateOutputProps>(
+    AwsDmsCertificate,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDmsCertificates = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsDmsCertificate, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsDmsCertificateOutputProps>(
+    AwsDmsCertificate,
+    idFilter,
+    baseNode,
+    optional,
+  )

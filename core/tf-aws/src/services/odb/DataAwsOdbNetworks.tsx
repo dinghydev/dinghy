@@ -8,11 +8,11 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsOdbNetworksInputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsOdbNetworksOutputSchema = z.object({
   odb_networks: z.object({
     arn: z.string(),
     display_name: z.string(),
@@ -23,18 +23,20 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsOdbNetworksInputProps =
+  & z.input<typeof DataAwsOdbNetworksInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsOdbNetworksOutputProps =
+  & z.output<typeof DataAwsOdbNetworksOutputSchema>
+  & z.output<typeof DataAwsOdbNetworksInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/odb_networks
 
-export function DataAwsOdbNetworks(props: Partial<InputProps>) {
+export function DataAwsOdbNetworks(
+  props: Partial<DataAwsOdbNetworksInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +46,8 @@ export function DataAwsOdbNetworks(props: Partial<InputProps>) {
       _type='aws_odb_networks'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsOdbNetworksInputSchema}
+      _outputSchema={DataAwsOdbNetworksOutputSchema}
       {...props}
     />
   )
@@ -56,4 +58,9 @@ export const useDataAwsOdbNetworkss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsOdbNetworks, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsOdbNetworksOutputProps>(
+    DataAwsOdbNetworks,
+    idFilter,
+    baseNode,
+    optional,
+  )

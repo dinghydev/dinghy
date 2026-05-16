@@ -9,32 +9,34 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSqsQueueRedriveAllowPolicyInputSchema = TfMetaSchema.extend({
   queue_url: resolvableValue(z.string()),
   redrive_allow_policy: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsSqsQueueRedriveAllowPolicyOutputSchema = z.object({})
 
-export const ImportSchema = z.object({
+export const AwsSqsQueueRedriveAllowPolicyImportSchema = z.object({
   queue_url: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSqsQueueRedriveAllowPolicyInputProps =
+  & z.input<typeof AwsSqsQueueRedriveAllowPolicyInputSchema>
+  & z.input<typeof AwsSqsQueueRedriveAllowPolicyImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSqsQueueRedriveAllowPolicyOutputProps =
+  & z.output<typeof AwsSqsQueueRedriveAllowPolicyOutputSchema>
+  & z.output<typeof AwsSqsQueueRedriveAllowPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sqs_queue_redrive_allow_policy
 
-export function AwsSqsQueueRedriveAllowPolicy(props: Partial<InputProps>) {
+export function AwsSqsQueueRedriveAllowPolicy(
+  props: Partial<AwsSqsQueueRedriveAllowPolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,9 +46,9 @@ export function AwsSqsQueueRedriveAllowPolicy(props: Partial<InputProps>) {
       _type='aws_sqs_queue_redrive_allow_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSqsQueueRedriveAllowPolicyInputSchema}
+      _outputSchema={AwsSqsQueueRedriveAllowPolicyOutputSchema}
+      _importSchema={AwsSqsQueueRedriveAllowPolicyImportSchema}
       {...props}
     />
   )
@@ -57,7 +59,7 @@ export const useAwsSqsQueueRedriveAllowPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSqsQueueRedriveAllowPolicyOutputProps>(
     AwsSqsQueueRedriveAllowPolicy,
     idFilter,
     baseNode,
@@ -69,7 +71,7 @@ export const useAwsSqsQueueRedriveAllowPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSqsQueueRedriveAllowPolicyOutputProps>(
     AwsSqsQueueRedriveAllowPolicy,
     idFilter,
     baseNode,

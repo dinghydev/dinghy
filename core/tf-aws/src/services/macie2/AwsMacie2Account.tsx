@@ -9,31 +9,31 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsMacie2AccountInputSchema = TfMetaSchema.extend({
   finding_publishing_frequency: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   status: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsMacie2AccountOutputSchema = z.object({
   created_at: z.string().optional(),
   id: z.string().optional(),
   service_role: z.string().optional(),
   updated_at: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsMacie2AccountInputProps =
+  & z.input<typeof AwsMacie2AccountInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsMacie2AccountOutputProps =
+  & z.output<typeof AwsMacie2AccountOutputSchema>
+  & z.output<typeof AwsMacie2AccountInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/macie2_account
 
-export function AwsMacie2Account(props: Partial<InputProps>) {
+export function AwsMacie2Account(props: Partial<AwsMacie2AccountInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +43,8 @@ export function AwsMacie2Account(props: Partial<InputProps>) {
       _type='aws_macie2_account'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsMacie2AccountInputSchema}
+      _outputSchema={AwsMacie2AccountOutputSchema}
       {...props}
     />
   )
@@ -54,10 +54,22 @@ export const useAwsMacie2Account = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsMacie2Account, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsMacie2AccountOutputProps>(
+    AwsMacie2Account,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsMacie2Accounts = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsMacie2Account, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsMacie2AccountOutputProps>(
+    AwsMacie2Account,
+    idFilter,
+    baseNode,
+    optional,
+  )

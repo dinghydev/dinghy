@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsConnectUserInputSchema = TfMetaSchema.extend({
   instance_id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   phone_config: resolvableValue(z.object({
@@ -35,25 +35,25 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsConnectUserOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   user_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsConnectUserInputProps =
+  & z.input<typeof AwsConnectUserInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsConnectUserOutputProps =
+  & z.output<typeof AwsConnectUserOutputSchema>
+  & z.output<typeof AwsConnectUserInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/connect_user
 
-export function AwsConnectUser(props: Partial<InputProps>) {
+export function AwsConnectUser(props: Partial<AwsConnectUserInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -63,8 +63,8 @@ export function AwsConnectUser(props: Partial<InputProps>) {
       _type='aws_connect_user'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsConnectUserInputSchema}
+      _outputSchema={AwsConnectUserOutputSchema}
       {...props}
     />
   )
@@ -74,10 +74,22 @@ export const useAwsConnectUser = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsConnectUser, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsConnectUserOutputProps>(
+    AwsConnectUser,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsConnectUsers = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsConnectUser, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsConnectUserOutputProps>(
+    AwsConnectUser,
+    idFilter,
+    baseNode,
+    optional,
+  )

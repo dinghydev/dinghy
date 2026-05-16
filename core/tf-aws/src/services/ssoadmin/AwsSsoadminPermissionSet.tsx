@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSsoadminPermissionSetInputSchema = TfMetaSchema.extend({
   instance_arn: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
@@ -24,25 +24,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsSsoadminPermissionSetOutputSchema = z.object({
   arn: z.string().optional(),
   created_date: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSsoadminPermissionSetInputProps =
+  & z.input<typeof AwsSsoadminPermissionSetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSsoadminPermissionSetOutputProps =
+  & z.output<typeof AwsSsoadminPermissionSetOutputSchema>
+  & z.output<typeof AwsSsoadminPermissionSetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssoadmin_permission_set
 
-export function AwsSsoadminPermissionSet(props: Partial<InputProps>) {
+export function AwsSsoadminPermissionSet(
+  props: Partial<AwsSsoadminPermissionSetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,8 +54,8 @@ export function AwsSsoadminPermissionSet(props: Partial<InputProps>) {
       _type='aws_ssoadmin_permission_set'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSsoadminPermissionSetInputSchema}
+      _outputSchema={AwsSsoadminPermissionSetOutputSchema}
       {...props}
     />
   )
@@ -64,7 +66,7 @@ export const useAwsSsoadminPermissionSet = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSsoadminPermissionSetOutputProps>(
     AwsSsoadminPermissionSet,
     idFilter,
     baseNode,
@@ -76,7 +78,7 @@ export const useAwsSsoadminPermissionSets = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSsoadminPermissionSetOutputProps>(
     AwsSsoadminPermissionSet,
     idFilter,
     baseNode,

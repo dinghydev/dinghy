@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsKendraDataSourceInputSchema = TfMetaSchema.extend({
   index_id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   type: resolvableValue(z.string()),
@@ -132,7 +132,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsKendraDataSourceOutputSchema = z.object({
   arn: z.string().optional(),
   created_at: z.string().optional(),
   data_source_id: z.string().optional(),
@@ -143,18 +143,20 @@ export const OutputSchema = z.object({
   updated_at: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsKendraDataSourceInputProps =
+  & z.input<typeof AwsKendraDataSourceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsKendraDataSourceOutputProps =
+  & z.output<typeof AwsKendraDataSourceOutputSchema>
+  & z.output<typeof AwsKendraDataSourceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/kendra_data_source
 
-export function AwsKendraDataSource(props: Partial<InputProps>) {
+export function AwsKendraDataSource(
+  props: Partial<AwsKendraDataSourceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -164,8 +166,8 @@ export function AwsKendraDataSource(props: Partial<InputProps>) {
       _type='aws_kendra_data_source'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsKendraDataSourceInputSchema}
+      _outputSchema={AwsKendraDataSourceOutputSchema}
       {...props}
     />
   )
@@ -176,11 +178,21 @@ export const useAwsKendraDataSource = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsKendraDataSource, idFilter, baseNode, optional)
+  useTypedNode<AwsKendraDataSourceOutputProps>(
+    AwsKendraDataSource,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsKendraDataSources = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsKendraDataSource, idFilter, baseNode, optional)
+  useTypedNodes<AwsKendraDataSourceOutputProps>(
+    AwsKendraDataSource,
+    idFilter,
+    baseNode,
+    optional,
+  )

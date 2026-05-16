@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsTransferWebAppCustomizationInputSchema = TfMetaSchema.extend({
   web_app_id: resolvableValue(z.string()),
   favicon_file: resolvableValue(z.string().optional()),
   logo_file: resolvableValue(z.string().optional()),
@@ -17,20 +17,22 @@ export const InputSchema = TfMetaSchema.extend({
   title: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsTransferWebAppCustomizationOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsTransferWebAppCustomizationInputProps =
+  & z.input<typeof AwsTransferWebAppCustomizationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsTransferWebAppCustomizationOutputProps =
+  & z.output<typeof AwsTransferWebAppCustomizationOutputSchema>
+  & z.output<typeof AwsTransferWebAppCustomizationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/transfer_web_app_customization
 
-export function AwsTransferWebAppCustomization(props: Partial<InputProps>) {
+export function AwsTransferWebAppCustomization(
+  props: Partial<AwsTransferWebAppCustomizationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function AwsTransferWebAppCustomization(props: Partial<InputProps>) {
       _type='aws_transfer_web_app_customization'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsTransferWebAppCustomizationInputSchema}
+      _outputSchema={AwsTransferWebAppCustomizationOutputSchema}
       {...props}
     />
   )
@@ -52,7 +54,7 @@ export const useAwsTransferWebAppCustomization = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsTransferWebAppCustomizationOutputProps>(
     AwsTransferWebAppCustomization,
     idFilter,
     baseNode,
@@ -64,7 +66,7 @@ export const useAwsTransferWebAppCustomizations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsTransferWebAppCustomizationOutputProps>(
     AwsTransferWebAppCustomization,
     idFilter,
     baseNode,

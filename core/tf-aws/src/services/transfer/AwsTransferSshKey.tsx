@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsTransferSshKeyInputSchema = TfMetaSchema.extend({
   body: resolvableValue(z.string()),
   server_id: resolvableValue(z.string()),
   user_name: resolvableValue(z.string()),
@@ -17,22 +17,22 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsTransferSshKeyOutputSchema = z.object({
   ssh_key_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsTransferSshKeyInputProps =
+  & z.input<typeof AwsTransferSshKeyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsTransferSshKeyOutputProps =
+  & z.output<typeof AwsTransferSshKeyOutputSchema>
+  & z.output<typeof AwsTransferSshKeyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/transfer_ssh_key
 
-export function AwsTransferSshKey(props: Partial<InputProps>) {
+export function AwsTransferSshKey(props: Partial<AwsTransferSshKeyInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +42,8 @@ export function AwsTransferSshKey(props: Partial<InputProps>) {
       _type='aws_transfer_ssh_key'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsTransferSshKeyInputSchema}
+      _outputSchema={AwsTransferSshKeyOutputSchema}
       {...props}
     />
   )
@@ -53,10 +53,22 @@ export const useAwsTransferSshKey = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsTransferSshKey, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsTransferSshKeyOutputProps>(
+    AwsTransferSshKey,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsTransferSshKeys = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsTransferSshKey, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsTransferSshKeyOutputProps>(
+    AwsTransferSshKey,
+    idFilter,
+    baseNode,
+    optional,
+  )

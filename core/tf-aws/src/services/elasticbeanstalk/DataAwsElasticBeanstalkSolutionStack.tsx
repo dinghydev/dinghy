@@ -9,30 +9,31 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  name_regex: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  most_recent: resolvableValue(z.boolean().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsElasticBeanstalkSolutionStackInputSchema = TfMetaSchema
+  .extend({
+    name_regex: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    most_recent: resolvableValue(z.boolean().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsElasticBeanstalkSolutionStackOutputSchema = z.object({
   name: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsElasticBeanstalkSolutionStackInputProps =
+  & z.input<typeof DataAwsElasticBeanstalkSolutionStackInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsElasticBeanstalkSolutionStackOutputProps =
+  & z.output<typeof DataAwsElasticBeanstalkSolutionStackOutputSchema>
+  & z.output<typeof DataAwsElasticBeanstalkSolutionStackInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/elastic_beanstalk_solution_stack
 
 export function DataAwsElasticBeanstalkSolutionStack(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsElasticBeanstalkSolutionStackInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -43,8 +44,8 @@ export function DataAwsElasticBeanstalkSolutionStack(
       _type='aws_elastic_beanstalk_solution_stack'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsElasticBeanstalkSolutionStackInputSchema}
+      _outputSchema={DataAwsElasticBeanstalkSolutionStackOutputSchema}
       {...props}
     />
   )
@@ -55,7 +56,7 @@ export const useDataAwsElasticBeanstalkSolutionStack = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsElasticBeanstalkSolutionStackOutputProps>(
     DataAwsElasticBeanstalkSolutionStack,
     idFilter,
     baseNode,
@@ -67,7 +68,7 @@ export const useDataAwsElasticBeanstalkSolutionStacks = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsElasticBeanstalkSolutionStackOutputProps>(
     DataAwsElasticBeanstalkSolutionStack,
     idFilter,
     baseNode,

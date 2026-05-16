@@ -9,26 +9,36 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  contact_identifier: resolvableValue(z.string()),
-  managed_notification_configuration_arn: resolvableValue(z.string()),
-})
+export const AwsNotificationsManagedNotificationAccountContactAssociationInputSchema =
+  TfMetaSchema.extend({
+    contact_identifier: resolvableValue(z.string()),
+    managed_notification_configuration_arn: resolvableValue(z.string()),
+  })
 
-export const OutputSchema = z.object({})
+export const AwsNotificationsManagedNotificationAccountContactAssociationOutputSchema =
+  z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsNotificationsManagedNotificationAccountContactAssociationInputProps =
+  & z.input<
+    typeof AwsNotificationsManagedNotificationAccountContactAssociationInputSchema
+  >
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNotificationsManagedNotificationAccountContactAssociationOutputProps =
+  & z.output<
+    typeof AwsNotificationsManagedNotificationAccountContactAssociationOutputSchema
+  >
+  & z.output<
+    typeof AwsNotificationsManagedNotificationAccountContactAssociationInputSchema
+  >
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/notifications_managed_notification_account_contact_association
 
 export function AwsNotificationsManagedNotificationAccountContactAssociation(
-  props: Partial<InputProps>,
+  props: Partial<
+    AwsNotificationsManagedNotificationAccountContactAssociationInputProps
+  >,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -39,8 +49,8 @@ export function AwsNotificationsManagedNotificationAccountContactAssociation(
       _type='aws_notifications_managed_notification_account_contact_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsNotificationsManagedNotificationAccountContactAssociationInputSchema}
+      _outputSchema={AwsNotificationsManagedNotificationAccountContactAssociationOutputSchema}
       {...props}
     />
   )
@@ -51,7 +61,9 @@ export const useAwsNotificationsManagedNotificationAccountContactAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<
+    AwsNotificationsManagedNotificationAccountContactAssociationOutputProps
+  >(
     AwsNotificationsManagedNotificationAccountContactAssociation,
     idFilter,
     baseNode,
@@ -60,7 +72,9 @@ export const useAwsNotificationsManagedNotificationAccountContactAssociation = (
 
 export const useAwsNotificationsManagedNotificationAccountContactAssociations =
   (idFilter?: string, baseNode?: any, optional?: boolean) =>
-    useTypedNodes<OutputProps>(
+    useTypedNodes<
+      AwsNotificationsManagedNotificationAccountContactAssociationOutputProps
+    >(
       AwsNotificationsManagedNotificationAccountContactAssociation,
       idFilter,
       baseNode,

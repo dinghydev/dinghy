@@ -9,37 +9,39 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEcrRepositoryPolicyInputSchema = TfMetaSchema.extend({
   policy: resolvableValue(z.string()),
   repository: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsEcrRepositoryPolicyOutputSchema = z.object({
   registry_id: z.string().optional(),
   repository: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsEcrRepositoryPolicyImportSchema = z.object({
   repository: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsEcrRepositoryPolicyInputProps =
+  & z.input<typeof AwsEcrRepositoryPolicyInputSchema>
+  & z.input<typeof AwsEcrRepositoryPolicyImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEcrRepositoryPolicyOutputProps =
+  & z.output<typeof AwsEcrRepositoryPolicyOutputSchema>
+  & z.output<typeof AwsEcrRepositoryPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ecr_repository_policy
 
-export function AwsEcrRepositoryPolicy(props: Partial<InputProps>) {
+export function AwsEcrRepositoryPolicy(
+  props: Partial<AwsEcrRepositoryPolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,9 +51,9 @@ export function AwsEcrRepositoryPolicy(props: Partial<InputProps>) {
       _type='aws_ecr_repository_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsEcrRepositoryPolicyInputSchema}
+      _outputSchema={AwsEcrRepositoryPolicyOutputSchema}
+      _importSchema={AwsEcrRepositoryPolicyImportSchema}
       {...props}
     />
   )
@@ -62,7 +64,7 @@ export const useAwsEcrRepositoryPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsEcrRepositoryPolicyOutputProps>(
     AwsEcrRepositoryPolicy,
     idFilter,
     baseNode,
@@ -74,7 +76,7 @@ export const useAwsEcrRepositoryPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEcrRepositoryPolicyOutputProps>(
     AwsEcrRepositoryPolicy,
     idFilter,
     baseNode,

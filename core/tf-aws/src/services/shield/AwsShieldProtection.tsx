@@ -9,30 +9,32 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsShieldProtectionInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   resource_arn: resolvableValue(z.string()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsShieldProtectionOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsShieldProtectionInputProps =
+  & z.input<typeof AwsShieldProtectionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsShieldProtectionOutputProps =
+  & z.output<typeof AwsShieldProtectionOutputSchema>
+  & z.output<typeof AwsShieldProtectionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/shield_protection
 
-export function AwsShieldProtection(props: Partial<InputProps>) {
+export function AwsShieldProtection(
+  props: Partial<AwsShieldProtectionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +44,8 @@ export function AwsShieldProtection(props: Partial<InputProps>) {
       _type='aws_shield_protection'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsShieldProtectionInputSchema}
+      _outputSchema={AwsShieldProtectionOutputSchema}
       {...props}
     />
   )
@@ -54,11 +56,21 @@ export const useAwsShieldProtection = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsShieldProtection, idFilter, baseNode, optional)
+  useTypedNode<AwsShieldProtectionOutputProps>(
+    AwsShieldProtection,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsShieldProtections = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsShieldProtection, idFilter, baseNode, optional)
+  useTypedNodes<AwsShieldProtectionOutputProps>(
+    AwsShieldProtection,
+    idFilter,
+    baseNode,
+    optional,
+  )

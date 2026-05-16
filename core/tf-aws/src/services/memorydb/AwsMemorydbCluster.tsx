@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsMemorydbClusterInputSchema = TfMetaSchema.extend({
   acl_name: resolvableValue(z.string()),
   node_type: resolvableValue(z.string()),
   auto_minor_version_upgrade: resolvableValue(z.boolean().optional()),
@@ -48,7 +48,7 @@ export const InputSchema = TfMetaSchema.extend({
   tls_enabled: resolvableValue(z.boolean().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsMemorydbClusterOutputSchema = z.object({
   arn: z.string().optional(),
   cluster_endpoint: z.object({
     address: z.string(),
@@ -75,18 +75,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsMemorydbClusterInputProps =
+  & z.input<typeof AwsMemorydbClusterInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsMemorydbClusterOutputProps =
+  & z.output<typeof AwsMemorydbClusterOutputSchema>
+  & z.output<typeof AwsMemorydbClusterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/memorydb_cluster
 
-export function AwsMemorydbCluster(props: Partial<InputProps>) {
+export function AwsMemorydbCluster(
+  props: Partial<AwsMemorydbClusterInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -96,8 +98,8 @@ export function AwsMemorydbCluster(props: Partial<InputProps>) {
       _type='aws_memorydb_cluster'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsMemorydbClusterInputSchema}
+      _outputSchema={AwsMemorydbClusterOutputSchema}
       {...props}
     />
   )
@@ -107,11 +109,22 @@ export const useAwsMemorydbCluster = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsMemorydbCluster, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsMemorydbClusterOutputProps>(
+    AwsMemorydbCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsMemorydbClusters = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsMemorydbCluster, idFilter, baseNode, optional)
+  useTypedNodes<AwsMemorydbClusterOutputProps>(
+    AwsMemorydbCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )

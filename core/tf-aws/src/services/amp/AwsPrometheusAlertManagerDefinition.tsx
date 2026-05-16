@@ -9,28 +9,29 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  definition: resolvableValue(z.string()),
-  workspace_id: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsPrometheusAlertManagerDefinitionInputSchema = TfMetaSchema
+  .extend({
+    definition: resolvableValue(z.string()),
+    workspace_id: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({})
+export const AwsPrometheusAlertManagerDefinitionOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsPrometheusAlertManagerDefinitionInputProps =
+  & z.input<typeof AwsPrometheusAlertManagerDefinitionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsPrometheusAlertManagerDefinitionOutputProps =
+  & z.output<typeof AwsPrometheusAlertManagerDefinitionOutputSchema>
+  & z.output<typeof AwsPrometheusAlertManagerDefinitionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/prometheus_alert_manager_definition
 
 export function AwsPrometheusAlertManagerDefinition(
-  props: Partial<InputProps>,
+  props: Partial<AwsPrometheusAlertManagerDefinitionInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -41,8 +42,8 @@ export function AwsPrometheusAlertManagerDefinition(
       _type='aws_prometheus_alert_manager_definition'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsPrometheusAlertManagerDefinitionInputSchema}
+      _outputSchema={AwsPrometheusAlertManagerDefinitionOutputSchema}
       {...props}
     />
   )
@@ -53,7 +54,7 @@ export const useAwsPrometheusAlertManagerDefinition = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsPrometheusAlertManagerDefinitionOutputProps>(
     AwsPrometheusAlertManagerDefinition,
     idFilter,
     baseNode,
@@ -65,7 +66,7 @@ export const useAwsPrometheusAlertManagerDefinitions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsPrometheusAlertManagerDefinitionOutputProps>(
     AwsPrometheusAlertManagerDefinition,
     idFilter,
     baseNode,

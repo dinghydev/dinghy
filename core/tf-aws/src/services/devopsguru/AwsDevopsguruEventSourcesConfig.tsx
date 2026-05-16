@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDevopsguruEventSourcesConfigInputSchema = TfMetaSchema.extend({
   event_sources: resolvableValue(
     z.object({
       amazon_code_guru_profiler: z.object({
@@ -20,22 +20,24 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDevopsguruEventSourcesConfigOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDevopsguruEventSourcesConfigInputProps =
+  & z.input<typeof AwsDevopsguruEventSourcesConfigInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDevopsguruEventSourcesConfigOutputProps =
+  & z.output<typeof AwsDevopsguruEventSourcesConfigOutputSchema>
+  & z.output<typeof AwsDevopsguruEventSourcesConfigInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/devopsguru_event_sources_config
 
-export function AwsDevopsguruEventSourcesConfig(props: Partial<InputProps>) {
+export function AwsDevopsguruEventSourcesConfig(
+  props: Partial<AwsDevopsguruEventSourcesConfigInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,8 +47,8 @@ export function AwsDevopsguruEventSourcesConfig(props: Partial<InputProps>) {
       _type='aws_devopsguru_event_sources_config'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDevopsguruEventSourcesConfigInputSchema}
+      _outputSchema={AwsDevopsguruEventSourcesConfigOutputSchema}
       {...props}
     />
   )
@@ -57,7 +59,7 @@ export const useAwsDevopsguruEventSourcesConfig = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDevopsguruEventSourcesConfigOutputProps>(
     AwsDevopsguruEventSourcesConfig,
     idFilter,
     baseNode,
@@ -69,7 +71,7 @@ export const useAwsDevopsguruEventSourcesConfigs = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDevopsguruEventSourcesConfigOutputProps>(
     AwsDevopsguruEventSourcesConfig,
     idFilter,
     baseNode,

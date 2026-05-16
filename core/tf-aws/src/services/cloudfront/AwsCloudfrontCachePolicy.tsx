@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudfrontCachePolicyInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   parameters_in_cache_key_and_forwarded_to_origin: resolvableValue(z.object({
     enable_accept_encoding_brotli: z.boolean().optional(),
@@ -39,24 +39,26 @@ export const InputSchema = TfMetaSchema.extend({
   min_ttl: resolvableValue(z.number().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudfrontCachePolicyOutputSchema = z.object({
   arn: z.string().optional(),
   etag: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudfrontCachePolicyInputProps =
+  & z.input<typeof AwsCloudfrontCachePolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudfrontCachePolicyOutputProps =
+  & z.output<typeof AwsCloudfrontCachePolicyOutputSchema>
+  & z.output<typeof AwsCloudfrontCachePolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudfront_cache_policy
 
-export function AwsCloudfrontCachePolicy(props: Partial<InputProps>) {
+export function AwsCloudfrontCachePolicy(
+  props: Partial<AwsCloudfrontCachePolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -66,8 +68,8 @@ export function AwsCloudfrontCachePolicy(props: Partial<InputProps>) {
       _type='aws_cloudfront_cache_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudfrontCachePolicyInputSchema}
+      _outputSchema={AwsCloudfrontCachePolicyOutputSchema}
       {...props}
     />
   )
@@ -78,7 +80,7 @@ export const useAwsCloudfrontCachePolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudfrontCachePolicyOutputProps>(
     AwsCloudfrontCachePolicy,
     idFilter,
     baseNode,
@@ -90,7 +92,7 @@ export const useAwsCloudfrontCachePolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudfrontCachePolicyOutputProps>(
     AwsCloudfrontCachePolicy,
     idFilter,
     baseNode,

@@ -9,13 +9,13 @@ import {
 import z from 'zod'
 import { AwsOamLink } from './AwsOamLink.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsOamLinkInputSchema = TfMetaSchema.extend({
   link_identifier: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsOamLinkOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   label: z.string().optional(),
@@ -33,18 +33,18 @@ export const OutputSchema = z.object({
   sink_arn: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsOamLinkInputProps =
+  & z.input<typeof DataAwsOamLinkInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsOamLinkOutputProps =
+  & z.output<typeof DataAwsOamLinkOutputSchema>
+  & z.output<typeof DataAwsOamLinkInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/oam_link
 
-export function DataAwsOamLink(props: Partial<InputProps>) {
+export function DataAwsOamLink(props: Partial<DataAwsOamLinkInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -54,8 +54,8 @@ export function DataAwsOamLink(props: Partial<InputProps>) {
       _type='aws_oam_link'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsOamLinkInputSchema}
+      _outputSchema={DataAwsOamLinkOutputSchema}
       {...props as any}
     />
   )
@@ -65,10 +65,22 @@ export const useDataAwsOamLink = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsOamLink, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsOamLinkOutputProps>(
+    DataAwsOamLink,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsOamLinks = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsOamLink, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsOamLinkOutputProps>(
+    DataAwsOamLink,
+    idFilter,
+    baseNode,
+    optional,
+  )

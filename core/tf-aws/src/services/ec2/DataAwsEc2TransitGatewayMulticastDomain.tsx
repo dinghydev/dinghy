@@ -9,23 +9,24 @@ import {
 import z from 'zod'
 import { AwsEc2TransitGatewayMulticastDomain } from './AwsEc2TransitGatewayMulticastDomain.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  filter: resolvableValue(
-    z.object({
-      name: z.string(),
-      values: z.string().array(),
-    }).array().optional(),
-  ),
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      read: z.string().optional(),
-    }).optional(),
-  ),
-  transit_gateway_multicast_domain_id: resolvableValue(z.string().optional()),
-})
+export const DataAwsEc2TransitGatewayMulticastDomainInputSchema = TfMetaSchema
+  .extend({
+    filter: resolvableValue(
+      z.object({
+        name: z.string(),
+        values: z.string().array(),
+      }).array().optional(),
+    ),
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        read: z.string().optional(),
+      }).optional(),
+    ),
+    transit_gateway_multicast_domain_id: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsEc2TransitGatewayMulticastDomainOutputSchema = z.object({
   arn: z.string().optional(),
   associations: z.object({
     subnet_id: z.string(),
@@ -50,19 +51,19 @@ export const OutputSchema = z.object({
   transit_gateway_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEc2TransitGatewayMulticastDomainInputProps =
+  & z.input<typeof DataAwsEc2TransitGatewayMulticastDomainInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEc2TransitGatewayMulticastDomainOutputProps =
+  & z.output<typeof DataAwsEc2TransitGatewayMulticastDomainOutputSchema>
+  & z.output<typeof DataAwsEc2TransitGatewayMulticastDomainInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ec2_transit_gateway_multicast_domain
 
 export function DataAwsEc2TransitGatewayMulticastDomain(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsEc2TransitGatewayMulticastDomainInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -73,8 +74,8 @@ export function DataAwsEc2TransitGatewayMulticastDomain(
       _type='aws_ec2_transit_gateway_multicast_domain'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEc2TransitGatewayMulticastDomainInputSchema}
+      _outputSchema={DataAwsEc2TransitGatewayMulticastDomainOutputSchema}
       {...props as any}
     />
   )
@@ -85,7 +86,7 @@ export const useDataAwsEc2TransitGatewayMulticastDomain = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsEc2TransitGatewayMulticastDomainOutputProps>(
     DataAwsEc2TransitGatewayMulticastDomain,
     idFilter,
     baseNode,
@@ -97,7 +98,7 @@ export const useDataAwsEc2TransitGatewayMulticastDomains = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsEc2TransitGatewayMulticastDomainOutputProps>(
     DataAwsEc2TransitGatewayMulticastDomain,
     idFilter,
     baseNode,

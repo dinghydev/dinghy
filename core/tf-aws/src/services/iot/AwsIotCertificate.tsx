@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIotCertificateInputSchema = TfMetaSchema.extend({
   active: resolvableValue(z.boolean()),
   ca_pem: resolvableValue(z.string().optional()),
   certificate_pem: resolvableValue(z.string().optional()),
@@ -17,7 +17,7 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsIotCertificateOutputSchema = z.object({
   arn: z.string().optional(),
   ca_certificate_id: z.string().optional(),
   certificate_pem: z.string().optional(),
@@ -26,18 +26,18 @@ export const OutputSchema = z.object({
   public_key: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsIotCertificateInputProps =
+  & z.input<typeof AwsIotCertificateInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIotCertificateOutputProps =
+  & z.output<typeof AwsIotCertificateOutputSchema>
+  & z.output<typeof AwsIotCertificateInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iot_certificate
 
-export function AwsIotCertificate(props: Partial<InputProps>) {
+export function AwsIotCertificate(props: Partial<AwsIotCertificateInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +47,8 @@ export function AwsIotCertificate(props: Partial<InputProps>) {
       _type='aws_iot_certificate'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsIotCertificateInputSchema}
+      _outputSchema={AwsIotCertificateOutputSchema}
       {...props}
     />
   )
@@ -58,10 +58,22 @@ export const useAwsIotCertificate = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsIotCertificate, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsIotCertificateOutputProps>(
+    AwsIotCertificate,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIotCertificates = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsIotCertificate, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsIotCertificateOutputProps>(
+    AwsIotCertificate,
+    idFilter,
+    baseNode,
+    optional,
+  )

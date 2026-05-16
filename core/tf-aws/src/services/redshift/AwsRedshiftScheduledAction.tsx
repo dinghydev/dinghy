@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRedshiftScheduledActionInputSchema = TfMetaSchema.extend({
   iam_role: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   schedule: resolvableValue(z.string()),
@@ -35,22 +35,24 @@ export const InputSchema = TfMetaSchema.extend({
   start_time: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRedshiftScheduledActionOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRedshiftScheduledActionInputProps =
+  & z.input<typeof AwsRedshiftScheduledActionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRedshiftScheduledActionOutputProps =
+  & z.output<typeof AwsRedshiftScheduledActionOutputSchema>
+  & z.output<typeof AwsRedshiftScheduledActionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/redshift_scheduled_action
 
-export function AwsRedshiftScheduledAction(props: Partial<InputProps>) {
+export function AwsRedshiftScheduledAction(
+  props: Partial<AwsRedshiftScheduledActionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -60,8 +62,8 @@ export function AwsRedshiftScheduledAction(props: Partial<InputProps>) {
       _type='aws_redshift_scheduled_action'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRedshiftScheduledActionInputSchema}
+      _outputSchema={AwsRedshiftScheduledActionOutputSchema}
       {...props}
     />
   )
@@ -72,7 +74,7 @@ export const useAwsRedshiftScheduledAction = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRedshiftScheduledActionOutputProps>(
     AwsRedshiftScheduledAction,
     idFilter,
     baseNode,
@@ -84,7 +86,7 @@ export const useAwsRedshiftScheduledActions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRedshiftScheduledActionOutputProps>(
     AwsRedshiftScheduledAction,
     idFilter,
     baseNode,

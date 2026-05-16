@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudformationStackInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   capabilities: resolvableValue(z.string().array().optional()),
   disable_rollback: resolvableValue(z.boolean().optional()),
@@ -33,24 +33,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudformationStackOutputSchema = z.object({
   id: z.string().optional(),
   outputs: z.record(z.string(), z.string()).optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudformationStackInputProps =
+  & z.input<typeof AwsCloudformationStackInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudformationStackOutputProps =
+  & z.output<typeof AwsCloudformationStackOutputSchema>
+  & z.output<typeof AwsCloudformationStackInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudformation_stack
 
-export function AwsCloudformationStack(props: Partial<InputProps>) {
+export function AwsCloudformationStack(
+  props: Partial<AwsCloudformationStackInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -60,8 +62,8 @@ export function AwsCloudformationStack(props: Partial<InputProps>) {
       _type='aws_cloudformation_stack'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudformationStackInputSchema}
+      _outputSchema={AwsCloudformationStackOutputSchema}
       {...props}
     />
   )
@@ -72,7 +74,7 @@ export const useAwsCloudformationStack = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudformationStackOutputProps>(
     AwsCloudformationStack,
     idFilter,
     baseNode,
@@ -84,7 +86,7 @@ export const useAwsCloudformationStacks = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudformationStackOutputProps>(
     AwsCloudformationStack,
     idFilter,
     baseNode,

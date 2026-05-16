@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDevicefarmUploadInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   project_arn: resolvableValue(z.string()),
   type: resolvableValue(z.string()),
@@ -18,30 +18,32 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDevicefarmUploadOutputSchema = z.object({
   arn: z.string().optional(),
   category: z.string().optional(),
   metadata: z.string().optional(),
   url: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsDevicefarmUploadImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsDevicefarmUploadInputProps =
+  & z.input<typeof AwsDevicefarmUploadInputSchema>
+  & z.input<typeof AwsDevicefarmUploadImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDevicefarmUploadOutputProps =
+  & z.output<typeof AwsDevicefarmUploadOutputSchema>
+  & z.output<typeof AwsDevicefarmUploadInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/devicefarm_upload
 
-export function AwsDevicefarmUpload(props: Partial<InputProps>) {
+export function AwsDevicefarmUpload(
+  props: Partial<AwsDevicefarmUploadInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -51,9 +53,9 @@ export function AwsDevicefarmUpload(props: Partial<InputProps>) {
       _type='aws_devicefarm_upload'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsDevicefarmUploadInputSchema}
+      _outputSchema={AwsDevicefarmUploadOutputSchema}
+      _importSchema={AwsDevicefarmUploadImportSchema}
       {...props}
     />
   )
@@ -64,11 +66,21 @@ export const useAwsDevicefarmUpload = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsDevicefarmUpload, idFilter, baseNode, optional)
+  useTypedNode<AwsDevicefarmUploadOutputProps>(
+    AwsDevicefarmUpload,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDevicefarmUploads = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsDevicefarmUpload, idFilter, baseNode, optional)
+  useTypedNodes<AwsDevicefarmUploadOutputProps>(
+    AwsDevicefarmUpload,
+    idFilter,
+    baseNode,
+    optional,
+  )

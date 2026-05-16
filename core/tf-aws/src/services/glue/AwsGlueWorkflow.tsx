@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsGlueWorkflowInputSchema = TfMetaSchema.extend({
   default_run_properties: resolvableValue(
     z.record(z.string(), z.string()).optional(),
   ),
@@ -20,24 +20,24 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsGlueWorkflowOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsGlueWorkflowInputProps =
+  & z.input<typeof AwsGlueWorkflowInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsGlueWorkflowOutputProps =
+  & z.output<typeof AwsGlueWorkflowOutputSchema>
+  & z.output<typeof AwsGlueWorkflowInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/glue_workflow
 
-export function AwsGlueWorkflow(props: Partial<InputProps>) {
+export function AwsGlueWorkflow(props: Partial<AwsGlueWorkflowInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +47,8 @@ export function AwsGlueWorkflow(props: Partial<InputProps>) {
       _type='aws_glue_workflow'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsGlueWorkflowInputSchema}
+      _outputSchema={AwsGlueWorkflowOutputSchema}
       {...props}
     />
   )
@@ -58,10 +58,22 @@ export const useAwsGlueWorkflow = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsGlueWorkflow, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsGlueWorkflowOutputProps>(
+    AwsGlueWorkflow,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsGlueWorkflows = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsGlueWorkflow, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsGlueWorkflowOutputProps>(
+    AwsGlueWorkflow,
+    idFilter,
+    baseNode,
+    optional,
+  )

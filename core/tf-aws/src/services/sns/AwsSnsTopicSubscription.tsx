@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSnsTopicSubscriptionInputSchema = TfMetaSchema.extend({
   endpoint: resolvableValue(z.string()),
   protocol: resolvableValue(z.string()),
   topic_arn: resolvableValue(z.string()),
@@ -25,7 +25,7 @@ export const InputSchema = TfMetaSchema.extend({
   subscription_role_arn: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSnsTopicSubscriptionOutputSchema = z.object({
   arn: z.string().optional(),
   confirmation_was_authenticated: z.boolean().optional(),
   id: z.string().optional(),
@@ -33,23 +33,25 @@ export const OutputSchema = z.object({
   pending_confirmation: z.boolean().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSnsTopicSubscriptionImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSnsTopicSubscriptionInputProps =
+  & z.input<typeof AwsSnsTopicSubscriptionInputSchema>
+  & z.input<typeof AwsSnsTopicSubscriptionImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSnsTopicSubscriptionOutputProps =
+  & z.output<typeof AwsSnsTopicSubscriptionOutputSchema>
+  & z.output<typeof AwsSnsTopicSubscriptionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sns_topic_subscription
 
-export function AwsSnsTopicSubscription(props: Partial<InputProps>) {
+export function AwsSnsTopicSubscription(
+  props: Partial<AwsSnsTopicSubscriptionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -59,9 +61,9 @@ export function AwsSnsTopicSubscription(props: Partial<InputProps>) {
       _type='aws_sns_topic_subscription'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSnsTopicSubscriptionInputSchema}
+      _outputSchema={AwsSnsTopicSubscriptionOutputSchema}
+      _importSchema={AwsSnsTopicSubscriptionImportSchema}
       {...props}
     />
   )
@@ -72,7 +74,7 @@ export const useAwsSnsTopicSubscription = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSnsTopicSubscriptionOutputProps>(
     AwsSnsTopicSubscription,
     idFilter,
     baseNode,
@@ -84,7 +86,7 @@ export const useAwsSnsTopicSubscriptions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSnsTopicSubscriptionOutputProps>(
     AwsSnsTopicSubscription,
     idFilter,
     baseNode,

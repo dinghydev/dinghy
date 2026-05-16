@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsOdbCloudVmClusterInputSchema = TfMetaSchema.extend({
   cpu_core_count: resolvableValue(z.number()),
   data_storage_size_in_tbs: resolvableValue(z.number()),
   db_servers: resolvableValue(z.string().array()),
@@ -47,7 +47,7 @@ export const InputSchema = TfMetaSchema.extend({
   timezone: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsOdbCloudVmClusterOutputSchema = z.object({
   arn: z.string().optional(),
   compute_model: z.string().optional(),
   created_at: z.string().optional(),
@@ -85,18 +85,20 @@ export const OutputSchema = z.object({
   vip_ids: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsOdbCloudVmClusterInputProps =
+  & z.input<typeof AwsOdbCloudVmClusterInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsOdbCloudVmClusterOutputProps =
+  & z.output<typeof AwsOdbCloudVmClusterOutputSchema>
+  & z.output<typeof AwsOdbCloudVmClusterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/odb_cloud_vm_cluster
 
-export function AwsOdbCloudVmCluster(props: Partial<InputProps>) {
+export function AwsOdbCloudVmCluster(
+  props: Partial<AwsOdbCloudVmClusterInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -106,8 +108,8 @@ export function AwsOdbCloudVmCluster(props: Partial<InputProps>) {
       _type='aws_odb_cloud_vm_cluster'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsOdbCloudVmClusterInputSchema}
+      _outputSchema={AwsOdbCloudVmClusterOutputSchema}
       {...props}
     />
   )
@@ -118,11 +120,21 @@ export const useAwsOdbCloudVmCluster = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsOdbCloudVmCluster, idFilter, baseNode, optional)
+  useTypedNode<AwsOdbCloudVmClusterOutputProps>(
+    AwsOdbCloudVmCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsOdbCloudVmClusters = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsOdbCloudVmCluster, idFilter, baseNode, optional)
+  useTypedNodes<AwsOdbCloudVmClusterOutputProps>(
+    AwsOdbCloudVmCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )

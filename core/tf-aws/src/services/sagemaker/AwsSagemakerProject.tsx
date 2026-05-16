@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSagemakerProjectInputSchema = TfMetaSchema.extend({
   project_name: resolvableValue(z.string()),
   service_catalog_provisioning_details: resolvableValue(z.object({
     path_id: z.string().optional(),
@@ -25,25 +25,27 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSagemakerProjectOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   project_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSagemakerProjectInputProps =
+  & z.input<typeof AwsSagemakerProjectInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSagemakerProjectOutputProps =
+  & z.output<typeof AwsSagemakerProjectOutputSchema>
+  & z.output<typeof AwsSagemakerProjectInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sagemaker_project
 
-export function AwsSagemakerProject(props: Partial<InputProps>) {
+export function AwsSagemakerProject(
+  props: Partial<AwsSagemakerProjectInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,8 +55,8 @@ export function AwsSagemakerProject(props: Partial<InputProps>) {
       _type='aws_sagemaker_project'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSagemakerProjectInputSchema}
+      _outputSchema={AwsSagemakerProjectOutputSchema}
       {...props}
     />
   )
@@ -65,11 +67,21 @@ export const useAwsSagemakerProject = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSagemakerProject, idFilter, baseNode, optional)
+  useTypedNode<AwsSagemakerProjectOutputProps>(
+    AwsSagemakerProject,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSagemakerProjects = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSagemakerProject, idFilter, baseNode, optional)
+  useTypedNodes<AwsSagemakerProjectOutputProps>(
+    AwsSagemakerProject,
+    idFilter,
+    baseNode,
+    optional,
+  )

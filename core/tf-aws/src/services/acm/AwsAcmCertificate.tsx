@@ -11,7 +11,7 @@ import {
 import z from 'zod'
 import { CERTIFICATE } from '@dinghy/diagrams/entitiesAwsInternetOfThings'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAcmCertificateInputSchema = TfMetaSchema.extend({
   certificate_authority_arn: resolvableValue(z.string().optional()),
   certificate_body: resolvableValue(z.string().optional()),
   certificate_chain: resolvableValue(z.string().optional()),
@@ -37,7 +37,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsAcmCertificateOutputSchema = z.object({
   arn: z.string().optional(),
   domain_name: z.string().optional(),
   domain_validation_options: z.set(z.object({
@@ -62,23 +62,23 @@ export const OutputSchema = z.object({
   validation_emails: z.string().array().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsAcmCertificateImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsAcmCertificateInputProps =
+  & z.input<typeof AwsAcmCertificateInputSchema>
+  & z.input<typeof AwsAcmCertificateImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAcmCertificateOutputProps =
+  & z.output<typeof AwsAcmCertificateOutputSchema>
+  & z.output<typeof AwsAcmCertificateInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/acm_certificate
 
-export function AwsAcmCertificate(props: Partial<InputProps>) {
+export function AwsAcmCertificate(props: Partial<AwsAcmCertificateInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -88,9 +88,9 @@ export function AwsAcmCertificate(props: Partial<InputProps>) {
       _type='aws_acm_certificate'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsAcmCertificateInputSchema}
+      _outputSchema={AwsAcmCertificateOutputSchema}
+      _importSchema={AwsAcmCertificateImportSchema}
       {...props}
       _style={extendStyle(props, CERTIFICATE)}
     />
@@ -101,10 +101,22 @@ export const useAwsAcmCertificate = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsAcmCertificate, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsAcmCertificateOutputProps>(
+    AwsAcmCertificate,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAcmCertificates = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsAcmCertificate, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsAcmCertificateOutputProps>(
+    AwsAcmCertificate,
+    idFilter,
+    baseNode,
+    optional,
+  )

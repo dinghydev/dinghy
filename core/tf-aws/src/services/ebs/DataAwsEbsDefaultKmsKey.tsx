@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsEbsDefaultKmsKey } from './AwsEbsDefaultKmsKey.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsEbsDefaultKmsKeyInputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
     z.object({
@@ -18,23 +18,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsEbsDefaultKmsKeyOutputSchema = z.object({
   id: z.string().optional(),
   key_arn: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEbsDefaultKmsKeyInputProps =
+  & z.input<typeof DataAwsEbsDefaultKmsKeyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEbsDefaultKmsKeyOutputProps =
+  & z.output<typeof DataAwsEbsDefaultKmsKeyOutputSchema>
+  & z.output<typeof DataAwsEbsDefaultKmsKeyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ebs_default_kms_key
 
-export function DataAwsEbsDefaultKmsKey(props: Partial<InputProps>) {
+export function DataAwsEbsDefaultKmsKey(
+  props: Partial<DataAwsEbsDefaultKmsKeyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +46,8 @@ export function DataAwsEbsDefaultKmsKey(props: Partial<InputProps>) {
       _type='aws_ebs_default_kms_key'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEbsDefaultKmsKeyInputSchema}
+      _outputSchema={DataAwsEbsDefaultKmsKeyOutputSchema}
       {...props as any}
     />
   )
@@ -56,7 +58,7 @@ export const useDataAwsEbsDefaultKmsKey = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsEbsDefaultKmsKeyOutputProps>(
     DataAwsEbsDefaultKmsKey,
     idFilter,
     baseNode,
@@ -68,7 +70,7 @@ export const useDataAwsEbsDefaultKmsKeys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsEbsDefaultKmsKeyOutputProps>(
     DataAwsEbsDefaultKmsKey,
     idFilter,
     baseNode,

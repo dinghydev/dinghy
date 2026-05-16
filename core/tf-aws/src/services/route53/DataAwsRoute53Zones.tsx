@@ -7,25 +7,27 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({})
+export const DataAwsRoute53ZonesInputSchema = TfMetaSchema.extend({})
 
-export const OutputSchema = z.object({
+export const DataAwsRoute53ZonesOutputSchema = z.object({
   id: z.string().optional(),
   ids: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsRoute53ZonesInputProps =
+  & z.input<typeof DataAwsRoute53ZonesInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsRoute53ZonesOutputProps =
+  & z.output<typeof DataAwsRoute53ZonesOutputSchema>
+  & z.output<typeof DataAwsRoute53ZonesInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/route53_zones
 
-export function DataAwsRoute53Zones(props: Partial<InputProps>) {
+export function DataAwsRoute53Zones(
+  props: Partial<DataAwsRoute53ZonesInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -35,8 +37,8 @@ export function DataAwsRoute53Zones(props: Partial<InputProps>) {
       _type='aws_route53_zones'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsRoute53ZonesInputSchema}
+      _outputSchema={DataAwsRoute53ZonesOutputSchema}
       {...props}
     />
   )
@@ -47,4 +49,9 @@ export const useDataAwsRoute53Zoness = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsRoute53Zones, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsRoute53ZonesOutputProps>(
+    DataAwsRoute53Zones,
+    idFilter,
+    baseNode,
+    optional,
+  )

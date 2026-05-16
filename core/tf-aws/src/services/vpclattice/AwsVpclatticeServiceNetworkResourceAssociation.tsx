@@ -9,43 +9,45 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  resource_configuration_identifier: resolvableValue(z.string()),
-  service_network_identifier: resolvableValue(z.string()),
-  private_dns_enabled: resolvableValue(z.boolean().optional()),
-  region: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsVpclatticeServiceNetworkResourceAssociationInputSchema =
+  TfMetaSchema.extend({
+    resource_configuration_identifier: resolvableValue(z.string()),
+    service_network_identifier: resolvableValue(z.string()),
+    private_dns_enabled: resolvableValue(z.boolean().optional()),
+    region: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
-  arn: z.string().optional(),
-  dns_entry: z.object({
-    domain_name: z.string(),
-    hosted_zone_id: z.string(),
-  }).array().optional(),
-  id: z.string().optional(),
-  tags_all: z.record(z.string(), z.string()).optional(),
-})
+export const AwsVpclatticeServiceNetworkResourceAssociationOutputSchema = z
+  .object({
+    arn: z.string().optional(),
+    dns_entry: z.object({
+      domain_name: z.string(),
+      hosted_zone_id: z.string(),
+    }).array().optional(),
+    id: z.string().optional(),
+    tags_all: z.record(z.string(), z.string()).optional(),
+  })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVpclatticeServiceNetworkResourceAssociationInputProps =
+  & z.input<typeof AwsVpclatticeServiceNetworkResourceAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVpclatticeServiceNetworkResourceAssociationOutputProps =
+  & z.output<typeof AwsVpclatticeServiceNetworkResourceAssociationOutputSchema>
+  & z.output<typeof AwsVpclatticeServiceNetworkResourceAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpclattice_service_network_resource_association
 
 export function AwsVpclatticeServiceNetworkResourceAssociation(
-  props: Partial<InputProps>,
+  props: Partial<AwsVpclatticeServiceNetworkResourceAssociationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -56,8 +58,8 @@ export function AwsVpclatticeServiceNetworkResourceAssociation(
       _type='aws_vpclattice_service_network_resource_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVpclatticeServiceNetworkResourceAssociationInputSchema}
+      _outputSchema={AwsVpclatticeServiceNetworkResourceAssociationOutputSchema}
       {...props}
     />
   )
@@ -68,7 +70,7 @@ export const useAwsVpclatticeServiceNetworkResourceAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsVpclatticeServiceNetworkResourceAssociationOutputProps>(
     AwsVpclatticeServiceNetworkResourceAssociation,
     idFilter,
     baseNode,
@@ -80,7 +82,7 @@ export const useAwsVpclatticeServiceNetworkResourceAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsVpclatticeServiceNetworkResourceAssociationOutputProps>(
     AwsVpclatticeServiceNetworkResourceAssociation,
     idFilter,
     baseNode,

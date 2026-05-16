@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsMqConfigurationInputSchema = TfMetaSchema.extend({
   data: resolvableValue(z.string()),
   engine_type: resolvableValue(z.string()),
   engine_version: resolvableValue(z.string()),
@@ -21,25 +21,27 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsMqConfigurationOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   latest_revision: z.number().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsMqConfigurationInputProps =
+  & z.input<typeof AwsMqConfigurationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsMqConfigurationOutputProps =
+  & z.output<typeof AwsMqConfigurationOutputSchema>
+  & z.output<typeof AwsMqConfigurationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/mq_configuration
 
-export function AwsMqConfiguration(props: Partial<InputProps>) {
+export function AwsMqConfiguration(
+  props: Partial<AwsMqConfigurationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,8 +51,8 @@ export function AwsMqConfiguration(props: Partial<InputProps>) {
       _type='aws_mq_configuration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsMqConfigurationInputSchema}
+      _outputSchema={AwsMqConfigurationOutputSchema}
       {...props}
     />
   )
@@ -60,11 +62,22 @@ export const useAwsMqConfiguration = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsMqConfiguration, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsMqConfigurationOutputProps>(
+    AwsMqConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsMqConfigurations = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsMqConfiguration, idFilter, baseNode, optional)
+  useTypedNodes<AwsMqConfigurationOutputProps>(
+    AwsMqConfiguration,
+    idFilter,
+    baseNode,
+    optional,
+  )

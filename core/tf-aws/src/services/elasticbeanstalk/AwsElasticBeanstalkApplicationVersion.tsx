@@ -9,37 +9,38 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  __key: resolvableValue(z.string()),
-  application: resolvableValue(z.string()),
-  bucket: resolvableValue(z.string()),
-  name: resolvableValue(z.string()),
-  description: resolvableValue(z.string().optional()),
-  force_delete: resolvableValue(z.boolean().optional()),
-  id: resolvableValue(z.string().optional()),
-  process: resolvableValue(z.boolean().optional()),
-  region: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+export const AwsElasticBeanstalkApplicationVersionInputSchema = TfMetaSchema
+  .extend({
+    __key: resolvableValue(z.string()),
+    application: resolvableValue(z.string()),
+    bucket: resolvableValue(z.string()),
+    name: resolvableValue(z.string()),
+    description: resolvableValue(z.string().optional()),
+    force_delete: resolvableValue(z.boolean().optional()),
+    id: resolvableValue(z.string().optional()),
+    process: resolvableValue(z.boolean().optional()),
+    region: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsElasticBeanstalkApplicationVersionOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsElasticBeanstalkApplicationVersionInputProps =
+  & z.input<typeof AwsElasticBeanstalkApplicationVersionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsElasticBeanstalkApplicationVersionOutputProps =
+  & z.output<typeof AwsElasticBeanstalkApplicationVersionOutputSchema>
+  & z.output<typeof AwsElasticBeanstalkApplicationVersionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/elastic_beanstalk_application_version
 
 export function AwsElasticBeanstalkApplicationVersion(
-  props: Partial<InputProps>,
+  props: Partial<AwsElasticBeanstalkApplicationVersionInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -50,8 +51,8 @@ export function AwsElasticBeanstalkApplicationVersion(
       _type='aws_elastic_beanstalk_application_version'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsElasticBeanstalkApplicationVersionInputSchema}
+      _outputSchema={AwsElasticBeanstalkApplicationVersionOutputSchema}
       {...props}
     />
   )
@@ -62,7 +63,7 @@ export const useAwsElasticBeanstalkApplicationVersion = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsElasticBeanstalkApplicationVersionOutputProps>(
     AwsElasticBeanstalkApplicationVersion,
     idFilter,
     baseNode,
@@ -74,7 +75,7 @@ export const useAwsElasticBeanstalkApplicationVersions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsElasticBeanstalkApplicationVersionOutputProps>(
     AwsElasticBeanstalkApplicationVersion,
     idFilter,
     baseNode,

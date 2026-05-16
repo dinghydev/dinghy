@@ -9,37 +9,38 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  domain: resolvableValue(z.string()),
-  domain_owner: resolvableValue(z.string().optional()),
-  policy_document: resolvableValue(z.string().optional()),
-  policy_revision: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsCodeartifactDomainPermissionsPolicyInputSchema = TfMetaSchema
+  .extend({
+    domain: resolvableValue(z.string()),
+    domain_owner: resolvableValue(z.string().optional()),
+    policy_document: resolvableValue(z.string().optional()),
+    policy_revision: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsCodeartifactDomainPermissionsPolicyOutputSchema = z.object({
   id: z.string().optional(),
   resource_arn: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsCodeartifactDomainPermissionsPolicyImportSchema = z.object({
   resource_arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsCodeartifactDomainPermissionsPolicyInputProps =
+  & z.input<typeof AwsCodeartifactDomainPermissionsPolicyInputSchema>
+  & z.input<typeof AwsCodeartifactDomainPermissionsPolicyImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCodeartifactDomainPermissionsPolicyOutputProps =
+  & z.output<typeof AwsCodeartifactDomainPermissionsPolicyOutputSchema>
+  & z.output<typeof AwsCodeartifactDomainPermissionsPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/codeartifact_domain_permissions_policy
 
 export function AwsCodeartifactDomainPermissionsPolicy(
-  props: Partial<InputProps>,
+  props: Partial<AwsCodeartifactDomainPermissionsPolicyInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -50,9 +51,9 @@ export function AwsCodeartifactDomainPermissionsPolicy(
       _type='aws_codeartifact_domain_permissions_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsCodeartifactDomainPermissionsPolicyInputSchema}
+      _outputSchema={AwsCodeartifactDomainPermissionsPolicyOutputSchema}
+      _importSchema={AwsCodeartifactDomainPermissionsPolicyImportSchema}
       {...props}
     />
   )
@@ -63,7 +64,7 @@ export const useAwsCodeartifactDomainPermissionsPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCodeartifactDomainPermissionsPolicyOutputProps>(
     AwsCodeartifactDomainPermissionsPolicy,
     idFilter,
     baseNode,
@@ -75,7 +76,7 @@ export const useAwsCodeartifactDomainPermissionsPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCodeartifactDomainPermissionsPolicyOutputProps>(
     AwsCodeartifactDomainPermissionsPolicy,
     idFilter,
     baseNode,

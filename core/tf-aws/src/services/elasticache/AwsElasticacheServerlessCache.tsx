@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsElasticacheServerlessCacheInputSchema = TfMetaSchema.extend({
   engine: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   cache_usage_limits: resolvableValue(
@@ -45,7 +45,7 @@ export const InputSchema = TfMetaSchema.extend({
   user_group_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsElasticacheServerlessCacheOutputSchema = z.object({
   arn: z.string().optional(),
   create_time: z.string().optional(),
   endpoint: z.object({
@@ -63,18 +63,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsElasticacheServerlessCacheInputProps =
+  & z.input<typeof AwsElasticacheServerlessCacheInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsElasticacheServerlessCacheOutputProps =
+  & z.output<typeof AwsElasticacheServerlessCacheOutputSchema>
+  & z.output<typeof AwsElasticacheServerlessCacheInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/elasticache_serverless_cache
 
-export function AwsElasticacheServerlessCache(props: Partial<InputProps>) {
+export function AwsElasticacheServerlessCache(
+  props: Partial<AwsElasticacheServerlessCacheInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -84,8 +86,8 @@ export function AwsElasticacheServerlessCache(props: Partial<InputProps>) {
       _type='aws_elasticache_serverless_cache'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsElasticacheServerlessCacheInputSchema}
+      _outputSchema={AwsElasticacheServerlessCacheOutputSchema}
       {...props}
     />
   )
@@ -96,7 +98,7 @@ export const useAwsElasticacheServerlessCache = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsElasticacheServerlessCacheOutputProps>(
     AwsElasticacheServerlessCache,
     idFilter,
     baseNode,
@@ -108,7 +110,7 @@ export const useAwsElasticacheServerlessCaches = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsElasticacheServerlessCacheOutputProps>(
     AwsElasticacheServerlessCache,
     idFilter,
     baseNode,

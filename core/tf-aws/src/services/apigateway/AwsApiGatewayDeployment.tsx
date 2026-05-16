@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsApiGatewayDeploymentInputSchema = TfMetaSchema.extend({
   rest_api_id: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
@@ -17,23 +17,25 @@ export const InputSchema = TfMetaSchema.extend({
   variables: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsApiGatewayDeploymentOutputSchema = z.object({
   created_date: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsApiGatewayDeploymentInputProps =
+  & z.input<typeof AwsApiGatewayDeploymentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApiGatewayDeploymentOutputProps =
+  & z.output<typeof AwsApiGatewayDeploymentOutputSchema>
+  & z.output<typeof AwsApiGatewayDeploymentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/api_gateway_deployment
 
-export function AwsApiGatewayDeployment(props: Partial<InputProps>) {
+export function AwsApiGatewayDeployment(
+  props: Partial<AwsApiGatewayDeploymentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function AwsApiGatewayDeployment(props: Partial<InputProps>) {
       _type='aws_api_gateway_deployment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsApiGatewayDeploymentInputSchema}
+      _outputSchema={AwsApiGatewayDeploymentOutputSchema}
       {...props}
     />
   )
@@ -55,7 +57,7 @@ export const useAwsApiGatewayDeployment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsApiGatewayDeploymentOutputProps>(
     AwsApiGatewayDeployment,
     idFilter,
     baseNode,
@@ -67,7 +69,7 @@ export const useAwsApiGatewayDeployments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsApiGatewayDeploymentOutputProps>(
     AwsApiGatewayDeployment,
     idFilter,
     baseNode,

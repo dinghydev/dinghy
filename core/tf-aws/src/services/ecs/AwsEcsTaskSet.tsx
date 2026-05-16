@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEcsTaskSetInputSchema = TfMetaSchema.extend({
   cluster: resolvableValue(z.string()),
   service: resolvableValue(z.string()),
   task_definition: resolvableValue(z.string()),
@@ -59,7 +59,7 @@ export const InputSchema = TfMetaSchema.extend({
   wait_until_stable_timeout: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsEcsTaskSetOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   stability_status: z.string().optional(),
@@ -68,18 +68,18 @@ export const OutputSchema = z.object({
   task_set_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEcsTaskSetInputProps =
+  & z.input<typeof AwsEcsTaskSetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEcsTaskSetOutputProps =
+  & z.output<typeof AwsEcsTaskSetOutputSchema>
+  & z.output<typeof AwsEcsTaskSetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ecs_task_set
 
-export function AwsEcsTaskSet(props: Partial<InputProps>) {
+export function AwsEcsTaskSet(props: Partial<AwsEcsTaskSetInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -89,8 +89,8 @@ export function AwsEcsTaskSet(props: Partial<InputProps>) {
       _type='aws_ecs_task_set'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEcsTaskSetInputSchema}
+      _outputSchema={AwsEcsTaskSetOutputSchema}
       {...props}
     />
   )
@@ -100,10 +100,22 @@ export const useAwsEcsTaskSet = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsEcsTaskSet, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsEcsTaskSetOutputProps>(
+    AwsEcsTaskSet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEcsTaskSets = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsEcsTaskSet, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsEcsTaskSetOutputProps>(
+    AwsEcsTaskSet,
+    idFilter,
+    baseNode,
+    optional,
+  )

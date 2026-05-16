@@ -9,14 +9,14 @@ import {
 import z from 'zod'
 import { AwsSsmParameter } from './AwsSsmParameter.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsSsmParameterInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   with_decryption: resolvableValue(z.boolean().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsSsmParameterOutputSchema = z.object({
   arn: z.string().optional(),
   insecure_value: z.string().optional(),
   name: z.string().optional(),
@@ -25,18 +25,20 @@ export const OutputSchema = z.object({
   version: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsSsmParameterInputProps =
+  & z.input<typeof DataAwsSsmParameterInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsSsmParameterOutputProps =
+  & z.output<typeof DataAwsSsmParameterOutputSchema>
+  & z.output<typeof DataAwsSsmParameterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ssm_parameter
 
-export function DataAwsSsmParameter(props: Partial<InputProps>) {
+export function DataAwsSsmParameter(
+  props: Partial<DataAwsSsmParameterInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function DataAwsSsmParameter(props: Partial<InputProps>) {
       _type='aws_ssm_parameter'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsSsmParameterInputSchema}
+      _outputSchema={DataAwsSsmParameterOutputSchema}
       {...props as any}
     />
   )
@@ -58,11 +60,21 @@ export const useDataAwsSsmParameter = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsSsmParameter, idFilter, baseNode, optional)
+  useTypedNode<DataAwsSsmParameterOutputProps>(
+    DataAwsSsmParameter,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsSsmParameters = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsSsmParameter, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsSsmParameterOutputProps>(
+    DataAwsSsmParameter,
+    idFilter,
+    baseNode,
+    optional,
+  )

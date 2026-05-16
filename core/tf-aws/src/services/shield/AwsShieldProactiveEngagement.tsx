@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsShieldProactiveEngagementInputSchema = TfMetaSchema.extend({
   enabled: resolvableValue(z.boolean()),
   emergency_contact: resolvableValue(
     z.object({
@@ -20,22 +20,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsShieldProactiveEngagementOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsShieldProactiveEngagementInputProps =
+  & z.input<typeof AwsShieldProactiveEngagementInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsShieldProactiveEngagementOutputProps =
+  & z.output<typeof AwsShieldProactiveEngagementOutputSchema>
+  & z.output<typeof AwsShieldProactiveEngagementInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/shield_proactive_engagement
 
-export function AwsShieldProactiveEngagement(props: Partial<InputProps>) {
+export function AwsShieldProactiveEngagement(
+  props: Partial<AwsShieldProactiveEngagementInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,8 +47,8 @@ export function AwsShieldProactiveEngagement(props: Partial<InputProps>) {
       _type='aws_shield_proactive_engagement'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsShieldProactiveEngagementInputSchema}
+      _outputSchema={AwsShieldProactiveEngagementOutputSchema}
       {...props}
     />
   )
@@ -57,7 +59,7 @@ export const useAwsShieldProactiveEngagement = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsShieldProactiveEngagementOutputProps>(
     AwsShieldProactiveEngagement,
     idFilter,
     baseNode,
@@ -69,7 +71,7 @@ export const useAwsShieldProactiveEngagements = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsShieldProactiveEngagementOutputProps>(
     AwsShieldProactiveEngagement,
     idFilter,
     baseNode,

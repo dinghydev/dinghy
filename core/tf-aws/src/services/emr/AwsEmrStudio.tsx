@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEmrStudioInputSchema = TfMetaSchema.extend({
   auth_mode: resolvableValue(z.string()),
   default_s3_location: resolvableValue(z.string()),
   engine_security_group_id: resolvableValue(z.string()),
@@ -29,23 +29,23 @@ export const InputSchema = TfMetaSchema.extend({
   user_role: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsEmrStudioOutputSchema = z.object({
   arn: z.string().optional(),
   url: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEmrStudioInputProps =
+  & z.input<typeof AwsEmrStudioInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEmrStudioOutputProps =
+  & z.output<typeof AwsEmrStudioOutputSchema>
+  & z.output<typeof AwsEmrStudioInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/emr_studio
 
-export function AwsEmrStudio(props: Partial<InputProps>) {
+export function AwsEmrStudio(props: Partial<AwsEmrStudioInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,8 +55,8 @@ export function AwsEmrStudio(props: Partial<InputProps>) {
       _type='aws_emr_studio'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEmrStudioInputSchema}
+      _outputSchema={AwsEmrStudioOutputSchema}
       {...props}
     />
   )
@@ -66,10 +66,22 @@ export const useAwsEmrStudio = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsEmrStudio, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsEmrStudioOutputProps>(
+    AwsEmrStudio,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEmrStudios = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsEmrStudio, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsEmrStudioOutputProps>(
+    AwsEmrStudio,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLightsailLbCertificateInputSchema = TfMetaSchema.extend({
   lb_name: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   domain_name: resolvableValue(z.string().optional()),
@@ -17,7 +17,7 @@ export const InputSchema = TfMetaSchema.extend({
   subject_alternative_names: resolvableValue(z.string().array().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsLightsailLbCertificateOutputSchema = z.object({
   arn: z.string().optional(),
   created_at: z.string().optional(),
   domain_validation_records: z.set(z.object({
@@ -30,18 +30,20 @@ export const OutputSchema = z.object({
   support_code: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLightsailLbCertificateInputProps =
+  & z.input<typeof AwsLightsailLbCertificateInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLightsailLbCertificateOutputProps =
+  & z.output<typeof AwsLightsailLbCertificateOutputSchema>
+  & z.output<typeof AwsLightsailLbCertificateInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lightsail_lb_certificate
 
-export function AwsLightsailLbCertificate(props: Partial<InputProps>) {
+export function AwsLightsailLbCertificate(
+  props: Partial<AwsLightsailLbCertificateInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -51,8 +53,8 @@ export function AwsLightsailLbCertificate(props: Partial<InputProps>) {
       _type='aws_lightsail_lb_certificate'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLightsailLbCertificateInputSchema}
+      _outputSchema={AwsLightsailLbCertificateOutputSchema}
       {...props}
     />
   )
@@ -63,7 +65,7 @@ export const useAwsLightsailLbCertificate = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsLightsailLbCertificateOutputProps>(
     AwsLightsailLbCertificate,
     idFilter,
     baseNode,
@@ -75,7 +77,7 @@ export const useAwsLightsailLbCertificates = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsLightsailLbCertificateOutputProps>(
     AwsLightsailLbCertificate,
     idFilter,
     baseNode,

@@ -8,32 +8,34 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsOrganizationsAwsServiceAccessInputSchema = TfMetaSchema.extend({
   service_principal: resolvableValue(z.string()),
 })
 
-export const OutputSchema = z.object({
+export const AwsOrganizationsAwsServiceAccessOutputSchema = z.object({
   date_enabled: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsOrganizationsAwsServiceAccessImportSchema = z.object({
   service_principal: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsOrganizationsAwsServiceAccessInputProps =
+  & z.input<typeof AwsOrganizationsAwsServiceAccessInputSchema>
+  & z.input<typeof AwsOrganizationsAwsServiceAccessImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsOrganizationsAwsServiceAccessOutputProps =
+  & z.output<typeof AwsOrganizationsAwsServiceAccessOutputSchema>
+  & z.output<typeof AwsOrganizationsAwsServiceAccessInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/organizations_aws_service_access
 
-export function AwsOrganizationsAwsServiceAccess(props: Partial<InputProps>) {
+export function AwsOrganizationsAwsServiceAccess(
+  props: Partial<AwsOrganizationsAwsServiceAccessInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,9 +45,9 @@ export function AwsOrganizationsAwsServiceAccess(props: Partial<InputProps>) {
       _type='aws_organizations_aws_service_access'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsOrganizationsAwsServiceAccessInputSchema}
+      _outputSchema={AwsOrganizationsAwsServiceAccessOutputSchema}
+      _importSchema={AwsOrganizationsAwsServiceAccessImportSchema}
       {...props}
     />
   )
@@ -56,7 +58,7 @@ export const useAwsOrganizationsAwsServiceAccesss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsOrganizationsAwsServiceAccessOutputProps>(
     AwsOrganizationsAwsServiceAccess,
     idFilter,
     baseNode,

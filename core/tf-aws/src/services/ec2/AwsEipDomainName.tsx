@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEipDomainNameInputSchema = TfMetaSchema.extend({
   allocation_id: resolvableValue(z.string()),
   domain_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
@@ -22,23 +22,23 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsEipDomainNameOutputSchema = z.object({
   id: z.string().optional(),
   ptr_record: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEipDomainNameInputProps =
+  & z.input<typeof AwsEipDomainNameInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEipDomainNameOutputProps =
+  & z.output<typeof AwsEipDomainNameOutputSchema>
+  & z.output<typeof AwsEipDomainNameInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/eip_domain_name
 
-export function AwsEipDomainName(props: Partial<InputProps>) {
+export function AwsEipDomainName(props: Partial<AwsEipDomainNameInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +48,8 @@ export function AwsEipDomainName(props: Partial<InputProps>) {
       _type='aws_eip_domain_name'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEipDomainNameInputSchema}
+      _outputSchema={AwsEipDomainNameOutputSchema}
       {...props}
     />
   )
@@ -59,10 +59,22 @@ export const useAwsEipDomainName = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsEipDomainName, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsEipDomainNameOutputProps>(
+    AwsEipDomainName,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEipDomainNames = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsEipDomainName, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsEipDomainNameOutputProps>(
+    AwsEipDomainName,
+    idFilter,
+    baseNode,
+    optional,
+  )

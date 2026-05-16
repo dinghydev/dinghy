@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsWafregionalXssMatchSetInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   xss_match_tuple: resolvableValue(
@@ -23,22 +23,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsWafregionalXssMatchSetOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsWafregionalXssMatchSetInputProps =
+  & z.input<typeof AwsWafregionalXssMatchSetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWafregionalXssMatchSetOutputProps =
+  & z.output<typeof AwsWafregionalXssMatchSetOutputSchema>
+  & z.output<typeof AwsWafregionalXssMatchSetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/wafregional_xss_match_set
 
-export function AwsWafregionalXssMatchSet(props: Partial<InputProps>) {
+export function AwsWafregionalXssMatchSet(
+  props: Partial<AwsWafregionalXssMatchSetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +50,8 @@ export function AwsWafregionalXssMatchSet(props: Partial<InputProps>) {
       _type='aws_wafregional_xss_match_set'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsWafregionalXssMatchSetInputSchema}
+      _outputSchema={AwsWafregionalXssMatchSetOutputSchema}
       {...props}
     />
   )
@@ -60,7 +62,7 @@ export const useAwsWafregionalXssMatchSet = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsWafregionalXssMatchSetOutputProps>(
     AwsWafregionalXssMatchSet,
     idFilter,
     baseNode,
@@ -72,7 +74,7 @@ export const useAwsWafregionalXssMatchSets = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsWafregionalXssMatchSetOutputProps>(
     AwsWafregionalXssMatchSet,
     idFilter,
     baseNode,

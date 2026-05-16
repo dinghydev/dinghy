@@ -8,13 +8,13 @@ import {
 import z from 'zod'
 import { AwsKendraThesaurus } from './AwsKendraThesaurus.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsKendraThesaurusInputSchema = TfMetaSchema.extend({
   index_id: resolvableValue(z.string()),
   thesaurus_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsKendraThesaurusOutputSchema = z.object({
   arn: z.string().optional(),
   created_at: z.string().optional(),
   description: z.string().optional(),
@@ -34,18 +34,20 @@ export const OutputSchema = z.object({
   updated_at: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsKendraThesaurusInputProps =
+  & z.input<typeof DataAwsKendraThesaurusInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsKendraThesaurusOutputProps =
+  & z.output<typeof DataAwsKendraThesaurusOutputSchema>
+  & z.output<typeof DataAwsKendraThesaurusInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/kendra_thesaurus
 
-export function DataAwsKendraThesaurus(props: Partial<InputProps>) {
+export function DataAwsKendraThesaurus(
+  props: Partial<DataAwsKendraThesaurusInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,8 +57,8 @@ export function DataAwsKendraThesaurus(props: Partial<InputProps>) {
       _type='aws_kendra_thesaurus'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsKendraThesaurusInputSchema}
+      _outputSchema={DataAwsKendraThesaurusOutputSchema}
       {...props as any}
     />
   )
@@ -67,7 +69,7 @@ export const useDataAwsKendraThesauruss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsKendraThesaurusOutputProps>(
     DataAwsKendraThesaurus,
     idFilter,
     baseNode,

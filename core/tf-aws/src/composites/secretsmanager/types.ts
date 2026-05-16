@@ -1,6 +1,6 @@
 import { getRenderOptions } from '@dinghy/base-components'
 import { z } from 'zod'
-import { InputSchema as AwsSecretsmanagerSecretInputSchema } from '../../services/secretsmanager/AwsSecretsmanagerSecret.tsx'
+import { AwsSecretsmanagerSecretInputSchema } from '../../services/secretsmanager/AwsSecretsmanagerSecret.tsx'
 
 const SecretSchema = AwsSecretsmanagerSecretInputSchema
 const SecretsSchema = z.record(z.string(), SecretSchema.loose().partial())

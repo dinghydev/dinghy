@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsVpcIpamPoolCidrsInputSchema = TfMetaSchema.extend({
   ipam_pool_id: resolvableValue(z.string()),
   filter: resolvableValue(
     z.object({
@@ -25,25 +25,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsVpcIpamPoolCidrsOutputSchema = z.object({
   ipam_pool_cidrs: z.set(z.object({
     cidr: z.string(),
     state: z.string(),
   })).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsVpcIpamPoolCidrsInputProps =
+  & z.input<typeof DataAwsVpcIpamPoolCidrsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsVpcIpamPoolCidrsOutputProps =
+  & z.output<typeof DataAwsVpcIpamPoolCidrsOutputSchema>
+  & z.output<typeof DataAwsVpcIpamPoolCidrsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/vpc_ipam_pool_cidrs
 
-export function DataAwsVpcIpamPoolCidrs(props: Partial<InputProps>) {
+export function DataAwsVpcIpamPoolCidrs(
+  props: Partial<DataAwsVpcIpamPoolCidrsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,8 +55,8 @@ export function DataAwsVpcIpamPoolCidrs(props: Partial<InputProps>) {
       _type='aws_vpc_ipam_pool_cidrs'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsVpcIpamPoolCidrsInputSchema}
+      _outputSchema={DataAwsVpcIpamPoolCidrsOutputSchema}
       {...props}
     />
   )
@@ -65,7 +67,7 @@ export const useDataAwsVpcIpamPoolCidrss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsVpcIpamPoolCidrsOutputProps>(
     DataAwsVpcIpamPoolCidrs,
     idFilter,
     baseNode,

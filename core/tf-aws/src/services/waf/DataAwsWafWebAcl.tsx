@@ -9,26 +9,26 @@ import {
 import z from 'zod'
 import { AwsWafWebAcl } from './AwsWafWebAcl.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsWafWebAclInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsWafWebAclOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsWafWebAclInputProps =
+  & z.input<typeof DataAwsWafWebAclInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsWafWebAclOutputProps =
+  & z.output<typeof DataAwsWafWebAclOutputSchema>
+  & z.output<typeof DataAwsWafWebAclInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/waf_web_acl
 
-export function DataAwsWafWebAcl(props: Partial<InputProps>) {
+export function DataAwsWafWebAcl(props: Partial<DataAwsWafWebAclInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -38,8 +38,8 @@ export function DataAwsWafWebAcl(props: Partial<InputProps>) {
       _type='aws_waf_web_acl'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsWafWebAclInputSchema}
+      _outputSchema={DataAwsWafWebAclOutputSchema}
       {...props as any}
     />
   )
@@ -49,10 +49,22 @@ export const useDataAwsWafWebAcl = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsWafWebAcl, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsWafWebAclOutputProps>(
+    DataAwsWafWebAcl,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsWafWebAcls = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsWafWebAcl, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsWafWebAclOutputProps>(
+    DataAwsWafWebAcl,
+    idFilter,
+    baseNode,
+    optional,
+  )

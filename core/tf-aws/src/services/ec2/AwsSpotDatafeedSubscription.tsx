@@ -9,27 +9,29 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSpotDatafeedSubscriptionInputSchema = TfMetaSchema.extend({
   bucket: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   prefix: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsSpotDatafeedSubscriptionOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSpotDatafeedSubscriptionInputProps =
+  & z.input<typeof AwsSpotDatafeedSubscriptionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSpotDatafeedSubscriptionOutputProps =
+  & z.output<typeof AwsSpotDatafeedSubscriptionOutputSchema>
+  & z.output<typeof AwsSpotDatafeedSubscriptionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/spot_datafeed_subscription
 
-export function AwsSpotDatafeedSubscription(props: Partial<InputProps>) {
+export function AwsSpotDatafeedSubscription(
+  props: Partial<AwsSpotDatafeedSubscriptionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -39,8 +41,8 @@ export function AwsSpotDatafeedSubscription(props: Partial<InputProps>) {
       _type='aws_spot_datafeed_subscription'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSpotDatafeedSubscriptionInputSchema}
+      _outputSchema={AwsSpotDatafeedSubscriptionOutputSchema}
       {...props}
     />
   )
@@ -51,7 +53,7 @@ export const useAwsSpotDatafeedSubscription = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSpotDatafeedSubscriptionOutputProps>(
     AwsSpotDatafeedSubscription,
     idFilter,
     baseNode,
@@ -63,7 +65,7 @@ export const useAwsSpotDatafeedSubscriptions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSpotDatafeedSubscriptionOutputProps>(
     AwsSpotDatafeedSubscription,
     idFilter,
     baseNode,

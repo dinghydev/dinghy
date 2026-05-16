@@ -9,13 +9,13 @@ import {
 import z from 'zod'
 import { AwsQuicksightTheme } from './AwsQuicksightTheme.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsQuicksightThemeInputSchema = TfMetaSchema.extend({
   theme_id: resolvableValue(z.string()),
   aws_account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsQuicksightThemeOutputSchema = z.object({
   arn: z.string().optional(),
   base_theme_id: z.string().optional(),
   configuration: z.object({
@@ -77,18 +77,20 @@ export const OutputSchema = z.object({
   version_number: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsQuicksightThemeInputProps =
+  & z.input<typeof DataAwsQuicksightThemeInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsQuicksightThemeOutputProps =
+  & z.output<typeof DataAwsQuicksightThemeOutputSchema>
+  & z.output<typeof DataAwsQuicksightThemeInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/quicksight_theme
 
-export function DataAwsQuicksightTheme(props: Partial<InputProps>) {
+export function DataAwsQuicksightTheme(
+  props: Partial<DataAwsQuicksightThemeInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -98,8 +100,8 @@ export function DataAwsQuicksightTheme(props: Partial<InputProps>) {
       _type='aws_quicksight_theme'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsQuicksightThemeInputSchema}
+      _outputSchema={DataAwsQuicksightThemeOutputSchema}
       {...props as any}
     />
   )
@@ -110,7 +112,7 @@ export const useDataAwsQuicksightTheme = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsQuicksightThemeOutputProps>(
     DataAwsQuicksightTheme,
     idFilter,
     baseNode,
@@ -122,7 +124,7 @@ export const useDataAwsQuicksightThemes = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsQuicksightThemeOutputProps>(
     DataAwsQuicksightTheme,
     idFilter,
     baseNode,

@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsQuicksightCustomPermissionsInputSchema = TfMetaSchema.extend({
   custom_permissions_name: resolvableValue(z.string()),
   aws_account_id: resolvableValue(z.string().optional()),
   capabilities: resolvableValue(
@@ -42,23 +42,25 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsQuicksightCustomPermissionsOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsQuicksightCustomPermissionsInputProps =
+  & z.input<typeof AwsQuicksightCustomPermissionsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsQuicksightCustomPermissionsOutputProps =
+  & z.output<typeof AwsQuicksightCustomPermissionsOutputSchema>
+  & z.output<typeof AwsQuicksightCustomPermissionsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/quicksight_custom_permissions
 
-export function AwsQuicksightCustomPermissions(props: Partial<InputProps>) {
+export function AwsQuicksightCustomPermissions(
+  props: Partial<AwsQuicksightCustomPermissionsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -68,8 +70,8 @@ export function AwsQuicksightCustomPermissions(props: Partial<InputProps>) {
       _type='aws_quicksight_custom_permissions'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsQuicksightCustomPermissionsInputSchema}
+      _outputSchema={AwsQuicksightCustomPermissionsOutputSchema}
       {...props}
     />
   )
@@ -80,7 +82,7 @@ export const useAwsQuicksightCustomPermissionss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsQuicksightCustomPermissionsOutputProps>(
     AwsQuicksightCustomPermissions,
     idFilter,
     baseNode,

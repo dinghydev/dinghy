@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsElasticBeanstalkApplicationInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   appversion_lifecycle: resolvableValue(
     z.object({
@@ -25,23 +25,25 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsElasticBeanstalkApplicationOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsElasticBeanstalkApplicationInputProps =
+  & z.input<typeof AwsElasticBeanstalkApplicationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsElasticBeanstalkApplicationOutputProps =
+  & z.output<typeof AwsElasticBeanstalkApplicationOutputSchema>
+  & z.output<typeof AwsElasticBeanstalkApplicationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/elastic_beanstalk_application
 
-export function AwsElasticBeanstalkApplication(props: Partial<InputProps>) {
+export function AwsElasticBeanstalkApplication(
+  props: Partial<AwsElasticBeanstalkApplicationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -51,8 +53,8 @@ export function AwsElasticBeanstalkApplication(props: Partial<InputProps>) {
       _type='aws_elastic_beanstalk_application'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsElasticBeanstalkApplicationInputSchema}
+      _outputSchema={AwsElasticBeanstalkApplicationOutputSchema}
       {...props}
     />
   )
@@ -63,7 +65,7 @@ export const useAwsElasticBeanstalkApplication = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsElasticBeanstalkApplicationOutputProps>(
     AwsElasticBeanstalkApplication,
     idFilter,
     baseNode,
@@ -75,7 +77,7 @@ export const useAwsElasticBeanstalkApplications = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsElasticBeanstalkApplicationOutputProps>(
     AwsElasticBeanstalkApplication,
     idFilter,
     baseNode,

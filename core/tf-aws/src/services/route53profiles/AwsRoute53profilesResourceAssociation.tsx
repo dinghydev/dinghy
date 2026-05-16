@@ -9,22 +9,23 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  name: resolvableValue(z.string()),
-  profile_id: resolvableValue(z.string()),
-  resource_arn: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-  resource_properties: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-      read: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsRoute53profilesResourceAssociationInputSchema = TfMetaSchema
+  .extend({
+    name: resolvableValue(z.string()),
+    profile_id: resolvableValue(z.string()),
+    resource_arn: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+    resource_properties: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+        read: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsRoute53profilesResourceAssociationOutputSchema = z.object({
   id: z.string().optional(),
   name: z.string().optional(),
   owner_id: z.string().optional(),
@@ -33,19 +34,19 @@ export const OutputSchema = z.object({
   status_message: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRoute53profilesResourceAssociationInputProps =
+  & z.input<typeof AwsRoute53profilesResourceAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRoute53profilesResourceAssociationOutputProps =
+  & z.output<typeof AwsRoute53profilesResourceAssociationOutputSchema>
+  & z.output<typeof AwsRoute53profilesResourceAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/route53profiles_resource_association
 
 export function AwsRoute53profilesResourceAssociation(
-  props: Partial<InputProps>,
+  props: Partial<AwsRoute53profilesResourceAssociationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -56,8 +57,8 @@ export function AwsRoute53profilesResourceAssociation(
       _type='aws_route53profiles_resource_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRoute53profilesResourceAssociationInputSchema}
+      _outputSchema={AwsRoute53profilesResourceAssociationOutputSchema}
       {...props}
     />
   )
@@ -68,7 +69,7 @@ export const useAwsRoute53profilesResourceAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRoute53profilesResourceAssociationOutputProps>(
     AwsRoute53profilesResourceAssociation,
     idFilter,
     baseNode,
@@ -80,7 +81,7 @@ export const useAwsRoute53profilesResourceAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRoute53profilesResourceAssociationOutputProps>(
     AwsRoute53profilesResourceAssociation,
     idFilter,
     baseNode,

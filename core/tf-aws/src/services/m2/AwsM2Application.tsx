@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsM2ApplicationInputSchema = TfMetaSchema.extend({
   engine_type: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   definition: resolvableValue(
@@ -32,7 +32,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsM2ApplicationOutputSchema = z.object({
   application_id: z.string().optional(),
   arn: z.string().optional(),
   current_version: z.number().optional(),
@@ -40,18 +40,18 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsM2ApplicationInputProps =
+  & z.input<typeof AwsM2ApplicationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsM2ApplicationOutputProps =
+  & z.output<typeof AwsM2ApplicationOutputSchema>
+  & z.output<typeof AwsM2ApplicationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/m2_application
 
-export function AwsM2Application(props: Partial<InputProps>) {
+export function AwsM2Application(props: Partial<AwsM2ApplicationInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -61,8 +61,8 @@ export function AwsM2Application(props: Partial<InputProps>) {
       _type='aws_m2_application'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsM2ApplicationInputSchema}
+      _outputSchema={AwsM2ApplicationOutputSchema}
       {...props}
     />
   )
@@ -72,10 +72,22 @@ export const useAwsM2Application = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsM2Application, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsM2ApplicationOutputProps>(
+    AwsM2Application,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsM2Applications = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsM2Application, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsM2ApplicationOutputProps>(
+    AwsM2Application,
+    idFilter,
+    baseNode,
+    optional,
+  )

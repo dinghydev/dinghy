@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEvidentlyLaunchInputSchema = TfMetaSchema.extend({
   groups: resolvableValue(
     z.object({
       description: z.string().optional(),
@@ -57,7 +57,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsEvidentlyLaunchOutputSchema = z.object({
   arn: z.string().optional(),
   created_time: z.string().optional(),
   execution: z.object({
@@ -72,18 +72,20 @@ export const OutputSchema = z.object({
   type: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEvidentlyLaunchInputProps =
+  & z.input<typeof AwsEvidentlyLaunchInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEvidentlyLaunchOutputProps =
+  & z.output<typeof AwsEvidentlyLaunchOutputSchema>
+  & z.output<typeof AwsEvidentlyLaunchInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/evidently_launch
 
-export function AwsEvidentlyLaunch(props: Partial<InputProps>) {
+export function AwsEvidentlyLaunch(
+  props: Partial<AwsEvidentlyLaunchInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -93,8 +95,8 @@ export function AwsEvidentlyLaunch(props: Partial<InputProps>) {
       _type='aws_evidently_launch'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEvidentlyLaunchInputSchema}
+      _outputSchema={AwsEvidentlyLaunchOutputSchema}
       {...props}
     />
   )
@@ -104,11 +106,22 @@ export const useAwsEvidentlyLaunch = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsEvidentlyLaunch, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsEvidentlyLaunchOutputProps>(
+    AwsEvidentlyLaunch,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEvidentlyLaunchs = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsEvidentlyLaunch, idFilter, baseNode, optional)
+  useTypedNodes<AwsEvidentlyLaunchOutputProps>(
+    AwsEvidentlyLaunch,
+    idFilter,
+    baseNode,
+    optional,
+  )

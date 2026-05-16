@@ -8,28 +8,36 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  status: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsArczonalshiftAutoshiftObserverNotificationStatusInputSchema =
+  TfMetaSchema.extend({
+    status: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
-  id: z.string().optional(),
-})
+export const AwsArczonalshiftAutoshiftObserverNotificationStatusOutputSchema = z
+  .object({
+    id: z.string().optional(),
+  })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsArczonalshiftAutoshiftObserverNotificationStatusInputProps =
+  & z.input<
+    typeof AwsArczonalshiftAutoshiftObserverNotificationStatusInputSchema
+  >
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsArczonalshiftAutoshiftObserverNotificationStatusOutputProps =
+  & z.output<
+    typeof AwsArczonalshiftAutoshiftObserverNotificationStatusOutputSchema
+  >
+  & z.output<
+    typeof AwsArczonalshiftAutoshiftObserverNotificationStatusInputSchema
+  >
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/arczonalshift_autoshift_observer_notification_status
 
 export function AwsArczonalshiftAutoshiftObserverNotificationStatus(
-  props: Partial<InputProps>,
+  props: Partial<AwsArczonalshiftAutoshiftObserverNotificationStatusInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -40,8 +48,8 @@ export function AwsArczonalshiftAutoshiftObserverNotificationStatus(
       _type='aws_arczonalshift_autoshift_observer_notification_status'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsArczonalshiftAutoshiftObserverNotificationStatusInputSchema}
+      _outputSchema={AwsArczonalshiftAutoshiftObserverNotificationStatusOutputSchema}
       {...props}
     />
   )
@@ -52,7 +60,7 @@ export const useAwsArczonalshiftAutoshiftObserverNotificationStatuss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsArczonalshiftAutoshiftObserverNotificationStatusOutputProps>(
     AwsArczonalshiftAutoshiftObserverNotificationStatus,
     idFilter,
     baseNode,

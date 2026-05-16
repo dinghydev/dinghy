@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsApigatewayv2DomainNameInputSchema = TfMetaSchema.extend({
   domain_name: resolvableValue(z.string()),
   domain_name_configuration: resolvableValue(z.object({
     certificate_arn: z.string(),
@@ -37,25 +37,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsApigatewayv2DomainNameOutputSchema = z.object({
   api_mapping_selection_expression: z.string().optional(),
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsApigatewayv2DomainNameInputProps =
+  & z.input<typeof AwsApigatewayv2DomainNameInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApigatewayv2DomainNameOutputProps =
+  & z.output<typeof AwsApigatewayv2DomainNameOutputSchema>
+  & z.output<typeof AwsApigatewayv2DomainNameInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/apigatewayv2_domain_name
 
-export function AwsApigatewayv2DomainName(props: Partial<InputProps>) {
+export function AwsApigatewayv2DomainName(
+  props: Partial<AwsApigatewayv2DomainNameInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -65,8 +67,8 @@ export function AwsApigatewayv2DomainName(props: Partial<InputProps>) {
       _type='aws_apigatewayv2_domain_name'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsApigatewayv2DomainNameInputSchema}
+      _outputSchema={AwsApigatewayv2DomainNameOutputSchema}
       {...props}
     />
   )
@@ -77,7 +79,7 @@ export const useAwsApigatewayv2DomainName = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsApigatewayv2DomainNameOutputProps>(
     AwsApigatewayv2DomainName,
     idFilter,
     baseNode,
@@ -89,7 +91,7 @@ export const useAwsApigatewayv2DomainNames = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsApigatewayv2DomainNameOutputProps>(
     AwsApigatewayv2DomainName,
     idFilter,
     baseNode,

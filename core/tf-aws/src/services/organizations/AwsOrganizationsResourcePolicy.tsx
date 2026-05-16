@@ -9,35 +9,37 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsOrganizationsResourcePolicyInputSchema = TfMetaSchema.extend({
   content: resolvableValue(z.string()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsOrganizationsResourcePolicyOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsOrganizationsResourcePolicyImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsOrganizationsResourcePolicyInputProps =
+  & z.input<typeof AwsOrganizationsResourcePolicyInputSchema>
+  & z.input<typeof AwsOrganizationsResourcePolicyImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsOrganizationsResourcePolicyOutputProps =
+  & z.output<typeof AwsOrganizationsResourcePolicyOutputSchema>
+  & z.output<typeof AwsOrganizationsResourcePolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/organizations_resource_policy
 
-export function AwsOrganizationsResourcePolicy(props: Partial<InputProps>) {
+export function AwsOrganizationsResourcePolicy(
+  props: Partial<AwsOrganizationsResourcePolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,9 +49,9 @@ export function AwsOrganizationsResourcePolicy(props: Partial<InputProps>) {
       _type='aws_organizations_resource_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsOrganizationsResourcePolicyInputSchema}
+      _outputSchema={AwsOrganizationsResourcePolicyOutputSchema}
+      _importSchema={AwsOrganizationsResourcePolicyImportSchema}
       {...props}
     />
   )
@@ -60,7 +62,7 @@ export const useAwsOrganizationsResourcePolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsOrganizationsResourcePolicyOutputProps>(
     AwsOrganizationsResourcePolicy,
     idFilter,
     baseNode,
@@ -72,7 +74,7 @@ export const useAwsOrganizationsResourcePolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsOrganizationsResourcePolicyOutputProps>(
     AwsOrganizationsResourcePolicy,
     idFilter,
     baseNode,

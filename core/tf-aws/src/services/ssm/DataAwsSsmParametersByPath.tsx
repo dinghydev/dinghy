@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsSsmParametersByPathInputSchema = TfMetaSchema.extend({
   path: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   recursive: resolvableValue(z.boolean().optional()),
@@ -17,25 +17,27 @@ export const InputSchema = TfMetaSchema.extend({
   with_decryption: resolvableValue(z.boolean().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsSsmParametersByPathOutputSchema = z.object({
   arns: z.string().array().optional(),
   names: z.string().array().optional(),
   types: z.string().array().optional(),
   values: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsSsmParametersByPathInputProps =
+  & z.input<typeof DataAwsSsmParametersByPathInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsSsmParametersByPathOutputProps =
+  & z.output<typeof DataAwsSsmParametersByPathOutputSchema>
+  & z.output<typeof DataAwsSsmParametersByPathInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ssm_parameters_by_path
 
-export function DataAwsSsmParametersByPath(props: Partial<InputProps>) {
+export function DataAwsSsmParametersByPath(
+  props: Partial<DataAwsSsmParametersByPathInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,8 +47,8 @@ export function DataAwsSsmParametersByPath(props: Partial<InputProps>) {
       _type='aws_ssm_parameters_by_path'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsSsmParametersByPathInputSchema}
+      _outputSchema={DataAwsSsmParametersByPathOutputSchema}
       {...props}
     />
   )
@@ -57,7 +59,7 @@ export const useDataAwsSsmParametersByPath = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsSsmParametersByPathOutputProps>(
     DataAwsSsmParametersByPath,
     idFilter,
     baseNode,
@@ -69,7 +71,7 @@ export const useDataAwsSsmParametersByPaths = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsSsmParametersByPathOutputProps>(
     DataAwsSsmParametersByPath,
     idFilter,
     baseNode,

@@ -9,38 +9,39 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  access_association_source: resolvableValue(z.string()),
-  access_association_source_type: resolvableValue(z.string()),
-  domain_name_arn: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+export const AwsApiGatewayDomainNameAccessAssociationInputSchema = TfMetaSchema
+  .extend({
+    access_association_source: resolvableValue(z.string()),
+    access_association_source_type: resolvableValue(z.string()),
+    domain_name_arn: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsApiGatewayDomainNameAccessAssociationOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsApiGatewayDomainNameAccessAssociationImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsApiGatewayDomainNameAccessAssociationInputProps =
+  & z.input<typeof AwsApiGatewayDomainNameAccessAssociationInputSchema>
+  & z.input<typeof AwsApiGatewayDomainNameAccessAssociationImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApiGatewayDomainNameAccessAssociationOutputProps =
+  & z.output<typeof AwsApiGatewayDomainNameAccessAssociationOutputSchema>
+  & z.output<typeof AwsApiGatewayDomainNameAccessAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/api_gateway_domain_name_access_association
 
 export function AwsApiGatewayDomainNameAccessAssociation(
-  props: Partial<InputProps>,
+  props: Partial<AwsApiGatewayDomainNameAccessAssociationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -51,9 +52,9 @@ export function AwsApiGatewayDomainNameAccessAssociation(
       _type='aws_api_gateway_domain_name_access_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsApiGatewayDomainNameAccessAssociationInputSchema}
+      _outputSchema={AwsApiGatewayDomainNameAccessAssociationOutputSchema}
+      _importSchema={AwsApiGatewayDomainNameAccessAssociationImportSchema}
       {...props}
     />
   )
@@ -64,7 +65,7 @@ export const useAwsApiGatewayDomainNameAccessAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsApiGatewayDomainNameAccessAssociationOutputProps>(
     AwsApiGatewayDomainNameAccessAssociation,
     idFilter,
     baseNode,
@@ -76,7 +77,7 @@ export const useAwsApiGatewayDomainNameAccessAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsApiGatewayDomainNameAccessAssociationOutputProps>(
     AwsApiGatewayDomainNameAccessAssociation,
     idFilter,
     baseNode,

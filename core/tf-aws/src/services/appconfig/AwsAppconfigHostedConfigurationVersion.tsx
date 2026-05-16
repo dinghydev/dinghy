@@ -9,34 +9,35 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  application_id: resolvableValue(z.string()),
-  configuration_profile_id: resolvableValue(z.string()),
-  content: resolvableValue(z.string()),
-  content_type: resolvableValue(z.string()),
-  description: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsAppconfigHostedConfigurationVersionInputSchema = TfMetaSchema
+  .extend({
+    application_id: resolvableValue(z.string()),
+    configuration_profile_id: resolvableValue(z.string()),
+    content: resolvableValue(z.string()),
+    content_type: resolvableValue(z.string()),
+    description: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsAppconfigHostedConfigurationVersionOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   version_number: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAppconfigHostedConfigurationVersionInputProps =
+  & z.input<typeof AwsAppconfigHostedConfigurationVersionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppconfigHostedConfigurationVersionOutputProps =
+  & z.output<typeof AwsAppconfigHostedConfigurationVersionOutputSchema>
+  & z.output<typeof AwsAppconfigHostedConfigurationVersionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appconfig_hosted_configuration_version
 
 export function AwsAppconfigHostedConfigurationVersion(
-  props: Partial<InputProps>,
+  props: Partial<AwsAppconfigHostedConfigurationVersionInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -47,8 +48,8 @@ export function AwsAppconfigHostedConfigurationVersion(
       _type='aws_appconfig_hosted_configuration_version'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAppconfigHostedConfigurationVersionInputSchema}
+      _outputSchema={AwsAppconfigHostedConfigurationVersionOutputSchema}
       {...props}
     />
   )
@@ -59,7 +60,7 @@ export const useAwsAppconfigHostedConfigurationVersion = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAppconfigHostedConfigurationVersionOutputProps>(
     AwsAppconfigHostedConfigurationVersion,
     idFilter,
     baseNode,
@@ -71,7 +72,7 @@ export const useAwsAppconfigHostedConfigurationVersions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAppconfigHostedConfigurationVersionOutputProps>(
     AwsAppconfigHostedConfigurationVersion,
     idFilter,
     baseNode,

@@ -9,34 +9,36 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSecurityhubFindingAggregatorInputSchema = TfMetaSchema.extend({
   linking_mode: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   specified_regions: resolvableValue(z.string().array().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSecurityhubFindingAggregatorOutputSchema = z.object({
   arn: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSecurityhubFindingAggregatorImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSecurityhubFindingAggregatorInputProps =
+  & z.input<typeof AwsSecurityhubFindingAggregatorInputSchema>
+  & z.input<typeof AwsSecurityhubFindingAggregatorImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSecurityhubFindingAggregatorOutputProps =
+  & z.output<typeof AwsSecurityhubFindingAggregatorOutputSchema>
+  & z.output<typeof AwsSecurityhubFindingAggregatorInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_finding_aggregator
 
-export function AwsSecurityhubFindingAggregator(props: Partial<InputProps>) {
+export function AwsSecurityhubFindingAggregator(
+  props: Partial<AwsSecurityhubFindingAggregatorInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,9 +48,9 @@ export function AwsSecurityhubFindingAggregator(props: Partial<InputProps>) {
       _type='aws_securityhub_finding_aggregator'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSecurityhubFindingAggregatorInputSchema}
+      _outputSchema={AwsSecurityhubFindingAggregatorOutputSchema}
+      _importSchema={AwsSecurityhubFindingAggregatorImportSchema}
       {...props}
     />
   )
@@ -59,7 +61,7 @@ export const useAwsSecurityhubFindingAggregator = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSecurityhubFindingAggregatorOutputProps>(
     AwsSecurityhubFindingAggregator,
     idFilter,
     baseNode,
@@ -71,7 +73,7 @@ export const useAwsSecurityhubFindingAggregators = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSecurityhubFindingAggregatorOutputProps>(
     AwsSecurityhubFindingAggregator,
     idFilter,
     baseNode,

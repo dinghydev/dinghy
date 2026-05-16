@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudsearchDomainInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   endpoint_options: resolvableValue(
     z.object({
@@ -50,25 +50,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudsearchDomainOutputSchema = z.object({
   arn: z.string().optional(),
   document_service_endpoint: z.string().optional(),
   domain_id: z.string().optional(),
   search_service_endpoint: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudsearchDomainInputProps =
+  & z.input<typeof AwsCloudsearchDomainInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudsearchDomainOutputProps =
+  & z.output<typeof AwsCloudsearchDomainOutputSchema>
+  & z.output<typeof AwsCloudsearchDomainInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudsearch_domain
 
-export function AwsCloudsearchDomain(props: Partial<InputProps>) {
+export function AwsCloudsearchDomain(
+  props: Partial<AwsCloudsearchDomainInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -78,8 +80,8 @@ export function AwsCloudsearchDomain(props: Partial<InputProps>) {
       _type='aws_cloudsearch_domain'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudsearchDomainInputSchema}
+      _outputSchema={AwsCloudsearchDomainOutputSchema}
       {...props}
     />
   )
@@ -90,11 +92,21 @@ export const useAwsCloudsearchDomain = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsCloudsearchDomain, idFilter, baseNode, optional)
+  useTypedNode<AwsCloudsearchDomainOutputProps>(
+    AwsCloudsearchDomain,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsCloudsearchDomains = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsCloudsearchDomain, idFilter, baseNode, optional)
+  useTypedNodes<AwsCloudsearchDomainOutputProps>(
+    AwsCloudsearchDomain,
+    idFilter,
+    baseNode,
+    optional,
+  )

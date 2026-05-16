@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAppflowConnectorProfileInputSchema = TfMetaSchema.extend({
   connection_mode: resolvableValue(z.string()),
   connector_profile_config: resolvableValue(z.object({
     connector_profile_credentials: z.object({
@@ -235,30 +235,32 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAppflowConnectorProfileOutputSchema = z.object({
   arn: z.string().optional(),
   credentials_arn: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsAppflowConnectorProfileImportSchema = z.object({
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsAppflowConnectorProfileInputProps =
+  & z.input<typeof AwsAppflowConnectorProfileInputSchema>
+  & z.input<typeof AwsAppflowConnectorProfileImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppflowConnectorProfileOutputProps =
+  & z.output<typeof AwsAppflowConnectorProfileOutputSchema>
+  & z.output<typeof AwsAppflowConnectorProfileInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appflow_connector_profile
 
-export function AwsAppflowConnectorProfile(props: Partial<InputProps>) {
+export function AwsAppflowConnectorProfile(
+  props: Partial<AwsAppflowConnectorProfileInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -268,9 +270,9 @@ export function AwsAppflowConnectorProfile(props: Partial<InputProps>) {
       _type='aws_appflow_connector_profile'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsAppflowConnectorProfileInputSchema}
+      _outputSchema={AwsAppflowConnectorProfileOutputSchema}
+      _importSchema={AwsAppflowConnectorProfileImportSchema}
       {...props}
     />
   )
@@ -281,7 +283,7 @@ export const useAwsAppflowConnectorProfile = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAppflowConnectorProfileOutputProps>(
     AwsAppflowConnectorProfile,
     idFilter,
     baseNode,
@@ -293,7 +295,7 @@ export const useAwsAppflowConnectorProfiles = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAppflowConnectorProfileOutputProps>(
     AwsAppflowConnectorProfile,
     idFilter,
     baseNode,

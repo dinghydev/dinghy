@@ -9,28 +9,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRoute53DelegationSetInputSchema = TfMetaSchema.extend({
   reference_name: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRoute53DelegationSetOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   name_servers: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRoute53DelegationSetInputProps =
+  & z.input<typeof AwsRoute53DelegationSetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRoute53DelegationSetOutputProps =
+  & z.output<typeof AwsRoute53DelegationSetOutputSchema>
+  & z.output<typeof AwsRoute53DelegationSetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/route53_delegation_set
 
-export function AwsRoute53DelegationSet(props: Partial<InputProps>) {
+export function AwsRoute53DelegationSet(
+  props: Partial<AwsRoute53DelegationSetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function AwsRoute53DelegationSet(props: Partial<InputProps>) {
       _type='aws_route53_delegation_set'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRoute53DelegationSetInputSchema}
+      _outputSchema={AwsRoute53DelegationSetOutputSchema}
       {...props}
     />
   )
@@ -52,7 +54,7 @@ export const useAwsRoute53DelegationSet = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRoute53DelegationSetOutputProps>(
     AwsRoute53DelegationSet,
     idFilter,
     baseNode,
@@ -64,7 +66,7 @@ export const useAwsRoute53DelegationSets = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRoute53DelegationSetOutputProps>(
     AwsRoute53DelegationSet,
     idFilter,
     baseNode,

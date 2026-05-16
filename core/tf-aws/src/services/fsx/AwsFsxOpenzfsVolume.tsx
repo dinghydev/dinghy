@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsFsxOpenzfsVolumeInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   parent_volume_id: resolvableValue(z.string()),
   copy_tags_to_snapshots: resolvableValue(z.boolean().optional()),
@@ -52,24 +52,26 @@ export const InputSchema = TfMetaSchema.extend({
   volume_type: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsFsxOpenzfsVolumeOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsFsxOpenzfsVolumeInputProps =
+  & z.input<typeof AwsFsxOpenzfsVolumeInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsFsxOpenzfsVolumeOutputProps =
+  & z.output<typeof AwsFsxOpenzfsVolumeOutputSchema>
+  & z.output<typeof AwsFsxOpenzfsVolumeInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/fsx_openzfs_volume
 
-export function AwsFsxOpenzfsVolume(props: Partial<InputProps>) {
+export function AwsFsxOpenzfsVolume(
+  props: Partial<AwsFsxOpenzfsVolumeInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -79,8 +81,8 @@ export function AwsFsxOpenzfsVolume(props: Partial<InputProps>) {
       _type='aws_fsx_openzfs_volume'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsFsxOpenzfsVolumeInputSchema}
+      _outputSchema={AwsFsxOpenzfsVolumeOutputSchema}
       {...props}
     />
   )
@@ -91,11 +93,21 @@ export const useAwsFsxOpenzfsVolume = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsFsxOpenzfsVolume, idFilter, baseNode, optional)
+  useTypedNode<AwsFsxOpenzfsVolumeOutputProps>(
+    AwsFsxOpenzfsVolume,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsFsxOpenzfsVolumes = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsFsxOpenzfsVolume, idFilter, baseNode, optional)
+  useTypedNodes<AwsFsxOpenzfsVolumeOutputProps>(
+    AwsFsxOpenzfsVolume,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,13 +9,13 @@ import {
 import z from 'zod'
 import { AwsKendraExperience } from './AwsKendraExperience.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsKendraExperienceInputSchema = TfMetaSchema.extend({
   experience_id: resolvableValue(z.string()),
   index_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsKendraExperienceOutputSchema = z.object({
   arn: z.string().optional(),
   configuration: z.object({
     content_source_configuration: z.object({
@@ -41,18 +41,20 @@ export const OutputSchema = z.object({
   updated_at: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsKendraExperienceInputProps =
+  & z.input<typeof DataAwsKendraExperienceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsKendraExperienceOutputProps =
+  & z.output<typeof DataAwsKendraExperienceOutputSchema>
+  & z.output<typeof DataAwsKendraExperienceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/kendra_experience
 
-export function DataAwsKendraExperience(props: Partial<InputProps>) {
+export function DataAwsKendraExperience(
+  props: Partial<DataAwsKendraExperienceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -62,8 +64,8 @@ export function DataAwsKendraExperience(props: Partial<InputProps>) {
       _type='aws_kendra_experience'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsKendraExperienceInputSchema}
+      _outputSchema={DataAwsKendraExperienceOutputSchema}
       {...props as any}
     />
   )
@@ -74,7 +76,7 @@ export const useDataAwsKendraExperience = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsKendraExperienceOutputProps>(
     DataAwsKendraExperience,
     idFilter,
     baseNode,
@@ -86,7 +88,7 @@ export const useDataAwsKendraExperiences = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsKendraExperienceOutputProps>(
     DataAwsKendraExperience,
     idFilter,
     baseNode,

@@ -9,13 +9,14 @@ import {
 import z from 'zod'
 import { AwsCodecommitApprovalRuleTemplate } from './AwsCodecommitApprovalRuleTemplate.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  name: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsCodecommitApprovalRuleTemplateInputSchema = TfMetaSchema
+  .extend({
+    name: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsCodecommitApprovalRuleTemplateOutputSchema = z.object({
   approval_rule_template_id: z.string().optional(),
   content: z.string().optional(),
   creation_date: z.string().optional(),
@@ -25,19 +26,19 @@ export const OutputSchema = z.object({
   rule_content_sha256: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsCodecommitApprovalRuleTemplateInputProps =
+  & z.input<typeof DataAwsCodecommitApprovalRuleTemplateInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsCodecommitApprovalRuleTemplateOutputProps =
+  & z.output<typeof DataAwsCodecommitApprovalRuleTemplateOutputSchema>
+  & z.output<typeof DataAwsCodecommitApprovalRuleTemplateInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/codecommit_approval_rule_template
 
 export function DataAwsCodecommitApprovalRuleTemplate(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsCodecommitApprovalRuleTemplateInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -48,8 +49,8 @@ export function DataAwsCodecommitApprovalRuleTemplate(
       _type='aws_codecommit_approval_rule_template'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsCodecommitApprovalRuleTemplateInputSchema}
+      _outputSchema={DataAwsCodecommitApprovalRuleTemplateOutputSchema}
       {...props as any}
     />
   )
@@ -60,7 +61,7 @@ export const useDataAwsCodecommitApprovalRuleTemplate = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsCodecommitApprovalRuleTemplateOutputProps>(
     DataAwsCodecommitApprovalRuleTemplate,
     idFilter,
     baseNode,
@@ -72,7 +73,7 @@ export const useDataAwsCodecommitApprovalRuleTemplates = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsCodecommitApprovalRuleTemplateOutputProps>(
     DataAwsCodecommitApprovalRuleTemplate,
     idFilter,
     baseNode,

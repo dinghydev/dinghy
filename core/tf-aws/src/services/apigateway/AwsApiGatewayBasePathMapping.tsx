@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsApiGatewayBasePathMappingInputSchema = TfMetaSchema.extend({
   api_id: resolvableValue(z.string()),
   domain_name: resolvableValue(z.string()),
   base_path: resolvableValue(z.string().optional()),
@@ -19,20 +19,22 @@ export const InputSchema = TfMetaSchema.extend({
   stage_name: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsApiGatewayBasePathMappingOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsApiGatewayBasePathMappingInputProps =
+  & z.input<typeof AwsApiGatewayBasePathMappingInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApiGatewayBasePathMappingOutputProps =
+  & z.output<typeof AwsApiGatewayBasePathMappingOutputSchema>
+  & z.output<typeof AwsApiGatewayBasePathMappingInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/api_gateway_base_path_mapping
 
-export function AwsApiGatewayBasePathMapping(props: Partial<InputProps>) {
+export function AwsApiGatewayBasePathMapping(
+  props: Partial<AwsApiGatewayBasePathMappingInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +44,8 @@ export function AwsApiGatewayBasePathMapping(props: Partial<InputProps>) {
       _type='aws_api_gateway_base_path_mapping'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsApiGatewayBasePathMappingInputSchema}
+      _outputSchema={AwsApiGatewayBasePathMappingOutputSchema}
       {...props}
     />
   )
@@ -54,7 +56,7 @@ export const useAwsApiGatewayBasePathMapping = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsApiGatewayBasePathMappingOutputProps>(
     AwsApiGatewayBasePathMapping,
     idFilter,
     baseNode,
@@ -66,7 +68,7 @@ export const useAwsApiGatewayBasePathMappings = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsApiGatewayBasePathMappingOutputProps>(
     AwsApiGatewayBasePathMapping,
     idFilter,
     baseNode,

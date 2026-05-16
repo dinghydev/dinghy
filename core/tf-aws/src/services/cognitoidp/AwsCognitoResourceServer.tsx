@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCognitoResourceServerInputSchema = TfMetaSchema.extend({
   identifier: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   user_pool_id: resolvableValue(z.string()),
@@ -23,22 +23,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsCognitoResourceServerOutputSchema = z.object({
   scope_identifiers: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCognitoResourceServerInputProps =
+  & z.input<typeof AwsCognitoResourceServerInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCognitoResourceServerOutputProps =
+  & z.output<typeof AwsCognitoResourceServerOutputSchema>
+  & z.output<typeof AwsCognitoResourceServerInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cognito_resource_server
 
-export function AwsCognitoResourceServer(props: Partial<InputProps>) {
+export function AwsCognitoResourceServer(
+  props: Partial<AwsCognitoResourceServerInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +50,8 @@ export function AwsCognitoResourceServer(props: Partial<InputProps>) {
       _type='aws_cognito_resource_server'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCognitoResourceServerInputSchema}
+      _outputSchema={AwsCognitoResourceServerOutputSchema}
       {...props}
     />
   )
@@ -60,7 +62,7 @@ export const useAwsCognitoResourceServer = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCognitoResourceServerOutputProps>(
     AwsCognitoResourceServer,
     idFilter,
     baseNode,
@@ -72,7 +74,7 @@ export const useAwsCognitoResourceServers = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCognitoResourceServerOutputProps>(
     AwsCognitoResourceServer,
     idFilter,
     baseNode,

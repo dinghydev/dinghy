@@ -9,11 +9,11 @@ import {
 import z from 'zod'
 import { AwsCeCostCategory } from './AwsCeCostCategory.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsCeCostCategoryInputSchema = TfMetaSchema.extend({
   cost_category_arn: resolvableValue(z.string()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsCeCostCategoryOutputSchema = z.object({
   default_value: z.string().optional(),
   effective_end: z.string().optional(),
   effective_start: z.string().optional(),
@@ -261,18 +261,20 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsCeCostCategoryInputProps =
+  & z.input<typeof DataAwsCeCostCategoryInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsCeCostCategoryOutputProps =
+  & z.output<typeof DataAwsCeCostCategoryOutputSchema>
+  & z.output<typeof DataAwsCeCostCategoryInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ce_cost_category
 
-export function DataAwsCeCostCategory(props: Partial<InputProps>) {
+export function DataAwsCeCostCategory(
+  props: Partial<DataAwsCeCostCategoryInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -282,8 +284,8 @@ export function DataAwsCeCostCategory(props: Partial<InputProps>) {
       _type='aws_ce_cost_category'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsCeCostCategoryInputSchema}
+      _outputSchema={DataAwsCeCostCategoryOutputSchema}
       {...props as any}
     />
   )
@@ -294,14 +296,19 @@ export const useDataAwsCeCostCategory = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsCeCostCategory, idFilter, baseNode, optional)
+  useTypedNode<DataAwsCeCostCategoryOutputProps>(
+    DataAwsCeCostCategory,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsCeCostCategorys = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsCeCostCategoryOutputProps>(
     DataAwsCeCostCategory,
     idFilter,
     baseNode,

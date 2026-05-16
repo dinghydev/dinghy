@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsEc2CoipPoolsInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -24,23 +24,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsEc2CoipPoolsOutputSchema = z.object({
   id: z.string().optional(),
   pool_ids: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEc2CoipPoolsInputProps =
+  & z.input<typeof DataAwsEc2CoipPoolsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEc2CoipPoolsOutputProps =
+  & z.output<typeof DataAwsEc2CoipPoolsOutputSchema>
+  & z.output<typeof DataAwsEc2CoipPoolsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ec2_coip_pools
 
-export function DataAwsEc2CoipPools(props: Partial<InputProps>) {
+export function DataAwsEc2CoipPools(
+  props: Partial<DataAwsEc2CoipPoolsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -50,8 +52,8 @@ export function DataAwsEc2CoipPools(props: Partial<InputProps>) {
       _type='aws_ec2_coip_pools'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEc2CoipPoolsInputSchema}
+      _outputSchema={DataAwsEc2CoipPoolsOutputSchema}
       {...props}
     />
   )
@@ -62,4 +64,9 @@ export const useDataAwsEc2CoipPoolss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsEc2CoipPools, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsEc2CoipPoolsOutputProps>(
+    DataAwsEc2CoipPools,
+    idFilter,
+    baseNode,
+    optional,
+  )

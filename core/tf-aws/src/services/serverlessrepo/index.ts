@@ -1,11 +1,23 @@
 export {
   DataAwsServerlessapplicationrepositoryApplication,
+  DataAwsServerlessapplicationrepositoryApplicationInputSchema,
+  DataAwsServerlessapplicationrepositoryApplicationOutputSchema,
   useDataAwsServerlessapplicationrepositoryApplication,
   useDataAwsServerlessapplicationrepositoryApplications,
+} from './DataAwsServerlessapplicationrepositoryApplication.tsx'
+export type {
+  DataAwsServerlessapplicationrepositoryApplicationInputProps,
+  DataAwsServerlessapplicationrepositoryApplicationOutputProps,
 } from './DataAwsServerlessapplicationrepositoryApplication.tsx'
 
 export {
   AwsServerlessapplicationrepositoryCloudformationStack,
+  AwsServerlessapplicationrepositoryCloudformationStackInputSchema,
+  AwsServerlessapplicationrepositoryCloudformationStackOutputSchema,
   useAwsServerlessapplicationrepositoryCloudformationStack,
   useAwsServerlessapplicationrepositoryCloudformationStacks,
+} from './AwsServerlessapplicationrepositoryCloudformationStack.tsx'
+export type {
+  AwsServerlessapplicationrepositoryCloudformationStackInputProps,
+  AwsServerlessapplicationrepositoryCloudformationStackOutputProps,
 } from './AwsServerlessapplicationrepositoryCloudformationStack.tsx'

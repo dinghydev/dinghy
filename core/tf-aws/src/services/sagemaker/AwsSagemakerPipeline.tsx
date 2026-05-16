@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSagemakerPipelineInputSchema = TfMetaSchema.extend({
   pipeline_display_name: resolvableValue(z.string()),
   pipeline_name: resolvableValue(z.string()),
   parallelism_configuration: resolvableValue(
@@ -31,24 +31,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSagemakerPipelineOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSagemakerPipelineInputProps =
+  & z.input<typeof AwsSagemakerPipelineInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSagemakerPipelineOutputProps =
+  & z.output<typeof AwsSagemakerPipelineOutputSchema>
+  & z.output<typeof AwsSagemakerPipelineInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sagemaker_pipeline
 
-export function AwsSagemakerPipeline(props: Partial<InputProps>) {
+export function AwsSagemakerPipeline(
+  props: Partial<AwsSagemakerPipelineInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -58,8 +60,8 @@ export function AwsSagemakerPipeline(props: Partial<InputProps>) {
       _type='aws_sagemaker_pipeline'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSagemakerPipelineInputSchema}
+      _outputSchema={AwsSagemakerPipelineOutputSchema}
       {...props}
     />
   )
@@ -70,11 +72,21 @@ export const useAwsSagemakerPipeline = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSagemakerPipeline, idFilter, baseNode, optional)
+  useTypedNode<AwsSagemakerPipelineOutputProps>(
+    AwsSagemakerPipeline,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSagemakerPipelines = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSagemakerPipeline, idFilter, baseNode, optional)
+  useTypedNodes<AwsSagemakerPipelineOutputProps>(
+    AwsSagemakerPipeline,
+    idFilter,
+    baseNode,
+    optional,
+  )

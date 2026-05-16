@@ -9,27 +9,28 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  address_family: resolvableValue(z.string()),
-  bgp_asn: resolvableValue(z.number()),
-  connection_id: resolvableValue(z.string()),
-  name: resolvableValue(z.string()),
-  owner_account_id: resolvableValue(z.string()),
-  vlan: resolvableValue(z.number()),
-  amazon_address: resolvableValue(z.string().optional()),
-  bgp_auth_key: resolvableValue(z.string().optional()),
-  customer_address: resolvableValue(z.string().optional()),
-  mtu: resolvableValue(z.number().optional()),
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsDxHostedPrivateVirtualInterfaceInputSchema = TfMetaSchema
+  .extend({
+    address_family: resolvableValue(z.string()),
+    bgp_asn: resolvableValue(z.number()),
+    connection_id: resolvableValue(z.string()),
+    name: resolvableValue(z.string()),
+    owner_account_id: resolvableValue(z.string()),
+    vlan: resolvableValue(z.number()),
+    amazon_address: resolvableValue(z.string().optional()),
+    bgp_auth_key: resolvableValue(z.string().optional()),
+    customer_address: resolvableValue(z.string().optional()),
+    mtu: resolvableValue(z.number().optional()),
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsDxHostedPrivateVirtualInterfaceOutputSchema = z.object({
   amazon_side_asn: z.string().optional(),
   arn: z.string().optional(),
   aws_device: z.string().optional(),
@@ -37,18 +38,20 @@ export const OutputSchema = z.object({
   jumbo_frame_capable: z.boolean().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDxHostedPrivateVirtualInterfaceInputProps =
+  & z.input<typeof AwsDxHostedPrivateVirtualInterfaceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDxHostedPrivateVirtualInterfaceOutputProps =
+  & z.output<typeof AwsDxHostedPrivateVirtualInterfaceOutputSchema>
+  & z.output<typeof AwsDxHostedPrivateVirtualInterfaceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dx_hosted_private_virtual_interface
 
-export function AwsDxHostedPrivateVirtualInterface(props: Partial<InputProps>) {
+export function AwsDxHostedPrivateVirtualInterface(
+  props: Partial<AwsDxHostedPrivateVirtualInterfaceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -58,8 +61,8 @@ export function AwsDxHostedPrivateVirtualInterface(props: Partial<InputProps>) {
       _type='aws_dx_hosted_private_virtual_interface'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDxHostedPrivateVirtualInterfaceInputSchema}
+      _outputSchema={AwsDxHostedPrivateVirtualInterfaceOutputSchema}
       {...props}
     />
   )
@@ -70,7 +73,7 @@ export const useAwsDxHostedPrivateVirtualInterface = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDxHostedPrivateVirtualInterfaceOutputProps>(
     AwsDxHostedPrivateVirtualInterface,
     idFilter,
     baseNode,
@@ -82,7 +85,7 @@ export const useAwsDxHostedPrivateVirtualInterfaces = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDxHostedPrivateVirtualInterfaceOutputProps>(
     AwsDxHostedPrivateVirtualInterface,
     idFilter,
     baseNode,

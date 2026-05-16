@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudwatchCompositeAlarmInputSchema = TfMetaSchema.extend({
   alarm_name: resolvableValue(z.string()),
   alarm_rule: resolvableValue(z.string()),
   actions_enabled: resolvableValue(z.boolean().optional()),
@@ -28,24 +28,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudwatchCompositeAlarmOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudwatchCompositeAlarmInputProps =
+  & z.input<typeof AwsCloudwatchCompositeAlarmInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudwatchCompositeAlarmOutputProps =
+  & z.output<typeof AwsCloudwatchCompositeAlarmOutputSchema>
+  & z.output<typeof AwsCloudwatchCompositeAlarmInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudwatch_composite_alarm
 
-export function AwsCloudwatchCompositeAlarm(props: Partial<InputProps>) {
+export function AwsCloudwatchCompositeAlarm(
+  props: Partial<AwsCloudwatchCompositeAlarmInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,8 +57,8 @@ export function AwsCloudwatchCompositeAlarm(props: Partial<InputProps>) {
       _type='aws_cloudwatch_composite_alarm'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudwatchCompositeAlarmInputSchema}
+      _outputSchema={AwsCloudwatchCompositeAlarmOutputSchema}
       {...props}
     />
   )
@@ -67,7 +69,7 @@ export const useAwsCloudwatchCompositeAlarm = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudwatchCompositeAlarmOutputProps>(
     AwsCloudwatchCompositeAlarm,
     idFilter,
     baseNode,
@@ -79,7 +81,7 @@ export const useAwsCloudwatchCompositeAlarms = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudwatchCompositeAlarmOutputProps>(
     AwsCloudwatchCompositeAlarm,
     idFilter,
     baseNode,

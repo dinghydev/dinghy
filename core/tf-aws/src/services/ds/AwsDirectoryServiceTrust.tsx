@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDirectoryServiceTrustInputSchema = TfMetaSchema.extend({
   directory_id: resolvableValue(z.string()),
   remote_domain_name: resolvableValue(z.string()),
   trust_direction: resolvableValue(z.string()),
@@ -25,7 +25,7 @@ export const InputSchema = TfMetaSchema.extend({
   trust_type: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDirectoryServiceTrustOutputSchema = z.object({
   created_date_time: z.string().optional(),
   id: z.string().optional(),
   last_updated_date_time: z.string().optional(),
@@ -34,18 +34,20 @@ export const OutputSchema = z.object({
   trust_state_reason: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDirectoryServiceTrustInputProps =
+  & z.input<typeof AwsDirectoryServiceTrustInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDirectoryServiceTrustOutputProps =
+  & z.output<typeof AwsDirectoryServiceTrustOutputSchema>
+  & z.output<typeof AwsDirectoryServiceTrustInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/directory_service_trust
 
-export function AwsDirectoryServiceTrust(props: Partial<InputProps>) {
+export function AwsDirectoryServiceTrust(
+  props: Partial<AwsDirectoryServiceTrustInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,8 +57,8 @@ export function AwsDirectoryServiceTrust(props: Partial<InputProps>) {
       _type='aws_directory_service_trust'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDirectoryServiceTrustInputSchema}
+      _outputSchema={AwsDirectoryServiceTrustOutputSchema}
       {...props}
     />
   )
@@ -67,7 +69,7 @@ export const useAwsDirectoryServiceTrust = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDirectoryServiceTrustOutputProps>(
     AwsDirectoryServiceTrust,
     idFilter,
     baseNode,
@@ -79,7 +81,7 @@ export const useAwsDirectoryServiceTrusts = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDirectoryServiceTrustOutputProps>(
     AwsDirectoryServiceTrust,
     idFilter,
     baseNode,

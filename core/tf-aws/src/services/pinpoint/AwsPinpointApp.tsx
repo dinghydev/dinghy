@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsPinpointAppInputSchema = TfMetaSchema.extend({
   campaign_hook: resolvableValue(
     z.object({
       lambda_function_name: z.string().optional(),
@@ -38,24 +38,24 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsPinpointAppOutputSchema = z.object({
   application_id: z.string().optional(),
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsPinpointAppInputProps =
+  & z.input<typeof AwsPinpointAppInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsPinpointAppOutputProps =
+  & z.output<typeof AwsPinpointAppOutputSchema>
+  & z.output<typeof AwsPinpointAppInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/pinpoint_app
 
-export function AwsPinpointApp(props: Partial<InputProps>) {
+export function AwsPinpointApp(props: Partial<AwsPinpointAppInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -65,8 +65,8 @@ export function AwsPinpointApp(props: Partial<InputProps>) {
       _type='aws_pinpoint_app'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsPinpointAppInputSchema}
+      _outputSchema={AwsPinpointAppOutputSchema}
       {...props}
     />
   )
@@ -76,10 +76,22 @@ export const useAwsPinpointApp = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsPinpointApp, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsPinpointAppOutputProps>(
+    AwsPinpointApp,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsPinpointApps = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsPinpointApp, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsPinpointAppOutputProps>(
+    AwsPinpointApp,
+    idFilter,
+    baseNode,
+    optional,
+  )

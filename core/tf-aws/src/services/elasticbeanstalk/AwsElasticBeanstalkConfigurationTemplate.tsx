@@ -9,39 +9,40 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  application: resolvableValue(z.string()),
-  name: resolvableValue(z.string()),
-  description: resolvableValue(z.string().optional()),
-  environment_id: resolvableValue(z.string().optional()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  setting: resolvableValue(
-    z.object({
-      name: z.string(),
-      namespace: z.string(),
-      resource: z.string().optional(),
-      value: z.string(),
-    }).array().optional(),
-  ),
-  solution_stack_name: resolvableValue(z.string().optional()),
-})
+export const AwsElasticBeanstalkConfigurationTemplateInputSchema = TfMetaSchema
+  .extend({
+    application: resolvableValue(z.string()),
+    name: resolvableValue(z.string()),
+    description: resolvableValue(z.string().optional()),
+    environment_id: resolvableValue(z.string().optional()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    setting: resolvableValue(
+      z.object({
+        name: z.string(),
+        namespace: z.string(),
+        resource: z.string().optional(),
+        value: z.string(),
+      }).array().optional(),
+    ),
+    solution_stack_name: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({})
+export const AwsElasticBeanstalkConfigurationTemplateOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsElasticBeanstalkConfigurationTemplateInputProps =
+  & z.input<typeof AwsElasticBeanstalkConfigurationTemplateInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsElasticBeanstalkConfigurationTemplateOutputProps =
+  & z.output<typeof AwsElasticBeanstalkConfigurationTemplateOutputSchema>
+  & z.output<typeof AwsElasticBeanstalkConfigurationTemplateInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/elastic_beanstalk_configuration_template
 
 export function AwsElasticBeanstalkConfigurationTemplate(
-  props: Partial<InputProps>,
+  props: Partial<AwsElasticBeanstalkConfigurationTemplateInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -52,8 +53,8 @@ export function AwsElasticBeanstalkConfigurationTemplate(
       _type='aws_elastic_beanstalk_configuration_template'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsElasticBeanstalkConfigurationTemplateInputSchema}
+      _outputSchema={AwsElasticBeanstalkConfigurationTemplateOutputSchema}
       {...props}
     />
   )
@@ -64,7 +65,7 @@ export const useAwsElasticBeanstalkConfigurationTemplate = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsElasticBeanstalkConfigurationTemplateOutputProps>(
     AwsElasticBeanstalkConfigurationTemplate,
     idFilter,
     baseNode,
@@ -76,7 +77,7 @@ export const useAwsElasticBeanstalkConfigurationTemplates = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsElasticBeanstalkConfigurationTemplateOutputProps>(
     AwsElasticBeanstalkConfigurationTemplate,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEbsSnapshotCopyInputSchema = TfMetaSchema.extend({
   source_region: resolvableValue(z.string()),
   source_snapshot_id: resolvableValue(z.string()),
   completion_duration_minutes: resolvableValue(z.number().optional()),
@@ -29,7 +29,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsEbsSnapshotCopyOutputSchema = z.object({
   arn: z.string().optional(),
   data_encryption_key_id: z.string().optional(),
   id: z.string().optional(),
@@ -41,18 +41,20 @@ export const OutputSchema = z.object({
   volume_size: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEbsSnapshotCopyInputProps =
+  & z.input<typeof AwsEbsSnapshotCopyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEbsSnapshotCopyOutputProps =
+  & z.output<typeof AwsEbsSnapshotCopyOutputSchema>
+  & z.output<typeof AwsEbsSnapshotCopyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ebs_snapshot_copy
 
-export function AwsEbsSnapshotCopy(props: Partial<InputProps>) {
+export function AwsEbsSnapshotCopy(
+  props: Partial<AwsEbsSnapshotCopyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -62,8 +64,8 @@ export function AwsEbsSnapshotCopy(props: Partial<InputProps>) {
       _type='aws_ebs_snapshot_copy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEbsSnapshotCopyInputSchema}
+      _outputSchema={AwsEbsSnapshotCopyOutputSchema}
       {...props}
     />
   )
@@ -73,11 +75,22 @@ export const useAwsEbsSnapshotCopy = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsEbsSnapshotCopy, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsEbsSnapshotCopyOutputProps>(
+    AwsEbsSnapshotCopy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEbsSnapshotCopys = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsEbsSnapshotCopy, idFilter, baseNode, optional)
+  useTypedNodes<AwsEbsSnapshotCopyOutputProps>(
+    AwsEbsSnapshotCopy,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsBedrockCustomModelInputSchema = TfMetaSchema.extend({
   base_model_identifier: resolvableValue(z.string()),
   custom_model_name: resolvableValue(z.string()),
   hyperparameters: resolvableValue(z.record(z.string(), z.string())),
@@ -50,7 +50,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsBedrockCustomModelOutputSchema = z.object({
   custom_model_arn: z.string().optional(),
   id: z.string().optional(),
   job_arn: z.string().optional(),
@@ -64,23 +64,25 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsBedrockCustomModelImportSchema = z.object({
   job_arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsBedrockCustomModelInputProps =
+  & z.input<typeof AwsBedrockCustomModelInputSchema>
+  & z.input<typeof AwsBedrockCustomModelImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsBedrockCustomModelOutputProps =
+  & z.output<typeof AwsBedrockCustomModelOutputSchema>
+  & z.output<typeof AwsBedrockCustomModelInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/bedrock_custom_model
 
-export function AwsBedrockCustomModel(props: Partial<InputProps>) {
+export function AwsBedrockCustomModel(
+  props: Partial<AwsBedrockCustomModelInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -90,9 +92,9 @@ export function AwsBedrockCustomModel(props: Partial<InputProps>) {
       _type='aws_bedrock_custom_model'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsBedrockCustomModelInputSchema}
+      _outputSchema={AwsBedrockCustomModelOutputSchema}
+      _importSchema={AwsBedrockCustomModelImportSchema}
       {...props}
     />
   )
@@ -103,14 +105,19 @@ export const useAwsBedrockCustomModel = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsBedrockCustomModel, idFilter, baseNode, optional)
+  useTypedNode<AwsBedrockCustomModelOutputProps>(
+    AwsBedrockCustomModel,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsBedrockCustomModels = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsBedrockCustomModelOutputProps>(
     AwsBedrockCustomModel,
     idFilter,
     baseNode,

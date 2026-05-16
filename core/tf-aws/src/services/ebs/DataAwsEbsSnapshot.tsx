@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsEbsSnapshot } from './AwsEbsSnapshot.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsEbsSnapshotInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -28,7 +28,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsEbsSnapshotOutputSchema = z.object({
   arn: z.string().optional(),
   data_encryption_key_id: z.string().optional(),
   description: z.string().optional(),
@@ -47,18 +47,20 @@ export const OutputSchema = z.object({
   volume_size: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEbsSnapshotInputProps =
+  & z.input<typeof DataAwsEbsSnapshotInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEbsSnapshotOutputProps =
+  & z.output<typeof DataAwsEbsSnapshotOutputSchema>
+  & z.output<typeof DataAwsEbsSnapshotInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ebs_snapshot
 
-export function DataAwsEbsSnapshot(props: Partial<InputProps>) {
+export function DataAwsEbsSnapshot(
+  props: Partial<DataAwsEbsSnapshotInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -68,8 +70,8 @@ export function DataAwsEbsSnapshot(props: Partial<InputProps>) {
       _type='aws_ebs_snapshot'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEbsSnapshotInputSchema}
+      _outputSchema={DataAwsEbsSnapshotOutputSchema}
       {...props as any}
     />
   )
@@ -79,11 +81,22 @@ export const useDataAwsEbsSnapshot = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsEbsSnapshot, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsEbsSnapshotOutputProps>(
+    DataAwsEbsSnapshot,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsEbsSnapshots = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsEbsSnapshot, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsEbsSnapshotOutputProps>(
+    DataAwsEbsSnapshot,
+    idFilter,
+    baseNode,
+    optional,
+  )

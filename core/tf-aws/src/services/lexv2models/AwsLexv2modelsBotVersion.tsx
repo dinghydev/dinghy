@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLexv2modelsBotVersionInputSchema = TfMetaSchema.extend({
   bot_id: resolvableValue(z.string()),
   locale_specification: resolvableValue(z.record(
     z.string(),
@@ -27,23 +27,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsLexv2modelsBotVersionOutputSchema = z.object({
   bot_version: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLexv2modelsBotVersionInputProps =
+  & z.input<typeof AwsLexv2modelsBotVersionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLexv2modelsBotVersionOutputProps =
+  & z.output<typeof AwsLexv2modelsBotVersionOutputSchema>
+  & z.output<typeof AwsLexv2modelsBotVersionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lexv2models_bot_version
 
-export function AwsLexv2modelsBotVersion(props: Partial<InputProps>) {
+export function AwsLexv2modelsBotVersion(
+  props: Partial<AwsLexv2modelsBotVersionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,8 +55,8 @@ export function AwsLexv2modelsBotVersion(props: Partial<InputProps>) {
       _type='aws_lexv2models_bot_version'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLexv2modelsBotVersionInputSchema}
+      _outputSchema={AwsLexv2modelsBotVersionOutputSchema}
       {...props}
     />
   )
@@ -65,7 +67,7 @@ export const useAwsLexv2modelsBotVersion = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsLexv2modelsBotVersionOutputProps>(
     AwsLexv2modelsBotVersion,
     idFilter,
     baseNode,
@@ -77,7 +79,7 @@ export const useAwsLexv2modelsBotVersions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsLexv2modelsBotVersionOutputProps>(
     AwsLexv2modelsBotVersion,
     idFilter,
     baseNode,

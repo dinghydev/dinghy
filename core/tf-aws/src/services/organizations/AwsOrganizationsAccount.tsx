@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsOrganizationsAccountInputSchema = TfMetaSchema.extend({
   email: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   close_on_deletion: resolvableValue(z.boolean().optional()),
@@ -27,7 +27,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsOrganizationsAccountOutputSchema = z.object({
   arn: z.string().optional(),
   govcloud_id: z.string().optional(),
   id: z.string().optional(),
@@ -38,24 +38,26 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsOrganizationsAccountImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsOrganizationsAccountInputProps =
+  & z.input<typeof AwsOrganizationsAccountInputSchema>
+  & z.input<typeof AwsOrganizationsAccountImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsOrganizationsAccountOutputProps =
+  & z.output<typeof AwsOrganizationsAccountOutputSchema>
+  & z.output<typeof AwsOrganizationsAccountInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/organizations_account
 
-export function AwsOrganizationsAccount(props: Partial<InputProps>) {
+export function AwsOrganizationsAccount(
+  props: Partial<AwsOrganizationsAccountInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -65,9 +67,9 @@ export function AwsOrganizationsAccount(props: Partial<InputProps>) {
       _type='aws_organizations_account'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsOrganizationsAccountInputSchema}
+      _outputSchema={AwsOrganizationsAccountOutputSchema}
+      _importSchema={AwsOrganizationsAccountImportSchema}
       {...props}
     />
   )
@@ -78,7 +80,7 @@ export const useAwsOrganizationsAccount = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsOrganizationsAccountOutputProps>(
     AwsOrganizationsAccount,
     idFilter,
     baseNode,
@@ -90,7 +92,7 @@ export const useAwsOrganizationsAccounts = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsOrganizationsAccountOutputProps>(
     AwsOrganizationsAccount,
     idFilter,
     baseNode,

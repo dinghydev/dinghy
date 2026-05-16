@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsS3BucketMetadataConfigurationInputSchema = TfMetaSchema.extend({
   bucket: resolvableValue(z.string()),
   expected_bucket_owner: resolvableValue(z.string().optional()),
   metadata_configuration: resolvableValue(
@@ -50,27 +50,29 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({})
+export const AwsS3BucketMetadataConfigurationOutputSchema = z.object({})
 
-export const ImportSchema = z.object({
+export const AwsS3BucketMetadataConfigurationImportSchema = z.object({
   bucket: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsS3BucketMetadataConfigurationInputProps =
+  & z.input<typeof AwsS3BucketMetadataConfigurationInputSchema>
+  & z.input<typeof AwsS3BucketMetadataConfigurationImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3BucketMetadataConfigurationOutputProps =
+  & z.output<typeof AwsS3BucketMetadataConfigurationOutputSchema>
+  & z.output<typeof AwsS3BucketMetadataConfigurationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3_bucket_metadata_configuration
 
-export function AwsS3BucketMetadataConfiguration(props: Partial<InputProps>) {
+export function AwsS3BucketMetadataConfiguration(
+  props: Partial<AwsS3BucketMetadataConfigurationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -80,9 +82,9 @@ export function AwsS3BucketMetadataConfiguration(props: Partial<InputProps>) {
       _type='aws_s3_bucket_metadata_configuration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsS3BucketMetadataConfigurationInputSchema}
+      _outputSchema={AwsS3BucketMetadataConfigurationOutputSchema}
+      _importSchema={AwsS3BucketMetadataConfigurationImportSchema}
       {...props}
     />
   )
@@ -93,7 +95,7 @@ export const useAwsS3BucketMetadataConfiguration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsS3BucketMetadataConfigurationOutputProps>(
     AwsS3BucketMetadataConfiguration,
     idFilter,
     baseNode,
@@ -105,7 +107,7 @@ export const useAwsS3BucketMetadataConfigurations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsS3BucketMetadataConfigurationOutputProps>(
     AwsS3BucketMetadataConfiguration,
     idFilter,
     baseNode,

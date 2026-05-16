@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAmiCopyInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   source_ami_id: resolvableValue(z.string()),
   source_ami_region: resolvableValue(z.string()),
@@ -49,7 +49,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsAmiCopyOutputSchema = z.object({
   architecture: z.string().optional(),
   arn: z.string().optional(),
   boot_mode: z.string().optional(),
@@ -77,18 +77,18 @@ export const OutputSchema = z.object({
   virtualization_type: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAmiCopyInputProps =
+  & z.input<typeof AwsAmiCopyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAmiCopyOutputProps =
+  & z.output<typeof AwsAmiCopyOutputSchema>
+  & z.output<typeof AwsAmiCopyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ami_copy
 
-export function AwsAmiCopy(props: Partial<InputProps>) {
+export function AwsAmiCopy(props: Partial<AwsAmiCopyInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -98,8 +98,8 @@ export function AwsAmiCopy(props: Partial<InputProps>) {
       _type='aws_ami_copy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAmiCopyInputSchema}
+      _outputSchema={AwsAmiCopyOutputSchema}
       {...props}
     />
   )
@@ -109,10 +109,12 @@ export const useAwsAmiCopy = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsAmiCopy, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsAmiCopyOutputProps>(AwsAmiCopy, idFilter, baseNode, optional)
 
 export const useAwsAmiCopys = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsAmiCopy, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsAmiCopyOutputProps>(AwsAmiCopy, idFilter, baseNode, optional)

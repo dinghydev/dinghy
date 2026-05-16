@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDevicefarmNetworkProfileInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   project_arn: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
@@ -27,28 +27,30 @@ export const InputSchema = TfMetaSchema.extend({
   uplink_loss_percent: resolvableValue(z.number().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDevicefarmNetworkProfileOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsDevicefarmNetworkProfileImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsDevicefarmNetworkProfileInputProps =
+  & z.input<typeof AwsDevicefarmNetworkProfileInputSchema>
+  & z.input<typeof AwsDevicefarmNetworkProfileImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDevicefarmNetworkProfileOutputProps =
+  & z.output<typeof AwsDevicefarmNetworkProfileOutputSchema>
+  & z.output<typeof AwsDevicefarmNetworkProfileInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/devicefarm_network_profile
 
-export function AwsDevicefarmNetworkProfile(props: Partial<InputProps>) {
+export function AwsDevicefarmNetworkProfile(
+  props: Partial<AwsDevicefarmNetworkProfileInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -58,9 +60,9 @@ export function AwsDevicefarmNetworkProfile(props: Partial<InputProps>) {
       _type='aws_devicefarm_network_profile'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsDevicefarmNetworkProfileInputSchema}
+      _outputSchema={AwsDevicefarmNetworkProfileOutputSchema}
+      _importSchema={AwsDevicefarmNetworkProfileImportSchema}
       {...props}
     />
   )
@@ -71,7 +73,7 @@ export const useAwsDevicefarmNetworkProfile = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDevicefarmNetworkProfileOutputProps>(
     AwsDevicefarmNetworkProfile,
     idFilter,
     baseNode,
@@ -83,7 +85,7 @@ export const useAwsDevicefarmNetworkProfiles = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDevicefarmNetworkProfileOutputProps>(
     AwsDevicefarmNetworkProfile,
     idFilter,
     baseNode,

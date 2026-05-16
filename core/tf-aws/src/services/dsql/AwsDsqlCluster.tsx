@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDsqlClusterInputSchema = TfMetaSchema.extend({
   deletion_protection_enabled: resolvableValue(z.boolean().optional()),
   force_destroy: resolvableValue(z.boolean().optional()),
   kms_encryption_key: resolvableValue(z.string().optional()),
@@ -30,7 +30,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDsqlClusterOutputSchema = z.object({
   arn: z.string().optional(),
   encryption_details: z.object({
     encryption_status: z.string(),
@@ -45,18 +45,18 @@ export const OutputSchema = z.object({
   vpc_endpoint_service_name: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDsqlClusterInputProps =
+  & z.input<typeof AwsDsqlClusterInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDsqlClusterOutputProps =
+  & z.output<typeof AwsDsqlClusterOutputSchema>
+  & z.output<typeof AwsDsqlClusterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dsql_cluster
 
-export function AwsDsqlCluster(props: Partial<InputProps>) {
+export function AwsDsqlCluster(props: Partial<AwsDsqlClusterInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -66,8 +66,8 @@ export function AwsDsqlCluster(props: Partial<InputProps>) {
       _type='aws_dsql_cluster'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDsqlClusterInputSchema}
+      _outputSchema={AwsDsqlClusterOutputSchema}
       {...props}
     />
   )
@@ -77,10 +77,22 @@ export const useAwsDsqlCluster = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsDsqlCluster, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsDsqlClusterOutputProps>(
+    AwsDsqlCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDsqlClusters = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsDsqlCluster, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsDsqlClusterOutputProps>(
+    AwsDsqlCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsS3filesMountTargetInputSchema = TfMetaSchema.extend({
   file_system_id: resolvableValue(z.string()),
   subnet_id: resolvableValue(z.string()),
   ip_address_type: resolvableValue(z.string().optional()),
@@ -26,7 +26,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsS3filesMountTargetOutputSchema = z.object({
   availability_zone_id: z.string().optional(),
   id: z.string().optional(),
   network_interface_id: z.string().optional(),
@@ -36,25 +36,27 @@ export const OutputSchema = z.object({
   vpc_id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsS3filesMountTargetImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsS3filesMountTargetInputProps =
+  & z.input<typeof AwsS3filesMountTargetInputSchema>
+  & z.input<typeof AwsS3filesMountTargetImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3filesMountTargetOutputProps =
+  & z.output<typeof AwsS3filesMountTargetOutputSchema>
+  & z.output<typeof AwsS3filesMountTargetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3files_mount_target
 
-export function AwsS3filesMountTarget(props: Partial<InputProps>) {
+export function AwsS3filesMountTarget(
+  props: Partial<AwsS3filesMountTargetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -64,9 +66,9 @@ export function AwsS3filesMountTarget(props: Partial<InputProps>) {
       _type='aws_s3files_mount_target'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsS3filesMountTargetInputSchema}
+      _outputSchema={AwsS3filesMountTargetOutputSchema}
+      _importSchema={AwsS3filesMountTargetImportSchema}
       {...props}
     />
   )
@@ -77,14 +79,19 @@ export const useAwsS3filesMountTarget = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsS3filesMountTarget, idFilter, baseNode, optional)
+  useTypedNode<AwsS3filesMountTargetOutputProps>(
+    AwsS3filesMountTarget,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsS3filesMountTargets = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsS3filesMountTargetOutputProps>(
     AwsS3filesMountTarget,
     idFilter,
     baseNode,

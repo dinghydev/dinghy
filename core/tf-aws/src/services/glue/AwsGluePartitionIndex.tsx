@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsGluePartitionIndexInputSchema = TfMetaSchema.extend({
   database_name: resolvableValue(z.string()),
   partition_index: resolvableValue(z.object({
     index_name: z.string().optional(),
@@ -27,22 +27,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsGluePartitionIndexOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsGluePartitionIndexInputProps =
+  & z.input<typeof AwsGluePartitionIndexInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsGluePartitionIndexOutputProps =
+  & z.output<typeof AwsGluePartitionIndexOutputSchema>
+  & z.output<typeof AwsGluePartitionIndexInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/glue_partition_index
 
-export function AwsGluePartitionIndex(props: Partial<InputProps>) {
+export function AwsGluePartitionIndex(
+  props: Partial<AwsGluePartitionIndexInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,8 +54,8 @@ export function AwsGluePartitionIndex(props: Partial<InputProps>) {
       _type='aws_glue_partition_index'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsGluePartitionIndexInputSchema}
+      _outputSchema={AwsGluePartitionIndexOutputSchema}
       {...props}
     />
   )
@@ -64,14 +66,19 @@ export const useAwsGluePartitionIndex = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsGluePartitionIndex, idFilter, baseNode, optional)
+  useTypedNode<AwsGluePartitionIndexOutputProps>(
+    AwsGluePartitionIndex,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsGluePartitionIndexs = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsGluePartitionIndexOutputProps>(
     AwsGluePartitionIndex,
     idFilter,
     baseNode,

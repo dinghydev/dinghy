@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIotDomainConfigurationInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   application_protocol: resolvableValue(z.string().optional()),
   authentication_type: resolvableValue(z.string().optional()),
@@ -33,25 +33,27 @@ export const InputSchema = TfMetaSchema.extend({
   validation_certificate_arn: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsIotDomainConfigurationOutputSchema = z.object({
   arn: z.string().optional(),
   domain_type: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsIotDomainConfigurationInputProps =
+  & z.input<typeof AwsIotDomainConfigurationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIotDomainConfigurationOutputProps =
+  & z.output<typeof AwsIotDomainConfigurationOutputSchema>
+  & z.output<typeof AwsIotDomainConfigurationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iot_domain_configuration
 
-export function AwsIotDomainConfiguration(props: Partial<InputProps>) {
+export function AwsIotDomainConfiguration(
+  props: Partial<AwsIotDomainConfigurationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -61,8 +63,8 @@ export function AwsIotDomainConfiguration(props: Partial<InputProps>) {
       _type='aws_iot_domain_configuration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsIotDomainConfigurationInputSchema}
+      _outputSchema={AwsIotDomainConfigurationOutputSchema}
       {...props}
     />
   )
@@ -73,7 +75,7 @@ export const useAwsIotDomainConfiguration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsIotDomainConfigurationOutputProps>(
     AwsIotDomainConfiguration,
     idFilter,
     baseNode,
@@ -85,7 +87,7 @@ export const useAwsIotDomainConfigurations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsIotDomainConfigurationOutputProps>(
     AwsIotDomainConfiguration,
     idFilter,
     baseNode,

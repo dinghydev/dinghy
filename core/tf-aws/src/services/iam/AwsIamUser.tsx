@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIamUserInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   force_destroy: resolvableValue(z.boolean().optional()),
   path: resolvableValue(z.string().optional()),
@@ -17,7 +17,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsIamUserOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   name: z.string().optional(),
@@ -25,24 +25,24 @@ export const OutputSchema = z.object({
   unique_id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsIamUserImportSchema = z.object({
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsIamUserInputProps =
+  & z.input<typeof AwsIamUserInputSchema>
+  & z.input<typeof AwsIamUserImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIamUserOutputProps =
+  & z.output<typeof AwsIamUserOutputSchema>
+  & z.output<typeof AwsIamUserInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iam_user
 
-export function AwsIamUser(props: Partial<InputProps>) {
+export function AwsIamUser(props: Partial<AwsIamUserInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,9 +52,9 @@ export function AwsIamUser(props: Partial<InputProps>) {
       _type='aws_iam_user'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsIamUserInputSchema}
+      _outputSchema={AwsIamUserOutputSchema}
+      _importSchema={AwsIamUserImportSchema}
       {...props}
     />
   )
@@ -64,10 +64,12 @@ export const useAwsIamUser = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsIamUser, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsIamUserOutputProps>(AwsIamUser, idFilter, baseNode, optional)
 
 export const useAwsIamUsers = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsIamUser, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsIamUserOutputProps>(AwsIamUser, idFilter, baseNode, optional)

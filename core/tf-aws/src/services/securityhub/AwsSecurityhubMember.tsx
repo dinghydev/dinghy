@@ -9,38 +9,40 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSecurityhubMemberInputSchema = TfMetaSchema.extend({
   account_id: resolvableValue(z.string()),
   email: resolvableValue(z.string().optional()),
   invite: resolvableValue(z.boolean().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSecurityhubMemberOutputSchema = z.object({
   id: z.string().optional(),
   master_id: z.string().optional(),
   member_status: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSecurityhubMemberImportSchema = z.object({
   member_account_id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSecurityhubMemberInputProps =
+  & z.input<typeof AwsSecurityhubMemberInputSchema>
+  & z.input<typeof AwsSecurityhubMemberImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSecurityhubMemberOutputProps =
+  & z.output<typeof AwsSecurityhubMemberOutputSchema>
+  & z.output<typeof AwsSecurityhubMemberInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/securityhub_member
 
-export function AwsSecurityhubMember(props: Partial<InputProps>) {
+export function AwsSecurityhubMember(
+  props: Partial<AwsSecurityhubMemberInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -50,9 +52,9 @@ export function AwsSecurityhubMember(props: Partial<InputProps>) {
       _type='aws_securityhub_member'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSecurityhubMemberInputSchema}
+      _outputSchema={AwsSecurityhubMemberOutputSchema}
+      _importSchema={AwsSecurityhubMemberImportSchema}
       {...props}
     />
   )
@@ -63,11 +65,21 @@ export const useAwsSecurityhubMember = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSecurityhubMember, idFilter, baseNode, optional)
+  useTypedNode<AwsSecurityhubMemberOutputProps>(
+    AwsSecurityhubMember,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSecurityhubMembers = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSecurityhubMember, idFilter, baseNode, optional)
+  useTypedNodes<AwsSecurityhubMemberOutputProps>(
+    AwsSecurityhubMember,
+    idFilter,
+    baseNode,
+    optional,
+  )

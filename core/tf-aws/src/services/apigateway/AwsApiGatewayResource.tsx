@@ -9,38 +9,40 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsApiGatewayResourceInputSchema = TfMetaSchema.extend({
   parent_id: resolvableValue(z.string()),
   path_part: resolvableValue(z.string()),
   rest_api_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsApiGatewayResourceOutputSchema = z.object({
   id: z.string().optional(),
   path: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsApiGatewayResourceImportSchema = z.object({
   id: resolvableValue(z.string()),
   rest_api_id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsApiGatewayResourceInputProps =
+  & z.input<typeof AwsApiGatewayResourceInputSchema>
+  & z.input<typeof AwsApiGatewayResourceImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApiGatewayResourceOutputProps =
+  & z.output<typeof AwsApiGatewayResourceOutputSchema>
+  & z.output<typeof AwsApiGatewayResourceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/api_gateway_resource
 
-export function AwsApiGatewayResource(props: Partial<InputProps>) {
+export function AwsApiGatewayResource(
+  props: Partial<AwsApiGatewayResourceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -50,9 +52,9 @@ export function AwsApiGatewayResource(props: Partial<InputProps>) {
       _type='aws_api_gateway_resource'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsApiGatewayResourceInputSchema}
+      _outputSchema={AwsApiGatewayResourceOutputSchema}
+      _importSchema={AwsApiGatewayResourceImportSchema}
       {...props}
     />
   )
@@ -63,14 +65,19 @@ export const useAwsApiGatewayResource = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsApiGatewayResource, idFilter, baseNode, optional)
+  useTypedNode<AwsApiGatewayResourceOutputProps>(
+    AwsApiGatewayResource,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsApiGatewayResources = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsApiGatewayResourceOutputProps>(
     AwsApiGatewayResource,
     idFilter,
     baseNode,

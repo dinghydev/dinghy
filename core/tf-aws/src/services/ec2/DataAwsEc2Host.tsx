@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsEc2Host } from './AwsEc2Host.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsEc2HostInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -26,7 +26,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsEc2HostOutputSchema = z.object({
   arn: z.string().optional(),
   asset_id: z.string().optional(),
   auto_placement: z.string().optional(),
@@ -42,18 +42,18 @@ export const OutputSchema = z.object({
   total_vcpus: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEc2HostInputProps =
+  & z.input<typeof DataAwsEc2HostInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEc2HostOutputProps =
+  & z.output<typeof DataAwsEc2HostOutputSchema>
+  & z.output<typeof DataAwsEc2HostInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ec2_host
 
-export function DataAwsEc2Host(props: Partial<InputProps>) {
+export function DataAwsEc2Host(props: Partial<DataAwsEc2HostInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -63,8 +63,8 @@ export function DataAwsEc2Host(props: Partial<InputProps>) {
       _type='aws_ec2_host'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEc2HostInputSchema}
+      _outputSchema={DataAwsEc2HostOutputSchema}
       {...props as any}
     />
   )
@@ -74,10 +74,22 @@ export const useDataAwsEc2Host = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsEc2Host, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsEc2HostOutputProps>(
+    DataAwsEc2Host,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsEc2Hosts = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsEc2Host, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsEc2HostOutputProps>(
+    DataAwsEc2Host,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,28 +9,30 @@ import {
 import z from 'zod'
 import { AwsVpclatticeResourcePolicy } from './AwsVpclatticeResourcePolicy.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsVpclatticeResourcePolicyInputSchema = TfMetaSchema.extend({
   resource_arn: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsVpclatticeResourcePolicyOutputSchema = z.object({
   policy: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsVpclatticeResourcePolicyInputProps =
+  & z.input<typeof DataAwsVpclatticeResourcePolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsVpclatticeResourcePolicyOutputProps =
+  & z.output<typeof DataAwsVpclatticeResourcePolicyOutputSchema>
+  & z.output<typeof DataAwsVpclatticeResourcePolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/vpclattice_resource_policy
 
-export function DataAwsVpclatticeResourcePolicy(props: Partial<InputProps>) {
+export function DataAwsVpclatticeResourcePolicy(
+  props: Partial<DataAwsVpclatticeResourcePolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function DataAwsVpclatticeResourcePolicy(props: Partial<InputProps>) {
       _type='aws_vpclattice_resource_policy'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsVpclatticeResourcePolicyInputSchema}
+      _outputSchema={DataAwsVpclatticeResourcePolicyOutputSchema}
       {...props as any}
     />
   )
@@ -52,7 +54,7 @@ export const useDataAwsVpclatticeResourcePolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsVpclatticeResourcePolicyOutputProps>(
     DataAwsVpclatticeResourcePolicy,
     idFilter,
     baseNode,
@@ -64,7 +66,7 @@ export const useDataAwsVpclatticeResourcePolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsVpclatticeResourcePolicyOutputProps>(
     DataAwsVpclatticeResourcePolicy,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsChimeVoiceConnectorGroupInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   connector: resolvableValue(
     z.object({
@@ -20,22 +20,24 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsChimeVoiceConnectorGroupOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsChimeVoiceConnectorGroupInputProps =
+  & z.input<typeof AwsChimeVoiceConnectorGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsChimeVoiceConnectorGroupOutputProps =
+  & z.output<typeof AwsChimeVoiceConnectorGroupOutputSchema>
+  & z.output<typeof AwsChimeVoiceConnectorGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/chime_voice_connector_group
 
-export function AwsChimeVoiceConnectorGroup(props: Partial<InputProps>) {
+export function AwsChimeVoiceConnectorGroup(
+  props: Partial<AwsChimeVoiceConnectorGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,8 +47,8 @@ export function AwsChimeVoiceConnectorGroup(props: Partial<InputProps>) {
       _type='aws_chime_voice_connector_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsChimeVoiceConnectorGroupInputSchema}
+      _outputSchema={AwsChimeVoiceConnectorGroupOutputSchema}
       {...props}
     />
   )
@@ -57,7 +59,7 @@ export const useAwsChimeVoiceConnectorGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsChimeVoiceConnectorGroupOutputProps>(
     AwsChimeVoiceConnectorGroup,
     idFilter,
     baseNode,
@@ -69,7 +71,7 @@ export const useAwsChimeVoiceConnectorGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsChimeVoiceConnectorGroupOutputProps>(
     AwsChimeVoiceConnectorGroup,
     idFilter,
     baseNode,

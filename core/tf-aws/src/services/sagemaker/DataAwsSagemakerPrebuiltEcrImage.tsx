@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsSagemakerPrebuiltEcrImageInputSchema = TfMetaSchema.extend({
   repository_name: resolvableValue(z.string()),
   dns_suffix: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
@@ -17,23 +17,25 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsSagemakerPrebuiltEcrImageOutputSchema = z.object({
   registry_id: z.string().optional(),
   registry_path: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsSagemakerPrebuiltEcrImageInputProps =
+  & z.input<typeof DataAwsSagemakerPrebuiltEcrImageInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsSagemakerPrebuiltEcrImageOutputProps =
+  & z.output<typeof DataAwsSagemakerPrebuiltEcrImageOutputSchema>
+  & z.output<typeof DataAwsSagemakerPrebuiltEcrImageInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/sagemaker_prebuilt_ecr_image
 
-export function DataAwsSagemakerPrebuiltEcrImage(props: Partial<InputProps>) {
+export function DataAwsSagemakerPrebuiltEcrImage(
+  props: Partial<DataAwsSagemakerPrebuiltEcrImageInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +45,8 @@ export function DataAwsSagemakerPrebuiltEcrImage(props: Partial<InputProps>) {
       _type='aws_sagemaker_prebuilt_ecr_image'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsSagemakerPrebuiltEcrImageInputSchema}
+      _outputSchema={DataAwsSagemakerPrebuiltEcrImageOutputSchema}
       {...props}
     />
   )
@@ -55,7 +57,7 @@ export const useDataAwsSagemakerPrebuiltEcrImage = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsSagemakerPrebuiltEcrImageOutputProps>(
     DataAwsSagemakerPrebuiltEcrImage,
     idFilter,
     baseNode,
@@ -67,7 +69,7 @@ export const useDataAwsSagemakerPrebuiltEcrImages = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsSagemakerPrebuiltEcrImageOutputProps>(
     DataAwsSagemakerPrebuiltEcrImage,
     idFilter,
     baseNode,

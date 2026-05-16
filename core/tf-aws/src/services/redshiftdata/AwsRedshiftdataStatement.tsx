@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRedshiftdataStatementInputSchema = TfMetaSchema.extend({
   database: resolvableValue(z.string()),
   sql: resolvableValue(z.string()),
   cluster_identifier: resolvableValue(z.string().optional()),
@@ -32,22 +32,24 @@ export const InputSchema = TfMetaSchema.extend({
   workgroup_name: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRedshiftdataStatementOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRedshiftdataStatementInputProps =
+  & z.input<typeof AwsRedshiftdataStatementInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRedshiftdataStatementOutputProps =
+  & z.output<typeof AwsRedshiftdataStatementOutputSchema>
+  & z.output<typeof AwsRedshiftdataStatementInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/redshiftdata_statement
 
-export function AwsRedshiftdataStatement(props: Partial<InputProps>) {
+export function AwsRedshiftdataStatement(
+  props: Partial<AwsRedshiftdataStatementInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -57,8 +59,8 @@ export function AwsRedshiftdataStatement(props: Partial<InputProps>) {
       _type='aws_redshiftdata_statement'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRedshiftdataStatementInputSchema}
+      _outputSchema={AwsRedshiftdataStatementOutputSchema}
       {...props}
     />
   )
@@ -69,7 +71,7 @@ export const useAwsRedshiftdataStatement = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRedshiftdataStatementOutputProps>(
     AwsRedshiftdataStatement,
     idFilter,
     baseNode,
@@ -81,7 +83,7 @@ export const useAwsRedshiftdataStatements = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRedshiftdataStatementOutputProps>(
     AwsRedshiftdataStatement,
     idFilter,
     baseNode,

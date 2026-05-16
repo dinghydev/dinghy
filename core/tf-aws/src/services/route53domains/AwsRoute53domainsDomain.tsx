@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRoute53domainsDomainInputSchema = TfMetaSchema.extend({
   domain_name: resolvableValue(z.string()),
   admin_contact: resolvableValue(
     z.object({
@@ -118,7 +118,7 @@ export const InputSchema = TfMetaSchema.extend({
   transfer_lock: resolvableValue(z.boolean().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRoute53domainsDomainOutputSchema = z.object({
   abuse_contact_email: z.string().optional(),
   abuse_contact_phone: z.string().optional(),
   creation_date: z.string().optional(),
@@ -132,18 +132,20 @@ export const OutputSchema = z.object({
   whois_server: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRoute53domainsDomainInputProps =
+  & z.input<typeof AwsRoute53domainsDomainInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRoute53domainsDomainOutputProps =
+  & z.output<typeof AwsRoute53domainsDomainOutputSchema>
+  & z.output<typeof AwsRoute53domainsDomainInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/route53domains_domain
 
-export function AwsRoute53domainsDomain(props: Partial<InputProps>) {
+export function AwsRoute53domainsDomain(
+  props: Partial<AwsRoute53domainsDomainInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -153,8 +155,8 @@ export function AwsRoute53domainsDomain(props: Partial<InputProps>) {
       _type='aws_route53domains_domain'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRoute53domainsDomainInputSchema}
+      _outputSchema={AwsRoute53domainsDomainOutputSchema}
       {...props}
     />
   )
@@ -165,7 +167,7 @@ export const useAwsRoute53domainsDomain = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRoute53domainsDomainOutputProps>(
     AwsRoute53domainsDomain,
     idFilter,
     baseNode,
@@ -177,7 +179,7 @@ export const useAwsRoute53domainsDomains = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRoute53domainsDomainOutputProps>(
     AwsRoute53domainsDomain,
     idFilter,
     baseNode,

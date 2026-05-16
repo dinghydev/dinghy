@@ -8,11 +8,12 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsOdbNetworkPeeringConnectionsInputSchema = TfMetaSchema
+  .extend({
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsOdbNetworkPeeringConnectionsOutputSchema = z.object({
   odb_peering_connections: z.object({
     arn: z.string(),
     display_name: z.string(),
@@ -22,19 +23,19 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsOdbNetworkPeeringConnectionsInputProps =
+  & z.input<typeof DataAwsOdbNetworkPeeringConnectionsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsOdbNetworkPeeringConnectionsOutputProps =
+  & z.output<typeof DataAwsOdbNetworkPeeringConnectionsOutputSchema>
+  & z.output<typeof DataAwsOdbNetworkPeeringConnectionsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/odb_network_peering_connections
 
 export function DataAwsOdbNetworkPeeringConnections(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsOdbNetworkPeeringConnectionsInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -45,8 +46,8 @@ export function DataAwsOdbNetworkPeeringConnections(
       _type='aws_odb_network_peering_connections'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsOdbNetworkPeeringConnectionsInputSchema}
+      _outputSchema={DataAwsOdbNetworkPeeringConnectionsOutputSchema}
       {...props}
     />
   )
@@ -57,7 +58,7 @@ export const useDataAwsOdbNetworkPeeringConnectionss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsOdbNetworkPeeringConnectionsOutputProps>(
     DataAwsOdbNetworkPeeringConnections,
     idFilter,
     baseNode,

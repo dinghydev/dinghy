@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsWorkspaceswebBrowserSettingsInputSchema = TfMetaSchema.extend({
   browser_policy: resolvableValue(z.string()),
   additional_encryption_context: resolvableValue(
     z.record(z.string(), z.string()).optional(),
@@ -18,24 +18,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsWorkspaceswebBrowserSettingsOutputSchema = z.object({
   associated_portal_arns: z.string().array().optional(),
   browser_settings_arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsWorkspaceswebBrowserSettingsInputProps =
+  & z.input<typeof AwsWorkspaceswebBrowserSettingsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWorkspaceswebBrowserSettingsOutputProps =
+  & z.output<typeof AwsWorkspaceswebBrowserSettingsOutputSchema>
+  & z.output<typeof AwsWorkspaceswebBrowserSettingsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workspacesweb_browser_settings
 
-export function AwsWorkspaceswebBrowserSettings(props: Partial<InputProps>) {
+export function AwsWorkspaceswebBrowserSettings(
+  props: Partial<AwsWorkspaceswebBrowserSettingsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,8 +47,8 @@ export function AwsWorkspaceswebBrowserSettings(props: Partial<InputProps>) {
       _type='aws_workspacesweb_browser_settings'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsWorkspaceswebBrowserSettingsInputSchema}
+      _outputSchema={AwsWorkspaceswebBrowserSettingsOutputSchema}
       {...props}
     />
   )
@@ -57,7 +59,7 @@ export const useAwsWorkspaceswebBrowserSettingss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsWorkspaceswebBrowserSettingsOutputProps>(
     AwsWorkspaceswebBrowserSettings,
     idFilter,
     baseNode,

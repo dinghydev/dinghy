@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsInstance } from './AwsInstance.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsInstanceInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -29,7 +29,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsInstanceOutputSchema = z.object({
   ami: z.string().optional(),
   arn: z.string().optional(),
   associate_public_ip_address: z.boolean().optional(),
@@ -118,18 +118,18 @@ export const OutputSchema = z.object({
   vpc_security_group_ids: z.set(z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsInstanceInputProps =
+  & z.input<typeof DataAwsInstanceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsInstanceOutputProps =
+  & z.output<typeof DataAwsInstanceOutputSchema>
+  & z.output<typeof DataAwsInstanceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/instance
 
-export function DataAwsInstance(props: Partial<InputProps>) {
+export function DataAwsInstance(props: Partial<DataAwsInstanceInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -139,8 +139,8 @@ export function DataAwsInstance(props: Partial<InputProps>) {
       _type='aws_instance'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsInstanceInputSchema}
+      _outputSchema={DataAwsInstanceOutputSchema}
       {...props as any}
     />
   )
@@ -150,10 +150,22 @@ export const useDataAwsInstance = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsInstance, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsInstanceOutputProps>(
+    DataAwsInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsInstances = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsInstance, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsInstanceOutputProps>(
+    DataAwsInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsEfsMountTarget } from './AwsEfsMountTarget.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsEfsMountTargetInputSchema = TfMetaSchema.extend({
   access_point_id: resolvableValue(z.string().optional()),
   file_system_id: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
@@ -17,7 +17,7 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsEfsMountTargetOutputSchema = z.object({
   availability_zone_id: z.string().optional(),
   availability_zone_name: z.string().optional(),
   dns_name: z.string().optional(),
@@ -32,18 +32,20 @@ export const OutputSchema = z.object({
   subnet_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEfsMountTargetInputProps =
+  & z.input<typeof DataAwsEfsMountTargetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEfsMountTargetOutputProps =
+  & z.output<typeof DataAwsEfsMountTargetOutputSchema>
+  & z.output<typeof DataAwsEfsMountTargetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/efs_mount_target
 
-export function DataAwsEfsMountTarget(props: Partial<InputProps>) {
+export function DataAwsEfsMountTarget(
+  props: Partial<DataAwsEfsMountTargetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,8 +55,8 @@ export function DataAwsEfsMountTarget(props: Partial<InputProps>) {
       _type='aws_efs_mount_target'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEfsMountTargetInputSchema}
+      _outputSchema={DataAwsEfsMountTargetOutputSchema}
       {...props as any}
     />
   )
@@ -65,14 +67,19 @@ export const useDataAwsEfsMountTarget = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsEfsMountTarget, idFilter, baseNode, optional)
+  useTypedNode<DataAwsEfsMountTargetOutputProps>(
+    DataAwsEfsMountTarget,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsEfsMountTargets = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsEfsMountTargetOutputProps>(
     DataAwsEfsMountTarget,
     idFilter,
     baseNode,

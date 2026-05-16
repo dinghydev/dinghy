@@ -9,47 +9,55 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  peering_id: resolvableValue(z.string()),
-  transit_gateway_route_table_arn: resolvableValue(z.string()),
-  routing_policy_label: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsNetworkmanagerTransitGatewayRouteTableAttachmentInputSchema =
+  TfMetaSchema.extend({
+    peering_id: resolvableValue(z.string()),
+    transit_gateway_route_table_arn: resolvableValue(z.string()),
+    routing_policy_label: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
-  arn: z.string().optional(),
-  attachment_policy_rule_number: z.number().optional(),
-  attachment_type: z.string().optional(),
-  core_network_arn: z.string().optional(),
-  core_network_id: z.string().optional(),
-  edge_location: z.string().optional(),
-  id: z.string().optional(),
-  owner_account_id: z.string().optional(),
-  resource_arn: z.string().optional(),
-  segment_name: z.string().optional(),
-  state: z.string().optional(),
-  tags_all: z.record(z.string(), z.string()).optional(),
-})
+export const AwsNetworkmanagerTransitGatewayRouteTableAttachmentOutputSchema = z
+  .object({
+    arn: z.string().optional(),
+    attachment_policy_rule_number: z.number().optional(),
+    attachment_type: z.string().optional(),
+    core_network_arn: z.string().optional(),
+    core_network_id: z.string().optional(),
+    edge_location: z.string().optional(),
+    id: z.string().optional(),
+    owner_account_id: z.string().optional(),
+    resource_arn: z.string().optional(),
+    segment_name: z.string().optional(),
+    state: z.string().optional(),
+    tags_all: z.record(z.string(), z.string()).optional(),
+  })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsNetworkmanagerTransitGatewayRouteTableAttachmentInputProps =
+  & z.input<
+    typeof AwsNetworkmanagerTransitGatewayRouteTableAttachmentInputSchema
+  >
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNetworkmanagerTransitGatewayRouteTableAttachmentOutputProps =
+  & z.output<
+    typeof AwsNetworkmanagerTransitGatewayRouteTableAttachmentOutputSchema
+  >
+  & z.output<
+    typeof AwsNetworkmanagerTransitGatewayRouteTableAttachmentInputSchema
+  >
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/networkmanager_transit_gateway_route_table_attachment
 
 export function AwsNetworkmanagerTransitGatewayRouteTableAttachment(
-  props: Partial<InputProps>,
+  props: Partial<AwsNetworkmanagerTransitGatewayRouteTableAttachmentInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -60,8 +68,8 @@ export function AwsNetworkmanagerTransitGatewayRouteTableAttachment(
       _type='aws_networkmanager_transit_gateway_route_table_attachment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsNetworkmanagerTransitGatewayRouteTableAttachmentInputSchema}
+      _outputSchema={AwsNetworkmanagerTransitGatewayRouteTableAttachmentOutputSchema}
       {...props}
     />
   )
@@ -72,7 +80,7 @@ export const useAwsNetworkmanagerTransitGatewayRouteTableAttachment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsNetworkmanagerTransitGatewayRouteTableAttachmentOutputProps>(
     AwsNetworkmanagerTransitGatewayRouteTableAttachment,
     idFilter,
     baseNode,
@@ -84,7 +92,7 @@ export const useAwsNetworkmanagerTransitGatewayRouteTableAttachments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsNetworkmanagerTransitGatewayRouteTableAttachmentOutputProps>(
     AwsNetworkmanagerTransitGatewayRouteTableAttachment,
     idFilter,
     baseNode,

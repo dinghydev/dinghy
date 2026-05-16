@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSesReceiptRuleInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   rule_set_name: resolvableValue(z.string()),
   add_header_action: resolvableValue(
@@ -76,23 +76,23 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsSesReceiptRuleOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSesReceiptRuleInputProps =
+  & z.input<typeof AwsSesReceiptRuleInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSesReceiptRuleOutputProps =
+  & z.output<typeof AwsSesReceiptRuleOutputSchema>
+  & z.output<typeof AwsSesReceiptRuleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ses_receipt_rule
 
-export function AwsSesReceiptRule(props: Partial<InputProps>) {
+export function AwsSesReceiptRule(props: Partial<AwsSesReceiptRuleInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -102,8 +102,8 @@ export function AwsSesReceiptRule(props: Partial<InputProps>) {
       _type='aws_ses_receipt_rule'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSesReceiptRuleInputSchema}
+      _outputSchema={AwsSesReceiptRuleOutputSchema}
       {...props}
     />
   )
@@ -113,10 +113,22 @@ export const useAwsSesReceiptRule = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsSesReceiptRule, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsSesReceiptRuleOutputProps>(
+    AwsSesReceiptRule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSesReceiptRules = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsSesReceiptRule, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsSesReceiptRuleOutputProps>(
+    AwsSesReceiptRule,
+    idFilter,
+    baseNode,
+    optional,
+  )

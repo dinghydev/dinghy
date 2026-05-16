@@ -9,26 +9,27 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  group_name: resolvableValue(z.string()),
-  policy_arns: resolvableValue(z.string().array()),
-})
+export const AwsIamGroupPolicyAttachmentsExclusiveInputSchema = TfMetaSchema
+  .extend({
+    group_name: resolvableValue(z.string()),
+    policy_arns: resolvableValue(z.string().array()),
+  })
 
-export const OutputSchema = z.object({})
+export const AwsIamGroupPolicyAttachmentsExclusiveOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsIamGroupPolicyAttachmentsExclusiveInputProps =
+  & z.input<typeof AwsIamGroupPolicyAttachmentsExclusiveInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIamGroupPolicyAttachmentsExclusiveOutputProps =
+  & z.output<typeof AwsIamGroupPolicyAttachmentsExclusiveOutputSchema>
+  & z.output<typeof AwsIamGroupPolicyAttachmentsExclusiveInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iam_group_policy_attachments_exclusive
 
 export function AwsIamGroupPolicyAttachmentsExclusive(
-  props: Partial<InputProps>,
+  props: Partial<AwsIamGroupPolicyAttachmentsExclusiveInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -39,8 +40,8 @@ export function AwsIamGroupPolicyAttachmentsExclusive(
       _type='aws_iam_group_policy_attachments_exclusive'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsIamGroupPolicyAttachmentsExclusiveInputSchema}
+      _outputSchema={AwsIamGroupPolicyAttachmentsExclusiveOutputSchema}
       {...props}
     />
   )
@@ -51,7 +52,7 @@ export const useAwsIamGroupPolicyAttachmentsExclusive = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsIamGroupPolicyAttachmentsExclusiveOutputProps>(
     AwsIamGroupPolicyAttachmentsExclusive,
     idFilter,
     baseNode,
@@ -63,7 +64,7 @@ export const useAwsIamGroupPolicyAttachmentsExclusives = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsIamGroupPolicyAttachmentsExclusiveOutputProps>(
     AwsIamGroupPolicyAttachmentsExclusive,
     idFilter,
     baseNode,

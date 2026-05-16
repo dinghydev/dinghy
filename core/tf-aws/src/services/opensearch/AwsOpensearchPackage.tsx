@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsOpensearchPackageInputSchema = TfMetaSchema.extend({
   package_name: resolvableValue(z.string()),
   package_source: resolvableValue(z.object({
     s3_bucket_name: z.string(),
@@ -21,24 +21,26 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsOpensearchPackageOutputSchema = z.object({
   available_package_version: z.string().optional(),
   id: z.string().optional(),
   package_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsOpensearchPackageInputProps =
+  & z.input<typeof AwsOpensearchPackageInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsOpensearchPackageOutputProps =
+  & z.output<typeof AwsOpensearchPackageOutputSchema>
+  & z.output<typeof AwsOpensearchPackageInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/opensearch_package
 
-export function AwsOpensearchPackage(props: Partial<InputProps>) {
+export function AwsOpensearchPackage(
+  props: Partial<AwsOpensearchPackageInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +50,8 @@ export function AwsOpensearchPackage(props: Partial<InputProps>) {
       _type='aws_opensearch_package'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsOpensearchPackageInputSchema}
+      _outputSchema={AwsOpensearchPackageOutputSchema}
       {...props}
     />
   )
@@ -60,11 +62,21 @@ export const useAwsOpensearchPackage = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsOpensearchPackage, idFilter, baseNode, optional)
+  useTypedNode<AwsOpensearchPackageOutputProps>(
+    AwsOpensearchPackage,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsOpensearchPackages = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsOpensearchPackage, idFilter, baseNode, optional)
+  useTypedNodes<AwsOpensearchPackageOutputProps>(
+    AwsOpensearchPackage,
+    idFilter,
+    baseNode,
+    optional,
+  )

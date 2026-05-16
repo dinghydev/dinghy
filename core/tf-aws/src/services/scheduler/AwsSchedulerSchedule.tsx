@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSchedulerScheduleInputSchema = TfMetaSchema.extend({
   flexible_time_window: resolvableValue(z.object({
     maximum_window_in_minutes: z.number().optional(),
     mode: z.string(),
@@ -86,23 +86,25 @@ export const InputSchema = TfMetaSchema.extend({
   state: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSchedulerScheduleOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSchedulerScheduleInputProps =
+  & z.input<typeof AwsSchedulerScheduleInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSchedulerScheduleOutputProps =
+  & z.output<typeof AwsSchedulerScheduleOutputSchema>
+  & z.output<typeof AwsSchedulerScheduleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/scheduler_schedule
 
-export function AwsSchedulerSchedule(props: Partial<InputProps>) {
+export function AwsSchedulerSchedule(
+  props: Partial<AwsSchedulerScheduleInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -112,8 +114,8 @@ export function AwsSchedulerSchedule(props: Partial<InputProps>) {
       _type='aws_scheduler_schedule'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSchedulerScheduleInputSchema}
+      _outputSchema={AwsSchedulerScheduleOutputSchema}
       {...props}
     />
   )
@@ -124,11 +126,21 @@ export const useAwsSchedulerSchedule = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsSchedulerSchedule, idFilter, baseNode, optional)
+  useTypedNode<AwsSchedulerScheduleOutputProps>(
+    AwsSchedulerSchedule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSchedulerSchedules = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsSchedulerSchedule, idFilter, baseNode, optional)
+  useTypedNodes<AwsSchedulerScheduleOutputProps>(
+    AwsSchedulerSchedule,
+    idFilter,
+    baseNode,
+    optional,
+  )

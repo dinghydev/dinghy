@@ -9,29 +9,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  auto_enable: resolvableValue(z.boolean()),
-  graph_arn: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsDetectiveOrganizationConfigurationInputSchema = TfMetaSchema
+  .extend({
+    auto_enable: resolvableValue(z.boolean()),
+    graph_arn: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsDetectiveOrganizationConfigurationOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDetectiveOrganizationConfigurationInputProps =
+  & z.input<typeof AwsDetectiveOrganizationConfigurationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDetectiveOrganizationConfigurationOutputProps =
+  & z.output<typeof AwsDetectiveOrganizationConfigurationOutputSchema>
+  & z.output<typeof AwsDetectiveOrganizationConfigurationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/detective_organization_configuration
 
 export function AwsDetectiveOrganizationConfiguration(
-  props: Partial<InputProps>,
+  props: Partial<AwsDetectiveOrganizationConfigurationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -42,8 +43,8 @@ export function AwsDetectiveOrganizationConfiguration(
       _type='aws_detective_organization_configuration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDetectiveOrganizationConfigurationInputSchema}
+      _outputSchema={AwsDetectiveOrganizationConfigurationOutputSchema}
       {...props}
     />
   )
@@ -54,7 +55,7 @@ export const useAwsDetectiveOrganizationConfiguration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDetectiveOrganizationConfigurationOutputProps>(
     AwsDetectiveOrganizationConfiguration,
     idFilter,
     baseNode,
@@ -66,7 +67,7 @@ export const useAwsDetectiveOrganizationConfigurations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDetectiveOrganizationConfigurationOutputProps>(
     AwsDetectiveOrganizationConfiguration,
     idFilter,
     baseNode,

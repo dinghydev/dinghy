@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsIamPolicyDocumentInputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string().optional()),
   override_json: resolvableValue(z.string().optional()),
   override_policy_documents: resolvableValue(z.string().array().optional()),
@@ -42,23 +42,25 @@ export const InputSchema = TfMetaSchema.extend({
   version: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsIamPolicyDocumentOutputSchema = z.object({
   json: z.string().optional(),
   minified_json: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsIamPolicyDocumentInputProps =
+  & z.input<typeof DataAwsIamPolicyDocumentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsIamPolicyDocumentOutputProps =
+  & z.output<typeof DataAwsIamPolicyDocumentOutputSchema>
+  & z.output<typeof DataAwsIamPolicyDocumentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/iam_policy_document
 
-export function DataAwsIamPolicyDocument(props: Partial<InputProps>) {
+export function DataAwsIamPolicyDocument(
+  props: Partial<DataAwsIamPolicyDocumentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -68,8 +70,8 @@ export function DataAwsIamPolicyDocument(props: Partial<InputProps>) {
       _type='aws_iam_policy_document'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsIamPolicyDocumentInputSchema}
+      _outputSchema={DataAwsIamPolicyDocumentOutputSchema}
       {...props}
     />
   )
@@ -80,7 +82,7 @@ export const useDataAwsIamPolicyDocument = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsIamPolicyDocumentOutputProps>(
     DataAwsIamPolicyDocument,
     idFilter,
     baseNode,
@@ -92,7 +94,7 @@ export const useDataAwsIamPolicyDocuments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsIamPolicyDocumentOutputProps>(
     DataAwsIamPolicyDocument,
     idFilter,
     baseNode,

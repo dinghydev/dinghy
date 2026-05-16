@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsVpclatticeListenerRuleInputSchema = TfMetaSchema.extend({
   action: resolvableValue(z.object({
     fixed_response: z.object({
       status_code: z.number(),
@@ -58,24 +58,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsVpclatticeListenerRuleOutputSchema = z.object({
   arn: z.string().optional(),
   rule_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVpclatticeListenerRuleInputProps =
+  & z.input<typeof AwsVpclatticeListenerRuleInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVpclatticeListenerRuleOutputProps =
+  & z.output<typeof AwsVpclatticeListenerRuleOutputSchema>
+  & z.output<typeof AwsVpclatticeListenerRuleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/vpclattice_listener_rule
 
-export function AwsVpclatticeListenerRule(props: Partial<InputProps>) {
+export function AwsVpclatticeListenerRule(
+  props: Partial<AwsVpclatticeListenerRuleInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -85,8 +87,8 @@ export function AwsVpclatticeListenerRule(props: Partial<InputProps>) {
       _type='aws_vpclattice_listener_rule'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVpclatticeListenerRuleInputSchema}
+      _outputSchema={AwsVpclatticeListenerRuleOutputSchema}
       {...props}
     />
   )
@@ -97,7 +99,7 @@ export const useAwsVpclatticeListenerRule = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsVpclatticeListenerRuleOutputProps>(
     AwsVpclatticeListenerRule,
     idFilter,
     baseNode,
@@ -109,7 +111,7 @@ export const useAwsVpclatticeListenerRules = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsVpclatticeListenerRuleOutputProps>(
     AwsVpclatticeListenerRule,
     idFilter,
     baseNode,

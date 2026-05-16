@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsFsxOntapVolumeInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   storage_virtual_machine_id: resolvableValue(z.string()),
   aggregate_configuration: resolvableValue(
@@ -76,7 +76,7 @@ export const InputSchema = TfMetaSchema.extend({
   volume_style: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsFsxOntapVolumeOutputSchema = z.object({
   arn: z.string().optional(),
   file_system_id: z.string().optional(),
   flexcache_endpoint_type: z.string().optional(),
@@ -86,18 +86,18 @@ export const OutputSchema = z.object({
   volume_type: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsFsxOntapVolumeInputProps =
+  & z.input<typeof AwsFsxOntapVolumeInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsFsxOntapVolumeOutputProps =
+  & z.output<typeof AwsFsxOntapVolumeOutputSchema>
+  & z.output<typeof AwsFsxOntapVolumeInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/fsx_ontap_volume
 
-export function AwsFsxOntapVolume(props: Partial<InputProps>) {
+export function AwsFsxOntapVolume(props: Partial<AwsFsxOntapVolumeInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -107,8 +107,8 @@ export function AwsFsxOntapVolume(props: Partial<InputProps>) {
       _type='aws_fsx_ontap_volume'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsFsxOntapVolumeInputSchema}
+      _outputSchema={AwsFsxOntapVolumeOutputSchema}
       {...props}
     />
   )
@@ -118,10 +118,22 @@ export const useAwsFsxOntapVolume = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsFsxOntapVolume, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsFsxOntapVolumeOutputProps>(
+    AwsFsxOntapVolume,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsFsxOntapVolumes = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsFsxOntapVolume, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsFsxOntapVolumeOutputProps>(
+    AwsFsxOntapVolume,
+    idFilter,
+    baseNode,
+    optional,
+  )

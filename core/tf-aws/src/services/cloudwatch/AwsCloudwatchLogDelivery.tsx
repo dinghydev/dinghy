@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudwatchLogDeliveryInputSchema = TfMetaSchema.extend({
   delivery_destination_arn: resolvableValue(z.string()),
   delivery_source_name: resolvableValue(z.string()),
   field_delimiter: resolvableValue(z.string().optional()),
@@ -24,24 +24,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudwatchLogDeliveryOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudwatchLogDeliveryInputProps =
+  & z.input<typeof AwsCloudwatchLogDeliveryInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudwatchLogDeliveryOutputProps =
+  & z.output<typeof AwsCloudwatchLogDeliveryOutputSchema>
+  & z.output<typeof AwsCloudwatchLogDeliveryInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudwatch_log_delivery
 
-export function AwsCloudwatchLogDelivery(props: Partial<InputProps>) {
+export function AwsCloudwatchLogDelivery(
+  props: Partial<AwsCloudwatchLogDeliveryInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -51,8 +53,8 @@ export function AwsCloudwatchLogDelivery(props: Partial<InputProps>) {
       _type='aws_cloudwatch_log_delivery'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudwatchLogDeliveryInputSchema}
+      _outputSchema={AwsCloudwatchLogDeliveryOutputSchema}
       {...props}
     />
   )
@@ -63,7 +65,7 @@ export const useAwsCloudwatchLogDelivery = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudwatchLogDeliveryOutputProps>(
     AwsCloudwatchLogDelivery,
     idFilter,
     baseNode,
@@ -75,7 +77,7 @@ export const useAwsCloudwatchLogDeliverys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudwatchLogDeliveryOutputProps>(
     AwsCloudwatchLogDelivery,
     idFilter,
     baseNode,

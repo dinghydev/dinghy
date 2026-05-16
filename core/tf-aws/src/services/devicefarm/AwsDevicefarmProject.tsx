@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDevicefarmProjectInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   default_job_timeout_minutes: resolvableValue(z.number().optional()),
   id: resolvableValue(z.string().optional()),
@@ -17,28 +17,30 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDevicefarmProjectOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsDevicefarmProjectImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsDevicefarmProjectInputProps =
+  & z.input<typeof AwsDevicefarmProjectInputSchema>
+  & z.input<typeof AwsDevicefarmProjectImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDevicefarmProjectOutputProps =
+  & z.output<typeof AwsDevicefarmProjectOutputSchema>
+  & z.output<typeof AwsDevicefarmProjectInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/devicefarm_project
 
-export function AwsDevicefarmProject(props: Partial<InputProps>) {
+export function AwsDevicefarmProject(
+  props: Partial<AwsDevicefarmProjectInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,9 +50,9 @@ export function AwsDevicefarmProject(props: Partial<InputProps>) {
       _type='aws_devicefarm_project'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsDevicefarmProjectInputSchema}
+      _outputSchema={AwsDevicefarmProjectOutputSchema}
+      _importSchema={AwsDevicefarmProjectImportSchema}
       {...props}
     />
   )
@@ -61,11 +63,21 @@ export const useAwsDevicefarmProject = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsDevicefarmProject, idFilter, baseNode, optional)
+  useTypedNode<AwsDevicefarmProjectOutputProps>(
+    AwsDevicefarmProject,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDevicefarmProjects = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsDevicefarmProject, idFilter, baseNode, optional)
+  useTypedNodes<AwsDevicefarmProjectOutputProps>(
+    AwsDevicefarmProject,
+    idFilter,
+    baseNode,
+    optional,
+  )

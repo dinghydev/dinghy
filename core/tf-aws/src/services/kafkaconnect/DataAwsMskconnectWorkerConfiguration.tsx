@@ -9,13 +9,14 @@ import {
 import z from 'zod'
 import { AwsMskconnectWorkerConfiguration } from './AwsMskconnectWorkerConfiguration.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  name: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsMskconnectWorkerConfigurationInputSchema = TfMetaSchema
+  .extend({
+    name: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsMskconnectWorkerConfigurationOutputSchema = z.object({
   arn: z.string().optional(),
   description: z.string().optional(),
   latest_revision: z.number().optional(),
@@ -23,19 +24,19 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsMskconnectWorkerConfigurationInputProps =
+  & z.input<typeof DataAwsMskconnectWorkerConfigurationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsMskconnectWorkerConfigurationOutputProps =
+  & z.output<typeof DataAwsMskconnectWorkerConfigurationOutputSchema>
+  & z.output<typeof DataAwsMskconnectWorkerConfigurationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/mskconnect_worker_configuration
 
 export function DataAwsMskconnectWorkerConfiguration(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsMskconnectWorkerConfigurationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -46,8 +47,8 @@ export function DataAwsMskconnectWorkerConfiguration(
       _type='aws_mskconnect_worker_configuration'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsMskconnectWorkerConfigurationInputSchema}
+      _outputSchema={DataAwsMskconnectWorkerConfigurationOutputSchema}
       {...props as any}
     />
   )
@@ -58,7 +59,7 @@ export const useDataAwsMskconnectWorkerConfiguration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsMskconnectWorkerConfigurationOutputProps>(
     DataAwsMskconnectWorkerConfiguration,
     idFilter,
     baseNode,
@@ -70,7 +71,7 @@ export const useDataAwsMskconnectWorkerConfigurations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsMskconnectWorkerConfigurationOutputProps>(
     DataAwsMskconnectWorkerConfiguration,
     idFilter,
     baseNode,

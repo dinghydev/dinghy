@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDbProxyDefaultTargetGroupInputSchema = TfMetaSchema.extend({
   db_proxy_name: resolvableValue(z.string()),
   connection_pool_config: resolvableValue(
     z.object({
@@ -29,24 +29,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDbProxyDefaultTargetGroupOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   name: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDbProxyDefaultTargetGroupInputProps =
+  & z.input<typeof AwsDbProxyDefaultTargetGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDbProxyDefaultTargetGroupOutputProps =
+  & z.output<typeof AwsDbProxyDefaultTargetGroupOutputSchema>
+  & z.output<typeof AwsDbProxyDefaultTargetGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/db_proxy_default_target_group
 
-export function AwsDbProxyDefaultTargetGroup(props: Partial<InputProps>) {
+export function AwsDbProxyDefaultTargetGroup(
+  props: Partial<AwsDbProxyDefaultTargetGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -56,8 +58,8 @@ export function AwsDbProxyDefaultTargetGroup(props: Partial<InputProps>) {
       _type='aws_db_proxy_default_target_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDbProxyDefaultTargetGroupInputSchema}
+      _outputSchema={AwsDbProxyDefaultTargetGroupOutputSchema}
       {...props}
     />
   )
@@ -68,7 +70,7 @@ export const useAwsDbProxyDefaultTargetGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDbProxyDefaultTargetGroupOutputProps>(
     AwsDbProxyDefaultTargetGroup,
     idFilter,
     baseNode,
@@ -80,7 +82,7 @@ export const useAwsDbProxyDefaultTargetGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDbProxyDefaultTargetGroupOutputProps>(
     AwsDbProxyDefaultTargetGroup,
     idFilter,
     baseNode,

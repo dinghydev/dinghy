@@ -9,13 +9,14 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  name: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+export const AwsRoute53ResolverFirewallRuleGroupInputSchema = TfMetaSchema
+  .extend({
+    name: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsRoute53ResolverFirewallRuleGroupOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   owner_id: z.string().optional(),
@@ -23,19 +24,19 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRoute53ResolverFirewallRuleGroupInputProps =
+  & z.input<typeof AwsRoute53ResolverFirewallRuleGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRoute53ResolverFirewallRuleGroupOutputProps =
+  & z.output<typeof AwsRoute53ResolverFirewallRuleGroupOutputSchema>
+  & z.output<typeof AwsRoute53ResolverFirewallRuleGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/route53_resolver_firewall_rule_group
 
 export function AwsRoute53ResolverFirewallRuleGroup(
-  props: Partial<InputProps>,
+  props: Partial<AwsRoute53ResolverFirewallRuleGroupInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -46,8 +47,8 @@ export function AwsRoute53ResolverFirewallRuleGroup(
       _type='aws_route53_resolver_firewall_rule_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRoute53ResolverFirewallRuleGroupInputSchema}
+      _outputSchema={AwsRoute53ResolverFirewallRuleGroupOutputSchema}
       {...props}
     />
   )
@@ -58,7 +59,7 @@ export const useAwsRoute53ResolverFirewallRuleGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRoute53ResolverFirewallRuleGroupOutputProps>(
     AwsRoute53ResolverFirewallRuleGroup,
     idFilter,
     baseNode,
@@ -70,7 +71,7 @@ export const useAwsRoute53ResolverFirewallRuleGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRoute53ResolverFirewallRuleGroupOutputProps>(
     AwsRoute53ResolverFirewallRuleGroup,
     idFilter,
     baseNode,

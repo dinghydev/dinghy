@@ -9,24 +9,25 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  app_authorization_arn: resolvableValue(z.string()),
-  app_bundle_arn: resolvableValue(z.string()),
-  auth_request: resolvableValue(
-    z.object({
-      code: z.string(),
-      redirect_uri: z.string(),
-    }).array().optional(),
-  ),
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsAppfabricAppAuthorizationConnectionInputSchema = TfMetaSchema
+  .extend({
+    app_authorization_arn: resolvableValue(z.string()),
+    app_bundle_arn: resolvableValue(z.string()),
+    auth_request: resolvableValue(
+      z.object({
+        code: z.string(),
+        redirect_uri: z.string(),
+      }).array().optional(),
+    ),
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsAppfabricAppAuthorizationConnectionOutputSchema = z.object({
   app: z.string().optional(),
   id: z.string().optional(),
   tenant: z.object({
@@ -35,19 +36,19 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAppfabricAppAuthorizationConnectionInputProps =
+  & z.input<typeof AwsAppfabricAppAuthorizationConnectionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppfabricAppAuthorizationConnectionOutputProps =
+  & z.output<typeof AwsAppfabricAppAuthorizationConnectionOutputSchema>
+  & z.output<typeof AwsAppfabricAppAuthorizationConnectionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appfabric_app_authorization_connection
 
 export function AwsAppfabricAppAuthorizationConnection(
-  props: Partial<InputProps>,
+  props: Partial<AwsAppfabricAppAuthorizationConnectionInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -58,8 +59,8 @@ export function AwsAppfabricAppAuthorizationConnection(
       _type='aws_appfabric_app_authorization_connection'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAppfabricAppAuthorizationConnectionInputSchema}
+      _outputSchema={AwsAppfabricAppAuthorizationConnectionOutputSchema}
       {...props}
     />
   )
@@ -70,7 +71,7 @@ export const useAwsAppfabricAppAuthorizationConnection = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAppfabricAppAuthorizationConnectionOutputProps>(
     AwsAppfabricAppAuthorizationConnection,
     idFilter,
     baseNode,
@@ -82,7 +83,7 @@ export const useAwsAppfabricAppAuthorizationConnections = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAppfabricAppAuthorizationConnectionOutputProps>(
     AwsAppfabricAppAuthorizationConnection,
     idFilter,
     baseNode,

@@ -9,24 +9,25 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  filter: resolvableValue(
-    z.object({
-      name: z.string(),
-      values: z.string().array(),
-    }).array().optional(),
-  ),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-  timeouts: resolvableValue(
-    z.object({
-      read: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const DataAwsEc2LocalGatewayVirtualInterfaceInputSchema = TfMetaSchema
+  .extend({
+    filter: resolvableValue(
+      z.object({
+        name: z.string(),
+        values: z.string().array(),
+      }).array().optional(),
+    ),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+    timeouts: resolvableValue(
+      z.object({
+        read: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsEc2LocalGatewayVirtualInterfaceOutputSchema = z.object({
   local_address: z.string().optional(),
   local_bgp_asn: z.number().optional(),
   local_gateway_id: z.string().optional(),
@@ -36,19 +37,19 @@ export const OutputSchema = z.object({
   vlan: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEc2LocalGatewayVirtualInterfaceInputProps =
+  & z.input<typeof DataAwsEc2LocalGatewayVirtualInterfaceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEc2LocalGatewayVirtualInterfaceOutputProps =
+  & z.output<typeof DataAwsEc2LocalGatewayVirtualInterfaceOutputSchema>
+  & z.output<typeof DataAwsEc2LocalGatewayVirtualInterfaceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ec2_local_gateway_virtual_interface
 
 export function DataAwsEc2LocalGatewayVirtualInterface(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsEc2LocalGatewayVirtualInterfaceInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -59,8 +60,8 @@ export function DataAwsEc2LocalGatewayVirtualInterface(
       _type='aws_ec2_local_gateway_virtual_interface'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEc2LocalGatewayVirtualInterfaceInputSchema}
+      _outputSchema={DataAwsEc2LocalGatewayVirtualInterfaceOutputSchema}
       {...props}
     />
   )
@@ -71,7 +72,7 @@ export const useDataAwsEc2LocalGatewayVirtualInterface = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsEc2LocalGatewayVirtualInterfaceOutputProps>(
     DataAwsEc2LocalGatewayVirtualInterface,
     idFilter,
     baseNode,
@@ -83,7 +84,7 @@ export const useDataAwsEc2LocalGatewayVirtualInterfaces = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsEc2LocalGatewayVirtualInterfaceOutputProps>(
     DataAwsEc2LocalGatewayVirtualInterface,
     idFilter,
     baseNode,

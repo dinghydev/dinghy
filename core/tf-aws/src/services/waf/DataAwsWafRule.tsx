@@ -9,26 +9,26 @@ import {
 import z from 'zod'
 import { AwsWafRule } from './AwsWafRule.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsWafRuleInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsWafRuleOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsWafRuleInputProps =
+  & z.input<typeof DataAwsWafRuleInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsWafRuleOutputProps =
+  & z.output<typeof DataAwsWafRuleOutputSchema>
+  & z.output<typeof DataAwsWafRuleInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/waf_rule
 
-export function DataAwsWafRule(props: Partial<InputProps>) {
+export function DataAwsWafRule(props: Partial<DataAwsWafRuleInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -38,8 +38,8 @@ export function DataAwsWafRule(props: Partial<InputProps>) {
       _type='aws_waf_rule'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsWafRuleInputSchema}
+      _outputSchema={DataAwsWafRuleOutputSchema}
       {...props as any}
     />
   )
@@ -49,10 +49,22 @@ export const useDataAwsWafRule = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsWafRule, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsWafRuleOutputProps>(
+    DataAwsWafRule,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsWafRules = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsWafRule, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsWafRuleOutputProps>(
+    DataAwsWafRule,
+    idFilter,
+    baseNode,
+    optional,
+  )

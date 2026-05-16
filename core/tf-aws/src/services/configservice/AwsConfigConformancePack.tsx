@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsConfigConformancePackInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   delivery_s3_bucket: resolvableValue(z.string().optional()),
   delivery_s3_key_prefix: resolvableValue(z.string().optional()),
@@ -25,29 +25,31 @@ export const InputSchema = TfMetaSchema.extend({
   template_s3_uri: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsConfigConformancePackOutputSchema = z.object({
   arn: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsConfigConformancePackImportSchema = z.object({
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsConfigConformancePackInputProps =
+  & z.input<typeof AwsConfigConformancePackInputSchema>
+  & z.input<typeof AwsConfigConformancePackImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsConfigConformancePackOutputProps =
+  & z.output<typeof AwsConfigConformancePackOutputSchema>
+  & z.output<typeof AwsConfigConformancePackInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/config_conformance_pack
 
-export function AwsConfigConformancePack(props: Partial<InputProps>) {
+export function AwsConfigConformancePack(
+  props: Partial<AwsConfigConformancePackInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -57,9 +59,9 @@ export function AwsConfigConformancePack(props: Partial<InputProps>) {
       _type='aws_config_conformance_pack'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsConfigConformancePackInputSchema}
+      _outputSchema={AwsConfigConformancePackOutputSchema}
+      _importSchema={AwsConfigConformancePackImportSchema}
       {...props}
     />
   )
@@ -70,7 +72,7 @@ export const useAwsConfigConformancePack = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsConfigConformancePackOutputProps>(
     AwsConfigConformancePack,
     idFilter,
     baseNode,
@@ -82,7 +84,7 @@ export const useAwsConfigConformancePacks = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsConfigConformancePackOutputProps>(
     AwsConfigConformancePack,
     idFilter,
     baseNode,

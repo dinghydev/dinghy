@@ -8,27 +8,29 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsEksClustersInputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsEksClustersOutputSchema = z.object({
   id: z.string().optional(),
   names: z.set(z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEksClustersInputProps =
+  & z.input<typeof DataAwsEksClustersInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEksClustersOutputProps =
+  & z.output<typeof DataAwsEksClustersOutputSchema>
+  & z.output<typeof DataAwsEksClustersInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/eks_clusters
 
-export function DataAwsEksClusters(props: Partial<InputProps>) {
+export function DataAwsEksClusters(
+  props: Partial<DataAwsEksClustersInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -38,8 +40,8 @@ export function DataAwsEksClusters(props: Partial<InputProps>) {
       _type='aws_eks_clusters'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEksClustersInputSchema}
+      _outputSchema={DataAwsEksClustersOutputSchema}
       {...props}
     />
   )
@@ -50,4 +52,9 @@ export const useDataAwsEksClusterss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsEksClusters, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsEksClustersOutputProps>(
+    DataAwsEksClusters,
+    idFilter,
+    baseNode,
+    optional,
+  )

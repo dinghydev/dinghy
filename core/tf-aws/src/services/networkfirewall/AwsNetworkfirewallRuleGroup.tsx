@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsNetworkfirewallRuleGroupInputSchema = TfMetaSchema.extend({
   capacity: resolvableValue(z.number()),
   name: resolvableValue(z.string()),
   type: resolvableValue(z.string()),
@@ -116,25 +116,27 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsNetworkfirewallRuleGroupOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   update_token: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsNetworkfirewallRuleGroupInputProps =
+  & z.input<typeof AwsNetworkfirewallRuleGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNetworkfirewallRuleGroupOutputProps =
+  & z.output<typeof AwsNetworkfirewallRuleGroupOutputSchema>
+  & z.output<typeof AwsNetworkfirewallRuleGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/networkfirewall_rule_group
 
-export function AwsNetworkfirewallRuleGroup(props: Partial<InputProps>) {
+export function AwsNetworkfirewallRuleGroup(
+  props: Partial<AwsNetworkfirewallRuleGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -144,8 +146,8 @@ export function AwsNetworkfirewallRuleGroup(props: Partial<InputProps>) {
       _type='aws_networkfirewall_rule_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsNetworkfirewallRuleGroupInputSchema}
+      _outputSchema={AwsNetworkfirewallRuleGroupOutputSchema}
       {...props}
     />
   )
@@ -156,7 +158,7 @@ export const useAwsNetworkfirewallRuleGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsNetworkfirewallRuleGroupOutputProps>(
     AwsNetworkfirewallRuleGroup,
     idFilter,
     baseNode,
@@ -168,7 +170,7 @@ export const useAwsNetworkfirewallRuleGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsNetworkfirewallRuleGroupOutputProps>(
     AwsNetworkfirewallRuleGroup,
     idFilter,
     baseNode,

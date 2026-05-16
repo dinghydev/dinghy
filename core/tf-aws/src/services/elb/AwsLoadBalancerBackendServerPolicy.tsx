@@ -9,31 +9,34 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  instance_port: resolvableValue(z.number()),
-  load_balancer_name: resolvableValue(z.string()),
-  policy_names: resolvableValue(z.string().array().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsLoadBalancerBackendServerPolicyInputSchema = TfMetaSchema
+  .extend({
+    instance_port: resolvableValue(z.number()),
+    load_balancer_name: resolvableValue(z.string()),
+    policy_names: resolvableValue(z.string().array().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsLoadBalancerBackendServerPolicyOutputSchema = z.object({
   id: z.string().optional(),
   instance_port: z.number().optional(),
   load_balancer_name: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLoadBalancerBackendServerPolicyInputProps =
+  & z.input<typeof AwsLoadBalancerBackendServerPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLoadBalancerBackendServerPolicyOutputProps =
+  & z.output<typeof AwsLoadBalancerBackendServerPolicyOutputSchema>
+  & z.output<typeof AwsLoadBalancerBackendServerPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/load_balancer_backend_server_policy
 
-export function AwsLoadBalancerBackendServerPolicy(props: Partial<InputProps>) {
+export function AwsLoadBalancerBackendServerPolicy(
+  props: Partial<AwsLoadBalancerBackendServerPolicyInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -43,8 +46,8 @@ export function AwsLoadBalancerBackendServerPolicy(props: Partial<InputProps>) {
       _type='aws_load_balancer_backend_server_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLoadBalancerBackendServerPolicyInputSchema}
+      _outputSchema={AwsLoadBalancerBackendServerPolicyOutputSchema}
       {...props}
     />
   )
@@ -55,7 +58,7 @@ export const useAwsLoadBalancerBackendServerPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsLoadBalancerBackendServerPolicyOutputProps>(
     AwsLoadBalancerBackendServerPolicy,
     idFilter,
     baseNode,
@@ -67,7 +70,7 @@ export const useAwsLoadBalancerBackendServerPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsLoadBalancerBackendServerPolicyOutputProps>(
     AwsLoadBalancerBackendServerPolicy,
     idFilter,
     baseNode,

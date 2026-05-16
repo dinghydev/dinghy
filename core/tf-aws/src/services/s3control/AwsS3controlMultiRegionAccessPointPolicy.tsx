@@ -9,40 +9,41 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  details: resolvableValue(z.object({
-    name: z.string(),
-    policy: z.string(),
-  })),
-  account_id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      update: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsS3controlMultiRegionAccessPointPolicyInputSchema = TfMetaSchema
+  .extend({
+    details: resolvableValue(z.object({
+      name: z.string(),
+      policy: z.string(),
+    })),
+    account_id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        update: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsS3controlMultiRegionAccessPointPolicyOutputSchema = z.object({
   established: z.string().optional(),
   id: z.string().optional(),
   proposed: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsS3controlMultiRegionAccessPointPolicyInputProps =
+  & z.input<typeof AwsS3controlMultiRegionAccessPointPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3controlMultiRegionAccessPointPolicyOutputProps =
+  & z.output<typeof AwsS3controlMultiRegionAccessPointPolicyOutputSchema>
+  & z.output<typeof AwsS3controlMultiRegionAccessPointPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3control_multi_region_access_point_policy
 
 export function AwsS3controlMultiRegionAccessPointPolicy(
-  props: Partial<InputProps>,
+  props: Partial<AwsS3controlMultiRegionAccessPointPolicyInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -53,8 +54,8 @@ export function AwsS3controlMultiRegionAccessPointPolicy(
       _type='aws_s3control_multi_region_access_point_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsS3controlMultiRegionAccessPointPolicyInputSchema}
+      _outputSchema={AwsS3controlMultiRegionAccessPointPolicyOutputSchema}
       {...props}
     />
   )
@@ -65,7 +66,7 @@ export const useAwsS3controlMultiRegionAccessPointPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsS3controlMultiRegionAccessPointPolicyOutputProps>(
     AwsS3controlMultiRegionAccessPointPolicy,
     idFilter,
     baseNode,
@@ -77,7 +78,7 @@ export const useAwsS3controlMultiRegionAccessPointPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsS3controlMultiRegionAccessPointPolicyOutputProps>(
     AwsS3controlMultiRegionAccessPointPolicy,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAutoscalingGroupTagInputSchema = TfMetaSchema.extend({
   autoscaling_group_name: resolvableValue(z.string()),
   tag: resolvableValue(z.object({
     key: z.string(),
@@ -19,22 +19,24 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAutoscalingGroupTagOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAutoscalingGroupTagInputProps =
+  & z.input<typeof AwsAutoscalingGroupTagInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAutoscalingGroupTagOutputProps =
+  & z.output<typeof AwsAutoscalingGroupTagOutputSchema>
+  & z.output<typeof AwsAutoscalingGroupTagInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/autoscaling_group_tag
 
-export function AwsAutoscalingGroupTag(props: Partial<InputProps>) {
+export function AwsAutoscalingGroupTag(
+  props: Partial<AwsAutoscalingGroupTagInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +46,8 @@ export function AwsAutoscalingGroupTag(props: Partial<InputProps>) {
       _type='aws_autoscaling_group_tag'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAutoscalingGroupTagInputSchema}
+      _outputSchema={AwsAutoscalingGroupTagOutputSchema}
       {...props}
     />
   )
@@ -56,7 +58,7 @@ export const useAwsAutoscalingGroupTag = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAutoscalingGroupTagOutputProps>(
     AwsAutoscalingGroupTag,
     idFilter,
     baseNode,
@@ -68,7 +70,7 @@ export const useAwsAutoscalingGroupTags = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAutoscalingGroupTagOutputProps>(
     AwsAutoscalingGroupTag,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEmrcontainersJobTemplateInputSchema = TfMetaSchema.extend({
   job_template_data: resolvableValue(z.object({
     execution_role_arn: z.string(),
     job_tags: z.record(z.string(), z.string()).optional(),
@@ -57,24 +57,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsEmrcontainersJobTemplateOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEmrcontainersJobTemplateInputProps =
+  & z.input<typeof AwsEmrcontainersJobTemplateInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEmrcontainersJobTemplateOutputProps =
+  & z.output<typeof AwsEmrcontainersJobTemplateOutputSchema>
+  & z.output<typeof AwsEmrcontainersJobTemplateInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/emrcontainers_job_template
 
-export function AwsEmrcontainersJobTemplate(props: Partial<InputProps>) {
+export function AwsEmrcontainersJobTemplate(
+  props: Partial<AwsEmrcontainersJobTemplateInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -84,8 +86,8 @@ export function AwsEmrcontainersJobTemplate(props: Partial<InputProps>) {
       _type='aws_emrcontainers_job_template'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEmrcontainersJobTemplateInputSchema}
+      _outputSchema={AwsEmrcontainersJobTemplateOutputSchema}
       {...props}
     />
   )
@@ -96,7 +98,7 @@ export const useAwsEmrcontainersJobTemplate = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsEmrcontainersJobTemplateOutputProps>(
     AwsEmrcontainersJobTemplate,
     idFilter,
     baseNode,
@@ -108,7 +110,7 @@ export const useAwsEmrcontainersJobTemplates = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEmrcontainersJobTemplateOutputProps>(
     AwsEmrcontainersJobTemplate,
     idFilter,
     baseNode,

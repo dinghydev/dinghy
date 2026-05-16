@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsConnectQuickConnectInputSchema = TfMetaSchema.extend({
   instance_id: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   quick_connect_config: resolvableValue(z.object({
@@ -31,25 +31,27 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsConnectQuickConnectOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   quick_connect_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsConnectQuickConnectInputProps =
+  & z.input<typeof AwsConnectQuickConnectInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsConnectQuickConnectOutputProps =
+  & z.output<typeof AwsConnectQuickConnectOutputSchema>
+  & z.output<typeof AwsConnectQuickConnectInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/connect_quick_connect
 
-export function AwsConnectQuickConnect(props: Partial<InputProps>) {
+export function AwsConnectQuickConnect(
+  props: Partial<AwsConnectQuickConnectInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -59,8 +61,8 @@ export function AwsConnectQuickConnect(props: Partial<InputProps>) {
       _type='aws_connect_quick_connect'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsConnectQuickConnectInputSchema}
+      _outputSchema={AwsConnectQuickConnectOutputSchema}
       {...props}
     />
   )
@@ -71,7 +73,7 @@ export const useAwsConnectQuickConnect = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsConnectQuickConnectOutputProps>(
     AwsConnectQuickConnect,
     idFilter,
     baseNode,
@@ -83,7 +85,7 @@ export const useAwsConnectQuickConnects = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsConnectQuickConnectOutputProps>(
     AwsConnectQuickConnect,
     idFilter,
     baseNode,

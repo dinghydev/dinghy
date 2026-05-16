@@ -8,29 +8,31 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsNetworkmanagerConnectionsInputSchema = TfMetaSchema.extend({
   global_network_id: resolvableValue(z.string()),
   device_id: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsNetworkmanagerConnectionsOutputSchema = z.object({
   ids: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsNetworkmanagerConnectionsInputProps =
+  & z.input<typeof DataAwsNetworkmanagerConnectionsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsNetworkmanagerConnectionsOutputProps =
+  & z.output<typeof DataAwsNetworkmanagerConnectionsOutputSchema>
+  & z.output<typeof DataAwsNetworkmanagerConnectionsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/networkmanager_connections
 
-export function DataAwsNetworkmanagerConnections(props: Partial<InputProps>) {
+export function DataAwsNetworkmanagerConnections(
+  props: Partial<DataAwsNetworkmanagerConnectionsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function DataAwsNetworkmanagerConnections(props: Partial<InputProps>) {
       _type='aws_networkmanager_connections'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsNetworkmanagerConnectionsInputSchema}
+      _outputSchema={DataAwsNetworkmanagerConnectionsOutputSchema}
       {...props}
     />
   )
@@ -52,7 +54,7 @@ export const useDataAwsNetworkmanagerConnectionss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsNetworkmanagerConnectionsOutputProps>(
     DataAwsNetworkmanagerConnections,
     idFilter,
     baseNode,

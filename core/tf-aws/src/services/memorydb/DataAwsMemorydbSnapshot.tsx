@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsMemorydbSnapshot } from './AwsMemorydbSnapshot.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsMemorydbSnapshotInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsMemorydbSnapshotOutputSchema = z.object({
   arn: z.string().optional(),
   cluster_configuration: z.object({
     description: z.string(),
@@ -40,18 +40,20 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsMemorydbSnapshotInputProps =
+  & z.input<typeof DataAwsMemorydbSnapshotInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsMemorydbSnapshotOutputProps =
+  & z.output<typeof DataAwsMemorydbSnapshotOutputSchema>
+  & z.output<typeof DataAwsMemorydbSnapshotInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/memorydb_snapshot
 
-export function DataAwsMemorydbSnapshot(props: Partial<InputProps>) {
+export function DataAwsMemorydbSnapshot(
+  props: Partial<DataAwsMemorydbSnapshotInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -61,8 +63,8 @@ export function DataAwsMemorydbSnapshot(props: Partial<InputProps>) {
       _type='aws_memorydb_snapshot'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsMemorydbSnapshotInputSchema}
+      _outputSchema={DataAwsMemorydbSnapshotOutputSchema}
       {...props as any}
     />
   )
@@ -73,7 +75,7 @@ export const useDataAwsMemorydbSnapshot = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsMemorydbSnapshotOutputProps>(
     DataAwsMemorydbSnapshot,
     idFilter,
     baseNode,
@@ -85,7 +87,7 @@ export const useDataAwsMemorydbSnapshots = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsMemorydbSnapshotOutputProps>(
     DataAwsMemorydbSnapshot,
     idFilter,
     baseNode,

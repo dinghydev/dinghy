@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudwatchLogAnomalyDetectorInputSchema = TfMetaSchema.extend({
   enabled: resolvableValue(z.boolean()),
   log_group_arn_list: resolvableValue(z.string().array()),
   anomaly_visibility_time: resolvableValue(z.number().optional()),
@@ -21,23 +21,25 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudwatchLogAnomalyDetectorOutputSchema = z.object({
   arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudwatchLogAnomalyDetectorInputProps =
+  & z.input<typeof AwsCloudwatchLogAnomalyDetectorInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudwatchLogAnomalyDetectorOutputProps =
+  & z.output<typeof AwsCloudwatchLogAnomalyDetectorOutputSchema>
+  & z.output<typeof AwsCloudwatchLogAnomalyDetectorInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudwatch_log_anomaly_detector
 
-export function AwsCloudwatchLogAnomalyDetector(props: Partial<InputProps>) {
+export function AwsCloudwatchLogAnomalyDetector(
+  props: Partial<AwsCloudwatchLogAnomalyDetectorInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +49,8 @@ export function AwsCloudwatchLogAnomalyDetector(props: Partial<InputProps>) {
       _type='aws_cloudwatch_log_anomaly_detector'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudwatchLogAnomalyDetectorInputSchema}
+      _outputSchema={AwsCloudwatchLogAnomalyDetectorOutputSchema}
       {...props}
     />
   )
@@ -59,7 +61,7 @@ export const useAwsCloudwatchLogAnomalyDetector = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudwatchLogAnomalyDetectorOutputProps>(
     AwsCloudwatchLogAnomalyDetector,
     idFilter,
     baseNode,
@@ -71,7 +73,7 @@ export const useAwsCloudwatchLogAnomalyDetectors = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudwatchLogAnomalyDetectorOutputProps>(
     AwsCloudwatchLogAnomalyDetector,
     idFilter,
     baseNode,

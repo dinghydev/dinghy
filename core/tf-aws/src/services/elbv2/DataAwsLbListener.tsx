@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsLbListener } from './AwsLbListener.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsLbListenerInputSchema = TfMetaSchema.extend({
   arn: resolvableValue(z.string().optional()),
   id: resolvableValue(z.string().optional()),
   load_balancer_arn: resolvableValue(z.string().optional()),
@@ -23,7 +23,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsLbListenerOutputSchema = z.object({
   alpn_policy: z.string().optional(),
   certificate_arn: z.string().optional(),
   default_action: z.object({
@@ -96,18 +96,18 @@ export const OutputSchema = z.object({
   ssl_policy: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsLbListenerInputProps =
+  & z.input<typeof DataAwsLbListenerInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsLbListenerOutputProps =
+  & z.output<typeof DataAwsLbListenerOutputSchema>
+  & z.output<typeof DataAwsLbListenerInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/lb_listener
 
-export function DataAwsLbListener(props: Partial<InputProps>) {
+export function DataAwsLbListener(props: Partial<DataAwsLbListenerInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -117,8 +117,8 @@ export function DataAwsLbListener(props: Partial<InputProps>) {
       _type='aws_lb_listener'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsLbListenerInputSchema}
+      _outputSchema={DataAwsLbListenerOutputSchema}
       {...props as any}
     />
   )
@@ -128,10 +128,22 @@ export const useDataAwsLbListener = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsLbListener, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsLbListenerOutputProps>(
+    DataAwsLbListener,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsLbListeners = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsLbListener, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsLbListenerOutputProps>(
+    DataAwsLbListener,
+    idFilter,
+    baseNode,
+    optional,
+  )

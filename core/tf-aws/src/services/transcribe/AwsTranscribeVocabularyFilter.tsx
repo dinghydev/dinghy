@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsTranscribeVocabularyFilterInputSchema = TfMetaSchema.extend({
   language_code: resolvableValue(z.string()),
   vocabulary_filter_name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
@@ -19,24 +19,26 @@ export const InputSchema = TfMetaSchema.extend({
   words: resolvableValue(z.string().array().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsTranscribeVocabularyFilterOutputSchema = z.object({
   arn: z.string().optional(),
   download_uri: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsTranscribeVocabularyFilterInputProps =
+  & z.input<typeof AwsTranscribeVocabularyFilterInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsTranscribeVocabularyFilterOutputProps =
+  & z.output<typeof AwsTranscribeVocabularyFilterOutputSchema>
+  & z.output<typeof AwsTranscribeVocabularyFilterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/transcribe_vocabulary_filter
 
-export function AwsTranscribeVocabularyFilter(props: Partial<InputProps>) {
+export function AwsTranscribeVocabularyFilter(
+  props: Partial<AwsTranscribeVocabularyFilterInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function AwsTranscribeVocabularyFilter(props: Partial<InputProps>) {
       _type='aws_transcribe_vocabulary_filter'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsTranscribeVocabularyFilterInputSchema}
+      _outputSchema={AwsTranscribeVocabularyFilterOutputSchema}
       {...props}
     />
   )
@@ -58,7 +60,7 @@ export const useAwsTranscribeVocabularyFilter = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsTranscribeVocabularyFilterOutputProps>(
     AwsTranscribeVocabularyFilter,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useAwsTranscribeVocabularyFilters = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsTranscribeVocabularyFilterOutputProps>(
     AwsTranscribeVocabularyFilter,
     idFilter,
     baseNode,

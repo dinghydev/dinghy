@@ -8,39 +8,40 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  filter: resolvableValue(
-    z.object({
-      name: z.string(),
-      values: z.string().array(),
-    }).array().optional(),
-  ),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      read: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const DataAwsEc2TransitGatewayVpcAttachmentsInputSchema = TfMetaSchema
+  .extend({
+    filter: resolvableValue(
+      z.object({
+        name: z.string(),
+        values: z.string().array(),
+      }).array().optional(),
+    ),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        read: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsEc2TransitGatewayVpcAttachmentsOutputSchema = z.object({
   ids: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEc2TransitGatewayVpcAttachmentsInputProps =
+  & z.input<typeof DataAwsEc2TransitGatewayVpcAttachmentsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEc2TransitGatewayVpcAttachmentsOutputProps =
+  & z.output<typeof DataAwsEc2TransitGatewayVpcAttachmentsOutputSchema>
+  & z.output<typeof DataAwsEc2TransitGatewayVpcAttachmentsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ec2_transit_gateway_vpc_attachments
 
 export function DataAwsEc2TransitGatewayVpcAttachments(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsEc2TransitGatewayVpcAttachmentsInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -51,8 +52,8 @@ export function DataAwsEc2TransitGatewayVpcAttachments(
       _type='aws_ec2_transit_gateway_vpc_attachments'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEc2TransitGatewayVpcAttachmentsInputSchema}
+      _outputSchema={DataAwsEc2TransitGatewayVpcAttachmentsOutputSchema}
       {...props}
     />
   )
@@ -63,7 +64,7 @@ export const useDataAwsEc2TransitGatewayVpcAttachmentss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsEc2TransitGatewayVpcAttachmentsOutputProps>(
     DataAwsEc2TransitGatewayVpcAttachments,
     idFilter,
     baseNode,

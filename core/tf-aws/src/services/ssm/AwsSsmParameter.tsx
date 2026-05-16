@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSsmParameterInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   type: resolvableValue(z.string()),
   allowed_pattern: resolvableValue(z.string().optional()),
@@ -27,32 +27,32 @@ export const InputSchema = TfMetaSchema.extend({
   value_wo_version: resolvableValue(z.number().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSsmParameterOutputSchema = z.object({
   arn: z.string().optional(),
   has_value_wo: z.boolean().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   version: z.number().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSsmParameterImportSchema = z.object({
   name: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSsmParameterInputProps =
+  & z.input<typeof AwsSsmParameterInputSchema>
+  & z.input<typeof AwsSsmParameterImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSsmParameterOutputProps =
+  & z.output<typeof AwsSsmParameterOutputSchema>
+  & z.output<typeof AwsSsmParameterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssm_parameter
 
-export function AwsSsmParameter(props: Partial<InputProps>) {
+export function AwsSsmParameter(props: Partial<AwsSsmParameterInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -62,9 +62,9 @@ export function AwsSsmParameter(props: Partial<InputProps>) {
       _type='aws_ssm_parameter'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSsmParameterInputSchema}
+      _outputSchema={AwsSsmParameterOutputSchema}
+      _importSchema={AwsSsmParameterImportSchema}
       {...props}
     />
   )
@@ -74,10 +74,22 @@ export const useAwsSsmParameter = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsSsmParameter, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsSsmParameterOutputProps>(
+    AwsSsmParameter,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsSsmParameters = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsSsmParameter, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsSsmParameterOutputProps>(
+    AwsSsmParameter,
+    idFilter,
+    baseNode,
+    optional,
+  )

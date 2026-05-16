@@ -9,37 +9,41 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  deletion_protection: resolvableValue(z.string().optional()),
-  description: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-  validation_settings: resolvableValue(
-    z.object({
-      mode: z.string(),
-    }).array().optional(),
-  ),
-})
+export const AwsVerifiedpermissionsPolicyStoreInputSchema = TfMetaSchema.extend(
+  {
+    deletion_protection: resolvableValue(z.string().optional()),
+    description: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+    validation_settings: resolvableValue(
+      z.object({
+        mode: z.string(),
+      }).array().optional(),
+    ),
+  },
+)
 
-export const OutputSchema = z.object({
+export const AwsVerifiedpermissionsPolicyStoreOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   policy_store_id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVerifiedpermissionsPolicyStoreInputProps =
+  & z.input<typeof AwsVerifiedpermissionsPolicyStoreInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVerifiedpermissionsPolicyStoreOutputProps =
+  & z.output<typeof AwsVerifiedpermissionsPolicyStoreOutputSchema>
+  & z.output<typeof AwsVerifiedpermissionsPolicyStoreInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/verifiedpermissions_policy_store
 
-export function AwsVerifiedpermissionsPolicyStore(props: Partial<InputProps>) {
+export function AwsVerifiedpermissionsPolicyStore(
+  props: Partial<AwsVerifiedpermissionsPolicyStoreInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,8 +53,8 @@ export function AwsVerifiedpermissionsPolicyStore(props: Partial<InputProps>) {
       _type='aws_verifiedpermissions_policy_store'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVerifiedpermissionsPolicyStoreInputSchema}
+      _outputSchema={AwsVerifiedpermissionsPolicyStoreOutputSchema}
       {...props}
     />
   )
@@ -61,7 +65,7 @@ export const useAwsVerifiedpermissionsPolicyStore = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsVerifiedpermissionsPolicyStoreOutputProps>(
     AwsVerifiedpermissionsPolicyStore,
     idFilter,
     baseNode,
@@ -73,7 +77,7 @@ export const useAwsVerifiedpermissionsPolicyStores = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsVerifiedpermissionsPolicyStoreOutputProps>(
     AwsVerifiedpermissionsPolicyStore,
     idFilter,
     baseNode,

@@ -9,24 +9,25 @@ import {
 import z from 'zod'
 import { AwsEc2TransitGatewayConnectPeer } from './AwsEc2TransitGatewayConnectPeer.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  filter: resolvableValue(
-    z.object({
-      name: z.string(),
-      values: z.string().array(),
-    }).array().optional(),
-  ),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      read: z.string().optional(),
-    }).optional(),
-  ),
-  transit_gateway_connect_peer_id: resolvableValue(z.string().optional()),
-})
+export const DataAwsEc2TransitGatewayConnectPeerInputSchema = TfMetaSchema
+  .extend({
+    filter: resolvableValue(
+      z.object({
+        name: z.string(),
+        values: z.string().array(),
+      }).array().optional(),
+    ),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        read: z.string().optional(),
+      }).optional(),
+    ),
+    transit_gateway_connect_peer_id: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsEc2TransitGatewayConnectPeerOutputSchema = z.object({
   arn: z.string().optional(),
   bgp_asn: z.string().optional(),
   bgp_peer_address: z.string().optional(),
@@ -38,19 +39,19 @@ export const OutputSchema = z.object({
   transit_gateway_attachment_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsEc2TransitGatewayConnectPeerInputProps =
+  & z.input<typeof DataAwsEc2TransitGatewayConnectPeerInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsEc2TransitGatewayConnectPeerOutputProps =
+  & z.output<typeof DataAwsEc2TransitGatewayConnectPeerOutputSchema>
+  & z.output<typeof DataAwsEc2TransitGatewayConnectPeerInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/ec2_transit_gateway_connect_peer
 
 export function DataAwsEc2TransitGatewayConnectPeer(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsEc2TransitGatewayConnectPeerInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -61,8 +62,8 @@ export function DataAwsEc2TransitGatewayConnectPeer(
       _type='aws_ec2_transit_gateway_connect_peer'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsEc2TransitGatewayConnectPeerInputSchema}
+      _outputSchema={DataAwsEc2TransitGatewayConnectPeerOutputSchema}
       {...props as any}
     />
   )
@@ -73,7 +74,7 @@ export const useDataAwsEc2TransitGatewayConnectPeer = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsEc2TransitGatewayConnectPeerOutputProps>(
     DataAwsEc2TransitGatewayConnectPeer,
     idFilter,
     baseNode,
@@ -85,7 +86,7 @@ export const useDataAwsEc2TransitGatewayConnectPeers = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsEc2TransitGatewayConnectPeerOutputProps>(
     DataAwsEc2TransitGatewayConnectPeer,
     idFilter,
     baseNode,

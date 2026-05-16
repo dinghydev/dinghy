@@ -9,28 +9,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLicensemanagerAssociationInputSchema = TfMetaSchema.extend({
   license_configuration_arn: resolvableValue(z.string()),
   resource_arn: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsLicensemanagerAssociationOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLicensemanagerAssociationInputProps =
+  & z.input<typeof AwsLicensemanagerAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLicensemanagerAssociationOutputProps =
+  & z.output<typeof AwsLicensemanagerAssociationOutputSchema>
+  & z.output<typeof AwsLicensemanagerAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/licensemanager_association
 
-export function AwsLicensemanagerAssociation(props: Partial<InputProps>) {
+export function AwsLicensemanagerAssociation(
+  props: Partial<AwsLicensemanagerAssociationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function AwsLicensemanagerAssociation(props: Partial<InputProps>) {
       _type='aws_licensemanager_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLicensemanagerAssociationInputSchema}
+      _outputSchema={AwsLicensemanagerAssociationOutputSchema}
       {...props}
     />
   )
@@ -52,7 +54,7 @@ export const useAwsLicensemanagerAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsLicensemanagerAssociationOutputProps>(
     AwsLicensemanagerAssociation,
     idFilter,
     baseNode,
@@ -64,7 +66,7 @@ export const useAwsLicensemanagerAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsLicensemanagerAssociationOutputProps>(
     AwsLicensemanagerAssociation,
     idFilter,
     baseNode,

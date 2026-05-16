@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsWafregionalWebAclAssociationInputSchema = TfMetaSchema.extend({
   resource_arn: resolvableValue(z.string()),
   web_acl_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
@@ -20,22 +20,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsWafregionalWebAclAssociationOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsWafregionalWebAclAssociationInputProps =
+  & z.input<typeof AwsWafregionalWebAclAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWafregionalWebAclAssociationOutputProps =
+  & z.output<typeof AwsWafregionalWebAclAssociationOutputSchema>
+  & z.output<typeof AwsWafregionalWebAclAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/wafregional_web_acl_association
 
-export function AwsWafregionalWebAclAssociation(props: Partial<InputProps>) {
+export function AwsWafregionalWebAclAssociation(
+  props: Partial<AwsWafregionalWebAclAssociationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -45,8 +47,8 @@ export function AwsWafregionalWebAclAssociation(props: Partial<InputProps>) {
       _type='aws_wafregional_web_acl_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsWafregionalWebAclAssociationInputSchema}
+      _outputSchema={AwsWafregionalWebAclAssociationOutputSchema}
       {...props}
     />
   )
@@ -57,7 +59,7 @@ export const useAwsWafregionalWebAclAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsWafregionalWebAclAssociationOutputProps>(
     AwsWafregionalWebAclAssociation,
     idFilter,
     baseNode,
@@ -69,7 +71,7 @@ export const useAwsWafregionalWebAclAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsWafregionalWebAclAssociationOutputProps>(
     AwsWafregionalWebAclAssociation,
     idFilter,
     baseNode,

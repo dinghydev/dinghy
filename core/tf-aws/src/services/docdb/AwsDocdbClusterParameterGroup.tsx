@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDocdbClusterParameterGroupInputSchema = TfMetaSchema.extend({
   family: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
@@ -25,24 +25,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDocdbClusterParameterGroupOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDocdbClusterParameterGroupInputProps =
+  & z.input<typeof AwsDocdbClusterParameterGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDocdbClusterParameterGroupOutputProps =
+  & z.output<typeof AwsDocdbClusterParameterGroupOutputSchema>
+  & z.output<typeof AwsDocdbClusterParameterGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/docdb_cluster_parameter_group
 
-export function AwsDocdbClusterParameterGroup(props: Partial<InputProps>) {
+export function AwsDocdbClusterParameterGroup(
+  props: Partial<AwsDocdbClusterParameterGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,8 +54,8 @@ export function AwsDocdbClusterParameterGroup(props: Partial<InputProps>) {
       _type='aws_docdb_cluster_parameter_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDocdbClusterParameterGroupInputSchema}
+      _outputSchema={AwsDocdbClusterParameterGroupOutputSchema}
       {...props}
     />
   )
@@ -64,7 +66,7 @@ export const useAwsDocdbClusterParameterGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDocdbClusterParameterGroupOutputProps>(
     AwsDocdbClusterParameterGroup,
     idFilter,
     baseNode,
@@ -76,7 +78,7 @@ export const useAwsDocdbClusterParameterGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDocdbClusterParameterGroupOutputProps>(
     AwsDocdbClusterParameterGroup,
     idFilter,
     baseNode,

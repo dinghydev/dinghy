@@ -9,29 +9,31 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEcsAccountSettingDefaultInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   value: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsEcsAccountSettingDefaultOutputSchema = z.object({
   principal_arn: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEcsAccountSettingDefaultInputProps =
+  & z.input<typeof AwsEcsAccountSettingDefaultInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEcsAccountSettingDefaultOutputProps =
+  & z.output<typeof AwsEcsAccountSettingDefaultOutputSchema>
+  & z.output<typeof AwsEcsAccountSettingDefaultInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ecs_account_setting_default
 
-export function AwsEcsAccountSettingDefault(props: Partial<InputProps>) {
+export function AwsEcsAccountSettingDefault(
+  props: Partial<AwsEcsAccountSettingDefaultInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -41,8 +43,8 @@ export function AwsEcsAccountSettingDefault(props: Partial<InputProps>) {
       _type='aws_ecs_account_setting_default'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEcsAccountSettingDefaultInputSchema}
+      _outputSchema={AwsEcsAccountSettingDefaultOutputSchema}
       {...props}
     />
   )
@@ -53,7 +55,7 @@ export const useAwsEcsAccountSettingDefault = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsEcsAccountSettingDefaultOutputProps>(
     AwsEcsAccountSettingDefault,
     idFilter,
     baseNode,
@@ -65,7 +67,7 @@ export const useAwsEcsAccountSettingDefaults = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEcsAccountSettingDefaultOutputProps>(
     AwsEcsAccountSettingDefault,
     idFilter,
     baseNode,

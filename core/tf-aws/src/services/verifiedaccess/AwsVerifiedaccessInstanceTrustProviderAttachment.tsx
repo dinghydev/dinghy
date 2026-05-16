@@ -9,29 +9,33 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  verifiedaccess_instance_id: resolvableValue(z.string()),
-  verifiedaccess_trust_provider_id: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsVerifiedaccessInstanceTrustProviderAttachmentInputSchema =
+  TfMetaSchema.extend({
+    verifiedaccess_instance_id: resolvableValue(z.string()),
+    verifiedaccess_trust_provider_id: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
-  id: z.string().optional(),
-})
+export const AwsVerifiedaccessInstanceTrustProviderAttachmentOutputSchema = z
+  .object({
+    id: z.string().optional(),
+  })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsVerifiedaccessInstanceTrustProviderAttachmentInputProps =
+  & z.input<typeof AwsVerifiedaccessInstanceTrustProviderAttachmentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsVerifiedaccessInstanceTrustProviderAttachmentOutputProps =
+  & z.output<
+    typeof AwsVerifiedaccessInstanceTrustProviderAttachmentOutputSchema
+  >
+  & z.output<typeof AwsVerifiedaccessInstanceTrustProviderAttachmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/verifiedaccess_instance_trust_provider_attachment
 
 export function AwsVerifiedaccessInstanceTrustProviderAttachment(
-  props: Partial<InputProps>,
+  props: Partial<AwsVerifiedaccessInstanceTrustProviderAttachmentInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -42,8 +46,8 @@ export function AwsVerifiedaccessInstanceTrustProviderAttachment(
       _type='aws_verifiedaccess_instance_trust_provider_attachment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsVerifiedaccessInstanceTrustProviderAttachmentInputSchema}
+      _outputSchema={AwsVerifiedaccessInstanceTrustProviderAttachmentOutputSchema}
       {...props}
     />
   )
@@ -54,7 +58,7 @@ export const useAwsVerifiedaccessInstanceTrustProviderAttachment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsVerifiedaccessInstanceTrustProviderAttachmentOutputProps>(
     AwsVerifiedaccessInstanceTrustProviderAttachment,
     idFilter,
     baseNode,
@@ -66,7 +70,7 @@ export const useAwsVerifiedaccessInstanceTrustProviderAttachments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsVerifiedaccessInstanceTrustProviderAttachmentOutputProps>(
     AwsVerifiedaccessInstanceTrustProviderAttachment,
     idFilter,
     baseNode,

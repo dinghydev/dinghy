@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSesEventDestinationInputSchema = TfMetaSchema.extend({
   configuration_set_name: resolvableValue(z.string()),
   matching_types: resolvableValue(z.string().array()),
   name: resolvableValue(z.string()),
@@ -35,23 +35,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsSesEventDestinationOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSesEventDestinationInputProps =
+  & z.input<typeof AwsSesEventDestinationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSesEventDestinationOutputProps =
+  & z.output<typeof AwsSesEventDestinationOutputSchema>
+  & z.output<typeof AwsSesEventDestinationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ses_event_destination
 
-export function AwsSesEventDestination(props: Partial<InputProps>) {
+export function AwsSesEventDestination(
+  props: Partial<AwsSesEventDestinationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -61,8 +63,8 @@ export function AwsSesEventDestination(props: Partial<InputProps>) {
       _type='aws_ses_event_destination'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSesEventDestinationInputSchema}
+      _outputSchema={AwsSesEventDestinationOutputSchema}
       {...props}
     />
   )
@@ -73,7 +75,7 @@ export const useAwsSesEventDestination = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSesEventDestinationOutputProps>(
     AwsSesEventDestination,
     idFilter,
     baseNode,
@@ -85,7 +87,7 @@ export const useAwsSesEventDestinations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSesEventDestinationOutputProps>(
     AwsSesEventDestination,
     idFilter,
     baseNode,

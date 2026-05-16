@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEbsFastSnapshotRestoreInputSchema = TfMetaSchema.extend({
   availability_zone: resolvableValue(z.string()),
   snapshot_id: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
@@ -21,23 +21,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsEbsFastSnapshotRestoreOutputSchema = z.object({
   id: z.string().optional(),
   state: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEbsFastSnapshotRestoreInputProps =
+  & z.input<typeof AwsEbsFastSnapshotRestoreInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEbsFastSnapshotRestoreOutputProps =
+  & z.output<typeof AwsEbsFastSnapshotRestoreOutputSchema>
+  & z.output<typeof AwsEbsFastSnapshotRestoreInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ebs_fast_snapshot_restore
 
-export function AwsEbsFastSnapshotRestore(props: Partial<InputProps>) {
+export function AwsEbsFastSnapshotRestore(
+  props: Partial<AwsEbsFastSnapshotRestoreInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,8 +49,8 @@ export function AwsEbsFastSnapshotRestore(props: Partial<InputProps>) {
       _type='aws_ebs_fast_snapshot_restore'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEbsFastSnapshotRestoreInputSchema}
+      _outputSchema={AwsEbsFastSnapshotRestoreOutputSchema}
       {...props}
     />
   )
@@ -59,7 +61,7 @@ export const useAwsEbsFastSnapshotRestore = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsEbsFastSnapshotRestoreOutputProps>(
     AwsEbsFastSnapshotRestore,
     idFilter,
     baseNode,
@@ -71,7 +73,7 @@ export const useAwsEbsFastSnapshotRestores = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEbsFastSnapshotRestoreOutputProps>(
     AwsEbsFastSnapshotRestore,
     idFilter,
     baseNode,

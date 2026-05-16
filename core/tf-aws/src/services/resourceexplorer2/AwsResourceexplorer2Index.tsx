@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsResourceexplorer2IndexInputSchema = TfMetaSchema.extend({
   type: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -22,29 +22,31 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsResourceexplorer2IndexOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsResourceexplorer2IndexImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsResourceexplorer2IndexInputProps =
+  & z.input<typeof AwsResourceexplorer2IndexInputSchema>
+  & z.input<typeof AwsResourceexplorer2IndexImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsResourceexplorer2IndexOutputProps =
+  & z.output<typeof AwsResourceexplorer2IndexOutputSchema>
+  & z.output<typeof AwsResourceexplorer2IndexInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/resourceexplorer2_index
 
-export function AwsResourceexplorer2Index(props: Partial<InputProps>) {
+export function AwsResourceexplorer2Index(
+  props: Partial<AwsResourceexplorer2IndexInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -54,9 +56,9 @@ export function AwsResourceexplorer2Index(props: Partial<InputProps>) {
       _type='aws_resourceexplorer2_index'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsResourceexplorer2IndexInputSchema}
+      _outputSchema={AwsResourceexplorer2IndexOutputSchema}
+      _importSchema={AwsResourceexplorer2IndexImportSchema}
       {...props}
     />
   )
@@ -67,7 +69,7 @@ export const useAwsResourceexplorer2Index = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsResourceexplorer2IndexOutputProps>(
     AwsResourceexplorer2Index,
     idFilter,
     baseNode,
@@ -79,7 +81,7 @@ export const useAwsResourceexplorer2Indexs = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsResourceexplorer2IndexOutputProps>(
     AwsResourceexplorer2Index,
     idFilter,
     baseNode,

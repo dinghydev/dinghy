@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsCurReportDefinition } from './AwsCurReportDefinition.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsCurReportDefinitionInputSchema = TfMetaSchema.extend({
   report_name: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsCurReportDefinitionOutputSchema = z.object({
   additional_artifacts: z.set(z.string()).optional(),
   additional_schema_elements: z.set(z.string()).optional(),
   compression: z.string().optional(),
@@ -28,18 +28,20 @@ export const OutputSchema = z.object({
   time_unit: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsCurReportDefinitionInputProps =
+  & z.input<typeof DataAwsCurReportDefinitionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsCurReportDefinitionOutputProps =
+  & z.output<typeof DataAwsCurReportDefinitionOutputSchema>
+  & z.output<typeof DataAwsCurReportDefinitionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/cur_report_definition
 
-export function DataAwsCurReportDefinition(props: Partial<InputProps>) {
+export function DataAwsCurReportDefinition(
+  props: Partial<DataAwsCurReportDefinitionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,8 +51,8 @@ export function DataAwsCurReportDefinition(props: Partial<InputProps>) {
       _type='aws_cur_report_definition'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsCurReportDefinitionInputSchema}
+      _outputSchema={DataAwsCurReportDefinitionOutputSchema}
       {...props as any}
     />
   )
@@ -61,7 +63,7 @@ export const useDataAwsCurReportDefinition = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsCurReportDefinitionOutputProps>(
     DataAwsCurReportDefinition,
     idFilter,
     baseNode,
@@ -73,7 +75,7 @@ export const useDataAwsCurReportDefinitions = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsCurReportDefinitionOutputProps>(
     DataAwsCurReportDefinition,
     idFilter,
     baseNode,

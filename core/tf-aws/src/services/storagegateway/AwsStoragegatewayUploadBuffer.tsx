@@ -9,29 +9,31 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsStoragegatewayUploadBufferInputSchema = TfMetaSchema.extend({
   gateway_arn: resolvableValue(z.string()),
   disk_id: resolvableValue(z.string().optional()),
   disk_path: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsStoragegatewayUploadBufferOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsStoragegatewayUploadBufferInputProps =
+  & z.input<typeof AwsStoragegatewayUploadBufferInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsStoragegatewayUploadBufferOutputProps =
+  & z.output<typeof AwsStoragegatewayUploadBufferOutputSchema>
+  & z.output<typeof AwsStoragegatewayUploadBufferInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/storagegateway_upload_buffer
 
-export function AwsStoragegatewayUploadBuffer(props: Partial<InputProps>) {
+export function AwsStoragegatewayUploadBuffer(
+  props: Partial<AwsStoragegatewayUploadBufferInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -41,8 +43,8 @@ export function AwsStoragegatewayUploadBuffer(props: Partial<InputProps>) {
       _type='aws_storagegateway_upload_buffer'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsStoragegatewayUploadBufferInputSchema}
+      _outputSchema={AwsStoragegatewayUploadBufferOutputSchema}
       {...props}
     />
   )
@@ -53,7 +55,7 @@ export const useAwsStoragegatewayUploadBuffer = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsStoragegatewayUploadBufferOutputProps>(
     AwsStoragegatewayUploadBuffer,
     idFilter,
     baseNode,
@@ -65,7 +67,7 @@ export const useAwsStoragegatewayUploadBuffers = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsStoragegatewayUploadBufferOutputProps>(
     AwsStoragegatewayUploadBuffer,
     idFilter,
     baseNode,

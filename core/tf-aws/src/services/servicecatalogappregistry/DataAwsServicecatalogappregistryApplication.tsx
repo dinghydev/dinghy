@@ -9,32 +9,35 @@ import {
 import z from 'zod'
 import { AwsServicecatalogappregistryApplication } from './AwsServicecatalogappregistryApplication.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
-  id: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsServicecatalogappregistryApplicationInputSchema =
+  TfMetaSchema.extend({
+    id: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
-  application_tag: z.record(z.string(), z.string()).optional(),
-  arn: z.string().optional(),
-  description: z.string().optional(),
-  name: z.string().optional(),
-  tags: z.record(z.string(), z.string()).optional(),
-})
+export const DataAwsServicecatalogappregistryApplicationOutputSchema = z.object(
+  {
+    application_tag: z.record(z.string(), z.string()).optional(),
+    arn: z.string().optional(),
+    description: z.string().optional(),
+    name: z.string().optional(),
+    tags: z.record(z.string(), z.string()).optional(),
+  },
+)
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsServicecatalogappregistryApplicationInputProps =
+  & z.input<typeof DataAwsServicecatalogappregistryApplicationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsServicecatalogappregistryApplicationOutputProps =
+  & z.output<typeof DataAwsServicecatalogappregistryApplicationOutputSchema>
+  & z.output<typeof DataAwsServicecatalogappregistryApplicationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/servicecatalogappregistry_application
 
 export function DataAwsServicecatalogappregistryApplication(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsServicecatalogappregistryApplicationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -45,8 +48,8 @@ export function DataAwsServicecatalogappregistryApplication(
       _type='aws_servicecatalogappregistry_application'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsServicecatalogappregistryApplicationInputSchema}
+      _outputSchema={DataAwsServicecatalogappregistryApplicationOutputSchema}
       {...props as any}
     />
   )
@@ -57,7 +60,7 @@ export const useDataAwsServicecatalogappregistryApplication = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsServicecatalogappregistryApplicationOutputProps>(
     DataAwsServicecatalogappregistryApplication,
     idFilter,
     baseNode,
@@ -69,7 +72,7 @@ export const useDataAwsServicecatalogappregistryApplications = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsServicecatalogappregistryApplicationOutputProps>(
     DataAwsServicecatalogappregistryApplication,
     idFilter,
     baseNode,

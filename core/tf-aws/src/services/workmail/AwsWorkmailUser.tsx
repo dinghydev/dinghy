@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsWorkmailUserInputSchema = TfMetaSchema.extend({
   display_name: resolvableValue(z.string()),
   email: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -33,7 +33,7 @@ export const InputSchema = TfMetaSchema.extend({
   zip_code: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsWorkmailUserOutputSchema = z.object({
   disabled_date: z.string().optional(),
   enabled_date: z.string().optional(),
   identity_provider_identity_store_id: z.string().optional(),
@@ -43,26 +43,26 @@ export const OutputSchema = z.object({
   user_id: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsWorkmailUserImportSchema = z.object({
   organization_id: resolvableValue(z.string()),
   user_id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsWorkmailUserInputProps =
+  & z.input<typeof AwsWorkmailUserInputSchema>
+  & z.input<typeof AwsWorkmailUserImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWorkmailUserOutputProps =
+  & z.output<typeof AwsWorkmailUserOutputSchema>
+  & z.output<typeof AwsWorkmailUserInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/workmail_user
 
-export function AwsWorkmailUser(props: Partial<InputProps>) {
+export function AwsWorkmailUser(props: Partial<AwsWorkmailUserInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -72,9 +72,9 @@ export function AwsWorkmailUser(props: Partial<InputProps>) {
       _type='aws_workmail_user'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsWorkmailUserInputSchema}
+      _outputSchema={AwsWorkmailUserOutputSchema}
+      _importSchema={AwsWorkmailUserImportSchema}
       {...props}
     />
   )
@@ -84,10 +84,22 @@ export const useAwsWorkmailUser = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsWorkmailUser, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsWorkmailUserOutputProps>(
+    AwsWorkmailUser,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsWorkmailUsers = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsWorkmailUser, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsWorkmailUserOutputProps>(
+    AwsWorkmailUser,
+    idFilter,
+    baseNode,
+    optional,
+  )

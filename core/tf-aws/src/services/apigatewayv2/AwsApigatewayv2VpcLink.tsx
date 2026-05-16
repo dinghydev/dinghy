@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsApigatewayv2VpcLinkInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   security_group_ids: resolvableValue(z.string().array()),
   subnet_ids: resolvableValue(z.string().array()),
@@ -17,24 +17,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsApigatewayv2VpcLinkOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsApigatewayv2VpcLinkInputProps =
+  & z.input<typeof AwsApigatewayv2VpcLinkInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApigatewayv2VpcLinkOutputProps =
+  & z.output<typeof AwsApigatewayv2VpcLinkOutputSchema>
+  & z.output<typeof AwsApigatewayv2VpcLinkInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/apigatewayv2_vpc_link
 
-export function AwsApigatewayv2VpcLink(props: Partial<InputProps>) {
+export function AwsApigatewayv2VpcLink(
+  props: Partial<AwsApigatewayv2VpcLinkInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +46,8 @@ export function AwsApigatewayv2VpcLink(props: Partial<InputProps>) {
       _type='aws_apigatewayv2_vpc_link'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsApigatewayv2VpcLinkInputSchema}
+      _outputSchema={AwsApigatewayv2VpcLinkOutputSchema}
       {...props}
     />
   )
@@ -56,7 +58,7 @@ export const useAwsApigatewayv2VpcLink = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsApigatewayv2VpcLinkOutputProps>(
     AwsApigatewayv2VpcLink,
     idFilter,
     baseNode,
@@ -68,7 +70,7 @@ export const useAwsApigatewayv2VpcLinks = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsApigatewayv2VpcLinkOutputProps>(
     AwsApigatewayv2VpcLink,
     idFilter,
     baseNode,

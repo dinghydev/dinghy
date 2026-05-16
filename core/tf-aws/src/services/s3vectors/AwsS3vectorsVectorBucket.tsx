@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsS3vectorsVectorBucketInputSchema = TfMetaSchema.extend({
   vector_bucket_name: resolvableValue(z.string()),
   encryption_configuration: resolvableValue(
     z.object({
@@ -22,29 +22,31 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsS3vectorsVectorBucketOutputSchema = z.object({
   creation_time: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   vector_bucket_arn: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsS3vectorsVectorBucketImportSchema = z.object({
   vector_bucket_arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsS3vectorsVectorBucketInputProps =
+  & z.input<typeof AwsS3vectorsVectorBucketInputSchema>
+  & z.input<typeof AwsS3vectorsVectorBucketImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3vectorsVectorBucketOutputProps =
+  & z.output<typeof AwsS3vectorsVectorBucketOutputSchema>
+  & z.output<typeof AwsS3vectorsVectorBucketInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3vectors_vector_bucket
 
-export function AwsS3vectorsVectorBucket(props: Partial<InputProps>) {
+export function AwsS3vectorsVectorBucket(
+  props: Partial<AwsS3vectorsVectorBucketInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -54,9 +56,9 @@ export function AwsS3vectorsVectorBucket(props: Partial<InputProps>) {
       _type='aws_s3vectors_vector_bucket'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsS3vectorsVectorBucketInputSchema}
+      _outputSchema={AwsS3vectorsVectorBucketOutputSchema}
+      _importSchema={AwsS3vectorsVectorBucketImportSchema}
       {...props}
     />
   )
@@ -67,7 +69,7 @@ export const useAwsS3vectorsVectorBucket = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsS3vectorsVectorBucketOutputProps>(
     AwsS3vectorsVectorBucket,
     idFilter,
     baseNode,
@@ -79,7 +81,7 @@ export const useAwsS3vectorsVectorBuckets = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsS3vectorsVectorBucketOutputProps>(
     AwsS3vectorsVectorBucket,
     idFilter,
     baseNode,

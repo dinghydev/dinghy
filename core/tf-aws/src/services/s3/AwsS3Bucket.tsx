@@ -12,7 +12,7 @@ import z from 'zod'
 import { BUCKET } from '@dinghy/diagrams/entitiesAwsStorage'
 import { AWS_ACCOUNT } from '@dinghy/diagrams/containersAwsGroups'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsS3BucketInputSchema = TfMetaSchema.extend({
   acceleration_status: resolvableValue(z.string().optional()),
   acl: resolvableValue(z.string().optional()),
   bucket: resolvableValue(z.string().optional()),
@@ -158,7 +158,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsS3BucketOutputSchema = z.object({
   arn: z.string().optional(),
   bucket_domain_name: z.string().optional(),
   bucket_region: z.string().optional(),
@@ -170,25 +170,25 @@ export const OutputSchema = z.object({
   website_endpoint: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsS3BucketImportSchema = z.object({
   bucket: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsS3BucketInputProps =
+  & z.input<typeof AwsS3BucketInputSchema>
+  & z.input<typeof AwsS3BucketImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3BucketOutputProps =
+  & z.output<typeof AwsS3BucketOutputSchema>
+  & z.output<typeof AwsS3BucketInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3_bucket
 
-export function AwsS3Bucket(props: Partial<InputProps>) {
+export function AwsS3Bucket(props: Partial<AwsS3BucketInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -198,9 +198,9 @@ export function AwsS3Bucket(props: Partial<InputProps>) {
       _type='aws_s3_bucket'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsS3BucketInputSchema}
+      _outputSchema={AwsS3BucketOutputSchema}
+      _importSchema={AwsS3BucketImportSchema}
       {...props}
       _style={extendStyle(props, BUCKET, AWS_ACCOUNT)}
     />
@@ -211,10 +211,22 @@ export const useAwsS3Bucket = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsS3Bucket, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsS3BucketOutputProps>(
+    AwsS3Bucket,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsS3Buckets = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsS3Bucket, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsS3BucketOutputProps>(
+    AwsS3Bucket,
+    idFilter,
+    baseNode,
+    optional,
+  )

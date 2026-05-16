@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsApiGatewayDomainNameInputSchema = TfMetaSchema.extend({
   domain_name: resolvableValue(z.string()),
   certificate_arn: resolvableValue(z.string().optional()),
   certificate_body: resolvableValue(z.string().optional()),
@@ -47,7 +47,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsApiGatewayDomainNameOutputSchema = z.object({
   arn: z.string().optional(),
   certificate_upload_date: z.string().optional(),
   cloudfront_domain_name: z.string().optional(),
@@ -59,18 +59,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsApiGatewayDomainNameInputProps =
+  & z.input<typeof AwsApiGatewayDomainNameInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApiGatewayDomainNameOutputProps =
+  & z.output<typeof AwsApiGatewayDomainNameOutputSchema>
+  & z.output<typeof AwsApiGatewayDomainNameInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/api_gateway_domain_name
 
-export function AwsApiGatewayDomainName(props: Partial<InputProps>) {
+export function AwsApiGatewayDomainName(
+  props: Partial<AwsApiGatewayDomainNameInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -80,8 +82,8 @@ export function AwsApiGatewayDomainName(props: Partial<InputProps>) {
       _type='aws_api_gateway_domain_name'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsApiGatewayDomainNameInputSchema}
+      _outputSchema={AwsApiGatewayDomainNameOutputSchema}
       {...props}
     />
   )
@@ -92,7 +94,7 @@ export const useAwsApiGatewayDomainName = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsApiGatewayDomainNameOutputProps>(
     AwsApiGatewayDomainName,
     idFilter,
     baseNode,
@@ -104,7 +106,7 @@ export const useAwsApiGatewayDomainNames = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsApiGatewayDomainNameOutputProps>(
     AwsApiGatewayDomainName,
     idFilter,
     baseNode,

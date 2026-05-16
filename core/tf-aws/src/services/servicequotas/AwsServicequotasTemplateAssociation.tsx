@@ -9,29 +9,30 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  region: resolvableValue(z.string().optional()),
-  skip_destroy: resolvableValue(z.boolean().optional()),
-})
+export const AwsServicequotasTemplateAssociationInputSchema = TfMetaSchema
+  .extend({
+    region: resolvableValue(z.string().optional()),
+    skip_destroy: resolvableValue(z.boolean().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsServicequotasTemplateAssociationOutputSchema = z.object({
   id: z.string().optional(),
   status: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsServicequotasTemplateAssociationInputProps =
+  & z.input<typeof AwsServicequotasTemplateAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsServicequotasTemplateAssociationOutputProps =
+  & z.output<typeof AwsServicequotasTemplateAssociationOutputSchema>
+  & z.output<typeof AwsServicequotasTemplateAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/servicequotas_template_association
 
 export function AwsServicequotasTemplateAssociation(
-  props: Partial<InputProps>,
+  props: Partial<AwsServicequotasTemplateAssociationInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -42,8 +43,8 @@ export function AwsServicequotasTemplateAssociation(
       _type='aws_servicequotas_template_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsServicequotasTemplateAssociationInputSchema}
+      _outputSchema={AwsServicequotasTemplateAssociationOutputSchema}
       {...props}
     />
   )
@@ -54,7 +55,7 @@ export const useAwsServicequotasTemplateAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsServicequotasTemplateAssociationOutputProps>(
     AwsServicequotasTemplateAssociation,
     idFilter,
     baseNode,
@@ -66,7 +67,7 @@ export const useAwsServicequotasTemplateAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsServicequotasTemplateAssociationOutputProps>(
     AwsServicequotasTemplateAssociation,
     idFilter,
     baseNode,

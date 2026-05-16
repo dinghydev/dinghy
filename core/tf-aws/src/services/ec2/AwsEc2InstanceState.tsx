@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEc2InstanceStateInputSchema = TfMetaSchema.extend({
   instance_id: resolvableValue(z.string()),
   state: resolvableValue(z.string()),
   force: resolvableValue(z.boolean().optional()),
@@ -23,22 +23,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsEc2InstanceStateOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEc2InstanceStateInputProps =
+  & z.input<typeof AwsEc2InstanceStateInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEc2InstanceStateOutputProps =
+  & z.output<typeof AwsEc2InstanceStateOutputSchema>
+  & z.output<typeof AwsEc2InstanceStateInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ec2_instance_state
 
-export function AwsEc2InstanceState(props: Partial<InputProps>) {
+export function AwsEc2InstanceState(
+  props: Partial<AwsEc2InstanceStateInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +50,8 @@ export function AwsEc2InstanceState(props: Partial<InputProps>) {
       _type='aws_ec2_instance_state'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEc2InstanceStateInputSchema}
+      _outputSchema={AwsEc2InstanceStateOutputSchema}
       {...props}
     />
   )
@@ -60,11 +62,21 @@ export const useAwsEc2InstanceState = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsEc2InstanceState, idFilter, baseNode, optional)
+  useTypedNode<AwsEc2InstanceStateOutputProps>(
+    AwsEc2InstanceState,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEc2InstanceStates = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsEc2InstanceState, idFilter, baseNode, optional)
+  useTypedNodes<AwsEc2InstanceStateOutputProps>(
+    AwsEc2InstanceState,
+    idFilter,
+    baseNode,
+    optional,
+  )

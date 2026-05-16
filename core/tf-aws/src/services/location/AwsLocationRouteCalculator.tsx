@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLocationRouteCalculatorInputSchema = TfMetaSchema.extend({
   calculator_name: resolvableValue(z.string()),
   data_source: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
@@ -25,25 +25,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsLocationRouteCalculatorOutputSchema = z.object({
   calculator_arn: z.string().optional(),
   create_time: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   update_time: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLocationRouteCalculatorInputProps =
+  & z.input<typeof AwsLocationRouteCalculatorInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLocationRouteCalculatorOutputProps =
+  & z.output<typeof AwsLocationRouteCalculatorOutputSchema>
+  & z.output<typeof AwsLocationRouteCalculatorInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/location_route_calculator
 
-export function AwsLocationRouteCalculator(props: Partial<InputProps>) {
+export function AwsLocationRouteCalculator(
+  props: Partial<AwsLocationRouteCalculatorInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,8 +55,8 @@ export function AwsLocationRouteCalculator(props: Partial<InputProps>) {
       _type='aws_location_route_calculator'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLocationRouteCalculatorInputSchema}
+      _outputSchema={AwsLocationRouteCalculatorOutputSchema}
       {...props}
     />
   )
@@ -65,7 +67,7 @@ export const useAwsLocationRouteCalculator = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsLocationRouteCalculatorOutputProps>(
     AwsLocationRouteCalculator,
     idFilter,
     baseNode,
@@ -77,7 +79,7 @@ export const useAwsLocationRouteCalculators = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsLocationRouteCalculatorOutputProps>(
     AwsLocationRouteCalculator,
     idFilter,
     baseNode,

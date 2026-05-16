@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAppstreamImageBuilderInputSchema = TfMetaSchema.extend({
   instance_type: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   access_endpoint: resolvableValue(
@@ -41,7 +41,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsAppstreamImageBuilderOutputSchema = z.object({
   arn: z.string().optional(),
   created_time: z.string().optional(),
   id: z.string().optional(),
@@ -49,18 +49,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAppstreamImageBuilderInputProps =
+  & z.input<typeof AwsAppstreamImageBuilderInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppstreamImageBuilderOutputProps =
+  & z.output<typeof AwsAppstreamImageBuilderOutputSchema>
+  & z.output<typeof AwsAppstreamImageBuilderInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appstream_image_builder
 
-export function AwsAppstreamImageBuilder(props: Partial<InputProps>) {
+export function AwsAppstreamImageBuilder(
+  props: Partial<AwsAppstreamImageBuilderInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -70,8 +72,8 @@ export function AwsAppstreamImageBuilder(props: Partial<InputProps>) {
       _type='aws_appstream_image_builder'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAppstreamImageBuilderInputSchema}
+      _outputSchema={AwsAppstreamImageBuilderOutputSchema}
       {...props}
     />
   )
@@ -82,7 +84,7 @@ export const useAwsAppstreamImageBuilder = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAppstreamImageBuilderOutputProps>(
     AwsAppstreamImageBuilder,
     idFilter,
     baseNode,
@@ -94,7 +96,7 @@ export const useAwsAppstreamImageBuilders = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAppstreamImageBuilderOutputProps>(
     AwsAppstreamImageBuilder,
     idFilter,
     baseNode,

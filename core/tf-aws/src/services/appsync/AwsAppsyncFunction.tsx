@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAppsyncFunctionInputSchema = TfMetaSchema.extend({
   api_id: resolvableValue(z.string()),
   data_source: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
@@ -37,24 +37,26 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsAppsyncFunctionOutputSchema = z.object({
   arn: z.string().optional(),
   function_id: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAppsyncFunctionInputProps =
+  & z.input<typeof AwsAppsyncFunctionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppsyncFunctionOutputProps =
+  & z.output<typeof AwsAppsyncFunctionOutputSchema>
+  & z.output<typeof AwsAppsyncFunctionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appsync_function
 
-export function AwsAppsyncFunction(props: Partial<InputProps>) {
+export function AwsAppsyncFunction(
+  props: Partial<AwsAppsyncFunctionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -64,8 +66,8 @@ export function AwsAppsyncFunction(props: Partial<InputProps>) {
       _type='aws_appsync_function'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAppsyncFunctionInputSchema}
+      _outputSchema={AwsAppsyncFunctionOutputSchema}
       {...props}
     />
   )
@@ -75,11 +77,22 @@ export const useAwsAppsyncFunction = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsAppsyncFunction, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsAppsyncFunctionOutputProps>(
+    AwsAppsyncFunction,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAppsyncFunctions = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsAppsyncFunction, idFilter, baseNode, optional)
+  useTypedNodes<AwsAppsyncFunctionOutputProps>(
+    AwsAppsyncFunction,
+    idFilter,
+    baseNode,
+    optional,
+  )

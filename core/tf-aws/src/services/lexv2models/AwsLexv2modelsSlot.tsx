@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsLexv2modelsSlotInputSchema = TfMetaSchema.extend({
   bot_id: resolvableValue(z.string()),
   bot_version: resolvableValue(z.string()),
   intent_id: resolvableValue(z.string()),
@@ -494,23 +494,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsLexv2modelsSlotOutputSchema = z.object({
   id: z.string().optional(),
   slot_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsLexv2modelsSlotInputProps =
+  & z.input<typeof AwsLexv2modelsSlotInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsLexv2modelsSlotOutputProps =
+  & z.output<typeof AwsLexv2modelsSlotOutputSchema>
+  & z.output<typeof AwsLexv2modelsSlotInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/lexv2models_slot
 
-export function AwsLexv2modelsSlot(props: Partial<InputProps>) {
+export function AwsLexv2modelsSlot(
+  props: Partial<AwsLexv2modelsSlotInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -520,8 +522,8 @@ export function AwsLexv2modelsSlot(props: Partial<InputProps>) {
       _type='aws_lexv2models_slot'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsLexv2modelsSlotInputSchema}
+      _outputSchema={AwsLexv2modelsSlotOutputSchema}
       {...props}
     />
   )
@@ -531,11 +533,22 @@ export const useAwsLexv2modelsSlot = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsLexv2modelsSlot, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsLexv2modelsSlotOutputProps>(
+    AwsLexv2modelsSlot,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsLexv2modelsSlots = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsLexv2modelsSlot, idFilter, baseNode, optional)
+  useTypedNodes<AwsLexv2modelsSlotOutputProps>(
+    AwsLexv2modelsSlot,
+    idFilter,
+    baseNode,
+    optional,
+  )

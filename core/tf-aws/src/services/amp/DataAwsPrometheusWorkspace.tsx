@@ -9,13 +9,13 @@ import {
 import z from 'zod'
 import { AwsPrometheusWorkspace } from './AwsPrometheusWorkspace.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsPrometheusWorkspaceInputSchema = TfMetaSchema.extend({
   workspace_id: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsPrometheusWorkspaceOutputSchema = z.object({
   alias: z.string().optional(),
   arn: z.string().optional(),
   created_date: z.string().optional(),
@@ -25,18 +25,20 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsPrometheusWorkspaceInputProps =
+  & z.input<typeof DataAwsPrometheusWorkspaceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsPrometheusWorkspaceOutputProps =
+  & z.output<typeof DataAwsPrometheusWorkspaceOutputSchema>
+  & z.output<typeof DataAwsPrometheusWorkspaceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/prometheus_workspace
 
-export function DataAwsPrometheusWorkspace(props: Partial<InputProps>) {
+export function DataAwsPrometheusWorkspace(
+  props: Partial<DataAwsPrometheusWorkspaceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function DataAwsPrometheusWorkspace(props: Partial<InputProps>) {
       _type='aws_prometheus_workspace'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsPrometheusWorkspaceInputSchema}
+      _outputSchema={DataAwsPrometheusWorkspaceOutputSchema}
       {...props as any}
     />
   )
@@ -58,7 +60,7 @@ export const useDataAwsPrometheusWorkspace = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsPrometheusWorkspaceOutputProps>(
     DataAwsPrometheusWorkspace,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useDataAwsPrometheusWorkspaces = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsPrometheusWorkspaceOutputProps>(
     DataAwsPrometheusWorkspace,
     idFilter,
     baseNode,

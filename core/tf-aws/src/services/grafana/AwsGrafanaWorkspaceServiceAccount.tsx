@@ -9,30 +9,34 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  grafana_role: resolvableValue(z.string()),
-  name: resolvableValue(z.string()),
-  workspace_id: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsGrafanaWorkspaceServiceAccountInputSchema = TfMetaSchema.extend(
+  {
+    grafana_role: resolvableValue(z.string()),
+    name: resolvableValue(z.string()),
+    workspace_id: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  },
+)
 
-export const OutputSchema = z.object({
+export const AwsGrafanaWorkspaceServiceAccountOutputSchema = z.object({
   id: z.string().optional(),
   service_account_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsGrafanaWorkspaceServiceAccountInputProps =
+  & z.input<typeof AwsGrafanaWorkspaceServiceAccountInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsGrafanaWorkspaceServiceAccountOutputProps =
+  & z.output<typeof AwsGrafanaWorkspaceServiceAccountOutputSchema>
+  & z.output<typeof AwsGrafanaWorkspaceServiceAccountInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/grafana_workspace_service_account
 
-export function AwsGrafanaWorkspaceServiceAccount(props: Partial<InputProps>) {
+export function AwsGrafanaWorkspaceServiceAccount(
+  props: Partial<AwsGrafanaWorkspaceServiceAccountInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +46,8 @@ export function AwsGrafanaWorkspaceServiceAccount(props: Partial<InputProps>) {
       _type='aws_grafana_workspace_service_account'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsGrafanaWorkspaceServiceAccountInputSchema}
+      _outputSchema={AwsGrafanaWorkspaceServiceAccountOutputSchema}
       {...props}
     />
   )
@@ -54,7 +58,7 @@ export const useAwsGrafanaWorkspaceServiceAccount = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsGrafanaWorkspaceServiceAccountOutputProps>(
     AwsGrafanaWorkspaceServiceAccount,
     idFilter,
     baseNode,
@@ -66,7 +70,7 @@ export const useAwsGrafanaWorkspaceServiceAccounts = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsGrafanaWorkspaceServiceAccountOutputProps>(
     AwsGrafanaWorkspaceServiceAccount,
     idFilter,
     baseNode,

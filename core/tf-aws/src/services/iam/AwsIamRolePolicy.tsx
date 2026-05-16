@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIamRolePolicyInputSchema = TfMetaSchema.extend({
   policy: resolvableValue(z.string()),
   role: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
@@ -17,27 +17,27 @@ export const InputSchema = TfMetaSchema.extend({
   name_prefix: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsIamRolePolicyOutputSchema = z.object({})
 
-export const ImportSchema = z.object({
+export const AwsIamRolePolicyImportSchema = z.object({
   name: resolvableValue(z.string()),
   role: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsIamRolePolicyInputProps =
+  & z.input<typeof AwsIamRolePolicyInputSchema>
+  & z.input<typeof AwsIamRolePolicyImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIamRolePolicyOutputProps =
+  & z.output<typeof AwsIamRolePolicyOutputSchema>
+  & z.output<typeof AwsIamRolePolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iam_role_policy
 
-export function AwsIamRolePolicy(props: Partial<InputProps>) {
+export function AwsIamRolePolicy(props: Partial<AwsIamRolePolicyInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -47,9 +47,9 @@ export function AwsIamRolePolicy(props: Partial<InputProps>) {
       _type='aws_iam_role_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsIamRolePolicyInputSchema}
+      _outputSchema={AwsIamRolePolicyOutputSchema}
+      _importSchema={AwsIamRolePolicyImportSchema}
       {...props}
     />
   )
@@ -59,10 +59,22 @@ export const useAwsIamRolePolicy = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsIamRolePolicy, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsIamRolePolicyOutputProps>(
+    AwsIamRolePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIamRolePolicys = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsIamRolePolicy, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsIamRolePolicyOutputProps>(
+    AwsIamRolePolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

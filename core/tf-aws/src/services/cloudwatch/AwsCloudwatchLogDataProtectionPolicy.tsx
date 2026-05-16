@@ -9,28 +9,29 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  log_group_name: resolvableValue(z.string()),
-  policy_document: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsCloudwatchLogDataProtectionPolicyInputSchema = TfMetaSchema
+  .extend({
+    log_group_name: resolvableValue(z.string()),
+    policy_document: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({})
+export const AwsCloudwatchLogDataProtectionPolicyOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudwatchLogDataProtectionPolicyInputProps =
+  & z.input<typeof AwsCloudwatchLogDataProtectionPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudwatchLogDataProtectionPolicyOutputProps =
+  & z.output<typeof AwsCloudwatchLogDataProtectionPolicyOutputSchema>
+  & z.output<typeof AwsCloudwatchLogDataProtectionPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudwatch_log_data_protection_policy
 
 export function AwsCloudwatchLogDataProtectionPolicy(
-  props: Partial<InputProps>,
+  props: Partial<AwsCloudwatchLogDataProtectionPolicyInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -41,8 +42,8 @@ export function AwsCloudwatchLogDataProtectionPolicy(
       _type='aws_cloudwatch_log_data_protection_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudwatchLogDataProtectionPolicyInputSchema}
+      _outputSchema={AwsCloudwatchLogDataProtectionPolicyOutputSchema}
       {...props}
     />
   )
@@ -53,7 +54,7 @@ export const useAwsCloudwatchLogDataProtectionPolicy = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudwatchLogDataProtectionPolicyOutputProps>(
     AwsCloudwatchLogDataProtectionPolicy,
     idFilter,
     baseNode,
@@ -65,7 +66,7 @@ export const useAwsCloudwatchLogDataProtectionPolicys = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudwatchLogDataProtectionPolicyOutputProps>(
     AwsCloudwatchLogDataProtectionPolicy,
     idFilter,
     baseNode,

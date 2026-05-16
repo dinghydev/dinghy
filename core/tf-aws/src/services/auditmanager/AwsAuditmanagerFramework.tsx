@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAuditmanagerFrameworkInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   compliance_type: resolvableValue(z.string().optional()),
   control_sets: resolvableValue(
@@ -26,32 +26,34 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAuditmanagerFrameworkOutputSchema = z.object({
   arn: z.string().optional(),
   framework_type: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsAuditmanagerFrameworkImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsAuditmanagerFrameworkInputProps =
+  & z.input<typeof AwsAuditmanagerFrameworkInputSchema>
+  & z.input<typeof AwsAuditmanagerFrameworkImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAuditmanagerFrameworkOutputProps =
+  & z.output<typeof AwsAuditmanagerFrameworkOutputSchema>
+  & z.output<typeof AwsAuditmanagerFrameworkInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/auditmanager_framework
 
-export function AwsAuditmanagerFramework(props: Partial<InputProps>) {
+export function AwsAuditmanagerFramework(
+  props: Partial<AwsAuditmanagerFrameworkInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -61,9 +63,9 @@ export function AwsAuditmanagerFramework(props: Partial<InputProps>) {
       _type='aws_auditmanager_framework'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsAuditmanagerFrameworkInputSchema}
+      _outputSchema={AwsAuditmanagerFrameworkOutputSchema}
+      _importSchema={AwsAuditmanagerFrameworkImportSchema}
       {...props}
     />
   )
@@ -74,7 +76,7 @@ export const useAwsAuditmanagerFramework = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAuditmanagerFrameworkOutputProps>(
     AwsAuditmanagerFramework,
     idFilter,
     baseNode,
@@ -86,7 +88,7 @@ export const useAwsAuditmanagerFrameworks = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAuditmanagerFrameworkOutputProps>(
     AwsAuditmanagerFramework,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsQuicksightRoleMembershipInputSchema = TfMetaSchema.extend({
   member_name: resolvableValue(z.string()),
   role: resolvableValue(z.string()),
   aws_account_id: resolvableValue(z.string().optional()),
@@ -17,20 +17,22 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsQuicksightRoleMembershipOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsQuicksightRoleMembershipInputProps =
+  & z.input<typeof AwsQuicksightRoleMembershipInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsQuicksightRoleMembershipOutputProps =
+  & z.output<typeof AwsQuicksightRoleMembershipOutputSchema>
+  & z.output<typeof AwsQuicksightRoleMembershipInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/quicksight_role_membership
 
-export function AwsQuicksightRoleMembership(props: Partial<InputProps>) {
+export function AwsQuicksightRoleMembership(
+  props: Partial<AwsQuicksightRoleMembershipInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +42,8 @@ export function AwsQuicksightRoleMembership(props: Partial<InputProps>) {
       _type='aws_quicksight_role_membership'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsQuicksightRoleMembershipInputSchema}
+      _outputSchema={AwsQuicksightRoleMembershipOutputSchema}
       {...props}
     />
   )
@@ -52,7 +54,7 @@ export const useAwsQuicksightRoleMembership = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsQuicksightRoleMembershipOutputProps>(
     AwsQuicksightRoleMembership,
     idFilter,
     baseNode,
@@ -64,7 +66,7 @@ export const useAwsQuicksightRoleMemberships = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsQuicksightRoleMembershipOutputProps>(
     AwsQuicksightRoleMembership,
     idFilter,
     baseNode,

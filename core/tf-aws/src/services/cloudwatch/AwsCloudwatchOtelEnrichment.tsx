@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudwatchOtelEnrichmentInputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
   timeouts: resolvableValue(
     z.object({
@@ -19,22 +19,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudwatchOtelEnrichmentOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudwatchOtelEnrichmentInputProps =
+  & z.input<typeof AwsCloudwatchOtelEnrichmentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudwatchOtelEnrichmentOutputProps =
+  & z.output<typeof AwsCloudwatchOtelEnrichmentOutputSchema>
+  & z.output<typeof AwsCloudwatchOtelEnrichmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudwatch_otel_enrichment
 
-export function AwsCloudwatchOtelEnrichment(props: Partial<InputProps>) {
+export function AwsCloudwatchOtelEnrichment(
+  props: Partial<AwsCloudwatchOtelEnrichmentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -44,8 +46,8 @@ export function AwsCloudwatchOtelEnrichment(props: Partial<InputProps>) {
       _type='aws_cloudwatch_otel_enrichment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudwatchOtelEnrichmentInputSchema}
+      _outputSchema={AwsCloudwatchOtelEnrichmentOutputSchema}
       {...props}
     />
   )
@@ -56,7 +58,7 @@ export const useAwsCloudwatchOtelEnrichment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudwatchOtelEnrichmentOutputProps>(
     AwsCloudwatchOtelEnrichment,
     idFilter,
     baseNode,
@@ -68,7 +70,7 @@ export const useAwsCloudwatchOtelEnrichments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudwatchOtelEnrichmentOutputProps>(
     AwsCloudwatchOtelEnrichment,
     idFilter,
     baseNode,

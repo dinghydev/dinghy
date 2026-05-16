@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsS3BucketWebsiteConfigurationInputSchema = TfMetaSchema.extend({
   bucket: resolvableValue(z.string()),
   error_document: resolvableValue(
     z.object({
@@ -47,31 +47,33 @@ export const InputSchema = TfMetaSchema.extend({
   routing_rules: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsS3BucketWebsiteConfigurationOutputSchema = z.object({
   id: z.string().optional(),
   website_domain: z.string().optional(),
   website_endpoint: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsS3BucketWebsiteConfigurationImportSchema = z.object({
   bucket: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsS3BucketWebsiteConfigurationInputProps =
+  & z.input<typeof AwsS3BucketWebsiteConfigurationInputSchema>
+  & z.input<typeof AwsS3BucketWebsiteConfigurationImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsS3BucketWebsiteConfigurationOutputProps =
+  & z.output<typeof AwsS3BucketWebsiteConfigurationOutputSchema>
+  & z.output<typeof AwsS3BucketWebsiteConfigurationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/s3_bucket_website_configuration
 
-export function AwsS3BucketWebsiteConfiguration(props: Partial<InputProps>) {
+export function AwsS3BucketWebsiteConfiguration(
+  props: Partial<AwsS3BucketWebsiteConfigurationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -81,9 +83,9 @@ export function AwsS3BucketWebsiteConfiguration(props: Partial<InputProps>) {
       _type='aws_s3_bucket_website_configuration'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsS3BucketWebsiteConfigurationInputSchema}
+      _outputSchema={AwsS3BucketWebsiteConfigurationOutputSchema}
+      _importSchema={AwsS3BucketWebsiteConfigurationImportSchema}
       {...props}
     />
   )
@@ -94,7 +96,7 @@ export const useAwsS3BucketWebsiteConfiguration = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsS3BucketWebsiteConfigurationOutputProps>(
     AwsS3BucketWebsiteConfiguration,
     idFilter,
     baseNode,
@@ -106,7 +108,7 @@ export const useAwsS3BucketWebsiteConfigurations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsS3BucketWebsiteConfigurationOutputProps>(
     AwsS3BucketWebsiteConfiguration,
     idFilter,
     baseNode,

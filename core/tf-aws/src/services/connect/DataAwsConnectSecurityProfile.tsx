@@ -9,14 +9,14 @@ import {
 import z from 'zod'
 import { AwsConnectSecurityProfile } from './AwsConnectSecurityProfile.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsConnectSecurityProfileInputSchema = TfMetaSchema.extend({
   instance_id: resolvableValue(z.string()),
   name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   security_profile_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsConnectSecurityProfileOutputSchema = z.object({
   arn: z.string().optional(),
   description: z.string().optional(),
   id: z.string().optional(),
@@ -25,18 +25,20 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsConnectSecurityProfileInputProps =
+  & z.input<typeof DataAwsConnectSecurityProfileInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsConnectSecurityProfileOutputProps =
+  & z.output<typeof DataAwsConnectSecurityProfileOutputSchema>
+  & z.output<typeof DataAwsConnectSecurityProfileInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/connect_security_profile
 
-export function DataAwsConnectSecurityProfile(props: Partial<InputProps>) {
+export function DataAwsConnectSecurityProfile(
+  props: Partial<DataAwsConnectSecurityProfileInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -46,8 +48,8 @@ export function DataAwsConnectSecurityProfile(props: Partial<InputProps>) {
       _type='aws_connect_security_profile'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsConnectSecurityProfileInputSchema}
+      _outputSchema={DataAwsConnectSecurityProfileOutputSchema}
       {...props as any}
     />
   )
@@ -58,7 +60,7 @@ export const useDataAwsConnectSecurityProfile = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsConnectSecurityProfileOutputProps>(
     DataAwsConnectSecurityProfile,
     idFilter,
     baseNode,
@@ -70,7 +72,7 @@ export const useDataAwsConnectSecurityProfiles = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsConnectSecurityProfileOutputProps>(
     DataAwsConnectSecurityProfile,
     idFilter,
     baseNode,

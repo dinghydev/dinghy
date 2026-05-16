@@ -8,11 +8,11 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsRedshiftDataSharesInputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsRedshiftDataSharesOutputSchema = z.object({
   data_shares: z.object({
     data_share_arn: z.string(),
     managed_by: z.string(),
@@ -21,18 +21,20 @@ export const OutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsRedshiftDataSharesInputProps =
+  & z.input<typeof DataAwsRedshiftDataSharesInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsRedshiftDataSharesOutputProps =
+  & z.output<typeof DataAwsRedshiftDataSharesOutputSchema>
+  & z.output<typeof DataAwsRedshiftDataSharesInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/redshift_data_shares
 
-export function DataAwsRedshiftDataShares(props: Partial<InputProps>) {
+export function DataAwsRedshiftDataShares(
+  props: Partial<DataAwsRedshiftDataSharesInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +44,8 @@ export function DataAwsRedshiftDataShares(props: Partial<InputProps>) {
       _type='aws_redshift_data_shares'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsRedshiftDataSharesInputSchema}
+      _outputSchema={DataAwsRedshiftDataSharesOutputSchema}
       {...props}
     />
   )
@@ -54,7 +56,7 @@ export const useDataAwsRedshiftDataSharess = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsRedshiftDataSharesOutputProps>(
     DataAwsRedshiftDataShares,
     idFilter,
     baseNode,

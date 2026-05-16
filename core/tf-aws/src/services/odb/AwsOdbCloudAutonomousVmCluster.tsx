@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsOdbCloudAutonomousVmClusterInputSchema = TfMetaSchema.extend({
   autonomous_data_storage_size_in_tbs: resolvableValue(z.number()),
   cpu_core_count_per_node: resolvableValue(z.number()),
   db_servers: resolvableValue(z.string().array()),
@@ -51,7 +51,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsOdbCloudAutonomousVmClusterOutputSchema = z.object({
   arn: z.string().optional(),
   autonomous_data_storage_percentage: z.number().optional(),
   available_autonomous_data_storage_size_in_tbs: z.number().optional(),
@@ -91,18 +91,20 @@ export const OutputSchema = z.object({
   time_zone: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsOdbCloudAutonomousVmClusterInputProps =
+  & z.input<typeof AwsOdbCloudAutonomousVmClusterInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsOdbCloudAutonomousVmClusterOutputProps =
+  & z.output<typeof AwsOdbCloudAutonomousVmClusterOutputSchema>
+  & z.output<typeof AwsOdbCloudAutonomousVmClusterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/odb_cloud_autonomous_vm_cluster
 
-export function AwsOdbCloudAutonomousVmCluster(props: Partial<InputProps>) {
+export function AwsOdbCloudAutonomousVmCluster(
+  props: Partial<AwsOdbCloudAutonomousVmClusterInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -112,8 +114,8 @@ export function AwsOdbCloudAutonomousVmCluster(props: Partial<InputProps>) {
       _type='aws_odb_cloud_autonomous_vm_cluster'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsOdbCloudAutonomousVmClusterInputSchema}
+      _outputSchema={AwsOdbCloudAutonomousVmClusterOutputSchema}
       {...props}
     />
   )
@@ -124,7 +126,7 @@ export const useAwsOdbCloudAutonomousVmCluster = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsOdbCloudAutonomousVmClusterOutputProps>(
     AwsOdbCloudAutonomousVmCluster,
     idFilter,
     baseNode,
@@ -136,7 +138,7 @@ export const useAwsOdbCloudAutonomousVmClusters = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsOdbCloudAutonomousVmClusterOutputProps>(
     AwsOdbCloudAutonomousVmCluster,
     idFilter,
     baseNode,

@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsBackupReportPlan } from './AwsBackupReportPlan.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsBackupReportPlanInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsBackupReportPlanOutputSchema = z.object({
   arn: z.string().optional(),
   creation_time: z.string().optional(),
   deployment_status: z.string().optional(),
@@ -36,18 +36,20 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsBackupReportPlanInputProps =
+  & z.input<typeof DataAwsBackupReportPlanInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsBackupReportPlanOutputProps =
+  & z.output<typeof DataAwsBackupReportPlanOutputSchema>
+  & z.output<typeof DataAwsBackupReportPlanInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/backup_report_plan
 
-export function DataAwsBackupReportPlan(props: Partial<InputProps>) {
+export function DataAwsBackupReportPlan(
+  props: Partial<DataAwsBackupReportPlanInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -57,8 +59,8 @@ export function DataAwsBackupReportPlan(props: Partial<InputProps>) {
       _type='aws_backup_report_plan'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsBackupReportPlanInputSchema}
+      _outputSchema={DataAwsBackupReportPlanOutputSchema}
       {...props as any}
     />
   )
@@ -69,7 +71,7 @@ export const useDataAwsBackupReportPlan = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsBackupReportPlanOutputProps>(
     DataAwsBackupReportPlan,
     idFilter,
     baseNode,
@@ -81,7 +83,7 @@ export const useDataAwsBackupReportPlans = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsBackupReportPlanOutputProps>(
     DataAwsBackupReportPlan,
     idFilter,
     baseNode,

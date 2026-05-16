@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDxGatewayAssociationInputSchema = TfMetaSchema.extend({
   dx_gateway_id: resolvableValue(z.string()),
   allowed_prefixes: resolvableValue(z.string().array().optional()),
   associated_gateway_id: resolvableValue(z.string().optional()),
@@ -26,25 +26,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDxGatewayAssociationOutputSchema = z.object({
   associated_gateway_type: z.string().optional(),
   dx_gateway_association_id: z.string().optional(),
   dx_gateway_owner_account_id: z.string().optional(),
   transit_gateway_attachment_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDxGatewayAssociationInputProps =
+  & z.input<typeof AwsDxGatewayAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDxGatewayAssociationOutputProps =
+  & z.output<typeof AwsDxGatewayAssociationOutputSchema>
+  & z.output<typeof AwsDxGatewayAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/dx_gateway_association
 
-export function AwsDxGatewayAssociation(props: Partial<InputProps>) {
+export function AwsDxGatewayAssociation(
+  props: Partial<AwsDxGatewayAssociationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -54,8 +56,8 @@ export function AwsDxGatewayAssociation(props: Partial<InputProps>) {
       _type='aws_dx_gateway_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDxGatewayAssociationInputSchema}
+      _outputSchema={AwsDxGatewayAssociationOutputSchema}
       {...props}
     />
   )
@@ -66,7 +68,7 @@ export const useAwsDxGatewayAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDxGatewayAssociationOutputProps>(
     AwsDxGatewayAssociation,
     idFilter,
     baseNode,
@@ -78,7 +80,7 @@ export const useAwsDxGatewayAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDxGatewayAssociationOutputProps>(
     AwsDxGatewayAssociation,
     idFilter,
     baseNode,

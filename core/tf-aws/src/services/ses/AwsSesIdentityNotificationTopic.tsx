@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSesIdentityNotificationTopicInputSchema = TfMetaSchema.extend({
   identity: resolvableValue(z.string()),
   notification_type: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
@@ -18,20 +18,22 @@ export const InputSchema = TfMetaSchema.extend({
   topic_arn: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({})
+export const AwsSesIdentityNotificationTopicOutputSchema = z.object({})
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSesIdentityNotificationTopicInputProps =
+  & z.input<typeof AwsSesIdentityNotificationTopicInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSesIdentityNotificationTopicOutputProps =
+  & z.output<typeof AwsSesIdentityNotificationTopicOutputSchema>
+  & z.output<typeof AwsSesIdentityNotificationTopicInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ses_identity_notification_topic
 
-export function AwsSesIdentityNotificationTopic(props: Partial<InputProps>) {
+export function AwsSesIdentityNotificationTopic(
+  props: Partial<AwsSesIdentityNotificationTopicInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -41,8 +43,8 @@ export function AwsSesIdentityNotificationTopic(props: Partial<InputProps>) {
       _type='aws_ses_identity_notification_topic'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSesIdentityNotificationTopicInputSchema}
+      _outputSchema={AwsSesIdentityNotificationTopicOutputSchema}
       {...props}
     />
   )
@@ -53,7 +55,7 @@ export const useAwsSesIdentityNotificationTopic = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSesIdentityNotificationTopicOutputProps>(
     AwsSesIdentityNotificationTopic,
     idFilter,
     baseNode,
@@ -65,7 +67,7 @@ export const useAwsSesIdentityNotificationTopics = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSesIdentityNotificationTopicOutputProps>(
     AwsSesIdentityNotificationTopic,
     idFilter,
     baseNode,

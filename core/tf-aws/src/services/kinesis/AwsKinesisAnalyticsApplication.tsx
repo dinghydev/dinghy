@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsKinesisAnalyticsApplicationInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   cloudwatch_logging_options: resolvableValue(
     z.object({
@@ -124,7 +124,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsKinesisAnalyticsApplicationOutputSchema = z.object({
   arn: z.string().optional(),
   create_timestamp: z.string().optional(),
   id: z.string().optional(),
@@ -134,18 +134,20 @@ export const OutputSchema = z.object({
   version: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsKinesisAnalyticsApplicationInputProps =
+  & z.input<typeof AwsKinesisAnalyticsApplicationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsKinesisAnalyticsApplicationOutputProps =
+  & z.output<typeof AwsKinesisAnalyticsApplicationOutputSchema>
+  & z.output<typeof AwsKinesisAnalyticsApplicationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/kinesis_analytics_application
 
-export function AwsKinesisAnalyticsApplication(props: Partial<InputProps>) {
+export function AwsKinesisAnalyticsApplication(
+  props: Partial<AwsKinesisAnalyticsApplicationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -155,8 +157,8 @@ export function AwsKinesisAnalyticsApplication(props: Partial<InputProps>) {
       _type='aws_kinesis_analytics_application'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsKinesisAnalyticsApplicationInputSchema}
+      _outputSchema={AwsKinesisAnalyticsApplicationOutputSchema}
       {...props}
     />
   )
@@ -167,7 +169,7 @@ export const useAwsKinesisAnalyticsApplication = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsKinesisAnalyticsApplicationOutputProps>(
     AwsKinesisAnalyticsApplication,
     idFilter,
     baseNode,
@@ -179,7 +181,7 @@ export const useAwsKinesisAnalyticsApplications = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsKinesisAnalyticsApplicationOutputProps>(
     AwsKinesisAnalyticsApplication,
     idFilter,
     baseNode,

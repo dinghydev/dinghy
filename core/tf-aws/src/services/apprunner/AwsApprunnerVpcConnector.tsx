@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsApprunnerVpcConnectorInputSchema = TfMetaSchema.extend({
   security_groups: resolvableValue(z.string().array()),
   subnets: resolvableValue(z.string().array()),
   vpc_connector_name: resolvableValue(z.string()),
@@ -18,30 +18,32 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsApprunnerVpcConnectorOutputSchema = z.object({
   arn: z.string().optional(),
   status: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   vpc_connector_revision: z.number().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsApprunnerVpcConnectorImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsApprunnerVpcConnectorInputProps =
+  & z.input<typeof AwsApprunnerVpcConnectorInputSchema>
+  & z.input<typeof AwsApprunnerVpcConnectorImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsApprunnerVpcConnectorOutputProps =
+  & z.output<typeof AwsApprunnerVpcConnectorOutputSchema>
+  & z.output<typeof AwsApprunnerVpcConnectorInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/apprunner_vpc_connector
 
-export function AwsApprunnerVpcConnector(props: Partial<InputProps>) {
+export function AwsApprunnerVpcConnector(
+  props: Partial<AwsApprunnerVpcConnectorInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -51,9 +53,9 @@ export function AwsApprunnerVpcConnector(props: Partial<InputProps>) {
       _type='aws_apprunner_vpc_connector'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsApprunnerVpcConnectorInputSchema}
+      _outputSchema={AwsApprunnerVpcConnectorOutputSchema}
+      _importSchema={AwsApprunnerVpcConnectorImportSchema}
       {...props}
     />
   )
@@ -64,7 +66,7 @@ export const useAwsApprunnerVpcConnector = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsApprunnerVpcConnectorOutputProps>(
     AwsApprunnerVpcConnector,
     idFilter,
     baseNode,
@@ -76,7 +78,7 @@ export const useAwsApprunnerVpcConnectors = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsApprunnerVpcConnectorOutputProps>(
     AwsApprunnerVpcConnector,
     idFilter,
     baseNode,

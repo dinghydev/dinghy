@@ -9,12 +9,13 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  account_id: resolvableValue(z.string()),
-  service_principal: resolvableValue(z.string()),
-})
+export const AwsOrganizationsDelegatedAdministratorInputSchema = TfMetaSchema
+  .extend({
+    account_id: resolvableValue(z.string()),
+    service_principal: resolvableValue(z.string()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsOrganizationsDelegatedAdministratorOutputSchema = z.object({
   arn: z.string().optional(),
   delegation_enabled_date: z.string().optional(),
   email: z.string().optional(),
@@ -25,26 +26,26 @@ export const OutputSchema = z.object({
   status: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsOrganizationsDelegatedAdministratorImportSchema = z.object({
   delegated_account_id: resolvableValue(z.string()),
   service_principal: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsOrganizationsDelegatedAdministratorInputProps =
+  & z.input<typeof AwsOrganizationsDelegatedAdministratorInputSchema>
+  & z.input<typeof AwsOrganizationsDelegatedAdministratorImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsOrganizationsDelegatedAdministratorOutputProps =
+  & z.output<typeof AwsOrganizationsDelegatedAdministratorOutputSchema>
+  & z.output<typeof AwsOrganizationsDelegatedAdministratorInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/organizations_delegated_administrator
 
 export function AwsOrganizationsDelegatedAdministrator(
-  props: Partial<InputProps>,
+  props: Partial<AwsOrganizationsDelegatedAdministratorInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -55,9 +56,9 @@ export function AwsOrganizationsDelegatedAdministrator(
       _type='aws_organizations_delegated_administrator'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsOrganizationsDelegatedAdministratorInputSchema}
+      _outputSchema={AwsOrganizationsDelegatedAdministratorOutputSchema}
+      _importSchema={AwsOrganizationsDelegatedAdministratorImportSchema}
       {...props}
     />
   )
@@ -68,7 +69,7 @@ export const useAwsOrganizationsDelegatedAdministrator = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsOrganizationsDelegatedAdministratorOutputProps>(
     AwsOrganizationsDelegatedAdministrator,
     idFilter,
     baseNode,
@@ -80,7 +81,7 @@ export const useAwsOrganizationsDelegatedAdministrators = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsOrganizationsDelegatedAdministratorOutputProps>(
     AwsOrganizationsDelegatedAdministrator,
     idFilter,
     baseNode,

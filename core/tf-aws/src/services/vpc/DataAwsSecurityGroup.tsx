@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsSecurityGroup } from './AwsSecurityGroup.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsSecurityGroupInputSchema = TfMetaSchema.extend({
   filter: resolvableValue(
     z.object({
       name: z.string(),
@@ -28,23 +28,25 @@ export const InputSchema = TfMetaSchema.extend({
   vpc_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsSecurityGroupOutputSchema = z.object({
   arn: z.string().optional(),
   description: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsSecurityGroupInputProps =
+  & z.input<typeof DataAwsSecurityGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsSecurityGroupOutputProps =
+  & z.output<typeof DataAwsSecurityGroupOutputSchema>
+  & z.output<typeof DataAwsSecurityGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/security_group
 
-export function DataAwsSecurityGroup(props: Partial<InputProps>) {
+export function DataAwsSecurityGroup(
+  props: Partial<DataAwsSecurityGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -54,8 +56,8 @@ export function DataAwsSecurityGroup(props: Partial<InputProps>) {
       _type='aws_security_group'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsSecurityGroupInputSchema}
+      _outputSchema={DataAwsSecurityGroupOutputSchema}
       {...props as any}
     />
   )
@@ -66,11 +68,21 @@ export const useDataAwsSecurityGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(DataAwsSecurityGroup, idFilter, baseNode, optional)
+  useTypedNode<DataAwsSecurityGroupOutputProps>(
+    DataAwsSecurityGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsSecurityGroups = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(DataAwsSecurityGroup, idFilter, baseNode, optional)
+  useTypedNodes<DataAwsSecurityGroupOutputProps>(
+    DataAwsSecurityGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

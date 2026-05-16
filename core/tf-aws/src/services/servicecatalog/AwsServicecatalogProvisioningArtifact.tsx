@@ -9,47 +9,48 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  product_id: resolvableValue(z.string()),
-  accept_language: resolvableValue(z.string().optional()),
-  active: resolvableValue(z.boolean().optional()),
-  description: resolvableValue(z.string().optional()),
-  disable_template_validation: resolvableValue(z.boolean().optional()),
-  guidance: resolvableValue(z.string().optional()),
-  name: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  template_physical_id: resolvableValue(z.string().optional()),
-  template_url: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-      read: z.string().optional(),
-      update: z.string().optional(),
-    }).optional(),
-  ),
-  type: resolvableValue(z.string().optional()),
-})
+export const AwsServicecatalogProvisioningArtifactInputSchema = TfMetaSchema
+  .extend({
+    product_id: resolvableValue(z.string()),
+    accept_language: resolvableValue(z.string().optional()),
+    active: resolvableValue(z.boolean().optional()),
+    description: resolvableValue(z.string().optional()),
+    disable_template_validation: resolvableValue(z.boolean().optional()),
+    guidance: resolvableValue(z.string().optional()),
+    name: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    template_physical_id: resolvableValue(z.string().optional()),
+    template_url: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+        read: z.string().optional(),
+        update: z.string().optional(),
+      }).optional(),
+    ),
+    type: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsServicecatalogProvisioningArtifactOutputSchema = z.object({
   created_time: z.string().optional(),
   id: z.string().optional(),
   provisioning_artifact_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsServicecatalogProvisioningArtifactInputProps =
+  & z.input<typeof AwsServicecatalogProvisioningArtifactInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsServicecatalogProvisioningArtifactOutputProps =
+  & z.output<typeof AwsServicecatalogProvisioningArtifactOutputSchema>
+  & z.output<typeof AwsServicecatalogProvisioningArtifactInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/servicecatalog_provisioning_artifact
 
 export function AwsServicecatalogProvisioningArtifact(
-  props: Partial<InputProps>,
+  props: Partial<AwsServicecatalogProvisioningArtifactInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -60,8 +61,8 @@ export function AwsServicecatalogProvisioningArtifact(
       _type='aws_servicecatalog_provisioning_artifact'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsServicecatalogProvisioningArtifactInputSchema}
+      _outputSchema={AwsServicecatalogProvisioningArtifactOutputSchema}
       {...props}
     />
   )
@@ -72,7 +73,7 @@ export const useAwsServicecatalogProvisioningArtifact = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsServicecatalogProvisioningArtifactOutputProps>(
     AwsServicecatalogProvisioningArtifact,
     idFilter,
     baseNode,
@@ -84,7 +85,7 @@ export const useAwsServicecatalogProvisioningArtifacts = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsServicecatalogProvisioningArtifactOutputProps>(
     AwsServicecatalogProvisioningArtifact,
     idFilter,
     baseNode,

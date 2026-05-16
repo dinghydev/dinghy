@@ -9,29 +9,29 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsRegionInputSchema = TfMetaSchema.extend({
   endpoint: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsRegionOutputSchema = z.object({
   description: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsRegionInputProps =
+  & z.input<typeof DataAwsRegionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsRegionOutputProps =
+  & z.output<typeof DataAwsRegionOutputSchema>
+  & z.output<typeof DataAwsRegionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/region
 
-export function DataAwsRegion(props: Partial<InputProps>) {
+export function DataAwsRegion(props: Partial<DataAwsRegionInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -41,8 +41,8 @@ export function DataAwsRegion(props: Partial<InputProps>) {
       _type='aws_region'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsRegionInputSchema}
+      _outputSchema={DataAwsRegionOutputSchema}
       {...props}
     />
   )
@@ -52,10 +52,22 @@ export const useDataAwsRegion = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsRegion, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsRegionOutputProps>(
+    DataAwsRegion,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsRegions = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsRegion, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsRegionOutputProps>(
+    DataAwsRegion,
+    idFilter,
+    baseNode,
+    optional,
+  )

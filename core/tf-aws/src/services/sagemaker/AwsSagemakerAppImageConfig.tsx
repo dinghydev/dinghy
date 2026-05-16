@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSagemakerAppImageConfigInputSchema = TfMetaSchema.extend({
   app_image_config_name: resolvableValue(z.string()),
   code_editor_app_image_config: resolvableValue(
     z.object({
@@ -58,24 +58,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSagemakerAppImageConfigOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsSagemakerAppImageConfigInputProps =
+  & z.input<typeof AwsSagemakerAppImageConfigInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSagemakerAppImageConfigOutputProps =
+  & z.output<typeof AwsSagemakerAppImageConfigOutputSchema>
+  & z.output<typeof AwsSagemakerAppImageConfigInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/sagemaker_app_image_config
 
-export function AwsSagemakerAppImageConfig(props: Partial<InputProps>) {
+export function AwsSagemakerAppImageConfig(
+  props: Partial<AwsSagemakerAppImageConfigInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -85,8 +87,8 @@ export function AwsSagemakerAppImageConfig(props: Partial<InputProps>) {
       _type='aws_sagemaker_app_image_config'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsSagemakerAppImageConfigInputSchema}
+      _outputSchema={AwsSagemakerAppImageConfigOutputSchema}
       {...props}
     />
   )
@@ -97,7 +99,7 @@ export const useAwsSagemakerAppImageConfig = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSagemakerAppImageConfigOutputProps>(
     AwsSagemakerAppImageConfig,
     idFilter,
     baseNode,
@@ -109,7 +111,7 @@ export const useAwsSagemakerAppImageConfigs = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSagemakerAppImageConfigOutputProps>(
     AwsSagemakerAppImageConfig,
     idFilter,
     baseNode,

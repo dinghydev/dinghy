@@ -9,20 +9,21 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  gateway_arn: resolvableValue(z.string()),
-  network_interface_id: resolvableValue(z.string()),
-  target_name: resolvableValue(z.string()),
-  volume_size_in_bytes: resolvableValue(z.number()),
-  kms_encrypted: resolvableValue(z.boolean().optional()),
-  kms_key: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-  snapshot_id: resolvableValue(z.string().optional()),
-  source_volume_arn: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-})
+export const AwsStoragegatewayCachedIscsiVolumeInputSchema = TfMetaSchema
+  .extend({
+    gateway_arn: resolvableValue(z.string()),
+    network_interface_id: resolvableValue(z.string()),
+    target_name: resolvableValue(z.string()),
+    volume_size_in_bytes: resolvableValue(z.number()),
+    kms_encrypted: resolvableValue(z.boolean().optional()),
+    kms_key: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+    snapshot_id: resolvableValue(z.string().optional()),
+    source_volume_arn: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsStoragegatewayCachedIscsiVolumeOutputSchema = z.object({
   arn: z.string().optional(),
   chap_enabled: z.boolean().optional(),
   id: z.string().optional(),
@@ -34,18 +35,20 @@ export const OutputSchema = z.object({
   volume_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsStoragegatewayCachedIscsiVolumeInputProps =
+  & z.input<typeof AwsStoragegatewayCachedIscsiVolumeInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsStoragegatewayCachedIscsiVolumeOutputProps =
+  & z.output<typeof AwsStoragegatewayCachedIscsiVolumeOutputSchema>
+  & z.output<typeof AwsStoragegatewayCachedIscsiVolumeInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/storagegateway_cached_iscsi_volume
 
-export function AwsStoragegatewayCachedIscsiVolume(props: Partial<InputProps>) {
+export function AwsStoragegatewayCachedIscsiVolume(
+  props: Partial<AwsStoragegatewayCachedIscsiVolumeInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -55,8 +58,8 @@ export function AwsStoragegatewayCachedIscsiVolume(props: Partial<InputProps>) {
       _type='aws_storagegateway_cached_iscsi_volume'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsStoragegatewayCachedIscsiVolumeInputSchema}
+      _outputSchema={AwsStoragegatewayCachedIscsiVolumeOutputSchema}
       {...props}
     />
   )
@@ -67,7 +70,7 @@ export const useAwsStoragegatewayCachedIscsiVolume = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsStoragegatewayCachedIscsiVolumeOutputProps>(
     AwsStoragegatewayCachedIscsiVolume,
     idFilter,
     baseNode,
@@ -79,7 +82,7 @@ export const useAwsStoragegatewayCachedIscsiVolumes = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsStoragegatewayCachedIscsiVolumeOutputProps>(
     AwsStoragegatewayCachedIscsiVolume,
     idFilter,
     baseNode,

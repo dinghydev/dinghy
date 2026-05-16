@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsChimeVoiceConnectorStreamingInputSchema = TfMetaSchema.extend({
   data_retention: resolvableValue(z.number()),
   voice_connector_id: resolvableValue(z.string()),
   disabled: resolvableValue(z.boolean().optional()),
@@ -25,22 +25,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsChimeVoiceConnectorStreamingOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsChimeVoiceConnectorStreamingInputProps =
+  & z.input<typeof AwsChimeVoiceConnectorStreamingInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsChimeVoiceConnectorStreamingOutputProps =
+  & z.output<typeof AwsChimeVoiceConnectorStreamingOutputSchema>
+  & z.output<typeof AwsChimeVoiceConnectorStreamingInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/chime_voice_connector_streaming
 
-export function AwsChimeVoiceConnectorStreaming(props: Partial<InputProps>) {
+export function AwsChimeVoiceConnectorStreaming(
+  props: Partial<AwsChimeVoiceConnectorStreamingInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -50,8 +52,8 @@ export function AwsChimeVoiceConnectorStreaming(props: Partial<InputProps>) {
       _type='aws_chime_voice_connector_streaming'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsChimeVoiceConnectorStreamingInputSchema}
+      _outputSchema={AwsChimeVoiceConnectorStreamingOutputSchema}
       {...props}
     />
   )
@@ -62,7 +64,7 @@ export const useAwsChimeVoiceConnectorStreaming = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsChimeVoiceConnectorStreamingOutputProps>(
     AwsChimeVoiceConnectorStreaming,
     idFilter,
     baseNode,
@@ -74,7 +76,7 @@ export const useAwsChimeVoiceConnectorStreamings = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsChimeVoiceConnectorStreamingOutputProps>(
     AwsChimeVoiceConnectorStreaming,
     idFilter,
     baseNode,

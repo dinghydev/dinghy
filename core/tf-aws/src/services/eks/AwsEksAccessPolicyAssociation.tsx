@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEksAccessPolicyAssociationInputSchema = TfMetaSchema.extend({
   access_scope: resolvableValue(z.object({
     namespaces: z.string().array().optional(),
     type: z.string(),
@@ -27,12 +27,12 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsEksAccessPolicyAssociationOutputSchema = z.object({
   associated_at: z.string().optional(),
   modified_at: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsEksAccessPolicyAssociationImportSchema = z.object({
   cluster_name: resolvableValue(z.string()),
   policy_arn: resolvableValue(z.string()),
   principal_arn: resolvableValue(z.string()),
@@ -40,19 +40,21 @@ export const ImportSchema = z.object({
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsEksAccessPolicyAssociationInputProps =
+  & z.input<typeof AwsEksAccessPolicyAssociationInputSchema>
+  & z.input<typeof AwsEksAccessPolicyAssociationImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEksAccessPolicyAssociationOutputProps =
+  & z.output<typeof AwsEksAccessPolicyAssociationOutputSchema>
+  & z.output<typeof AwsEksAccessPolicyAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/eks_access_policy_association
 
-export function AwsEksAccessPolicyAssociation(props: Partial<InputProps>) {
+export function AwsEksAccessPolicyAssociation(
+  props: Partial<AwsEksAccessPolicyAssociationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -62,9 +64,9 @@ export function AwsEksAccessPolicyAssociation(props: Partial<InputProps>) {
       _type='aws_eks_access_policy_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsEksAccessPolicyAssociationInputSchema}
+      _outputSchema={AwsEksAccessPolicyAssociationOutputSchema}
+      _importSchema={AwsEksAccessPolicyAssociationImportSchema}
       {...props}
     />
   )
@@ -75,7 +77,7 @@ export const useAwsEksAccessPolicyAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsEksAccessPolicyAssociationOutputProps>(
     AwsEksAccessPolicyAssociation,
     idFilter,
     baseNode,
@@ -87,7 +89,7 @@ export const useAwsEksAccessPolicyAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsEksAccessPolicyAssociationOutputProps>(
     AwsEksAccessPolicyAssociation,
     idFilter,
     baseNode,

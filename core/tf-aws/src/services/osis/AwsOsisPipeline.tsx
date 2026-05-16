@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsOsisPipelineInputSchema = TfMetaSchema.extend({
   max_units: resolvableValue(z.number()),
   min_units: resolvableValue(z.number()),
   pipeline_configuration_body: resolvableValue(z.string()),
@@ -51,25 +51,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsOsisPipelineOutputSchema = z.object({
   id: z.string().optional(),
   ingest_endpoint_urls: z.set(z.string()).optional(),
   pipeline_arn: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsOsisPipelineInputProps =
+  & z.input<typeof AwsOsisPipelineInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsOsisPipelineOutputProps =
+  & z.output<typeof AwsOsisPipelineOutputSchema>
+  & z.output<typeof AwsOsisPipelineInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/osis_pipeline
 
-export function AwsOsisPipeline(props: Partial<InputProps>) {
+export function AwsOsisPipeline(props: Partial<AwsOsisPipelineInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -79,8 +79,8 @@ export function AwsOsisPipeline(props: Partial<InputProps>) {
       _type='aws_osis_pipeline'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsOsisPipelineInputSchema}
+      _outputSchema={AwsOsisPipelineOutputSchema}
       {...props}
     />
   )
@@ -90,10 +90,22 @@ export const useAwsOsisPipeline = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsOsisPipeline, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsOsisPipelineOutputProps>(
+    AwsOsisPipeline,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsOsisPipelines = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsOsisPipeline, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsOsisPipelineOutputProps>(
+    AwsOsisPipeline,
+    idFilter,
+    baseNode,
+    optional,
+  )

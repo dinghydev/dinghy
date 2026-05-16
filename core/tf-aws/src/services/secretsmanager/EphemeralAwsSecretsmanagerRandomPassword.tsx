@@ -9,35 +9,36 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  exclude_characters: resolvableValue(z.string().optional()),
-  exclude_lowercase: resolvableValue(z.boolean().optional()),
-  exclude_numbers: resolvableValue(z.boolean().optional()),
-  exclude_punctuation: resolvableValue(z.boolean().optional()),
-  exclude_uppercase: resolvableValue(z.boolean().optional()),
-  include_space: resolvableValue(z.boolean().optional()),
-  password_length: resolvableValue(z.number().optional()),
-  region: resolvableValue(z.string().optional()),
-  require_each_included_type: resolvableValue(z.boolean().optional()),
-})
+export const EphemeralAwsSecretsmanagerRandomPasswordInputSchema = TfMetaSchema
+  .extend({
+    exclude_characters: resolvableValue(z.string().optional()),
+    exclude_lowercase: resolvableValue(z.boolean().optional()),
+    exclude_numbers: resolvableValue(z.boolean().optional()),
+    exclude_punctuation: resolvableValue(z.boolean().optional()),
+    exclude_uppercase: resolvableValue(z.boolean().optional()),
+    include_space: resolvableValue(z.boolean().optional()),
+    password_length: resolvableValue(z.number().optional()),
+    region: resolvableValue(z.string().optional()),
+    require_each_included_type: resolvableValue(z.boolean().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const EphemeralAwsSecretsmanagerRandomPasswordOutputSchema = z.object({
   random_password: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type EphemeralAwsSecretsmanagerRandomPasswordInputProps =
+  & z.input<typeof EphemeralAwsSecretsmanagerRandomPasswordInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type EphemeralAwsSecretsmanagerRandomPasswordOutputProps =
+  & z.output<typeof EphemeralAwsSecretsmanagerRandomPasswordOutputSchema>
+  & z.output<typeof EphemeralAwsSecretsmanagerRandomPasswordInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/ephemeral-resources/secretsmanager_random_password
 
 export function EphemeralAwsSecretsmanagerRandomPassword(
-  props: Partial<InputProps>,
+  props: Partial<EphemeralAwsSecretsmanagerRandomPasswordInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -48,8 +49,8 @@ export function EphemeralAwsSecretsmanagerRandomPassword(
       _type='aws_secretsmanager_random_password'
       _category='ephemeral'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={EphemeralAwsSecretsmanagerRandomPasswordInputSchema}
+      _outputSchema={EphemeralAwsSecretsmanagerRandomPasswordOutputSchema}
       {...props}
     />
   )
@@ -60,7 +61,7 @@ export const useEphemeralAwsSecretsmanagerRandomPassword = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<EphemeralAwsSecretsmanagerRandomPasswordOutputProps>(
     EphemeralAwsSecretsmanagerRandomPassword,
     idFilter,
     baseNode,
@@ -72,7 +73,7 @@ export const useEphemeralAwsSecretsmanagerRandomPasswords = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<EphemeralAwsSecretsmanagerRandomPasswordOutputProps>(
     EphemeralAwsSecretsmanagerRandomPassword,
     idFilter,
     baseNode,

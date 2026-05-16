@@ -9,25 +9,26 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  core_network_id: resolvableValue(z.string()),
-  edge_location: resolvableValue(z.string()),
-  options: resolvableValue(z.object({
-    protocol: z.string().optional(),
-  })),
-  transport_attachment_id: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  routing_policy_label: resolvableValue(z.string().optional()),
-  tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsNetworkmanagerConnectAttachmentInputSchema = TfMetaSchema
+  .extend({
+    core_network_id: resolvableValue(z.string()),
+    edge_location: resolvableValue(z.string()),
+    options: resolvableValue(z.object({
+      protocol: z.string().optional(),
+    })),
+    transport_attachment_id: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    routing_policy_label: resolvableValue(z.string().optional()),
+    tags: resolvableValue(z.record(z.string(), z.string()).optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsNetworkmanagerConnectAttachmentOutputSchema = z.object({
   arn: z.string().optional(),
   attachment_id: z.string().optional(),
   attachment_policy_rule_number: z.number().optional(),
@@ -40,18 +41,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsNetworkmanagerConnectAttachmentInputProps =
+  & z.input<typeof AwsNetworkmanagerConnectAttachmentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsNetworkmanagerConnectAttachmentOutputProps =
+  & z.output<typeof AwsNetworkmanagerConnectAttachmentOutputSchema>
+  & z.output<typeof AwsNetworkmanagerConnectAttachmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/networkmanager_connect_attachment
 
-export function AwsNetworkmanagerConnectAttachment(props: Partial<InputProps>) {
+export function AwsNetworkmanagerConnectAttachment(
+  props: Partial<AwsNetworkmanagerConnectAttachmentInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -61,8 +64,8 @@ export function AwsNetworkmanagerConnectAttachment(props: Partial<InputProps>) {
       _type='aws_networkmanager_connect_attachment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsNetworkmanagerConnectAttachmentInputSchema}
+      _outputSchema={AwsNetworkmanagerConnectAttachmentOutputSchema}
       {...props}
     />
   )
@@ -73,7 +76,7 @@ export const useAwsNetworkmanagerConnectAttachment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsNetworkmanagerConnectAttachmentOutputProps>(
     AwsNetworkmanagerConnectAttachment,
     idFilter,
     baseNode,
@@ -85,7 +88,7 @@ export const useAwsNetworkmanagerConnectAttachments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsNetworkmanagerConnectAttachmentOutputProps>(
     AwsNetworkmanagerConnectAttachment,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRdsClusterParameterGroupInputSchema = TfMetaSchema.extend({
   family: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   name: resolvableValue(z.string().optional()),
@@ -25,24 +25,26 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsRdsClusterParameterGroupOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRdsClusterParameterGroupInputProps =
+  & z.input<typeof AwsRdsClusterParameterGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRdsClusterParameterGroupOutputProps =
+  & z.output<typeof AwsRdsClusterParameterGroupOutputSchema>
+  & z.output<typeof AwsRdsClusterParameterGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/rds_cluster_parameter_group
 
-export function AwsRdsClusterParameterGroup(props: Partial<InputProps>) {
+export function AwsRdsClusterParameterGroup(
+  props: Partial<AwsRdsClusterParameterGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,8 +54,8 @@ export function AwsRdsClusterParameterGroup(props: Partial<InputProps>) {
       _type='aws_rds_cluster_parameter_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRdsClusterParameterGroupInputSchema}
+      _outputSchema={AwsRdsClusterParameterGroupOutputSchema}
       {...props}
     />
   )
@@ -64,7 +66,7 @@ export const useAwsRdsClusterParameterGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsRdsClusterParameterGroupOutputProps>(
     AwsRdsClusterParameterGroup,
     idFilter,
     baseNode,
@@ -76,7 +78,7 @@ export const useAwsRdsClusterParameterGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRdsClusterParameterGroupOutputProps>(
     AwsRdsClusterParameterGroup,
     idFilter,
     baseNode,

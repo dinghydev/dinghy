@@ -9,37 +9,39 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIamSamlProviderInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   saml_metadata_document: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsIamSamlProviderOutputSchema = z.object({
   arn: z.string().optional(),
   saml_provider_uuid: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   valid_until: z.string().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsIamSamlProviderImportSchema = z.object({
   arn: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsIamSamlProviderInputProps =
+  & z.input<typeof AwsIamSamlProviderInputSchema>
+  & z.input<typeof AwsIamSamlProviderImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIamSamlProviderOutputProps =
+  & z.output<typeof AwsIamSamlProviderOutputSchema>
+  & z.output<typeof AwsIamSamlProviderInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iam_saml_provider
 
-export function AwsIamSamlProvider(props: Partial<InputProps>) {
+export function AwsIamSamlProvider(
+  props: Partial<AwsIamSamlProviderInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,9 +51,9 @@ export function AwsIamSamlProvider(props: Partial<InputProps>) {
       _type='aws_iam_saml_provider'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsIamSamlProviderInputSchema}
+      _outputSchema={AwsIamSamlProviderOutputSchema}
+      _importSchema={AwsIamSamlProviderImportSchema}
       {...props}
     />
   )
@@ -61,11 +63,22 @@ export const useAwsIamSamlProvider = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsIamSamlProvider, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsIamSamlProviderOutputProps>(
+    AwsIamSamlProvider,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIamSamlProviders = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsIamSamlProvider, idFilter, baseNode, optional)
+  useTypedNodes<AwsIamSamlProviderOutputProps>(
+    AwsIamSamlProvider,
+    idFilter,
+    baseNode,
+    optional,
+  )

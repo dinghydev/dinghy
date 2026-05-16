@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSecretsmanagerSecretRotationInputSchema = TfMetaSchema.extend({
   rotation_rules: resolvableValue(z.object({
     automatically_after_days: z.number().optional(),
     duration: z.string().optional(),
@@ -21,28 +21,30 @@ export const InputSchema = TfMetaSchema.extend({
   rotation_lambda_arn: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSecretsmanagerSecretRotationOutputSchema = z.object({
   id: z.string().optional(),
   rotation_enabled: z.boolean().optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSecretsmanagerSecretRotationImportSchema = z.object({
   secret_id: resolvableValue(z.string()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSecretsmanagerSecretRotationInputProps =
+  & z.input<typeof AwsSecretsmanagerSecretRotationInputSchema>
+  & z.input<typeof AwsSecretsmanagerSecretRotationImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSecretsmanagerSecretRotationOutputProps =
+  & z.output<typeof AwsSecretsmanagerSecretRotationOutputSchema>
+  & z.output<typeof AwsSecretsmanagerSecretRotationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/secretsmanager_secret_rotation
 
-export function AwsSecretsmanagerSecretRotation(props: Partial<InputProps>) {
+export function AwsSecretsmanagerSecretRotation(
+  props: Partial<AwsSecretsmanagerSecretRotationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -52,9 +54,9 @@ export function AwsSecretsmanagerSecretRotation(props: Partial<InputProps>) {
       _type='aws_secretsmanager_secret_rotation'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSecretsmanagerSecretRotationInputSchema}
+      _outputSchema={AwsSecretsmanagerSecretRotationOutputSchema}
+      _importSchema={AwsSecretsmanagerSecretRotationImportSchema}
       {...props}
     />
   )
@@ -65,7 +67,7 @@ export const useAwsSecretsmanagerSecretRotation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSecretsmanagerSecretRotationOutputProps>(
     AwsSecretsmanagerSecretRotation,
     idFilter,
     baseNode,
@@ -77,7 +79,7 @@ export const useAwsSecretsmanagerSecretRotations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSecretsmanagerSecretRotationOutputProps>(
     AwsSecretsmanagerSecretRotation,
     idFilter,
     baseNode,

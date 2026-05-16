@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsCloudfrontAnycastIpListInputSchema = TfMetaSchema.extend({
   ip_count: resolvableValue(z.number()),
   name: resolvableValue(z.string()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
@@ -20,7 +20,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsCloudfrontAnycastIpListOutputSchema = z.object({
   anycast_ips: z.string().array().optional(),
   arn: z.string().optional(),
   etag: z.string().optional(),
@@ -28,18 +28,20 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCloudfrontAnycastIpListInputProps =
+  & z.input<typeof AwsCloudfrontAnycastIpListInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCloudfrontAnycastIpListOutputProps =
+  & z.output<typeof AwsCloudfrontAnycastIpListOutputSchema>
+  & z.output<typeof AwsCloudfrontAnycastIpListInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cloudfront_anycast_ip_list
 
-export function AwsCloudfrontAnycastIpList(props: Partial<InputProps>) {
+export function AwsCloudfrontAnycastIpList(
+  props: Partial<AwsCloudfrontAnycastIpListInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,8 +51,8 @@ export function AwsCloudfrontAnycastIpList(props: Partial<InputProps>) {
       _type='aws_cloudfront_anycast_ip_list'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCloudfrontAnycastIpListInputSchema}
+      _outputSchema={AwsCloudfrontAnycastIpListOutputSchema}
       {...props}
     />
   )
@@ -61,7 +63,7 @@ export const useAwsCloudfrontAnycastIpList = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCloudfrontAnycastIpListOutputProps>(
     AwsCloudfrontAnycastIpList,
     idFilter,
     baseNode,
@@ -73,7 +75,7 @@ export const useAwsCloudfrontAnycastIpLists = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCloudfrontAnycastIpListOutputProps>(
     AwsCloudfrontAnycastIpList,
     idFilter,
     baseNode,

@@ -9,12 +9,12 @@ import {
 import z from 'zod'
 import { AwsCloudfrontConnectionGroup } from './AwsCloudfrontConnectionGroup.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsCloudfrontConnectionGroupInputSchema = TfMetaSchema.extend({
   id: resolvableValue(z.string().optional()),
   routing_endpoint: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsCloudfrontConnectionGroupOutputSchema = z.object({
   anycast_ip_list_id: z.string().optional(),
   arn: z.string().optional(),
   enabled: z.boolean().optional(),
@@ -27,18 +27,20 @@ export const OutputSchema = z.object({
   tags: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsCloudfrontConnectionGroupInputProps =
+  & z.input<typeof DataAwsCloudfrontConnectionGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsCloudfrontConnectionGroupOutputProps =
+  & z.output<typeof DataAwsCloudfrontConnectionGroupOutputSchema>
+  & z.output<typeof DataAwsCloudfrontConnectionGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/cloudfront_connection_group
 
-export function DataAwsCloudfrontConnectionGroup(props: Partial<InputProps>) {
+export function DataAwsCloudfrontConnectionGroup(
+  props: Partial<DataAwsCloudfrontConnectionGroupInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +50,8 @@ export function DataAwsCloudfrontConnectionGroup(props: Partial<InputProps>) {
       _type='aws_cloudfront_connection_group'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsCloudfrontConnectionGroupInputSchema}
+      _outputSchema={DataAwsCloudfrontConnectionGroupOutputSchema}
       {...props as any}
     />
   )
@@ -60,7 +62,7 @@ export const useDataAwsCloudfrontConnectionGroup = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<DataAwsCloudfrontConnectionGroupOutputProps>(
     DataAwsCloudfrontConnectionGroup,
     idFilter,
     baseNode,
@@ -72,7 +74,7 @@ export const useDataAwsCloudfrontConnectionGroups = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsCloudfrontConnectionGroupOutputProps>(
     DataAwsCloudfrontConnectionGroup,
     idFilter,
     baseNode,

@@ -9,28 +9,31 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  api_id: resolvableValue(z.string()),
-  domain_name: resolvableValue(z.string()),
-  region: resolvableValue(z.string().optional()),
-})
+export const AwsAppsyncDomainNameApiAssociationInputSchema = TfMetaSchema
+  .extend({
+    api_id: resolvableValue(z.string()),
+    domain_name: resolvableValue(z.string()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const AwsAppsyncDomainNameApiAssociationOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAppsyncDomainNameApiAssociationInputProps =
+  & z.input<typeof AwsAppsyncDomainNameApiAssociationInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppsyncDomainNameApiAssociationOutputProps =
+  & z.output<typeof AwsAppsyncDomainNameApiAssociationOutputSchema>
+  & z.output<typeof AwsAppsyncDomainNameApiAssociationInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appsync_domain_name_api_association
 
-export function AwsAppsyncDomainNameApiAssociation(props: Partial<InputProps>) {
+export function AwsAppsyncDomainNameApiAssociation(
+  props: Partial<AwsAppsyncDomainNameApiAssociationInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -40,8 +43,8 @@ export function AwsAppsyncDomainNameApiAssociation(props: Partial<InputProps>) {
       _type='aws_appsync_domain_name_api_association'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAppsyncDomainNameApiAssociationInputSchema}
+      _outputSchema={AwsAppsyncDomainNameApiAssociationOutputSchema}
       {...props}
     />
   )
@@ -52,7 +55,7 @@ export const useAwsAppsyncDomainNameApiAssociation = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsAppsyncDomainNameApiAssociationOutputProps>(
     AwsAppsyncDomainNameApiAssociation,
     idFilter,
     baseNode,
@@ -64,7 +67,7 @@ export const useAwsAppsyncDomainNameApiAssociations = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsAppsyncDomainNameApiAssociationOutputProps>(
     AwsAppsyncDomainNameApiAssociation,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDatazoneEnvironmentProfileInputSchema = TfMetaSchema.extend({
   aws_account_region: resolvableValue(z.string()),
   domain_identifier: resolvableValue(z.string()),
   environment_blueprint_identifier: resolvableValue(z.string()),
@@ -26,25 +26,27 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsDatazoneEnvironmentProfileOutputSchema = z.object({
   created_at: z.string().optional(),
   created_by: z.string().optional(),
   id: z.string().optional(),
   updated_at: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDatazoneEnvironmentProfileInputProps =
+  & z.input<typeof AwsDatazoneEnvironmentProfileInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDatazoneEnvironmentProfileOutputProps =
+  & z.output<typeof AwsDatazoneEnvironmentProfileOutputSchema>
+  & z.output<typeof AwsDatazoneEnvironmentProfileInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/datazone_environment_profile
 
-export function AwsDatazoneEnvironmentProfile(props: Partial<InputProps>) {
+export function AwsDatazoneEnvironmentProfile(
+  props: Partial<AwsDatazoneEnvironmentProfileInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -54,8 +56,8 @@ export function AwsDatazoneEnvironmentProfile(props: Partial<InputProps>) {
       _type='aws_datazone_environment_profile'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDatazoneEnvironmentProfileInputSchema}
+      _outputSchema={AwsDatazoneEnvironmentProfileOutputSchema}
       {...props}
     />
   )
@@ -66,7 +68,7 @@ export const useAwsDatazoneEnvironmentProfile = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDatazoneEnvironmentProfileOutputProps>(
     AwsDatazoneEnvironmentProfile,
     idFilter,
     baseNode,
@@ -78,7 +80,7 @@ export const useAwsDatazoneEnvironmentProfiles = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDatazoneEnvironmentProfileOutputProps>(
     AwsDatazoneEnvironmentProfile,
     idFilter,
     baseNode,

@@ -9,30 +9,35 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  identity_pool_id: resolvableValue(z.string()),
-  identity_provider_name: resolvableValue(z.string()),
-  id: resolvableValue(z.string().optional()),
-  principal_tags: resolvableValue(z.record(z.string(), z.string()).optional()),
-  region: resolvableValue(z.string().optional()),
-  use_defaults: resolvableValue(z.boolean().optional()),
-})
+export const AwsCognitoIdentityPoolProviderPrincipalTagInputSchema =
+  TfMetaSchema.extend({
+    identity_pool_id: resolvableValue(z.string()),
+    identity_provider_name: resolvableValue(z.string()),
+    id: resolvableValue(z.string().optional()),
+    principal_tags: resolvableValue(
+      z.record(z.string(), z.string()).optional(),
+    ),
+    region: resolvableValue(z.string().optional()),
+    use_defaults: resolvableValue(z.boolean().optional()),
+  })
 
-export const OutputSchema = z.object({})
+export const AwsCognitoIdentityPoolProviderPrincipalTagOutputSchema = z.object(
+  {},
+)
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsCognitoIdentityPoolProviderPrincipalTagInputProps =
+  & z.input<typeof AwsCognitoIdentityPoolProviderPrincipalTagInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsCognitoIdentityPoolProviderPrincipalTagOutputProps =
+  & z.output<typeof AwsCognitoIdentityPoolProviderPrincipalTagOutputSchema>
+  & z.output<typeof AwsCognitoIdentityPoolProviderPrincipalTagInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/cognito_identity_pool_provider_principal_tag
 
 export function AwsCognitoIdentityPoolProviderPrincipalTag(
-  props: Partial<InputProps>,
+  props: Partial<AwsCognitoIdentityPoolProviderPrincipalTagInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -43,8 +48,8 @@ export function AwsCognitoIdentityPoolProviderPrincipalTag(
       _type='aws_cognito_identity_pool_provider_principal_tag'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsCognitoIdentityPoolProviderPrincipalTagInputSchema}
+      _outputSchema={AwsCognitoIdentityPoolProviderPrincipalTagOutputSchema}
       {...props}
     />
   )
@@ -55,7 +60,7 @@ export const useAwsCognitoIdentityPoolProviderPrincipalTag = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsCognitoIdentityPoolProviderPrincipalTagOutputProps>(
     AwsCognitoIdentityPoolProviderPrincipalTag,
     idFilter,
     baseNode,
@@ -67,7 +72,7 @@ export const useAwsCognitoIdentityPoolProviderPrincipalTags = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsCognitoIdentityPoolProviderPrincipalTagOutputProps>(
     AwsCognitoIdentityPoolProviderPrincipalTag,
     idFilter,
     baseNode,

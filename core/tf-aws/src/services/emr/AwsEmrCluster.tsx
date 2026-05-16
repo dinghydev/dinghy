@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEmrClusterInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   release_label: resolvableValue(z.string()),
   service_role: resolvableValue(z.string()),
@@ -194,7 +194,7 @@ export const InputSchema = TfMetaSchema.extend({
   visible_to_all_users: resolvableValue(z.boolean().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsEmrClusterOutputSchema = z.object({
   applications: z.set(z.string()).optional(),
   arn: z.string().optional(),
   bootstrap_action: z.object({
@@ -224,18 +224,18 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEmrClusterInputProps =
+  & z.input<typeof AwsEmrClusterInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEmrClusterOutputProps =
+  & z.output<typeof AwsEmrClusterOutputSchema>
+  & z.output<typeof AwsEmrClusterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/emr_cluster
 
-export function AwsEmrCluster(props: Partial<InputProps>) {
+export function AwsEmrCluster(props: Partial<AwsEmrClusterInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -245,8 +245,8 @@ export function AwsEmrCluster(props: Partial<InputProps>) {
       _type='aws_emr_cluster'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEmrClusterInputSchema}
+      _outputSchema={AwsEmrClusterOutputSchema}
       {...props}
     />
   )
@@ -256,10 +256,22 @@ export const useAwsEmrCluster = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsEmrCluster, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsEmrClusterOutputProps>(
+    AwsEmrCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEmrClusters = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsEmrCluster, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsEmrClusterOutputProps>(
+    AwsEmrCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDocdbClusterInputSchema = TfMetaSchema.extend({
   allow_major_version_upgrade: resolvableValue(z.boolean().optional()),
   apply_immediately: resolvableValue(z.boolean().optional()),
   availability_zones: resolvableValue(z.string().array().optional()),
@@ -66,7 +66,7 @@ export const InputSchema = TfMetaSchema.extend({
   vpc_security_group_ids: resolvableValue(z.string().array().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDocdbClusterOutputSchema = z.object({
   arn: z.string().optional(),
   cluster_members: z.set(z.string()).optional(),
   cluster_resource_id: z.string().optional(),
@@ -82,18 +82,18 @@ export const OutputSchema = z.object({
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDocdbClusterInputProps =
+  & z.input<typeof AwsDocdbClusterInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDocdbClusterOutputProps =
+  & z.output<typeof AwsDocdbClusterOutputSchema>
+  & z.output<typeof AwsDocdbClusterInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/docdb_cluster
 
-export function AwsDocdbCluster(props: Partial<InputProps>) {
+export function AwsDocdbCluster(props: Partial<AwsDocdbClusterInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -103,8 +103,8 @@ export function AwsDocdbCluster(props: Partial<InputProps>) {
       _type='aws_docdb_cluster'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDocdbClusterInputSchema}
+      _outputSchema={AwsDocdbClusterOutputSchema}
       {...props}
     />
   )
@@ -114,10 +114,22 @@ export const useAwsDocdbCluster = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsDocdbCluster, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsDocdbClusterOutputProps>(
+    AwsDocdbCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsDocdbClusters = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsDocdbCluster, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsDocdbClusterOutputProps>(
+    AwsDocdbCluster,
+    idFilter,
+    baseNode,
+    optional,
+  )

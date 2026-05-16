@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsRdsClusterInstanceInputSchema = TfMetaSchema.extend({
   cluster_identifier: resolvableValue(z.string()),
   engine: resolvableValue(z.string()),
   instance_class: resolvableValue(z.string()),
@@ -45,7 +45,7 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsRdsClusterInstanceOutputSchema = z.object({
   arn: z.string().optional(),
   availability_zone: z.string().optional(),
   cluster_identifier: z.string().optional(),
@@ -65,18 +65,20 @@ export const OutputSchema = z.object({
   writer: z.boolean().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsRdsClusterInstanceInputProps =
+  & z.input<typeof AwsRdsClusterInstanceInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsRdsClusterInstanceOutputProps =
+  & z.output<typeof AwsRdsClusterInstanceOutputSchema>
+  & z.output<typeof AwsRdsClusterInstanceInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/rds_cluster_instance
 
-export function AwsRdsClusterInstance(props: Partial<InputProps>) {
+export function AwsRdsClusterInstance(
+  props: Partial<AwsRdsClusterInstanceInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -86,8 +88,8 @@ export function AwsRdsClusterInstance(props: Partial<InputProps>) {
       _type='aws_rds_cluster_instance'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsRdsClusterInstanceInputSchema}
+      _outputSchema={AwsRdsClusterInstanceOutputSchema}
       {...props}
     />
   )
@@ -98,14 +100,19 @@ export const useAwsRdsClusterInstance = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsRdsClusterInstance, idFilter, baseNode, optional)
+  useTypedNode<AwsRdsClusterInstanceOutputProps>(
+    AwsRdsClusterInstance,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsRdsClusterInstances = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsRdsClusterInstanceOutputProps>(
     AwsRdsClusterInstance,
     idFilter,
     baseNode,

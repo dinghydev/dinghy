@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsIotThingGroupInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   parent_group_name: resolvableValue(z.string().optional()),
   properties: resolvableValue(
@@ -25,7 +25,7 @@ export const InputSchema = TfMetaSchema.extend({
   tags_all: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsIotThingGroupOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   metadata: z.object({
@@ -39,18 +39,18 @@ export const OutputSchema = z.object({
   version: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsIotThingGroupInputProps =
+  & z.input<typeof AwsIotThingGroupInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsIotThingGroupOutputProps =
+  & z.output<typeof AwsIotThingGroupOutputSchema>
+  & z.output<typeof AwsIotThingGroupInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/iot_thing_group
 
-export function AwsIotThingGroup(props: Partial<InputProps>) {
+export function AwsIotThingGroup(props: Partial<AwsIotThingGroupInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -60,8 +60,8 @@ export function AwsIotThingGroup(props: Partial<InputProps>) {
       _type='aws_iot_thing_group'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsIotThingGroupInputSchema}
+      _outputSchema={AwsIotThingGroupOutputSchema}
       {...props}
     />
   )
@@ -71,10 +71,22 @@ export const useAwsIotThingGroup = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsIotThingGroup, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsIotThingGroupOutputProps>(
+    AwsIotThingGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsIotThingGroups = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsIotThingGroup, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsIotThingGroupOutputProps>(
+    AwsIotThingGroup,
+    idFilter,
+    baseNode,
+    optional,
+  )

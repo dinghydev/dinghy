@@ -8,34 +8,35 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  filter: resolvableValue(
-    z.object({
-      name: z.string(),
-      values: z.string().array(),
-    }).array().optional(),
-  ),
-  id: resolvableValue(z.string().optional()),
-  region: resolvableValue(z.string().optional()),
-})
+export const DataAwsFsxOntapStorageVirtualMachinesInputSchema = TfMetaSchema
+  .extend({
+    filter: resolvableValue(
+      z.object({
+        name: z.string(),
+        values: z.string().array(),
+      }).array().optional(),
+    ),
+    id: resolvableValue(z.string().optional()),
+    region: resolvableValue(z.string().optional()),
+  })
 
-export const OutputSchema = z.object({
+export const DataAwsFsxOntapStorageVirtualMachinesOutputSchema = z.object({
   ids: z.string().array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsFsxOntapStorageVirtualMachinesInputProps =
+  & z.input<typeof DataAwsFsxOntapStorageVirtualMachinesInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsFsxOntapStorageVirtualMachinesOutputProps =
+  & z.output<typeof DataAwsFsxOntapStorageVirtualMachinesOutputSchema>
+  & z.output<typeof DataAwsFsxOntapStorageVirtualMachinesInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/fsx_ontap_storage_virtual_machines
 
 export function DataAwsFsxOntapStorageVirtualMachines(
-  props: Partial<InputProps>,
+  props: Partial<DataAwsFsxOntapStorageVirtualMachinesInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -46,8 +47,8 @@ export function DataAwsFsxOntapStorageVirtualMachines(
       _type='aws_fsx_ontap_storage_virtual_machines'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsFsxOntapStorageVirtualMachinesInputSchema}
+      _outputSchema={DataAwsFsxOntapStorageVirtualMachinesOutputSchema}
       {...props}
     />
   )
@@ -58,7 +59,7 @@ export const useDataAwsFsxOntapStorageVirtualMachiness = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsFsxOntapStorageVirtualMachinesOutputProps>(
     DataAwsFsxOntapStorageVirtualMachines,
     idFilter,
     baseNode,

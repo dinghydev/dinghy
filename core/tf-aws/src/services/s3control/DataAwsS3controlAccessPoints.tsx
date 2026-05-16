@@ -8,7 +8,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsS3controlAccessPointsInputSchema = TfMetaSchema.extend({
   account_id: resolvableValue(z.string().optional()),
   bucket: resolvableValue(z.string().optional()),
   data_source_id: resolvableValue(z.string().optional()),
@@ -16,7 +16,7 @@ export const InputSchema = TfMetaSchema.extend({
   region: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsS3controlAccessPointsOutputSchema = z.object({
   access_points: z.object({
     access_point_arn: z.string(),
     alias: z.string(),
@@ -32,18 +32,20 @@ export const OutputSchema = z.object({
   }).array().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsS3controlAccessPointsInputProps =
+  & z.input<typeof DataAwsS3controlAccessPointsInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsS3controlAccessPointsOutputProps =
+  & z.output<typeof DataAwsS3controlAccessPointsOutputSchema>
+  & z.output<typeof DataAwsS3controlAccessPointsInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/s3control_access_points
 
-export function DataAwsS3controlAccessPoints(props: Partial<InputProps>) {
+export function DataAwsS3controlAccessPoints(
+  props: Partial<DataAwsS3controlAccessPointsInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -53,8 +55,8 @@ export function DataAwsS3controlAccessPoints(props: Partial<InputProps>) {
       _type='aws_s3control_access_points'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsS3controlAccessPointsInputSchema}
+      _outputSchema={DataAwsS3controlAccessPointsOutputSchema}
       {...props}
     />
   )
@@ -65,7 +67,7 @@ export const useDataAwsS3controlAccessPointss = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<DataAwsS3controlAccessPointsOutputProps>(
     DataAwsS3controlAccessPoints,
     idFilter,
     baseNode,

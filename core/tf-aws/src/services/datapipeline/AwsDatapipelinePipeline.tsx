@@ -9,30 +9,32 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsDatapipelinePipelineInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   description: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsDatapipelinePipelineOutputSchema = z.object({
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsDatapipelinePipelineInputProps =
+  & z.input<typeof AwsDatapipelinePipelineInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsDatapipelinePipelineOutputProps =
+  & z.output<typeof AwsDatapipelinePipelineOutputSchema>
+  & z.output<typeof AwsDatapipelinePipelineInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/datapipeline_pipeline
 
-export function AwsDatapipelinePipeline(props: Partial<InputProps>) {
+export function AwsDatapipelinePipeline(
+  props: Partial<AwsDatapipelinePipelineInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -42,8 +44,8 @@ export function AwsDatapipelinePipeline(props: Partial<InputProps>) {
       _type='aws_datapipeline_pipeline'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsDatapipelinePipelineInputSchema}
+      _outputSchema={AwsDatapipelinePipelineOutputSchema}
       {...props}
     />
   )
@@ -54,7 +56,7 @@ export const useAwsDatapipelinePipeline = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsDatapipelinePipelineOutputProps>(
     AwsDatapipelinePipeline,
     idFilter,
     baseNode,
@@ -66,7 +68,7 @@ export const useAwsDatapipelinePipelines = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsDatapipelinePipelineOutputProps>(
     AwsDatapipelinePipeline,
     idFilter,
     baseNode,

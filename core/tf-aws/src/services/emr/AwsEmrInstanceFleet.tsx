@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsEmrInstanceFleetInputSchema = TfMetaSchema.extend({
   cluster_id: resolvableValue(z.string()),
   instance_type_configs: resolvableValue(
     z.object({
@@ -48,24 +48,26 @@ export const InputSchema = TfMetaSchema.extend({
   target_spot_capacity: resolvableValue(z.number().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsEmrInstanceFleetOutputSchema = z.object({
   id: z.string().optional(),
   provisioned_on_demand_capacity: z.number().optional(),
   provisioned_spot_capacity: z.number().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsEmrInstanceFleetInputProps =
+  & z.input<typeof AwsEmrInstanceFleetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsEmrInstanceFleetOutputProps =
+  & z.output<typeof AwsEmrInstanceFleetOutputSchema>
+  & z.output<typeof AwsEmrInstanceFleetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/emr_instance_fleet
 
-export function AwsEmrInstanceFleet(props: Partial<InputProps>) {
+export function AwsEmrInstanceFleet(
+  props: Partial<AwsEmrInstanceFleetInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -75,8 +77,8 @@ export function AwsEmrInstanceFleet(props: Partial<InputProps>) {
       _type='aws_emr_instance_fleet'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsEmrInstanceFleetInputSchema}
+      _outputSchema={AwsEmrInstanceFleetOutputSchema}
       {...props}
     />
   )
@@ -87,11 +89,21 @@ export const useAwsEmrInstanceFleet = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsEmrInstanceFleet, idFilter, baseNode, optional)
+  useTypedNode<AwsEmrInstanceFleetOutputProps>(
+    AwsEmrInstanceFleet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsEmrInstanceFleets = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsEmrInstanceFleet, idFilter, baseNode, optional)
+  useTypedNodes<AwsEmrInstanceFleetOutputProps>(
+    AwsEmrInstanceFleet,
+    idFilter,
+    baseNode,
+    optional,
+  )

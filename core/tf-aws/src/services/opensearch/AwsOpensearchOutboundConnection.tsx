@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsOpensearchOutboundConnectionInputSchema = TfMetaSchema.extend({
   connection_alias: resolvableValue(z.string()),
   local_domain_info: resolvableValue(z.object({
     domain_name: z.string(),
@@ -40,23 +40,25 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsOpensearchOutboundConnectionOutputSchema = z.object({
   connection_status: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsOpensearchOutboundConnectionInputProps =
+  & z.input<typeof AwsOpensearchOutboundConnectionInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsOpensearchOutboundConnectionOutputProps =
+  & z.output<typeof AwsOpensearchOutboundConnectionOutputSchema>
+  & z.output<typeof AwsOpensearchOutboundConnectionInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/opensearch_outbound_connection
 
-export function AwsOpensearchOutboundConnection(props: Partial<InputProps>) {
+export function AwsOpensearchOutboundConnection(
+  props: Partial<AwsOpensearchOutboundConnectionInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -66,8 +68,8 @@ export function AwsOpensearchOutboundConnection(props: Partial<InputProps>) {
       _type='aws_opensearch_outbound_connection'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsOpensearchOutboundConnectionInputSchema}
+      _outputSchema={AwsOpensearchOutboundConnectionOutputSchema}
       {...props}
     />
   )
@@ -78,7 +80,7 @@ export const useAwsOpensearchOutboundConnection = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsOpensearchOutboundConnectionOutputProps>(
     AwsOpensearchOutboundConnection,
     idFilter,
     baseNode,
@@ -90,7 +92,7 @@ export const useAwsOpensearchOutboundConnections = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsOpensearchOutboundConnectionOutputProps>(
     AwsOpensearchOutboundConnection,
     idFilter,
     baseNode,

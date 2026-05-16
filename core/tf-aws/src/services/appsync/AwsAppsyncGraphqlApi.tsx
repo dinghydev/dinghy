@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsAppsyncGraphqlApiInputSchema = TfMetaSchema.extend({
   authentication_type: resolvableValue(z.string()),
   name: resolvableValue(z.string()),
   additional_authentication_provider: resolvableValue(
@@ -82,25 +82,27 @@ export const InputSchema = TfMetaSchema.extend({
   xray_enabled: resolvableValue(z.boolean().optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsAppsyncGraphqlApiOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
   uris: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsAppsyncGraphqlApiInputProps =
+  & z.input<typeof AwsAppsyncGraphqlApiInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsAppsyncGraphqlApiOutputProps =
+  & z.output<typeof AwsAppsyncGraphqlApiOutputSchema>
+  & z.output<typeof AwsAppsyncGraphqlApiInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/appsync_graphql_api
 
-export function AwsAppsyncGraphqlApi(props: Partial<InputProps>) {
+export function AwsAppsyncGraphqlApi(
+  props: Partial<AwsAppsyncGraphqlApiInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -110,8 +112,8 @@ export function AwsAppsyncGraphqlApi(props: Partial<InputProps>) {
       _type='aws_appsync_graphql_api'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsAppsyncGraphqlApiInputSchema}
+      _outputSchema={AwsAppsyncGraphqlApiOutputSchema}
       {...props}
     />
   )
@@ -122,11 +124,21 @@ export const useAwsAppsyncGraphqlApi = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsAppsyncGraphqlApi, idFilter, baseNode, optional)
+  useTypedNode<AwsAppsyncGraphqlApiOutputProps>(
+    AwsAppsyncGraphqlApi,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsAppsyncGraphqlApis = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsAppsyncGraphqlApi, idFilter, baseNode, optional)
+  useTypedNodes<AwsAppsyncGraphqlApiOutputProps>(
+    AwsAppsyncGraphqlApi,
+    idFilter,
+    baseNode,
+    optional,
+  )

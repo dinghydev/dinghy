@@ -9,34 +9,35 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
-  region: resolvableValue(z.string().optional()),
-  timeouts: resolvableValue(
-    z.object({
-      create: z.string().optional(),
-      delete: z.string().optional(),
-    }).optional(),
-  ),
-})
+export const AwsObservabilityadminTelemetryEnrichmentInputSchema = TfMetaSchema
+  .extend({
+    region: resolvableValue(z.string().optional()),
+    timeouts: resolvableValue(
+      z.object({
+        create: z.string().optional(),
+        delete: z.string().optional(),
+      }).optional(),
+    ),
+  })
 
-export const OutputSchema = z.object({
+export const AwsObservabilityadminTelemetryEnrichmentOutputSchema = z.object({
   aws_resource_explorer_managed_view_arn: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsObservabilityadminTelemetryEnrichmentInputProps =
+  & z.input<typeof AwsObservabilityadminTelemetryEnrichmentInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsObservabilityadminTelemetryEnrichmentOutputProps =
+  & z.output<typeof AwsObservabilityadminTelemetryEnrichmentOutputSchema>
+  & z.output<typeof AwsObservabilityadminTelemetryEnrichmentInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/observabilityadmin_telemetry_enrichment
 
 export function AwsObservabilityadminTelemetryEnrichment(
-  props: Partial<InputProps>,
+  props: Partial<AwsObservabilityadminTelemetryEnrichmentInputProps>,
 ) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
@@ -47,8 +48,8 @@ export function AwsObservabilityadminTelemetryEnrichment(
       _type='aws_observabilityadmin_telemetry_enrichment'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsObservabilityadminTelemetryEnrichmentInputSchema}
+      _outputSchema={AwsObservabilityadminTelemetryEnrichmentOutputSchema}
       {...props}
     />
   )
@@ -59,7 +60,7 @@ export const useAwsObservabilityadminTelemetryEnrichment = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsObservabilityadminTelemetryEnrichmentOutputProps>(
     AwsObservabilityadminTelemetryEnrichment,
     idFilter,
     baseNode,
@@ -71,7 +72,7 @@ export const useAwsObservabilityadminTelemetryEnrichments = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsObservabilityadminTelemetryEnrichmentOutputProps>(
     AwsObservabilityadminTelemetryEnrichment,
     idFilter,
     baseNode,

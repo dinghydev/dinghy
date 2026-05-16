@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsWafXssMatchSetInputSchema = TfMetaSchema.extend({
   name: resolvableValue(z.string()),
   xss_match_tuples: resolvableValue(
     z.object({
@@ -22,23 +22,23 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsWafXssMatchSetOutputSchema = z.object({
   arn: z.string().optional(),
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsWafXssMatchSetInputProps =
+  & z.input<typeof AwsWafXssMatchSetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsWafXssMatchSetOutputProps =
+  & z.output<typeof AwsWafXssMatchSetOutputSchema>
+  & z.output<typeof AwsWafXssMatchSetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/waf_xss_match_set
 
-export function AwsWafXssMatchSet(props: Partial<InputProps>) {
+export function AwsWafXssMatchSet(props: Partial<AwsWafXssMatchSetInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -48,8 +48,8 @@ export function AwsWafXssMatchSet(props: Partial<InputProps>) {
       _type='aws_waf_xss_match_set'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsWafXssMatchSetInputSchema}
+      _outputSchema={AwsWafXssMatchSetOutputSchema}
       {...props}
     />
   )
@@ -59,10 +59,22 @@ export const useAwsWafXssMatchSet = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsWafXssMatchSet, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsWafXssMatchSetOutputProps>(
+    AwsWafXssMatchSet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsWafXssMatchSets = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsWafXssMatchSet, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsWafXssMatchSetOutputProps>(
+    AwsWafXssMatchSet,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsMedialiveMultiplexProgramInputSchema = TfMetaSchema.extend({
   multiplex_id: resolvableValue(z.string()),
   program_name: resolvableValue(z.string()),
   multiplex_program_settings: resolvableValue(
@@ -38,22 +38,24 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsMedialiveMultiplexProgramOutputSchema = z.object({
   id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsMedialiveMultiplexProgramInputProps =
+  & z.input<typeof AwsMedialiveMultiplexProgramInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsMedialiveMultiplexProgramOutputProps =
+  & z.output<typeof AwsMedialiveMultiplexProgramOutputSchema>
+  & z.output<typeof AwsMedialiveMultiplexProgramInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/medialive_multiplex_program
 
-export function AwsMedialiveMultiplexProgram(props: Partial<InputProps>) {
+export function AwsMedialiveMultiplexProgram(
+  props: Partial<AwsMedialiveMultiplexProgramInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -63,8 +65,8 @@ export function AwsMedialiveMultiplexProgram(props: Partial<InputProps>) {
       _type='aws_medialive_multiplex_program'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsMedialiveMultiplexProgramInputSchema}
+      _outputSchema={AwsMedialiveMultiplexProgramOutputSchema}
       {...props}
     />
   )
@@ -75,7 +77,7 @@ export const useAwsMedialiveMultiplexProgram = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsMedialiveMultiplexProgramOutputProps>(
     AwsMedialiveMultiplexProgram,
     idFilter,
     baseNode,
@@ -87,7 +89,7 @@ export const useAwsMedialiveMultiplexPrograms = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsMedialiveMultiplexProgramOutputProps>(
     AwsMedialiveMultiplexProgram,
     idFilter,
     baseNode,

@@ -9,7 +9,7 @@ import {
 import z from 'zod'
 import { AwsSubnet } from './AwsSubnet.tsx'
 
-export const InputSchema = TfMetaSchema.extend({
+export const DataAwsSubnetInputSchema = TfMetaSchema.extend({
   availability_zone: resolvableValue(z.string().optional()),
   availability_zone_id: resolvableValue(z.string().optional()),
   cidr_block: resolvableValue(z.string().optional()),
@@ -33,7 +33,7 @@ export const InputSchema = TfMetaSchema.extend({
   vpc_id: resolvableValue(z.string().optional()),
 })
 
-export const OutputSchema = z.object({
+export const DataAwsSubnetOutputSchema = z.object({
   arn: z.string().optional(),
   assign_ipv6_address_on_creation: z.boolean().optional(),
   available_ip_address_count: z.number().optional(),
@@ -51,18 +51,18 @@ export const OutputSchema = z.object({
   private_dns_hostname_type_on_launch: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type DataAwsSubnetInputProps =
+  & z.input<typeof DataAwsSubnetInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type DataAwsSubnetOutputProps =
+  & z.output<typeof DataAwsSubnetOutputSchema>
+  & z.output<typeof DataAwsSubnetInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/data-sources/subnet
 
-export function DataAwsSubnet(props: Partial<InputProps>) {
+export function DataAwsSubnet(props: Partial<DataAwsSubnetInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -72,8 +72,8 @@ export function DataAwsSubnet(props: Partial<InputProps>) {
       _type='aws_subnet'
       _category='data'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={DataAwsSubnetInputSchema}
+      _outputSchema={DataAwsSubnetOutputSchema}
       {...props as any}
     />
   )
@@ -83,10 +83,22 @@ export const useDataAwsSubnet = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(DataAwsSubnet, idFilter, baseNode, optional)
+) =>
+  useTypedNode<DataAwsSubnetOutputProps>(
+    DataAwsSubnet,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useDataAwsSubnets = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(DataAwsSubnet, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<DataAwsSubnetOutputProps>(
+    DataAwsSubnet,
+    idFilter,
+    baseNode,
+    optional,
+  )

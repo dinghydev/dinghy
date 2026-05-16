@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsSsmMaintenanceWindowInputSchema = TfMetaSchema.extend({
   cutoff: resolvableValue(z.number()),
   duration: resolvableValue(z.number()),
   name: resolvableValue(z.string()),
@@ -25,30 +25,32 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsSsmMaintenanceWindowOutputSchema = z.object({
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export const ImportSchema = z.object({
+export const AwsSsmMaintenanceWindowImportSchema = z.object({
   id: resolvableValue(z.string()),
   account_id: resolvableValue(z.string().optional()),
   region: resolvableValue(z.string().optional()),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
-  & z.input<typeof ImportSchema>
+export type AwsSsmMaintenanceWindowInputProps =
+  & z.input<typeof AwsSsmMaintenanceWindowInputSchema>
+  & z.input<typeof AwsSsmMaintenanceWindowImportSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsSsmMaintenanceWindowOutputProps =
+  & z.output<typeof AwsSsmMaintenanceWindowOutputSchema>
+  & z.output<typeof AwsSsmMaintenanceWindowInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/ssm_maintenance_window
 
-export function AwsSsmMaintenanceWindow(props: Partial<InputProps>) {
+export function AwsSsmMaintenanceWindow(
+  props: Partial<AwsSsmMaintenanceWindowInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -58,9 +60,9 @@ export function AwsSsmMaintenanceWindow(props: Partial<InputProps>) {
       _type='aws_ssm_maintenance_window'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
-      _importSchema={ImportSchema}
+      _inputSchema={AwsSsmMaintenanceWindowInputSchema}
+      _outputSchema={AwsSsmMaintenanceWindowOutputSchema}
+      _importSchema={AwsSsmMaintenanceWindowImportSchema}
       {...props}
     />
   )
@@ -71,7 +73,7 @@ export const useAwsSsmMaintenanceWindow = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(
+  useTypedNode<AwsSsmMaintenanceWindowOutputProps>(
     AwsSsmMaintenanceWindow,
     idFilter,
     baseNode,
@@ -83,7 +85,7 @@ export const useAwsSsmMaintenanceWindows = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(
+  useTypedNodes<AwsSsmMaintenanceWindowOutputProps>(
     AwsSsmMaintenanceWindow,
     idFilter,
     baseNode,

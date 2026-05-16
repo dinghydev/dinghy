@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsOamSinkPolicyInputSchema = TfMetaSchema.extend({
   policy: resolvableValue(z.string()),
   sink_identifier: resolvableValue(z.string()),
   id: resolvableValue(z.string().optional()),
@@ -23,23 +23,23 @@ export const InputSchema = TfMetaSchema.extend({
   ),
 })
 
-export const OutputSchema = z.object({
+export const AwsOamSinkPolicyOutputSchema = z.object({
   arn: z.string().optional(),
   sink_id: z.string().optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsOamSinkPolicyInputProps =
+  & z.input<typeof AwsOamSinkPolicyInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsOamSinkPolicyOutputProps =
+  & z.output<typeof AwsOamSinkPolicyOutputSchema>
+  & z.output<typeof AwsOamSinkPolicyInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/oam_sink_policy
 
-export function AwsOamSinkPolicy(props: Partial<InputProps>) {
+export function AwsOamSinkPolicy(props: Partial<AwsOamSinkPolicyInputProps>) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -49,8 +49,8 @@ export function AwsOamSinkPolicy(props: Partial<InputProps>) {
       _type='aws_oam_sink_policy'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsOamSinkPolicyInputSchema}
+      _outputSchema={AwsOamSinkPolicyOutputSchema}
       {...props}
     />
   )
@@ -60,10 +60,22 @@ export const useAwsOamSinkPolicy = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNode<OutputProps>(AwsOamSinkPolicy, idFilter, baseNode, optional)
+) =>
+  useTypedNode<AwsOamSinkPolicyOutputProps>(
+    AwsOamSinkPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsOamSinkPolicys = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
-) => useTypedNodes<OutputProps>(AwsOamSinkPolicy, idFilter, baseNode, optional)
+) =>
+  useTypedNodes<AwsOamSinkPolicyOutputProps>(
+    AwsOamSinkPolicy,
+    idFilter,
+    baseNode,
+    optional,
+  )

@@ -9,7 +9,7 @@ import {
 } from '@dinghy/base-components'
 import z from 'zod'
 
-export const InputSchema = TfMetaSchema.extend({
+export const AwsGuarddutyDetectorInputSchema = TfMetaSchema.extend({
   datasources: resolvableValue(
     z.object({
       kubernetes: z.object({
@@ -35,25 +35,27 @@ export const InputSchema = TfMetaSchema.extend({
   tags: resolvableValue(z.record(z.string(), z.string()).optional()),
 })
 
-export const OutputSchema = z.object({
+export const AwsGuarddutyDetectorOutputSchema = z.object({
   account_id: z.string().optional(),
   arn: z.string().optional(),
   id: z.string().optional(),
   tags_all: z.record(z.string(), z.string()).optional(),
 })
 
-export type InputProps =
-  & z.input<typeof InputSchema>
+export type AwsGuarddutyDetectorInputProps =
+  & z.input<typeof AwsGuarddutyDetectorInputSchema>
   & NodeProps
 
-export type OutputProps =
-  & z.output<typeof OutputSchema>
-  & z.output<typeof InputSchema>
+export type AwsGuarddutyDetectorOutputProps =
+  & z.output<typeof AwsGuarddutyDetectorOutputSchema>
+  & z.output<typeof AwsGuarddutyDetectorInputSchema>
   & NodeProps
 
 // https://registry.terraform.io/providers/hashicorp/aws/6.44.0/docs/resources/guardduty_detector
 
-export function AwsGuarddutyDetector(props: Partial<InputProps>) {
+export function AwsGuarddutyDetector(
+  props: Partial<AwsGuarddutyDetectorInputProps>,
+) {
   const _title = (node: any) => {
     const namedTag = camelCaseToWords(node._props._tags[0])
     return namedTag.replace(/^(Data )?(Ephemeral )?Aws /, '')
@@ -63,8 +65,8 @@ export function AwsGuarddutyDetector(props: Partial<InputProps>) {
       _type='aws_guardduty_detector'
       _category='resource'
       _title={_title}
-      _inputSchema={InputSchema}
-      _outputSchema={OutputSchema}
+      _inputSchema={AwsGuarddutyDetectorInputSchema}
+      _outputSchema={AwsGuarddutyDetectorOutputSchema}
       {...props}
     />
   )
@@ -75,11 +77,21 @@ export const useAwsGuarddutyDetector = (
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNode<OutputProps>(AwsGuarddutyDetector, idFilter, baseNode, optional)
+  useTypedNode<AwsGuarddutyDetectorOutputProps>(
+    AwsGuarddutyDetector,
+    idFilter,
+    baseNode,
+    optional,
+  )
 
 export const useAwsGuarddutyDetectors = (
   idFilter?: string,
   baseNode?: any,
   optional?: boolean,
 ) =>
-  useTypedNodes<OutputProps>(AwsGuarddutyDetector, idFilter, baseNode, optional)
+  useTypedNodes<AwsGuarddutyDetectorOutputProps>(
+    AwsGuarddutyDetector,
+    idFilter,
+    baseNode,
+    optional,
+  )
