@@ -96,9 +96,16 @@ export const run = async (args: Args) => {
       continue
     }
 
-    console.log(`Running ${check} check with command: ${command}...`)
+    const cmdParts = command.split(' ')
+    if (isGitCheck) {
+      const excludes: string[] = dinghyAppConfig.check?.git?.excludes ?? []
+      if (excludes.length > 0) {
+        cmdParts.push('--', '.', ...excludes.map((p) => `:(exclude)${p}`))
+      }
+    }
+    console.log(`Running ${check} check with command: ${cmdParts.join(' ')}...`)
     const result = await cmdStreamAndCapture(
-      command.split(' '),
+      cmdParts,
       false,
       isGitCheck ? hostAppHome : undefined,
     )

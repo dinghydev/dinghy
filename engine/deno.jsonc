@@ -1,4 +1,9 @@
 {
+  "exclude": [
+    "deno.jsonc",
+    "**/.vscode/launch.json",
+    "**/output/**"
+  ],
   "compilerOptions": {
     "noImplicitAny": true,
     "noUnusedLocals": true,
@@ -12,13 +17,7 @@
   },
   "fmt": {
     "semiColons": false,
-    "singleQuote": true,
-    "exclude": [
-      "deno.jsonc",
-      "**/*.mjs",
-      "**/stack.tfstate.json",
-      "**/.vscode/launch.json"
-    ]
+    "singleQuote": true
   },
   "lint": {
     "rules": {
@@ -29,10 +28,7 @@
         "no-explicit-any",
         "no-unversioned-import"
       ]
-    },
-    "exclude": [
-      "**/*.mjs"
-    ]
+    }
   },
   "imports": {
     // ENGINE ONLY DEPENDENCIES
