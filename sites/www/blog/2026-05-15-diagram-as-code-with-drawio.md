@@ -1,13 +1,13 @@
 ---
-title: "Diagram as Code: architecture diagrams as TSX components"
+title: "Diagram as Code with draw.io: architecture diagrams as TSX components"
 description: "Dinghy renders architecture diagrams from TSX. Start with raw shapes, refactor into named components, then plug in pre-built AWS icons — diagrams that read like code and render to draw.io."
-slug: diagram-as-code
+slug: diagram-as-code-with-drawio
 tags: [dinghy, diagrams, drawio, tsx, react]
 image: /assets/img/blog/cover-diagram-as-code.svg
 draft: true
 ---
 
-![Diagram as Code](/assets/img/blog/cover-diagram-as-code.svg)
+![Diagram as Code with draw.io](/assets/img/blog/cover-diagram-as-code.svg)
 
 Architecture diagrams have a habit of going stale the moment you redraw them. The boxes stop matching the systems, the arrows stop matching the dependencies, and after a quarter or two the diagram has more in common with the *vibe* of the system than with the actual one.
 
@@ -17,7 +17,7 @@ Dinghy fixes that the same way Terraform fixes ad-hoc cloud changes: by treating
 
 ## The basic shape
 
-Every Dinghy diagram is a tree of `Shape` components. Dependencies are first-class, declared with `_dependsOn` / `_dependsBy`. Layout direction comes from `_direction`.
+Every Dinghy diagram is a tree of `Shape` components. Dependencies are part of the model, declared with `_dependsOn` / `_dependsBy`. Layout direction comes from `_direction`.
 
 ```tsx
 import { Shape } from '@dinghy/base-components'

@@ -1,6 +1,6 @@
 ---
 title: "Site Builder: from one Markdown file to a deployed site in three commands"
-description: "Dinghy wraps Docusaurus into a zero-config site builder. One folder, one MDX file, one command — and you have live preview at localhost:3000. Deploy to S3 with smart defaults baked in."
+description: "Dinghy wraps Docusaurus into a zero-config site builder. One folder, one MDX file, one command — and you have live preview at localhost:3000. Deploy to S3 with smart defaults included."
 slug: site-builder
 tags: [dinghy, docusaurus, documentation, mdx, s3]
 image: /assets/img/blog/cover-site-builder.svg
@@ -29,7 +29,7 @@ No `package.json`, no `node_modules`, no Docusaurus config. The Dinghy engine sh
 
 ## What you get
 
-The defaults are tuned to be useful out of the box:
+The defaults are designed to work without further setup:
 
 - **`src/pages/`** — standalone MDX pages (homepage lives at `INDEX.mdx`).
 - **`src/docs/`** — auto-detected docs section with sidebar navigation generated from the directory tree.
@@ -57,7 +57,7 @@ Set `logo: false` to drop the default logo. Set `footer: false` to drop the foot
 
 ## Deploying to S3
 
-S3 is a first-class deploy target. Add it to your config:
+S3 is a built-in deploy target. Add it to your config:
 
 ```yaml
 deploy:
@@ -81,7 +81,7 @@ If you have ever shipped a static site and discovered three months later that yo
 
 ## The pattern
 
-Dinghy's builders work the same way every time: opinionated defaults that match the 80% case, escape hatches for the rest, and a single CLI verb (`start`, `build`, `deploy`) for the lifecycle.
+Dinghy's builders work the same way every time: opinionated defaults that match the 80% case, overrides for the rest, and a single CLI verb (`start`, `build`, `deploy`) for the lifecycle.
 
 The doc site you are reading right now (assuming you are reading on dinghy.dev) is built with this exact pipeline.
 

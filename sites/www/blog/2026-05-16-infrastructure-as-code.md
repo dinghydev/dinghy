@@ -35,7 +35,7 @@ The 8-line example is the kind of thing that lives in any web stack:
 </App>
 ```
 
-Dinghy's renderer expands that into the full ~250 lines of OpenTofu / Terraform: VPC, subnets, route tables, security groups, the EC2 instance, the RDS instance, the IAM glue, all the right `depends_on` wiring. The kind of file you would normally hand-write and then copy-paste across environments.
+Dinghy's renderer expands that into the full ~250 lines of OpenTofu / Terraform: VPC, subnets, route tables, security groups, the EC2 instance, the RDS instance, the IAM roles and policies, all the right `depends_on` wiring. The kind of file you would normally hand-write and then copy-paste across environments.
 
 ## The IaC editor experience
 
@@ -59,7 +59,7 @@ You are not editing the Terraform. You are editing the *intent*, and Dinghy rend
 
 The 248-line output is not bloated — it is what HCL *requires* for that infrastructure to actually run. The 8-line input is what *humans actually need to specify* once the renderer knows the patterns.
 
-Components like `<Vpc>` and `<Rds>` carry the assumed-good defaults: tagging conventions, security group skeletons, parameter group references, IAM glue. Override anything you want via props. Leave it alone and you get the 80% case for free.
+Components like `<Vpc>` and `<Rds>` carry the assumed-good defaults: tagging conventions, security group skeletons, parameter group references, IAM roles and policies. Override anything you want via props. Leave it alone and you get the 80% case for free.
 
 That is the same trade React made for the DOM 12 years ago. Dinghy makes it for cloud infrastructure.
 

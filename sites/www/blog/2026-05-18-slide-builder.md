@@ -1,6 +1,6 @@
 ---
 title: "Slide Builder: RevealJS in YAML, with Prezi-style zoom"
-description: "Author RevealJS presentations in YAML, Markdown, or HTML. Get a single self-contained HTML file out the other side. And — exclusive to Dinghy — Prezi-style zoom-and-pan as first-class slides."
+description: "Author RevealJS presentations in YAML, Markdown, or HTML. Get a single self-contained HTML file out the other side. And — exclusive to Dinghy — Prezi-style zoom-and-pan built into the slide format."
 slug: slide-builder
 tags: [dinghy, slides, revealjs, yaml, prezi]
 image: /assets/img/blog/cover-slide-builder.svg
