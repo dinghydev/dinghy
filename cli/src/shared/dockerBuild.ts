@@ -1,5 +1,6 @@
 import { existsSync } from '@std/fs'
 import { hostAppHome } from './home.ts'
+import { expandEnvPlaceholders } from './stringUtils.ts'
 
 const VERSIONS_FILE = `${hostAppHome}/.versions.json`
 let _versions: Record<string, string> | undefined
@@ -20,10 +21,9 @@ function loadVersions(): Record<string, string> {
  * Resolve an image reference to a full Docker image URI. Handles three input
  * shapes, in order:
  *
- * 1. `${VAR}` / `${VAR-default}` placeholders are substituted from `Deno.env`.
- *    Only uppercase identifiers (`[A-Z][A-Z0-9_]*`) are matched, so Terraform
- *    interpolations like `${aws_ecr_repository.x.url}` pass through untouched.
- *    Throws if a placeholder is unset and no default is given.
+ * 1. `${VAR}` / `${VAR-default}` placeholders are substituted via
+ *    `expandEnvPlaceholders` (uppercase identifiers only, so Terraform
+ *    interpolations like `${aws_ecr_repository.x.url}` pass through untouched).
  * 2. If the result contains `:` it is treated as an already-qualified image
  *    reference and returned as-is.
  * 3. Otherwise the input is treated as a short name (e.g. `nginx-proxy`) and
@@ -31,17 +31,7 @@ function loadVersions(): Record<string, string> {
  *    tag recorded under `<name>` in `.versions.json`.
  */
 export function dockerBuildImage(input: string): string {
-  const substituted = input.replace(
-    /\$\{([A-Z][A-Z0-9_]*)(?:-([^}]*))?\}/g,
-    (_, name, def) => {
-      const value = Deno.env.get(name)
-      if (value !== undefined) return value
-      if (def !== undefined) return def
-      throw new Error(
-        `env var '${name}' not set — referenced in image '${input}'.`,
-      )
-    },
-  )
+  const substituted = expandEnvPlaceholders(input)
   if (substituted.includes(':')) return substituted
   const versions = loadVersions()
   const tag = versions[substituted]

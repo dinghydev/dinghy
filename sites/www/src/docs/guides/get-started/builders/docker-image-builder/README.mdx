@@ -170,6 +170,49 @@ tag, maximising Docker layer reuse and giving you reproducible deploys.
 The hash covers every non-`.ejs` file in the image directory, the base
 version, and any files explicitly pulled in via `Dockerfile.dockerignore`.
 
+### Custom tag via `versions.json`
+
+By default an image is published as `{repo}:{name}-{md5hash}`, where `{name}`
+is the folder name and the hash is content-derived. When you want a different
+name — for example, to bake the upstream base version into the tag so two
+builds of the same folder are distinguishable — add a `tag` entry to that
+image's `versions.json`:
+
+```json title="docker/images/10-base/versions.json"
+{
+  "tag": "base-${VERSION_BASE}-${IMAGE_HASH}"
+}
+```
+
+The value is a template — uppercase `${VAR}` placeholders are substituted
+before the tag is applied. Useful variables:
+
+| Placeholder          | Expands to                                       |
+| -------------------- | ------------------------------------------------ |
+| `${IMAGE_HASH}`      | Content hash of this image's source files        |
+| `${VERSION_BASE}`    | From `.base-version` file (if present)           |
+| `${VERSION_RELEASE}` | Git-derived release version                      |
+| `${VAR}`             | Any other uppercase build-context variable       |
+| `${VAR-default}`     | `VAR` if set, otherwise the literal `default`    |
+
+Resolution depends on whether the expanded value contains a colon:
+
+- **No colon** — prefixed with the build repo: `${repo}:${value}`
+  - `"tag": "base-${VERSION_BASE}-${IMAGE_HASH}"` → `myorg/myproject:base-12.5-abc123`
+- **Contains colon** — used as a fully-qualified image reference, as-is
+  - `"tag": "gcr.io/myorg/site:${IMAGE_HASH}"` → `gcr.io/myorg/site:abc123`
+
+Each image's `versions.json` controls only its own tag; the override does not
+leak to other images in the same build.
+
+:::note
+
+This override sets the **name** of the image at build time. It is not for
+promoting tags like `latest` or `stable` — promotions belong to a separate
+release-lifecycle step (e.g. retag-and-push after acceptance).
+
+:::
+
 ## Multi-architecture builds
 
 Multi-arch is opt-in. Set `DINGHY_DOCKER_SUPPORTED_ARCHS` in `.dinghyrc` to

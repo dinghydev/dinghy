@@ -19,6 +19,7 @@ import { CmdInput } from '../../services/cli/types.ts'
 import { Args } from '@std/cli/parse-args'
 import Debug from 'debug'
 import { cmdStream } from '../../shared/cmd.ts'
+import { expandEnvPlaceholders } from '../../shared/stringUtils.ts'
 import {
   imageExistLocally,
   imageExistRemotely,
@@ -206,14 +207,25 @@ async function populateImageTag(image: DockerImage, args: Args) {
 
   const imageKey = image.name.toUpperCase().split('-').join('_')
   let imageVersion
-  if (image.name === 'release') {
-    imageVersion = args.buildContext.VERSION_RELEASE
-  } else if (image.name === 'engine') {
-    imageVersion = `${image.name}-${args.buildContext.VERSION_RELEASE}`
+  if (args.buildContext.VERSION_TAG) {
+    args.buildContext.IMAGE_HASH = imageHash()
+    const expanded = expandEnvPlaceholders(
+      args.buildContext.VERSION_TAG,
+      args.buildContext,
+    )
+    image.tag = expanded.includes(':') ? expanded : `${args.repo}:${expanded}`
+    imageVersion = expanded.split(':').pop()!
+    delete args.buildContext.VERSION_TAG
   } else {
-    imageVersion = `${image.name}-${imageHash()}`
+    if (image.name === 'release') {
+      imageVersion = args.buildContext.VERSION_RELEASE
+    } else if (image.name === 'engine') {
+      imageVersion = `${image.name}-${args.buildContext.VERSION_RELEASE}`
+    } else {
+      imageVersion = `${image.name}-${imageHash()}`
+    }
+    image.tag = `${args.repo}:${imageVersion}`
   }
-  image.tag = `${args.repo}:${imageVersion}`
 
   args.buildContext[`DOCKER_IMAGE_${imageKey}_TAG`] = image.tag
   args.buildContext[`DOCKER_IMAGE_${imageKey}_VERSION`] = imageVersion

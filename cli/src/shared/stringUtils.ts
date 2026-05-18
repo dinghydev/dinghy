@@ -15,6 +15,30 @@ export const toTitle = (str: string) =>
 export const decapitalise = (str: string) => str[0].toLowerCase() + str.slice(1)
 export const capitalise = (str: string) => str[0].toUpperCase() + str.slice(1)
 
+/**
+ * Substitute `${VAR}` / `${VAR-default}` placeholders in `input` from `env`
+ * if provided, otherwise from `Deno.env`. Only uppercase identifiers
+ * (`[A-Z][A-Z0-9_]*`) are matched, so lowercase-or-mixed-case interpolations
+ * like `${aws_ecr_repository.x.url}` pass through untouched.
+ *
+ * Throws if a placeholder is unset and no `-default` is given.
+ */
+export const expandEnvPlaceholders = (
+  input: string,
+  env?: Record<string, string | undefined>,
+): string =>
+  input.replace(
+    /\$\{([A-Z][A-Z0-9_]*)(?:-([^}]*))?\}/g,
+    (_, name, def) => {
+      const value = env !== undefined ? env[name] : Deno.env.get(name)
+      if (value !== undefined) return value
+      if (def !== undefined) return def
+      throw new Error(
+        `env var '${name}' not set — referenced in '${input}'.`,
+      )
+    },
+  )
+
 export const camelCaseToWords = (str: string, spacer: string = ' ') => {
   try {
     return capitalise(str).match(/[A-Z][a-z0-9_]*/g)!.reduce(
