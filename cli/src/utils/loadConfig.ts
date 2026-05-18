@@ -74,13 +74,25 @@ function loadFiles(basePaths: string[]) {
 
 function loadApps() {
   dinghyAppConfig.apps ??= {}
-  for (const dirEntry of Deno.readDirSync(hostAppHome)) {
-    if (dirEntry.name.endsWith('.tsx')) {
-      dinghyAppConfig.apps[dirEntry.name.replace('.tsx', '').toLowerCase()] =
-        dirEntry.name
-      debug('discovered app: %s', dirEntry.name)
+
+  const addApp = (absolutePath: string) => {
+    const fileName = absolutePath.split('/').pop()!
+    if (!fileName.endsWith('.tsx')) return
+    const key = fileName.replace('.tsx', '').toLowerCase()
+    const relativePath = absolutePath.substring(hostAppHome.length + 1)
+    dinghyAppConfig.apps[key] ??= relativePath
+    debug('discovered app: %s -> %s', key, relativePath)
+  }
+
+  const scanDir = (dir: string) => {
+    if (!fs.existsSync(dir)) return
+    for (const dirEntry of Deno.readDirSync(dir)) {
+      if (dirEntry.isFile) addApp(`${dir}/${dirEntry.name}`)
     }
   }
+
+  scanDir(hostAppHome)
+  scanDir(`${hostAppHome}/src/stacks`)
 }
 
 export const useEnvVar = (paths: string[]) => {
