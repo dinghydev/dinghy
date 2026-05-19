@@ -11,8 +11,8 @@ import {
   dockerManifestCreate,
   dockerPush,
   dockerTag,
+  hostDockerArch,
   md5Hash,
-  multiArch,
 } from '../../services/docker/dockerBuildUtils.ts'
 import { supportedArchs } from '../../services/docker/dockerBuildUtils.ts'
 import { CmdInput } from '../../services/cli/types.ts'
@@ -52,12 +52,6 @@ export const schema: CmdInput = {
       boolean: true,
     },
     {
-      name: 'multi-arch',
-      description: 'Build multi-arch images',
-      boolean: true,
-      default: multiArch,
-    },
-    {
       name: 'dryrun',
       description: 'Dry run the build',
       boolean: true,
@@ -90,6 +84,7 @@ type DockerImage = {
   name: string
   folder: string
   tag: string
+  arch?: string[]
 }
 
 async function init(args: Args) {
@@ -227,6 +222,14 @@ async function populateImageTag(image: DockerImage, args: Args) {
     image.tag = `${args.repo}:${imageVersion}`
   }
 
+  if (args.buildContext.VERSION_ARCH) {
+    image.arch = String(args.buildContext.VERSION_ARCH)
+      .split(',')
+      .map((a) => a.trim())
+      .filter(Boolean)
+    delete args.buildContext.VERSION_ARCH
+  }
+
   args.buildContext[`DOCKER_IMAGE_${imageKey}_TAG`] = image.tag
   args.buildContext[`DOCKER_IMAGE_${imageKey}_VERSION`] = imageVersion
   args.versions[image.name] = imageVersion
@@ -272,25 +275,21 @@ async function buildImage(image: DockerImage, args: Args) {
 
   let buildError: Error | undefined
   try {
-    if (args['multi-arch']) {
-      for (const arch of args.arch) {
+    const archs = image.arch ?? args.arch
+    if (archs.length > 1) {
+      for (const arch of archs) {
         await buildImageWithArch(image, args, arch)
       }
       if (dockerPushEnabled(args)) {
         await dockerManifestCreate(
           image.tag,
-          args.arch.map((arch: string) => `${image.tag}-linux-${arch}`),
+          archs.map((arch: string) => `${image.tag}-linux-${arch}`),
         )
       } else {
-        await dockerTag(
-          `${image.tag}-linux-${
-            Deno.build.arch === 'aarch64' ? 'arm64' : 'amd64'
-          }`,
-          image.tag,
-        )
+        await dockerTag(`${image.tag}-linux-${hostDockerArch()}`, image.tag)
       }
     } else {
-      await buildImageWithArch(image, args)
+      await buildImageWithArch(image, args, archs[0], false)
     }
   } catch (e) {
     buildError = e as Error
@@ -307,8 +306,9 @@ async function buildImageWithArch(
   image: DockerImage,
   args: Args,
   arch?: string,
+  withArchSuffix = true,
 ) {
-  const tag = arch ? `${image.tag}-linux-${arch}` : image.tag
+  const tag = arch && withArchSuffix ? `${image.tag}-linux-${arch}` : image.tag
   const buildArgs = ['docker', 'buildx', 'build']
   buildArgs.push('--provenance', 'false')
   if (arch) {

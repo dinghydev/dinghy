@@ -65,8 +65,7 @@ dinghy docker build [image] [options]
 | `--repo`       | `DINGHY_DOCKER_BUILD_REPO`                            | Target Docker repository (set in `.dinghyrc`)         |
 | `--push`       | `false`                                               | Push built images to registry (auto-enabled in CI)    |
 | `--skip-local` | `false`                                               | Skip build if the tag already exists locally          |
-| `--multi-arch` | `false` (true if `DINGHY_DOCKER_SUPPORTED_ARCHS` set) | Build for multiple architectures                      |
-| `--arch`       | host arch (or `DINGHY_DOCKER_SUPPORTED_ARCHS`)        | Architectures to build (multiple values)              |
+| `--arch`       | host arch (or `DINGHY_DOCKER_SUPPORTED_ARCHS`)        | Architectures to build. Single value → single-arch with `--platform`; multiple → multi-arch + manifest |
 | `--dryrun`     | `false`                                               | Preview what would be built without executing         |
 
 If no `image` argument is given, all images in the source folder are built in
@@ -216,9 +215,17 @@ release-lifecycle step (e.g. retag-and-push after acceptance).
 ## Multi-architecture builds
 
 Multi-arch is opt-in. Set `DINGHY_DOCKER_SUPPORTED_ARCHS` in `.dinghyrc` to
-enable it — `--multi-arch` then defaults to `true` and `--arch` defaults to
-that list. When the variable is unset or `false`, builds are single-arch for
-the host only.
+provide the default arch list — `--arch` then defaults to that list. When
+the variable is unset or `false`, `--arch` defaults to the host arch only.
+
+Whether a build takes the multi-arch path is decided by the **number of
+architectures**, not a separate flag:
+
+- More than one arch → multi-arch path: each arch builds as
+  `{tag}-linux-{arch}`, combined under a manifest at `{tag}`.
+- Single arch → bare-tag build with `--platform linux/{arch}`. When the
+  arch matches the host this is a no-op for buildkit; when it differs,
+  the build runs cross-arch via QEMU.
 
 ```sh title=".dinghyrc"
 DINGHY_DOCKER_SUPPORTED_ARCHS=arm64,amd64
@@ -237,6 +244,25 @@ RUN if [ "$BUILD_ARCH" = "arm64" ]; then ARCH="aarch64"; else ARCH="x86_64"; fi 
     && curl "https://example.com/tool-${ARCH}.tar.gz" -o tool.tar.gz
 ```
 
+### Custom arch via `versions.json`
+
+By default every image in the build uses the same arch list — the project's
+`--arch` value (which defaults to `DINGHY_DOCKER_SUPPORTED_ARCHS`). When a
+specific image needs a different list — for example one image is arm64-only,
+or an extra arch is needed just for one image — add an `arch` entry to that
+image's `versions.json`:
+
+```json title="docker/images/10-base/versions.json"
+{
+  "arch": "arm64,amd64"
+}
+```
+
+The value is a comma-separated list of Docker arch names; resolution follows
+the same rules as the project-wide arch list (see above). Each image's
+`versions.json` controls only its own arch list; the override does not leak
+to other images in the same build.
+
 ## Configuration
 
 ### .dinghyrc
@@ -252,7 +278,7 @@ DINGHY_DOCKER_SUPPORTED_ARCHS=arm64,amd64
 | Variable                        | Purpose                                                                         |
 | ------------------------------- | ------------------------------------------------------------------------------- |
 | `DINGHY_DOCKER_BUILD_REPO`      | Default target repository — avoids passing `--repo` on every build              |
-| `DINGHY_DOCKER_SUPPORTED_ARCHS` | Comma-separated list of arches; presence enables multi-arch by default          |
+| `DINGHY_DOCKER_SUPPORTED_ARCHS` | Default arch list (comma-separated). >1 entry triggers multi-arch + manifest    |
 
 ### Dockerfile.dockerignore
 

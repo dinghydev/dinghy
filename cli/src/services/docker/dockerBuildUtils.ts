@@ -32,7 +32,7 @@ export function buildOndemandImage(_image: string, _buildArch?: string) {
   throw new Error('Not implemented')
 }
 
-const hostDockerArch = (): string =>
+export const hostDockerArch = (): string =>
   Deno.build.arch === 'aarch64' ? 'arm64' : 'amd64'
 
 export const supportedArchs = (): string[] => {
