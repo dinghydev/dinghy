@@ -249,32 +249,31 @@ async function runBuildHook(folder: string, name: string) {
 }
 
 async function buildImage(image: DockerImage, args: Args) {
-  await populateImageTag(image, args)
-  args.imageTags.push(image.tag)
-
-  if (args.dryrun) {
-    console.log(`Dry run: ${image.tag} would not built`)
-    return
-  }
-
-  if (!args['skip-local'] && await imageExistLocally(image.tag)) {
-    console.log(`Tag ${image.tag} exists locally, skipping build`)
-    return
-  }
-
-  if (await imageExistRemotely(image.tag)) {
-    console.log(`Tag ${image.tag} exists remotely, skipping build`)
-    return
-  }
-  console.log(
-    new Date().toISOString(),
-    `Image ${image.tag} does not exist, building...`,
-  )
-
-  await runBuildHook(image.folder, 'prebuild')
-
   let buildError: Error | undefined
   try {
+    await runBuildHook(image.folder, 'prebuild')
+    await populateImageTag(image, args)
+    args.imageTags.push(image.tag)
+
+    if (args.dryrun) {
+      console.log(`Dry run: ${image.tag} would not built`)
+      return
+    }
+
+    if (!args['skip-local'] && await imageExistLocally(image.tag)) {
+      console.log(`Tag ${image.tag} exists locally, skipping build`)
+      return
+    }
+
+    if (await imageExistRemotely(image.tag)) {
+      console.log(`Tag ${image.tag} exists remotely, skipping build`)
+      return
+    }
+    console.log(
+      new Date().toISOString(),
+      `Image ${image.tag} does not exist, building...`,
+    )
+
     const archs = image.arch ?? args.arch
     if (archs.length > 1) {
       for (const arch of archs) {

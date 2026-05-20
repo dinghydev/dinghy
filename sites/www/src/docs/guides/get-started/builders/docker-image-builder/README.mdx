@@ -83,8 +83,8 @@ docker/images/
 │   ├── Dockerfile.dockerignore     # optional: restricts the build context
 │   ├── versions.json               # recommended: version pins (VERSION_*)
 │   ├── fs-root/                    # optional: tree copied into container root
-│   ├── prebuild.sh                 # optional: runs before docker build
-│   └── postbuild.sh                # optional: runs after docker build (always)
+│   ├── prebuild.sh                 # optional: runs before hash + build
+│   └── postbuild.sh                # optional: runs after build (always)
 ├── 20-app/
 │   └── Dockerfile
 └── 30-worker/
@@ -98,8 +98,8 @@ docker/images/
 | `Dockerfile.dockerignore` | No              | Restricts the docker build context to the paths you opt in      |
 | `versions.json`           | Recommended     | All version pins — exposed as `VERSION_*` to EJS templates      |
 | `fs-root/`                | No              | Files copied into the image (mirrors the container filesystem)  |
-| `prebuild.sh`             | No              | Shell script executed before `docker buildx build`              |
-| `postbuild.sh`            | No              | Shell script executed after build (runs even on failure)        |
+| `prebuild.sh`             | No              | Shell script run before hash + build (its files feed the hash)  |
+| `postbuild.sh`            | No              | Shell script run after build (always — even on failure or skip) |
 
 ## Naming and build order
 
@@ -296,9 +296,12 @@ in the hash and the build:
 ### Build hooks
 
 Pre-/post-build scripts handle path adjustments or external setup that does
-not belong in the Dockerfile itself. `postbuild.sh` runs even when the build
-fails, so it is the right place to undo any temporary edits made by
-`prebuild.sh`.
+not belong in the Dockerfile itself. `prebuild.sh` runs **before the image
+hash is computed**, so any files it creates or modifies are part of the
+content hash — useful for generating `versions.json` or staging files into
+the image folder at build time. `postbuild.sh` runs even when the build
+fails (or is skipped because the tag already exists), so it is the right
+place to undo any temporary edits made by `prebuild.sh`.
 
 ```bash title="docker/images/10-base/prebuild.sh"
 #!/bin/bash

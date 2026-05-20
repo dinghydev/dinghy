@@ -58,8 +58,8 @@ docker/images/
 │   ├── fs-root/                    # optional: files copied into container root
 │   │   ├── usr/bin/my-script
 │   │   └── etc/my-config.conf
-│   ├── prebuild.sh                 # optional: runs before docker build
-│   └── postbuild.sh                # optional: runs after docker build
+│   ├── prebuild.sh                 # optional: runs before hash + build
+│   └── postbuild.sh                # optional: runs after build (always)
 ├── 20-app/
 │   └── Dockerfile
 └── 30-worker/
@@ -73,8 +73,8 @@ docker/images/
 | `Dockerfile.dockerignore` | No              | Restricts Docker build context to specific paths                              |
 | `versions.json`           | Recommended     | All version numbers belong here — available as `VERSION_KEY` in EJS templates |
 | `fs-root/`                | No              | Directory tree copied into container (mirrors root filesystem)                |
-| `prebuild.sh`             | No              | Shell script executed before `docker buildx build`                            |
-| `postbuild.sh`            | No              | Shell script executed after build (runs even on failure)                      |
+| `prebuild.sh`             | No              | Shell script run before hash + build (its files feed the hash)                |
+| `postbuild.sh`            | No              | Shell script run after build (always — even on failure or skip)               |
 
 ## Naming & Build Order
 
@@ -247,7 +247,10 @@ Keeps Docker build context minimal:
 
 ### Build Hooks (prebuild.sh / postbuild.sh)
 
-Used for pre/post build path modifications:
+`prebuild.sh` runs before the image hash is computed, so any files it creates or
+modifies are part of the content hash. `postbuild.sh` always runs afterwards
+(including on build failure or skip), so it's the right place to undo
+`prebuild.sh`'s edits.
 
 ```bash
 #!/bin/bash
