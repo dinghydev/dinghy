@@ -13,6 +13,7 @@ import Debug from 'debug'
 import { showHelp } from './showHelp.ts'
 import chalk from 'chalk'
 import { runEngineCommand } from '../docker/runEngineCommand.ts'
+import { throwCommandNotFound } from './throwCommandNotFound.ts'
 
 const debug = Debug('runCommands')
 
@@ -55,11 +56,7 @@ export const runCommands = async (
         if (!isEngine) {
           return await runEngineCommand(args)
         }
-        throw new DinghyError(
-          `Command [${
-            chalk.red(potentialCommands.slice(0, i + 1).join(' '))
-          }] not found`,
-        )
+        await throwCommandNotFound(potentialCommands, i)
       }
       break
     }
