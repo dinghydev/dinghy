@@ -255,6 +255,13 @@ async function buildImage(image: DockerImage, args: Args) {
     await populateImageTag(image, args)
     args.imageTags.push(image.tag)
 
+    if (args.image && !image.name.includes(args.image)) {
+      console.log(
+        `Skipping ${image.name}: does not match filter "${args.image}"`,
+      )
+      return
+    }
+
     if (args.dryrun) {
       console.log(`Dry run: ${image.tag} would not built`)
       return
