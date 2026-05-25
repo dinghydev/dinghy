@@ -5,6 +5,7 @@ slug: introduction-to-dinghy
 tags: [react, revealjs, terraform, opentofu]
 image: /assets/img/blog/cover-introduction.svg
 draft: true
+devto_url: https://dev.to/mrduguo/introduction-to-dinghy-a-swiss-army-knife-for-everyday-engineering-20l2
 devto_id: 3658549
 ---
 

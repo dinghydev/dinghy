@@ -5,6 +5,7 @@ slug: where-react-for-iac-came-from
 tags: [react, terraform, cdktf, drawio]
 image: /assets/img/blog/cover-where-react-for-iac-came-from.svg
 draft: true
+devto_url: https://dev.to/mrduguo/where-react-for-iac-came-from-10e0
 devto_id: 3687106
 ---
 
