@@ -39,6 +39,24 @@ export const expandEnvPlaceholders = (
     },
   )
 
+export const expandEnvPlaceholdersDeep = (
+  value: any,
+  env?: Record<string, string | undefined>,
+): any => {
+  if (typeof value === 'string') return expandEnvPlaceholders(value, env)
+  if (Array.isArray(value)) {
+    return value.map((v) => expandEnvPlaceholdersDeep(v, env))
+  }
+  if (value !== null && typeof value === 'object') {
+    return Object.fromEntries(
+      Object.entries(value).map((
+        [k, v],
+      ) => [k, expandEnvPlaceholdersDeep(v, env)]),
+    )
+  }
+  return value
+}
+
 export const camelCaseToWords = (str: string, spacer: string = ' ') => {
   try {
     return capitalise(str).match(/[A-Z][a-z0-9_]*/g)!.reduce(

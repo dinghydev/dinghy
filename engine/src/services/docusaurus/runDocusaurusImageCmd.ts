@@ -4,6 +4,7 @@ import {
   deepMerge,
   dinghyAppConfig,
   DinghyError,
+  expandEnvPlaceholdersDeep,
   hostAppHome,
   runDockerCmd,
 } from '@dinghy/cli'
@@ -64,17 +65,18 @@ export const resolveSiteConfig = (siteDir: string): any => {
       configs.push(yaml.parse(Deno.readTextFileSync(file)) as any)
     }
   }
+  let result: any
   if (configs.length === 1) {
-    return configs[0]
+    result = configs[0]
   } else if (configs.length > 1) {
-    const result = {}
+    result = {}
     for (const c of configs) {
       deepMerge(result, c)
     }
-    return result as any
   } else {
-    return {}
+    result = {}
   }
+  return expandEnvPlaceholdersDeep(result)
 }
 
 export const resolveSiteConfigJson = (siteConfig: any, target: any) => {
