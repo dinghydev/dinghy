@@ -10,6 +10,7 @@ sites:
       old_redirect:
         target: https://new.example.com/{PATH}#from-old
         pathPattern: '/old/*'
+        mode: redirect
       subsite:
         target: s3://example-com-subsite
         pathPattern: '/subsite/*'

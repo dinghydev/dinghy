@@ -42,7 +42,8 @@
           "target_origin_id": "site_root",
           "viewer_protocol_policy": "redirect-to-https",
           "cache_policy_id": "658327ea-f89d-4fab-a63d-7e88639e58f6",
-          "function_association": []
+          "function_association": [],
+          "lambda_function_association": []
         },
         "enabled": true,
         "origin": [
@@ -110,7 +111,8 @@
               "event_type": "viewer-request",
               "function_arn": "${aws_cloudfront_function.cloudfrontsitedemodinghydev_redirect_function.arn}"
             }
-          ]
+          ],
+          "lambda_function_association": []
         },
         "enabled": true,
         "origin": [

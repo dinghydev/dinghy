@@ -62,11 +62,12 @@ export function parseLambdaFunctions(
   return validatedLambdaFunctions
 }
 
-function prepareLambdaSource(
+export function prepareLambdaSource(
   lambdasFolder: string,
   name: any,
   lambda: any,
   renderOptions: RenderOptions,
+  outputSubfolder: string = 'lambdas',
 ) {
   const functionFolder = `${lambdasFolder}/${name}`
   let sourceFile = lambda.sourceFile
@@ -90,7 +91,8 @@ function prepareLambdaSource(
       }
     }
   }
-  const outputFolder = `${renderOptions.outputFolder}/lambdas/${name}`
+  const outputFolder =
+    `${renderOptions.outputFolder}/${outputSubfolder}/${name}`
   Deno.mkdirSync(outputFolder, { recursive: true })
   // Apply runtime/handler defaults early so downstream logic (externals,
   // bundle target) sees them even when YAML omits them.
@@ -112,6 +114,7 @@ function prepareLambdaSource(
     [
       'deno',
       'bundle',
+      '--no-config',
       '--minify',
       ...externalFlags,
       '--output',

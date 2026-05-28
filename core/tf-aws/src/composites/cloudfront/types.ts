@@ -1,13 +1,26 @@
 import { getRenderOptions } from '@dinghy/base-components'
 import { z } from 'zod'
 
+const CloudfrontFunctionsSchema = z.object({
+  'viewer-request': z.string().optional(),
+  'viewer-response': z.string().optional(),
+})
+const LambdaEdgeSchema = z.object({
+  'viewer-request': z.string().optional(),
+  'viewer-response': z.string().optional(),
+  'origin-request': z.string().optional(),
+  'origin-response': z.string().optional(),
+})
+
 const OriginSchema = z.object({
   name: z.string().optional().transform((value: string | undefined) =>
     value as string
   ),
-  target: z.string().regex(/^(s3|https):\/\//, {
-    message: "Unsupported target format, must start with 's3://' or 'https://'",
+  target: z.string().regex(/^(s3|https?):\/\//, {
+    message:
+      "Unsupported target format, must start with 's3://', 'http://' or 'https://'",
   }),
+  mode: z.enum(['origin', 'redirect']).default('origin'),
   targetProtocol: z.string().optional().transform((
     value: string | undefined,
   ) => value as string),
@@ -22,6 +35,8 @@ const OriginSchema = z.object({
   pathPattern: z.string().default('*'),
   cacheBehavior: z.record(z.string(), z.any()).optional(),
   allowedOrigins: z.string().array().optional(),
+  cloudfrontFunctions: CloudfrontFunctionsSchema.optional(),
+  lambdaEdge: LambdaEdgeSchema.optional(),
 })
 
 const CloudfrontSiteSchema = z.object({
@@ -81,7 +96,7 @@ export function parseCloudfrontSites(
       const targetUrl = new URL(origin.target)
       origin.targetProtocol ??= targetUrl.protocol.replace(':', '')
       origin.targetHost ??= targetUrl.host
-      origin.targetPath ??= targetUrl.pathname
+      origin.targetPath ??= targetUrl.pathname === '/' ? '' : targetUrl.pathname
     })
 
     const pathPatterns = Object.values(site.origins).map((origin) =>
@@ -99,12 +114,10 @@ export function parseCloudfrontSites(
       )
     }
     if (
-      !Object.values(site.origins).some((origin) =>
-        origin.targetProtocol !== 'https'
-      )
+      !Object.values(site.origins).some((origin) => origin.mode !== 'redirect')
     ) {
       throw new Error(
-        `Site '${title}' require at least one real origin.`,
+        `Site '${title}' requires at least one non-redirect origin.`,
       )
     }
   })

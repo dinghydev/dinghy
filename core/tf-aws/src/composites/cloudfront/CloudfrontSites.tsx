@@ -1,5 +1,10 @@
 import { OriginType, parseCloudfrontSites } from './types.ts'
 import { S3Bucket } from '../s3/S3Bucket.tsx'
+import {
+  CloudfrontFunctionsLoader,
+  useCloudfrontFunctionByName,
+} from './CloudfrontFunctionsLoader.tsx'
+import { LambdaEdge, useLambdaEdgeByName } from './LambdaEdge.tsx'
 import { deepResolve, NodeProps, Shape, toId } from '@dinghy/base-components'
 import {
   AwsRoute53Record,
@@ -368,7 +373,7 @@ export function CloudfrontSites(
               )
             ))}
             {Object.values(origins).map((origin) => (
-              origin.targetProtocol === 'https' && (
+              origin.mode === 'redirect' && (
                 <RedirectFunction
                   id={`${
                     toId(`${site.title}_${origin.name}_redirect_function`)
@@ -391,42 +396,89 @@ export function CloudfrontSites(
           data: useAwsS3Bucket(toId(`${site.title}_${origin.name}_bucket`)),
         }))
       const redirectFunctions = Object.values(site.origins)
-        .filter((origin) => origin.targetProtocol === 'https')
+        .filter((origin) => origin.mode === 'redirect')
         .map((origin) => ({
           name: origin.name,
           data: useAwsCloudfrontFunction(
             toId(`${site.title}_${origin.name}_redirect_function`),
           ),
         }))
-      const singleOrigin = (origin: OriginType) => ({
-        origin_id: origin.name,
-        domain_name: origin.targetProtocol == 's3'
-          ? s3Origins.find((o) => o.name === origin.name)!.data.s3Bucket
-            .bucket_regional_domain_name
-          : undefined,
-        origin_path: origin.targetPath,
-        origin_access_control_id: origin.targetProtocol == 's3'
-          ? accessControl.id
-          : undefined,
-      })
+      const singleOrigin = (origin: OriginType) => {
+        if (origin.targetProtocol === 's3') {
+          return {
+            origin_id: origin.name,
+            domain_name: s3Origins.find((o) => o.name === origin.name)!
+              .data.s3Bucket.bucket_regional_domain_name,
+            origin_path: origin.targetPath,
+            origin_access_control_id: accessControl.id,
+          }
+        }
+        return {
+          origin_id: origin.name,
+          domain_name: origin.targetHost,
+          origin_path: origin.targetPath,
+          custom_origin_config: {
+            http_port: 80,
+            https_port: 443,
+            origin_protocol_policy: origin.targetProtocol === 'https'
+              ? 'https-only'
+              : 'http-only',
+            origin_ssl_protocols: ['TLSv1.2'],
+          },
+        }
+      }
       const distributionOrigin = () =>
         isRedirect
           ? [
             singleOrigin(firstOrigin),
           ]
-          : Object.values(site.origins).filter((o) =>
-            o.targetProtocol !== 'https'
-          ).map(singleOrigin)
+          : Object.values(site.origins).filter((o) => o.mode !== 'redirect')
+            .map(singleOrigin)
 
       const defaultOrigin = Object.values(site.origins).find(
         (origin) => origin.pathPattern === '*',
       )!
 
       const firstOrigin = Object.values(site.origins).find(
-        (origin) => origin.targetProtocol !== 'https',
+        (origin) => origin.mode !== 'redirect',
       )!
 
       const { headersPolicy } = useAwsCloudfrontResponseHeadersPolicy()
+
+      const siteCfFunctionNames = Array.from(
+        new Set(
+          Object.values(site.origins).flatMap((o) =>
+            Object.values(o.cloudfrontFunctions ?? {}).filter(
+              (n): n is string => typeof n === 'string',
+            )
+          ),
+        ),
+      )
+      const siteLambdaEdgeNames = Array.from(
+        new Set(
+          Object.values(site.origins).flatMap((o) =>
+            Object.values(o.lambdaEdge ?? {}).filter(
+              (n): n is string => typeof n === 'string',
+            )
+          ),
+        ),
+      )
+      const cfFunctionRefs = new Map<string, any>()
+      const lambdaEdgeRefs = new Map<string, any>()
+      if (!isRedirect) {
+        siteCfFunctionNames.forEach((name) => {
+          cfFunctionRefs.set(
+            name,
+            useCloudfrontFunctionByName(site.title, name).cloudfrontFunction,
+          )
+        })
+        siteLambdaEdgeNames.forEach((name) => {
+          lambdaEdgeRefs.set(
+            name,
+            useLambdaEdgeByName(site.title, name).lambdaFunction,
+          )
+        })
+      }
 
       const cacheBehaviors = (isDefault: boolean) => () => {
         const cacheBehavior = (origin: OriginType) => ({
@@ -435,7 +487,7 @@ export function CloudfrontSites(
             : undefined,
           allowed_methods: ['GET', 'HEAD'],
           cached_methods: ['GET', 'HEAD'],
-          target_origin_id: (isRedirect || origin.targetProtocol === 'https')
+          target_origin_id: (isRedirect || origin.mode === 'redirect')
             ? firstOrigin.name
             : origin.name,
           viewer_protocol_policy: 'redirect-to-https',
@@ -448,7 +500,7 @@ export function CloudfrontSites(
               event_type: 'viewer-request',
               function_arn: hostRedirectFunction.arn,
             }]
-            : origin.targetProtocol === 'https'
+            : origin.mode === 'redirect'
             ? [{
               event_type: 'viewer-request',
               function_arn: redirectFunctions.find((o) =>
@@ -456,6 +508,22 @@ export function CloudfrontSites(
               )!.data.cloudfrontFunction
                 .arn,
             }]
+            : Object.entries(origin.cloudfrontFunctions ?? {})
+              .filter(([, name]) => typeof name === 'string')
+              .map(([eventType, name]) => ({
+                event_type: eventType,
+                function_arn: cfFunctionRefs.get(name as string).arn,
+              })),
+          lambda_function_association: !isRedirect &&
+              origin.mode !== 'redirect'
+            ? Object.entries(origin.lambdaEdge ?? {})
+              .filter(([, name]) => typeof name === 'string')
+              .map(([eventType, name]) => ({
+                event_type: eventType,
+                lambda_arn: lambdaEdgeRefs.get(name as string).qualified_arn,
+                include_body: eventType === 'origin-request' ||
+                  eventType === 'viewer-request',
+              }))
             : [],
           ...((isRedirect ? firstOrigin : origin)!.cacheBehavior || {}),
         })
@@ -555,6 +623,18 @@ export function CloudfrontSites(
             {isRedirect && <HostRedirect />}
             {corsSupportEnabled && <CorsSupportPolicy />}
             <AliasesCertificates />
+            {!isRedirect && siteCfFunctionNames.length > 0 && (
+              <CloudfrontFunctionsLoader
+                siteTitle={site.title}
+                names={siteCfFunctionNames}
+              />
+            )}
+            {!isRedirect && siteLambdaEdgeNames.length > 0 && (
+              <LambdaEdge
+                siteTitle={site.title}
+                names={siteLambdaEdgeNames}
+              />
+            )}
             {!isRedirect &&
               Object.values(site.origins).find((o) =>
                 o.targetProtocol === 's3'
