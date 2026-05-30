@@ -9,6 +9,19 @@ import { z } from 'zod'
 import { AwsLambdaFunctionInputSchema } from '../../services/lambda/AwsLambdaFunction.tsx'
 import { existsSync } from '@std/fs/exists'
 
+const LambdaFunctionUrlSchema = z.object({
+  authorization_type: z.enum(['NONE', 'AWS_IAM']).default('NONE'),
+  invoke_mode: z.enum(['BUFFERED', 'RESPONSE_STREAM']).default('BUFFERED'),
+  cors: z.object({
+    allow_credentials: z.boolean().optional(),
+    allow_headers: z.string().array().optional(),
+    allow_methods: z.string().array().optional(),
+    allow_origins: z.string().array().optional(),
+    expose_headers: z.string().array().optional(),
+    max_age: z.number().optional(),
+  }).optional(),
+})
+
 const LambdaFunctionSchema = AwsLambdaFunctionInputSchema.extend({
   sourceFile: z.string().optional(),
   archiveDir: z.string().optional().transform((value: string | undefined) =>
@@ -22,6 +35,12 @@ const LambdaFunctionSchema = AwsLambdaFunctionInputSchema.extend({
   // AWS default is 3s, too tight for anything calling out to other services.
   // 30s lets cold-start + a downstream API hop typically fit.
   timeout: z.number().default(30),
+  functionUrl: LambdaFunctionUrlSchema.optional(),
+  // Emit a Terraform `output` block exposing the function URL (only takes
+  // effect when `functionUrl` is also set). Default off — most users
+  // discover the URL through other means (resource_for_each, the AWS
+  // console) and outputs leak from the stack's root.
+  outputRecord: z.boolean().default(false),
 })
 
 const LambdaFunctionsSchema = z.record(

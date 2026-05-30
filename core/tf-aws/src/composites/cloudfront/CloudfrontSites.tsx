@@ -5,7 +5,14 @@ import {
   useCloudfrontFunctionByName,
 } from './CloudfrontFunctionsLoader.tsx'
 import { LambdaEdge, useLambdaEdgeByName } from './LambdaEdge.tsx'
-import { deepResolve, NodeProps, Shape, toId } from '@dinghy/base-components'
+import {
+  deepResolve,
+  getRenderOptions,
+  NodeProps,
+  Shape,
+  toId,
+} from '@dinghy/base-components'
+import { useAwsLambdaFunctionUrl } from '@dinghy/tf-aws/serviceLambda'
 import {
   AwsRoute53Record,
   DataAwsRoute53Zone,
@@ -395,6 +402,16 @@ export function CloudfrontSites(
           name: origin.name,
           data: useAwsS3Bucket(toId(`${site.title}_${origin.name}_bucket`)),
         }))
+      const lambdaOrigins = Object.values(site.origins)
+        .filter((origin) => origin.targetProtocol === 'lambda')
+        .map((origin) => ({
+          name: origin.name,
+          data: useAwsLambdaFunctionUrl(
+            toId(`${origin.targetHost}_function_url`),
+          ),
+        }))
+      const awsRegion = (getRenderOptions().awsProvider as any)?.region ??
+        'us-east-1'
       const redirectFunctions = Object.values(site.origins)
         .filter((origin) => origin.mode === 'redirect')
         .map((origin) => ({
@@ -411,6 +428,25 @@ export function CloudfrontSites(
               .data.s3Bucket.bucket_regional_domain_name,
             origin_path: origin.targetPath,
             origin_access_control_id: accessControl.id,
+          }
+        }
+        if (origin.targetProtocol === 'lambda') {
+          const lambdaOrigin = lambdaOrigins.find((o) =>
+            o.name === origin.name
+          )!
+          return {
+            origin_id: origin.name,
+            domain_name: () =>
+              `${
+                (lambdaOrigin.data.functionUrl.url_id as any)()
+              }.lambda-url.${awsRegion}.on.aws`,
+            origin_path: origin.targetPath,
+            custom_origin_config: {
+              http_port: 80,
+              https_port: 443,
+              origin_protocol_policy: 'https-only',
+              origin_ssl_protocols: ['TLSv1.2'],
+            },
           }
         }
         return {

@@ -5,9 +5,14 @@ import {
   Shape,
   toId,
 } from '@dinghy/base-components'
-import { AwsLambdaFunction } from '@dinghy/tf-aws/serviceLambda'
+import {
+  AwsLambdaFunction,
+  AwsLambdaFunctionUrl,
+  useAwsLambdaFunction,
+  useAwsLambdaFunctionUrl,
+} from '@dinghy/tf-aws/serviceLambda'
 import { useAwsIamRole } from '../../services/iam/AwsIamRole.tsx'
-import { DataArchiveFile, useArchiveFile } from '@dinghy/tf-common'
+import { DataArchiveFile, Output, useArchiveFile } from '@dinghy/tf-common'
 import { IamRole } from '../iam/IamRole.tsx'
 import { extendStyle } from '@dinghy/base-components'
 import { LAMBDA_FUNCTION } from '@dinghy/diagrams/entitiesAws18Compute'
@@ -59,8 +64,34 @@ export function LambdaFunctions(
           />
         )}
         {_lambda.archiveDir && <SourceFile />}
+        {_lambda.functionUrl && <FunctionUrl />}
       </LambdaFunctionComponent>
     )
+
+    function FunctionUrl() {
+      const urlId = toId(`${_lambda.function_name}_function_url`)
+      const { lambdaFunction } = useAwsLambdaFunction(
+        toId(_lambda.function_name),
+      )
+      const { functionUrl } = useAwsLambdaFunctionUrl(urlId)
+      return (
+        <>
+          <AwsLambdaFunctionUrl
+            _id={urlId}
+            _title={`${_lambda.function_name} URL`}
+            {..._lambda.functionUrl}
+            function_name={_lambda.function_name}
+            depends_on={() => [(lambdaFunction._terraformId as any)()]}
+          />
+          {_lambda.outputRecord && (
+            <Output
+              _id={`${urlId}_output`}
+              value={() => functionUrl.function_url}
+            />
+          )}
+        </>
+      )
+    }
   }
 
   const LambdaFunctionsComponent =

@@ -16,9 +16,9 @@ const OriginSchema = z.object({
   name: z.string().optional().transform((value: string | undefined) =>
     value as string
   ),
-  target: z.string().regex(/^(s3|https?):\/\//, {
+  target: z.string().regex(/^(s3|https?|lambda):\/\//, {
     message:
-      "Unsupported target format, must start with 's3://', 'http://' or 'https://'",
+      "Unsupported target format, must start with 's3://', 'http://', 'https://', or 'lambda://<lambda-name>'",
   }),
   mode: z.enum(['origin', 'redirect']).default('origin'),
   targetProtocol: z.string().optional().transform((
@@ -55,7 +55,7 @@ const CloudfrontSiteSchema = z.object({
     value: string[] | undefined,
   ) => value as string[]),
   certVersions: z.string().array().default(['1']),
-  defaultRootObject: z.string().default('index.html'),
+  defaultRootObject: z.string().default(''),
   loggingV1Enabled: z.boolean().default(true),
 }).loose()
 

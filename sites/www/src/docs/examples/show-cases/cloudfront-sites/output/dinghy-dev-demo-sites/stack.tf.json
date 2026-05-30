@@ -76,7 +76,6 @@
             "response_page_path": "/404.html"
           }
         ],
-        "default_root_object": "index.html",
         "logging_config": {
           "bucket": "${aws_s3_bucket.awss3bucket_globallogbucket.bucket_domain_name}",
           "prefix": "cloudfront-accesslog/cloudfrontsitedemodinghydev_site/"
@@ -145,7 +144,6 @@
             "response_page_path": "/404.html"
           }
         ],
-        "default_root_object": "index.html",
         "logging_config": {
           "bucket": "${aws_s3_bucket.awss3bucket_globallogbucket.bucket_domain_name}",
           "prefix": "cloudfront-accesslog/cloudfrontsitedemodinghydev_redirect/"
