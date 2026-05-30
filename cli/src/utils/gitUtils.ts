@@ -2,6 +2,7 @@ import chalk from 'chalk'
 import Debug from 'debug'
 import { cmdCode, cmdStreamAndCapture } from '../shared/cmd.ts'
 import { DinghyError } from '../shared/types.ts'
+import { dinghyAppConfig } from './loadConfig.ts'
 
 const debug = Debug('gitUtils')
 
@@ -21,19 +22,36 @@ export const hasGitRepo = async (cwd?: string) => {
   return result.success
 }
 
-export const runGitCheck = async (cwd: string) => {
+export type GitCheckResult =
+  & Awaited<ReturnType<typeof cmdStreamAndCapture>>
+  & { success: boolean }
+
+export const runGitCheck = async (
+  cwd: string,
+  gitCmd: string = 'git diff',
+  errorWhenDiff: boolean = false,
+): Promise<GitCheckResult | null> => {
   if (!(await hasGitRepo(cwd))) {
     debug('no git repo at %s, skipping git check', cwd)
-    return
+    return null
   }
-  console.log('Running git check...')
-  const result = await cmdStreamAndCapture(['git', 'diff'], false, cwd)
+  const cmdParts = gitCmd.split(' ')
+  const excludes: string[] = dinghyAppConfig.check?.git?.excludes ?? []
+  if (excludes.length > 0) {
+    cmdParts.push('--', '.', ...excludes.map((p) => `:(exclude)${p}`))
+  }
+  console.log(`Running git check with command: ${cmdParts.join(' ')}...`)
+  const result = await cmdStreamAndCapture(cmdParts, false, cwd) as GitCheckResult
   if (result.output) {
     console.log(chalk.red('Unexpected changes detected in git repo'))
-    throw new DinghyError(
-      'Working tree has uncommitted changes — commit or revert them, ' +
-        'then re-run.',
-      'UNEXPECTED_GIT_DIFF',
-    )
+    result.success = false
+    if (errorWhenDiff) {
+      throw new DinghyError(
+        'Working tree has uncommitted changes — commit or revert them, ' +
+          'then re-run.',
+        'UNEXPECTED_GIT_DIFF',
+      )
+    }
   }
+  return result
 }

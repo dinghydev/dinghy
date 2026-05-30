@@ -353,6 +353,6 @@ export async function run(args: Args) {
   console.log('versions file:', args.versionsFile)
 
   if (args['git-check']) {
-    await runGitCheck(hostAppHome)
+    await runGitCheck(hostAppHome, 'git diff', true)
   }
 }

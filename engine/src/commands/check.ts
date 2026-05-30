@@ -4,9 +4,9 @@ import {
   dinghyAppConfig,
   DinghyError,
   hostAppHome,
+  runGitCheck,
 } from '@dinghy/cli'
 import chalk from 'chalk'
-import { hasGitRepo } from '../utils/gitUtils.ts'
 import { Args } from '@std/cli/parse-args'
 import { runTestCheck } from '../services/check/runTest.ts'
 
@@ -83,9 +83,13 @@ export const run = async (args: Args) => {
       continue
     }
 
-    const isGitCheck = check === 'git'
-    if (isGitCheck && !(await hasGitRepo())) {
-      console.log(chalk.yellow(`No git repo found, skipping git check`))
+    if (check === 'git') {
+      const gitResult = await runGitCheck(hostAppHome, command)
+      if (gitResult === null) {
+        console.log(chalk.yellow(`No git repo found, skipping git check`))
+        continue
+      }
+      results.push({ check: command, result: gitResult })
       continue
     }
 
@@ -97,22 +101,8 @@ export const run = async (args: Args) => {
     }
 
     const cmdParts = command.split(' ')
-    if (isGitCheck) {
-      const excludes: string[] = dinghyAppConfig.check?.git?.excludes ?? []
-      if (excludes.length > 0) {
-        cmdParts.push('--', '.', ...excludes.map((p) => `:(exclude)${p}`))
-      }
-    }
     console.log(`Running ${check} check with command: ${cmdParts.join(' ')}...`)
-    const result = await cmdStreamAndCapture(
-      cmdParts,
-      false,
-      isGitCheck ? hostAppHome : undefined,
-    )
-    if (check === 'git' && result.output) {
-      console.log(chalk.red(`Unexpected changes detected in git repo`))
-      result.success = false
-    }
+    const result = await cmdStreamAndCapture(cmdParts, false)
     results.push({ check: command, result })
   }
   const failedChecks = results.filter((result) => !result.result.success)
