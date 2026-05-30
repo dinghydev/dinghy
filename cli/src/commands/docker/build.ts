@@ -7,6 +7,7 @@ import { baseVersion, commitVersion } from '../../utils/commitVersion.ts'
 import { walk } from '@std/fs/walk'
 import ejs from 'ejs'
 import { readFileSync } from 'node:fs'
+import { dirname } from 'node:path'
 import {
   dockerManifestCreate,
   dockerPush,
@@ -89,12 +90,12 @@ type DockerImage = {
 
 async function init(args: Args) {
   const isCompiled = !Deno.execPath().includes('deno')
-  const versionsFile = `${
-    isCompiled ? hostAppHome : projectRoot
-  }/.versions.json`
-  debug('versions file: %s', versionsFile)
-  if (existsSync(versionsFile)) {
-    Deno.removeSync(versionsFile)
+  args.versionsFile = isCompiled
+    ? `${hostAppHome}/output/docker-image-versions.json`
+    : `${projectRoot}/.versions.json`
+  debug('versions file: %s', args.versionsFile)
+  if (existsSync(args.versionsFile)) {
+    Deno.removeSync(args.versionsFile)
   }
 
   args.sourceFolder = resolveFullPath(args.source)
@@ -233,8 +234,9 @@ async function populateImageTag(image: DockerImage, args: Args) {
   args.buildContext[`DOCKER_IMAGE_${imageKey}_TAG`] = image.tag
   args.buildContext[`DOCKER_IMAGE_${imageKey}_VERSION`] = imageVersion
   args.versions[image.name] = imageVersion
+  Deno.mkdirSync(dirname(args.versionsFile), { recursive: true })
   await Deno.writeTextFile(
-    `${hostAppHome}/.versions.json`,
+    args.versionsFile,
     JSON.stringify(args.versions, null, 2) + '\n',
   )
   debug('Docker image tag %s generated', image.tag)
@@ -348,7 +350,7 @@ export async function run(args: Args) {
   }
   console.log('Image tags:')
   console.log(chalk.green(args.imageTags.join('\n')))
-  console.log('versions file:', `${hostAppHome}/.versions.json`)
+  console.log('versions file:', args.versionsFile)
 
   if (args['git-check']) {
     await runGitCheck(hostAppHome)

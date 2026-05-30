@@ -2,14 +2,14 @@ import { existsSync } from '@std/fs'
 import { hostAppHome } from './home.ts'
 import { expandEnvPlaceholders } from './stringUtils.ts'
 
-const VERSIONS_FILE = `${hostAppHome}/.versions.json`
+const VERSIONS_FILE = `${hostAppHome}/output/docker-image-versions.json`
 let _versions: Record<string, string> | undefined
 
 function loadVersions(): Record<string, string> {
   if (_versions) return _versions
   if (!existsSync(VERSIONS_FILE)) {
     throw new Error(
-      `.versions.json not found at ${VERSIONS_FILE} — ` +
+      `docker-image-versions.json not found at ${VERSIONS_FILE} — ` +
         `run \`dinghy docker build\` to generate it.`,
     )
   }
@@ -28,7 +28,7 @@ function loadVersions(): Record<string, string> {
  *    reference and returned as-is.
  * 3. Otherwise the input is treated as a short name (e.g. `nginx-proxy`) and
  *    resolved by combining `DINGHY_DOCKER_BUILD_REPO` with the content-hashed
- *    tag recorded under `<name>` in `.versions.json`.
+ *    tag recorded under `<name>` in `output/docker-image-versions.json`.
  */
 export function dockerBuildImage(input: string): string {
   const substituted = expandEnvPlaceholders(input)

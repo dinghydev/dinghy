@@ -14,7 +14,7 @@ export const configLoadEngineVersions = async () => {
     await extractImageFile(
       await configGetEngineImage(),
       hostAppHome,
-      '/dinghy/.versions.json',
+      '/workspace/.dinghy/.versions.json',
       '.versions.json',
     )
     const versionsFile = `${hostAppHome}/.versions.json`
