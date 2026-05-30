@@ -170,9 +170,13 @@ async function detectProjectType(
 }
 
 function projectContainsApps(): boolean {
-  for (const dirEntry of Deno.readDirSync(hostAppHome)) {
-    if (dirEntry.name.endsWith('.tsx')) {
-      return true
+  const dirs = [hostAppHome, `${hostAppHome}/src/stacks`]
+  for (const dir of dirs) {
+    if (!existsSync(dir)) continue
+    for (const dirEntry of Deno.readDirSync(dir)) {
+      if (dirEntry.name.endsWith('.tsx')) {
+        return true
+      }
     }
   }
   return false
