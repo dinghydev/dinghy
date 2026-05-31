@@ -14,7 +14,9 @@ export const dinghyRcFiles: string[] = [
   `${dinghyHome}rc`,
 ]
 export const dinghyConfigFiles = [
+  `${hostAppHome}/config/dinghy.config.local.yml`,
   `${hostAppHome}/dinghy.config.local.yml`,
+  `${hostAppHome}/config/dinghy.config.yml`,
   `${hostAppHome}/dinghy.config.yml`,
 ]
 

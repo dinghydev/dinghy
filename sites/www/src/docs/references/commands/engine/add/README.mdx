@@ -1,0 +1,17 @@
+---
+edit_url: https://github.com/dinghydev/dinghy/blob/main/engine/src/commands/add.ts
+---
+# add
+Add an npm (or jsr, for engine) package to project
+## Usage
+```sh
+$ dinghy add PACKAGE [options]
+```
+## Arguments
+| Name            | Description                     |
+| ---------------- | ----------------------------- |
+| `package` |Package spec (defaults to npm; prefix with `jsr:` for a jsr package, e.g. `dayjs@1.11.19` or `jsr:@std/yaml`)  |
+## Options
+| Name            | Description           | Default                   |
+| ---------------- | --------------- | ----------------------------- |
+| `--type=<value>` |Which docker image's packages array to update (one of: engine, site, slide) | `engine` |
