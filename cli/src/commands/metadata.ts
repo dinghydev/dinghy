@@ -10,6 +10,23 @@ import { Args } from '@std/cli/parse-args'
 import { loadCliCommands } from './commands.ts'
 import { execa } from 'execa'
 
+// `deno doc --json` changed shape in Deno 2.8: `nodes` is now a map keyed
+// by file URL, and `jsDoc` moved from the node itself to each declaration.
+// Flatten both old and new shapes into the legacy { name, jsDoc, ... } list.
+function flattenDenoDocNodes(doc: any): any[] {
+  if (Array.isArray(doc?.nodes)) return doc.nodes
+  if (Array.isArray(doc)) return doc
+  const flat: any[] = []
+  for (const fileEntry of Object.values<any>(doc?.nodes ?? {})) {
+    for (const symbol of fileEntry.symbols ?? []) {
+      for (const decl of symbol.declarations ?? []) {
+        flat.push({ name: symbol.name, ...decl })
+      }
+    }
+  }
+  return flat
+}
+
 export const schema: CmdInput = {
   description: 'Generate metadata for all commands',
   hidden: true,
@@ -60,7 +77,9 @@ const generateMetadata = async (
       shell: true,
     })
     const denoDoc: any = JSON.parse(result.stdout)
-    const schemaDoc = denoDoc.nodes.find((node: any) => node.name === 'schema')
+    const schemaDoc = flattenDenoDocNodes(denoDoc).find((node: any) =>
+      node.name === 'schema'
+    )
     const visiableOptions = options
       ? OptionSchema.array().parse(options).filter((option) => !option.hidden)
       : undefined

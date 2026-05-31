@@ -29,7 +29,7 @@ jobs:
       #     key: ${{ runner.os }}-docker-build-${{ hashFiles('*/deno.lock') }}
       - uses: denoland/setup-deno@v2
         with:
-          deno-version: v2.4.5
+          deno-version: v2.8.1
           cache: true
       - uses: actions/setup-node@v4
       - name: commit-rev-count

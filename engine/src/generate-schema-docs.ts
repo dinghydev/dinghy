@@ -3,6 +3,23 @@ import { execa } from 'execa'
 import { z } from 'zod'
 import path from 'node:path'
 
+// `deno doc --json` changed shape in Deno 2.8: `nodes` is now a map keyed
+// by file URL, and `jsDoc` moved from the node itself to each declaration.
+// Flatten both old and new shapes into the legacy { name, jsDoc, ... } list.
+function flattenDenoDocNodes(doc: any): any[] {
+  if (Array.isArray(doc?.nodes)) return doc.nodes
+  if (Array.isArray(doc)) return doc
+  const flat: any[] = []
+  for (const fileEntry of Object.values<any>(doc?.nodes ?? {})) {
+    for (const symbol of fileEntry.symbols ?? []) {
+      for (const decl of symbol.declarations ?? []) {
+        flat.push({ name: symbol.name, ...decl })
+      }
+    }
+  }
+  return flat
+}
+
 /**
  * We generate schema docs from engine projects as it has access to all modules
  */
@@ -19,9 +36,10 @@ const renderDenoDoc = async (input: string, output: string) => {
     shell: true,
   })
   const doc = JSON.parse(result.stdout)
+  const nodes = flattenDenoDocNodes(doc)
   const mdx = [] as string[]
   const schemas = [] as string[]
-  doc.nodes.map((node: any) => {
+  nodes.map((node: any) => {
     if (node.jsDoc?.doc && node.name.endsWith('Schema')) {
       schemas.push(node.name)
     }
@@ -149,7 +167,7 @@ ${defaultValue}
     return attributes.join('\n')
   }
 
-  doc.nodes.map((node: any) => {
+  nodes.map((node: any) => {
     let doc = node.jsDoc?.doc as string | undefined
     if (doc) {
       const attributes = schemaAttributes(node.name)

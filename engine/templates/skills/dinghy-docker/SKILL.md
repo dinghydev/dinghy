@@ -99,7 +99,7 @@ replaces the `.ejs` extension (e.g. `Dockerfile.ejs` → `Dockerfile`).
 
 | Variable                 | Source                                   | Example                     |
 | ------------------------ | ---------------------------------------- | --------------------------- |
-| `VERSION_*`              | `versions.json` entries (uppercased)     | `VERSION_DENO` → `2.6.4`    |
+| `VERSION_*`              | `versions.json` entries (uppercased)     | `VERSION_DENO` → `2.8.1`    |
 | `DOCKER_IMAGE_*_TAG`     | Calculated tag of previously built image | `DOCKER_IMAGE_BASE_TAG`     |
 | `DOCKER_IMAGE_*_VERSION` | Version portion of image tag             | `DOCKER_IMAGE_BASE_VERSION` |
 | `VERSION_RELEASE`        | Git commit version                       | `0.1.310-20260413-...`      |
@@ -122,7 +122,7 @@ COPY docker/images/10-base/fs-root /
 
 ```json
 {
-  "deno": "2.6.4",
+  "deno": "2.8.1",
   "nodejs": "24.14.0"
 }
 ```
