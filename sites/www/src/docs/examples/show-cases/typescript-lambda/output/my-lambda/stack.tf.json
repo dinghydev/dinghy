@@ -35,7 +35,7 @@
         "function_name": "alb-handler",
         "role": "${aws_iam_role.awsiamrole_mylambdaalbhandlerrole.arn}",
         "code_sha256": "${data.archive_file.archivefile_albhandlersourcefile.output_base64sha256}",
-        "filename": "/dinghy/engine/workspace/typescript-lambda/output/lambdas/alb-handler.zip",
+        "filename": "/workspace/typescript-lambda/output/lambdas/alb-handler.zip",
         "handler": "index.handler",
         "runtime": "nodejs24.x",
         "timeout": 30,
@@ -51,7 +51,7 @@
         "function_name": "api-gateway-handler",
         "role": "${aws_iam_role.awsiamrole_mylambdaapigatewayhandlerrole.arn}",
         "code_sha256": "${data.archive_file.archivefile_apigatewayhandlersourcefile.output_base64sha256}",
-        "filename": "/dinghy/engine/workspace/typescript-lambda/output/lambdas/api-gateway-handler.zip",
+        "filename": "/workspace/typescript-lambda/output/lambdas/api-gateway-handler.zip",
         "handler": "index.handler",
         "runtime": "nodejs24.x",
         "timeout": 30,
@@ -86,14 +86,14 @@
   "data": {
     "archive_file": {
       "archivefile_albhandlersourcefile": {
-        "output_path": "/dinghy/engine/workspace/typescript-lambda/output/lambdas/alb-handler.zip",
+        "output_path": "/workspace/typescript-lambda/output/lambdas/alb-handler.zip",
         "type": "zip",
-        "source_dir": "/dinghy/engine/workspace/typescript-lambda/output/lambdas/alb-handler"
+        "source_dir": "/workspace/typescript-lambda/output/lambdas/alb-handler"
       },
       "archivefile_apigatewayhandlersourcefile": {
-        "output_path": "/dinghy/engine/workspace/typescript-lambda/output/lambdas/api-gateway-handler.zip",
+        "output_path": "/workspace/typescript-lambda/output/lambdas/api-gateway-handler.zip",
         "type": "zip",
-        "source_dir": "/dinghy/engine/workspace/typescript-lambda/output/lambdas/api-gateway-handler"
+        "source_dir": "/workspace/typescript-lambda/output/lambdas/api-gateway-handler"
       }
     }
   }

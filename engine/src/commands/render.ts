@@ -74,7 +74,7 @@ const renderAndWatch = async (args: Args) => {
       const noneWatchArgs = args.originalArgs.filter((arg: string) =>
         arg !== '--watch'
       )
-      const engineDir = '/dinghy/engine'
+      const engineDir = '/workspace/.dinghy/engine'
       const cwd = existsSync(engineDir) ? engineDir : Deno.cwd()
       await execa('deno', [
         'run',

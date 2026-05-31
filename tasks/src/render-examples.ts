@@ -52,7 +52,7 @@ const renderProject = async (projectPath: string) => {
     const tfJsonText = Deno.readTextFileSync(tfJsonFile)
     const updatedTfJsonText = tfJsonText.replaceAll(
       replacePath,
-      '/dinghy/engine/workspace',
+      '/workspace',
     )
     Deno.writeTextFileSync(tfJsonFile, updatedTfJsonText)
     console.log(`Updated tf json file ${chalk.red(tfJsonFile)}`)
@@ -63,7 +63,7 @@ const renderProject = async (projectPath: string) => {
     const tfJsonText = Deno.readTextFileSync(tfJsonFile)
     const updatedTfJsonText = tfJsonText.replaceAll(
       replacePath,
-      '/dinghy/engine/workspace',
+      '/workspace',
     )
     Deno.writeTextFileSync(tfJsonFile, updatedTfJsonText)
     console.log(`Updated tf json file ${chalk.red(tfJsonFile)}`)

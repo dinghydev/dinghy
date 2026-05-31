@@ -180,7 +180,7 @@ export async function buildCustomizedImage(
   if (customization.packages) {
     const isEngine = imageName === 'engine'
     const cmdPrefix = isEngine
-      ? 'RUN cd /dinghy/engine && deno add --npm'
+      ? 'RUN cd /workspace/.dinghy/engine && deno add --npm'
       : `RUN cd /workspace/.dinghy/${imageName} && yarn add`
     customization.packages.forEach((p: string) => {
       dockerFileContent.push(`${cmdPrefix} ${p}`)

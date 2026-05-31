@@ -78,7 +78,8 @@ export const githubCreateDeploymentIssue = async (
 ) => {
   let templatePath = `${containerAppHome}/.github/deployment-issue.yml.ejs`
   if (!existsSync(templatePath)) {
-    templatePath = '/dinghy/engine/templates/github-deployment-issue.yml.ejs'
+    templatePath =
+      '/workspace/.dinghy/engine/templates/github-deployment-issue.yml.ejs'
   }
   debug('templatePath', templatePath)
   const templateContent = await Deno.readTextFile(templatePath)
