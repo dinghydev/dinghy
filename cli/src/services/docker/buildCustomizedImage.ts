@@ -1,5 +1,8 @@
 import Debug from 'debug'
-import { configGetOriginalImage } from '../../utils/dockerConfig.ts'
+import {
+  configEngineRepoDefault,
+  configGetOriginalImage,
+} from '../../utils/dockerConfig.ts'
 import { hostAppHome } from '../../shared/home.ts'
 import { dirname } from 'node:path'
 import { imageExistLocally, imagePull } from './imageStatusUtil.ts'
@@ -154,9 +157,16 @@ export async function buildCustomizedImage(
   await copyOverrideFsRoot(workingDir, imageName)
 
   const dockerFile = `${workingDir}/Dockerfile`
+  // Always pull the base layers from the official Dinghy repo. Users
+  // republishing to a custom registry have not pushed the base image
+  // there yet at this point in the flow, so the custom repo would not
+  // resolve.
+  const baseImageFromDefaultRepo = `${configEngineRepoDefault}:${
+    baseImage.split(':').pop()
+  }`
   const dockerFileContent = [
     'ARG BUILD_ARCH=arm64',
-    `FROM ${baseImage}-linux-$BUILD_ARCH`,
+    `FROM ${baseImageFromDefaultRepo}-linux-$BUILD_ARCH`,
   ]
 
   if (existsSync(`${workingDir}/fs-root`)) {
@@ -170,12 +180,9 @@ export async function buildCustomizedImage(
   if (customization.packages) {
     const isEngine = imageName === 'engine'
     const cmdPrefix = isEngine
-      ? 'RUN cd /dinghy/engine && deno add'
+      ? 'RUN cd /dinghy/engine && deno add --npm'
       : `RUN cd /workspace/.dinghy/${imageName} && yarn add`
     customization.packages.forEach((p: string) => {
-      if (isEngine && !p.includes(':')) {
-        p = `npm:${p}`
-      }
       dockerFileContent.push(`${cmdPrefix} ${p}`)
     })
   }

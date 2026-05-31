@@ -41,7 +41,11 @@ export const runGitCheck = async (
     cmdParts.push('--', '.', ...excludes.map((p) => `:(exclude)${p}`))
   }
   console.log(`Running git check with command: ${cmdParts.join(' ')}...`)
-  const result = await cmdStreamAndCapture(cmdParts, false, cwd) as GitCheckResult
+  const result = await cmdStreamAndCapture(
+    cmdParts,
+    false,
+    cwd,
+  ) as GitCheckResult
   if (result.output) {
     console.log(chalk.red('Unexpected changes detected in git repo'))
     result.success = false
