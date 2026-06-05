@@ -25,6 +25,7 @@ next-env.d.ts
 .DS_Store
 tmp*
 *.local
+*.local.*
 *.drawio.bkp
 *.drawio.dtmp
 
