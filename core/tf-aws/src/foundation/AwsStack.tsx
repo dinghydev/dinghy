@@ -62,10 +62,8 @@ export function AwsStack(
       return awsStackConfig.s3Backend as any
     }
 
-    const BackendComponent =
-      (_components?.backend || awsStackConfig.s3Backend
-        ? S3Backend
-        : LocalBackend) as typeof Backend
+    const BackendComponent = (_components?.backend as typeof Backend) ||
+      (awsStackConfig.s3Backend ? S3Backend : LocalBackend)
     return (
       <BackendComponent>
         <BackendOutput />

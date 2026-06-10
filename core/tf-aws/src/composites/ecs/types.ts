@@ -492,7 +492,7 @@ export function parseEcsClusters(
       if (!service.target_group) return
       service.target_group = EcsTargetGroupSchema.parse(service.target_group)
       const tg = service.target_group as any
-      tg.name ??= service.name
+      tg.name ??= (service.name as string).slice(0, 32).replace(/-+$/, '')
       tg.port ??= service.main_container_port
       if (tg.lambda) delete tg.stickiness
     })

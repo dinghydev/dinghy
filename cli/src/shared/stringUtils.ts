@@ -33,29 +33,12 @@ export const expandEnvPlaceholders = (
       const value = env !== undefined ? env[name] : Deno.env.get(name)
       if (value !== undefined) return value
       if (def !== undefined) return def
+      const available = Object.keys(env ?? Deno.env.toObject()).join(', ')
       throw new Error(
-        `env var '${name}' not set — referenced in '${input}'.`,
+        `env var '${name}' not set — referenced in '${input}'.\nAvailable: ${available}`,
       )
     },
   )
-
-export const expandEnvPlaceholdersDeep = (
-  value: any,
-  env?: Record<string, string | undefined>,
-): any => {
-  if (typeof value === 'string') return expandEnvPlaceholders(value, env)
-  if (Array.isArray(value)) {
-    return value.map((v) => expandEnvPlaceholdersDeep(v, env))
-  }
-  if (value !== null && typeof value === 'object') {
-    return Object.fromEntries(
-      Object.entries(value).map((
-        [k, v],
-      ) => [k, expandEnvPlaceholdersDeep(v, env)]),
-    )
-  }
-  return value
-}
 
 export const camelCaseToWords = (str: string, spacer: string = ' ') => {
   try {

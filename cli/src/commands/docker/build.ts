@@ -117,12 +117,14 @@ async function init(args: Args) {
   args.images = Deno.readDirSync(args.sourceFolder).filter((f) => f.isDirectory)
     .map(
       (f) => f.name,
-    ).toArray().sort().map((folder) => {
-      const name = /^\d+-/.test(folder)
-        ? folder.substring(folder.indexOf('-') + 1)
-        : folder
-      return { name, folder: `${args.sourceFolder}/${folder}` }
-    }) as DockerImage[]
+    ).toArray().sort().filter((folder) => !folder.startsWith('_')).map(
+      (folder) => {
+        const name = /^\d+-/.test(folder)
+          ? folder.substring(folder.indexOf('-') + 1)
+          : folder
+        return { name, folder: `${args.sourceFolder}/${folder}` }
+      },
+    ) as DockerImage[]
   args.imageTags = []
   args.versions = isCompiled
     ? {}

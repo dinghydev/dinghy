@@ -1,7 +1,6 @@
 import {
   deepResolve,
   dockerBuildArch,
-  dockerBuildImage,
   type NodeProps,
   toId,
 } from '@dinghy/base-components'
@@ -76,7 +75,6 @@ export function EcsTask(
   }))
   const containerDefinitions = () =>
     Object.values(task.containers).map((container) => {
-      container.image = dockerBuildImage(container.image)
       // Strip composite-only fields before spreading. `log` is consumed
       // by EcsService for the log group; `envs` is a map shorthand we
       // translate into ECS's `environment: [{name, value}]` array below.

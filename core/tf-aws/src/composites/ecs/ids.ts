@@ -5,11 +5,13 @@ import type { EcsClusterType, EcsServiceType } from './types.ts'
 // that every file reaches the same address without prop drilling.
 
 export function executionRoleName(): string {
-  return `${getRenderOptions().stack.name}-execution-role`
+  const custom = (getRenderOptions() as any).ecs?.execution_role_name
+  return custom || `${getRenderOptions().stack.name}-execution-role`
 }
 
 export function taskRoleName(): string {
-  return `${getRenderOptions().stack.name}-task-role`
+  const custom = (getRenderOptions() as any).ecs?.task_role_name
+  return custom || `${getRenderOptions().stack.name}-task-role`
 }
 
 // ALB-related IDs — only meaningful when the cluster has an `alb` block.

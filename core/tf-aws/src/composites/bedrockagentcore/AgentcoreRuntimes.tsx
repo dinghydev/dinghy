@@ -2,11 +2,12 @@ import { type NodeProps, Shape, toId } from '@dinghy/base-components'
 import { AwsBedrockagentcoreAgentRuntime } from '../../services/bedrockagentcore/AwsBedrockagentcoreAgentRuntime.tsx'
 import { resolveSecurityGroups } from '../vpc/resolveSecurityGroups.tsx'
 import { resolveSubnets } from '../vpc/resolveSubnets.tsx'
-import { type BedrockAgentType, parseBedrockAgents } from './types.ts'
+import { type AgentcoreRuntimeType, parseAgentcoreRuntimes } from './types.ts'
 
-export function BedrockAgents(props: NodeProps) {
-  const agents = parseBedrockAgents((props as any).bedrockAgents)
-  const ContainerComponent = props._components?.bedrockAgents as typeof Shape ||
+export function AgentcoreRuntimes(props: NodeProps) {
+  const agents = parseAgentcoreRuntimes((props as any).agentcoreRuntimes)
+  const ContainerComponent =
+    props._components?.agentcoreRuntimes as typeof Shape ||
     Shape
   const AgentComponent = props._components?.bedrockagentcoreAgentRuntime as
     | typeof AwsBedrockagentcoreAgentRuntime
@@ -15,7 +16,7 @@ export function BedrockAgents(props: NodeProps) {
   return (
     <ContainerComponent _direction='vertical' {...props}>
       {Object.values(agents).map((agent) => (
-        <BedrockAgent
+        <AgentcoreRuntime
           key={agent.name}
           agent={agent}
           AgentComponent={AgentComponent}
@@ -30,9 +31,9 @@ export function BedrockAgents(props: NodeProps) {
 // references subnets/security groups by Name tag (e.g. `staging-private-sg`),
 // resolveSubnets/resolveSecurityGroups rewrite them to `${data.aws_*.id}`
 // refs and render the matching DataAws lookup nodes as siblings.
-function BedrockAgent(
+function AgentcoreRuntime(
   { agent, AgentComponent }: {
-    agent: BedrockAgentType
+    agent: AgentcoreRuntimeType
     AgentComponent: typeof AwsBedrockagentcoreAgentRuntime
   },
 ) {

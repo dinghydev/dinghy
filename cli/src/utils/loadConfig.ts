@@ -42,6 +42,14 @@ export async function loadGlobalConfig() {
   if (loadedConfig) {
     loadEnvFromConfig()
   }
+
+  const dockerImageVersionsFile =
+    `${hostAppHome}/output/docker-image-versions.json`
+  if (fs.existsSync(dockerImageVersionsFile)) {
+    dinghyAppConfig.dockerImageVersions = JSON.parse(
+      Deno.readTextFileSync(dockerImageVersionsFile),
+    )
+  }
 }
 
 function loadFiles(basePaths: string[]) {

@@ -59,9 +59,11 @@ export function EcsService(
   // "attach me to the cluster's ALB". The TG is rendered by <Alb> under
   // the cluster, so a tree-walk via `useAwsLbTargetGroup` finds it by the
   // service-scoped id.
-  const albLoadBalancer = service.target_group
+  const albLoadBalancer = service.target_group?.name
     ? (() => {
-      const { targetGroup } = useAwsLbTargetGroup(toId(service.name!))
+      const { targetGroup } = useAwsLbTargetGroup(
+        toId(service.target_group?.name!),
+      )
       return {
         // Deferred so the proxy resolves `.arn` at render time rather than
         // at JSX construction time (when the TG may not yet be in the tree).

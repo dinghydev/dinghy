@@ -140,7 +140,7 @@ export const parseStacks = (
   return StacksSchema.parse(stacks)
 }
 
-export const loadStackConfig = (
+const loadStackConfig = (
   stackOptions: any,
 ) => {
   const settings =

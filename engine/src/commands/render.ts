@@ -17,6 +17,7 @@ import { existsSync } from 'node:fs'
 import { loadUrlData } from '../utils/loadUrlData.ts'
 import { Args } from '@std/cli/parse-args'
 import { rendererMapping } from '../services/render/renderMapping.ts'
+import { resolveStringValues } from '../utils/stringUtils.ts'
 const debug = Debug('render')
 
 const WATCH_FILE_TYPES = ['ts', 'tsx', 'yaml']
@@ -180,6 +181,7 @@ export const run = async (args: Args) => {
     options,
     args.stack,
     async (stackRenderOptions: any) => {
+      resolveStringValues(stackRenderOptions, stackRenderOptions)
       const app = await loadApp(stackRenderOptions)
       await loadStackConfigUrls(stackRenderOptions)
       await onEvent('render.start', stackRenderOptions)

@@ -4,7 +4,6 @@ import {
   deepMerge,
   dinghyAppConfig,
   DinghyError,
-  expandEnvPlaceholdersDeep,
   hostAppHome,
   runDockerCmd,
 } from '@dinghy/cli'
@@ -14,6 +13,7 @@ import { deployToS3 } from '../../services/docusaurus/deployToS3.ts'
 import path from 'node:path'
 import Debug from 'debug'
 import { onEvent } from '@dinghy/base-components'
+import { resolveStringValues } from '../../utils/stringUtils.ts'
 import { Args } from '@std/cli/parse-args'
 const debug = Debug('runDocusaurusCmd')
 
@@ -76,7 +76,8 @@ export const resolveSiteConfig = (siteDir: string): any => {
   } else {
     result = {}
   }
-  return expandEnvPlaceholdersDeep(result)
+  resolveStringValues(result, dinghyAppConfig)
+  return result
 }
 
 export const resolveSiteConfigJson = (siteConfig: any, target: any) => {
