@@ -3,7 +3,6 @@ import {
   cmdStreamAndCapture,
   dinghyAppConfig,
   DinghyError,
-  hostAppHome,
   runGitCheck,
 } from '@dinghy/cli'
 import chalk from 'chalk'
@@ -84,7 +83,7 @@ export const run = async (args: Args) => {
     }
 
     if (check === 'git') {
-      const gitResult = await runGitCheck(hostAppHome, command)
+      const gitResult = await runGitCheck(command)
       if (gitResult === null) {
         console.log(chalk.yellow(`No git repo found, skipping git check`))
         continue

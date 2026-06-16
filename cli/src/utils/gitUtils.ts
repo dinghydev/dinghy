@@ -1,10 +1,20 @@
 import chalk from 'chalk'
 import Debug from 'debug'
+import { existsSync } from '@std/fs'
 import { cmdCode, cmdStreamAndCapture } from '../shared/cmd.ts'
 import { DinghyError } from '../shared/types.ts'
 import { dinghyAppConfig } from './loadConfig.ts'
+import { HOST_USER_HOME_PATH } from './dockerUtils.ts'
+import { hostAppHome, hostUserHome } from '../shared/home.ts'
 
 const debug = Debug('gitUtils')
+
+const resolveCwd = (): string => {
+  if (existsSync(HOST_USER_HOME_PATH) && hostAppHome.startsWith(hostUserHome)) {
+    return HOST_USER_HOME_PATH + hostAppHome.slice(hostUserHome.length)
+  }
+  return hostAppHome
+}
 
 export const mrId = () => Deno.env.get('CI_MERGE_REQUEST_IID')
 
@@ -27,10 +37,14 @@ export type GitCheckResult =
   & { success: boolean }
 
 export const runGitCheck = async (
-  cwd: string,
   gitCmd: string = 'git diff',
   errorWhenDiff: boolean = false,
 ): Promise<GitCheckResult | null> => {
+  if (Deno.env.get('CI_SKIP_GIT_DIFF_CHECK')) {
+    debug('CI_SKIP_GIT_DIFF_CHECK is set, skipping git check')
+    return null
+  }
+  const cwd = resolveCwd()
   if (!(await hasGitRepo(cwd))) {
     debug('no git repo at %s, skipping git check', cwd)
     return null

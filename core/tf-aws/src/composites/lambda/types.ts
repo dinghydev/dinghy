@@ -24,6 +24,7 @@ const LambdaFunctionUrlSchema = z.object({
 
 const LambdaFunctionSchema = AwsLambdaFunctionInputSchema.extend({
   sourceFile: z.string().optional(),
+  prepareSourceScript: z.string().optional(),
   archiveDir: z.string().optional().transform((value: string | undefined) =>
     value as string
   ),
@@ -73,8 +74,26 @@ export function parseLambdaFunctions(
   ) {
     lambda.function_name ??= name
     lambda._title ??= lambda.function_name
-    if (!lambda.image_uri && !lambda.s3_bucket) {
-      prepareLambdaSource(lambdasFolder, name, lambda, renderOptions)
+    if (!lambda.image_uri && !lambda.s3_bucket && !lambda.archiveDir) {
+      if (lambda.prepareSourceScript) {
+        const outputFolder =
+          `${renderOptions.outputFolder}/lambdas/${lambda.function_name}`
+        Deno.mkdirSync(outputFolder, { recursive: true })
+        lambda.runtime ??= 'nodejs24.x'
+        lambda.handler ??= 'index.handler'
+        const scriptPath = lambda.prepareSourceScript.startsWith('/')
+          ? lambda.prepareSourceScript
+          : `${hostAppHome}/${lambda.prepareSourceScript}`
+        cmdCapture(
+          ['env', `OUTPUT_DIR=${outputFolder}`, 'bash', scriptPath],
+          true,
+          hostAppHome,
+          true,
+        )
+        lambda.archiveDir = outputFolder
+      } else {
+        prepareLambdaSource(lambdasFolder, name, lambda, renderOptions)
+      }
     }
   }
   const validatedLambdaFunctions = LambdaFunctionsSchema.parse(lambdaFunctions)

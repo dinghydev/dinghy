@@ -80,7 +80,9 @@ export function lookupTypedSingleValueTag<T>(
     )
   }
   if (!optional) {
-    throw new Error(`Tag ${tag} not found`)
+    throw new Error(
+      `Tag ${tag}${idFilter ? ` (id: ${idFilter})` : ''} not found`,
+    )
   }
 }
 
@@ -192,7 +194,7 @@ export function lookupTypedArrayValueTag<T>(
     )
   }
   if (!optional) {
-    throw new Error(`Tag ${tag} not found`)
+    throw new Error(`Tag ${tag}${id ? ` (id: ${id})` : ''} not found`)
   }
 }
 

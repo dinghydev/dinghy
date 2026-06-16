@@ -1,15 +1,9 @@
-import {
-  CmdInput,
-  cmdStreamAndCapture,
-  DinghyError,
-  hostAppHome,
-} from '@dinghy/cli'
+import { CmdInput, runGitCheck } from '@dinghy/cli'
 import { onEvent } from '@dinghy/base-components'
 import { debounce } from '@std/async/debounce'
 
 import { containerAppHome, dinghyAppConfig, isCi } from '@dinghy/cli'
 import { deepMerge, doWithStacks } from '@dinghy/base-components'
-import chalk from 'chalk'
 import { requireStacksConfig } from '@dinghy/cli'
 import { execa } from 'execa'
 import Debug from 'debug'
@@ -198,17 +192,8 @@ export const run = async (args: Args) => {
 
   debug('render finished at %O', new Date())
 
-  if (isCi() && !Deno.env.get('CI_SKIP_GIT_DIFF_CHECK')) {
-    const changes = await cmdStreamAndCapture(
-      `git diff ${args.output}`,
-      false,
-      hostAppHome,
-    )
-    if (changes.output) {
-      console.log(`Detected changes in ${args.output} folder`)
-      console.log(chalk.red(changes.output))
-      throw new DinghyError('Unexpected changes detected in output folder')
-    }
+  if (isCi()) {
+    await runGitCheck('git diff', true)
   }
 }
 

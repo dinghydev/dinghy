@@ -646,7 +646,8 @@ export function CloudfrontSites(
           logging_config={site.loggingV1Enabled
             ? () => ({
               bucket: globalLogBucket.bucket_domain_name,
-              prefix: `cloudfront-accesslog/${toId(site.title)}_${type}/`,
+              prefix: site.loggingPrefix ??
+                `cloudfront-accesslog/${toId(site.title)}_${type}/`,
             })
             : undefined}
           {...site}

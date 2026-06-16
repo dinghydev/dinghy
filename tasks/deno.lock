@@ -19,6 +19,7 @@
     "jsr:@std/io@0.223": "0.223.0",
     "jsr:@std/json@1": "1.0.2",
     "jsr:@std/jsonc@1.0.1": "1.0.1",
+    "jsr:@std/path@*": "1.0.8",
     "jsr:@std/path@0.223": "0.223.0",
     "jsr:@std/path@1": "1.0.8",
     "jsr:@std/path@1.0.0-rc.1": "1.0.0-rc.1",

@@ -57,6 +57,7 @@ const CloudfrontSiteSchema = z.object({
   certVersions: z.string().array().default(['1']),
   defaultRootObject: z.string().default(''),
   loggingV1Enabled: z.boolean().default(true),
+  loggingPrefix: z.string().optional(),
 }).loose()
 
 const CloudfrontSitesSchema = z.record(z.string(), CloudfrontSiteSchema)
