@@ -8,6 +8,7 @@ import {
 import { z } from 'zod'
 import { AwsLambdaFunctionInputSchema } from '../../services/lambda/AwsLambdaFunction.tsx'
 import { existsSync } from '@std/fs/exists'
+import { LogGroupSchema } from '../cloudwatch/types.ts'
 
 const LambdaFunctionUrlSchema = z.object({
   authorization_type: z.enum(['NONE', 'AWS_IAM']).default('NONE'),
@@ -42,6 +43,7 @@ const LambdaFunctionSchema = AwsLambdaFunctionInputSchema.extend({
   // discover the URL through other means (resource_for_each, the AWS
   // console) and outputs leak from the stack's root.
   outputRecord: z.boolean().default(false),
+  log: LogGroupSchema.optional(),
 })
 
 const LambdaFunctionsSchema = z.record(
@@ -74,6 +76,9 @@ export function parseLambdaFunctions(
   ) {
     lambda.function_name ??= name
     lambda._title ??= lambda.function_name
+    if (lambda.log) {
+      lambda.log.name ??= `/aws/lambda/${lambda.function_name}`
+    }
     if (!lambda.image_uri && !lambda.s3_bucket && !lambda.archiveDir) {
       if (lambda.prepareSourceScript) {
         const outputFolder =

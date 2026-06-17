@@ -16,6 +16,7 @@ import { DataArchiveFile, Output, useArchiveFile } from '@dinghy/tf-common'
 import { IamRole } from '../iam/IamRole.tsx'
 import { extendStyle } from '@dinghy/base-components'
 import { LAMBDA_FUNCTION } from '@dinghy/diagrams/entitiesAws18Compute'
+import { LogGroups } from '../cloudwatch/LogGroups.tsx'
 
 export function LambdaFunctions(
   { _components, children, ...props }: NodeProps,
@@ -65,6 +66,9 @@ export function LambdaFunctions(
         )}
         {_lambda.archiveDir && <SourceFile />}
         {_lambda.functionUrl && <FunctionUrl />}
+        {_lambda.log && (
+          <LogGroups logGroups={{ [_lambda.log.name]: _lambda.log }} />
+        )}
       </LambdaFunctionComponent>
     )
 
