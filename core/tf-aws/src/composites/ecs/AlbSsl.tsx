@@ -3,7 +3,7 @@ import { AwsAcmCertificate } from '../../services/acm/AwsAcmCertificate.tsx'
 import { AwsAcmCertificateValidation } from '../../services/acm/AwsAcmCertificateValidation.tsx'
 import { useAwsRoute53Zone } from '../../services/route53/AwsRoute53Zone.tsx'
 import { AwsRoute53Record } from '../../services/route53/AwsRoute53Record.tsx'
-import { DataAwsRoute53Zone } from '../../services/route53/DataAwsRoute53Zone.tsx'
+import { DnsZone } from '../route53/DnsZone.tsx'
 import { certId } from './ids.ts'
 import type { EcsClusterType } from './types.ts'
 
@@ -58,14 +58,7 @@ export function AlbSsl({ cluster }: { cluster: EcsClusterType }) {
   return (
     <>
       {validationZones.map((zone) => (
-        <DataAwsRoute53Zone
-          key={zone}
-          _id={toId(`${cluster.name}_${zone}_zone_ssl`)}
-          _consolidatedId={toId(`dataawsroute53zone_${zone}`)}
-          _title={zone}
-          _display='none'
-          name={zone}
-        />
+        <DnsZone key={zone} zone={zone} idPrefix={`${cluster.name}_ssl`} />
       ))}
       <AwsAcmCertificate
         _id={certTfId}
@@ -110,7 +103,7 @@ function ValidationCname(
   },
 ) {
   const { route53Zone } = useAwsRoute53Zone(
-    toId(`${cluster.name}_${zoneName}_zone_ssl`),
+    toId(zoneName),
   )
   const certTfId = certId(cluster)
   // domain_validation_options is a set; we have to filter down to the

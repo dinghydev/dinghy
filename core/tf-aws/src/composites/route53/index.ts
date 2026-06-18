@@ -1,2 +1,8 @@
-export { Cnames } from './Cnames.tsx'
-export { type CnameEntryType, parseCnames } from './types.ts'
+export { DnsRecords } from './DnsRecords.tsx'
+export { DnsZone, DnsZones } from './DnsZone.tsx'
+export {
+  type DnsRecordType,
+  type DnsZoneType,
+  parseDnsRecords,
+  parseDnsZone,
+} from './types.ts'

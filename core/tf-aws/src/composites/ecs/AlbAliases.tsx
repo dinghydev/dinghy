@@ -1,7 +1,7 @@
 import { toId } from '@dinghy/base-components'
 import { useAwsRoute53Zone } from '../../services/route53/AwsRoute53Zone.tsx'
 import { AwsRoute53Record } from '../../services/route53/AwsRoute53Record.tsx'
-import { DataAwsRoute53Zone } from '../../services/route53/DataAwsRoute53Zone.tsx'
+import { DnsZone } from '../route53/DnsZone.tsx'
 import { useAwsLb } from '../../services/elbv2/AwsLb.tsx'
 import type { EcsClusterType } from './types.ts'
 
@@ -29,14 +29,7 @@ export function AlbAliases({ cluster }: { cluster: EcsClusterType }) {
   return (
     <>
       {zones.map((zone) => (
-        <DataAwsRoute53Zone
-          key={zone}
-          _name={toId(`${cluster.name}_${zone}`)}
-          _consolidatedId={toId(`dataawsroute53zone_${zone}`)}
-          _title={zone}
-          _display='none'
-          name={zone}
-        />
+        <DnsZone key={zone} zone={zone} idPrefix={`${cluster.name}_alias`} />
       ))}
       {aliases.map((alias) => (
         <AliasRecord

@@ -15,9 +15,9 @@ import {
 import { useAwsLambdaFunctionUrl } from '@dinghy/tf-aws/serviceLambda'
 import {
   AwsRoute53Record,
-  DataAwsRoute53Zone,
   useAwsRoute53Zone,
 } from '@dinghy/tf-aws/serviceRoute53'
+import { DnsZone } from '../route53/DnsZone.tsx'
 import { CloudfrontSiteType } from './types.ts'
 import { useAwsS3Bucket } from '@dinghy/tf-aws/serviceS3'
 import { GlobalLogBucket, useGlobalLogBucket } from './GlobalLogBucket.tsx'
@@ -54,16 +54,14 @@ export function CloudfrontSites(
     }
     const Zones = () => {
       const ZonesComponent: any = _components?.zones || Shape
-      const ZoneComponent: any = _components?.zone || DataAwsRoute53Zone
       return (
         <ZonesComponent _display='none'>
           {site.zoneNames.map((zone) => (
-            <ZoneComponent
+            <DnsZone
               key={zone}
-              name={zone}
-              _consolidatedId={toId(`${zone}_zone`)}
-              _id={toId(`${site.title}_${zone}`)}
-              _title={zone}
+              zone={zone}
+              idPrefix={site.title}
+              _components={_components}
             />
           ))}
         </ZonesComponent>
@@ -82,7 +80,7 @@ export function CloudfrontSites(
       const AliasesRecords = () => {
         const AliasesRecord = ({ alias }: { alias: string }) => {
           const { route53Zone } = useAwsRoute53Zone(
-            toId(`${site.title}_${domainNameZone(alias)}`),
+            toId(domainNameZone(alias)),
           )
           const { cloudfrontDistribution } = useAwsCloudfrontDistribution(
             toId(`${site.title}_${type}`),
@@ -154,7 +152,7 @@ export function CloudfrontSites(
           )
           const ValidateCname = ({ alias }: { alias: string }) => {
             const { route53Zone } = useAwsRoute53Zone(
-              toId(`${site.title}_${domainNameZone(alias)}`),
+              toId(domainNameZone(alias)),
             )
             const domainValidationOptionsValue = (key: string) => {
               return `\${one([\n  for dvo in ${

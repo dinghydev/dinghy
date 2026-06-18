@@ -25,11 +25,15 @@ export function LambdaFunctions(
   const lambdas = parseLambdaFunctions(props.lambdas)
 
   function LambdaFunction({ _lambda, ...props }: any) {
-    const createRole = !_lambda.role
-    const roleName = createRole
-      ? `${renderOptions.stack.name}-${_lambda.function_name}-role`
-      : _lambda.role
-    _lambda.role ??= useAwsIamRole(toId(roleName)).iamRole.arn
+    const isRoleRef = typeof _lambda.role === 'string' &&
+      (_lambda.role.includes('.') || _lambda.role.includes(':'))
+    const createRole = !isRoleRef
+    const roleName = isRoleRef
+      ? _lambda.role
+      : _lambda.role ?? `${renderOptions.stack.name}-${_lambda.function_name}-role`
+    if (!isRoleRef) {
+      _lambda.role = useAwsIamRole(toId(roleName)).iamRole.arn
+    }
     const sourceFileTitle = `${_lambda.function_name} source file`
     if (_lambda.archiveDir) {
       const { archiveFile } = useArchiveFile(toId(sourceFileTitle))
