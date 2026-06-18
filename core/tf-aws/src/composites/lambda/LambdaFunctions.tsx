@@ -28,9 +28,8 @@ export function LambdaFunctions(
     const isRoleRef = typeof _lambda.role === 'string' &&
       (_lambda.role.includes('.') || _lambda.role.includes(':'))
     const createRole = !isRoleRef
-    const roleName = isRoleRef
-      ? _lambda.role
-      : _lambda.role ?? `${renderOptions.stack.name}-${_lambda.function_name}-role`
+    const roleName = isRoleRef ? _lambda.role : _lambda.role ??
+      `${renderOptions.stack.name}-${_lambda.function_name}-role`
     if (!isRoleRef) {
       _lambda.role = useAwsIamRole(toId(roleName)).iamRole.arn
     }

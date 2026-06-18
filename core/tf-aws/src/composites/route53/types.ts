@@ -1,4 +1,7 @@
-import { getRenderOptions, ResolvableBooleanSchema } from '@dinghy/base-components'
+import {
+  getRenderOptions,
+  ResolvableBooleanSchema,
+} from '@dinghy/base-components'
 import { z } from 'zod'
 import { AwsRoute53RecordInputSchema } from '../../services/route53/AwsRoute53Record.tsx'
 import { AwsRoute53ZoneInputSchema } from '../../services/route53/AwsRoute53Zone.tsx'
@@ -53,6 +56,9 @@ const DnsZoneSchema = AwsRoute53ZoneInputSchema.extend({
   // NOTE: this polarity is intentionally the reverse of s3Backend/logBucket
   // `useData` (where true means "use a data source").
   useData: ResolvableBooleanSchema.default(false),
+  // Emit a Terraform output of the created zone's delegation name servers.
+  // Created zones only (referenced zones have none). Enabled by default.
+  outputNameServers: ResolvableBooleanSchema.default(true),
 }).loose()
 
 export type DnsZoneType = z.output<typeof DnsZoneSchema>

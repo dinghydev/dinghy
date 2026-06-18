@@ -1,4 +1,5 @@
 import { getRenderOptions, type NodeProps, toId } from '@dinghy/base-components'
+import { Output } from '@dinghy/tf-common'
 import { AwsRoute53Zone } from '../../services/route53/AwsRoute53Zone.tsx'
 import { DataAwsRoute53Zone } from '../../services/route53/DataAwsRoute53Zone.tsx'
 import { parseDnsZone } from './types.ts'
@@ -44,15 +45,44 @@ export function DnsZone(
     )
   }
 
-  const { useData: _useData, ...zoneProps } = cfg!
+  const { useData: _useData, outputNameServers, ...zoneProps } = cfg!
   const Zone = (_components?.zone as typeof AwsRoute53Zone) || AwsRoute53Zone
   return (
-    <Zone
-      _id={id}
-      _consolidatedId={toId(`awsroute53zone_${zone}`)}
-      _title={zone}
-      {...zoneProps}
-      {...props}
+    <>
+      <Zone
+        _id={id}
+        _consolidatedId={toId(`awsroute53zone_${zone}`)}
+        _title={zone}
+        {...zoneProps}
+        {...props}
+      />
+      {outputNameServers !== false && (
+        <ZoneNameServersOutput zone={zone} idPrefix={idPrefix} />
+      )}
+    </>
+  )
+}
+
+// Emit the created zone's delegation name servers as a Terraform `output` so
+// they can be copied to the registrar (e.g. "ns-1.org, ns-2.net, …"). Created
+// zones only — referenced zones have no NS to delegate. `join`ed into a single
+// comma-separated string; BackendOutputs serializes output values into the
+// backend stack.json S3 object via `jsonencode`, so this survives that path.
+// Shared `_consolidatedId` collapses duplicate renders into one output block.
+function ZoneNameServersOutput(
+  { zone, idPrefix }: { zone: string; idPrefix?: string },
+) {
+  const zoneTfId = `aws_route53_zone.${toId(`awsroute53zone_${zone}`)}`
+  return (
+    <Output
+      _display='none'
+      _id={toId(
+        `${idPrefix ? `${idPrefix}_` : ''}dnszone_${zone}_name_servers`,
+      )}
+      _consolidatedId={toId(`dnszone_${zone}_name_servers`)}
+      _title={`${zone} name servers`}
+      description={`Name servers for ${zone}`}
+      value={() => `\${join(", ", ${zoneTfId}.name_servers)}`}
     />
   )
 }

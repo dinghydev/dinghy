@@ -195,7 +195,7 @@
       "examplecom_arecord": {
         "name": "example.com",
         "type": "A",
-        "zone_id": "${data.aws_route53_zone.examplecom_zone.id}",
+        "zone_id": "${data.aws_route53_zone.dataawsroute53zone_examplecom.id}",
         "alias": {
           "name": "${aws_cloudfront_distribution.examplecom_site.domain_name}",
           "zone_id": "${aws_cloudfront_distribution.examplecom_site.hosted_zone_id}",
@@ -208,7 +208,7 @@
       "examplecom_validation_cname": {
         "name": "${one([\n  for dvo in aws_acm_certificate.examplecom_site_1_certificate.domain_validation_options :\n  dvo if dvo.domain_name == \"example.com\"\n]).resource_record_name}",
         "type": "CNAME",
-        "zone_id": "${data.aws_route53_zone.examplecom_zone.id}",
+        "zone_id": "${data.aws_route53_zone.dataawsroute53zone_examplecom.id}",
         "allow_overwrite": true,
         "records": [
           "${one([\n  for dvo in aws_acm_certificate.examplecom_site_1_certificate.domain_validation_options :\n  dvo if dvo.domain_name == \"example.com\"\n]).resource_record_value}"
@@ -218,7 +218,7 @@
       "star_examplecom_arecord": {
         "name": "*.example.com",
         "type": "A",
-        "zone_id": "${data.aws_route53_zone.examplecom_zone.id}",
+        "zone_id": "${data.aws_route53_zone.dataawsroute53zone_examplecom.id}",
         "alias": {
           "name": "${aws_cloudfront_distribution.examplecom_redirect.domain_name}",
           "zone_id": "${aws_cloudfront_distribution.examplecom_redirect.hosted_zone_id}",
@@ -231,7 +231,7 @@
       "star_examplecom_validation_cname": {
         "name": "${one([\n  for dvo in aws_acm_certificate.examplecom_redirect_1_certificate.domain_validation_options :\n  dvo if dvo.domain_name == \"*.example.com\"\n]).resource_record_name}",
         "type": "CNAME",
-        "zone_id": "${data.aws_route53_zone.examplecom_zone.id}",
+        "zone_id": "${data.aws_route53_zone.dataawsroute53zone_examplecom.id}",
         "allow_overwrite": true,
         "records": [
           "${one([\n  for dvo in aws_acm_certificate.examplecom_redirect_1_certificate.domain_validation_options :\n  dvo if dvo.domain_name == \"*.example.com\"\n]).resource_record_value}"
@@ -416,7 +416,7 @@
   },
   "data": {
     "aws_route53_zone": {
-      "examplecom_zone": {
+      "dataawsroute53zone_examplecom": {
         "name": "example.com"
       }
     },

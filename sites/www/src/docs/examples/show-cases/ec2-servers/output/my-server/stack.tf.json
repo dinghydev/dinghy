@@ -210,10 +210,7 @@
     "local_file": {
       "localfile_myserverstackjson": {
         "filename": "my-server.stack.json",
-        "content": "{\n  \"awsinstance_myserver_output\": {\n    \"Name\": \"my-server\",\n    \"InstanceId\": \"${aws_instance.awsinstance_myserver.id}\",\n    \"PublicIp\": \"${aws_instance.awsinstance_myserver.public_ip}\",\n    \"Region\": \"${aws_instance.awsinstance_myserver.region}\"\n  }\n}",
-        "depends_on": [
-          "aws_instance.awsinstance_myserver"
-        ]
+        "content": "${jsonencode({\n  \"awsinstance_myserver_output\" = { \"Name\" = \"my-server\", \"InstanceId\" = aws_instance.awsinstance_myserver.id, \"PublicIp\" = aws_instance.awsinstance_myserver.public_ip, \"Region\" = aws_instance.awsinstance_myserver.region }\n})}"
       }
     }
   },

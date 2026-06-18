@@ -165,7 +165,7 @@
       "cloudfrontsitedemodinghydev_arecord": {
         "name": "cloudfront-site-demo.dinghy.dev",
         "type": "A",
-        "zone_id": "${data.aws_route53_zone.dinghydev_zone.id}",
+        "zone_id": "${data.aws_route53_zone.dataawsroute53zone_dinghydev.id}",
         "alias": {
           "name": "${aws_cloudfront_distribution.cloudfrontsitedemodinghydev_site.domain_name}",
           "zone_id": "${aws_cloudfront_distribution.cloudfrontsitedemodinghydev_site.hosted_zone_id}",
@@ -178,7 +178,7 @@
       "cloudfrontsitedemodinghydev_validation_cname": {
         "name": "${one([\n  for dvo in aws_acm_certificate.cloudfrontsitedemodinghydev_site_20260104_certificate.domain_validation_options :\n  dvo if dvo.domain_name == \"cloudfront-site-demo.dinghy.dev\"\n]).resource_record_name}",
         "type": "CNAME",
-        "zone_id": "${data.aws_route53_zone.dinghydev_zone.id}",
+        "zone_id": "${data.aws_route53_zone.dataawsroute53zone_dinghydev.id}",
         "allow_overwrite": true,
         "records": [
           "${one([\n  for dvo in aws_acm_certificate.cloudfrontsitedemodinghydev_site_20260104_certificate.domain_validation_options :\n  dvo if dvo.domain_name == \"cloudfront-site-demo.dinghy.dev\"\n]).resource_record_value}"
@@ -188,7 +188,7 @@
       "star_cloudfrontsitedemodinghydev_arecord": {
         "name": "*.cloudfront-site-demo.dinghy.dev",
         "type": "A",
-        "zone_id": "${data.aws_route53_zone.dinghydev_zone.id}",
+        "zone_id": "${data.aws_route53_zone.dataawsroute53zone_dinghydev.id}",
         "alias": {
           "name": "${aws_cloudfront_distribution.cloudfrontsitedemodinghydev_redirect.domain_name}",
           "zone_id": "${aws_cloudfront_distribution.cloudfrontsitedemodinghydev_redirect.hosted_zone_id}",
@@ -201,7 +201,7 @@
       "star_cloudfrontsitedemodinghydev_validation_cname": {
         "name": "${one([\n  for dvo in aws_acm_certificate.cloudfrontsitedemodinghydev_redirect_20260104_certificate.domain_validation_options :\n  dvo if dvo.domain_name == \"*.cloudfront-site-demo.dinghy.dev\"\n]).resource_record_name}",
         "type": "CNAME",
-        "zone_id": "${data.aws_route53_zone.dinghydev_zone.id}",
+        "zone_id": "${data.aws_route53_zone.dataawsroute53zone_dinghydev.id}",
         "allow_overwrite": true,
         "records": [
           "${one([\n  for dvo in aws_acm_certificate.cloudfrontsitedemodinghydev_redirect_20260104_certificate.domain_validation_options :\n  dvo if dvo.domain_name == \"*.cloudfront-site-demo.dinghy.dev\"\n]).resource_record_value}"
@@ -385,7 +385,7 @@
   },
   "data": {
     "aws_route53_zone": {
-      "dinghydev_zone": {
+      "dataawsroute53zone_dinghydev": {
         "name": "dinghy.dev"
       }
     },
