@@ -1,5 +1,5 @@
 import { reportStats, requireStacksConfig } from '@dinghy/cli'
-import { isCi } from '../../utils/gitUtils.ts'
+import { isCi, isMr } from '../../utils/gitUtils.ts'
 import { tfNotifyChanges } from './tfNotifyChanges.ts'
 import chalk from 'chalk'
 import { collectStackChanges } from './stackInfoUtils.ts'
@@ -42,8 +42,20 @@ export const createCombinedTfCmd = (
     const isApply = cmds.includes('apply')
 
     await onEvent(`tf.stacks.start`, args)
+    const autoPrefix = isMr() ? 'mr' : 'main'
     await doWithTfStacks(args, async (stackInfo: any) => {
       allStacks.push(stackInfo)
+      if (!args.stack) {
+        const autoFlag = cmds.includes('apply')
+          ? `${autoPrefix}AutoDeploy`
+          : cmds.includes('plan')
+          ? `${autoPrefix}AutoDiff`
+          : null
+        if (autoFlag && !stackInfo[autoFlag]) {
+          debug('skipping stack %s (%s disabled)', stackInfo.name, autoFlag)
+          return
+        }
+      }
       for (const cmd of cmds) {
         if (cmd === 'render') {
           continue

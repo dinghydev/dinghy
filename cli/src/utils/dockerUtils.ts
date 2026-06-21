@@ -160,6 +160,7 @@ export function getDockerMounts(
   overrideMounts('.dinghy')
   if (isDevContainer) {
     overrideMounts('.vscode')
+    overrideMounts('.claude')
   }
 
   const existingTarget = mounts.map((m) => m.target)

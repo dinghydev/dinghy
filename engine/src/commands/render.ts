@@ -2,7 +2,7 @@ import { CmdInput, runGitCheck } from '@dinghy/cli'
 import { onEvent } from '@dinghy/base-components'
 import { debounce } from '@std/async/debounce'
 
-import { containerAppHome, dinghyAppConfig, isCi } from '@dinghy/cli'
+import { containerAppHome, dinghyAppConfig } from '@dinghy/cli'
 import { deepMerge, doWithStacks } from '@dinghy/base-components'
 import { requireStacksConfig } from '@dinghy/cli'
 import { execa } from 'execa'
@@ -192,9 +192,7 @@ export const run = async (args: Args) => {
 
   debug('render finished at %O', new Date())
 
-  if (isCi()) {
-    await runGitCheck('git diff', true)
-  }
+  await runGitCheck('git diff', true)
 }
 
 async function loadStackConfigUrls(stackRenderOptions: any) {

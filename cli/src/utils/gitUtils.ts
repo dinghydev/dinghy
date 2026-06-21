@@ -40,13 +40,17 @@ export const runGitCheck = async (
   gitCmd: string = 'git diff',
   errorWhenDiff: boolean = false,
 ): Promise<GitCheckResult | null> => {
+  if (!isCi()) {
+    console.log('Skipping git check (not running in CI)')
+    return null
+  }
   if (Deno.env.get('CI_SKIP_GIT_DIFF_CHECK')) {
     debug('CI_SKIP_GIT_DIFF_CHECK is set, skipping git check')
     return null
   }
   const cwd = resolveCwd()
   if (!(await hasGitRepo(cwd))) {
-    debug('no git repo at %s, skipping git check', cwd)
+    console.log('no git repo at %s, skipping git check', cwd)
     return null
   }
   const cmdParts = gitCmd.split(' ')

@@ -85,7 +85,6 @@ export const run = async (args: Args) => {
     if (check === 'git') {
       const gitResult = await runGitCheck(command)
       if (gitResult === null) {
-        console.log(chalk.yellow(`No git repo found, skipping git check`))
         continue
       }
       results.push({ check: command, result: gitResult })

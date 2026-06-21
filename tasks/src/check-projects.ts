@@ -25,6 +25,10 @@ if (import.meta.main) {
     })
   }
   const runGitDiff = async () => {
+    if (Deno.env.get('CI') !== 'true') {
+      console.log('Skipping git diff (not running in CI)')
+      return
+    }
     console.log('::group::Run: git diff')
     const cwd = projectRoot
     console.log(
