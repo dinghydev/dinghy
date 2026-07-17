@@ -91,7 +91,7 @@ export const createCombinedTfCmd = (
         ),
       )
       if (isCi()) {
-        await tfNotifyChanges(changedStacks, args, isApply)
+        await tfNotifyChanges(changedStacks, args, isApply, allStacks.length)
         await (isApply ? triggerCiChangesApplied : triggerCiChangesDetected)(
           changedStacks,
           args,

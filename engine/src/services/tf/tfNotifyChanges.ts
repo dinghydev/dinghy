@@ -42,14 +42,19 @@ export const tfNotifyChanges = async (
   changes: any[],
   args: Args | undefined,
   isApply: boolean,
+  totalStacks: number,
   error?: string,
 ) => {
+  // The stack is unambiguous when it was explicitly specified (its name is
+  // already in the job link) or when the project only has a single stack, so
+  // the `[stackNames] in N stacks` decoration is redundant in those cases.
+  const singleStack = !!args?.stack || totalStacks === 1
   if (isMr()) {
-    await notifyMrChanges(changes, args, isApply, error)
+    await notifyMrChanges(changes, args, isApply, error, singleStack)
     return
   }
   if (isPr()) {
-    await notifyPrChanges(changes, args, isApply, error)
+    await notifyPrChanges(changes, args, isApply, error, singleStack)
     return
   }
   await notifySlackChanges(changes, args, isApply, error)
@@ -60,12 +65,20 @@ const renderHeader = (
   status: 'failed' | 'applied' | 'pending',
   stackNames: string,
   stackCount: number,
+  singleStack: boolean,
 ): string => {
   if (status === 'failed') {
-    return `## ${jobLink} failed to apply changes [${stackNames}]`
+    return singleStack
+      ? `## ${jobLink} failed to apply changes`
+      : `## ${jobLink} failed to apply changes [${stackNames}]`
   }
   if (status === 'applied') {
-    return `## ${jobLink} applied changes [${stackNames}]`
+    return singleStack
+      ? `## ${jobLink} applied changes`
+      : `## ${jobLink} applied changes [${stackNames}]`
+  }
+  if (singleStack) {
+    return `## ${jobLink} detected pending changes`
   }
   return `## ${jobLink} detected pending changes [${stackNames}] in ${stackCount} stack${
     stackCount > 1 ? 's' : ''
@@ -77,6 +90,7 @@ const notifyMrChanges = async (
   args: Args | undefined,
   isApply: boolean,
   error: string | undefined,
+  singleStack: boolean,
 ) => {
   const jobUrl = Deno.env.get('CI_JOB_URL')
   if (!jobUrl) {
@@ -89,7 +103,7 @@ const notifyMrChanges = async (
   const jobLink = `[${jobName()}](${jobUrl})`
   const body = await tfChangesSummary(changes, args, error, 'markdown')
   const markDown = [
-    renderHeader(jobLink, status, stackNames, changes.length),
+    renderHeader(jobLink, status, stackNames, changes.length, singleStack),
     '',
     body,
   ].join('\n')
@@ -102,6 +116,7 @@ const notifyPrChanges = async (
   args: Args | undefined,
   isApply: boolean,
   error: string | undefined,
+  singleStack: boolean,
 ) => {
   const repo = Deno.env.get('GITHUB_REPOSITORY')
   const runId = Deno.env.get('GITHUB_RUN_ID')
@@ -117,7 +132,7 @@ const notifyPrChanges = async (
   const stackKey = changes.map((s) => s.name).join('-')
   const body = await tfChangesSummary(changes, args, error, 'markdown')
   const markDown = [
-    renderHeader(jobLink, status, stackNames, changes.length),
+    renderHeader(jobLink, status, stackNames, changes.length, singleStack),
     '',
     body,
   ].join('\n')
