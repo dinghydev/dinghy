@@ -31,7 +31,7 @@ export const createCombinedTfCmd = (
   const schema = createCombinedTfSchema(description, cmds)
   const run = async (args: Args) => {
     debug('run combined tf commands %O', cmds)
-    await requireStacksConfig()
+    requireStacksConfig()
 
     if (cmds.includes('render')) {
       await render(args)
@@ -43,9 +43,20 @@ export const createCombinedTfCmd = (
 
     await onEvent(`tf.stacks.start`, args)
     const autoPrefix = isMr() ? 'mr' : 'main'
-    await doWithTfStacks(args, async (stackInfo: any) => {
+
+    // Collect the stacks first so we know how many there are before deciding
+    // what to run. With a single stack there is nothing to auto-select, so the
+    // auto diff/deploy flags must not skip it.
+    const stackInfos: any[] = []
+    await doWithTfStacks(args, (stackInfo: any) => {
+      stackInfos.push(stackInfo)
+      return Promise.resolve()
+    })
+    const singleStack = stackInfos.length === 1
+
+    for (const stackInfo of stackInfos) {
       allStacks.push(stackInfo)
-      if (!args.stack) {
+      if (!args.stack && !singleStack) {
         const autoFlag = cmds.includes('apply')
           ? `${autoPrefix}AutoDeploy`
           : cmds.includes('plan')
@@ -53,7 +64,7 @@ export const createCombinedTfCmd = (
           : null
         if (autoFlag && !stackInfo[autoFlag]) {
           debug('skipping stack %s (%s disabled)', stackInfo.name, autoFlag)
-          return
+          continue
         }
       }
       for (const cmd of cmds) {
@@ -77,7 +88,7 @@ export const createCombinedTfCmd = (
           )
         }
       }
-    })
+    }
     if (changedStacks.length) {
       await onEvent(
         `tf.stacks.changes.${isApply ? 'applied' : 'detected'}`,

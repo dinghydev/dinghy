@@ -85,7 +85,10 @@ export const doWithStacks = async (
   }
   const stacks = parseStacks(options, stackSpec)
   for (const [spec, stack] of Object.entries(stacks)) {
-    if (stackSpec && spec !== stackSpec) {
+    // A stack may be reached by its record key or by its resolved name (they
+    // differ when a default app such as `iac` is renamed to the app-home
+    // basename), so match the spec against either.
+    if (stackSpec && spec !== stackSpec && (stack as any).name !== stackSpec) {
       continue
     }
     const stackOptions = deepMerge({}, options)
@@ -133,7 +136,10 @@ export const parseStacks = (
     }
     stacks[name].app ??= appFile
   })
-  if (stackSpec && !stacks[stackSpec]) {
+  if (
+    stackSpec && !stacks[stackSpec] &&
+    !Object.values(stacks).some((stack) => (stack as any).name === stackSpec)
+  ) {
     throw new DinghyError(`Stack ${stackSpec} not found`, 'STACK_NOT_FOUND')
   }
 
