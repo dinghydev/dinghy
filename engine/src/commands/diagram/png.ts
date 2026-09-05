@@ -24,6 +24,11 @@ export const schema: CmdInput = {
         'Delete the drawio file after successful generation the png file',
       boolean: true,
     },
+    {
+      name: 'shm-size',
+      description: 'Shared memory size for the drawio export container',
+      default: '1g',
+    },
   ],
   args: [{
     name: 'stack',
@@ -33,7 +38,7 @@ export const schema: CmdInput = {
 }
 
 const runDrawioCmd = async (
-  _args: Args,
+  args: Args,
   drawioImage: string,
   drawioArgs: string[],
 ) => {
@@ -45,6 +50,7 @@ const runDrawioCmd = async (
     drawioImage,
     true,
     false,
+    [`--shm-size=${args['shm-size'] ?? '1g'}`],
   )
 }
 
