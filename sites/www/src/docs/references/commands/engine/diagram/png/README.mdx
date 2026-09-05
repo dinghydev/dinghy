@@ -12,7 +12,8 @@ $ dinghy diagram png [STACK] [options]
 | ---------------- | ----------------------------- |
 | `stack` |Stack name or tsx file name. If not specified, all stacks will be rendered  |
 ## Options
-| Name            | Description                     |
-| ---------------- | ----------------------------- |
-| `[-f, --file=<value>]` |Path to the drawio file  |
-| `--delete-drawio-file-after-render` |Delete the drawio file after successful generation the png file  |
+| Name            | Description           | Default                   |
+| ---------------- | --------------- | ----------------------------- |
+| `[-f, --file=<value>]` |Path to the drawio file |  |
+| `--delete-drawio-file-after-render` |Delete the drawio file after successful generation the png file |  |
+| `--shm-size=<value>` |Shared memory size for the drawio export container | `1g` |
