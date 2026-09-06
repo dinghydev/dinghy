@@ -546,17 +546,46 @@ to win, **before** if you want users to be able to override them via YAML.
 
 ## Commands
 
-| Command                     | Description                               |
-| --------------------------- | ----------------------------------------- |
-| `dinghy render`             | Render TSX to Terraform JSON              |
-| `dinghy render <stack>`     | Render a specific stack                   |
-| `dinghy tf diff [stack]`    | Render and preview infrastructure changes |
-| `dinghy tf init [stack]`    | Initialize Terraform/OpenTofu             |
-| `dinghy tf plan [stack]`    | Preview infrastructure changes            |
-| `dinghy tf deploy [stack]`  | Apply infrastructure changes              |
-| `dinghy tf destroy [stack]` | Destroy infrastructure                    |
-| `dinghy tf bash [stack]`    | Open bash in Terraform container          |
-| `dinghy devcontainer`       | Open in VSCode Devcontainer               |
+| Command                            | Description                                                                                                                                    |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `dinghy render`                    | Render TSX to Terraform JSON                                                                                                                   |
+| `dinghy render <stack>`            | Render a specific stack                                                                                                                        |
+| `dinghy tf diff [stack]`           | Render and preview infrastructure changes                                                                                                      |
+| `dinghy tf init [stack]`           | Initialize Terraform/OpenTofu                                                                                                                  |
+| `dinghy tf plan [stack]`           | Preview infrastructure changes                                                                                                                 |
+| `dinghy tf deploy [stack]`         | Apply infrastructure changes                                                                                                                   |
+| `dinghy tf destroy [stack]`        | Destroy infrastructure                                                                                                                         |
+| `dinghy tf bash [stack]`           | Open bash in Terraform container                                                                                                               |
+| `dinghy tf tofu <stack> -- <args>` | Run a raw `tofu`/`terraform` subcommand for one stack, e.g. `dinghy tf tofu my-stack -- state mv 'a' 'b'` (also aliased as `bash`/`terraform`) |
+| `dinghy devcontainer`              | Open in VSCode Devcontainer                                                                                                                    |
+
+**Caveat**: `dinghy tf tofu`/`bash`/`terraform` run inside a container where
+only the app's own project directory is bind-mounted — `/tmp` is not mounted and
+does not survive the container exiting (`docker run --rm`). If a raw
+subcommand's output needs to persist (e.g. `state pull > backup.tfstate`), write
+it to a path inside the project directory (e.g. under `output/<stack>/`) rather
+than `/tmp`.
+
+**Caveat**: the container's working directory for these subcommands is already
+`output/<stack>/`, not the project root. Any relative path given to the
+subcommand itself (e.g. `state pull > backup.tfstate`, `plan -out=x.tfplan`)
+should be a bare filename — prefixing it with `output/<stack>/` again doubles
+the path and writes somewhere unintended. Separately, a shell redirect on the
+_outer_ command (`dinghy tf tofu <stack> -- ... > file`) is evaluated by the
+host shell in the host's own cwd, not inside the container — it follows normal
+host-relative-path rules independent of the container's cwd.
+
+## Before committing
+
+Run `dinghy render` (no stack argument — every stack) and `dinghy check` before
+committing changes to this project. Both can take a while on a project with
+several stacks, so don't run them after every small edit — use
+`dinghy render <stack>` / `dinghy tf diff <stack>` for fast, targeted iteration
+instead, and save the untargeted, full-project pair for a final gate right
+before `git commit`. `dinghy render` (all stacks) catches cross-stack mistakes a
+single targeted render won't (e.g. a shared component or config file edit that
+only breaks a _different_ stack); `dinghy check` runs `deno fmt`, `deno lint`,
+and `deno check` across the whole project.
 
 ## Import Path Reference
 
