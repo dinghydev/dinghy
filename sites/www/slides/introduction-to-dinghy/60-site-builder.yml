@@ -22,3 +22,5 @@ sections:
         - Removes .html extensions for clean URLs
         - Applies gzip compression to text files
         - Sets optimal cache-control headers
+  - title: Github Pages
+    img: site-builder/site-example.png
