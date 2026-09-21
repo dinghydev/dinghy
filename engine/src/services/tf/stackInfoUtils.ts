@@ -2,6 +2,7 @@ import { hostAppHome } from '@dinghy/cli'
 import { existsSync } from '@std/fs/exists'
 import Debug from 'debug'
 import { Args } from '@std/cli/parse-args'
+import { filterIgnoredResourceChanges } from './tfDiffIgnores.ts'
 const debug = Debug('stackInfoUtils')
 export const parseStackInfo = (args: Args, renderOptions: any) => {
   const stack = renderOptions.stack
@@ -24,7 +25,10 @@ export function collectStackChanges(stack: any, args: Args) {
   const maxLines = Number.parseInt(args['diff-changes-max-lines'])
   const outputFile = `${hostAppHome}/${args.output}/${stack.name}/tf.plan.txt`
   debug('collectStackChanges from %s', outputFile)
-  const planTxt = Deno.readTextFileSync(outputFile).trim()
+  const planTxt = filterIgnoredResourceChanges(
+    Deno.readTextFileSync(outputFile).trim(),
+    args['diff-changes-ignores'],
+  )
   let changesCount = 0
   let summary: string | undefined
   const changes: string[] = []

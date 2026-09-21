@@ -1,6 +1,7 @@
 import { hostAppHome } from '@dinghy/cli'
 import { existsSync } from '@std/fs/exists'
 import { Args } from '@std/cli/parse-args'
+import { filterIgnoredResourceChanges } from './tfDiffIgnores.ts'
 
 const DEFAULT_MAX_LINES_PER_STACK = 2000
 const DEFAULT_MAX_TOTAL_BYTES = 200_000
@@ -34,7 +35,10 @@ export const collectPlanDiff = (changes: any[], args: Args): string => {
     let body: string
     if (existsSync(planFile)) {
       body = truncateLines(
-        Deno.readTextFileSync(planFile),
+        filterIgnoredResourceChanges(
+          Deno.readTextFileSync(planFile),
+          args['diff-changes-ignores'],
+        ),
         linesPerStack,
       )
     } else {
