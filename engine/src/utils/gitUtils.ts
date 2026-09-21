@@ -211,6 +211,11 @@ const gitlabPlayJob = async (id: number) => {
 }
 
 export const upsertMrNote = async (markDown: string, stackKey: string) => {
+  if (Deno.env.get('SKIP_MR_NOTIFICATION') === 'true') {
+    console.log(`SKIPPED SEND MR NOTIFICATION: ${markDown}`)
+    return
+  }
+
   const mrIid = mrId()!
   const project = await projectName()
   const key = gitlabMrNoteKey(
