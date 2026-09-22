@@ -16,5 +16,5 @@ $ dinghy tf diff [STACK] [options]
 | ---------------- | --------------- | ----------------------------- |
 | `--auto-create-backend` |Auto create backend bucket if it doesn't exist `DINGHY_TF_INIT_AUTO_CREATE_BACKEND`|  |
 | `--diff-changes-max-lines=<value>` |Max lines of diff changes | `10` |
-| `[--diff-changes-ignores=<value>]` |Resource changes to ignore in notifications/summaries, as `type`, `type.name` or `type.name.attribute` entries. Only affects what is reported (Slack/MR/PR); the actual terraform/tofu plan and apply are unaffected and still act on the real changes. `DINGHY_TF_DIFF_IGNORES`|  |
+| `[--diff-changes-ignores=<value>]` |Resource changes to ignore in notifications/summaries, as `type`, `type.name` or `type.name.attribute` entries (`name` may be `*` to match any resource name of that type). Only affects what is reported (Slack/MR/PR); the actual terraform/tofu plan and apply are unaffected and still act on the real changes. `DINGHY_TF_DIFF_IGNORES`|  |
 | `--lock` |Lock the state during plan | `false` |

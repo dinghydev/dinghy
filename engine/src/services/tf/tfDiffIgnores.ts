@@ -28,14 +28,16 @@ const resourceMatches = (
   name: string,
 ) =>
   patterns.filter((p) =>
-    p.type === type && (p.name === undefined || p.name === name)
+    p.type === type &&
+    (p.name === undefined || p.name === '*' || p.name === name)
   )
 
 // Rewrites `planTxt` (Terraform/OpenTofu `tf show -no-color` output) by dropping
 // whole resource-change blocks matched by `ignores` entries of the form
-// `type`, `type.name` or `type.name.attribute`. An attribute-scoped entry only
-// drops the resource if that attribute is the sole top-level change; if the
-// resource also changed for other reasons, the block is kept as-is.
+// `type`, `type.name` or `type.name.attribute`. `name` may be `*` to match any
+// resource name of that type. An attribute-scoped entry only drops the
+// resource if that attribute is the sole top-level change; if the resource
+// also changed for other reasons, the block is kept as-is.
 // This only affects notification/summary output; it never touches the plan file
 // itself, so the real terraform/tofu plan and apply still act on all changes.
 export const filterIgnoredResourceChanges = (

@@ -24,7 +24,7 @@ export const createCombinedTfSchema = (
     options.push({
       name: 'diff-changes-ignores',
       description:
-        'Resource changes to ignore in notifications/summaries, as `type`, `type.name` or `type.name.attribute` entries. ' +
+        'Resource changes to ignore in notifications/summaries, as `type`, `type.name` or `type.name.attribute` entries (`name` may be `*` to match any resource name of that type). ' +
         'Only affects what is reported (Slack/MR/PR); the actual terraform/tofu plan and apply are unaffected and still act on the real changes.',
       multiple: true,
       env: 'DINGHY_TF_DIFF_IGNORES',
